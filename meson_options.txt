@@ -1,0 +1,4 @@
+option('assets_dir', type : 'string', value : '',
+  description : 'Default --assets directory (empty: <source>/assets)')
+option('data_dir', type : 'string', value : '',
+  description : 'Default --data directory (empty: <source>/data)')
