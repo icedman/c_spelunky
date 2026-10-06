@@ -6,8 +6,8 @@ static void gml_ev_oRubbleDark__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.6;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.6f;
 }
 
 void gml_ev_oRubbleDark__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,7 +23,7 @@ static void gml_ev_oRubbleDark__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)other;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
     self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_yAcc]);
-    if ((gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBrick), 0.0, 0.0)) || gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBlock), 0.0, 0.0)))) {
+    if ((gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBrick), 0.0f, 0.0f)) || gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBlock), 0.0f, 0.0f)))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

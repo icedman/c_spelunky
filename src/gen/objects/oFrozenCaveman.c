@@ -6,9 +6,9 @@ static void gml_ev_oFrozenCaveman__Destroy_0_body(gm_instance_t *self, gm_instan
     (void)self;
     (void)other;
     if ((!gml_truthy(g_gml_globals.cleanSolids))) {
-        self->vars[VAR_enemy] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oCaveman));
-        gml_ivar_set(gml_deref(self->vars[VAR_enemy], self, other), VAR_invincible, 20.0);
-        gml_ivar_set(gml_deref(self->vars[VAR_enemy], self, other), VAR_status, 98.0);
+        self->vars[VAR_enemy] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oCaveman));
+        gml_ivar_set(gml_deref(self->vars[VAR_enemy], self, other), VAR_invincible, 20.0f);
+        gml_ivar_set(gml_deref(self->vars[VAR_enemy], self, other), VAR_status, 98.0f);
         gml_ivar_set(gml_deref(self->vars[VAR_enemy], self, other), VAR_counter, gml_ivar(gml_deref(self->vars[VAR_enemy], self, other), VAR_stunTime));
     }
 }
@@ -24,7 +24,7 @@ static void gml_ev_oFrozenCaveman__Step_0_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oIce), 0.0, 0.0)))) {
+    if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oIce), 0.0f, 0.0f)))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

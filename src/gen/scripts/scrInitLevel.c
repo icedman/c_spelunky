@@ -5,14 +5,14 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
     int32_t n3 = 0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -25,90 +25,90 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
     (void)t9;
     (void)t10;
     (void)t11;
-    g_gml_globals.levelType = 0.0;
-    if ((gml_gt(g_gml_globals.currLevel, 4.0) && gml_lt(g_gml_globals.currLevel, 9.0))) {
-        g_gml_globals.levelType = 1.0;
+    g_gml_globals.levelType = 0.0f;
+    if ((gml_gt(g_gml_globals.currLevel, 4.0f) && gml_lt(g_gml_globals.currLevel, 9.0f))) {
+        g_gml_globals.levelType = 1.0f;
     }
-    if ((gml_gt(g_gml_globals.currLevel, 8.0) && gml_lt(g_gml_globals.currLevel, 13.0))) {
-        g_gml_globals.levelType = 2.0;
+    if ((gml_gt(g_gml_globals.currLevel, 8.0f) && gml_lt(g_gml_globals.currLevel, 13.0f))) {
+        g_gml_globals.levelType = 2.0f;
     }
-    if ((gml_gt(g_gml_globals.currLevel, 12.0) && gml_lt(g_gml_globals.currLevel, 16.0))) {
-        g_gml_globals.levelType = 3.0;
+    if ((gml_gt(g_gml_globals.currLevel, 12.0f) && gml_lt(g_gml_globals.currLevel, 16.0f))) {
+        g_gml_globals.levelType = 3.0f;
     }
-    if (gml_eq(g_gml_globals.currLevel, 16.0)) {
-        g_gml_globals.levelType = 4.0;
+    if (gml_eq(g_gml_globals.currLevel, 16.0f)) {
+        g_gml_globals.levelType = 4.0f;
     }
-    if ((((gml_le(g_gml_globals.currLevel, 1.0) || gml_eq(g_gml_globals.currLevel, 5.0)) || gml_eq(g_gml_globals.currLevel, 9.0)) || gml_eq(g_gml_globals.currLevel, 13.0))) {
-        g_gml_globals.hadDarkLevel = 0.0;
+    if ((((gml_le(g_gml_globals.currLevel, 1.0f) || gml_eq(g_gml_globals.currLevel, 5.0f)) || gml_eq(g_gml_globals.currLevel, 9.0f)) || gml_eq(g_gml_globals.currLevel, 13.0f))) {
+        g_gml_globals.hadDarkLevel = 0.0f;
     }
-    g_gml_globals.startRoomX = 0.0;
-    g_gml_globals.startRoomY = 0.0;
-    g_gml_globals.endRoomX = 0.0;
-    g_gml_globals.endRoomY = 0.0;
-    gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_levelGen, 0.0);
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 4.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 4.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-            gml_aset(gml_aref(&g_gml_gvals[GV_roomPath], self->vars[VAR_i]), self->vars[VAR_j], gml_vreal(0.0));
+    g_gml_globals.startRoomX = 0.0f;
+    g_gml_globals.startRoomY = 0.0f;
+    g_gml_globals.endRoomX = 0.0f;
+    g_gml_globals.endRoomY = 0.0f;
+    gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_levelGen, 0.0f);
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 4.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 4.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+            gml_aset(gml_aref(&g_gml_gvals[GV_roomPath], self->vars[VAR_i]), self->vars[VAR_j], gml_vreal(0.0f));
         }
     }
-    if (gml_eq(g_gml_globals.levelType, 4.0)) {
-        self->vars[VAR_k] = 54.0;
+    if (gml_eq(g_gml_globals.levelType, 4.0f)) {
+        self->vars[VAR_k] = 54.0f;
     } else {
-        if (gml_eq(g_gml_globals.levelType, 2.0)) {
-            self->vars[VAR_k] = 38.0;
+        if (gml_eq(g_gml_globals.levelType, 2.0f)) {
+            self->vars[VAR_k] = 38.0f;
         } else {
             if (gml_truthy(g_gml_globals.lake)) {
-                self->vars[VAR_k] = 41.0;
+                self->vars[VAR_k] = 41.0f;
             } else {
-                self->vars[VAR_k] = 33.0;
+                self->vars[VAR_k] = 33.0f;
             }
         }
     }
-    for (self->vars[VAR_i] = 0.0; gml_le(self->vars[VAR_i], 42.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        for (self->vars[VAR_j] = 0.0; gml_le(self->vars[VAR_j], self->vars[VAR_k]); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
+    for (self->vars[VAR_i] = 0.0f; gml_le(self->vars[VAR_i], 42.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        for (self->vars[VAR_j] = 0.0f; gml_le(self->vars[VAR_j], self->vars[VAR_k]); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
             if ((!gml_truthy(gml_script_isLevel(self, other)))) {
-                self->vars[VAR_i] = 999.0;
-                self->vars[VAR_j] = 999.0;
+                self->vars[VAR_i] = 999.0f;
+                self->vars[VAR_j] = 999.0f;
             } else {
-                if (gml_eq(g_gml_globals.levelType, 2.0)) {
-                    if (((gml_eq((self->vars[VAR_i] * 16.0), 0.0) || gml_eq((self->vars[VAR_i] * 16.0), 656.0)) || gml_eq((self->vars[VAR_j] * 16.0), 0.0))) {
-                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oDark));
-                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0);
-                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sDark));
+                if (gml_eq(g_gml_globals.levelType, 2.0f)) {
+                    if (((gml_eq((self->vars[VAR_i] * 16.0f), 0.0f) || gml_eq((self->vars[VAR_i] * 16.0f), 656.0f)) || gml_eq((self->vars[VAR_j] * 16.0f), 0.0f))) {
+                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oDark));
+                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0f);
+                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sDark));
                     }
                 } else {
-                    if (gml_eq(g_gml_globals.levelType, 4.0)) {
-                        if (((gml_eq((self->vars[VAR_i] * 16.0), 0.0) || gml_eq((self->vars[VAR_i] * 16.0), 656.0)) || gml_eq((self->vars[VAR_j] * 16.0), 0.0))) {
-                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oTemple));
-                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0);
+                    if (gml_eq(g_gml_globals.levelType, 4.0f)) {
+                        if (((gml_eq((self->vars[VAR_i] * 16.0f), 0.0f) || gml_eq((self->vars[VAR_i] * 16.0f), 656.0f)) || gml_eq((self->vars[VAR_j] * 16.0f), 0.0f))) {
+                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oTemple));
+                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0f);
                             if ((!gml_truthy(g_gml_globals.cityOfGold))) {
-                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sTemple));
+                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sTemple));
                             }
                         }
                     } else {
                         if (gml_truthy(g_gml_globals.lake)) {
-                            if ((((gml_eq((self->vars[VAR_i] * 16.0), 0.0) || gml_eq((self->vars[VAR_i] * 16.0), 656.0)) || gml_eq((self->vars[VAR_j] * 16.0), 0.0)) || gml_ge((self->vars[VAR_j] * 16.0), 656.0))) {
-                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oLush));
-                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sLush));
-                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0);
+                            if ((((gml_eq((self->vars[VAR_i] * 16.0f), 0.0f) || gml_eq((self->vars[VAR_i] * 16.0f), 656.0f)) || gml_eq((self->vars[VAR_j] * 16.0f), 0.0f)) || gml_ge((self->vars[VAR_j] * 16.0f), 656.0f))) {
+                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oLush));
+                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sLush));
+                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0f);
                             }
                         } else {
-                            if ((((gml_eq((self->vars[VAR_i] * 16.0), 0.0) || gml_eq((self->vars[VAR_i] * 16.0), 656.0)) || gml_eq((self->vars[VAR_j] * 16.0), 0.0)) || gml_ge((self->vars[VAR_j] * 16.0), 528.0))) {
-                                if (gml_eq(g_gml_globals.levelType, 0.0)) {
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oBrick));
-                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sBrick));
+                            if ((((gml_eq((self->vars[VAR_i] * 16.0f), 0.0f) || gml_eq((self->vars[VAR_i] * 16.0f), 656.0f)) || gml_eq((self->vars[VAR_j] * 16.0f), 0.0f)) || gml_ge((self->vars[VAR_j] * 16.0f), 528.0f))) {
+                                if (gml_eq(g_gml_globals.levelType, 0.0f)) {
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oBrick));
+                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sBrick));
                                 } else {
-                                    if (gml_eq(g_gml_globals.levelType, 1.0)) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oLush));
-                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sLush));
+                                    if (gml_eq(g_gml_globals.levelType, 1.0f)) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oLush));
+                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sLush));
                                     } else {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (self->vars[VAR_j] * 16.0), ((double)OBJ_oTemple));
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (self->vars[VAR_j] * 16.0f), ((float)OBJ_oTemple));
                                         if ((!gml_truthy(g_gml_globals.cityOfGold))) {
-                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sTemple));
+                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sTemple));
                                         }
                                     }
                                 }
-                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0);
+                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0f);
                             }
                         }
                     }
@@ -116,42 +116,42 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
             }
         }
     }
-    if (gml_eq(g_gml_globals.levelType, 2.0)) {
-        for (self->vars[VAR_i] = 0.0; gml_le(self->vars[VAR_i], 42.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-            (void)(gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0), (40.0 * 16.0), ((double)OBJ_oDark)));
+    if (gml_eq(g_gml_globals.levelType, 2.0f)) {
+        for (self->vars[VAR_i] = 0.0f; gml_le(self->vars[VAR_i], 42.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+            (void)(gml_script_instance_create(self, other, (self->vars[VAR_i] * 16.0f), (40.0f * 16.0f), ((float)OBJ_oDark)));
         }
     }
-    if (gml_eq(g_gml_globals.levelType, 3.0)) {
-        (void)(gml_script___background_set(self, other, (2.0 /* e__BG.Index */), 0.0, ((double)SPR_bgTemple)));
+    if (gml_eq(g_gml_globals.levelType, 3.0f)) {
+        (void)(gml_script___background_set(self, other, (2.0f /* e__BG.Index */), 0.0f, ((float)SPR_bgTemple)));
     }
     g_gml_globals.temp1 = g_gml_globals.gameStart;
     (void)(gml_script_scrLevelGen(self, other));
-    g_gml_globals.cemetary = 0.0;
-    if ((gml_eq(g_gml_globals.levelType, 1.0) && gml_eq(gml_script_rand(self, other, 1.0, g_gml_globals.probCemetary), 1.0))) {
-        g_gml_globals.cemetary = 1.0;
+    g_gml_globals.cemetary = 0.0f;
+    if ((gml_eq(g_gml_globals.levelType, 1.0f) && gml_eq(gml_script_rand(self, other, 1.0f, g_gml_globals.probCemetary), 1.0f))) {
+        g_gml_globals.cemetary = 1.0f;
     }
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oRoom)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oRoom)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            if (gml_eq(g_gml_globals.levelType, 0.0)) {
+            if (gml_eq(g_gml_globals.levelType, 0.0f)) {
                 gml_script_scrRoomGen(self1, self);
             } else {
-                if (gml_eq(g_gml_globals.levelType, 1.0)) {
+                if (gml_eq(g_gml_globals.levelType, 1.0f)) {
                     if (gml_truthy(g_gml_globals.blackMarket)) {
                         gml_script_scrRoomGenMarket(self1, self);
                     } else {
                         gml_script_scrRoomGen2(self1, self);
                     }
                 } else {
-                    if (gml_eq(g_gml_globals.levelType, 2.0)) {
+                    if (gml_eq(g_gml_globals.levelType, 2.0f)) {
                         if (gml_truthy(g_gml_globals.yetiLair)) {
                             gml_script_scrRoomGenYeti(self1, self);
                         } else {
                             gml_script_scrRoomGen3(self1, self);
                         }
                     } else {
-                        if (gml_eq(g_gml_globals.levelType, 3.0)) {
+                        if (gml_eq(g_gml_globals.levelType, 3.0f)) {
                             gml_script_scrRoomGen4(self1, self);
                         } else {
                             gml_script_scrRoomGen5(self1, self);
@@ -162,38 +162,38 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
         }
         gm_with_end();
     }
-    g_gml_globals.darkLevel = 0.0;
-    if ((((((((!gml_truthy(g_gml_globals.hadDarkLevel)) && (!gml_truthy(g_gml_globals.noDarkLevel))) && gml_ne(g_gml_globals.currLevel, 0.0)) && gml_ne(g_gml_globals.currLevel, 1.0)) && gml_ne(g_gml_globals.levelType, 2.0)) && gml_ne(g_gml_globals.currLevel, 16.0)) && gml_eq(gml_script_rand(self, other, 1.0, g_gml_globals.probDarkLevel), 1.0))) {
-        g_gml_globals.darkLevel = 1.0;
-        g_gml_globals.hadDarkLevel = 1.0;
+    g_gml_globals.darkLevel = 0.0f;
+    if ((((((((!gml_truthy(g_gml_globals.hadDarkLevel)) && (!gml_truthy(g_gml_globals.noDarkLevel))) && gml_ne(g_gml_globals.currLevel, 0.0f)) && gml_ne(g_gml_globals.currLevel, 1.0f)) && gml_ne(g_gml_globals.levelType, 2.0f)) && gml_ne(g_gml_globals.currLevel, 16.0f)) && gml_eq(gml_script_rand(self, other, 1.0f, g_gml_globals.probDarkLevel), 1.0f))) {
+        g_gml_globals.darkLevel = 1.0f;
+        g_gml_globals.hadDarkLevel = 1.0f;
     }
     if (gml_truthy(g_gml_globals.blackMarket)) {
-        g_gml_globals.darkLevel = 0.0;
+        g_gml_globals.darkLevel = 0.0f;
     }
-    g_gml_globals.genUdjatEye = 0.0;
+    g_gml_globals.genUdjatEye = 0.0f;
     if ((!gml_truthy(g_gml_globals.madeUdjatEye))) {
-        if ((gml_eq(g_gml_globals.currLevel, 2.0) && gml_eq(gml_script_rand(self, other, 1.0, 3.0), 1.0))) {
-            g_gml_globals.genUdjatEye = 1.0;
+        if ((gml_eq(g_gml_globals.currLevel, 2.0f) && gml_eq(gml_script_rand(self, other, 1.0f, 3.0f), 1.0f))) {
+            g_gml_globals.genUdjatEye = 1.0f;
         } else {
-            if ((gml_eq(g_gml_globals.currLevel, 3.0) && gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0))) {
-                g_gml_globals.genUdjatEye = 1.0;
+            if ((gml_eq(g_gml_globals.currLevel, 3.0f) && gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f))) {
+                g_gml_globals.genUdjatEye = 1.0f;
             } else {
-                if (gml_eq(g_gml_globals.currLevel, 4.0)) {
-                    g_gml_globals.genUdjatEye = 1.0;
+                if (gml_eq(g_gml_globals.currLevel, 4.0f)) {
+                    g_gml_globals.genUdjatEye = 1.0f;
                 }
             }
         }
     }
-    g_gml_globals.genMarketEntrance = 0.0;
+    g_gml_globals.genMarketEntrance = 0.0f;
     if ((!gml_truthy(g_gml_globals.madeMarketEntrance))) {
-        if ((gml_eq(g_gml_globals.currLevel, 5.0) && gml_eq(gml_script_rand(self, other, 1.0, 3.0), 1.0))) {
-            g_gml_globals.genMarketEntrance = 1.0;
+        if ((gml_eq(g_gml_globals.currLevel, 5.0f) && gml_eq(gml_script_rand(self, other, 1.0f, 3.0f), 1.0f))) {
+            g_gml_globals.genMarketEntrance = 1.0f;
         } else {
-            if ((gml_eq(g_gml_globals.currLevel, 6.0) && gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0))) {
-                g_gml_globals.genMarketEntrance = 1.0;
+            if ((gml_eq(g_gml_globals.currLevel, 6.0f) && gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f))) {
+                g_gml_globals.genMarketEntrance = 1.0f;
             } else {
-                if (gml_eq(g_gml_globals.currLevel, 7.0)) {
-                    g_gml_globals.genMarketEntrance = 1.0;
+                if (gml_eq(g_gml_globals.currLevel, 7.0f)) {
+                    g_gml_globals.genMarketEntrance = 1.0f;
                 }
             }
         }
@@ -202,57 +202,57 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
     if (((!gml_truthy(gml_script_isRoom(self, other, "rTutorial"))) && (!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel"))))) {
         gml_script_scrEntityGen(self, other);
     }
-    if (((gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oEntrance))) && (!gml_truthy(g_gml_globals.customLevel))) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
-        gml_iset_x(gml_deref(((double)OBJ_oPlayer1), self, other), (gml_iget_x(gml_deref(((double)OBJ_oEntrance), self, other)) + 8.0));
-        gml_iset_y(gml_deref(((double)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((double)OBJ_oEntrance), self, other)) + 8.0));
+    if (((gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oEntrance))) && (!gml_truthy(g_gml_globals.customLevel))) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
+        gml_iset_x(gml_deref(((float)OBJ_oPlayer1), self, other), (gml_iget_x(gml_deref(((float)OBJ_oEntrance), self, other)) + 8.0f));
+        gml_iset_y(gml_deref(((float)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((float)OBJ_oEntrance), self, other)) + 8.0f));
     }
     if (((((((((gml_truthy(g_gml_globals.darkLevel) || gml_truthy(g_gml_globals.blackMarket)) || gml_truthy(g_gml_globals.snakePit)) || gml_truthy(g_gml_globals.cemetary)) || gml_truthy(g_gml_globals.lake)) || gml_truthy(g_gml_globals.yetiLair)) || gml_truthy(g_gml_globals.alienCraft)) || gml_truthy(g_gml_globals.sacrificePit)) || gml_truthy(g_gml_globals.cityOfGold))) {
         if ((!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel")))) {
             {
                 gm_instance_t *self2;
-                gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                 while ((self2 = gm_with_next()) != NULL) {
-                    gml_iset_alarm(self2, 0.0, 10.0);
+                    gml_iset_alarm(self2, 0.0f, 10.0f);
                 }
                 gm_with_end();
             }
         }
     }
-    if (gml_eq(g_gml_globals.levelType, 4.0)) {
-        gml_script_scrSetupWalls(self, other, 864.0);
+    if (gml_eq(g_gml_globals.levelType, 4.0f)) {
+        gml_script_scrSetupWalls(self, other, 864.0f);
     } else {
         if (gml_truthy(g_gml_globals.lake)) {
-            gml_script_scrSetupWalls(self, other, 656.0);
+            gml_script_scrSetupWalls(self, other, 656.0f);
         } else {
-            gml_script_scrSetupWalls(self, other, 528.0);
+            gml_script_scrSetupWalls(self, other, 528.0f);
         }
     }
     if (gml_truthy(g_gml_globals.graphicsHigh)) {
-        for (n3 = gml_repeat_count(20.0); n3 > 0; --n3) {
-            if ((gml_eq(g_gml_globals.levelType, 1.0) && gml_lt(gml_script_rand(self, other, 1.0, 3.0), 3.0))) {
-                (void)((t4 = (32.0 * gml_script_rand(self, other, 0.0, 1.0)), t5 = (16.0 * gml_script_rand(self, other, 1.0, 42.0)), gml_script_tile_add(self, other, ((double)SPR_bgExtrasLush), t4, 0.0, 32.0, 32.0, t5, (16.0 * gml_script_rand(self, other, 1.0, 33.0)), 10002.0)));
+        for (n3 = gml_repeat_count(20.0f); n3 > 0; --n3) {
+            if ((gml_eq(g_gml_globals.levelType, 1.0f) && gml_lt(gml_script_rand(self, other, 1.0f, 3.0f), 3.0f))) {
+                (void)((t4 = (32.0f * gml_script_rand(self, other, 0.0f, 1.0f)), t5 = (16.0f * gml_script_rand(self, other, 1.0f, 42.0f)), gml_script_tile_add(self, other, ((float)SPR_bgExtrasLush), t4, 0.0f, 32.0f, 32.0f, t5, (16.0f * gml_script_rand(self, other, 1.0f, 33.0f)), 10002.0f)));
             } else {
-                if ((gml_eq(g_gml_globals.levelType, 2.0) && gml_lt(gml_script_rand(self, other, 1.0, 3.0), 3.0))) {
-                    (void)((t6 = (32.0 * gml_script_rand(self, other, 0.0, 1.0)), t7 = (16.0 * gml_script_rand(self, other, 1.0, 42.0)), gml_script_tile_add(self, other, ((double)SPR_bgExtrasIce), t6, 0.0, 32.0, 32.0, t7, (16.0 * gml_script_rand(self, other, 1.0, 33.0)), 10002.0)));
+                if ((gml_eq(g_gml_globals.levelType, 2.0f) && gml_lt(gml_script_rand(self, other, 1.0f, 3.0f), 3.0f))) {
+                    (void)((t6 = (32.0f * gml_script_rand(self, other, 0.0f, 1.0f)), t7 = (16.0f * gml_script_rand(self, other, 1.0f, 42.0f)), gml_script_tile_add(self, other, ((float)SPR_bgExtrasIce), t6, 0.0f, 32.0f, 32.0f, t7, (16.0f * gml_script_rand(self, other, 1.0f, 33.0f)), 10002.0f)));
                 } else {
-                    if ((gml_eq(g_gml_globals.levelType, 3.0) && gml_lt(gml_script_rand(self, other, 1.0, 3.0), 3.0))) {
-                        (void)((t8 = (32.0 * gml_script_rand(self, other, 0.0, 1.0)), t9 = (16.0 * gml_script_rand(self, other, 1.0, 42.0)), gml_script_tile_add(self, other, ((double)SPR_bgExtrasTemple), t8, 0.0, 32.0, 32.0, t9, (16.0 * gml_script_rand(self, other, 1.0, 33.0)), 10002.0)));
+                    if ((gml_eq(g_gml_globals.levelType, 3.0f) && gml_lt(gml_script_rand(self, other, 1.0f, 3.0f), 3.0f))) {
+                        (void)((t8 = (32.0f * gml_script_rand(self, other, 0.0f, 1.0f)), t9 = (16.0f * gml_script_rand(self, other, 1.0f, 42.0f)), gml_script_tile_add(self, other, ((float)SPR_bgExtrasTemple), t8, 0.0f, 32.0f, 32.0f, t9, (16.0f * gml_script_rand(self, other, 1.0f, 33.0f)), 10002.0f)));
                     } else {
-                        (void)((t10 = (32.0 * gml_script_rand(self, other, 0.0, 1.0)), t11 = (16.0 * gml_script_rand(self, other, 1.0, 42.0)), gml_script_tile_add(self, other, ((double)SPR_bgExtras), t10, 0.0, 32.0, 32.0, t11, (16.0 * gml_script_rand(self, other, 1.0, 33.0)), 10002.0)));
+                        (void)((t10 = (32.0f * gml_script_rand(self, other, 0.0f, 1.0f)), t11 = (16.0f * gml_script_rand(self, other, 1.0f, 42.0f)), gml_script_tile_add(self, other, ((float)SPR_bgExtras), t10, 0.0f, 32.0f, 32.0f, t11, (16.0f * gml_script_rand(self, other, 1.0f, 33.0f)), 10002.0f)));
                     }
                 }
             }
         }
     }
-    gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_levelGen, 1.0);
-    if ((gml_truthy(g_gml_globals.murderer) || gml_gt(g_gml_globals.thiefLevel, 0.0))) {
+    gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_levelGen, 1.0f);
+    if ((gml_truthy(g_gml_globals.murderer) || gml_gt(g_gml_globals.thiefLevel, 0.0f))) {
         {
             gm_instance_t *self12;
-            gm_with_begin(gml_target(((double)OBJ_oExit)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oExit)), self, other);
             while ((self12 = gm_with_next()) != NULL) {
                 if (gml_str_eq(self12->strs[SVAR_type], "Exit")) {
-                    self12->vars[VAR_obj] = gml_script_instance_create(self12, self, gml_iget_x(self12), gml_iget_y(self12), ((double)OBJ_oShopkeeper));
-                    gml_ivar_set(gml_deref(self12->vars[VAR_obj], self12, self), VAR_status, 4.0);
+                    self12->vars[VAR_obj] = gml_script_instance_create(self12, self, gml_iget_x(self12), gml_iget_y(self12), ((float)OBJ_oShopkeeper));
+                    gml_ivar_set(gml_deref(self12->vars[VAR_obj], self12, self), VAR_status, 4.0f);
                 }
             }
             gm_with_end();
@@ -260,10 +260,10 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
     }
     {
         gm_instance_t *self13;
-        gm_with_begin(gml_target(((double)OBJ_oTreasure)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oTreasure)), self, other);
         while ((self13 = gm_with_next()) != NULL) {
-            if (gml_truthy(gml_fn_collision_point(self13, self, gml_iget_x(self13), gml_iget_y(self13), ((double)OBJ_oSolid), 0.0, 0.0))) {
-                self13->vars[VAR_obj] = gml_fn_instance_place(self13, self, gml_iget_x(self13), gml_iget_y(self13), ((double)OBJ_oSolid));
+            if (gml_truthy(gml_fn_collision_point(self13, self, gml_iget_x(self13), gml_iget_y(self13), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
+                self13->vars[VAR_obj] = gml_fn_instance_place(self13, self, gml_iget_x(self13), gml_iget_y(self13), ((float)OBJ_oSolid));
                 if (gml_truthy(gml_ivar(gml_deref(self13->vars[VAR_obj], self13, self), VAR_invincible))) {
                     gml_fn_instance_destroy(self13, self, 0, NULL);
                 }
@@ -273,9 +273,9 @@ void gml_script_scrInitLevel(gm_instance_t *self, gm_instance_t *other)
     }
     {
         gm_instance_t *self14;
-        gm_with_begin(gml_target(((double)OBJ_oWater)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oWater)), self, other);
         while ((self14 = gm_with_next()) != NULL) {
-            if ((gml_eq(gml_iget_sprite_index(self14), ((double)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(self14), ((double)SPR_sLavaTop)))) {
+            if ((gml_eq(gml_iget_sprite_index(self14), ((float)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(self14), ((float)SPR_sLavaTop)))) {
                 gml_script_scrCheckWaterTop(self14, self);
             }
         }

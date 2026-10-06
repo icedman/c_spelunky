@@ -3,14 +3,14 @@
 
 static void gml_ev_oGold__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -21,10 +21,10 @@ static void gml_ev_oGold__Destroy_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)t6;
     (void)t7;
     (void)t8;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_gold] = (t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 2.0))), (t2 - gml_script_rand(self, other, 0.0, 2.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0, 2.0))), (t4 - gml_script_rand(self, other, 0.0, 2.0))), ((double)OBJ_oGoldChunk)));
-        (t7 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t7, self, other), VAR_xVel, (t6 = gml_script_rand(self, other, 0.0, 3.0), (t6 - gml_script_rand(self, other, 0.0, 3.0)))));
-        (t8 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t8, self, other), VAR_yVel, gml_script_rand(self, other, 3.0, 6.0)));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_gold] = (t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 2.0f))), (t2 - gml_script_rand(self, other, 0.0f, 2.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0f, 2.0f))), (t4 - gml_script_rand(self, other, 0.0f, 2.0f))), ((float)OBJ_oGoldChunk)));
+        (t7 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t7, self, other), VAR_xVel, (t6 = gml_script_rand(self, other, 0.0f, 3.0f), (t6 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+        (t8 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t8, self, other), VAR_yVel, gml_script_rand(self, other, 3.0f, 6.0f)));
     }
 }
 

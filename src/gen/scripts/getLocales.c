@@ -4,14 +4,14 @@
 void gml_script_getLocales(gm_instance_t *self, gm_instance_t *other)
 {
     gm_value_t l_key = GM_VALUE_UNDEFINED_INIT;
-    double l_i = 0.0;
+    float l_i = 0.0f;
     (void)self;
     (void)other;
     (void)l_key;
     (void)l_i;
     g_gml_globals.localesMap = gml_script_json2dsmap(self, other, 1, gml_vs(gml_concat(gml_gget_working_directory(), "locale/locales.json")));
     l_key = gml_fn_ds_map_find_first(self, other, g_gml_globals.localesMap);
-    for (l_i = 0.0; gml_lt(l_i, gml_fn_ds_map_size(self, other, g_gml_globals.localesMap)); l_i = (l_i + 1.0)) {
+    for (l_i = 0.0f; gml_lt(l_i, gml_fn_ds_map_size(self, other, g_gml_globals.localesMap)); l_i = (l_i + 1.0f)) {
         gml_aset(&g_gml_gvals[GV_localesArray], l_i, l_key);
         l_key = gml_fn_ds_map_find_next(self, other, g_gml_globals.localesMap, gml_as_str(l_key));
     }

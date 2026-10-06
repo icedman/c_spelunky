@@ -10,8 +10,8 @@ static void gml_ev_oMitt__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Mitt";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-6.0), 6.0, 8.0);
-    self->vars[VAR_cost] = 4000.0;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-6.0f), 6.0f, 8.0f);
+    self->vars[VAR_cost] = 4000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "PITCHER'S MITT");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "PITCHER'S MITT FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
 }

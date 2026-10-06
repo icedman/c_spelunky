@@ -7,17 +7,17 @@ void gml_script_scrCheckWaterTop(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     (void)wd;
-    self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oWater));
+    self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oWater));
     if (gml_truthy(gml_fn_instance_exists(self, other, self->vars[VAR_obj]))) {
-        if ((gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((double)SPR_sWaterTop)) && gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((double)SPR_sLavaTop)))) {
+        if ((gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((float)SPR_sWaterTop)) && gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((float)SPR_sLavaTop)))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
                     if (gml_str_eq(self1->strs[SVAR_type], "Lava")) {
-                        gml_iset_sprite_index(self1, ((double)SPR_sLavaTop));
+                        gml_iset_sprite_index(self1, ((float)SPR_sLavaTop));
                     } else {
-                        gml_iset_sprite_index(self1, ((double)SPR_sWaterTop));
+                        gml_iset_sprite_index(self1, ((float)SPR_sWaterTop));
                     }
                     gml_script_scrCheckWaterTop(self1, self);
                 }
@@ -25,17 +25,17 @@ void gml_script_scrCheckWaterTop(gm_instance_t *self, gm_instance_t *other)
             }
         }
     }
-    self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oWater));
+    self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oWater));
     if (gml_truthy(gml_fn_instance_exists(self, other, self->vars[VAR_obj]))) {
-        if ((gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((double)SPR_sWaterTop)) && gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((double)SPR_sLavaTop)))) {
+        if ((gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((float)SPR_sWaterTop)) && gml_ne(gml_iget_sprite_index(gml_deref(self->vars[VAR_obj], self, other)), ((float)SPR_sLavaTop)))) {
             {
                 gm_instance_t *self2;
                 gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
                 while ((self2 = gm_with_next()) != NULL) {
                     if (gml_str_eq(self2->strs[SVAR_type], "Lava")) {
-                        gml_iset_sprite_index(self2, ((double)SPR_sLavaTop));
+                        gml_iset_sprite_index(self2, ((float)SPR_sLavaTop));
                     } else {
-                        gml_iset_sprite_index(self2, ((double)SPR_sWaterTop));
+                        gml_iset_sprite_index(self2, ((float)SPR_sWaterTop));
                     }
                     gml_script_scrCheckWaterTop(self2, self);
                 }

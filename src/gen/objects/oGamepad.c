@@ -5,46 +5,46 @@ static void gml_ev_oGamepad__Create_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_start] = 0.0;
-    self->vars[VAR_startPressed] = 0.0;
-    self->vars[VAR_startReleased] = 0.0;
-    self->vars[VAR_left] = 0.0;
-    self->vars[VAR_leftPressed] = 0.0;
-    self->vars[VAR_leftReleased] = 0.0;
-    self->vars[VAR_right] = 0.0;
-    self->vars[VAR_rightPressed] = 0.0;
-    self->vars[VAR_rightReleased] = 0.0;
-    self->vars[VAR_up] = 0.0;
-    self->vars[VAR_upPressed] = 0.0;
-    self->vars[VAR_upReleased] = 0.0;
-    self->vars[VAR_down] = 0.0;
-    self->vars[VAR_downPressed] = 0.0;
-    self->vars[VAR_downReleased] = 0.0;
-    self->vars[VAR_jump] = 0.0;
-    self->vars[VAR_jumpPressed] = 0.0;
-    self->vars[VAR_jumpReleased] = 0.0;
-    self->vars[VAR_jump_button] = 0.0;
-    self->vars[VAR_attack] = 0.0;
-    self->vars[VAR_attackPressed] = 0.0;
-    self->vars[VAR_attackReleased] = 0.0;
-    self->vars[VAR_item] = 0.0;
-    self->vars[VAR_itemPressed] = 0.0;
-    self->vars[VAR_itemReleased] = 0.0;
-    self->vars[VAR_run] = 0.0;
-    self->vars[VAR_bomb] = 0.0;
-    self->vars[VAR_bombPressed] = 0.0;
-    self->vars[VAR_bombReleased] = 0.0;
-    self->vars[VAR_rope] = 0.0;
-    self->vars[VAR_ropePressed] = 0.0;
-    self->vars[VAR_ropeReleased] = 0.0;
-    self->vars[VAR_flare] = 0.0;
-    self->vars[VAR_flarePressed] = 0.0;
-    self->vars[VAR_flareReleased] = 0.0;
-    self->vars[VAR_pay] = 0.0;
-    self->vars[VAR_payPressed] = 0.0;
-    self->vars[VAR_payReleased] = 0.0;
-    self->vars[VAR_select] = 0.0;
-    self->vars[VAR_count] = 0.0;
+    self->vars[VAR_start] = 0.0f;
+    self->vars[VAR_startPressed] = 0.0f;
+    self->vars[VAR_startReleased] = 0.0f;
+    self->vars[VAR_left] = 0.0f;
+    self->vars[VAR_leftPressed] = 0.0f;
+    self->vars[VAR_leftReleased] = 0.0f;
+    self->vars[VAR_right] = 0.0f;
+    self->vars[VAR_rightPressed] = 0.0f;
+    self->vars[VAR_rightReleased] = 0.0f;
+    self->vars[VAR_up] = 0.0f;
+    self->vars[VAR_upPressed] = 0.0f;
+    self->vars[VAR_upReleased] = 0.0f;
+    self->vars[VAR_down] = 0.0f;
+    self->vars[VAR_downPressed] = 0.0f;
+    self->vars[VAR_downReleased] = 0.0f;
+    self->vars[VAR_jump] = 0.0f;
+    self->vars[VAR_jumpPressed] = 0.0f;
+    self->vars[VAR_jumpReleased] = 0.0f;
+    self->vars[VAR_jump_button] = 0.0f;
+    self->vars[VAR_attack] = 0.0f;
+    self->vars[VAR_attackPressed] = 0.0f;
+    self->vars[VAR_attackReleased] = 0.0f;
+    self->vars[VAR_item] = 0.0f;
+    self->vars[VAR_itemPressed] = 0.0f;
+    self->vars[VAR_itemReleased] = 0.0f;
+    self->vars[VAR_run] = 0.0f;
+    self->vars[VAR_bomb] = 0.0f;
+    self->vars[VAR_bombPressed] = 0.0f;
+    self->vars[VAR_bombReleased] = 0.0f;
+    self->vars[VAR_rope] = 0.0f;
+    self->vars[VAR_ropePressed] = 0.0f;
+    self->vars[VAR_ropeReleased] = 0.0f;
+    self->vars[VAR_flare] = 0.0f;
+    self->vars[VAR_flarePressed] = 0.0f;
+    self->vars[VAR_flareReleased] = 0.0f;
+    self->vars[VAR_pay] = 0.0f;
+    self->vars[VAR_payPressed] = 0.0f;
+    self->vars[VAR_payReleased] = 0.0f;
+    self->vars[VAR_select] = 0.0f;
+    self->vars[VAR_count] = 0.0f;
 }
 
 void gml_ev_oGamepad__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -61,232 +61,232 @@ static void gml_ev_oGamepad__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     if ((!gml_truthy(g_gml_globals.gamepadOn))) {
         return;
     }
-    self->vars[VAR_startReleased] = 0.0;
-    self->vars[VAR_startPressed] = 0.0;
+    self->vars[VAR_startReleased] = 0.0f;
+    self->vars[VAR_startPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_start])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyStartVal]))) {
             self->vars[VAR_start] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal]));
         } else {
-            self->vars[VAR_start] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_start] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_start]))) {
-            self->vars[VAR_startReleased] = 1.0;
+            self->vars[VAR_startReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyStartVal]))) {
             self->vars[VAR_start] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal]));
         } else {
-            self->vars[VAR_start] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_start] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_start])) {
-            self->vars[VAR_startPressed] = 1.0;
+            self->vars[VAR_startPressed] = 1.0f;
         }
     }
-    self->vars[VAR_leftReleased] = 0.0;
-    self->vars[VAR_leftPressed] = 0.0;
+    self->vars[VAR_leftReleased] = 0.0f;
+    self->vars[VAR_leftPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_left])) {
-        self->vars[VAR_left] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyLeftVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0 /* gp_axislh */)), (-0.6))) ? 1.0 : 0.0);
+        self->vars[VAR_left] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyLeftVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0f /* gp_axislh */)), (-0.6f))) ? 1.0f : 0.0f);
         if ((!gml_truthy(self->vars[VAR_left]))) {
-            self->vars[VAR_leftReleased] = 1.0;
+            self->vars[VAR_leftReleased] = 1.0f;
         }
     } else {
-        self->vars[VAR_left] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyLeftVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0 /* gp_axislh */)), (-0.6))) ? 1.0 : 0.0);
+        self->vars[VAR_left] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyLeftVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0f /* gp_axislh */)), (-0.6f))) ? 1.0f : 0.0f);
         if (gml_truthy(self->vars[VAR_left])) {
-            self->vars[VAR_leftPressed] = 1.0;
+            self->vars[VAR_leftPressed] = 1.0f;
         }
     }
-    self->vars[VAR_rightReleased] = 0.0;
-    self->vars[VAR_rightPressed] = 0.0;
+    self->vars[VAR_rightReleased] = 0.0f;
+    self->vars[VAR_rightPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_right])) {
-        self->vars[VAR_right] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRightVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0 /* gp_axislh */)), 0.6)) ? 1.0 : 0.0);
+        self->vars[VAR_right] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRightVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0f /* gp_axislh */)), 0.6f)) ? 1.0f : 0.0f);
         if ((!gml_truthy(self->vars[VAR_right]))) {
-            self->vars[VAR_rightReleased] = 1.0;
+            self->vars[VAR_rightReleased] = 1.0f;
         }
     } else {
-        self->vars[VAR_right] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRightVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0 /* gp_axislh */)), 0.6)) ? 1.0 : 0.0);
+        self->vars[VAR_right] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRightVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32785.0f /* gp_axislh */)), 0.6f)) ? 1.0f : 0.0f);
         if (gml_truthy(self->vars[VAR_right])) {
-            self->vars[VAR_rightPressed] = 1.0;
+            self->vars[VAR_rightPressed] = 1.0f;
         }
     }
-    self->vars[VAR_upReleased] = 0.0;
-    self->vars[VAR_upPressed] = 0.0;
+    self->vars[VAR_upReleased] = 0.0f;
+    self->vars[VAR_upPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_up])) {
-        self->vars[VAR_up] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyUpVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), (-0.6))) ? 1.0 : 0.0);
+        self->vars[VAR_up] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyUpVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), (-0.6f))) ? 1.0f : 0.0f);
         if ((!gml_truthy(self->vars[VAR_up]))) {
-            self->vars[VAR_upReleased] = 1.0;
+            self->vars[VAR_upReleased] = 1.0f;
         }
     } else {
-        self->vars[VAR_up] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyUpVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), (-0.6))) ? 1.0 : 0.0);
+        self->vars[VAR_up] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyUpVal]))) || gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), (-0.6f))) ? 1.0f : 0.0f);
         if (gml_truthy(self->vars[VAR_up])) {
-            self->vars[VAR_upPressed] = 1.0;
+            self->vars[VAR_upPressed] = 1.0f;
         }
     }
-    self->vars[VAR_downReleased] = 0.0;
-    self->vars[VAR_downPressed] = 0.0;
+    self->vars[VAR_downReleased] = 0.0f;
+    self->vars[VAR_downPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_down])) {
-        self->vars[VAR_down] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyDownVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), 0.6)) ? 1.0 : 0.0);
+        self->vars[VAR_down] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyDownVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), 0.6f)) ? 1.0f : 0.0f);
         if ((!gml_truthy(self->vars[VAR_down]))) {
-            self->vars[VAR_downReleased] = 1.0;
+            self->vars[VAR_downReleased] = 1.0f;
         }
     } else {
-        self->vars[VAR_down] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyDownVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), 0.6)) ? 1.0 : 0.0);
+        self->vars[VAR_down] = ((gml_truthy(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyDownVal]))) || gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), 0.6f)) ? 1.0f : 0.0f);
         if (gml_truthy(self->vars[VAR_down])) {
-            self->vars[VAR_downPressed] = 1.0;
+            self->vars[VAR_downPressed] = 1.0f;
         }
     }
-    self->vars[VAR_jumpReleased] = 0.0;
-    self->vars[VAR_jumpPressed] = 0.0;
+    self->vars[VAR_jumpReleased] = 0.0f;
+    self->vars[VAR_jumpPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_jump])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyJumpVal]))) {
             self->vars[VAR_jump] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal]));
         } else {
-            self->vars[VAR_jump] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_jump] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_jump]))) {
-            self->vars[VAR_jumpReleased] = 1.0;
+            self->vars[VAR_jumpReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyJumpVal]))) {
             self->vars[VAR_jump] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal]));
         } else {
-            self->vars[VAR_jump] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_jump] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyJumpVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_jump])) {
-            self->vars[VAR_jumpPressed] = 1.0;
+            self->vars[VAR_jumpPressed] = 1.0f;
         }
     }
-    self->vars[VAR_attackReleased] = 0.0;
-    self->vars[VAR_attackPressed] = 0.0;
+    self->vars[VAR_attackReleased] = 0.0f;
+    self->vars[VAR_attackPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_attack])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyAttackVal]))) {
             self->vars[VAR_attack] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal]));
         } else {
-            self->vars[VAR_attack] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_attack] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_attack]))) {
-            self->vars[VAR_attackReleased] = 1.0;
+            self->vars[VAR_attackReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyAttackVal]))) {
             self->vars[VAR_attack] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal]));
         } else {
-            self->vars[VAR_attack] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_attack] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyAttackVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_attack])) {
-            self->vars[VAR_attackPressed] = 1.0;
+            self->vars[VAR_attackPressed] = 1.0f;
         }
     }
-    self->vars[VAR_itemReleased] = 0.0;
-    self->vars[VAR_itemPressed] = 0.0;
+    self->vars[VAR_itemReleased] = 0.0f;
+    self->vars[VAR_itemPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_item])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyItemVal]))) {
             self->vars[VAR_item] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal]));
         } else {
-            self->vars[VAR_item] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_item] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_item]))) {
-            self->vars[VAR_itemReleased] = 1.0;
+            self->vars[VAR_itemReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyItemVal]))) {
             self->vars[VAR_item] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal]));
         } else {
-            self->vars[VAR_item] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_item] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyItemVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_item])) {
-            self->vars[VAR_itemPressed] = 1.0;
+            self->vars[VAR_itemPressed] = 1.0f;
         }
     }
     if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyRunVal]))) {
         self->vars[VAR_run] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRunVal]));
     } else {
-        self->vars[VAR_run] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRunVal])), 0.6) ? 1.0 : 0.0);
+        self->vars[VAR_run] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRunVal])), 0.6f) ? 1.0f : 0.0f);
     }
-    self->vars[VAR_bombReleased] = 0.0;
-    self->vars[VAR_bombPressed] = 0.0;
+    self->vars[VAR_bombReleased] = 0.0f;
+    self->vars[VAR_bombPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_bomb])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyBombVal]))) {
             self->vars[VAR_bomb] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal]));
         } else {
-            self->vars[VAR_bomb] = (gml_gt(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_bomb] = (gml_gt(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_bomb]))) {
-            self->vars[VAR_bombReleased] = 1.0;
+            self->vars[VAR_bombReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyBombVal]))) {
             self->vars[VAR_bomb] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal]));
         } else {
-            self->vars[VAR_bomb] = (gml_gt(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_bomb] = (gml_gt(gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyBombVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_bomb])) {
-            self->vars[VAR_bombPressed] = 1.0;
+            self->vars[VAR_bombPressed] = 1.0f;
         }
     }
-    self->vars[VAR_ropeReleased] = 0.0;
-    self->vars[VAR_ropePressed] = 0.0;
+    self->vars[VAR_ropeReleased] = 0.0f;
+    self->vars[VAR_ropePressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_rope])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyRopeVal]))) {
             self->vars[VAR_rope] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal]));
         } else {
-            self->vars[VAR_rope] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_rope] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_rope]))) {
-            self->vars[VAR_ropeReleased] = 1.0;
+            self->vars[VAR_ropeReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyRopeVal]))) {
             self->vars[VAR_rope] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal]));
         } else {
-            self->vars[VAR_rope] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_rope] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyRopeVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_rope])) {
-            self->vars[VAR_ropePressed] = 1.0;
+            self->vars[VAR_ropePressed] = 1.0f;
         }
     }
-    self->vars[VAR_flareReleased] = 0.0;
-    self->vars[VAR_flarePressed] = 0.0;
+    self->vars[VAR_flareReleased] = 0.0f;
+    self->vars[VAR_flarePressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_flare])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, gml_vreal(g_gml_globals.joyFlareVal)))) {
             self->vars[VAR_flare] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal);
         } else {
-            self->vars[VAR_flare] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_flare] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_flare]))) {
-            self->vars[VAR_flareReleased] = 1.0;
+            self->vars[VAR_flareReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, gml_vreal(g_gml_globals.joyFlareVal)))) {
             self->vars[VAR_flare] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal);
         } else {
-            self->vars[VAR_flare] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_flare] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, g_gml_globals.joyFlareVal), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_flare])) {
-            self->vars[VAR_flarePressed] = 1.0;
+            self->vars[VAR_flarePressed] = 1.0f;
         }
     }
-    self->vars[VAR_payReleased] = 0.0;
-    self->vars[VAR_payPressed] = 0.0;
+    self->vars[VAR_payReleased] = 0.0f;
+    self->vars[VAR_payPressed] = 0.0f;
     if (gml_truthy(self->vars[VAR_pay])) {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyPayVal]))) {
             self->vars[VAR_pay] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal]));
         } else {
-            self->vars[VAR_pay] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_pay] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if ((!gml_truthy(self->vars[VAR_pay]))) {
-            self->vars[VAR_payReleased] = 1.0;
+            self->vars[VAR_payReleased] = 1.0f;
         }
     } else {
         if (gml_truthy(gml_script_scrNotTrigger(self, other, g_gml_gvals[GV_joyPayVal]))) {
             self->vars[VAR_pay] = gml_fn_gamepad_button_check(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal]));
         } else {
-            self->vars[VAR_pay] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal])), 0.6) ? 1.0 : 0.0);
+            self->vars[VAR_pay] = (gml_gt(gml_fn_gamepad_button_value(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyPayVal])), 0.6f) ? 1.0f : 0.0f);
         }
         if (gml_truthy(self->vars[VAR_pay])) {
-            self->vars[VAR_payPressed] = 1.0;
+            self->vars[VAR_payPressed] = 1.0f;
         }
     }
-    self->vars[VAR_select] = gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, (32777.0 /* gp_select */));
+    self->vars[VAR_select] = gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, (32777.0f /* gp_select */));
 }
 
 void gml_ev_oGamepad__Step_0(gm_instance_t *self, gm_instance_t *other)
@@ -310,11 +310,11 @@ static void gml_ev_oGamepad__Other_75_body(gm_instance_t *self, gm_instance_t *o
         if ((!gml_truthy(g_gml_globals.gamepadOn))) {
             g_gml_globals.joyid = gml_real(l_pad_ind);
         }
-        g_gml_globals.gamepadOn = 1.0;
-        gml_fn_gamepad_set_button_threshold(self, other, g_gml_globals.joyid, 1.0);
+        g_gml_globals.gamepadOn = 1.0f;
+        gml_fn_gamepad_set_button_threshold(self, other, g_gml_globals.joyid, 1.0f);
     } else {
-        g_gml_globals.gamepadOn = 0.0;
-        g_gml_globals.joyid = (-1.0);
+        g_gml_globals.gamepadOn = 0.0f;
+        g_gml_globals.joyid = (-1.0f);
     }
 }
 

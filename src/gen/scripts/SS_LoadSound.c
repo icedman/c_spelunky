@@ -5,7 +5,7 @@ gm_value_t gml_script_SS_LoadSound(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return gml_vreal(0.0);
+    return gml_vreal(0.0f);
     return gml_vs("0");
     return gm_value_undefined();
 }

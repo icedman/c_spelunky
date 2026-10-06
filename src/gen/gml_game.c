@@ -1541,35 +1541,35 @@ static gm_value_t tramp___background_get_element(gm_instance_t *self, gm_instanc
 {
     (void)argc;
     (void)argv;
-    return gml_script___background_get_element(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    return gml_script___background_get_element(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
 }
 
 static gm_value_t tramp___background_get_internal(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___background_get_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? argv[2] : gm_value_undefined())));
+    return gml_vreal(gml_script___background_get_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? argv[2] : gm_value_undefined())));
 }
 
 static gm_value_t tramp___background_set(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___background_set(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script___background_set(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp___background_set_element(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_script___background_set_element(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0), (argc > 6 ? gml_real(argv[6]) : 0.0), (argc > 7 ? gml_real(argv[7]) : 0.0), (argc > 8 ? gml_real(argv[8]) : 0.0), (argc > 9 ? gml_real(argv[9]) : 0.0), (argc > 10 ? gml_real(argv[10]) : 0.0), (argc > 11 ? gml_real(argv[11]) : 0.0), (argc > 12 ? gml_real(argv[12]) : 0.0), (argc > 13 ? gml_real(argv[13]) : 0.0), (argc > 14 ? gml_real(argv[14]) : 0.0));
+    return gml_script___background_set_element(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f), (argc > 6 ? gml_real(argv[6]) : 0.0f), (argc > 7 ? gml_real(argv[7]) : 0.0f), (argc > 8 ? gml_real(argv[8]) : 0.0f), (argc > 9 ? gml_real(argv[9]) : 0.0f), (argc > 10 ? gml_real(argv[10]) : 0.0f), (argc > 11 ? gml_real(argv[11]) : 0.0f), (argc > 12 ? gml_real(argv[12]) : 0.0f), (argc > 13 ? gml_real(argv[13]) : 0.0f), (argc > 14 ? gml_real(argv[14]) : 0.0f));
 }
 
 static gm_value_t tramp___background_set_internal(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___background_set_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? argv[3] : gm_value_undefined())));
+    return gml_vreal(gml_script___background_set_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? argv[3] : gm_value_undefined())));
 }
 
 static gm_value_t tramp___global_object_depths(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -1616,28 +1616,28 @@ static gm_value_t tramp___view_get(gm_instance_t *self, gm_instance_t *other, in
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___view_get(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script___view_get(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp___view_set(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___view_set(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script___view_set(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp___view_set_internal(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script___view_set_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script___view_set_internal(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp_action_color(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_action_color(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_action_color(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1661,7 +1661,7 @@ static gm_value_t tramp_action_linear_step(gm_instance_t *self, gm_instance_t *o
 {
     (void)argc;
     (void)argv;
-    gml_script_action_linear_step(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0));
+    gml_script_action_linear_step(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1669,7 +1669,7 @@ static gm_value_t tramp_action_move_to(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    gml_script_action_move_to(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_action_move_to(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1677,7 +1677,7 @@ static gm_value_t tramp_action_path(gm_instance_t *self, gm_instance_t *other, i
 {
     (void)argc;
     (void)argv;
-    gml_script_action_path(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0));
+    gml_script_action_path(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1693,7 +1693,7 @@ static gm_value_t tramp_approximatelyZero(gm_instance_t *self, gm_instance_t *ot
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_approximatelyZero(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_approximatelyZero(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_calculateCollisionBounds(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -1954,7 +1954,7 @@ static gm_value_t tramp_draw_background_stretched(gm_instance_t *self, gm_instan
 {
     (void)argc;
     (void)argv;
-    gml_script_draw_background_stretched(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0));
+    gml_script_draw_background_stretched(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1970,7 +1970,7 @@ static gm_value_t tramp_drawHighlightedMessage(gm_instance_t *self, gm_instance_
 {
     (void)argc;
     (void)argv;
-    gml_script_drawHighlightedMessage(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0));
+    gml_script_drawHighlightedMessage(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1978,7 +1978,7 @@ static gm_value_t tramp_drawMessage(gm_instance_t *self, gm_instance_t *other, i
 {
     (void)argc;
     (void)argv;
-    gml_script_drawMessage(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0));
+    gml_script_drawMessage(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1986,7 +1986,7 @@ static gm_value_t tramp_drawText(gm_instance_t *self, gm_instance_t *other, int 
 {
     (void)argc;
     (void)argv;
-    gml_script_drawText(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0));
+    gml_script_drawText(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f));
     return gml_vundef();
 }
 
@@ -1994,7 +1994,7 @@ static gm_value_t tramp_drawTextHCentered(gm_instance_t *self, gm_instance_t *ot
 {
     (void)argc;
     (void)argv;
-    gml_script_drawTextHCentered(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0));
+    gml_script_drawTextHCentered(self, other, argc, (argc > 0 ? argv[0] : gm_value_undefined()), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2010,7 +2010,7 @@ static gm_value_t tramp_dsmap2json(gm_instance_t *self, gm_instance_t *other, in
 {
     (void)argc;
     (void)argv;
-    gml_script_dsmap2json(self, other, argc, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_as_str(argv[1]) : ""));
+    gml_script_dsmap2json(self, other, argc, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_as_str(argv[1]) : ""));
     return gml_vundef();
 }
 
@@ -2049,21 +2049,21 @@ static gm_value_t tramp_getIdCollisionCharacterTop(gm_instance_t *self, gm_insta
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_getIdCollisionCharacterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_getIdCollisionCharacterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_getIdCollisionLeft(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_getIdCollisionLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_getIdCollisionLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_getIdCollisionRight(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_getIdCollisionRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_getIdCollisionRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_getKissValue(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2093,14 +2093,14 @@ static gm_value_t tramp_gmitf(gm_instance_t *self, gm_instance_t *other, int arg
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_gmitf(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_gmitf(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_highscore_add2(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_highscore_add2(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0));
+    gml_script_highscore_add2(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_as_str(argv[1]) : ""), (argc > 2 ? gml_real(argv[2]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2116,14 +2116,14 @@ static gm_value_t tramp_instance_create(gm_instance_t *self, gm_instance_t *othe
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_instance_create(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script_instance_create(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionBottom(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionCharacter(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2137,28 +2137,28 @@ static gm_value_t tramp_isCollisionCharacterBottom(gm_instance_t *self, gm_insta
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionCharacterBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionCharacterBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionCharacterLeft(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionCharacterLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionCharacterLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionCharacterRight(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionCharacterRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionCharacterRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionCharacterTop(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionCharacterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionCharacterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionLadder(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2172,28 +2172,28 @@ static gm_value_t tramp_isCollisionLeft(gm_instance_t *self, gm_instance_t *othe
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionMoveableSolidLeft(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionMoveableSolidLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionMoveableSolidLeft(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionMoveableSolidRight(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionMoveableSolidRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionMoveableSolidRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionMovingSolidBottom(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionMovingSolidBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionMovingSolidBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionPlatform(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2207,21 +2207,21 @@ static gm_value_t tramp_isCollisionPlatformBottom(gm_instance_t *self, gm_instan
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionPlatformBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionPlatformBottom(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionRectangle(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionRectangle(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0), (argc > 6 ? gml_real(argv[6]) : 0.0), (argc > 7 ? gml_real(argv[7]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionRectangle(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f), (argc > 6 ? gml_real(argv[6]) : 0.0f), (argc > 7 ? gml_real(argv[7]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionRight(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionRight(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionSolid(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2235,21 +2235,21 @@ static gm_value_t tramp_isCollisionTop(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isCollisionWaterTop(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isCollisionWaterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_isCollisionWaterTop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_isInShop(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_isInShop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_isInShop(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_isLevel(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2363,7 +2363,7 @@ static gm_value_t tramp_moveTo(gm_instance_t *self, gm_instance_t *other, int ar
 {
     (void)argc;
     (void)argv;
-    gml_script_moveTo(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_moveTo(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2371,7 +2371,7 @@ static gm_value_t tramp_object_get_depth(gm_instance_t *self, gm_instance_t *oth
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_object_get_depth(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_object_get_depth(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_onOffMusic(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2386,14 +2386,14 @@ static gm_value_t tramp_platformCharacterIs(gm_instance_t *self, gm_instance_t *
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_platformCharacterIs(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_platformCharacterIs(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_playMusic(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_playMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_playMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2401,7 +2401,7 @@ static gm_value_t tramp_playSound(gm_instance_t *self, gm_instance_t *other, int
 {
     (void)argc;
     (void)argv;
-    gml_script_playSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_playSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2417,14 +2417,14 @@ static gm_value_t tramp_rand(gm_instance_t *self, gm_instance_t *other, int argc
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_rand(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_rand(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_room_set_view(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_room_set_view(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0), (argc > 6 ? gml_real(argv[6]) : 0.0), (argc > 7 ? gml_real(argv[7]) : 0.0), (argc > 8 ? gml_real(argv[8]) : 0.0), (argc > 9 ? gml_real(argv[9]) : 0.0), (argc > 10 ? gml_real(argv[10]) : 0.0), (argc > 11 ? gml_real(argv[11]) : 0.0), (argc > 12 ? gml_real(argv[12]) : 0.0), (argc > 13 ? gml_real(argv[13]) : 0.0), (argc > 14 ? gml_real(argv[14]) : 0.0), (argc > 15 ? gml_real(argv[15]) : 0.0)));
+    return gml_vreal(gml_script_room_set_view(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f), (argc > 6 ? gml_real(argv[6]) : 0.0f), (argc > 7 ? gml_real(argv[7]) : 0.0f), (argc > 8 ? gml_real(argv[8]) : 0.0f), (argc > 9 ? gml_real(argv[9]) : 0.0f), (argc > 10 ? gml_real(argv[10]) : 0.0f), (argc > 11 ? gml_real(argv[11]) : 0.0f), (argc > 12 ? gml_real(argv[12]) : 0.0f), (argc > 13 ? gml_real(argv[13]) : 0.0f), (argc > 14 ? gml_real(argv[14]) : 0.0f), (argc > 15 ? gml_real(argv[15]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrCheckCollisions(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2455,14 +2455,14 @@ static gm_value_t tramp_scrCreateBlood(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_scrCreateBlood(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script_scrCreateBlood(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrCreateFlame(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_scrCreateFlame(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0));
+    gml_script_scrCreateFlame(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2470,7 +2470,7 @@ static gm_value_t tramp_scrCreateTile(gm_instance_t *self, gm_instance_t *other,
 {
     (void)argc;
     (void)argv;
-    gml_script_scrCreateTile(self, other, (argc > 0 ? gml_as_str(argv[0]) : ""), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0));
+    gml_script_scrCreateTile(self, other, (argc > 0 ? gml_as_str(argv[0]) : ""), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2478,7 +2478,7 @@ static gm_value_t tramp_scrCreateTileObj(gm_instance_t *self, gm_instance_t *oth
 {
     (void)argc;
     (void)argv;
-    gml_script_scrCreateTileObj(self, other, (argc > 0 ? gml_as_str(argv[0]) : ""), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0));
+    gml_script_scrCreateTileObj(self, other, (argc > 0 ? gml_as_str(argv[0]) : ""), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2494,7 +2494,7 @@ static gm_value_t tramp_scrDropItem(gm_instance_t *self, gm_instance_t *other, i
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_scrDropItem(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_scrDropItem(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrEntityGen(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2517,7 +2517,7 @@ static gm_value_t tramp_scrGenerateItem(gm_instance_t *self, gm_instance_t *othe
 {
     (void)argc;
     (void)argv;
-    gml_script_scrGenerateItem(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0));
+    gml_script_scrGenerateItem(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2525,7 +2525,7 @@ static gm_value_t tramp_scrGetChar(gm_instance_t *self, gm_instance_t *other, in
 {
     (void)argc;
     (void)argv;
-    return gml_vs(gml_script_scrGetChar(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vs(gml_script_scrGetChar(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrGetFavorMsg(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2547,7 +2547,7 @@ static gm_value_t tramp_scrGetKey(gm_instance_t *self, gm_instance_t *other, int
 {
     (void)argc;
     (void)argv;
-    return gml_vs(gml_script_scrGetKey(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vs(gml_script_scrGetKey(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrGetName(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2561,14 +2561,14 @@ static gm_value_t tramp_scrGetRoomX(gm_instance_t *self, gm_instance_t *other, i
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_scrGetRoomX(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_scrGetRoomX(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrGetRoomY(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_scrGetRoomY(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_scrGetRoomY(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrHoldItem(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2606,7 +2606,7 @@ static gm_value_t tramp_scrLoadLevel(gm_instance_t *self, gm_instance_t *other, 
 {
     (void)argc;
     (void)argv;
-    gml_script_scrLoadLevel(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_scrLoadLevel(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2724,7 +2724,7 @@ static gm_value_t tramp_scrSetupWalls(gm_instance_t *self, gm_instance_t *other,
 {
     (void)argc;
     (void)argv;
-    gml_script_scrSetupWalls(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_scrSetupWalls(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2732,7 +2732,7 @@ static gm_value_t tramp_scrShake(gm_instance_t *self, gm_instance_t *other, int 
 {
     (void)argc;
     (void)argv;
-    gml_script_scrShake(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_scrShake(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2748,7 +2748,7 @@ static gm_value_t tramp_scrShopkeeperAnger(gm_instance_t *self, gm_instance_t *o
 {
     (void)argc;
     (void)argv;
-    gml_script_scrShopkeeperAnger(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_scrShopkeeperAnger(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2772,14 +2772,14 @@ static gm_value_t tramp_scrTreasureGen(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_scrTreasureGen(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_scrTreasureGen(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_scrUpdateHighscores(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_scrUpdateHighscores(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_scrUpdateHighscores(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2803,7 +2803,7 @@ static gm_value_t tramp_setCollisionBounds(gm_instance_t *self, gm_instance_t *o
 {
     (void)argc;
     (void)argv;
-    gml_script_setCollisionBounds(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0));
+    gml_script_setCollisionBounds(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2819,7 +2819,7 @@ static gm_value_t tramp_showFinalScore(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    gml_script_showFinalScore(self, other, argc, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_showFinalScore(self, other, argc, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2835,7 +2835,7 @@ static gm_value_t tramp_sound_global_volume(gm_instance_t *self, gm_instance_t *
 {
     (void)argc;
     (void)argv;
-    gml_script_sound_global_volume(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_sound_global_volume(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2843,7 +2843,7 @@ static gm_value_t tramp_sound_play(gm_instance_t *self, gm_instance_t *other, in
 {
     (void)argc;
     (void)argv;
-    gml_script_sound_play(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_sound_play(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2859,7 +2859,7 @@ static gm_value_t tramp_sound_volume(gm_instance_t *self, gm_instance_t *other, 
 {
     (void)argc;
     (void)argv;
-    gml_script_sound_volume(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_sound_volume(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2888,7 +2888,7 @@ static gm_value_t tramp_SS_GetSoundPan(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_script_SS_GetSoundPan(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    return gml_script_SS_GetSoundPan(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
 }
 
 static gm_value_t tramp_SS_GetSoundPosition(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2902,7 +2902,7 @@ static gm_value_t tramp_SS_GetSoundVol(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_script_SS_GetSoundVol(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    return gml_script_SS_GetSoundVol(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
 }
 
 static gm_value_t tramp_SS_Init(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2916,28 +2916,28 @@ static gm_value_t tramp_SS_IsHandleValid(gm_instance_t *self, gm_instance_t *oth
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_IsHandleValid(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_IsHandleValid(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_IsSoundLooping(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_IsSoundLooping(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_IsSoundLooping(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_IsSoundPaused(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_IsSoundPaused(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_IsSoundPaused(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_IsSoundPlaying(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_IsSoundPlaying(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_IsSoundPlaying(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_LoadSound(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2951,7 +2951,7 @@ static gm_value_t tramp_SS_LoopMusic(gm_instance_t *self, gm_instance_t *other, 
 {
     (void)argc;
     (void)argv;
-    gml_script_SS_LoopMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_SS_LoopMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2967,14 +2967,14 @@ static gm_value_t tramp_SS_PauseSound(gm_instance_t *self, gm_instance_t *other,
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_PauseSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_PauseSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_PlaySound(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_SS_PlaySound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_SS_PlaySound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -2982,7 +2982,7 @@ static gm_value_t tramp_SS_ResumeSound(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_ResumeSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0)));
+    return gml_vreal(gml_script_SS_ResumeSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_SetSoundFreq(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -2996,21 +2996,21 @@ static gm_value_t tramp_SS_SetSoundPan(gm_instance_t *self, gm_instance_t *other
 {
     (void)argc;
     (void)argv;
-    return gml_script_SS_SetSoundPan(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    return gml_script_SS_SetSoundPan(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
 }
 
 static gm_value_t tramp_SS_SetSoundPosition(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_SS_SetSoundPosition(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0)));
+    return gml_vreal(gml_script_SS_SetSoundPosition(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f)));
 }
 
 static gm_value_t tramp_SS_SetSoundVol(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_SS_SetSoundVol(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0));
+    gml_script_SS_SetSoundVol(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f));
     return gml_vundef();
 }
 
@@ -3018,7 +3018,7 @@ static gm_value_t tramp_SS_StopMusic(gm_instance_t *self, gm_instance_t *other, 
 {
     (void)argc;
     (void)argv;
-    gml_script_SS_StopMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_SS_StopMusic(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -3026,7 +3026,7 @@ static gm_value_t tramp_SS_StopSound(gm_instance_t *self, gm_instance_t *other, 
 {
     (void)argc;
     (void)argv;
-    gml_script_SS_StopSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0));
+    gml_script_SS_StopSound(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f));
     return gml_vundef();
 }
 
@@ -3057,14 +3057,14 @@ static gm_value_t tramp_tile_add(gm_instance_t *self, gm_instance_t *other, int 
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_tile_add(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0), (argc > 6 ? gml_real(argv[6]) : 0.0), (argc > 7 ? gml_real(argv[7]) : 0.0)));
+    return gml_vreal(gml_script_tile_add(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f), (argc > 6 ? gml_real(argv[6]) : 0.0f), (argc > 7 ? gml_real(argv[7]) : 0.0f)));
 }
 
 static gm_value_t tramp_tile_add2(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)argc;
     (void)argv;
-    gml_script_tile_add2(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0), (argc > 3 ? gml_real(argv[3]) : 0.0), (argc > 4 ? gml_real(argv[4]) : 0.0), (argc > 5 ? gml_real(argv[5]) : 0.0), (argc > 6 ? gml_real(argv[6]) : 0.0), (argc > 7 ? gml_real(argv[7]) : 0.0));
+    gml_script_tile_add2(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f), (argc > 3 ? gml_real(argv[3]) : 0.0f), (argc > 4 ? gml_real(argv[4]) : 0.0f), (argc > 5 ? gml_real(argv[5]) : 0.0f), (argc > 6 ? gml_real(argv[6]) : 0.0f), (argc > 7 ? gml_real(argv[7]) : 0.0f));
     return gml_vundef();
 }
 
@@ -3080,7 +3080,7 @@ static gm_value_t tramp_tile_layer_find(gm_instance_t *self, gm_instance_t *othe
 {
     (void)argc;
     (void)argv;
-    return gml_vreal(gml_script_tile_layer_find(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0), (argc > 1 ? gml_real(argv[1]) : 0.0), (argc > 2 ? gml_real(argv[2]) : 0.0)));
+    return gml_vreal(gml_script_tile_layer_find(self, other, (argc > 0 ? gml_real(argv[0]) : 0.0f), (argc > 1 ? gml_real(argv[1]) : 0.0f), (argc > 2 ? gml_real(argv[2]) : 0.0f)));
 }
 
 static gm_value_t tramp_toggleMusic(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
@@ -3324,94 +3324,94 @@ const gml_game_t gml_game = {
     global_init
 };
 
-double gml_ext_electronQuit(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_electronQuit(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("electronQuit");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_electronSetFullscreen(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_electronSetFullscreen(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("electronSetFullscreen");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_isElectron(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_isElectron(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("isElectron");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5DisableLoadBar(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5DisableLoadBar(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5DisableLoadBar");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5_gamepad_button_check(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5_gamepad_button_check(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5_gamepad_button_check");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5_gamepad_axis_value(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5_gamepad_axis_value(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5_gamepad_axis_value");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5_set_fullscreen(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5_set_fullscreen(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5_set_fullscreen");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5_gamepad_next(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5_gamepad_next(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5_gamepad_next");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_ext_html5_gamepad_connected(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_ext_html5_gamepad_connected(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     (void)argc;
     (void)argv;
     gml_pending_hit("html5_gamepad_connected");
-    return 0.0;
+    return 0.0f;
 }
 
 const char *gml_ext_html5_gamepad_get_button_name(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)

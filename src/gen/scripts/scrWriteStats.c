@@ -3,11 +3,11 @@
 
 void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
-    double t3 = 0.0;
+    float t3 = 0.0f;
     int b4 = 0;
-    double t5 = 0.0;
+    float t5 = 0.0f;
     int b6 = 0;
     (void)self;
     (void)other;
@@ -76,12 +76,12 @@ void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], "------------+------------");
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
-    self->vars[VAR_totalDeaths] = 0.0;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 16.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        if (gml_lt((self->vars[VAR_i] + 1.0), 10.0)) {
-            gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_concat(gml_concat(" ", gml_real_str((self->vars[VAR_i] + 1.0))), "          | "));
+    self->vars[VAR_totalDeaths] = 0.0f;
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 16.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        if (gml_lt((self->vars[VAR_i] + 1.0f), 10.0f)) {
+            gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_concat(gml_concat(" ", gml_real_str((self->vars[VAR_i] + 1.0f))), "          | "));
         } else {
-            gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_concat(gml_concat(" ", gml_real_str((self->vars[VAR_i] + 1.0))), "         | "));
+            gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_concat(gml_concat(" ", gml_real_str((self->vars[VAR_i] + 1.0f))), "         | "));
         }
         self->vars[VAR_totalDeaths] = gml_real(gml_add(gml_vreal(self->vars[VAR_totalDeaths]), gml_aget(g_gml_gvals[GV_levelDeaths], self->vars[VAR_i])));
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_fn_string(self, other, gml_aget(g_gml_gvals[GV_levelDeaths], self->vars[VAR_i])));
@@ -97,12 +97,12 @@ void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], "------------+------------");
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 24.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        if (gml_veq(gml_aget(g_gml_gvals[GV_enemyDeaths], self->vars[VAR_i]), gml_vreal(0.0))) {
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 24.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        if (gml_veq(gml_aget(g_gml_gvals[GV_enemyDeaths], self->vars[VAR_i]), gml_vreal(0.0f))) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], " ?\?\?        | ");
         } else {
             t1 = self->vars[VAR_i];
-            b2 = (gml_rcase(t1, 0.0) ? 0 : gml_rcase(t1, 1.0) ? 1 : gml_rcase(t1, 2.0) ? 2 : gml_rcase(t1, 3.0) ? 3 : gml_rcase(t1, 4.0) ? 4 : gml_rcase(t1, 5.0) ? 5 : gml_rcase(t1, 6.0) ? 6 : gml_rcase(t1, 7.0) ? 7 : gml_rcase(t1, 8.0) ? 8 : gml_rcase(t1, 9.0) ? 9 : gml_rcase(t1, 10.0) ? 10 : gml_rcase(t1, 11.0) ? 11 : gml_rcase(t1, 12.0) ? 12 : gml_rcase(t1, 13.0) ? 13 : gml_rcase(t1, 14.0) ? 14 : gml_rcase(t1, 15.0) ? 15 : gml_rcase(t1, 16.0) ? 16 : gml_rcase(t1, 17.0) ? 17 : gml_rcase(t1, 18.0) ? 18 : gml_rcase(t1, 19.0) ? 19 : gml_rcase(t1, 20.0) ? 20 : gml_rcase(t1, 21.0) ? 21 : gml_rcase(t1, 22.0) ? 22 : gml_rcase(t1, 23.0) ? 23 : -1);
+            b2 = (gml_rcase(t1, 0.0f) ? 0 : gml_rcase(t1, 1.0f) ? 1 : gml_rcase(t1, 2.0f) ? 2 : gml_rcase(t1, 3.0f) ? 3 : gml_rcase(t1, 4.0f) ? 4 : gml_rcase(t1, 5.0f) ? 5 : gml_rcase(t1, 6.0f) ? 6 : gml_rcase(t1, 7.0f) ? 7 : gml_rcase(t1, 8.0f) ? 8 : gml_rcase(t1, 9.0f) ? 9 : gml_rcase(t1, 10.0f) ? 10 : gml_rcase(t1, 11.0f) ? 11 : gml_rcase(t1, 12.0f) ? 12 : gml_rcase(t1, 13.0f) ? 13 : gml_rcase(t1, 14.0f) ? 14 : gml_rcase(t1, 15.0f) ? 15 : gml_rcase(t1, 16.0f) ? 16 : gml_rcase(t1, 17.0f) ? 17 : gml_rcase(t1, 18.0f) ? 18 : gml_rcase(t1, 19.0f) ? 19 : gml_rcase(t1, 20.0f) ? 20 : gml_rcase(t1, 21.0f) ? 21 : gml_rcase(t1, 22.0f) ? 22 : gml_rcase(t1, 23.0f) ? 23 : -1);
             switch (b2) {
             case 0:
                 {
@@ -257,12 +257,12 @@ void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], "------------+------------");
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 12.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        if (gml_veq(gml_aget(g_gml_gvals[GV_miscDeaths], self->vars[VAR_i]), gml_vreal(0.0))) {
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 12.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        if (gml_veq(gml_aget(g_gml_gvals[GV_miscDeaths], self->vars[VAR_i]), gml_vreal(0.0f))) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], " ?\?\?        | ");
         } else {
             t3 = self->vars[VAR_i];
-            b4 = (gml_rcase(t3, 0.0) ? 0 : gml_rcase(t3, 1.0) ? 1 : gml_rcase(t3, 2.0) ? 2 : gml_rcase(t3, 3.0) ? 3 : gml_rcase(t3, 4.0) ? 4 : gml_rcase(t3, 5.0) ? 5 : gml_rcase(t3, 6.0) ? 6 : gml_rcase(t3, 7.0) ? 7 : gml_rcase(t3, 8.0) ? 8 : gml_rcase(t3, 9.0) ? 9 : gml_rcase(t3, 10.0) ? 10 : gml_rcase(t3, 11.0) ? 11 : -1);
+            b4 = (gml_rcase(t3, 0.0f) ? 0 : gml_rcase(t3, 1.0f) ? 1 : gml_rcase(t3, 2.0f) ? 2 : gml_rcase(t3, 3.0f) ? 3 : gml_rcase(t3, 4.0f) ? 4 : gml_rcase(t3, 5.0f) ? 5 : gml_rcase(t3, 6.0f) ? 6 : gml_rcase(t3, 7.0f) ? 7 : gml_rcase(t3, 8.0f) ? 8 : gml_rcase(t3, 9.0f) ? 9 : gml_rcase(t3, 10.0f) ? 10 : gml_rcase(t3, 11.0f) ? 11 : -1);
             switch (b4) {
             case 0:
                 {
@@ -345,13 +345,13 @@ void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], "------------+------------");
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
-    self->vars[VAR_totalKills] = 0.0;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 22.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        if (gml_veq(gml_aget(g_gml_gvals[GV_enemyKills], self->vars[VAR_i]), gml_vreal(0.0))) {
+    self->vars[VAR_totalKills] = 0.0f;
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 22.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        if (gml_veq(gml_aget(g_gml_gvals[GV_enemyKills], self->vars[VAR_i]), gml_vreal(0.0f))) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], " ?\?\?        | ");
         } else {
             t5 = self->vars[VAR_i];
-            b6 = (gml_rcase(t5, 0.0) ? 0 : gml_rcase(t5, 1.0) ? 1 : gml_rcase(t5, 2.0) ? 2 : gml_rcase(t5, 3.0) ? 3 : gml_rcase(t5, 4.0) ? 4 : gml_rcase(t5, 5.0) ? 5 : gml_rcase(t5, 6.0) ? 6 : gml_rcase(t5, 7.0) ? 7 : gml_rcase(t5, 8.0) ? 8 : gml_rcase(t5, 9.0) ? 9 : gml_rcase(t5, 10.0) ? 10 : gml_rcase(t5, 11.0) ? 11 : gml_rcase(t5, 12.0) ? 12 : gml_rcase(t5, 13.0) ? 13 : gml_rcase(t5, 14.0) ? 14 : gml_rcase(t5, 15.0) ? 15 : gml_rcase(t5, 16.0) ? 16 : gml_rcase(t5, 17.0) ? 17 : gml_rcase(t5, 18.0) ? 18 : gml_rcase(t5, 19.0) ? 19 : gml_rcase(t5, 20.0) ? 20 : gml_rcase(t5, 21.0) ? 21 : -1);
+            b6 = (gml_rcase(t5, 0.0f) ? 0 : gml_rcase(t5, 1.0f) ? 1 : gml_rcase(t5, 2.0f) ? 2 : gml_rcase(t5, 3.0f) ? 3 : gml_rcase(t5, 4.0f) ? 4 : gml_rcase(t5, 5.0f) ? 5 : gml_rcase(t5, 6.0f) ? 6 : gml_rcase(t5, 7.0f) ? 7 : gml_rcase(t5, 8.0f) ? 8 : gml_rcase(t5, 9.0f) ? 9 : gml_rcase(t5, 10.0f) ? 10 : gml_rcase(t5, 11.0f) ? 11 : gml_rcase(t5, 12.0f) ? 12 : gml_rcase(t5, 13.0f) ? 13 : gml_rcase(t5, 14.0f) ? 14 : gml_rcase(t5, 15.0f) ? 15 : gml_rcase(t5, 16.0f) ? 16 : gml_rcase(t5, 17.0f) ? 17 : gml_rcase(t5, 18.0f) ? 18 : gml_rcase(t5, 19.0f) ? 19 : gml_rcase(t5, 20.0f) ? 20 : gml_rcase(t5, 21.0f) ? 21 : -1);
             switch (b6) {
             case 0:
                 {
@@ -489,8 +489,8 @@ void gml_script_scrWriteStats(gm_instance_t *self, gm_instance_t *other)
         self->vars[VAR_totalKills] = gml_real(gml_add(gml_vreal(self->vars[VAR_totalKills]), gml_aget(g_gml_gvals[GV_enemyKills], self->vars[VAR_i])));
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_fn_string(self, other, gml_aget(g_gml_gvals[GV_enemyKills], self->vars[VAR_i])));
         gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
-        if (gml_eq(self->vars[VAR_i], 8.0)) {
-            if (gml_eq(g_gml_globals.totalMonkeyKills, 0.0)) {
+        if (gml_eq(self->vars[VAR_i], 8.0f)) {
+            if (gml_eq(g_gml_globals.totalMonkeyKills, 0.0f)) {
                 gml_fn_file_text_write_string(self, other, self->vars[VAR_file], " ?\?\?        | ");
             } else {
                 gml_fn_file_text_write_string(self, other, self->vars[VAR_file], " MONKEY     | ");

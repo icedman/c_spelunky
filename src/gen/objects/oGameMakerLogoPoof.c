@@ -5,9 +5,9 @@ static void gml_ev_oGameMakerLogoPoof__Create_0_body(gm_instance_t *self, gm_ins
 {
     (void)self;
     (void)other;
-    gml_iset_image_xscale(self, 0.2);
-    gml_iset_image_yscale(self, 1.0);
-    gml_iset_image_alpha(self, 0.75);
+    gml_iset_image_xscale(self, 0.2f);
+    gml_iset_image_yscale(self, 1.0f);
+    gml_iset_image_alpha(self, 0.75f);
 }
 
 void gml_ev_oGameMakerLogoPoof__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,18 +21,18 @@ static void gml_ev_oGameMakerLogoPoof__Step_0_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    if (gml_gt(gml_iget_image_xscale(self), 1.0)) {
-        gml_iset_image_xscale(self, (gml_iget_image_xscale(self) + 0.08));
+    if (gml_gt(gml_iget_image_xscale(self), 1.0f)) {
+        gml_iset_image_xscale(self, (gml_iget_image_xscale(self) + 0.08f));
     } else {
-        gml_iset_image_xscale(self, (gml_iget_image_xscale(self) + 0.04));
+        gml_iset_image_xscale(self, (gml_iget_image_xscale(self) + 0.04f));
     }
-    if (gml_gt(gml_iget_image_xscale(self), 1.0)) {
-        gml_iset_image_yscale(self, gm_max((gml_iget_image_yscale(self) - 0.03), 0.0));
+    if (gml_gt(gml_iget_image_xscale(self), 1.0f)) {
+        gml_iset_image_yscale(self, gm_max((gml_iget_image_yscale(self) - 0.03f), 0.0f));
     }
-    if (gml_eq(gml_iget_image_yscale(self), 0.0)) {
+    if (gml_eq(gml_iget_image_yscale(self), 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    gml_iset_image_alpha(self, gm_clamp((gml_iget_image_yscale(self) * 0.75), 0.0, 1.0));
+    gml_iset_image_alpha(self, gm_clamp((gml_iget_image_yscale(self) * 0.75f), 0.0f, 1.0f));
 }
 
 void gml_ev_oGameMakerLogoPoof__Step_0(gm_instance_t *self, gm_instance_t *other)

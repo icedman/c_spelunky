@@ -6,8 +6,8 @@ static void gml_ev_oTutorialSign__Create_0_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     if (gml_truthy(g_gml_globals.html5Build)) {
-        gml_iset_y(gml_deref(((double)OBJ_oTutorialSign), self, other), (gml_iget_y(gml_deref(((double)OBJ_oTutorialSign), self, other)) - 1.0));
-        gml_iset_depth(gml_deref(((double)OBJ_oTutorialSign), self, other), 55.0);
+        gml_iset_y(gml_deref(((float)OBJ_oTutorialSign), self, other), (gml_iget_y(gml_deref(((float)OBJ_oTutorialSign), self, other)) - 1.0f));
+        gml_iset_depth(gml_deref(((float)OBJ_oTutorialSign), self, other), 55.0f);
     }
 }
 

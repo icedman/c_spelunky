@@ -9,62 +9,62 @@
  */
 #include "gml_rt.h"
 
-static int i32(double d)
+static int i32(float d)
 {
     return (int)gm_to_int32(d);
 }
 
-static double b2r(bool b)
+static float b2r(bool b)
 {
-    return b ? 1.0 : 0.0;
+    return b ? 1.0f : 0.0f;
 }
 
 /* ------------------------------------------------------------------ keyboard */
 
-double gml_fn_keyboard_check(gm_instance_t *self, gm_instance_t *other, double key)
+float gml_fn_keyboard_check(gm_instance_t *self, gm_instance_t *other, float key)
 {
     (void)self;
     (void)other;
     return b2r(gm_input_check(i32(key)));
 }
 
-double gml_fn_keyboard_check_pressed(gm_instance_t *self, gm_instance_t *other, double key)
+float gml_fn_keyboard_check_pressed(gm_instance_t *self, gm_instance_t *other, float key)
 {
     (void)self;
     (void)other;
     return b2r(gm_input_check_pressed(i32(key)));
 }
 
-double gml_fn_keyboard_check_released(gm_instance_t *self, gm_instance_t *other, double key)
+float gml_fn_keyboard_check_released(gm_instance_t *self, gm_instance_t *other, float key)
 {
     (void)self;
     (void)other;
     return b2r(gm_input_check_released(i32(key)));
 }
 
-void gml_fn_keyboard_set_map(gm_instance_t *self, gm_instance_t *other, double from, double to)
+void gml_fn_keyboard_set_map(gm_instance_t *self, gm_instance_t *other, float from, float to)
 {
     (void)self;
     (void)other;
     gm_input_set_map(i32(from), i32(to));
 }
 
-double gml_gget_keyboard_key(void)
+float gml_gget_keyboard_key(void)
 {
-    return (double)gm_input_keyboard_key();
+    return (float)gm_input_keyboard_key();
 }
 
-void gml_gset_keyboard_key(double v)
+void gml_gset_keyboard_key(float v)
 {
     gm_input_set_keyboard_key(i32(v));
 }
 
-double gml_gget_keyboard_lastkey(void)
+float gml_gget_keyboard_lastkey(void)
 {
-    return (double)gm_input_keyboard_lastkey();
+    return (float)gm_input_keyboard_lastkey();
 }
 
-void gml_gset_keyboard_lastkey(double v)
+void gml_gset_keyboard_lastkey(float v)
 {
     gm_input_set_keyboard_lastkey(i32(v));
 }
@@ -88,7 +88,7 @@ void gml_fn_game_restart(gm_instance_t *self, gm_instance_t *other)
 
 /* ------------------------------------------------------------------ events */
 
-void gml_fn_event_perform(gm_instance_t *self, gm_instance_t *other, double type, double number)
+void gml_fn_event_perform(gm_instance_t *self, gm_instance_t *other, float type, float number)
 {
     gm_loop_event_perform(self, other, i32(type), i32(number));
 }

@@ -18,66 +18,66 @@ void gml_script_scrShopItemsGen(gm_instance_t *self, gm_instance_t *other)
     (void)s5;
     (void)s6;
     if (gml_str_eq(self->strs[SVAR_shopType], "Bomb")) {
-        while (gml_truthy(1.0)) {
-            if (gml_eq(gml_script_rand(self, other, 1.0, 5.0), 1.0)) {
-                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPaste))))) {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oPaste));
+        while (gml_truthy(1.0f)) {
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 5.0f), 1.0f)) {
+                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPaste))))) {
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oPaste));
                     break;
                 }
             } else {
-                if (gml_eq(gml_script_rand(self, other, 1.0, 4.0), 1.0)) {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oBombBox));
+                if (gml_eq(gml_script_rand(self, other, 1.0f, 4.0f), 1.0f)) {
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oBombBox));
                     break;
                 } else {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oBombBag));
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oBombBag));
                     break;
                 }
             }
         }
     } else {
         if (gml_str_eq(self->strs[SVAR_shopType], "Weapon")) {
-            self->vars[VAR_m] = 20.0;
-            while (gml_truthy(1.0)) {
-                self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 4.0);
-                if (gml_le(self->vars[VAR_m], 0.0)) {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oBombBag));
+            self->vars[VAR_m] = 20.0f;
+            while (gml_truthy(1.0f)) {
+                self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 4.0f);
+                if (gml_le(self->vars[VAR_m], 0.0f)) {
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oBombBag));
                     break;
                 } else {
-                    if (gml_eq(gml_script_rand(self, other, 1.0, 12.0), 1.0)) {
-                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oWebCannon))))) {
-                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oWebCannon));
+                    if (gml_eq(gml_script_rand(self, other, 1.0f, 12.0f), 1.0f)) {
+                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oWebCannon))))) {
+                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oWebCannon));
                             break;
                         }
                     } else {
-                        if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oShotgun))))) {
-                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oShotgun));
+                        if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oShotgun))))) {
+                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oShotgun));
                                 break;
                             }
                         } else {
-                            if (gml_eq(gml_script_rand(self, other, 1.0, 6.0), 1.0)) {
-                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oBombBox));
+                            if (gml_eq(gml_script_rand(self, other, 1.0f, 6.0f), 1.0f)) {
+                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oBombBox));
                                 break;
                             } else {
-                                if (gml_eq(self->vars[VAR_n], 1.0)) {
-                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPistol))))) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oPistol));
+                                if (gml_eq(self->vars[VAR_n], 1.0f)) {
+                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPistol))))) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oPistol));
                                         break;
                                     }
                                 } else {
-                                    if (gml_eq(self->vars[VAR_n], 2.0)) {
-                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oMachete))))) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oMachete));
+                                    if (gml_eq(self->vars[VAR_n], 2.0f)) {
+                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oMachete))))) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oMachete));
                                             break;
                                         }
                                     } else {
-                                        if (gml_eq(self->vars[VAR_n], 3.0)) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oBombBag));
+                                        if (gml_eq(self->vars[VAR_n], 3.0f)) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oBombBag));
                                             break;
                                         } else {
-                                            if (gml_eq(self->vars[VAR_n], 4.0)) {
-                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oBow))))) {
-                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oBow));
+                                            if (gml_eq(self->vars[VAR_n], 4.0f)) {
+                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oBow))))) {
+                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oBow));
                                                     break;
                                                 }
                                             }
@@ -88,50 +88,50 @@ void gml_script_scrShopItemsGen(gm_instance_t *self, gm_instance_t *other)
                         }
                     }
                 }
-                self->vars[VAR_m] = (self->vars[VAR_m] - 1.0);
+                self->vars[VAR_m] = (self->vars[VAR_m] - 1.0f);
             }
         } else {
             if (gml_str_eq(self->strs[SVAR_shopType], "Clothing")) {
-                self->vars[VAR_m] = 20.0;
-                while (gml_truthy(1.0)) {
-                    self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 6.0);
-                    if (gml_eq(gml_script_rand(self, other, 1.0, self->vars[VAR_m]), 1.0)) {
-                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 11.0), ((double)OBJ_oRopePile));
+                self->vars[VAR_m] = 20.0f;
+                while (gml_truthy(1.0f)) {
+                    self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 6.0f);
+                    if (gml_eq(gml_script_rand(self, other, 1.0f, self->vars[VAR_m]), 1.0f)) {
+                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 11.0f), ((float)OBJ_oRopePile));
                         break;
                     } else {
-                        if (gml_eq(self->vars[VAR_n], 1.0)) {
-                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpringShoes))))) {
-                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpringShoes));
+                        if (gml_eq(self->vars[VAR_n], 1.0f)) {
+                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpringShoes))))) {
+                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpringShoes));
                                 break;
                             }
                         } else {
-                            if (gml_eq(self->vars[VAR_n], 2.0)) {
-                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpectacles))))) {
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpectacles));
+                            if (gml_eq(self->vars[VAR_n], 2.0f)) {
+                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpectacles))))) {
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpectacles));
                                     break;
                                 }
                             } else {
-                                if (gml_eq(self->vars[VAR_n], 3.0)) {
-                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oGloves))))) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oGloves));
+                                if (gml_eq(self->vars[VAR_n], 3.0f)) {
+                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oGloves))))) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oGloves));
                                         break;
                                     }
                                 } else {
-                                    if (gml_eq(self->vars[VAR_n], 4.0)) {
-                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oMitt))))) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oMitt));
+                                    if (gml_eq(self->vars[VAR_n], 4.0f)) {
+                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oMitt))))) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oMitt));
                                             break;
                                         }
                                     } else {
-                                        if (gml_eq(self->vars[VAR_n], 5.0)) {
-                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCapePickup))))) {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oCapePickup));
+                                        if (gml_eq(self->vars[VAR_n], 5.0f)) {
+                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCapePickup))))) {
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oCapePickup));
                                                 break;
                                             }
                                         } else {
-                                            if (gml_eq(self->vars[VAR_n], 6.0)) {
-                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpikeShoes))))) {
-                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpikeShoes));
+                                            if (gml_eq(self->vars[VAR_n], 6.0f)) {
+                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpikeShoes))))) {
+                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpikeShoes));
                                                     break;
                                                 }
                                             }
@@ -141,80 +141,80 @@ void gml_script_scrShopItemsGen(gm_instance_t *self, gm_instance_t *other)
                             }
                         }
                     }
-                    self->vars[VAR_m] = (self->vars[VAR_m] - 1.0);
+                    self->vars[VAR_m] = (self->vars[VAR_m] - 1.0f);
                 }
             } else {
                 if (gml_str_eq(self->strs[SVAR_shopType], "Rare")) {
-                    self->vars[VAR_m] = 20.0;
-                    while (gml_truthy(1.0)) {
-                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 11.0);
-                        if (gml_eq(gml_script_rand(self, other, 1.0, self->vars[VAR_m]), 1.0)) {
-                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oBombBox));
+                    self->vars[VAR_m] = 20.0f;
+                    while (gml_truthy(1.0f)) {
+                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 11.0f);
+                        if (gml_eq(gml_script_rand(self, other, 1.0f, self->vars[VAR_m]), 1.0f)) {
+                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oBombBox));
                             break;
                         } else {
-                            if (gml_eq(self->vars[VAR_n], 1.0)) {
-                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpringShoes))))) {
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpringShoes));
+                            if (gml_eq(self->vars[VAR_n], 1.0f)) {
+                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpringShoes))))) {
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpringShoes));
                                     break;
                                 }
                             } else {
-                                if (gml_eq(self->vars[VAR_n], 2.0)) {
-                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCompass))))) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oCompass));
+                                if (gml_eq(self->vars[VAR_n], 2.0f)) {
+                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCompass))))) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oCompass));
                                         break;
                                     }
                                 } else {
-                                    if (gml_eq(self->vars[VAR_n], 3.0)) {
-                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oMattock))))) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oMattock));
+                                    if (gml_eq(self->vars[VAR_n], 3.0f)) {
+                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oMattock))))) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oMattock));
                                             break;
                                         }
                                     } else {
-                                        if (gml_eq(self->vars[VAR_n], 4.0)) {
-                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpectacles))))) {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpectacles));
+                                        if (gml_eq(self->vars[VAR_n], 4.0f)) {
+                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpectacles))))) {
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpectacles));
                                                 break;
                                             }
                                         } else {
-                                            if (gml_eq(self->vars[VAR_n], 5.0)) {
-                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oJetpack))))) {
-                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oJetpack));
+                                            if (gml_eq(self->vars[VAR_n], 5.0f)) {
+                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oJetpack))))) {
+                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oJetpack));
                                                     break;
                                                 }
                                             } else {
-                                                if (gml_eq(self->vars[VAR_n], 6.0)) {
-                                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oGloves))))) {
-                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oGloves));
+                                                if (gml_eq(self->vars[VAR_n], 6.0f)) {
+                                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oGloves))))) {
+                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oGloves));
                                                         break;
                                                     }
                                                 } else {
-                                                    if (gml_eq(self->vars[VAR_n], 7.0)) {
-                                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oMitt))))) {
-                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oMitt));
+                                                    if (gml_eq(self->vars[VAR_n], 7.0f)) {
+                                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oMitt))))) {
+                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oMitt));
                                                             break;
                                                         }
                                                     } else {
-                                                        if (gml_eq(self->vars[VAR_n], 8.0)) {
-                                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oWebCannon))))) {
-                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oWebCannon));
+                                                        if (gml_eq(self->vars[VAR_n], 8.0f)) {
+                                                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oWebCannon))))) {
+                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oWebCannon));
                                                                 break;
                                                             }
                                                         } else {
-                                                            if (gml_eq(self->vars[VAR_n], 9.0)) {
-                                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCapePickup))))) {
-                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oCapePickup));
+                                                            if (gml_eq(self->vars[VAR_n], 9.0f)) {
+                                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCapePickup))))) {
+                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oCapePickup));
                                                                     break;
                                                                 }
                                                             } else {
-                                                                if (gml_eq(self->vars[VAR_n], 10.0)) {
-                                                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTeleporter))))) {
-                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oTeleporter));
+                                                                if (gml_eq(self->vars[VAR_n], 10.0f)) {
+                                                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTeleporter))))) {
+                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oTeleporter));
                                                                         break;
                                                                     }
                                                                 } else {
-                                                                    if (gml_eq(self->vars[VAR_n], 11.0)) {
-                                                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSpikeShoes))))) {
-                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oSpikeShoes));
+                                                                    if (gml_eq(self->vars[VAR_n], 11.0f)) {
+                                                                        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSpikeShoes))))) {
+                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oSpikeShoes));
                                                                             break;
                                                                         }
                                                                     }
@@ -229,39 +229,39 @@ void gml_script_scrShopItemsGen(gm_instance_t *self, gm_instance_t *other)
                                 }
                             }
                         }
-                        self->vars[VAR_m] = (self->vars[VAR_m] - 1.0);
+                        self->vars[VAR_m] = (self->vars[VAR_m] - 1.0f);
                     }
                 } else {
-                    while (gml_truthy(1.0)) {
-                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 3.0);
-                        if (gml_eq(gml_script_rand(self, other, 1.0, 20.0), 1.0)) {
-                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oMattock))))) {
-                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oMattock));
+                    while (gml_truthy(1.0f)) {
+                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 3.0f);
+                        if (gml_eq(gml_script_rand(self, other, 1.0f, 20.0f), 1.0f)) {
+                            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oMattock))))) {
+                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oMattock));
                                 break;
                             }
                         } else {
-                            if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oGloves))))) {
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oGloves));
+                            if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oGloves))))) {
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oGloves));
                                     break;
                                 }
                             } else {
-                                if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCompass))))) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oCompass));
+                                if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                                    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCompass))))) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oCompass));
                                         break;
                                     }
                                 } else {
-                                    if (gml_eq(self->vars[VAR_n], 1.0)) {
-                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oBombBag));
+                                    if (gml_eq(self->vars[VAR_n], 1.0f)) {
+                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oBombBag));
                                         break;
                                     } else {
-                                        if (gml_eq(self->vars[VAR_n], 2.0)) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 11.0), ((double)OBJ_oRopePile));
+                                        if (gml_eq(self->vars[VAR_n], 2.0f)) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 11.0f), ((float)OBJ_oRopePile));
                                             break;
                                         } else {
-                                            if (gml_eq(self->vars[VAR_n], 3.0)) {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 10.0), ((double)OBJ_oParaPickup));
+                                            if (gml_eq(self->vars[VAR_n], 3.0f)) {
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 10.0f), ((float)OBJ_oParaPickup));
                                                 break;
                                             }
                                         }
@@ -275,13 +275,13 @@ void gml_script_scrShopItemsGen(gm_instance_t *self, gm_instance_t *other)
         }
     }
     if (gml_truthy(self->vars[VAR_obj])) {
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 1.0);
-        if (gml_gt(g_gml_globals.currLevel, 2.0)) {
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 1.0f);
+        if (gml_gt(g_gml_globals.currLevel, 2.0f)) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    self1->vars[VAR_cost] = (self1->vars[VAR_cost] + (((self1->vars[VAR_cost] / 100.0) * 10.0) * (g_gml_globals.currLevel - 2.0)));
+                    self1->vars[VAR_cost] = (self1->vars[VAR_cost] + (((self1->vars[VAR_cost] / 100.0f) * 10.0f) * (g_gml_globals.currLevel - 2.0f)));
                     if (gml_str_eq(self1->strs[SVAR_shopDesc], "")) {
                         self1->strs[SVAR_buyMessage] = gml_concat((s4 = (s3 = (s2 = gml_script_tr(self1, self, 1, "A "), gml_concat(s2, gml_fn_string_upper(self1, self, self1->strs[SVAR_type]))), gml_concat(s3, gml_script_tr(self1, self, 1, " FOR $"))), gml_concat(s4, gml_real_str(self1->vars[VAR_cost]))), ".");
                     } else {

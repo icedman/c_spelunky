@@ -3,17 +3,17 @@
 
 static void gml_ev_oTestButton__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    gml_iset_x(self, ((t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t1 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) - 48.0));
-    if (gml_eq(gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), 0.0)) {
-        gml_iset_y(self, ((t2 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t2 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) - 32.0));
+    gml_iset_x(self, ((t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t1 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) - 48.0f));
+    if (gml_eq(gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), 0.0f)) {
+        gml_iset_y(self, ((t2 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t2 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) - 32.0f));
     } else {
-        gml_iset_y(self, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 16.0));
+        gml_iset_y(self, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 16.0f));
     }
 }
 
@@ -28,7 +28,7 @@ static void gml_ev_oTestButton__Mouse_11_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sTestButton));
+    gml_iset_sprite_index(self, ((float)SPR_sTestButton));
 }
 
 void gml_ev_oTestButton__Mouse_11(gm_instance_t *self, gm_instance_t *other)
@@ -44,18 +44,18 @@ static void gml_ev_oTestButton__Mouse_7_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sTestButtonPressed))) {
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sTestButtonPressed))) {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oLevelEditor)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oLevelEditor)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 gml_script_scrTestLevel(self1, self);
             }
             gm_with_end();
         }
-        gml_fn_room_goto(self, other, ((double)RM_rLoadLevel));
+        gml_fn_room_goto(self, other, ((float)RM_rLoadLevel));
     }
-    gml_iset_sprite_index(self, ((double)SPR_sTestButton));
+    gml_iset_sprite_index(self, ((float)SPR_sTestButton));
 }
 
 void gml_ev_oTestButton__Mouse_7(gm_instance_t *self, gm_instance_t *other)
@@ -69,7 +69,7 @@ static void gml_ev_oTestButton__Mouse_4_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sTestButtonPressed));
+    gml_iset_sprite_index(self, ((float)SPR_sTestButtonPressed));
 }
 
 void gml_ev_oTestButton__Mouse_4(gm_instance_t *self, gm_instance_t *other)

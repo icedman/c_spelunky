@@ -7,63 +7,63 @@ void gml_script_scrHoldItem(gm_instance_t *self, gm_instance_t *other, const cha
     (void)other;
     (void)a0;
     self->strs[SVAR_itemType] = a0;
-    self->vars[VAR_pickup] = 1.0;
+    self->vars[VAR_pickup] = 1.0f;
     if (gml_str_eq(self->strs[SVAR_itemType], "")) {
-        self->vars[VAR_holdItem] = 0.0;
+        self->vars[VAR_holdItem] = 0.0f;
         self->strs[SVAR_pickupItemType] = "";
     } else {
         if (gml_str_eq(self->strs[SVAR_itemType], "Rock")) {
-            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRock));
+            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRock));
         } else {
             if (gml_str_eq(self->strs[SVAR_itemType], "Jar")) {
-                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oJar));
+                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oJar));
             } else {
                 if (gml_str_eq(self->strs[SVAR_itemType], "Skull")) {
-                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSkull));
+                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSkull));
                 } else {
                     if (gml_str_eq(self->strs[SVAR_itemType], "Fish Bone")) {
-                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oFishBone));
+                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oFishBone));
                     } else {
                         if (gml_str_eq(self->strs[SVAR_itemType], "Arrow")) {
-                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oArrow));
+                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oArrow));
                         } else {
                             if (gml_str_eq(self->strs[SVAR_itemType], "Rock")) {
-                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRock));
+                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRock));
                             } else {
                                 if (gml_str_eq(self->strs[SVAR_itemType], "Machete")) {
-                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oMachete));
+                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oMachete));
                                 } else {
                                     if (gml_str_eq(self->strs[SVAR_itemType], "Mattock")) {
-                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oMattock));
+                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oMattock));
                                     } else {
                                         if (gml_str_eq(self->strs[SVAR_itemType], "Mattock Head")) {
-                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oMattockHead));
+                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oMattockHead));
                                         } else {
                                             if (gml_str_eq(self->strs[SVAR_itemType], "Pistol")) {
-                                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPistol));
+                                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPistol));
                                             } else {
                                                 if (gml_str_eq(self->strs[SVAR_itemType], "Web Cannon")) {
-                                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oWebCannon));
+                                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oWebCannon));
                                                 } else {
                                                     if (gml_str_eq(self->strs[SVAR_itemType], "Teleporter")) {
-                                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oTeleporter));
+                                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oTeleporter));
                                                     } else {
                                                         if (gml_str_eq(self->strs[SVAR_itemType], "Shotgun")) {
-                                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oShotgun));
+                                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oShotgun));
                                                         } else {
                                                             if (gml_str_eq(self->strs[SVAR_itemType], "Bow")) {
-                                                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBow));
+                                                                self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBow));
                                                             } else {
                                                                 if (gml_str_eq(self->strs[SVAR_itemType], "Flare")) {
-                                                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oFlare));
+                                                                    self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oFlare));
                                                                 } else {
                                                                     if (gml_str_eq(self->strs[SVAR_itemType], "Sceptre")) {
-                                                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSceptre));
+                                                                        self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSceptre));
                                                                     } else {
                                                                         if (gml_str_eq(self->strs[SVAR_itemType], "Key")) {
-                                                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oKey));
+                                                                            self->vars[VAR_holdItem] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oKey));
                                                                         } else {
-                                                                            self->vars[VAR_pickup] = 0.0;
+                                                                            self->vars[VAR_pickup] = 0.0f;
                                                                         }
                                                                     }
                                                                 }
@@ -82,13 +82,13 @@ void gml_script_scrHoldItem(gm_instance_t *self, gm_instance_t *other, const cha
             }
         }
         if (gml_truthy(self->vars[VAR_pickup])) {
-            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_held, 1.0);
-            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_New, 0.0);
+            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_held, 1.0f);
+            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_New, 0.0f);
             self->strs[SVAR_pickupItemType] = self->strs[SVAR_itemType];
             self->vars[VAR_whoaTimer] = self->vars[VAR_whoaTimerMax];
         } else {
-            self->vars[VAR_holdItem] = 0.0;
+            self->vars[VAR_holdItem] = 0.0f;
             self->strs[SVAR_pickupItemType] = "";
         }
     }

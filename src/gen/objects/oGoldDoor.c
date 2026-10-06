@@ -9,12 +9,12 @@ static void gml_ev_oGoldDoor__Collision_oSceptre_body(gm_instance_t *self, gm_in
     (void)wd;
     if (gml_truthy(other->vars[VAR_held])) {
         if (gml_truthy(g_gml_globals.hasCrown)) {
-            other->vars[VAR_held] = 0.0;
+            other->vars[VAR_held] = 0.0f;
             {
                 gm_instance_t *self1;
-                gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    self1->vars[VAR_holdItem] = 0.0;
+                    self1->vars[VAR_holdItem] = 0.0f;
                     self1->strs[SVAR_pickupItemType] = "";
                 }
                 gm_with_end();
@@ -28,12 +28,12 @@ static void gml_ev_oGoldDoor__Collision_oSceptre_body(gm_instance_t *self, gm_in
                 gm_with_end();
             }
             gml_script_playSound(self, other, g_gml_globals.sndChestOpen);
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oXGold)));
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oXGold)));
             gml_fn_instance_destroy(self, other, 0, NULL);
         } else {
             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "THE SCEPTRE FITS..."));
             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "BUT NOTHING IS HAPPENING!"));
-            g_gml_globals.messageTimer = 100.0;
+            g_gml_globals.messageTimer = 100.0f;
         }
     }
 }

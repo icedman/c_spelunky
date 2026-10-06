@@ -5,8 +5,8 @@ static void gml_ev_oGiantTikiHead__Alarm_0_body(gm_instance_t *self, gm_instance
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sGTHHole));
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBoulder)));
+    gml_iset_sprite_index(self, ((float)SPR_sGTHHole));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBoulder)));
     gml_script_playSound(self, other, g_gml_globals.sndThump);
 }
 

@@ -8,12 +8,12 @@ static void gml_ev_oBasketball__Create_0_body(gm_instance_t *self, gm_instance_t
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Basketball";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_bounceFactor] = 0.7;
-    self->vars[VAR_bounces] = 0.0;
-    self->vars[VAR_wallBounce] = 0.0;
-    self->vars[VAR_frictionFactor] = 0.6;
-    self->vars[VAR_goingIn] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_bounceFactor] = 0.7f;
+    self->vars[VAR_bounces] = 0.0f;
+    self->vars[VAR_wallBounce] = 0.0f;
+    self->vars[VAR_frictionFactor] = 0.6f;
+    self->vars[VAR_goingIn] = 0.0f;
 }
 
 void gml_ev_oBasketball__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -31,73 +31,73 @@ static void gml_ev_oBasketball__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)wd;
     gml_script_action_inherited(self, other);
     if ((gml_truthy(self->vars[VAR_colLeft]) || gml_truthy(self->vars[VAR_colRight]))) {
-        self->vars[VAR_wallBounce] = 1.0;
+        self->vars[VAR_wallBounce] = 1.0f;
     } else {
         if (gml_truthy(self->vars[VAR_colBot])) {
-            self->vars[VAR_wallBounce] = 0.0;
+            self->vars[VAR_wallBounce] = 0.0f;
         }
     }
-    if (((gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0), (gml_iget_y(self) + 4.0), (gml_iget_x(self) + 1.0), (gml_iget_y(self) + 5.0), ((double)OBJ_oRimDeflect), 0.0, 0.0)) && (!gml_truthy(self->vars[VAR_goingIn]))) && gml_lt(self->vars[VAR_bounces], 40.0))) {
-        self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8);
-        self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRimDeflect));
-        if ((gml_lt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0)) && gml_gt(fabs(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0) - gml_iget_x(self))), 7.0))) {
-            self->vars[VAR_xVel] = (-2.0);
-            self->vars[VAR_yVel] = (-0.5);
+    if (((gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0f), (gml_iget_y(self) + 4.0f), (gml_iget_x(self) + 1.0f), (gml_iget_y(self) + 5.0f), ((float)OBJ_oRimDeflect), 0.0f, 0.0f)) && (!gml_truthy(self->vars[VAR_goingIn]))) && gml_lt(self->vars[VAR_bounces], 40.0f))) {
+        self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8f);
+        self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRimDeflect));
+        if ((gml_lt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f)) && gml_gt(fabsf(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f) - gml_iget_x(self))), 7.0f))) {
+            self->vars[VAR_xVel] = (-2.0f);
+            self->vars[VAR_yVel] = (-0.5f);
         } else {
-            if ((gml_gt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0)) && gml_gt(fabs(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0) - gml_iget_x(self))), 7.0))) {
-                self->vars[VAR_xVel] = 2.0;
-                self->vars[VAR_yVel] = (-0.5);
+            if ((gml_gt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f)) && gml_gt(fabsf(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f) - gml_iget_x(self))), 7.0f))) {
+                self->vars[VAR_xVel] = 2.0f;
+                self->vars[VAR_yVel] = (-0.5f);
             } else {
-                if (gml_lt(fabs(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0) - gml_iget_x(self))), 4.0)) {
-                    if (gml_lt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0))) {
-                        self->vars[VAR_xVel] = 1.0;
+                if (gml_lt(fabsf(((gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f) - gml_iget_x(self))), 4.0f)) {
+                    if (gml_lt(gml_iget_x(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f))) {
+                        self->vars[VAR_xVel] = 1.0f;
                     } else {
-                        self->vars[VAR_xVel] = (-0.2);
+                        self->vars[VAR_xVel] = (-0.2f);
                     }
-                    self->vars[VAR_yVel] = (-0.5);
+                    self->vars[VAR_yVel] = (-0.5f);
                 }
             }
         }
-        self->vars[VAR_bounces] = (self->vars[VAR_bounces] + 10.0);
+        self->vars[VAR_bounces] = (self->vars[VAR_bounces] + 10.0f);
     }
-    if (gml_gt(self->vars[VAR_bounces], 0.0)) {
-        self->vars[VAR_bounces] = (self->vars[VAR_bounces] - 1.0);
+    if (gml_gt(self->vars[VAR_bounces], 0.0f)) {
+        self->vars[VAR_bounces] = (self->vars[VAR_bounces] - 1.0f);
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRim), 0.0, 0.0))) {
-        if (((!gml_truthy(self->vars[VAR_goingIn])) && (gml_gt(self->vars[VAR_yVel], 0.0) || (gml_truthy(self->vars[VAR_held]) && gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_state), 16.0))))) {
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRim), 0.0f, 0.0f))) {
+        if (((!gml_truthy(self->vars[VAR_goingIn])) && (gml_gt(self->vars[VAR_yVel], 0.0f) || (gml_truthy(self->vars[VAR_held]) && gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_state), 16.0f))))) {
             {
                 gm_instance_t *self1;
-                gm_with_begin(gml_target(((double)OBJ_oMoonRoom)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oMoonRoom)), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    gml_iset_alarm(self1, 0.0, 20.0);
+                    gml_iset_alarm(self1, 0.0f, 20.0f);
                 }
                 gm_with_end();
             }
-            self->vars[VAR_xVel] = 0.0;
-            self->vars[VAR_yVel] = 0.0;
-            self->vars[VAR_goingIn] = 1.0;
-            self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBasket));
-            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sBasketSwoosh));
-            gml_iset_image_index(gml_deref(self->vars[VAR_obj], self, other), 0.0);
+            self->vars[VAR_xVel] = 0.0f;
+            self->vars[VAR_yVel] = 0.0f;
+            self->vars[VAR_goingIn] = 1.0f;
+            self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBasket));
+            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sBasketSwoosh));
+            gml_iset_image_index(gml_deref(self->vars[VAR_obj], self, other), 0.0f);
             if (gml_truthy(self->vars[VAR_held])) {
-                gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + 1.0));
-                gml_ivar_set(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_holdItem, 0.0);
+                gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + 1.0f));
+                gml_ivar_set(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_holdItem, 0.0f);
             } else {
                 if (gml_truthy(self->vars[VAR_wallBounce])) {
-                    gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + 3.0));
+                    gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + 3.0f));
                 } else {
-                    gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + 2.0));
+                    gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + 2.0f));
                 }
             }
-            self->vars[VAR_held] = 0.0;
+            self->vars[VAR_held] = 0.0f;
         }
     } else {
-        self->vars[VAR_goingIn] = 0.0;
+        self->vars[VAR_goingIn] = 0.0f;
     }
-    if ((gml_truthy(self->vars[VAR_held]) && gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 6.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-        gml_iset_sprite_index(self, ((double)SPR_sDribble));
+    if ((gml_truthy(self->vars[VAR_held]) && gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 6.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+        gml_iset_sprite_index(self, ((float)SPR_sDribble));
     } else {
-        gml_iset_sprite_index(self, ((double)SPR_sBasketball));
+        gml_iset_sprite_index(self, ((float)SPR_sBasketball));
     }
 }
 

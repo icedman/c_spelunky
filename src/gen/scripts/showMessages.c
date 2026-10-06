@@ -3,15 +3,15 @@
 
 void gml_script_showMessages(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     gm_value_t v2 = GM_VALUE_UNDEFINED_INIT;
-    double t3 = 0.0;
+    float t3 = 0.0f;
     gm_value_t v4 = GM_VALUE_UNDEFINED_INIT;
-    double t5 = 0.0;
+    float t5 = 0.0f;
     gm_value_t v6 = GM_VALUE_UNDEFINED_INIT;
-    double t7 = 0.0;
+    float t7 = 0.0f;
     gm_value_t v8 = GM_VALUE_UNDEFINED_INIT;
-    double t9 = 0.0;
+    float t9 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -23,34 +23,34 @@ void gml_script_showMessages(gm_instance_t *self, gm_instance_t *other)
     (void)t7;
     (void)v8;
     (void)t9;
-    if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
+    if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
         if (gml_truthy(g_gml_globals.html5Build)) {
-            self->vars[VAR_y1] = (t1 = ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 216.0) + 8.0), (t1 - g_gml_globals.fontSmallHeight));
+            self->vars[VAR_y1] = (t1 = ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 216.0f) + 8.0f), (t1 - g_gml_globals.fontSmallHeight));
             self->vars[VAR_y2] = (self->vars[VAR_y1] + g_gml_globals.fontSmallHeight);
             if (gml_truthy(gml_is_array(g_gml_gvals[GV_message]))) {
-                (v2 = g_gml_gvals[GV_message], t3 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawHighlightedMessage(self, other, 4, v2, t3, self->vars[VAR_y1], 1.0));
+                (v2 = g_gml_gvals[GV_message], t3 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawHighlightedMessage(self, other, 4, v2, t3, self->vars[VAR_y1], 1.0f));
             } else {
-                (v4 = g_gml_gvals[GV_message], t5 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawMessage(self, other, 6, v4, "small", (16777215.0 /* c_white */), t5, self->vars[VAR_y1], 1.0));
+                (v4 = g_gml_gvals[GV_message], t5 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawMessage(self, other, 6, v4, "small", (16777215.0f /* c_white */), t5, self->vars[VAR_y1], 1.0f));
             }
             if (gml_truthy(gml_is_array(g_gml_gvals[GV_message2]))) {
-                (v6 = g_gml_gvals[GV_message2], t7 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawHighlightedMessage(self, other, 4, v6, t7, self->vars[VAR_y2], 2.0));
+                (v6 = g_gml_gvals[GV_message2], t7 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawHighlightedMessage(self, other, 4, v6, t7, self->vars[VAR_y2], 2.0f));
             } else {
-                (v8 = g_gml_gvals[GV_message2], t9 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawMessage(self, other, 6, v8, "small", (16777215.0 /* c_white */), t9, self->vars[VAR_y2], 2.0));
+                (v8 = g_gml_gvals[GV_message2], t9 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawMessage(self, other, 6, v8, "small", (16777215.0f /* c_white */), t9, self->vars[VAR_y2], 2.0f));
             }
         } else {
-            self->vars[VAR_y1] = ((216.0 + 8.0) - g_gml_globals.fontSmallHeight);
+            self->vars[VAR_y1] = ((216.0f + 8.0f) - g_gml_globals.fontSmallHeight);
             self->vars[VAR_y2] = (self->vars[VAR_y1] + g_gml_globals.fontSmallHeight);
             if (gml_truthy(gml_is_array(g_gml_gvals[GV_message]))) {
-                gml_script_drawHighlightedMessage(self, other, 4, g_gml_gvals[GV_message], 0.0, self->vars[VAR_y1], 1.0);
+                gml_script_drawHighlightedMessage(self, other, 4, g_gml_gvals[GV_message], 0.0f, self->vars[VAR_y1], 1.0f);
             } else {
-                gml_script_drawMessage(self, other, 6, g_gml_gvals[GV_message], "small", (16777215.0 /* c_white */), 0.0, self->vars[VAR_y1], 1.0);
+                gml_script_drawMessage(self, other, 6, g_gml_gvals[GV_message], "small", (16777215.0f /* c_white */), 0.0f, self->vars[VAR_y1], 1.0f);
             }
             if (gml_truthy(gml_is_array(g_gml_gvals[GV_message2]))) {
-                gml_script_drawHighlightedMessage(self, other, 4, g_gml_gvals[GV_message2], 0.0, self->vars[VAR_y2], 2.0);
+                gml_script_drawHighlightedMessage(self, other, 4, g_gml_gvals[GV_message2], 0.0f, self->vars[VAR_y2], 2.0f);
             } else {
-                gml_script_drawMessage(self, other, 6, g_gml_gvals[GV_message2], "small", (16777215.0 /* c_white */), 0.0, self->vars[VAR_y2], 2.0);
+                gml_script_drawMessage(self, other, 6, g_gml_gvals[GV_message2], "small", (16777215.0f /* c_white */), 0.0f, self->vars[VAR_y2], 2.0f);
             }
         }
-        g_gml_globals.messageTimer = (g_gml_globals.messageTimer - 1.0);
+        g_gml_globals.messageTimer = (g_gml_globals.messageTimer - 1.0f);
     }
 }

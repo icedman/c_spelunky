@@ -3,16 +3,16 @@
 
 static void gml_ev_oWaterSwim__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
     (void)t3;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oDrip))));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oDrip))));
     }
 }
 

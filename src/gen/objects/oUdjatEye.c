@@ -8,8 +8,8 @@ static void gml_ev_oUdjatEye__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Udjat Eye";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-6.0), 6.0, 6.0);
-    self->vars[VAR_cost] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-6.0f), 6.0f, 6.0f);
+    self->vars[VAR_cost] = 0.0f;
     self->strs[SVAR_buyMessage] = gml_script_tr(self, other, 1, "I SHOULDN'T BE SELLING THIS!");
 }
 

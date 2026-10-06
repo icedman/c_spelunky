@@ -7,18 +7,18 @@ static void gml_ev_oThwompTrap__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)other;
     gml_script_action_inherited(self, other);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, 0.0, 0.0, 16.0, 16.0);
-    self->vars[VAR_invincible] = 0.0;
-    self->vars[VAR_viscidTop] = 1.0;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_myGrav] = 1.0;
-    self->vars[VAR_counter] = 0.0;
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_IDLE] = 0.0;
-    self->vars[VAR_DROP] = 1.0;
-    self->vars[VAR_WAIT] = 2.0;
-    self->vars[VAR_RETURN] = 3.0;
+    gml_script_setCollisionBounds(self, other, 0.0f, 0.0f, 16.0f, 16.0f);
+    self->vars[VAR_invincible] = 0.0f;
+    self->vars[VAR_viscidTop] = 1.0f;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_myGrav] = 1.0f;
+    self->vars[VAR_counter] = 0.0f;
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_IDLE] = 0.0f;
+    self->vars[VAR_DROP] = 1.0f;
+    self->vars[VAR_WAIT] = 2.0f;
+    self->vars[VAR_RETURN] = 3.0f;
 }
 
 void gml_ev_oThwompTrap__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -32,37 +32,37 @@ static void gml_ev_oThwompTrap__Step_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_dist] = gml_fn_distance_to_object(self, other, ((double)OBJ_oCharacter));
+    self->vars[VAR_dist] = gml_fn_distance_to_object(self, other, ((float)OBJ_oCharacter));
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_IDLE])) {
-        if (((gml_gt(gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_y(self)) && gml_lt(self->vars[VAR_dist], 96.0)) && gml_lt(fabs((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 8.0))) {
+        if (((gml_gt(gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_y(self)) && gml_lt(self->vars[VAR_dist], 96.0f)) && gml_lt(fabsf((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 8.0f))) {
             self->vars[VAR_status] = self->vars[VAR_DROP];
         }
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_DROP])) {
             self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
-            if (gml_gt(self->vars[VAR_yVel], 6.0)) {
-                self->vars[VAR_yVel] = 6.0;
+            if (gml_gt(self->vars[VAR_yVel], 6.0f)) {
+                self->vars[VAR_yVel] = 6.0f;
             }
-            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
+            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
                 self->vars[VAR_status] = self->vars[VAR_WAIT];
-                self->vars[VAR_yVel] = 0.0;
-                self->vars[VAR_counter] = 100.0;
+                self->vars[VAR_yVel] = 0.0f;
+                self->vars[VAR_counter] = 100.0f;
             }
         } else {
             if (gml_eq(self->vars[VAR_status], self->vars[VAR_WAIT])) {
-                if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-                    gml_iset_y(self, (gml_iget_y(self) - 1.0));
+                if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+                    gml_iset_y(self, (gml_iget_y(self) - 1.0f));
                 }
-                if (gml_gt(self->vars[VAR_counter], 0.0)) {
-                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+                if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
                 } else {
                     self->vars[VAR_status] = self->vars[VAR_RETURN];
-                    self->vars[VAR_yVel] = (-1.0);
+                    self->vars[VAR_yVel] = (-1.0f);
                 }
             } else {
                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_RETURN])) {
-                    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0))) {
-                        self->vars[VAR_yVel] = 0.0;
+                    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0f))) {
+                        self->vars[VAR_yVel] = 0.0f;
                         self->vars[VAR_status] = self->vars[VAR_IDLE];
                     }
                 }

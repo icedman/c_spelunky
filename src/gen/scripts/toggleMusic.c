@@ -5,6 +5,6 @@ void gml_script_toggleMusic(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    g_gml_globals.music = ((!gml_truthy(g_gml_globals.music)) ? 1.0 : 0.0);
+    g_gml_globals.music = ((!gml_truthy(g_gml_globals.music)) ? 1.0f : 0.0f);
     gml_script_onOffMusic(self, other);
 }

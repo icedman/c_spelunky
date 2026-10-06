@@ -5,24 +5,24 @@ static void gml_ev_oBatTarget__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_bloodless] = 0.0;
-    self->vars[VAR_UP] = 0.0;
-    self->vars[VAR_DOWN] = 1.0;
-    self->vars[VAR_dir] = 1.0;
-    if (gml_eq(gml_iget_x(self), 208.0)) {
-        self->vars[VAR_difficulty] = 2.0;
+    self->vars[VAR_bloodless] = 0.0f;
+    self->vars[VAR_UP] = 0.0f;
+    self->vars[VAR_DOWN] = 1.0f;
+    self->vars[VAR_dir] = 1.0f;
+    if (gml_eq(gml_iget_x(self), 208.0f)) {
+        self->vars[VAR_difficulty] = 2.0f;
     } else {
-        if (gml_eq(gml_iget_x(self), 256.0)) {
-            self->vars[VAR_difficulty] = 4.0;
+        if (gml_eq(gml_iget_x(self), 256.0f)) {
+            self->vars[VAR_difficulty] = 4.0f;
         } else {
-            self->vars[VAR_difficulty] = 1.0;
+            self->vars[VAR_difficulty] = 1.0f;
         }
     }
     self->vars[VAR_xMid] = gml_iget_x(self);
-    self->vars[VAR_xDiff] = 0.0;
-    if (gml_le(gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_timer), 20.0)) {
-        self->vars[VAR_difficulty] = (self->vars[VAR_difficulty] + 2.0);
-        gml_iset_sprite_index(self, ((double)SPR_sUFO));
+    self->vars[VAR_xDiff] = 0.0f;
+    if (gml_le(gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_timer), 20.0f)) {
+        self->vars[VAR_difficulty] = (self->vars[VAR_difficulty] + 2.0f);
+        gml_iset_sprite_index(self, ((float)SPR_sUFO));
     }
 }
 
@@ -39,20 +39,20 @@ static void gml_ev_oBatTarget__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     if (gml_eq(self->vars[VAR_dir], self->vars[VAR_UP])) {
         gml_iset_y(self, (gml_iget_y(self) - self->vars[VAR_difficulty]));
-        if (gml_le(gml_iget_y(self), 64.0)) {
+        if (gml_le(gml_iget_y(self), 64.0f)) {
             self->vars[VAR_dir] = self->vars[VAR_DOWN];
         }
     } else {
         if (gml_eq(self->vars[VAR_dir], self->vars[VAR_DOWN])) {
             gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_difficulty]));
-            if (gml_ge(gml_iget_y(self), 160.0)) {
+            if (gml_ge(gml_iget_y(self), 160.0f)) {
                 self->vars[VAR_dir] = self->vars[VAR_UP];
             }
         }
     }
-    if ((gml_le(gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_timer), 20.0) && gml_gt(gml_iget_y(self), 64.0))) {
-        gml_iset_x(self, (self->vars[VAR_xMid] - fabs((sin(self->vars[VAR_xDiff]) * 32.0))));
-        self->vars[VAR_xDiff] = (self->vars[VAR_xDiff] + 0.01);
+    if ((gml_le(gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_timer), 20.0f) && gml_gt(gml_iget_y(self), 64.0f))) {
+        gml_iset_x(self, (self->vars[VAR_xMid] - fabsf((sinf(self->vars[VAR_xDiff]) * 32.0f))));
+        self->vars[VAR_xDiff] = (self->vars[VAR_xDiff] + 0.01f);
     }
 }
 
@@ -71,7 +71,7 @@ static void gml_ev_oBatTarget__Collision_oArrow_body(gm_instance_t *self, gm_ins
     (void)wd;
     gml_script_playSound(self, other, g_gml_globals.sndHit);
     gml_script_playSound(self, other, g_gml_globals.sndCoin);
-    gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_difficulty]));
+    gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_difficulty]));
     {
         gm_instance_t *self1;
         gm_with_begin(GM_OTHER, self, other);
@@ -80,11 +80,11 @@ static void gml_ev_oBatTarget__Collision_oArrow_body(gm_instance_t *self, gm_ins
         }
         gm_with_end();
     }
-    (void)(gml_script_instance_create(self, other, self->vars[VAR_xMid], (-64.0), ((double)OBJ_oBatTarget)));
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sUFO))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oUFOCrash)));
+    (void)(gml_script_instance_create(self, other, self->vars[VAR_xMid], (-64.0f), ((float)OBJ_oBatTarget)));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sUFO))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oUFOCrash)));
     } else {
-        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), 3.0));
+        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), 3.0f));
     }
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
@@ -100,29 +100,29 @@ static void gml_ev_oBatTarget__Collision_oCharacter_body(gm_instance_t *self, gm
 {
     (void)self;
     (void)other;
-    if (gml_gt(fabs((gml_iget_x(other) - (gml_iget_x(self) + 8.0))), 12.0)) {
+    if (gml_gt(fabsf((gml_iget_x(other) - (gml_iget_x(self) + 8.0f))), 12.0f)) {
     } else {
-        if (((((!gml_truthy(other->vars[VAR_dead])) && (gml_eq(other->vars[VAR_state], 15.0) || gml_eq(other->vars[VAR_state], 16.0))) && gml_lt(gml_iget_y(other), (gml_iget_y(self) + 8.0))) && (!gml_truthy(other->vars[VAR_swimming])))) {
-            other->vars[VAR_yVel] = ((-6.0) - (0.2 * other->vars[VAR_yVel]));
+        if (((((!gml_truthy(other->vars[VAR_dead])) && (gml_eq(other->vars[VAR_state], 15.0f) || gml_eq(other->vars[VAR_state], 16.0f))) && gml_lt(gml_iget_y(other), (gml_iget_y(self) + 8.0f))) && (!gml_truthy(other->vars[VAR_swimming])))) {
+            other->vars[VAR_yVel] = ((-6.0f) - (0.2f * other->vars[VAR_yVel]));
             gml_script_playSound(self, other, g_gml_globals.sndHit);
             gml_script_playSound(self, other, g_gml_globals.sndCoin);
-            gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_difficulty]));
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), (-64.0), ((double)OBJ_oBatTarget)));
-            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), 3.0));
+            gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_difficulty]));
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), (-64.0f), ((float)OBJ_oBatTarget)));
+            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), 3.0f));
             gml_fn_instance_destroy(self, other, 0, NULL);
         } else {
-            if (gml_eq(other->vars[VAR_invincible], 0.0)) {
-                other->vars[VAR_blink] = 30.0;
-                other->vars[VAR_invincible] = 30.0;
+            if (gml_eq(other->vars[VAR_invincible], 0.0f)) {
+                other->vars[VAR_blink] = 30.0f;
+                other->vars[VAR_invincible] = 30.0f;
                 if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-                    other->vars[VAR_xVel] = (-6.0);
+                    other->vars[VAR_xVel] = (-6.0f);
                 } else {
-                    other->vars[VAR_xVel] = 6.0;
+                    other->vars[VAR_xVel] = 6.0f;
                 }
-                if (gml_gt(g_gml_globals.plife, 0.0)) {
-                    g_gml_globals.plife = (g_gml_globals.plife - 1.0);
+                if (gml_gt(g_gml_globals.plife, 0.0f)) {
+                    g_gml_globals.plife = (g_gml_globals.plife - 1.0f);
                 }
-                (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 4.0), (gml_iget_y(self) + 4.0), 1.0));
+                (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 4.0f), (gml_iget_y(self) + 4.0f), 1.0f));
                 gml_script_playSound(self, other, g_gml_globals.sndHurt);
             }
         }

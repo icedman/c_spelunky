@@ -5,9 +5,9 @@ static void gml_ev_oPressStart__Create_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    self->vars[VAR_pressStartBlink] = 0.0;
-    self->vars[VAR_anchorX] = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0);
-    gml_iset_alarm(self, 0.0, 20.0);
+    self->vars[VAR_pressStartBlink] = 0.0f;
+    self->vars[VAR_anchorX] = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f);
+    gml_iset_alarm(self, 0.0f, 20.0f);
 }
 
 void gml_ev_oPressStart__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,8 +21,8 @@ static void gml_ev_oPressStart__Alarm_1_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_pressStartBlink] = 0.0;
-    gml_iset_alarm(self, 0.0, 20.0);
+    self->vars[VAR_pressStartBlink] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 20.0f);
 }
 
 void gml_ev_oPressStart__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -36,8 +36,8 @@ static void gml_ev_oPressStart__Alarm_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_pressStartBlink] = 1.0;
-    gml_iset_alarm(self, 1.0, 20.0);
+    self->vars[VAR_pressStartBlink] = 1.0f;
+    gml_iset_alarm(self, 1.0f, 20.0f);
 }
 
 void gml_ev_oPressStart__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -50,16 +50,16 @@ void gml_ev_oPressStart__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oPressStart__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     const char *l_text = "";
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)l_text;
     (void)t1;
     (void)t2;
     l_text = "";
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        self->vars[VAR_player] = gml_fn_instance_nearest(self, other, 0.0, 0.0, ((double)OBJ_oPlayer1));
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        self->vars[VAR_player] = gml_fn_instance_nearest(self, other, 0.0f, 0.0f, ((float)OBJ_oPlayer1));
         if (gml_gt(gml_iget_x(gml_deref(self->vars[VAR_player], self, other)), self->vars[VAR_anchorX])) {
             if ((!gml_truthy(self->vars[VAR_pressStartBlink]))) {
                 if (gml_truthy(g_gml_globals.gamepadOn)) {
@@ -70,10 +70,10 @@ static void gml_ev_oPressStart__Draw_0_body(gm_instance_t *self, gm_instance_t *
                     }
                 }
                 gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                 self->vars[VAR_strLen] = (gml_fn_string_length(self, other, l_text) * g_gml_globals.fontSmallWidth);
-                self->vars[VAR_posX] = (t2 = self->vars[VAR_anchorX], (t2 + ceil(((t1 = gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0), (t1 - self->vars[VAR_strLen])) / 2.0))));
-                gml_fn_draw_text(self, other, self->vars[VAR_posX], 108.0, gml_fn_string_hash_to_newline(self, other, l_text));
+                self->vars[VAR_posX] = (t2 = self->vars[VAR_anchorX], (t2 + ceilf(((t1 = gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f), (t1 - self->vars[VAR_strLen])) / 2.0f))));
+                gml_fn_draw_text(self, other, self->vars[VAR_posX], 108.0f, gml_fn_string_hash_to_newline(self, other, l_text));
             }
         }
     }

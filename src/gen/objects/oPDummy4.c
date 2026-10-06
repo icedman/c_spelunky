@@ -6,11 +6,11 @@ static void gml_ev_oPDummy4__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.6);
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_climbSndToggle] = 0.0;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
+    gml_iset_image_speed(self, 0.6f);
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_climbSndToggle] = 0.0f;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oPDummy4__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -29,7 +29,7 @@ static void gml_ev_oPDummy4__Alarm_2_body(gm_instance_t *self, gm_instance_t *ot
     } else {
         gml_script_playSound(self, other, g_gml_globals.sndClimb2);
     }
-    self->vars[VAR_climbSndToggle] = ((!gml_truthy(self->vars[VAR_climbSndToggle])) ? 1.0 : 0.0);
+    self->vars[VAR_climbSndToggle] = ((!gml_truthy(self->vars[VAR_climbSndToggle])) ? 1.0f : 0.0f);
 }
 
 void gml_ev_oPDummy4__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -45,29 +45,29 @@ static void gml_ev_oPDummy4__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_eq(self->vars[VAR_status], 0.0)) {
-        if (gml_ge(gml_iget_y(self), 160.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sFallLeft));
-            self->vars[VAR_yVel] = 4.0;
-            if (gml_lt(self->vars[VAR_yVel], 6.0)) {
-                self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.2);
+    if (gml_eq(self->vars[VAR_status], 0.0f)) {
+        if (gml_ge(gml_iget_y(self), 160.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sFallLeft));
+            self->vars[VAR_yVel] = 4.0f;
+            if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
+                self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.2f);
             }
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sClimbUp3));
-            self->vars[VAR_yVel] = 2.0;
-            if (gml_lt(gml_iget_alarm(self, 2.0), 1.0)) {
-                gml_iset_alarm(self, 2.0, 8.0);
+            gml_iset_sprite_index(self, ((float)SPR_sClimbUp3));
+            self->vars[VAR_yVel] = 2.0f;
+            if (gml_lt(gml_iget_alarm(self, 2.0f), 1.0f)) {
+                gml_iset_alarm(self, 2.0f, 8.0f);
             }
         }
-        if (gml_ge(gml_iget_y(self), (176.0 + 8.0))) {
-            gml_iset_y(self, (176.0 + 8.0));
-            self->vars[VAR_player] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPlayer1));
-            gml_ivar_set(gml_deref(self->vars[VAR_player], self, other), VAR_facing, 18.0);
+        if (gml_ge(gml_iget_y(self), (176.0f + 8.0f))) {
+            gml_iset_y(self, (176.0f + 8.0f));
+            self->vars[VAR_player] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPlayer1));
+            gml_ivar_set(gml_deref(self->vars[VAR_player], self, other), VAR_facing, 18.0f);
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     } else {
-        self->vars[VAR_player] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPlayer1));
-        gml_ivar_set(gml_deref(self->vars[VAR_player], self, other), VAR_facing, 18.0);
+        self->vars[VAR_player] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPlayer1));
+        gml_ivar_set(gml_deref(self->vars[VAR_player], self, other), VAR_facing, 18.0f);
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

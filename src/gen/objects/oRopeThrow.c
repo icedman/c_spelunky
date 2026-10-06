@@ -8,12 +8,12 @@ static void gml_ev_oRopeThrow__Create_0_body(gm_instance_t *self, gm_instance_t 
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Rope";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_armed] = 0.0;
-    self->vars[VAR_falling] = 0.0;
-    self->vars[VAR_fallCount] = 0.0;
-    self->vars[VAR_px] = 0.0;
-    self->vars[VAR_py] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_armed] = 0.0f;
+    self->vars[VAR_falling] = 0.0f;
+    self->vars[VAR_fallCount] = 0.0f;
+    self->vars[VAR_px] = 0.0f;
+    self->vars[VAR_py] = 0.0f;
 }
 
 void gml_ev_oRopeThrow__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -28,38 +28,38 @@ static void gml_ev_oRopeThrow__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((gml_truthy(self->vars[VAR_armed]) && gml_ge(self->vars[VAR_yVel], 0.0))) {
-        gml_fn_move_snap(self, other, 16.0, 1.0);
+    if ((gml_truthy(self->vars[VAR_armed]) && gml_ge(self->vars[VAR_yVel], 0.0f))) {
+        gml_fn_move_snap(self, other, 16.0f, 1.0f);
         if (gml_lt(self->vars[VAR_px], gml_iget_x(self))) {
-            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 8.0), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-                gml_iset_x(self, (gml_iget_x(self) - 8.0));
+            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 8.0f), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+                gml_iset_x(self, (gml_iget_x(self) - 8.0f));
             } else {
-                gml_iset_x(self, (gml_iget_x(self) + 8.0));
+                gml_iset_x(self, (gml_iget_x(self) + 8.0f));
             }
         } else {
-            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-                gml_iset_x(self, (gml_iget_x(self) + 8.0));
+            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+                gml_iset_x(self, (gml_iget_x(self) + 8.0f));
             } else {
-                gml_iset_x(self, (gml_iget_x(self) - 8.0));
+                gml_iset_x(self, (gml_iget_x(self) - 8.0f));
             }
         }
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRopeTop)));
-        self->vars[VAR_armed] = 0.0;
-        self->vars[VAR_falling] = 1.0;
-        self->vars[VAR_xVel] = 0.0;
-        self->vars[VAR_yVel] = 0.0;
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRopeTop)));
+        self->vars[VAR_armed] = 0.0f;
+        self->vars[VAR_falling] = 1.0f;
+        self->vars[VAR_xVel] = 0.0f;
+        self->vars[VAR_yVel] = 0.0f;
     }
     if (gml_truthy(self->vars[VAR_falling])) {
-        self->vars[VAR_xVel] = 0.0;
-        self->vars[VAR_yVel] = 0.0;
-        gml_iset_y(self, (gml_iget_y(self) + 8.0));
-        self->vars[VAR_fallCount] = (self->vars[VAR_fallCount] + 1.0);
-        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0)) || gml_gt(self->vars[VAR_fallCount], 16.0))) {
-            self->vars[VAR_falling] = 0.0;
-            gml_iset_y(self, (gml_iget_y(self) - 8.0));
+        self->vars[VAR_xVel] = 0.0f;
+        self->vars[VAR_yVel] = 0.0f;
+        gml_iset_y(self, (gml_iget_y(self) + 8.0f));
+        self->vars[VAR_fallCount] = (self->vars[VAR_fallCount] + 1.0f);
+        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f)) || gml_gt(self->vars[VAR_fallCount], 16.0f))) {
+            self->vars[VAR_falling] = 0.0f;
+            gml_iset_y(self, (gml_iget_y(self) - 8.0f));
             gml_fn_instance_destroy(self, other, 0, NULL);
         } else {
-            (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), gml_iget_y(self), ((double)OBJ_oRope)));
+            (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), gml_iget_y(self), ((float)OBJ_oRope)));
         }
     }
 }

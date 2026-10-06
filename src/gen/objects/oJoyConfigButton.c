@@ -5,7 +5,7 @@ static void gml_ev_oJoyConfigButton__Mouse_11_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sJoyConfigButton));
+    gml_iset_sprite_index(self, ((float)SPR_sJoyConfigButton));
 }
 
 void gml_ev_oJoyConfigButton__Mouse_11(gm_instance_t *self, gm_instance_t *other)
@@ -19,10 +19,10 @@ static void gml_ev_oJoyConfigButton__Mouse_7_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sJoyConfigButtonPressed))) {
-        gml_fn_room_goto(self, other, ((double)RM_rJoyConfig));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sJoyConfigButtonPressed))) {
+        gml_fn_room_goto(self, other, ((float)RM_rJoyConfig));
     }
-    gml_iset_sprite_index(self, ((double)SPR_sJoyConfigButton));
+    gml_iset_sprite_index(self, ((float)SPR_sJoyConfigButton));
 }
 
 void gml_ev_oJoyConfigButton__Mouse_7(gm_instance_t *self, gm_instance_t *other)
@@ -36,7 +36,7 @@ static void gml_ev_oJoyConfigButton__Mouse_4_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sJoyConfigButtonPressed));
+    gml_iset_sprite_index(self, ((float)SPR_sJoyConfigButtonPressed));
 }
 
 void gml_ev_oJoyConfigButton__Mouse_4(gm_instance_t *self, gm_instance_t *other)

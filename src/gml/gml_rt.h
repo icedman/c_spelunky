@@ -27,7 +27,7 @@
  * arguments actually passed. Only script_execute with a computed index goes
  * through the boxed (argc, argv) trampolines.
  *
- * Value representations (tools/gml2c/c_emitter.py): `double` for reals,
+ * Value representations (tools/gml2c/c_emitter.py): `float` for reals,
  * `const char *` for statically typed strings, gm_value_t for arrays and
  * values of unknown type. String pointers are string literals or gm_heap
  * strings (the collector relocates them, see gm_heap.h); every helper that
@@ -68,7 +68,7 @@
 
 /* ---- values --------------------------------------------------------------------- */
 
-static inline gm_value_t gml_vreal(double d)
+static inline gm_value_t gml_vreal(float d)
 {
     return gm_value_real(d);
 }
@@ -86,15 +86,15 @@ static inline gm_value_t gml_vs(const char *s)
 }
 
 /* yyGetReal */
-static inline double gml_real(gm_value_t v)
+static inline float gml_real(gm_value_t v)
 {
     return v.kind == GM_VALUE_REAL ? v.real : gm_value_to_real(v);
 }
 
 /* yyGetBool on a real. */
-static inline int gml_truthy(double d)
+static inline int gml_truthy(float d)
 {
-    return d > 0.5;
+    return d > 0.5f;
 }
 
 static inline int gml_vtruthy(gm_value_t v)
@@ -104,35 +104,35 @@ static inline int gml_vtruthy(gm_value_t v)
 
 /* ---- comparisons (yyfequal, yyfless, ...) -------------------------------------------- */
 
-static inline int gml_eq(double a, double b)
+static inline int gml_eq(float a, float b)
 {
     return gm_compare_real(a, b) == 0;
 }
 
-static inline int gml_ne(double a, double b)
+static inline int gml_ne(float a, float b)
 {
     return gm_compare_real(a, b) != 0;
 }
 
-static inline int gml_lt(double a, double b)
+static inline int gml_lt(float a, float b)
 {
     int r = gm_compare_real(a, b);
     return r != GM_CMP_UNORDERED && r < 0;
 }
 
-static inline int gml_le(double a, double b)
+static inline int gml_le(float a, float b)
 {
     int r = gm_compare_real(a, b);
     return r != GM_CMP_UNORDERED && r <= 0;
 }
 
-static inline int gml_gt(double a, double b)
+static inline int gml_gt(float a, float b)
 {
     int r = gm_compare_real(a, b);
     return r != GM_CMP_UNORDERED && r > 0;
 }
 
-static inline int gml_ge(double a, double b)
+static inline int gml_ge(float a, float b)
 {
     int r = gm_compare_real(a, b);
     return r != GM_CMP_UNORDERED && r >= 0;
@@ -175,7 +175,7 @@ static inline int gml_vge(gm_value_t a, gm_value_t b)
 /* switch/case match: same kind, reals within epsilon, strings equal. */
 int gml_case(gm_value_t subject, gm_value_t label);
 
-static inline int gml_rcase(double subject, double label)
+static inline int gml_rcase(float subject, float label)
 {
     return gm_compare_real(subject, label) == 0;
 }
@@ -232,12 +232,12 @@ static inline const char *gml_concat(const char *a, const char *b)
 }
 
 /* Conversions of static strings: yyGetReal, yyGetBool, real(). */
-double gml_str_real(const char *s);
+float gml_str_real(const char *s);
 int gml_str_truthy(const char *s);
-double gml_str_to_real(const char *s);
+float gml_str_to_real(const char *s);
 
 /* string(x) for a real (in gm_heap, or a literal). */
-const char *gml_real_str(double d);
+const char *gml_real_str(float d);
 
 /* A value as a static string: strings as is, anything else through
  * string() ("undefined" for undefined). */
@@ -249,62 +249,62 @@ const char *gml_as_str(gm_value_t v);
  * else adds as reals. */
 gm_value_t gml_add(gm_value_t a, gm_value_t b);
 
-double gml_div(double a, double b); /* yyfdiv */
+float gml_div(float a, float b); /* yyfdiv */
 
-static inline double gml_mod(double a, double b)
+static inline float gml_mod(float a, float b)
 {
-    return fmod(a, b); /* JS % */
+    return fmodf(a, b); /* JS % */
 }
 
-static inline double gml_bitand(double a, double b)
+static inline float gml_bitand(float a, float b)
 {
-    return (double)(gm_to_int32(a) & gm_to_int32(b));
+    return (float)(gm_to_int32(a) & gm_to_int32(b));
 }
 
-static inline double gml_bitor(double a, double b)
+static inline float gml_bitor(float a, float b)
 {
-    return (double)(gm_to_int32(a) | gm_to_int32(b));
+    return (float)(gm_to_int32(a) | gm_to_int32(b));
 }
 
-static inline double gml_bitxor(double a, double b)
+static inline float gml_bitxor(float a, float b)
 {
-    return (double)(gm_to_int32(a) ^ gm_to_int32(b));
+    return (float)(gm_to_int32(a) ^ gm_to_int32(b));
 }
 
-static inline double gml_bitnot(double a)
+static inline float gml_bitnot(float a)
 {
-    return (double)(~gm_to_int32(a));
+    return (float)(~gm_to_int32(a));
 }
 
-double gml_shl(double a, double n);
-double gml_shr(double a, double n);
+float gml_shl(float a, float n);
+float gml_shr(float a, float n);
 
 /* ---- instances --------------------------------------------------------------------------- */
 
 /* Instance as a GML value (its id), noone for NULL. */
-static inline double gml_id(const gm_instance_t *p)
+static inline float gml_id(const gm_instance_t *p)
 {
-    return p != NULL ? (double)p->id : (double)GM_NOONE;
+    return p != NULL ? (float)p->id : (float)GM_NOONE;
 }
 
 /* Object/instance argument as passed to runtime queries. */
-static inline int gml_target(double t)
+static inline int gml_target(float t)
 {
     return (int)gm_to_int32(t);
 }
 
 /* yyInst(): the single instance `obj.var` refers to (see file comment). */
-gm_instance_t *gml_deref(double target, gm_instance_t *self, gm_instance_t *other);
+gm_instance_t *gml_deref(float target, gm_instance_t *self, gm_instance_t *other);
 
 /* User instance variables: vars[] holds reals, strs[] strings, vals[]
  * everything else. The NULL-tolerant forms are used for `target.var` where
  * the target may not resolve. */
-static inline double gml_ivar(const gm_instance_t *p, int i)
+static inline float gml_ivar(const gm_instance_t *p, int i)
 {
-    return p != NULL ? p->vars[i] : 0.0;
+    return p != NULL ? p->vars[i] : 0.0f;
 }
 
-static inline void gml_ivar_set(gm_instance_t *p, int i, double v)
+static inline void gml_ivar_set(gm_instance_t *p, int i, float v)
 {
     if (p != NULL) {
         p->vars[i] = v;
@@ -340,17 +340,17 @@ gm_value_t *gml_vvar_ref(gm_instance_t *p, int i);
 
 /* ---- arrays ------------------------------------------------------------------------------- */
 
-static inline gm_value_t gml_aget(gm_value_t a, double i)
+static inline gm_value_t gml_aget(gm_value_t a, float i)
 {
     return gm_array_get(a, (int)gm_to_int32(i));
 }
 
-static inline gm_value_t *gml_aref(gm_value_t *slot, double i)
+static inline gm_value_t *gml_aref(gm_value_t *slot, float i)
 {
     return gm_array_ref(slot, (int)gm_to_int32(i));
 }
 
-static inline void gml_aset(gm_value_t *slot, double i, gm_value_t v)
+static inline void gml_aset(gm_value_t *slot, float i, gm_value_t v)
 {
     gm_array_set(slot, (int)gm_to_int32(i), v);
 }
@@ -365,60 +365,60 @@ gm_value_t gml_struct_get(gm_value_t s, gm_value_t key);
 void gml_struct_set(gm_value_t s, gm_value_t key, gm_value_t v);
 
 /* repeat (n): iteration count (yyGetInt32). */
-static inline int32_t gml_repeat_count(double n)
+static inline int32_t gml_repeat_count(float n)
 {
     return gm_to_int32(n);
 }
 
 /* ---- lowered built-ins ---------------------------------------------------------------------- */
 
-static inline double gml_is_real(gm_value_t v)
+static inline float gml_is_real(gm_value_t v)
 {
-    return v.kind == GM_VALUE_REAL ? 1.0 : 0.0;
+    return v.kind == GM_VALUE_REAL ? 1.0f : 0.0f;
 }
 
-static inline double gml_is_string(gm_value_t v)
+static inline float gml_is_string(gm_value_t v)
 {
-    return v.kind == GM_VALUE_STRING ? 1.0 : 0.0;
+    return v.kind == GM_VALUE_STRING ? 1.0f : 0.0f;
 }
 
-static inline double gml_is_array(gm_value_t v)
+static inline float gml_is_array(gm_value_t v)
 {
-    return v.kind == GM_VALUE_ARRAY ? 1.0 : 0.0;
+    return v.kind == GM_VALUE_ARRAY ? 1.0f : 0.0f;
 }
 
-static inline double gml_is_undefined(gm_value_t v)
+static inline float gml_is_undefined(gm_value_t v)
 {
-    return v.kind == GM_VALUE_UNDEFINED ? 1.0 : 0.0;
+    return v.kind == GM_VALUE_UNDEFINED ? 1.0f : 0.0f;
 }
 
-static inline double gml_array_length(gm_value_t v)
+static inline float gml_array_length(gm_value_t v)
 {
-    return (double)gm_array_length(v);
+    return (float)gm_array_length(v);
 }
 
 /* real(): parseFloat for strings (Function_String.js L106). */
-double gml_to_real(gm_value_t v);
+float gml_to_real(gm_value_t v);
 
 /* ---- typed ds_map reads -----------------------------------------------------------------
  * The emitter reads a map with the representation its destination needs
  * (ds_map lookups are context-typed, see gml_type_check.py). Missing keys
  * and invalid maps read as undefined converted: 0 / "undefined". */
-double gml_ds_map_find_real(double map, const char *key);
-const char *gml_ds_map_find_str(double map, const char *key);
+float gml_ds_map_find_real(float map, const char *key);
+const char *gml_ds_map_find_str(float map, const char *key);
 /* is_undefined(map[? key]) */
-double gml_ds_map_missing(double map, const char *key);
+float gml_ds_map_missing(float map, const char *key);
 
 /* bool() (Function_String.js L161). */
-static inline double gml_to_bool(gm_value_t v)
+static inline float gml_to_bool(gm_value_t v)
 {
-    return gm_value_to_bool(v) ? 1.0 : 0.0;
+    return gm_value_to_bool(v) ? 1.0f : 0.0f;
 }
 
 /* int64(): the port keeps reals, so this truncates toward zero. */
-static inline double gml_int64(double d)
+static inline float gml_int64(float d)
 {
-    return isfinite(d) ? trunc(d) : 0.0;
+    return isfinite(d) ? truncf(d) : 0.0f;
 }
 
 /* ---- events and scripts --------------------------------------------------------------------- */
@@ -479,7 +479,7 @@ gml_event_fn gml_find_own_event(int object_index, int type, int number);
 void gml_perform_event(gm_instance_t *inst, int type, int number);
 
 /* script_execute(ind, ...) with a non-constant script index. */
-gm_value_t gml_script_execute(gm_instance_t *self, gm_instance_t *other, double script,
+gm_value_t gml_script_execute(gm_instance_t *self, gm_instance_t *other, float script,
                               int argc, const gm_value_t *argv);
 
 /* ---- pending built-ins ----------------------------------------------------------------------- */
@@ -500,6 +500,8 @@ const char *gml_keep_str(const char *s, char *buf, size_t size);
 /* Safe-point collection: roots are every live instance's strs[] / vals[] and
  * the installed game's globals. */
 void gml_collect_garbage(void);
+void gml_collect_garbage_force(void);
+void gml_room_begin(int room);
 
 /* Resets gml_rt state (event stack, with/context stacks, pending list,
  * installed game). */

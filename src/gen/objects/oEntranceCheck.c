@@ -5,10 +5,10 @@ static void gml_ev_oEntranceCheck__Step_0_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_dir], 0.0)) {
-        gml_iset_x(self, (gml_iget_x(self) - 16.0));
+    if (gml_eq(self->vars[VAR_dir], 0.0f)) {
+        gml_iset_x(self, (gml_iget_x(self) - 16.0f));
     } else {
-        gml_iset_x(self, (gml_iget_x(self) + 16.0));
+        gml_iset_x(self, (gml_iget_x(self) + 16.0f));
     }
 }
 

@@ -5,7 +5,7 @@ static void gml_ev_oIntroBG__Create_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xOff] = 0.0;
+    self->vars[VAR_xOff] = 0.0f;
 }
 
 void gml_ev_oIntroBG__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -17,20 +17,20 @@ void gml_ev_oIntroBG__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oIntroBG__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    if (((gml_truthy(gml_script_isRoom(self, other, "rCredits1")) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCamel)))) && gml_truthy(gml_ivar(gml_deref(((double)OBJ_oCredits1), self, other), VAR_scrolling)))) {
-        self->vars[VAR_xOff] = (self->vars[VAR_xOff] + 0.02);
+    if (((gml_truthy(gml_script_isRoom(self, other, "rCredits1")) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCamel)))) && gml_truthy(gml_ivar(gml_deref(((float)OBJ_oCredits1), self, other), VAR_scrolling)))) {
+        self->vars[VAR_xOff] = (self->vars[VAR_xOff] + 0.02f);
     } else {
-        if ((gml_ne(gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), 0.0) && (t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_lt(t1, (960.0 - g_gml_globals.display_w))))) {
-            self->vars[VAR_xOff] = (self->vars[VAR_xOff] - 0.02);
+        if ((gml_ne(gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), 0.0f) && (t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_lt(t1, (960.0f - g_gml_globals.display_w))))) {
+            self->vars[VAR_xOff] = (self->vars[VAR_xOff] - 0.02f);
         }
     }
-    gml_iset_x(self, (t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + self->vars[VAR_xOff])));
+    gml_iset_x(self, (t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + self->vars[VAR_xOff])));
 }
 
 void gml_ev_oIntroBG__Step_0(gm_instance_t *self, gm_instance_t *other)

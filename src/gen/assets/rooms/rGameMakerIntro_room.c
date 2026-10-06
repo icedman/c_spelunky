@@ -3,11 +3,11 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rGameMakerIntro_room_layers[2] = {
-    { "Compatibility_Instances_Depth_0", 45, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 46, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xff000000u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 45, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 46, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xff000000u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rGameMakerIntro_room_instances[2] = {
-    { 100000, OBJ_oNAL, 96.0, 16.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_29673238 */
-    { 100001, OBJ_yyScreen, 176.0, 32.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_AD58085B */
+    { 100000, OBJ_oNAL, 96.0f, 16.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_29673238 */
+    { 100001, OBJ_yyScreen, 176.0f, 32.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_AD58085B */
 };

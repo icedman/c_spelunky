@@ -10,10 +10,10 @@ void gml_script_menuLanguage(gm_instance_t *self, gm_instance_t *other)
         gml_script_changeLocale(self, other);
         gml_script_setLocale(self, other);
         gml_script_loadLocalizedSprites(self, other);
-        gml_fn_instance_deactivate_all(self, other, 1.0);
+        gml_fn_instance_deactivate_all(self, other, 1.0f);
     } else {
         gml_script_changeLocale(self, other);
-        self->vars[VAR_localeChanged] = 1.0;
-        self->vars[VAR_changeSprites] = 1.0;
+        self->vars[VAR_localeChanged] = 1.0f;
+        self->vars[VAR_changeSprites] = 1.0f;
     }
 }

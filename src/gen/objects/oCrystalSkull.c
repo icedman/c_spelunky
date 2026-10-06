@@ -7,7 +7,7 @@ static void gml_ev_oCrystalSkull__Create_0_body(gm_instance_t *self, gm_instance
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Gold Idol";
-    self->vars[VAR_value] = 15000.0;
+    self->vars[VAR_value] = 15000.0f;
 }
 
 void gml_ev_oCrystalSkull__Create_0(gm_instance_t *self, gm_instance_t *other)

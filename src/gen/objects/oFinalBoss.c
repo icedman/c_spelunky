@@ -5,8 +5,8 @@ static void gml_ev_oFinalBoss__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    g_gml_globals.olmecDead = 0.0;
-    g_gml_globals.doorOpen = 0.0;
+    g_gml_globals.olmecDead = 0.0f;
+    g_gml_globals.doorOpen = 0.0f;
 }
 
 void gml_ev_oFinalBoss__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,33 +23,33 @@ static void gml_ev_oFinalBoss__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     (void)wd;
     if ((gml_truthy(g_gml_globals.olmecDead) && (!gml_truthy(g_gml_globals.doorOpen)))) {
-        g_gml_globals.doorOpen = 1.0;
+        g_gml_globals.doorOpen = 1.0f;
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oEntrance)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oEntrance)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
             gm_with_end();
         }
-        (void)(gml_script_instance_create(self, other, 640.0, 544.0, ((double)OBJ_oXEnd)));
-        if ((!gml_truthy(gml_fn_collision_point(self, other, 640.0, 560.0, ((double)OBJ_oSolid), 0.0, 0.0)))) {
-            self->vars[VAR_brick] = gml_script_instance_create(self, other, 640.0, 560.0, ((double)OBJ_oTemple));
+        (void)(gml_script_instance_create(self, other, 640.0f, 544.0f, ((float)OBJ_oXEnd)));
+        if ((!gml_truthy(gml_fn_collision_point(self, other, 640.0f, 560.0f, ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+            self->vars[VAR_brick] = gml_script_instance_create(self, other, 640.0f, 560.0f, ((float)OBJ_oTemple));
             {
                 gm_instance_t *self2;
                 gm_with_begin(gml_target(self->vars[VAR_brick]), self, other);
                 while ((self2 = gm_with_next()) != NULL) {
-                    self2->vars[VAR_invincible] = 1.0;
+                    self2->vars[VAR_invincible] = 1.0f;
                 }
                 gm_with_end();
             }
         } else {
-            self->vars[VAR_brick] = gml_fn_instance_position(self, other, 640.0, 560.0, ((double)OBJ_oSolid));
+            self->vars[VAR_brick] = gml_fn_instance_position(self, other, 640.0f, 560.0f, ((float)OBJ_oSolid));
             {
                 gm_instance_t *self3;
                 gm_with_begin(gml_target(self->vars[VAR_brick]), self, other);
                 while ((self3 = gm_with_next()) != NULL) {
-                    self3->vars[VAR_invincible] = 1.0;
+                    self3->vars[VAR_invincible] = 1.0f;
                 }
                 gm_with_end();
             }

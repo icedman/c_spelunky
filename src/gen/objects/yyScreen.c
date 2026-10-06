@@ -5,11 +5,11 @@ static void gml_ev_yyScreen__Create_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_surf] = (-1.0);
-    self->vars[VAR_surf_width] = (-1.0);
-    self->vars[VAR_surf_height] = (-1.0);
-    self->vars[VAR_print] = 0.0;
-    self->vars[VAR_count] = 0.0;
+    self->vars[VAR_surf] = (-1.0f);
+    self->vars[VAR_surf_width] = (-1.0f);
+    self->vars[VAR_surf_height] = (-1.0f);
+    self->vars[VAR_print] = 0.0f;
+    self->vars[VAR_count] = 0.0f;
 }
 
 void gml_ev_yyScreen__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,22 +21,22 @@ void gml_ev_yyScreen__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_yyScreen__Step_1_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    if ((((!gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_surf]))) || (t1 = self->vars[VAR_surf_width], gml_ne(t1, gml_script___view_get(self, other, (13.0 /* e__VW.WPort */), 0.0)))) || (t2 = self->vars[VAR_surf_height], gml_ne(t2, gml_script___view_get(self, other, (14.0 /* e__VW.HPort */), 0.0))))) {
+    if ((((!gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_surf]))) || (t1 = self->vars[VAR_surf_width], gml_ne(t1, gml_script___view_get(self, other, (13.0f /* e__VW.WPort */), 0.0f)))) || (t2 = self->vars[VAR_surf_height], gml_ne(t2, gml_script___view_get(self, other, (14.0f /* e__VW.HPort */), 0.0f))))) {
         if (gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_surf]))) {
             gml_fn_surface_free(self, other, self->vars[VAR_surf]);
-            self->vars[VAR_surf] = (-1.0);
+            self->vars[VAR_surf] = (-1.0f);
         }
-        self->vars[VAR_surf_width] = gml_script___view_get(self, other, (13.0 /* e__VW.WPort */), 0.0);
-        self->vars[VAR_surf_height] = gml_script___view_get(self, other, (14.0 /* e__VW.HPort */), 0.0);
+        self->vars[VAR_surf_width] = gml_script___view_get(self, other, (13.0f /* e__VW.WPort */), 0.0f);
+        self->vars[VAR_surf_height] = gml_script___view_get(self, other, (14.0f /* e__VW.HPort */), 0.0f);
         self->vars[VAR_surf] = gml_fn_surface_create(self, other, self->vars[VAR_surf_width], self->vars[VAR_surf_height]);
     }
-    (void)(gml_script___view_set(self, other, (16.0 /* e__VW.SurfaceID */), 0.0, self->vars[VAR_surf]));
+    (void)(gml_script___view_set(self, other, (16.0f /* e__VW.SurfaceID */), 0.0f, self->vars[VAR_surf]));
 }
 
 void gml_ev_yyScreen__Step_1(gm_instance_t *self, gm_instance_t *other)
@@ -51,7 +51,7 @@ static void gml_ev_yyScreen__Draw_64_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     if (gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_surf]))) {
-        gml_fn_draw_surface(self, other, self->vars[VAR_surf], 0.0, 0.0);
+        gml_fn_draw_surface(self, other, self->vars[VAR_surf], 0.0f, 0.0f);
     }
 }
 

@@ -8,10 +8,10 @@ static void gml_ev_oLampItem__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Lamp";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_trigger] = 1.0;
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_value] = 1000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_trigger] = 1.0f;
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_value] = 1000.0f;
 }
 
 void gml_ev_oLampItem__Create_0(gm_instance_t *self, gm_instance_t *other)

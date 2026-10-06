@@ -3,7 +3,7 @@
 
 void gml_script_joySave(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_joyMap = 0.0;
+    float l_joyMap = 0.0f;
     (void)self;
     (void)other;
     (void)l_joyMap;

@@ -5,7 +5,7 @@ static void gml_ev_oHintHand__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.5);
+    gml_iset_image_speed(self, 0.5f);
 }
 
 void gml_ev_oHintHand__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,9 +19,9 @@ static void gml_ev_oHintHand__Draw_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if (gml_lt(fabs((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - (gml_iget_x(self) + 8.0))), 8.0)) {
-            gml_script_drawTextHCentered(self, other, 5, gml_vs(gml_script_tr(self, other, 1, "PRESS UP TO ENTER!")), "small", (16777215.0 /* c_white */), 0.0, 216.0);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if (gml_lt(fabsf((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - (gml_iget_x(self) + 8.0f))), 8.0f)) {
+            gml_script_drawTextHCentered(self, other, 5, gml_vs(gml_script_tr(self, other, 1, "PRESS UP TO ENTER!")), "small", (16777215.0f /* c_white */), 0.0f, 216.0f);
         }
     }
     gml_fn_draw_sprite(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), gml_iget_x(self), gml_iget_y(self));

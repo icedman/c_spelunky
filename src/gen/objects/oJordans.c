@@ -8,9 +8,9 @@ static void gml_ev_oJordans__Create_0_body(gm_instance_t *self, gm_instance_t *o
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Jordans";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-6.0), 6.0, 6.0);
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-6.0f), 6.0f, 6.0f);
     self->strs[SVAR_buyMessage] = gml_script_tr(self, other, 1, "JORDANS FOR $50000!");
-    self->vars[VAR_cost] = 50000.0;
+    self->vars[VAR_cost] = 50000.0f;
 }
 
 void gml_ev_oJordans__Create_0(gm_instance_t *self, gm_instance_t *other)

@@ -5,14 +5,14 @@ static void gml_ev_oTunnelMan__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_talk] = 0.0;
-    self->vars[VAR_donate] = 0.0;
-    self->vars[VAR_upCounter] = 0.0;
-    self->vars[VAR_downCounter] = 0.0;
-    self->vars[VAR_upHeld] = 0.0;
-    self->vars[VAR_downHeld] = 0.0;
+    self->vars[VAR_talk] = 0.0f;
+    self->vars[VAR_donate] = 0.0f;
+    self->vars[VAR_upCounter] = 0.0f;
+    self->vars[VAR_downCounter] = 0.0f;
+    self->vars[VAR_upHeld] = 0.0f;
+    self->vars[VAR_downHeld] = 0.0f;
     if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
-        gml_iset_sprite_index(self, ((double)SPR_sTunnelManRight));
+        gml_iset_sprite_index(self, ((float)SPR_sTunnelManRight));
     }
 }
 
@@ -26,7 +26,7 @@ void gml_ev_oTunnelMan__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oTunnelMan__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_skipCondition = 0.0;
+    float l_skipCondition = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -34,51 +34,51 @@ static void gml_ev_oTunnelMan__Step_0_body(gm_instance_t *self, gm_instance_t *o
     if ((!gml_truthy(g_gml_globals.html5Build))) {
         l_skipCondition = gml_script_checkAttackPressed(self, other);
     } else {
-        l_skipCondition = ((gml_truthy(g_gml_globals.bAttackPressed) || gml_truthy(gml_script_checkAttackPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((gml_truthy(g_gml_globals.bAttackPressed) || gml_truthy(gml_script_checkAttackPressed(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
-        if (((gml_eq(self->vars[VAR_talk], 3.0) || gml_eq(self->vars[VAR_talk], 4.0)) || gml_eq(self->vars[VAR_talk], 5.0))) {
-            self->vars[VAR_talk] = 6.0;
+        if (((gml_eq(self->vars[VAR_talk], 3.0f) || gml_eq(self->vars[VAR_talk], 4.0f)) || gml_eq(self->vars[VAR_talk], 5.0f))) {
+            self->vars[VAR_talk] = 6.0f;
         }
-        if (gml_eq(self->vars[VAR_talk], 1.0)) {
-            self->vars[VAR_talk] = 2.0;
+        if (gml_eq(self->vars[VAR_talk], 1.0f)) {
+            self->vars[VAR_talk] = 2.0f;
         } else {
-            if (gml_eq(self->vars[VAR_talk], 2.0)) {
+            if (gml_eq(self->vars[VAR_talk], 2.0f)) {
                 if ((gml_truthy(gml_script_isRoom(self, other, "rTransition1x")) || gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
-                    if (gml_gt(self->vars[VAR_donate], 0.0)) {
+                    if (gml_gt(self->vars[VAR_donate], 0.0f)) {
                         if (gml_ge(self->vars[VAR_donate], g_gml_globals.tunnel1)) {
-                            self->vars[VAR_talk] = 5.0;
+                            self->vars[VAR_talk] = 5.0f;
                         } else {
-                            self->vars[VAR_talk] = 3.0;
+                            self->vars[VAR_talk] = 3.0f;
                         }
                         g_gml_globals.money = (g_gml_globals.money - self->vars[VAR_donate]);
                         g_gml_globals.tunnel1 = (g_gml_globals.tunnel1 - self->vars[VAR_donate]);
                     } else {
-                        self->vars[VAR_talk] = 4.0;
+                        self->vars[VAR_talk] = 4.0f;
                     }
                 } else {
-                    if (gml_gt(self->vars[VAR_donate], 0.0)) {
+                    if (gml_gt(self->vars[VAR_donate], 0.0f)) {
                         if (gml_ge(self->vars[VAR_donate], g_gml_globals.tunnel2)) {
-                            g_gml_globals.tunnel1 = (g_gml_globals.tunnel3Max + 1.0);
-                            self->vars[VAR_talk] = 5.0;
+                            g_gml_globals.tunnel1 = (g_gml_globals.tunnel3Max + 1.0f);
+                            self->vars[VAR_talk] = 5.0f;
                         } else {
-                            self->vars[VAR_talk] = 3.0;
+                            self->vars[VAR_talk] = 3.0f;
                         }
                         g_gml_globals.money = (g_gml_globals.money - self->vars[VAR_donate]);
                         g_gml_globals.tunnel2 = (g_gml_globals.tunnel2 - self->vars[VAR_donate]);
                     } else {
-                        self->vars[VAR_talk] = 4.0;
+                        self->vars[VAR_talk] = 4.0f;
                     }
                 }
                 {
                     gm_instance_t *self1;
-                    gm_with_begin(gml_target(((double)OBJ_oPDummy)), self, other);
+                    gm_with_begin(gml_target(((float)OBJ_oPDummy)), self, other);
                     while ((self1 = gm_with_next()) != NULL) {
                         self1->vars[VAR_status] = self1->vars[VAR_TRANSITION];
                         if (gml_truthy(g_gml_globals.isDamsel)) {
-                            gml_iset_sprite_index(self1, ((double)SPR_sDamselRunL));
+                            gml_iset_sprite_index(self1, ((float)SPR_sDamselRunL));
                         } else {
-                            gml_iset_sprite_index(self1, ((double)SPR_sRunLeft));
+                            gml_iset_sprite_index(self1, ((float)SPR_sRunLeft));
                         }
                     }
                     gm_with_end();
@@ -86,17 +86,17 @@ static void gml_ev_oTunnelMan__Step_0_body(gm_instance_t *self, gm_instance_t *o
             }
         }
     }
-    if (gml_eq(self->vars[VAR_talk], 2.0)) {
+    if (gml_eq(self->vars[VAR_talk], 2.0f)) {
         if (gml_truthy(gml_script_checkUp(self, other))) {
-            self->vars[VAR_upHeld] = (self->vars[VAR_upHeld] + 1.0);
-            self->vars[VAR_downHeld] = 0.0;
-            if (gml_lt(self->vars[VAR_upCounter], 20.0)) {
-                self->vars[VAR_upCounter] = (self->vars[VAR_upCounter] + 1.0);
+            self->vars[VAR_upHeld] = (self->vars[VAR_upHeld] + 1.0f);
+            self->vars[VAR_downHeld] = 0.0f;
+            if (gml_lt(self->vars[VAR_upCounter], 20.0f)) {
+                self->vars[VAR_upCounter] = (self->vars[VAR_upCounter] + 1.0f);
             } else {
-                if (gml_gt(self->vars[VAR_upHeld], 100.0)) {
-                    self->vars[VAR_donate] = (self->vars[VAR_donate] + 1000.0);
+                if (gml_gt(self->vars[VAR_upHeld], 100.0f)) {
+                    self->vars[VAR_donate] = (self->vars[VAR_donate] + 1000.0f);
                 } else {
-                    self->vars[VAR_donate] = (self->vars[VAR_donate] + 100.0);
+                    self->vars[VAR_donate] = (self->vars[VAR_donate] + 100.0f);
                 }
             }
             if (gml_gt(self->vars[VAR_donate], g_gml_globals.money)) {
@@ -111,29 +111,29 @@ static void gml_ev_oTunnelMan__Step_0_body(gm_instance_t *self, gm_instance_t *o
                     self->vars[VAR_donate] = g_gml_globals.tunnel2;
                 }
             }
-            self->vars[VAR_downCounter] = 0.0;
+            self->vars[VAR_downCounter] = 0.0f;
         } else {
             if (gml_truthy(gml_script_checkDown(self, other))) {
-                self->vars[VAR_downHeld] = (self->vars[VAR_downHeld] + 1.0);
-                self->vars[VAR_upHeld] = 0.0;
-                if (gml_lt(self->vars[VAR_downCounter], 20.0)) {
-                    self->vars[VAR_downCounter] = (self->vars[VAR_downCounter] + 1.0);
+                self->vars[VAR_downHeld] = (self->vars[VAR_downHeld] + 1.0f);
+                self->vars[VAR_upHeld] = 0.0f;
+                if (gml_lt(self->vars[VAR_downCounter], 20.0f)) {
+                    self->vars[VAR_downCounter] = (self->vars[VAR_downCounter] + 1.0f);
                 } else {
-                    if (gml_gt(self->vars[VAR_downHeld], 100.0)) {
-                        self->vars[VAR_donate] = (self->vars[VAR_donate] - 1000.0);
+                    if (gml_gt(self->vars[VAR_downHeld], 100.0f)) {
+                        self->vars[VAR_donate] = (self->vars[VAR_donate] - 1000.0f);
                     } else {
-                        self->vars[VAR_donate] = (self->vars[VAR_donate] - 100.0);
+                        self->vars[VAR_donate] = (self->vars[VAR_donate] - 100.0f);
                     }
                 }
-                if (gml_lt(self->vars[VAR_donate], 0.0)) {
-                    self->vars[VAR_donate] = 0.0;
+                if (gml_lt(self->vars[VAR_donate], 0.0f)) {
+                    self->vars[VAR_donate] = 0.0f;
                 }
-                self->vars[VAR_upCounter] = 0.0;
+                self->vars[VAR_upCounter] = 0.0f;
             } else {
-                self->vars[VAR_upCounter] = 0.0;
-                self->vars[VAR_downCounter] = 0.0;
-                self->vars[VAR_upHeld] = 0.0;
-                self->vars[VAR_downHeld] = 0.0;
+                self->vars[VAR_upCounter] = 0.0f;
+                self->vars[VAR_downCounter] = 0.0f;
+                self->vars[VAR_upHeld] = 0.0f;
+                self->vars[VAR_downHeld] = 0.0f;
             }
         }
     }

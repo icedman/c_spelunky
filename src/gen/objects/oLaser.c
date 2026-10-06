@@ -6,9 +6,9 @@ static void gml_ev_oLaser__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.6;
-    gml_iset_alarm(self, 0.0, 1.0);
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.6f;
+    gml_iset_alarm(self, 0.0f, 1.0f);
 }
 
 void gml_ev_oLaser__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -22,8 +22,8 @@ static void gml_ev_oLaser__Alarm_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oLaserTrail)));
-    gml_iset_alarm(self, 0.0, 1.0);
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oLaserTrail)));
+    gml_iset_alarm(self, 0.0f, 1.0f);
 }
 
 void gml_ev_oLaser__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -39,8 +39,8 @@ static void gml_ev_oLaser__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)other;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
     self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_yAcc]);
-    if (gml_gt(self->vars[VAR_yVel], 4.0)) {
-        self->vars[VAR_yVel] = 0.0;
+    if (gml_gt(self->vars[VAR_yVel], 4.0f)) {
+        self->vars[VAR_yVel] = 0.0f;
     }
 }
 
@@ -53,17 +53,17 @@ void gml_ev_oLaser__Step_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLaser__Collision_oDamsel_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     if ((!gml_truthy(other->vars[VAR_invincible]))) {
-        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0);
-        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0, 2.0), (t1 - gml_script_rand(self, other, 1.0, 2.0)));
-        other->vars[VAR_xVel] = (-1.0);
-        other->vars[VAR_yVel] = (-6.0);
-        self->vars[VAR_status] = 2.0;
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oLaserExplode)));
+        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0f);
+        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0f, 2.0f), (t1 - gml_script_rand(self, other, 1.0f, 2.0f)));
+        other->vars[VAR_xVel] = (-1.0f);
+        other->vars[VAR_yVel] = (-6.0f);
+        self->vars[VAR_status] = 2.0f;
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oLaserExplode)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }
@@ -86,8 +86,8 @@ static void gml_ev_oLaser__Collision_oSolid_body(gm_instance_t *self, gm_instanc
         gm_with_begin(GM_OTHER, self, other);
         while ((self1 = gm_with_next()) != NULL) {
             if ((!gml_truthy(self1->vars[VAR_invincible]))) {
-                if (gml_truthy(gml_fn_collision_point(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oGold), 0.0, 0.0))) {
-                    self1->vars[VAR_gold] = gml_fn_instance_place(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oGold));
+                if (gml_truthy(gml_fn_collision_point(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oGold), 0.0f, 0.0f))) {
+                    self1->vars[VAR_gold] = gml_fn_instance_place(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oGold));
                     {
                         gm_instance_t *self2;
                         gm_with_begin(gml_target(self1->vars[VAR_gold]), self1, self);
@@ -97,8 +97,8 @@ static void gml_ev_oLaser__Collision_oSolid_body(gm_instance_t *self, gm_instanc
                         gm_with_end();
                     }
                 }
-                if (gml_truthy(gml_fn_collision_point(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oGoldBig), 0.0, 0.0))) {
-                    self1->vars[VAR_gold] = gml_fn_instance_place(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oGoldBig));
+                if (gml_truthy(gml_fn_collision_point(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oGoldBig), 0.0f, 0.0f))) {
+                    self1->vars[VAR_gold] = gml_fn_instance_place(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oGoldBig));
                     {
                         gm_instance_t *self3;
                         gm_with_begin(gml_target(self1->vars[VAR_gold]), self1, self);
@@ -110,14 +110,14 @@ static void gml_ev_oLaser__Collision_oSolid_body(gm_instance_t *self, gm_instanc
                 }
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
-            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 16.0)));
+            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 16.0f)));
             if (gml_vtruthy(self1->vals[VVAR_tile])) {
                 gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
             }
         }
         gm_with_end();
     }
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oLaserExplode)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oLaserExplode)));
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
 
@@ -130,16 +130,16 @@ void gml_ev_oLaser__Collision_oSolid(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLaser__Collision_oEnemy_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    if ((gml_str_ne(other->strs[SVAR_type], "UFO") && gml_eq(other->vars[VAR_invincible], 0.0))) {
-        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0);
-        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0, 2.0), (t1 - gml_script_rand(self, other, 1.0, 2.0)));
-        other->vars[VAR_xVel] = (-1.0);
-        other->vars[VAR_yVel] = (-6.0);
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oLaserExplode)));
+    if ((gml_str_ne(other->strs[SVAR_type], "UFO") && gml_eq(other->vars[VAR_invincible], 0.0f))) {
+        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0f);
+        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0f, 2.0f), (t1 - gml_script_rand(self, other, 1.0f, 2.0f)));
+        other->vars[VAR_xVel] = (-1.0f);
+        other->vars[VAR_yVel] = (-6.0f);
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oLaserExplode)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

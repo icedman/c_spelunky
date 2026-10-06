@@ -5,7 +5,7 @@ static void gml_inst_code_rIntro__inst_E26C137_body(gm_instance_t *self, gm_inst
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xOff] = 400.0;
+    self->vars[VAR_xOff] = 400.0f;
 }
 
 void gml_inst_code_rIntro__inst_E26C137(gm_instance_t *self, gm_instance_t *other)

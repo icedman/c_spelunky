@@ -8,8 +8,8 @@ static void gml_ev_oRope__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Rope";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_burnTimer] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_burnTimer] = 0.0f;
 }
 
 void gml_ev_oRope__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,16 +23,16 @@ static void gml_ev_oRope__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 12.0), gml_iget_y(self), ((double)OBJ_oLava), 0.0, 0.0)) && gml_eq(self->vars[VAR_burnTimer], 0.0))) {
-        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), gml_iget_y(self), ((double)OBJ_oRopeBurn)));
+    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 12.0f), gml_iget_y(self), ((float)OBJ_oLava), 0.0f, 0.0f)) && gml_eq(self->vars[VAR_burnTimer], 0.0f))) {
+        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), gml_iget_y(self), ((float)OBJ_oRopeBurn)));
     }
-    if (gml_gt(self->vars[VAR_burnTimer], 1.0)) {
-        self->vars[VAR_burnTimer] = (self->vars[VAR_burnTimer] - 1.0);
+    if (gml_gt(self->vars[VAR_burnTimer], 1.0f)) {
+        self->vars[VAR_burnTimer] = (self->vars[VAR_burnTimer] - 1.0f);
     } else {
-        if (gml_eq(self->vars[VAR_burnTimer], 1.0)) {
-            if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_state), 14.0)) {
-                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 12.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oPlayer1), 0.0, 0.0))) {
-                    gml_ivar_set(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_state, 16.0);
+        if (gml_eq(self->vars[VAR_burnTimer], 1.0f)) {
+            if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_state), 14.0f)) {
+                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 12.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oPlayer1), 0.0f, 0.0f))) {
+                    gml_ivar_set(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_state, 16.0f);
                 }
             }
             gml_fn_instance_destroy(self, other, 0, NULL);

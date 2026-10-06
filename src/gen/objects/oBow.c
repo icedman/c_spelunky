@@ -10,11 +10,11 @@ static void gml_ev_oBow__Create_0_body(gm_instance_t *self, gm_instance_t *other
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Bow";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_cost] = 1000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_cost] = 1000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "BOW AND ARROWS");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "BOW AND ARROWS FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
-    gml_iset_image_speed(self, 0.0);
+    gml_iset_image_speed(self, 0.0f);
 }
 
 void gml_ev_oBow__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -30,26 +30,26 @@ static void gml_ev_oBow__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 18.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sBowLeft));
+        if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 18.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sBowLeft));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sBowRight));
+            gml_iset_sprite_index(self, ((float)SPR_sBowRight));
         }
-        if (gml_ge(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_bowStrength), 10.0)) {
-            gml_iset_image_index(self, 3.0);
+        if (gml_ge(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_bowStrength), 10.0f)) {
+            gml_iset_image_index(self, 3.0f);
         } else {
-            if (gml_gt(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_bowStrength), 6.0)) {
-                gml_iset_image_index(self, 2.0);
+            if (gml_gt(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_bowStrength), 6.0f)) {
+                gml_iset_image_index(self, 2.0f);
             } else {
-                if (gml_gt(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_bowStrength), 2.0)) {
-                    gml_iset_image_index(self, 1.0);
+                if (gml_gt(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_bowStrength), 2.0f)) {
+                    gml_iset_image_index(self, 1.0f);
                 } else {
-                    gml_iset_image_index(self, 0.0);
+                    gml_iset_image_index(self, 0.0f);
                 }
             }
         }
     } else {
-        gml_iset_image_index(self, 0.0);
+        gml_iset_image_index(self, 0.0f);
     }
 }
 

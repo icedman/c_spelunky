@@ -5,8 +5,8 @@ static void gml_ev_oTempleFake__Step_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oDoor), 0.0, 0.0)))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oTemple)));
+    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oDoor), 0.0f, 0.0f)))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oTemple)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

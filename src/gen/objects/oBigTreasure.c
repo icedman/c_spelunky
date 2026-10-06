@@ -7,11 +7,11 @@ static void gml_ev_oBigTreasure__Create_0_body(gm_instance_t *self, gm_instance_
     (void)other;
     self->strs[SVAR_type] = "Big Treasure";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, 0.0, 0.0, 32.0, 32.0);
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_myGrav] = 0.6;
-    self->vars[VAR_trigger] = 1.0;
+    gml_script_setCollisionBounds(self, other, 0.0f, 0.0f, 32.0f, 32.0f);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_myGrav] = 0.6f;
+    self->vars[VAR_trigger] = 1.0f;
 }
 
 void gml_ev_oBigTreasure__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -27,56 +27,56 @@ static void gml_ev_oBigTreasure__Step_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_truthy(1.0)) {
+    if (gml_truthy(1.0f)) {
         gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
         gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-        if (gml_lt(self->vars[VAR_yVel], 6.0)) {
+        if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
             self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
         }
-        if ((gml_truthy(gml_script_isCollisionTop(self, other, 1.0)) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8);
+        if ((gml_truthy(gml_script_isCollisionTop(self, other, 1.0f)) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8f);
         }
-        if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0)))) {
-            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5);
+        if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0f)))) {
+            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5f);
         }
-        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-            if (gml_gt(self->vars[VAR_yVel], 5.0)) {
-                self->vars[VAR_poof] = gml_script_instance_create(self, other, ((gml_iget_x(self) + 16.0) - 4.0), (gml_iget_y(self) + 30.0), ((double)OBJ_oPoof));
+        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+            if (gml_gt(self->vars[VAR_yVel], 5.0f)) {
+                self->vars[VAR_poof] = gml_script_instance_create(self, other, ((gml_iget_x(self) + 16.0f) - 4.0f), (gml_iget_y(self) + 30.0f), ((float)OBJ_oPoof));
                 {
                     gm_instance_t *self1;
                     gm_with_begin(gml_target(self->vars[VAR_poof]), self, other);
                     while ((self1 = gm_with_next()) != NULL) {
-                        self1->vars[VAR_xVel] = (-0.4);
+                        self1->vars[VAR_xVel] = (-0.4f);
                     }
                     gm_with_end();
                 }
-                self->vars[VAR_poof] = gml_script_instance_create(self, other, ((gml_iget_x(self) + 16.0) + 4.0), (gml_iget_y(self) + 30.0), ((double)OBJ_oPoof));
+                self->vars[VAR_poof] = gml_script_instance_create(self, other, ((gml_iget_x(self) + 16.0f) + 4.0f), (gml_iget_y(self) + 30.0f), ((float)OBJ_oPoof));
                 {
                     gm_instance_t *self2;
                     gm_with_begin(gml_target(self->vars[VAR_poof]), self, other);
                     while ((self2 = gm_with_next()) != NULL) {
-                        self2->vars[VAR_xVel] = 0.4;
+                        self2->vars[VAR_xVel] = 0.4f;
                     }
                     gm_with_end();
                 }
                 gml_script_playSound(self, other, g_gml_globals.sndThump);
             }
-            if (gml_gt(self->vars[VAR_yVel], 1.0)) {
-                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.5);
+            if (gml_gt(self->vars[VAR_yVel], 1.0f)) {
+                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.5f);
             } else {
-                self->vars[VAR_yVel] = 0.0;
+                self->vars[VAR_yVel] = 0.0f;
             }
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 0.1)) {
-                self->vars[VAR_xVel] = 0.0;
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 0.1f)) {
+                self->vars[VAR_xVel] = 0.0f;
             } else {
-                if (gml_ne(fabs(self->vars[VAR_xVel]), 0.0)) {
-                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3);
+                if (gml_ne(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3f);
                 }
             }
         }
-        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 0.0)) && gml_lt(fabs(self->vars[VAR_yVel]), 1.0))) {
-            gml_iset_y(self, (gml_iget_y(self) - 1.0));
-            self->vars[VAR_yVel] = 0.0;
+        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 0.0f)) && gml_lt(fabsf(self->vars[VAR_yVel]), 1.0f))) {
+            gml_iset_y(self, (gml_iget_y(self) - 1.0f));
+            self->vars[VAR_yVel] = 0.0f;
         }
     }
 }

@@ -5,8 +5,8 @@ static void gml_ev_oFly__Create_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = ((-gm_random(3.0)) + 0.5);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = ((-gm_random(3.0f)) + 0.5f);
 }
 
 void gml_ev_oFly__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -22,10 +22,10 @@ static void gml_ev_oFly__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-        gml_iset_sprite_index(self, ((double)SPR_sFlyLeft));
+    if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+        gml_iset_sprite_index(self, ((float)SPR_sFlyLeft));
     } else {
-        gml_iset_sprite_index(self, ((double)SPR_sFlyRight));
+        gml_iset_sprite_index(self, ((float)SPR_sFlyRight));
     }
 }
 
@@ -43,14 +43,14 @@ static void gml_ev_oFly__Collision_oDamsel_body(gm_instance_t *self, gm_instance
     (void)other;
     (void)wd;
     if ((!gml_truthy(other->vars[VAR_invincible]))) {
-        if (gml_gt(other->vars[VAR_bloodLeft], 0.0)) {
+        if (gml_gt(other->vars[VAR_bloodLeft], 0.0f)) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(GM_OTHER, self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    (void)(gml_script_scrCreateBlood(self1, self, (gml_iget_x(self1) + (gml_iget_sprite_width(self1) / 2.0)), (gml_iget_y(self1) + (gml_iget_sprite_height(self1) / 2.0)), 1.0));
-                    if (gml_lt(self1->vars[VAR_hp], 0.0)) {
-                        self1->vars[VAR_bloodLeft] = (self1->vars[VAR_bloodLeft] - 1.0);
+                    (void)(gml_script_scrCreateBlood(self1, self, (gml_iget_x(self1) + (gml_iget_sprite_width(self1) / 2.0f)), (gml_iget_y(self1) + (gml_iget_sprite_height(self1) / 2.0f)), 1.0f));
+                    if (gml_lt(self1->vars[VAR_hp], 0.0f)) {
+                        self1->vars[VAR_bloodLeft] = (self1->vars[VAR_bloodLeft] - 1.0f);
                     }
                 }
                 gm_with_end();
@@ -61,24 +61,24 @@ static void gml_ev_oFly__Collision_oDamsel_body(gm_instance_t *self, gm_instance
             gm_with_begin(GM_OTHER, self, other);
             while ((self2 = gm_with_next()) != NULL) {
                 if (gml_truthy(self2->vars[VAR_held])) {
-                    self2->vars[VAR_held] = 0.0;
+                    self2->vars[VAR_held] = 0.0f;
                     {
                         gm_instance_t *self3;
-                        gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self2, self);
+                        gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self2, self);
                         while ((self3 = gm_with_next()) != NULL) {
-                            self3->vars[VAR_holdItem] = 0.0;
+                            self3->vars[VAR_holdItem] = 0.0f;
                         }
                         gm_with_end();
                     }
                 }
-                self2->vars[VAR_hp] = (self2->vars[VAR_hp] - 2.0);
-                self2->vars[VAR_yVel] = (-6.0);
-                self2->vars[VAR_status] = 2.0;
-                self2->vars[VAR_counter] = 120.0;
+                self2->vars[VAR_hp] = (self2->vars[VAR_hp] - 2.0f);
+                self2->vars[VAR_yVel] = (-6.0f);
+                self2->vars[VAR_status] = 2.0f;
+                self2->vars[VAR_counter] = 120.0f;
             }
             gm_with_end();
         }
-        other->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3);
+        other->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3f);
         gml_script_playSound(self, other, g_gml_globals.sndDamsel);
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
@@ -95,7 +95,7 @@ static void gml_ev_oFly__Collision_oSolid_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSmokePuff)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSmokePuff)));
     gml_script_playSound(self, other, g_gml_globals.sndHit);
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
@@ -115,27 +115,27 @@ static void gml_ev_oFly__Collision_oEnemy_body(gm_instance_t *self, gm_instance_
     (void)wd;
     if (gml_str_ne(other->strs[SVAR_type], "Tomb Lord")) {
         if (gml_truthy(other->vars[VAR_heavy])) {
-            other->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.5);
-            other->vars[VAR_yVel] = (-2.0);
+            other->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.5f);
+            other->vars[VAR_yVel] = (-2.0f);
         } else {
             other->vars[VAR_xVel] = self->vars[VAR_xVel];
-            other->vars[VAR_yVel] = (-4.0);
+            other->vars[VAR_yVel] = (-4.0f);
         }
         other->vars[VAR_xVel] = self->vars[VAR_xVel];
-        other->vars[VAR_yVel] = (-4.0);
+        other->vars[VAR_yVel] = (-4.0f);
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0);
-                if (gml_gt(self1->vars[VAR_bloodLeft], 0.0)) {
-                    (void)(gml_script_scrCreateBlood(self1, self, (gml_iget_x(self1) + (gml_iget_sprite_width(self1) / 2.0)), (gml_iget_y(self1) + (gml_iget_sprite_height(self1) / 2.0)), 1.0));
-                    if (gml_lt(self1->vars[VAR_hp], 0.0)) {
-                        self1->vars[VAR_bloodLeft] = (self1->vars[VAR_bloodLeft] - 1.0);
+                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0f);
+                if (gml_gt(self1->vars[VAR_bloodLeft], 0.0f)) {
+                    (void)(gml_script_scrCreateBlood(self1, self, (gml_iget_x(self1) + (gml_iget_sprite_width(self1) / 2.0f)), (gml_iget_y(self1) + (gml_iget_sprite_height(self1) / 2.0f)), 1.0f));
+                    if (gml_lt(self1->vars[VAR_hp], 0.0f)) {
+                        self1->vars[VAR_bloodLeft] = (self1->vars[VAR_bloodLeft] - 1.0f);
                     }
                 }
-                self1->vars[VAR_status] = 98.0;
-                self1->vars[VAR_counter] = 20.0;
+                self1->vars[VAR_status] = 98.0f;
+                self1->vars[VAR_counter] = 20.0f;
             }
             gm_with_end();
         }
@@ -157,22 +157,22 @@ static void gml_ev_oFly__Collision_oCharacter_body(gm_instance_t *self, gm_insta
     (void)self;
     (void)other;
     (void)wd;
-    if (((gml_ne(gml_iget_sprite_index(other), ((double)SPR_sPExit)) && gml_ne(gml_iget_sprite_index(other), ((double)SPR_sDamselExit))) && gml_ne(gml_iget_sprite_index(other), ((double)SPR_sTunnelExit)))) {
-        if (gml_gt(g_gml_globals.plife, 0.0)) {
-            g_gml_globals.plife = (g_gml_globals.plife - 2.0);
-            if ((gml_le(g_gml_globals.plife, 0.0) && gml_truthy(gml_script_isRealLevel(self, other)))) {
-                gml_aset(&g_gml_gvals[GV_enemyDeaths], 20.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 20.0), gml_vreal(1.0)));
+    if (((gml_ne(gml_iget_sprite_index(other), ((float)SPR_sPExit)) && gml_ne(gml_iget_sprite_index(other), ((float)SPR_sDamselExit))) && gml_ne(gml_iget_sprite_index(other), ((float)SPR_sTunnelExit)))) {
+        if (gml_gt(g_gml_globals.plife, 0.0f)) {
+            g_gml_globals.plife = (g_gml_globals.plife - 2.0f);
+            if ((gml_le(g_gml_globals.plife, 0.0f) && gml_truthy(gml_script_isRealLevel(self, other)))) {
+                gml_aset(&g_gml_gvals[GV_enemyDeaths], 20.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 20.0f), gml_vreal(1.0f)));
             }
         }
         other->vars[VAR_xVel] = self->vars[VAR_xVel];
-        other->vars[VAR_yVel] = (-4.0);
+        other->vars[VAR_yVel] = (-4.0f);
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                (void)(gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oBlood)));
-                self1->vars[VAR_stunned] = 1.0;
-                self1->vars[VAR_stunTimer] = 20.0;
+                (void)(gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oBlood)));
+                self1->vars[VAR_stunned] = 1.0f;
+                self1->vars[VAR_stunTimer] = 20.0f;
             }
             gm_with_end();
         }

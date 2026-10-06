@@ -8,8 +8,8 @@ static void gml_ev_oArrow__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Arrow";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_myGrav] = 0.2;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_myGrav] = 0.2f;
 }
 
 void gml_ev_oArrow__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,7 +23,7 @@ static void gml_ev_oArrow__Alarm_2_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_safe] = 0.0;
+    self->vars[VAR_safe] = 0.0f;
 }
 
 void gml_ev_oArrow__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -37,13 +37,13 @@ static void gml_ev_oArrow__Alarm_1_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oExplosion)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oExplosion)));
     if (gml_truthy(g_gml_globals.graphicsHigh)) {
-        gml_script_scrCreateFlame(self, other, gml_iget_x(self), gml_iget_y(self), 3.0);
+        gml_script_scrCreateFlame(self, other, gml_iget_x(self), gml_iget_y(self), 3.0f);
     }
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_truthy(((double)OBJ_oCharacter))) {
-            gml_ivar_set(gml_deref(((double)OBJ_oCharacter), self, other), VAR_holdItem, 0.0);
+        if (gml_truthy(((float)OBJ_oCharacter))) {
+            gml_ivar_set(gml_deref(((float)OBJ_oCharacter), self, other), VAR_holdItem, 0.0f);
         }
     }
     gml_fn_instance_destroy(self, other, 0, NULL);
@@ -61,23 +61,23 @@ static void gml_ev_oArrow__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((gml_gt(self->vars[VAR_xVel], 0.0) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-        gml_iset_direction(self, gm_radtodeg(atan(((-self->vars[VAR_yVel]) / self->vars[VAR_xVel]))));
+    if ((gml_gt(self->vars[VAR_xVel], 0.0f) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+        gml_iset_direction(self, gm_radtodeg(atanf(((-self->vars[VAR_yVel]) / self->vars[VAR_xVel]))));
     } else {
-        if ((gml_lt(self->vars[VAR_xVel], 0.0) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-            gml_iset_direction(self, (180.0 - gm_radtodeg(atan(((-self->vars[VAR_yVel]) / (-self->vars[VAR_xVel]))))));
+        if ((gml_lt(self->vars[VAR_xVel], 0.0f) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+            gml_iset_direction(self, (180.0f - gm_radtodeg(atanf(((-self->vars[VAR_yVel]) / (-self->vars[VAR_xVel]))))));
         } else {
-            if ((gml_gt(self->vars[VAR_xVel], 0.0) && gml_gt(self->vars[VAR_yVel], 0.0))) {
-                gml_iset_direction(self, gm_radtodeg(atan((self->vars[VAR_yVel] / self->vars[VAR_xVel]))));
+            if ((gml_gt(self->vars[VAR_xVel], 0.0f) && gml_gt(self->vars[VAR_yVel], 0.0f))) {
+                gml_iset_direction(self, gm_radtodeg(atanf((self->vars[VAR_yVel] / self->vars[VAR_xVel]))));
             } else {
-                if ((gml_lt(self->vars[VAR_xVel], 0.0) && gml_gt(self->vars[VAR_yVel], 0.0))) {
-                    gml_iset_direction(self, (180.0 + gm_radtodeg(atan((self->vars[VAR_yVel] / (-self->vars[VAR_xVel]))))));
+                if ((gml_lt(self->vars[VAR_xVel], 0.0f) && gml_gt(self->vars[VAR_yVel], 0.0f))) {
+                    gml_iset_direction(self, (180.0f + gm_radtodeg(atanf((self->vars[VAR_yVel] / (-self->vars[VAR_xVel]))))));
                 } else {
-                    if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-                        gml_iset_direction(self, 180.0);
+                    if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+                        gml_iset_direction(self, 180.0f);
                     } else {
                         if ((!gml_truthy(self->vars[VAR_stuck]))) {
-                            gml_iset_direction(self, 0.0);
+                            gml_iset_direction(self, 0.0f);
                         }
                     }
                 }
@@ -86,11 +86,11 @@ static void gml_ev_oArrow__Step_0_body(gm_instance_t *self, gm_instance_t *other
     }
     gml_iset_image_angle(self, gml_iget_direction(self));
     if (gml_truthy(gml_script_isRoom(self, other, "rMoon"))) {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTarget)))) {
-            if ((((gml_gt(gml_iget_x(self), gml_iget_x(gml_deref(((double)OBJ_oTarget), self, other))) && gml_gt(gml_iget_y(self), (gml_iget_y(gml_deref(((double)OBJ_oTarget), self, other)) - 16.0))) && gml_lt(gml_iget_y(self), (gml_iget_y(gml_deref(((double)OBJ_oTarget), self, other)) + 16.0))) && gml_lt(gml_fn_distance_to_object(self, other, ((double)OBJ_oTarget)), 4.0))) {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oTarget), self, other)) + 4.0));
-                self->vars[VAR_xVel] = 0.0;
-                self->vars[VAR_yVel] = 0.0;
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTarget)))) {
+            if ((((gml_gt(gml_iget_x(self), gml_iget_x(gml_deref(((float)OBJ_oTarget), self, other))) && gml_gt(gml_iget_y(self), (gml_iget_y(gml_deref(((float)OBJ_oTarget), self, other)) - 16.0f))) && gml_lt(gml_iget_y(self), (gml_iget_y(gml_deref(((float)OBJ_oTarget), self, other)) + 16.0f))) && gml_lt(gml_fn_distance_to_object(self, other, ((float)OBJ_oTarget)), 4.0f))) {
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oTarget), self, other)) + 4.0f));
+                self->vars[VAR_xVel] = 0.0f;
+                self->vars[VAR_yVel] = 0.0f;
             }
         }
     }
@@ -107,7 +107,7 @@ static void gml_ev_oArrow__Draw_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), gml_iget_x(self), gml_iget_y(self), 1.0, 1.0, gml_iget_image_angle(self), (16777215.0 /* c_white */), 1.0);
+    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), gml_iget_x(self), gml_iget_y(self), 1.0f, 1.0f, gml_iget_image_angle(self), (16777215.0f /* c_white */), 1.0f);
 }
 
 void gml_ev_oArrow__Draw_0(gm_instance_t *self, gm_instance_t *other)

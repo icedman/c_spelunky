@@ -82,7 +82,7 @@ size_t gm_number_prefix(const char *s)
 }
 
 /* Number(<prefix of s of length n>). */
-static double number_of(const char *s, size_t n)
+static float number_of(const char *s, size_t n)
 {
     char buf[NUMBER_MAX + 1];
 
@@ -91,7 +91,7 @@ static double number_of(const char *s, size_t n)
     }
     memcpy(buf, s, n);
     buf[n] = '\0';
-    return strtod(buf, NULL);
+    return strtof(buf, NULL);
 }
 
 static const char *skip_space(const char *s)
@@ -103,7 +103,7 @@ static const char *skip_space(const char *s)
 }
 
 /* yyGetReal-style string conversion: trimmed, g_NumberRE prefix. */
-static bool string_number(const char *s, bool trim, double *out)
+static bool string_number(const char *s, bool trim, float *out)
 {
     size_t n;
 
@@ -121,29 +121,29 @@ static bool string_number(const char *s, bool trim, double *out)
     return true;
 }
 
-double gm_value_to_real(gm_value_t v)
+float gm_value_to_real(gm_value_t v)
 {
-    double d;
+    float d;
 
     switch (v.kind) {
     case GM_VALUE_REAL:
         return v.real;
     case GM_VALUE_STRING:
-        return string_number(v.str, true, &d) ? d : 0.0;
+        return string_number(v.str, true, &d) ? d : 0.0f;
     case GM_VALUE_UNDEFINED:
     case GM_VALUE_ARRAY:
     default:
-        return 0.0;
+        return 0.0f;
     }
 }
 
 bool gm_value_to_bool(gm_value_t v)
 {
-    double d;
+    float d;
 
     switch (v.kind) {
     case GM_VALUE_REAL:
-        return v.real > 0.5;
+        return v.real > 0.5f;
     case GM_VALUE_STRING:
         if (v.str == NULL) {
             return false;
@@ -155,7 +155,7 @@ bool gm_value_to_bool(gm_value_t v)
             return false;
         }
         /* yyGetBool matches the untrimmed string. */
-        return string_number(v.str, false, &d) && d > 0.5;
+        return string_number(v.str, false, &d) && d > 0.5f;
     case GM_VALUE_ARRAY:     /* runner error */
     case GM_VALUE_UNDEFINED:
     default:
@@ -167,7 +167,7 @@ int gm_value_compare(gm_value_t a, gm_value_t b)
 {
     bool ret_set = false, ret_nan = false, a_num = false, b_num = false;
     int ret = 0;
-    double na = 0.0, nb = 0.0;
+    float na = 0.0f, nb = 0.0f;
 
     if (a.kind == GM_VALUE_REAL && b.kind == GM_VALUE_REAL) {
         return gm_compare_real(a.real, b.real);
@@ -249,28 +249,31 @@ int gm_value_compare(gm_value_t a, gm_value_t b)
 
 /* ------------------------------------------------------------------ strings */
 
-void gm_real_format(double x, char *buf, size_t size)
+void gm_real_format(float x, char *buf, size_t size)
 {
     if (isnan(x)) {
         snprintf(buf, size, "NaN");
     } else if (isinf(x)) {
-        snprintf(buf, size, x < 0.0 ? "-inf" : "inf");
-    } else if ((double)gm_to_int32(x) == x) {
+        snprintf(buf, size, x < 0.0f ? "-inf" : "inf");
+    } else if ((float)gm_to_int32(x) == x) {
         /* (~~v) == v: integer in int32 range; -0 prints as "0". */
         snprintf(buf, size, "%ld", (long)gm_to_int32(x));
-    } else if (fabs(x) >= 1e21) {
-        snprintf(buf, size, "%.17g", x); /* JS falls back to ToString */
+    } else if (fabsf(x) >= 1e21f) {
+        snprintf(buf, size, "%.17g", (double)x); /* JS falls back to ToString */
     } else {
         /* toFixed(2): nearest multiple of 0.01, exact ties away from zero.
          * printf rounds the exact binary value correctly but breaks exact
          * ties to even; ties only exist for multiples of 1/8. */
-        double ax = fabs(x);
-        double s = ax * 100.0;
-        if (ax < 1e15 && fmod(ax * 8.0, 1.0) == 0.0 && s - floor(s) == 0.5) {
-            long long n = (long long)floor(s) + 1;
-            snprintf(buf, size, "%s%lld.%02lld", x < 0.0 ? "-" : "", n / 100, n % 100);
+        float ax = fabsf(x);
+        /* ax == k/8 exactly (ax * 8 is exact in float); ax * 100 == 12.5k is
+         * a tie iff k is odd, rounded away to (25k + 1) / 2 hundredths.
+         * Integer math because ax * 100 is not exact in float. */
+        long long k = (ax < 1e15f && fmodf(ax * 8.0f, 1.0f) == 0.0f) ? (long long)(ax * 8.0f) : 0;
+        if (k & 1) {
+            long long n = (25 * k + 1) / 2;
+            snprintf(buf, size, "%s%lld.%02lld", x < 0.0f ? "-" : "", n / 100, n % 100);
         } else {
-            snprintf(buf, size, "%.2f", x);
+            snprintf(buf, size, "%.2f", (double)x);
         }
     }
 }
@@ -379,7 +382,7 @@ static int hex_digit(char c)
     return -1;
 }
 
-double gm_string_parse_real(const char *s, bool *ok)
+float gm_string_parse_real(const char *s, bool *ok)
 {
     const char *p, *start;
     size_t d1, d2;
@@ -389,17 +392,17 @@ double gm_string_parse_real(const char *s, bool *ok)
         *ok = false;
     }
     if (s == NULL) {
-        return 0.0;
+        return 0.0f;
     }
     if (s[0] == '0' && s[1] == 'x') {
         /* parseInt("0x...") */
-        double r = 0.0;
+        float r = 0.0f;
         int digits = 0, h;
         for (p = s + 2; (h = hex_digit(*p)) >= 0; ++p, ++digits) {
-            r = r * 16.0 + (double)h;
+            r = r * 16.0f + (float)h;
         }
         if (digits == 0) {
-            return 0.0;
+            return 0.0f;
         }
         if (ok != NULL) {
             *ok = true;
@@ -416,7 +419,7 @@ double gm_string_parse_real(const char *s, bool *ok)
         if (ok != NULL) {
             *ok = true;
         }
-        return neg ? -HUGE_VAL : HUGE_VAL;
+        return neg ? -HUGE_VALF : HUGE_VALF;
     }
     d1 = count_digits(p, (size_t)-1);
     p += d1;
@@ -428,7 +431,7 @@ double gm_string_parse_real(const char *s, bool *ok)
         }
     }
     if (d1 + d2 == 0) {
-        return 0.0; /* NaN in JS: runner error */
+        return 0.0f; /* NaN in JS: runner error */
     }
     if (*p == 'e' || *p == 'E') {
         const char *q = p + 1;
@@ -446,13 +449,13 @@ double gm_string_parse_real(const char *s, bool *ok)
         size_t n = (size_t)(p - start);
 
         if (n >= sizeof(buf)) {
-            return 0.0; /* absurdly long literal: treat as unparseable */
+            return 0.0f; /* absurdly long literal: treat as unparseable */
         }
         memcpy(buf, start, n);
         buf[n] = '\0';
         if (ok != NULL) {
             *ok = true;
         }
-        return strtod(buf, NULL);
+        return strtof(buf, NULL);
     }
 }

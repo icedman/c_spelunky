@@ -7,7 +7,7 @@ static void gml_ev_oMattockPre__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Mattock";
-    self->vars[VAR_damage] = 2.0;
+    self->vars[VAR_damage] = 2.0f;
 }
 
 void gml_ev_oMattockPre__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -35,16 +35,16 @@ static void gml_ev_oMattockPre__Step_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
+    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sMattockPreR))) {
-            gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 16.0));
-            gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)));
+        if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sMattockPreR))) {
+            gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 16.0f));
+            gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)));
         } else {
-            if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sMattockPreL))) {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 16.0));
-                gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)));
+            if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sMattockPreL))) {
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 16.0f));
+                gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)));
             }
         }
     }

@@ -6,7 +6,7 @@ static void gml_ev_oIceBottom__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_alarm(self, 0.0, gml_script_rand(self, other, 20.0, 400.0));
+    gml_iset_alarm(self, 0.0f, gml_script_rand(self, other, 20.0f, 400.0f));
 }
 
 void gml_ev_oIceBottom__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,8 +20,8 @@ static void gml_ev_oIceBottom__Alarm_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oDrip)));
-    gml_iset_alarm(self, 0.0, gml_script_rand(self, other, 20.0, 400.0));
+    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oDrip)));
+    gml_iset_alarm(self, 0.0f, gml_script_rand(self, other, 20.0f, 400.0f));
 }
 
 void gml_ev_oIceBottom__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -36,7 +36,7 @@ static void gml_ev_oIceBottom__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
+    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

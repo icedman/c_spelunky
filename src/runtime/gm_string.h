@@ -24,6 +24,6 @@ int gm_string_pos(const char *substr, const char *s);              /* 1-based, 0
 const char *gm_string_lower(const char *s);
 const char *gm_string_upper(const char *s);
 const char *gm_string_hash_to_newline(const char *s);              /* "#" -> "\r\n", "\#" -> "#" */
-double gm_string_ord(const char *s);                               /* first code point, 0 if empty */
+float gm_string_ord(const char *s);                               /* first code point, 0 if empty */
 
 #endif /* GM_STRING_H */

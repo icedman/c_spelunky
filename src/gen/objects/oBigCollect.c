@@ -6,7 +6,7 @@ static void gml_ev_oBigCollect__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_alarm(self, 0.0, 30.0);
+    gml_iset_alarm(self, 0.0f, 30.0f);
 }
 
 void gml_ev_oBigCollect__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -34,7 +34,7 @@ static void gml_ev_oBigCollect__Step_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    gml_iset_y(self, (gml_iget_y(self) - 1.0));
+    gml_iset_y(self, (gml_iget_y(self) - 1.0f));
 }
 
 void gml_ev_oBigCollect__Step_0(gm_instance_t *self, gm_instance_t *other)

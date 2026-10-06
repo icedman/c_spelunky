@@ -11,36 +11,36 @@ void gml_script_loadLocalizedSprites(gm_instance_t *self, gm_instance_t *other)
     if ((!gml_truthy(gml_fn_file_exists(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level5_sign.png"))))))) {
         l_localizedImagesDir = gml_vs(gml_concat(gml_gget_working_directory(), "locale/locales/en/images/"));
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLevel5Sign)))) {
-        self->vars[VAR_sLevel5SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level5_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oLevel5Sign), self, other), self->vars[VAR_sLevel5SignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLevel5Sign)))) {
+        self->vars[VAR_sLevel5SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level5_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oLevel5Sign), self, other), self->vars[VAR_sLevel5SignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLevel9Sign)))) {
-        self->vars[VAR_sLevel9SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level9_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oLevel9Sign), self, other), self->vars[VAR_sLevel9SignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLevel9Sign)))) {
+        self->vars[VAR_sLevel9SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level9_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oLevel9Sign), self, other), self->vars[VAR_sLevel9SignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLevel13Sign)))) {
-        self->vars[VAR_sLevel13SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level13_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oLevel13Sign), self, other), self->vars[VAR_sLevel13SignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLevel13Sign)))) {
+        self->vars[VAR_sLevel13SignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("level13_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oLevel13Sign), self, other), self->vars[VAR_sLevel13SignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oQuitSign)))) {
-        self->vars[VAR_sQuitSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("quit_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oQuitSign), self, other), self->vars[VAR_sQuitSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oQuitSign)))) {
+        self->vars[VAR_sQuitSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("quit_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oQuitSign), self, other), self->vars[VAR_sQuitSignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oScoresSign)))) {
-        self->vars[VAR_sScoresSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("scores_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oScoresSign), self, other), self->vars[VAR_sScoresSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oScoresSign)))) {
+        self->vars[VAR_sScoresSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("scores_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oScoresSign), self, other), self->vars[VAR_sScoresSignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oStartSign)))) {
-        self->vars[VAR_sStartSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("start_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oStartSign), self, other), self->vars[VAR_sStartSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oStartSign)))) {
+        self->vars[VAR_sStartSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("start_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oStartSign), self, other), self->vars[VAR_sStartSignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTutorialSign)))) {
-        self->vars[VAR_sTutorialSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("tutorial_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oTutorialSign), self, other), self->vars[VAR_sTutorialSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTutorialSign)))) {
+        self->vars[VAR_sTutorialSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("tutorial_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oTutorialSign), self, other), self->vars[VAR_sTutorialSignNew]);
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oResetSign)))) {
-        self->vars[VAR_sResetSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("reset_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oResetSign), self, other), self->vars[VAR_sResetSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oResetSign)))) {
+        self->vars[VAR_sResetSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("reset_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oResetSign), self, other), self->vars[VAR_sResetSignNew]);
     }
 }

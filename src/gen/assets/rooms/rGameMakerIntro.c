@@ -3,11 +3,11 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rGameMakerIntro_layers[3] = {
-    { "Compatibility_Instances_Depth_0", 42, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Background_0_bGameMakerIntroBack", 43, GM_LAYER_BACKGROUND, 2147483500, true, 0.0, 0.0, 0.0, 0.0, SPR_bGameMakerIntroBack, true, true, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 44, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 42, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Background_0_bGameMakerIntroBack", 43, GM_LAYER_BACKGROUND, 2147483500, true, 0.0f, 0.0f, 0.0f, 0.0f, SPR_bGameMakerIntroBack, true, true, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 44, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rGameMakerIntro_instances[1] = {
-    { 110216, OBJ_oGameMakerLogo, 480.0, 320.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_38773847 */
+    { 110216, OBJ_oGameMakerLogo, 480.0f, 320.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_38773847 */
 };

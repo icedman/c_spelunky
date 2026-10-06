@@ -6,8 +6,8 @@ static void gml_ev_oSmallCollect__Create_0_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_alarm(self, 0.0, 30.0);
-    gml_iset_image_speed(self, 0.4);
+    gml_iset_alarm(self, 0.0f, 30.0f);
+    gml_iset_image_speed(self, 0.4f);
 }
 
 void gml_ev_oSmallCollect__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -35,9 +35,9 @@ static void gml_ev_oSmallCollect__Step_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    gml_iset_y(self, (gml_iget_y(self) - 1.0));
-    gml_iset_x(self, ceil(gml_iget_x(self)));
-    gml_iset_y(self, ceil(gml_iget_y(self)));
+    gml_iset_y(self, (gml_iget_y(self) - 1.0f));
+    gml_iset_x(self, ceilf(gml_iget_x(self)));
+    gml_iset_y(self, ceilf(gml_iget_y(self)));
 }
 
 void gml_ev_oSmallCollect__Step_0(gm_instance_t *self, gm_instance_t *other)

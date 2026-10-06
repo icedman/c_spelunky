@@ -3,16 +3,16 @@
 
 static void gml_ev_oNAL__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_i = 0.0;
+    float l_i = 0.0f;
     (void)self;
     (void)other;
     (void)l_i;
     g_gml_globals.browser_height_previous = gml_gget_browser_height();
-    g_gml_globals.game_wid = 960.0;
-    g_gml_globals.game_hgt = 720.0;
-    g_gml_globals.soundson = 1.0;
+    g_gml_globals.game_wid = 960.0f;
+    g_gml_globals.game_hgt = 720.0f;
+    g_gml_globals.soundson = 1.0f;
     gml_fn_keyboard_set_map(self, other, gml_fn_ord(self, other, "Y"), gml_fn_ord(self, other, "Z"));
-    for (l_i = 0.0; gml_lt(l_i, 4.0); l_i = (l_i + 1.0)) {
+    for (l_i = 0.0f; gml_lt(l_i, 4.0f); l_i = (l_i + 1.0f)) {
         if (gml_truthy(gml_fn_gamepad_is_connected(self, other, l_i))) {
             gml_fn_show_debug_message(self, other, gml_concat("Gamepad connected: ", gml_fn_gamepad_get_description(self, other, l_i)));
         }
@@ -32,7 +32,7 @@ static void gml_ev_oNAL__Step_2_body(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    if ((gml_ne(gml_gget_os_browser(), (0.0 /* browser_not_a_browser */)) && gml_ne(gml_gget_browser_height(), g_gml_globals.browser_height_previous))) {
+    if ((gml_ne(gml_gget_os_browser(), (0.0f /* browser_not_a_browser */)) && gml_ne(gml_gget_browser_height(), g_gml_globals.browser_height_previous))) {
         gml_fn_window_set_size(self, other, (gml_gget_browser_height() * (g_gml_globals.game_wid / g_gml_globals.game_hgt)), gml_gget_browser_height());
     }
     gml_script_sound_global_volume(self, other, g_gml_globals.soundson);
@@ -50,10 +50,10 @@ static void gml_ev_oNAL__KeyPress_78_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_le(g_gml_globals.soundVol, 0.0)) {
-        g_gml_globals.soundVol = 17.0;
+    if (gml_le(g_gml_globals.soundVol, 0.0f)) {
+        g_gml_globals.soundVol = 17.0f;
     } else {
-        g_gml_globals.soundVol = 0.0;
+        g_gml_globals.soundVol = 0.0f;
     }
 }
 
@@ -68,10 +68,10 @@ static void gml_ev_oNAL__KeyPress_77_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_le(g_gml_globals.musicVol, 0.0)) {
-        g_gml_globals.musicVol = 17.0;
+    if (gml_le(g_gml_globals.musicVol, 0.0f)) {
+        g_gml_globals.musicVol = 17.0f;
     } else {
-        g_gml_globals.musicVol = 0.0;
+        g_gml_globals.musicVol = 0.0f;
     }
 }
 

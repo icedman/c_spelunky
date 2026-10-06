@@ -5,9 +5,9 @@ static void gml_ev_oBarrierEmitter__Create_0_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.5);
-    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oBarrier))))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0), ((double)OBJ_oBarrier)));
+    gml_iset_image_speed(self, 0.5f);
+    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oBarrier))))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0f), ((float)OBJ_oBarrier)));
     }
 }
 
@@ -22,10 +22,10 @@ static void gml_ev_oBarrierEmitter__Destroy_0_body(gm_instance_t *self, gm_insta
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
     int32_t n1 = 0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -34,15 +34,15 @@ static void gml_ev_oBarrierEmitter__Destroy_0_body(gm_instance_t *self, gm_insta
     (void)t3;
     (void)t4;
     (void)t5;
-    for (n1 = gml_repeat_count(6.0); n1 > 0; --n1) {
-        self->vars[VAR_obj] = (t4 = (t2 = (gml_iget_x(self) + 2.0), (t2 + gml_script_rand(self, other, 0.0, 14.0))), gml_script_instance_create(self, other, t4, (t3 = (gml_iget_y(self) + 2.0), (t3 + gml_script_rand(self, other, 0.0, 14.0))), ((double)OBJ_oFlareSpark)));
-        (t5 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, gml_script_rand(self, other, 1.0, 3.0)));
+    for (n1 = gml_repeat_count(6.0f); n1 > 0; --n1) {
+        self->vars[VAR_obj] = (t4 = (t2 = (gml_iget_x(self) + 2.0f), (t2 + gml_script_rand(self, other, 0.0f, 14.0f))), gml_script_instance_create(self, other, t4, (t3 = (gml_iget_y(self) + 2.0f), (t3 + gml_script_rand(self, other, 0.0f, 14.0f))), ((float)OBJ_oFlareSpark)));
+        (t5 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, gml_script_rand(self, other, 1.0f, 3.0f)));
     }
-    gml_script_scrShake(self, other, 10.0);
+    gml_script_scrShake(self, other, 10.0f);
     gml_script_playSound(self, other, g_gml_globals.sndSmallExplode);
     {
         gm_instance_t *self6;
-        gm_with_begin(gml_target(((double)OBJ_oBarrier)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oBarrier)), self, other);
         while ((self6 = gm_with_next()) != NULL) {
             gml_fn_instance_destroy(self6, self, 0, NULL);
         }
@@ -59,12 +59,12 @@ void gml_ev_oBarrierEmitter__Destroy_0(gm_instance_t *self, gm_instance_t *other
 
 static void gml_ev_oBarrierEmitter__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -73,8 +73,8 @@ static void gml_ev_oBarrierEmitter__Step_0_body(gm_instance_t *self, gm_instance
     (void)t4;
     (void)t5;
     (void)t6;
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 8.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 8.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 8.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 8.0))))) {
-        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 16.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 8.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 8.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 8.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 8.0f))))) {
+        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }
@@ -105,7 +105,7 @@ static void gml_ev_oBarrierEmitter__Collision_oItem_body(gm_instance_t *self, gm
 {
     (void)self;
     (void)other;
-    if ((gml_gt(fabs(other->vars[VAR_xVel]), 2.0) || gml_gt(fabs(other->vars[VAR_yVel]), 2.0))) {
+    if ((gml_gt(fabsf(other->vars[VAR_xVel]), 2.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 2.0f))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

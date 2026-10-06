@@ -11,19 +11,19 @@
 #include "gm_audio.h"
 #include "gm_draw.h"
 
-static int i32(double d)
+static int i32(float d)
 {
     return (int)gm_to_int32(d);
 }
 
-static double b2r(bool b)
+static float b2r(bool b)
 {
-    return b ? 1.0 : 0.0;
+    return b ? 1.0f : 0.0f;
 }
 
-static double subimage(gm_instance_t *self, double sub)
+static float subimage(gm_instance_t *self, float sub)
 {
-    return (sub < 0.0 && self != NULL) ? self->image_index : sub;
+    return (sub < 0.0f && self != NULL) ? self->image_index : sub;
 }
 
 /* ------------------------------------------------------------------ sprites */
@@ -34,54 +34,54 @@ void gml_fn_draw_self(gm_instance_t *self, gm_instance_t *other)
     gm_draw_self(self);
 }
 
-void gml_fn_draw_sprite(gm_instance_t *self, gm_instance_t *other, double spr, double sub, double x, double y)
+void gml_fn_draw_sprite(gm_instance_t *self, gm_instance_t *other, float spr, float sub, float x, float y)
 {
     (void)other;
     gm_draw_sprite(i32(spr), subimage(self, sub), x, y);
 }
 
-void gml_fn_draw_sprite_ext(gm_instance_t *self, gm_instance_t *other, double spr, double sub, double x, double y,
-                            double xs, double ys, double rot, double col, double alpha)
+void gml_fn_draw_sprite_ext(gm_instance_t *self, gm_instance_t *other, float spr, float sub, float x, float y,
+                            float xs, float ys, float rot, float col, float alpha)
 {
     (void)other;
     gm_draw_sprite_ext(i32(spr), subimage(self, sub), x, y, xs, ys, rot, col, alpha);
 }
 
-void gml_fn_draw_sprite_stretched(gm_instance_t *self, gm_instance_t *other, double spr, double sub, double x,
-                                  double y, double w, double h)
+void gml_fn_draw_sprite_stretched(gm_instance_t *self, gm_instance_t *other, float spr, float sub, float x,
+                                  float y, float w, float h)
 {
     (void)other;
     gm_draw_sprite_stretched(i32(spr), subimage(self, sub), x, y, w, h);
 }
 
-double gml_fn_sprite_add(gm_instance_t *self, gm_instance_t *other, const char *path, double n, double removeback,
-                         double smooth, double xorig, double yorig)
+float gml_fn_sprite_add(gm_instance_t *self, gm_instance_t *other, const char *path, float n, float removeback,
+                         float smooth, float xorig, float yorig)
 {
     (void)self;
     (void)other;
     (void)removeback;
     (void)smooth;
-    return (double)gm_draw_sprite_add(path, i32(n), xorig, yorig);
+    return (float)gm_draw_sprite_add(path, i32(n), xorig, yorig);
 }
 
-double gml_fn_sprite_get_width(gm_instance_t *self, gm_instance_t *other, double spr)
+float gml_fn_sprite_get_width(gm_instance_t *self, gm_instance_t *other, float spr)
 {
     (void)self;
     (void)other;
-    return (double)gm_draw_sprite_width(i32(spr));
+    return (float)gm_draw_sprite_width(i32(spr));
 }
 
-double gml_fn_sprite_get_height(gm_instance_t *self, gm_instance_t *other, double spr)
+float gml_fn_sprite_get_height(gm_instance_t *self, gm_instance_t *other, float spr)
 {
     (void)self;
     (void)other;
-    return (double)gm_draw_sprite_height(i32(spr));
+    return (float)gm_draw_sprite_height(i32(spr));
 }
 
 /* ------------------------------------------------------------------ text, shapes, state */
 
-double gml_fn_font_add(gm_instance_t *self, gm_instance_t *other, const char *path, double size, double bold,
-                       double italic, double first, double last)
+float gml_fn_font_add(gm_instance_t *self, gm_instance_t *other, const char *path, float size, float bold,
+                       float italic, float first, float last)
 {
     (void)self;
     (void)other;
@@ -89,60 +89,81 @@ double gml_fn_font_add(gm_instance_t *self, gm_instance_t *other, const char *pa
     (void)italic;
     (void)first;
     (void)last;
-    return (double)gm_draw_font_add(path, i32(size));
+    return (float)gm_draw_font_add(path, i32(size));
 }
 
-void gml_fn_draw_text(gm_instance_t *self, gm_instance_t *other, double x, double y, const char *text)
+/* The host registers the sprite fonts at start-up: font 0 = sFont (16 px glyphs),
+ * font 1 = sFontSmall (8 px). setLocale passes sprite_add copies of the locale charset
+ * (charset.png / charset_small.png), so the glyph width picks the font. A host that
+ * cannot load them (width unknown) gets setLocale's order: large, then small. */
+float gml_fn_font_add_sprite_ext(gm_instance_t *self, gm_instance_t *other, float spr, const char *map,
+                                  float prop, float sep)
+{
+    static int calls;
+    int w = gm_draw_sprite_width(i32(spr));
+
+    if (w <= 0) {
+        return (float)(calls++ % 2);
+    }
+    (void)self;
+    (void)other;
+    (void)map;
+    (void)prop;
+    (void)sep;
+    return w >= 16 ? 0.0f : 1.0f;
+}
+
+void gml_fn_draw_text(gm_instance_t *self, gm_instance_t *other, float x, float y, const char *text)
 {
     (void)self;
     (void)other;
     gm_draw_text(x, y, text);
 }
 
-void gml_fn_draw_rectangle(gm_instance_t *self, gm_instance_t *other, double x1, double y1, double x2, double y2,
-                           double outline)
+void gml_fn_draw_rectangle(gm_instance_t *self, gm_instance_t *other, float x1, float y1, float x2, float y2,
+                           float outline)
 {
     (void)self;
     (void)other;
     gm_draw_rectangle(x1, y1, x2, y2, gml_truthy(outline) != 0);
 }
 
-void gml_fn_draw_circle(gm_instance_t *self, gm_instance_t *other, double x, double y, double r, double outline)
+void gml_fn_draw_circle(gm_instance_t *self, gm_instance_t *other, float x, float y, float r, float outline)
 {
     (void)self;
     (void)other;
     gm_draw_circle(x, y, r, gml_truthy(outline) != 0);
 }
 
-void gml_fn_draw_clear(gm_instance_t *self, gm_instance_t *other, double col)
+void gml_fn_draw_clear(gm_instance_t *self, gm_instance_t *other, float col)
 {
     (void)self;
     (void)other;
     gm_draw_clear(col);
 }
 
-void gml_fn_draw_set_alpha(gm_instance_t *self, gm_instance_t *other, double a)
+void gml_fn_draw_set_alpha(gm_instance_t *self, gm_instance_t *other, float a)
 {
     (void)self;
     (void)other;
     gm_draw_set_alpha(a);
 }
 
-void gml_fn_draw_set_color(gm_instance_t *self, gm_instance_t *other, double c)
+void gml_fn_draw_set_color(gm_instance_t *self, gm_instance_t *other, float c)
 {
     (void)self;
     (void)other;
     gm_draw_set_colour(c);
 }
 
-void gml_fn_draw_set_colour(gm_instance_t *self, gm_instance_t *other, double c)
+void gml_fn_draw_set_colour(gm_instance_t *self, gm_instance_t *other, float c)
 {
     (void)self;
     (void)other;
     gm_draw_set_colour(c);
 }
 
-void gml_fn_draw_set_font(gm_instance_t *self, gm_instance_t *other, double f)
+void gml_fn_draw_set_font(gm_instance_t *self, gm_instance_t *other, float f)
 {
     (void)self;
     (void)other;
@@ -151,62 +172,62 @@ void gml_fn_draw_set_font(gm_instance_t *self, gm_instance_t *other, double f)
 
 /* ------------------------------------------------------------------ surfaces */
 
-double gml_gget_application_surface(void)
+float gml_gget_application_surface(void)
 {
-    return (double)GM_DRAW_APP_SURFACE;
+    return (float)GM_DRAW_APP_SURFACE;
 }
 
-double gml_fn_surface_create(gm_instance_t *self, gm_instance_t *other, double w, double h)
+float gml_fn_surface_create(gm_instance_t *self, gm_instance_t *other, float w, float h)
 {
     (void)self;
     (void)other;
-    return (double)gm_draw_surface_create(i32(w), i32(h));
+    return (float)gm_draw_surface_create(i32(w), i32(h));
 }
 
-double gml_fn_surface_exists(gm_instance_t *self, gm_instance_t *other, double id)
+float gml_fn_surface_exists(gm_instance_t *self, gm_instance_t *other, float id)
 {
     (void)self;
     (void)other;
     return b2r(gm_draw_surface_exists(i32(id)));
 }
 
-void gml_fn_surface_free(gm_instance_t *self, gm_instance_t *other, double id)
+void gml_fn_surface_free(gm_instance_t *self, gm_instance_t *other, float id)
 {
     (void)self;
     (void)other;
     gm_draw_surface_free(i32(id));
 }
 
-void gml_fn_surface_resize(gm_instance_t *self, gm_instance_t *other, double id, double w, double h)
+void gml_fn_surface_resize(gm_instance_t *self, gm_instance_t *other, float id, float w, float h)
 {
     (void)self;
     (void)other;
     gm_draw_surface_resize(i32(id), i32(w), i32(h));
 }
 
-double gml_fn_surface_set_target(gm_instance_t *self, gm_instance_t *other, double id)
+float gml_fn_surface_set_target(gm_instance_t *self, gm_instance_t *other, float id)
 {
     (void)self;
     (void)other;
     return b2r(gm_draw_surface_set_target(i32(id)));
 }
 
-double gml_fn_surface_reset_target(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_surface_reset_target(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
     return b2r(gm_draw_surface_reset_target());
 }
 
-void gml_fn_draw_surface(gm_instance_t *self, gm_instance_t *other, double id, double x, double y)
+void gml_fn_draw_surface(gm_instance_t *self, gm_instance_t *other, float id, float x, float y)
 {
     (void)self;
     (void)other;
     gm_draw_surface(i32(id), x, y);
 }
 
-void gml_fn_draw_surface_stretched(gm_instance_t *self, gm_instance_t *other, double id, double x, double y,
-                                   double w, double h)
+void gml_fn_draw_surface_stretched(gm_instance_t *self, gm_instance_t *other, float id, float x, float y,
+                                   float w, float h)
 {
     (void)self;
     (void)other;
@@ -215,49 +236,49 @@ void gml_fn_draw_surface_stretched(gm_instance_t *self, gm_instance_t *other, do
 
 /* ------------------------------------------------------------------ window */
 
-double gml_fn_window_get_width(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_window_get_width(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_window_width();
+    return (float)gm_window_width();
 }
 
-double gml_fn_window_get_height(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_window_get_height(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_window_height();
+    return (float)gm_window_height();
 }
 
-double gml_fn_display_get_width(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_display_get_width(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_display_width();
+    return (float)gm_display_width();
 }
 
-double gml_fn_display_get_height(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_display_get_height(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_display_height();
+    return (float)gm_display_height();
 }
 
-void gml_fn_window_set_size(gm_instance_t *self, gm_instance_t *other, double w, double h)
+void gml_fn_window_set_size(gm_instance_t *self, gm_instance_t *other, float w, float h)
 {
     (void)self;
     (void)other;
     gm_window_set_size(i32(w), i32(h));
 }
 
-void gml_fn_window_set_fullscreen(gm_instance_t *self, gm_instance_t *other, double f)
+void gml_fn_window_set_fullscreen(gm_instance_t *self, gm_instance_t *other, float f)
 {
     (void)self;
     (void)other;
     gm_window_set_fullscreen(gml_truthy(f) != 0);
 }
 
-void gml_fn_display_set_gui_size(gm_instance_t *self, gm_instance_t *other, double w, double h)
+void gml_fn_display_set_gui_size(gm_instance_t *self, gm_instance_t *other, float w, float h)
 {
     (void)self;
     (void)other;
@@ -266,14 +287,14 @@ void gml_fn_display_set_gui_size(gm_instance_t *self, gm_instance_t *other, doub
 
 /* ------------------------------------------------------------------ audio */
 
-double gml_fn_audio_play_sound(gm_instance_t *self, gm_instance_t *other, double snd, double prio, double loop)
+float gml_fn_audio_play_sound(gm_instance_t *self, gm_instance_t *other, float snd, float prio, float loop)
 {
     (void)self;
     (void)other;
-    return gm_audio_play_sound(snd, prio, (double)gml_truthy(loop));
+    return gm_audio_play_sound(snd, prio, (float)gml_truthy(loop));
 }
 
-void gml_fn_audio_stop_sound(gm_instance_t *self, gm_instance_t *other, double id)
+void gml_fn_audio_stop_sound(gm_instance_t *self, gm_instance_t *other, float id)
 {
     (void)self;
     (void)other;
@@ -287,21 +308,21 @@ void gml_fn_audio_stop_all(gm_instance_t *self, gm_instance_t *other)
     gm_audio_stop_all();
 }
 
-double gml_fn_audio_is_playing(gm_instance_t *self, gm_instance_t *other, double id)
+float gml_fn_audio_is_playing(gm_instance_t *self, gm_instance_t *other, float id)
 {
     (void)self;
     (void)other;
     return b2r(gm_audio_is_playing(id));
 }
 
-void gml_fn_audio_sound_gain(gm_instance_t *self, gm_instance_t *other, double id, double vol, double ms)
+void gml_fn_audio_sound_gain(gm_instance_t *self, gm_instance_t *other, float id, float vol, float ms)
 {
     (void)self;
     (void)other;
     gm_audio_sound_gain(id, vol, ms);
 }
 
-void gml_fn_audio_master_gain(gm_instance_t *self, gm_instance_t *other, double vol)
+void gml_fn_audio_master_gain(gm_instance_t *self, gm_instance_t *other, float vol)
 {
     (void)self;
     (void)other;

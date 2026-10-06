@@ -5,7 +5,7 @@ static void gml_ev_oOlmecSlam__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    gml_iset_alarm(self, 0.0, 1.0);
+    gml_iset_alarm(self, 0.0f, 1.0f);
     gml_script_playSound(self, other, g_gml_globals.sndSlam);
 }
 
@@ -40,8 +40,8 @@ static void gml_ev_oOlmecSlam__Collision_oPushBlock_body(gm_instance_t *self, gm
         gm_instance_t *self1;
         gm_with_begin(GM_OTHER, self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_cleanDeath] = 0.0;
-            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 16.0)));
+            self1->vars[VAR_cleanDeath] = 0.0f;
+            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 16.0f)));
             if (gml_vtruthy(self1->vals[VVAR_tile])) {
                 gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
             }
@@ -68,8 +68,8 @@ static void gml_ev_oOlmecSlam__Collision_oBlock_body(gm_instance_t *self, gm_ins
         gm_instance_t *self1;
         gm_with_begin(GM_OTHER, self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_cleanDeath] = 0.0;
-            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 16.0)));
+            self1->vars[VAR_cleanDeath] = 0.0f;
+            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 16.0f)));
             if (gml_vtruthy(self1->vals[VVAR_tile])) {
                 gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
             }
@@ -96,8 +96,8 @@ static void gml_ev_oOlmecSlam__Collision_oTemple_body(gm_instance_t *self, gm_in
         gm_instance_t *self1;
         gm_with_begin(GM_OTHER, self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_cleanDeath] = 0.0;
-            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 16.0)));
+            self1->vars[VAR_cleanDeath] = 0.0f;
+            self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 16.0f)));
             if (gml_vtruthy(self1->vals[VVAR_tile])) {
                 gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
             }

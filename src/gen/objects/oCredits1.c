@@ -5,14 +5,14 @@ static void gml_ev_oCredits1__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_fadeIn] = 1.0;
-    self->vars[VAR_fadeOut] = 0.0;
-    self->vars[VAR_fadeLevel] = 1.0;
-    self->vars[VAR_drawStatus] = 0.0;
-    self->vars[VAR_scrollStart] = 0.0;
-    self->vars[VAR_scrolling] = 0.0;
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oScreen)))) {
-        gml_ivar_set(gml_deref(((double)OBJ_oScreen), self, other), VAR_canPause, 0.0);
+    self->vars[VAR_fadeIn] = 1.0f;
+    self->vars[VAR_fadeOut] = 0.0f;
+    self->vars[VAR_fadeLevel] = 1.0f;
+    self->vars[VAR_drawStatus] = 0.0f;
+    self->vars[VAR_scrollStart] = 0.0f;
+    self->vars[VAR_scrolling] = 0.0f;
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oScreen)))) {
+        gml_ivar_set(gml_deref(((float)OBJ_oScreen), self, other), VAR_canPause, 0.0f);
     }
     gml_script_stopAllMusic(self, other);
 }
@@ -28,7 +28,7 @@ static void gml_ev_oCredits1__Alarm_11_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 0.0;
+    self->vars[VAR_drawStatus] = 0.0f;
 }
 
 void gml_ev_oCredits1__Alarm_11(gm_instance_t *self, gm_instance_t *other)
@@ -44,48 +44,48 @@ static void gml_ev_oCredits1__Alarm_8_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     (void)wd;
-    self->vars[VAR_scrolling] = 0.0;
+    self->vars[VAR_scrolling] = 0.0f;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oDesertScroll)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oDesertScroll)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_scroll] = 0.0;
+            self1->vars[VAR_scroll] = 0.0f;
         }
         gm_with_end();
     }
     {
         gm_instance_t *self2;
-        gm_with_begin(gml_target(((double)OBJ_oDesertScroll2)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oDesertScroll2)), self, other);
         while ((self2 = gm_with_next()) != NULL) {
-            self2->vars[VAR_scroll] = 0.0;
+            self2->vars[VAR_scroll] = 0.0f;
         }
         gm_with_end();
     }
     {
         gm_instance_t *self3;
-        gm_with_begin(gml_target(((double)OBJ_oDesertTopScroll)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oDesertTopScroll)), self, other);
         while ((self3 = gm_with_next()) != NULL) {
-            self3->vars[VAR_scroll] = 0.0;
+            self3->vars[VAR_scroll] = 0.0f;
         }
         gm_with_end();
     }
     {
         gm_instance_t *self4;
-        gm_with_begin(gml_target(((double)OBJ_oPalmTreeScroll)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oPalmTreeScroll)), self, other);
         while ((self4 = gm_with_next()) != NULL) {
-            self4->vars[VAR_scroll] = 0.0;
+            self4->vars[VAR_scroll] = 0.0f;
         }
         gm_with_end();
     }
     {
         gm_instance_t *self5;
-        gm_with_begin(gml_target(((double)OBJ_oShrubScroll)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oShrubScroll)), self, other);
         while ((self5 = gm_with_next()) != NULL) {
-            self5->vars[VAR_scroll] = 0.0;
+            self5->vars[VAR_scroll] = 0.0f;
         }
         gm_with_end();
     }
-    gml_ivar_set(gml_deref(((double)OBJ_oCamel), self, other), VAR_status, 2.0);
+    gml_ivar_set(gml_deref(((float)OBJ_oCamel), self, other), VAR_status, 2.0f);
 }
 
 void gml_ev_oCredits1__Alarm_8(gm_instance_t *self, gm_instance_t *other)
@@ -99,9 +99,9 @@ static void gml_ev_oCredits1__Alarm_7_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 6.0;
-    gml_iset_alarm(self, 11.0, 240.0);
-    gml_iset_alarm(self, 8.0, 280.0);
+    self->vars[VAR_drawStatus] = 6.0f;
+    gml_iset_alarm(self, 11.0f, 240.0f);
+    gml_iset_alarm(self, 8.0f, 280.0f);
 }
 
 void gml_ev_oCredits1__Alarm_7(gm_instance_t *self, gm_instance_t *other)
@@ -115,9 +115,9 @@ static void gml_ev_oCredits1__Alarm_6_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 5.0;
-    gml_iset_alarm(self, 11.0, 240.0);
-    gml_iset_alarm(self, 7.0, 280.0);
+    self->vars[VAR_drawStatus] = 5.0f;
+    gml_iset_alarm(self, 11.0f, 240.0f);
+    gml_iset_alarm(self, 7.0f, 280.0f);
 }
 
 void gml_ev_oCredits1__Alarm_6(gm_instance_t *self, gm_instance_t *other)
@@ -131,9 +131,9 @@ static void gml_ev_oCredits1__Alarm_5_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 4.0;
-    gml_iset_alarm(self, 11.0, 140.0);
-    gml_iset_alarm(self, 6.0, 180.0);
+    self->vars[VAR_drawStatus] = 4.0f;
+    gml_iset_alarm(self, 11.0f, 140.0f);
+    gml_iset_alarm(self, 6.0f, 180.0f);
 }
 
 void gml_ev_oCredits1__Alarm_5(gm_instance_t *self, gm_instance_t *other)
@@ -147,9 +147,9 @@ static void gml_ev_oCredits1__Alarm_4_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 3.0;
-    gml_iset_alarm(self, 11.0, 140.0);
-    gml_iset_alarm(self, 5.0, 180.0);
+    self->vars[VAR_drawStatus] = 3.0f;
+    gml_iset_alarm(self, 11.0f, 140.0f);
+    gml_iset_alarm(self, 5.0f, 180.0f);
 }
 
 void gml_ev_oCredits1__Alarm_4(gm_instance_t *self, gm_instance_t *other)
@@ -163,9 +163,9 @@ static void gml_ev_oCredits1__Alarm_3_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 2.0;
-    gml_iset_alarm(self, 11.0, 140.0);
-    gml_iset_alarm(self, 4.0, 180.0);
+    self->vars[VAR_drawStatus] = 2.0f;
+    gml_iset_alarm(self, 11.0f, 140.0f);
+    gml_iset_alarm(self, 4.0f, 180.0f);
 }
 
 void gml_ev_oCredits1__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -179,9 +179,9 @@ static void gml_ev_oCredits1__Alarm_2_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 1.0;
-    gml_iset_alarm(self, 11.0, 140.0);
-    gml_iset_alarm(self, 3.0, 180.0);
+    self->vars[VAR_drawStatus] = 1.0f;
+    gml_iset_alarm(self, 11.0f, 140.0f);
+    gml_iset_alarm(self, 3.0f, 180.0f);
 }
 
 void gml_ev_oCredits1__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -198,58 +198,58 @@ static void gml_ev_oCredits1__Alarm_1_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     (void)wd;
     if (gml_truthy(self->vars[VAR_scrolling])) {
-        if (gml_eq(gml_script_rand(self, other, 1.0, 8.0), 1.0)) {
-            (void)(gml_script_instance_create(self, other, (-16.0), 176.0, ((double)OBJ_oShrubScroll)));
+        if (gml_eq(gml_script_rand(self, other, 1.0f, 8.0f), 1.0f)) {
+            (void)(gml_script_instance_create(self, other, (-16.0f), 176.0f, ((float)OBJ_oShrubScroll)));
         } else {
-            if (gml_eq(gml_script_rand(self, other, 1.0, 12.0), 1.0)) {
-                (void)(gml_script_instance_create(self, other, (-32.0), (176.0 - 112.0), ((double)OBJ_oPalmTreeScroll)));
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 12.0f), 1.0f)) {
+                (void)(gml_script_instance_create(self, other, (-32.0f), (176.0f - 112.0f), ((float)OBJ_oPalmTreeScroll)));
             }
         }
-        (void)(gml_script_instance_create(self, other, (-16.0), 176.0, ((double)OBJ_oDesertTopScroll)));
-        (void)(gml_script_instance_create(self, other, (-16.0), 192.0, ((double)OBJ_oDesertScroll2)));
-        (void)(gml_script_instance_create(self, other, (-16.0), 208.0, ((double)OBJ_oDesertScroll)));
-        (void)(gml_script_instance_create(self, other, (-16.0), 224.0, ((double)OBJ_oDesertScroll)));
+        (void)(gml_script_instance_create(self, other, (-16.0f), 176.0f, ((float)OBJ_oDesertTopScroll)));
+        (void)(gml_script_instance_create(self, other, (-16.0f), 192.0f, ((float)OBJ_oDesertScroll2)));
+        (void)(gml_script_instance_create(self, other, (-16.0f), 208.0f, ((float)OBJ_oDesertScroll)));
+        (void)(gml_script_instance_create(self, other, (-16.0f), 224.0f, ((float)OBJ_oDesertScroll)));
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oDesertScroll)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oDesertScroll)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_scroll] = 1.0;
+                self1->vars[VAR_scroll] = 1.0f;
             }
             gm_with_end();
         }
         {
             gm_instance_t *self2;
-            gm_with_begin(gml_target(((double)OBJ_oDesertScroll2)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oDesertScroll2)), self, other);
             while ((self2 = gm_with_next()) != NULL) {
-                self2->vars[VAR_scroll] = 1.0;
+                self2->vars[VAR_scroll] = 1.0f;
             }
             gm_with_end();
         }
         {
             gm_instance_t *self3;
-            gm_with_begin(gml_target(((double)OBJ_oDesertTopScroll)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oDesertTopScroll)), self, other);
             while ((self3 = gm_with_next()) != NULL) {
-                self3->vars[VAR_scroll] = 1.0;
+                self3->vars[VAR_scroll] = 1.0f;
             }
             gm_with_end();
         }
         {
             gm_instance_t *self4;
-            gm_with_begin(gml_target(((double)OBJ_oShrubScroll)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oShrubScroll)), self, other);
             while ((self4 = gm_with_next()) != NULL) {
-                self4->vars[VAR_scroll] = 1.0;
+                self4->vars[VAR_scroll] = 1.0f;
             }
             gm_with_end();
         }
         {
             gm_instance_t *self5;
-            gm_with_begin(gml_target(((double)OBJ_oPalmTreeScroll)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oPalmTreeScroll)), self, other);
             while ((self5 = gm_with_next()) != NULL) {
-                self5->vars[VAR_scroll] = 1.0;
+                self5->vars[VAR_scroll] = 1.0f;
             }
             gm_with_end();
         }
-        gml_iset_alarm(self, 1.0, 16.0);
+        gml_iset_alarm(self, 1.0f, 16.0f);
     }
 }
 
@@ -264,7 +264,7 @@ static void gml_ev_oCredits1__Alarm_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, g_gml_globals.display_w, 144.0, ((double)OBJ_oCamel)));
+    (void)(gml_script_instance_create(self, other, g_gml_globals.display_w, 144.0f, ((float)OBJ_oCamel)));
 }
 
 void gml_ev_oCredits1__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -277,52 +277,52 @@ void gml_ev_oCredits1__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oCredits1__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_skipCondition = 0.0;
+    float l_skipCondition = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
     (void)l_skipCondition;
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_skipCondition = (((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttack(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = (((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttack(self, other))) ? 1.0f : 0.0f);
     } else {
-        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttack(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttack(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCamel)))) {
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCamel)))) {
             if (gml_truthy(self->vars[VAR_fadeIn])) {
-                self->vars[VAR_fadeLevel] = 0.0;
+                self->vars[VAR_fadeLevel] = 0.0f;
             } else {
-                self->vars[VAR_fadeOut] = 1.0;
+                self->vars[VAR_fadeOut] = 1.0f;
             }
         }
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCamel)))) {
-        if ((gml_le(gml_iget_x(gml_deref(((double)OBJ_oCamel), self, other)), 160.0) && (!gml_truthy(self->vars[VAR_scrollStart])))) {
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCamel)))) {
+        if ((gml_le(gml_iget_x(gml_deref(((float)OBJ_oCamel), self, other)), 160.0f) && (!gml_truthy(self->vars[VAR_scrollStart])))) {
             {
                 gm_instance_t *self1;
-                gm_with_begin(gml_target(((double)OBJ_oDesertScroll)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oDesertScroll)), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    self1->vars[VAR_scroll] = 1.0;
+                    self1->vars[VAR_scroll] = 1.0f;
                 }
                 gm_with_end();
             }
-            gml_iset_alarm(self, 1.0, 1.0);
-            gml_iset_alarm(self, 2.0, 20.0);
-            self->vars[VAR_scrollStart] = 1.0;
-            self->vars[VAR_scrolling] = 1.0;
+            gml_iset_alarm(self, 1.0f, 1.0f);
+            gml_iset_alarm(self, 2.0f, 20.0f);
+            self->vars[VAR_scrollStart] = 1.0f;
+            self->vars[VAR_scrolling] = 1.0f;
         }
     }
     if (gml_truthy(self->vars[VAR_fadeIn])) {
-        if (gml_gt(self->vars[VAR_fadeLevel], 0.0)) {
-            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] - 0.1);
+        if (gml_gt(self->vars[VAR_fadeLevel], 0.0f)) {
+            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] - 0.1f);
         } else {
-            self->vars[VAR_fadeIn] = 0.0;
-            gml_iset_alarm(self, 0.0, 20.0);
+            self->vars[VAR_fadeIn] = 0.0f;
+            gml_iset_alarm(self, 0.0f, 20.0f);
         }
     } else {
         if (gml_truthy(self->vars[VAR_fadeOut])) {
-            if (gml_lt(self->vars[VAR_fadeLevel], 1.0)) {
-                self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1);
+            if (gml_lt(self->vars[VAR_fadeLevel], 1.0f)) {
+                self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1f);
             } else {
                 gml_script_quitGame(self, other);
             }
@@ -341,74 +341,74 @@ static void gml_ev_oCredits1__Draw_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_drawStatus], 1.0)) {
+    if (gml_eq(self->vars[VAR_drawStatus], 1.0f)) {
         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-        gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-        gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, "SPELUNKY"));
+        gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+        gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, "SPELUNKY"));
     } else {
-        if (gml_eq(self->vars[VAR_drawStatus], 2.0)) {
+        if (gml_eq(self->vars[VAR_drawStatus], 2.0f)) {
             gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-            gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-            gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "A GAME BY")));
-            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-            gml_fn_draw_text(self, other, 32.0, 32.0, gml_fn_string_hash_to_newline(self, other, "DEREK YU"));
+            gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+            gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "A GAME BY")));
+            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+            gml_fn_draw_text(self, other, 32.0f, 32.0f, gml_fn_string_hash_to_newline(self, other, "DEREK YU"));
         } else {
-            if (gml_eq(self->vars[VAR_drawStatus], 3.0)) {
+            if (gml_eq(self->vars[VAR_drawStatus], 3.0f)) {
                 gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-                gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PLATFORM ENGINE")));
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                gml_fn_draw_text(self, other, 16.0, 24.0, gml_fn_string_hash_to_newline(self, other, "MARTIN PIECYK"));
-                gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                gml_fn_draw_text(self, other, 16.0, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SOUND EFFECTS MADE USING")));
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                gml_fn_draw_text(self, other, 16.0, 48.0, gml_fn_string_hash_to_newline(self, other, "DR PETTER'S SFXR"));
-                gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                gml_fn_draw_text(self, other, 16.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SCREEN SCALING CODE")));
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                gml_fn_draw_text(self, other, 16.0, 72.0, gml_fn_string_hash_to_newline(self, other, "CHEVYRAY"));
+                gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PLATFORM ENGINE")));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                gml_fn_draw_text(self, other, 16.0f, 24.0f, gml_fn_string_hash_to_newline(self, other, "MARTIN PIECYK"));
+                gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                gml_fn_draw_text(self, other, 16.0f, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SOUND EFFECTS MADE USING")));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                gml_fn_draw_text(self, other, 16.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, "DR PETTER'S SFXR"));
+                gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                gml_fn_draw_text(self, other, 16.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SCREEN SCALING CODE")));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                gml_fn_draw_text(self, other, 16.0f, 72.0f, gml_fn_string_hash_to_newline(self, other, "CHEVYRAY"));
             } else {
-                if (gml_eq(self->vars[VAR_drawStatus], 4.0)) {
+                if (gml_eq(self->vars[VAR_drawStatus], 4.0f)) {
                     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-                    gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                    gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MUSIC BY")));
-                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                    gml_fn_draw_text(self, other, 32.0, 32.0, gml_fn_string_hash_to_newline(self, other, "GEORGE BUZINKAI"));
-                    gml_fn_draw_text(self, other, 32.0, 48.0, gml_fn_string_hash_to_newline(self, other, "JONATHAN PERRY"));
+                    gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                    gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MUSIC BY")));
+                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                    gml_fn_draw_text(self, other, 32.0f, 32.0f, gml_fn_string_hash_to_newline(self, other, "GEORGE BUZINKAI"));
+                    gml_fn_draw_text(self, other, 32.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, "JONATHAN PERRY"));
                 } else {
-                    if (gml_eq(self->vars[VAR_drawStatus], 5.0)) {
+                    if (gml_eq(self->vars[VAR_drawStatus], 5.0f)) {
                         gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-                        gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                        gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BETA TESTING BY")));
-                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                        gml_fn_draw_text(self, other, 16.0, 24.0, gml_fn_string_hash_to_newline(self, other, "ANNABELLE K."));
-                        gml_fn_draw_text(self, other, 16.0, 32.0, gml_fn_string_hash_to_newline(self, other, "BENZIDO"));
-                        gml_fn_draw_text(self, other, 16.0, 40.0, gml_fn_string_hash_to_newline(self, other, "CHUTUP"));
-                        gml_fn_draw_text(self, other, 16.0, 48.0, gml_fn_string_hash_to_newline(self, other, "CORPUS"));
-                        gml_fn_draw_text(self, other, 16.0, 56.0, gml_fn_string_hash_to_newline(self, other, "GENERALVALTER"));
-                        gml_fn_draw_text(self, other, 16.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "GUERT")));
-                        gml_fn_draw_text(self, other, 16.0, 72.0, gml_fn_string_hash_to_newline(self, other, "GRAHAM GORING"));
-                        gml_fn_draw_text(self, other, 16.0, 80.0, gml_fn_string_hash_to_newline(self, other, "HAOWAN"));
-                        gml_fn_draw_text(self, other, 16.0, 88.0, gml_fn_string_hash_to_newline(self, other, "HIDEOUS"));
-                        gml_fn_draw_text(self, other, 16.0, 96.0, gml_fn_string_hash_to_newline(self, other, "INANE"));
-                        gml_fn_draw_text(self, other, 128.0, 24.0, gml_fn_string_hash_to_newline(self, other, "INCREPARE"));
-                        gml_fn_draw_text(self, other, 128.0, 32.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "KAO")));
-                        gml_fn_draw_text(self, other, 128.0, 40.0, gml_fn_string_hash_to_newline(self, other, "MARK JOHNS"));
-                        gml_fn_draw_text(self, other, 128.0, 48.0, gml_fn_string_hash_to_newline(self, other, "MELLY"));
-                        gml_fn_draw_text(self, other, 128.0, 56.0, gml_fn_string_hash_to_newline(self, other, "PAUL ERES"));
-                        gml_fn_draw_text(self, other, 128.0, 64.0, gml_fn_string_hash_to_newline(self, other, "SUPER JOE"));
-                        gml_fn_draw_text(self, other, 128.0, 72.0, gml_fn_string_hash_to_newline(self, other, "TANTAN"));
-                        gml_fn_draw_text(self, other, 128.0, 80.0, gml_fn_string_hash_to_newline(self, other, "TEAM QUIGGAN"));
-                        gml_fn_draw_text(self, other, 128.0, 88.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TERRY")));
-                        gml_fn_draw_text(self, other, 128.0, 96.0, gml_fn_string_hash_to_newline(self, other, "XION"));
-                        gml_fn_draw_text(self, other, 128.0, 104.0, gml_fn_string_hash_to_newline(self, other, "ZAPHOS"));
+                        gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                        gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BETA TESTING BY")));
+                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                        gml_fn_draw_text(self, other, 16.0f, 24.0f, gml_fn_string_hash_to_newline(self, other, "ANNABELLE K."));
+                        gml_fn_draw_text(self, other, 16.0f, 32.0f, gml_fn_string_hash_to_newline(self, other, "BENZIDO"));
+                        gml_fn_draw_text(self, other, 16.0f, 40.0f, gml_fn_string_hash_to_newline(self, other, "CHUTUP"));
+                        gml_fn_draw_text(self, other, 16.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, "CORPUS"));
+                        gml_fn_draw_text(self, other, 16.0f, 56.0f, gml_fn_string_hash_to_newline(self, other, "GENERALVALTER"));
+                        gml_fn_draw_text(self, other, 16.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "GUERT")));
+                        gml_fn_draw_text(self, other, 16.0f, 72.0f, gml_fn_string_hash_to_newline(self, other, "GRAHAM GORING"));
+                        gml_fn_draw_text(self, other, 16.0f, 80.0f, gml_fn_string_hash_to_newline(self, other, "HAOWAN"));
+                        gml_fn_draw_text(self, other, 16.0f, 88.0f, gml_fn_string_hash_to_newline(self, other, "HIDEOUS"));
+                        gml_fn_draw_text(self, other, 16.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, "INANE"));
+                        gml_fn_draw_text(self, other, 128.0f, 24.0f, gml_fn_string_hash_to_newline(self, other, "INCREPARE"));
+                        gml_fn_draw_text(self, other, 128.0f, 32.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "KAO")));
+                        gml_fn_draw_text(self, other, 128.0f, 40.0f, gml_fn_string_hash_to_newline(self, other, "MARK JOHNS"));
+                        gml_fn_draw_text(self, other, 128.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, "MELLY"));
+                        gml_fn_draw_text(self, other, 128.0f, 56.0f, gml_fn_string_hash_to_newline(self, other, "PAUL ERES"));
+                        gml_fn_draw_text(self, other, 128.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, "SUPER JOE"));
+                        gml_fn_draw_text(self, other, 128.0f, 72.0f, gml_fn_string_hash_to_newline(self, other, "TANTAN"));
+                        gml_fn_draw_text(self, other, 128.0f, 80.0f, gml_fn_string_hash_to_newline(self, other, "TEAM QUIGGAN"));
+                        gml_fn_draw_text(self, other, 128.0f, 88.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TERRY")));
+                        gml_fn_draw_text(self, other, 128.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, "XION"));
+                        gml_fn_draw_text(self, other, 128.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "ZAPHOS"));
                     } else {
-                        if (gml_eq(self->vars[VAR_drawStatus], 6.0)) {
+                        if (gml_eq(self->vars[VAR_drawStatus], 6.0f)) {
                             gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-                            gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                            gml_fn_draw_text(self, other, 16.0, 16.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "THANKS FOR PLAYING!")));
-                            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-                            gml_fn_draw_text(self, other, 32.0, 32.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SEE YOU NEXT ADVENTURE!")));
+                            gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                            gml_fn_draw_text(self, other, 16.0f, 16.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "THANKS FOR PLAYING!")));
+                            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+                            gml_fn_draw_text(self, other, 32.0f, 32.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SEE YOU NEXT ADVENTURE!")));
                         }
                     }
                 }
@@ -416,10 +416,10 @@ static void gml_ev_oCredits1__Draw_0_body(gm_instance_t *self, gm_instance_t *ot
         }
     }
     if ((gml_truthy(self->vars[VAR_fadeIn]) || gml_truthy(self->vars[VAR_fadeOut]))) {
-        gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
+        gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
         gml_fn_draw_set_alpha(self, other, self->vars[VAR_fadeLevel]);
-        gml_fn_draw_rectangle(self, other, 0.0, 0.0, g_gml_globals.display_w, 240.0, 0.0);
-        gml_fn_draw_set_alpha(self, other, 1.0);
+        gml_fn_draw_rectangle(self, other, 0.0f, 0.0f, g_gml_globals.display_w, 240.0f, 0.0f);
+        gml_fn_draw_set_alpha(self, other, 1.0f);
     }
 }
 

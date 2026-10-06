@@ -3,17 +3,17 @@
 
 static void gml_ev_oNewButton__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    gml_iset_x(self, ((t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t1 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) - 88.0));
-    if (gml_eq(gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), 0.0)) {
-        gml_iset_y(self, ((t2 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t2 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) - 32.0));
+    gml_iset_x(self, ((t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t1 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) - 88.0f));
+    if (gml_eq(gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), 0.0f)) {
+        gml_iset_y(self, ((t2 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t2 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) - 32.0f));
     } else {
-        gml_iset_y(self, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 16.0));
+        gml_iset_y(self, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 16.0f));
     }
 }
 
@@ -28,7 +28,7 @@ static void gml_ev_oNewButton__Mouse_11_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sNewButton));
+    gml_iset_sprite_index(self, ((float)SPR_sNewButton));
 }
 
 void gml_ev_oNewButton__Mouse_11(gm_instance_t *self, gm_instance_t *other)
@@ -44,11 +44,11 @@ static void gml_ev_oNewButton__Mouse_7_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sNewButtonPressed))) {
-        gml_ivar_set(gml_deref(((double)OBJ_oLevelEditor), self, other), VAR_status, 10.0);
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sNewButtonPressed))) {
+        gml_ivar_set(gml_deref(((float)OBJ_oLevelEditor), self, other), VAR_status, 10.0f);
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oEditButton)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oEditButton)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
@@ -56,7 +56,7 @@ static void gml_ev_oNewButton__Mouse_7_body(gm_instance_t *self, gm_instance_t *
         }
         {
             gm_instance_t *self2;
-            gm_with_begin(gml_target(((double)OBJ_oTestButton)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oTestButton)), self, other);
             while ((self2 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self2, self, 0, NULL);
             }
@@ -64,7 +64,7 @@ static void gml_ev_oNewButton__Mouse_7_body(gm_instance_t *self, gm_instance_t *
         }
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    gml_iset_sprite_index(self, ((double)SPR_sNewButton));
+    gml_iset_sprite_index(self, ((float)SPR_sNewButton));
 }
 
 void gml_ev_oNewButton__Mouse_7(gm_instance_t *self, gm_instance_t *other)
@@ -78,7 +78,7 @@ static void gml_ev_oNewButton__Mouse_4_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sNewButtonPressed));
+    gml_iset_sprite_index(self, ((float)SPR_sNewButtonPressed));
 }
 
 void gml_ev_oNewButton__Mouse_4(gm_instance_t *self, gm_instance_t *other)

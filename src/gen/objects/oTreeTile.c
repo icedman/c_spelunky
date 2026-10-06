@@ -7,7 +7,7 @@ static void gml_ev_oTreeTile__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Tree";
-    self->vars[VAR_burning] = 0.0;
+    self->vars[VAR_burning] = 0.0f;
 }
 
 void gml_ev_oTreeTile__Create_0(gm_instance_t *self, gm_instance_t *other)

@@ -8,9 +8,9 @@ static void gml_ev_oBall__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Ball";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-5.0), (-5.0), 5.0, 5.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_myGrav] = 1.0;
+    gml_script_setCollisionBounds(self, other, (-5.0f), (-5.0f), 5.0f, 5.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_myGrav] = 1.0f;
 }
 
 void gml_ev_oBall__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,53 +25,53 @@ static void gml_ev_oBall__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_ge(gml_fn_distance_to_object(self, other, ((double)OBJ_oPlayer1)), 24.0)) {
-        if ((gml_ge(fabs((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 24.0) || (!gml_truthy(self->vars[VAR_colBot])))) {
-            if (gml_lt(fabs((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 1.0)) {
-                gml_iset_x(self, gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)));
-                self->vars[VAR_xVel] = 0.0;
+    if (gml_ge(gml_fn_distance_to_object(self, other, ((float)OBJ_oPlayer1)), 24.0f)) {
+        if ((gml_ge(fabsf((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 24.0f) || (!gml_truthy(self->vars[VAR_colBot])))) {
+            if (gml_lt(fabsf((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_x(self))), 1.0f)) {
+                gml_iset_x(self, gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)));
+                self->vars[VAR_xVel] = 0.0f;
             }
-            if (gml_gt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
-                if ((gml_gt(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel), 0.0) && gml_ge(gml_iget_y(self), gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other))))) {
-                    self->vars[VAR_xVel] = gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel);
+            if (gml_gt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
+                if ((gml_gt(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel), 0.0f) && gml_ge(gml_iget_y(self), gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other))))) {
+                    self->vars[VAR_xVel] = gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel);
                 } else {
-                    if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-0.5));
+                    if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-0.5f));
                     } else {
-                        if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                            self->vars[VAR_xVel] = 2.0;
+                        if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                            self->vars[VAR_xVel] = 2.0f;
                         }
                     }
                 }
             } else {
-                if (gml_lt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
-                    if ((gml_lt(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel), 0.0) && gml_ge(gml_iget_y(self), gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other))))) {
-                        self->vars[VAR_xVel] = gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel);
+                if (gml_lt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
+                    if ((gml_lt(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel), 0.0f) && gml_ge(gml_iget_y(self), gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other))))) {
+                        self->vars[VAR_xVel] = gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel);
                     } else {
-                        if (gml_gt(self->vars[VAR_xVel], 0.0)) {
-                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-0.5));
+                        if (gml_gt(self->vars[VAR_xVel], 0.0f)) {
+                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-0.5f));
                         } else {
-                            if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                                self->vars[VAR_xVel] = (-2.0);
+                            if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                                self->vars[VAR_xVel] = (-2.0f);
                             }
                         }
                     }
                 }
             }
         } else {
-            self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.5);
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 0.5)) {
-                self->vars[VAR_xVel] = 0.0;
+            self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.5f);
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 0.5f)) {
+                self->vars[VAR_xVel] = 0.0f;
             }
         }
-        if (gml_ge(fabs((gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_y(self))), 24.0)) {
-            if (gml_lt(gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_y(self))) {
-                self->vars[VAR_yVel] = 0.0;
+        if (gml_ge(fabsf((gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_y(self))), 24.0f)) {
+            if (gml_lt(gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_y(self))) {
+                self->vars[VAR_yVel] = 0.0f;
             }
         }
     } else {
         if (gml_truthy(self->vars[VAR_colBot])) {
-            self->vars[VAR_xVel] = 0.0;
+            self->vars[VAR_xVel] = 0.0f;
         }
     }
 }

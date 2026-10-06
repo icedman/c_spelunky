@@ -5,29 +5,29 @@ void gml_script_scrTestLevel(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    gml_aset(&self->vals[VVAR_exitNames], 0.0, gml_vs(""));
-    self->vars[VAR_exitNamesID] = 0.0;
-    gml_aset(&self->vals[VVAR_signNames], 0.0, gml_vs(""));
-    self->vars[VAR_signNamesID] = 0.0;
+    gml_aset(&self->vals[VVAR_exitNames], 0.0f, gml_vs(""));
+    self->vars[VAR_exitNamesID] = 0.0f;
+    gml_aset(&self->vals[VVAR_signNames], 0.0f, gml_vs(""));
+    self->vars[VAR_signNamesID] = 0.0f;
     self->vars[VAR_file] = gml_fn_file_text_open_write(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp"));
-    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])));
             if ((gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("X")) || gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("@")))) {
-                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oExit));
+                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oExit));
                 if ((!gml_truthy(self->vars[VAR_obj]))) {
-                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oEntrance));
+                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oEntrance));
                 }
                 if (gml_truthy(self->vars[VAR_obj])) {
                     gml_aset(&self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID], gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo));
-                    self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                    self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                 }
             } else {
                 if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("I"))) {
-                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oMsgSign));
+                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oMsgSign));
                     if (gml_truthy(self->vars[VAR_obj])) {
                         gml_aset(&self->vals[VVAR_signNames], self->vars[VAR_signNamesID], gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_message));
-                        self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0);
+                        self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0f);
                     }
                 }
             }
@@ -47,30 +47,30 @@ void gml_script_scrTestLevel(gm_instance_t *self, gm_instance_t *other)
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], self->strs[SVAR_nextLevel]);
     gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_real_str(self->vars[VAR_exitNamesID]));
-    if (gml_gt(self->vars[VAR_exitNamesID], 0.0)) {
+    if (gml_gt(self->vars[VAR_exitNamesID], 0.0f)) {
         gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_i])));
         if (gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID])) {
             gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
         }
     }
     gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_real_str(self->vars[VAR_signNamesID]));
-    if (gml_gt(self->vars[VAR_signNamesID], 0.0)) {
+    if (gml_gt(self->vars[VAR_signNamesID], 0.0f)) {
         gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(self->vals[VVAR_signNames], self->vars[VAR_i])));
-        if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesID] - 1.0))) {
+        if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesID] - 1.0f))) {
             gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
         }
     }
     gml_fn_file_text_close(self, other, self->vars[VAR_file]);
-    g_gml_globals.tofu = 1.0;
-    g_gml_globals.currLevel = 1.0;
-    g_gml_globals.gameStart = 1.0;
-    g_gml_globals.customLevel = 1.0;
+    g_gml_globals.tofu = 1.0f;
+    g_gml_globals.currLevel = 1.0f;
+    g_gml_globals.gameStart = 1.0f;
+    g_gml_globals.customLevel = 1.0f;
     g_gml_gvals[GV_firstCustomLevel] = gml_vs("");
     g_gml_gvals[GV_nextCustomLevel] = self->vals[VVAR_levelName];
     g_gml_gvals[GV_testLevel] = self->vals[VVAR_levelName];

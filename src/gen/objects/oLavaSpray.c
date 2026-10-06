@@ -5,9 +5,9 @@ static void gml_ev_oLavaSpray__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.0;
-    self->vars[VAR_status] = 0.0;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.0f;
+    self->vars[VAR_status] = 0.0f;
 }
 
 void gml_ev_oLavaSpray__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,7 +21,7 @@ static void gml_ev_oLavaSpray__Alarm_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    gml_fn_room_goto(self, other, ((double)RM_rEnd2));
+    gml_fn_room_goto(self, other, ((float)RM_rEnd2));
 }
 
 void gml_ev_oLavaSpray__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -36,20 +36,20 @@ static void gml_ev_oLavaSpray__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_gt(self->vars[VAR_yVel], (-6.0))) {
+    if (gml_gt(self->vars[VAR_yVel], (-6.0f))) {
         self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_yAcc]);
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 1.0), ((double)OBJ_oEndPlat), 0.0, 0.0))) {
-        gml_ivar_set(gml_deref(((double)OBJ_oEndPlat), self, other), VAR_yVel, self->vars[VAR_yVel]);
-        gml_ivar_set(gml_deref(((double)OBJ_oPDummy), self, other), VAR_yVel, self->vars[VAR_yVel]);
-        gml_ivar_set(gml_deref(((double)OBJ_oBigTreasure), self, other), VAR_yVel, self->vars[VAR_yVel]);
-        gml_ivar_set(gml_deref(((double)OBJ_oBigTreasure), self, other), VAR_myGrav, 0.0);
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 1.0f), ((float)OBJ_oEndPlat), 0.0f, 0.0f))) {
+        gml_ivar_set(gml_deref(((float)OBJ_oEndPlat), self, other), VAR_yVel, self->vars[VAR_yVel]);
+        gml_ivar_set(gml_deref(((float)OBJ_oPDummy), self, other), VAR_yVel, self->vars[VAR_yVel]);
+        gml_ivar_set(gml_deref(((float)OBJ_oBigTreasure), self, other), VAR_yVel, self->vars[VAR_yVel]);
+        gml_ivar_set(gml_deref(((float)OBJ_oBigTreasure), self, other), VAR_myGrav, 0.0f);
     }
-    if ((gml_lt(gml_iget_y(self), (-16.0)) && gml_eq(self->vars[VAR_status], 0.0))) {
-        self->vars[VAR_yVel] = 0.0;
-        self->vars[VAR_yAcc] = 0.0;
-        gml_iset_alarm(self, 0.0, 40.0);
-        self->vars[VAR_status] = (self->vars[VAR_status] + 1.0);
+    if ((gml_lt(gml_iget_y(self), (-16.0f)) && gml_eq(self->vars[VAR_status], 0.0f))) {
+        self->vars[VAR_yVel] = 0.0f;
+        self->vars[VAR_yAcc] = 0.0f;
+        gml_iset_alarm(self, 0.0f, 40.0f);
+        self->vars[VAR_status] = (self->vars[VAR_status] + 1.0f);
     }
     if ((!gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.sndFlame)))) {
         gml_script_playSound(self, other, g_gml_globals.sndFlame);

@@ -5,7 +5,7 @@ static void gml_ev_oCursObj__Create_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.0);
+    gml_iset_image_speed(self, 0.0f);
 }
 
 void gml_ev_oCursObj__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -17,31 +17,31 @@ void gml_ev_oCursObj__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oCursObj__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
     (void)t3;
     (void)t4;
-    if (((((t1 = gml_gget_mouse_x(), gml_gt(t1, gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0))) && (t2 = gml_gget_mouse_x(), gml_lt(t2, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0)))) && (t3 = gml_gget_mouse_y(), gml_gt(t3, gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))) && (t4 = gml_gget_mouse_y(), gml_lt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 240.0))))) {
-        gml_iset_x(self, (gml_gget_mouse_x() - 8.0));
-        gml_iset_y(self, (gml_gget_mouse_y() - 8.0));
-        gml_fn_move_snap(self, other, 16.0, 16.0);
-        if (gml_lt(gml_iget_x(self), 0.0)) {
-            gml_iset_x(self, 0.0);
+    if (((((t1 = gml_gget_mouse_x(), gml_gt(t1, gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f))) && (t2 = gml_gget_mouse_x(), gml_lt(t2, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f)))) && (t3 = gml_gget_mouse_y(), gml_gt(t3, gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))) && (t4 = gml_gget_mouse_y(), gml_lt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 240.0f))))) {
+        gml_iset_x(self, (gml_gget_mouse_x() - 8.0f));
+        gml_iset_y(self, (gml_gget_mouse_y() - 8.0f));
+        gml_fn_move_snap(self, other, 16.0f, 16.0f);
+        if (gml_lt(gml_iget_x(self), 0.0f)) {
+            gml_iset_x(self, 0.0f);
         }
-        if (gml_gt(gml_iget_x(self), (gml_gget_room_width() - 16.0))) {
-            gml_iset_x(self, (gml_gget_room_width() - 16.0));
+        if (gml_gt(gml_iget_x(self), (gml_gget_room_width() - 16.0f))) {
+            gml_iset_x(self, (gml_gget_room_width() - 16.0f));
         }
-        if (gml_lt(gml_iget_y(self), 0.0)) {
-            gml_iset_y(self, 0.0);
+        if (gml_lt(gml_iget_y(self), 0.0f)) {
+            gml_iset_y(self, 0.0f);
         }
-        if (gml_gt(gml_iget_y(self), (gml_gget_room_height() - 16.0))) {
-            gml_iset_y(self, (gml_gget_room_height() - 16.0));
+        if (gml_gt(gml_iget_y(self), (gml_gget_room_height() - 16.0f))) {
+            gml_iset_y(self, (gml_gget_room_height() - 16.0f));
         }
     }
 }

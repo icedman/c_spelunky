@@ -3,10 +3,10 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rJoyConfigHtml5_layers[2] = {
-    { "Compatibility_Instances_Depth_0", 66, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 67, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xff000000u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 66, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 67, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xff000000u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rJoyConfigHtml5_instances[1] = {
-    { 110215, OBJ_oJoyConfigHtml5, 0.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_0CE81D78 */
+    { 110215, OBJ_oJoyConfigHtml5, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_0CE81D78 */
 };

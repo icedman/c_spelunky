@@ -27,7 +27,7 @@
  *  - The active/deactive/all lists are ordered arrays (JS splice semantics)
  *    instead of prev/next links; per-object lists use one intrusive link per
  *    ancestor level so with(parent) sees child instances.
- *  - depth and alarms are doubles (GML reals; the depth setter takes reals).
+ *  - depth and alarms are floats (GML reals; the depth setter takes reals).
  *  - speed/direction/hspeed/vspeed/depth must be written through the setters
  *    below, which reproduce the runner's coupled property setters.
  */
@@ -88,33 +88,33 @@ typedef struct gm_instance {
     bool being_destroyed;
 
     /* Standard GameMaker built-in properties */
-    double x, y;
-    double xprevious, yprevious;
-    double xstart, ystart;
-    double hspeed, vspeed; /* write via gm_instance_set_* */
-    double speed, direction;
-    double friction, gravity;
-    double gravity_direction;
+    float x, y;
+    float xprevious, yprevious;
+    float xstart, ystart;
+    float hspeed, vspeed; /* write via gm_instance_set_* */
+    float speed, direction;
+    float friction, gravity;
+    float gravity_direction;
 
     /* Animation & appearance */
     int sprite_index;
-    double image_index;
-    double image_speed;
-    double image_xscale, image_yscale;
-    double image_angle;
-    double image_alpha;
+    float image_index;
+    float image_speed;
+    float image_xscale, image_yscale;
+    float image_angle;
+    float image_alpha;
     uint32_t image_blend;
     bool visible;
     bool solid;
     bool persistent;
     bool outside_room; /* fOutsideRoom: last Outside Room test (Events.js L134) */
-    double depth; /* write via gm_instance_set_depth */
+    float depth; /* write via gm_instance_set_depth */
 
     /* Collision bounding box (maintained by the collision module) */
-    double bbox_left, bbox_top, bbox_right, bbox_bottom;
+    float bbox_left, bbox_top, bbox_right, bbox_bottom;
     int mask_index;
 
-    double alarm[GM_ALARM_COUNT];
+    float alarm[GM_ALARM_COUNT];
 
     /* Runtime bookkeeping */
     uint32_t create_counter; /* event pass the instance was created in */
@@ -124,7 +124,7 @@ typedef struct gm_instance {
     uint32_t link_serial;
     gm_instance_link_t type_links[GM_OBJECT_MAX_LEVELS];
 
-    double vars[GM_VAR_COUNT];
+    float vars[GM_VAR_COUNT];
     const char *strs[GM_SVAR_COUNT]; /* gm_heap roots; "" after add, never NULL */
     gm_value_t vals[GM_VVAR_COUNT];  /* gm_heap roots; zeroed = undefined */
 } gm_instance_t;
@@ -141,12 +141,12 @@ void gm_instance_set_next_id(int id);
 /* Adds an instance without running events (room-editor placement, copies).
  * Depth is truncated with ToInt32 as in GML_AddInstanceDepth. Returns NULL if
  * the object is invalid or the pool is full. */
-gm_instance_t *gm_instance_add(double x, double y, double depth, int object_index);
+gm_instance_t *gm_instance_add(float x, float y, float depth, int object_index);
 
 /* gm_instance_add with a caller-chosen id (room instances carry fixed ids). Fails
  * (NULL) if the id is below GM_INSTANCE_ID_BASE or already in use. Does not change
  * the next id. */
-gm_instance_t *gm_instance_add_with_id(double x, double y, double depth, int object_index, int id);
+gm_instance_t *gm_instance_add_with_id(float x, float y, float depth, int object_index, int id);
 
 int gm_instance_next_id(void);
 
@@ -169,11 +169,11 @@ void gm_instance_init_detached(gm_instance_t *inst);
 /* instance_create_depth: add, then run the Create event (inherited through
  * the parent chain) with self == other == the new instance
  * (Function_Layers.js L4817). */
-gm_instance_t *gm_instance_create_depth(double x, double y, double depth, int object_index);
+gm_instance_t *gm_instance_create_depth(float x, float y, float depth, int object_index);
 
 /* Spelunky's instance_create compatibility script:
  * instance_create_depth(x, y, object_get_depth(obj), obj). */
-gm_instance_t *gm_instance_create(double x, double y, int object_index);
+gm_instance_t *gm_instance_create(float x, float y, int object_index);
 
 /* instance_destroy(): if the instance is active and not yet marked, run its
  * Destroy event once and mark it. Removal happens in reclaim. */
@@ -201,7 +201,7 @@ gm_instance_t *gm_instance_find(int target, int n, gm_instance_t *self, gm_insta
 
 /* instance_nearest (Function_Instance.js L235): the first instance with the
  * strictly smallest distance, in Instance_SearchLoop2 order. */
-gm_instance_t *gm_instance_nearest(double x, double y, int target);
+gm_instance_t *gm_instance_nearest(float x, float y, int target);
 
 /* Pool slot of an instance (0 .. GM_INSTANCE_MAX-1) and the reverse map.
  * gm_instance_at_slot returns NULL for free slots. */
@@ -259,6 +259,10 @@ gm_instance_t *gm_instance_with_slot(uint16_t slot);
  * count, -1 if more than `max`, 0 for invalid objects. */
 int gm_instance_object_pool(int object_index, uint16_t *slots, int max);
 
+/* Length of an object's recursive list (what gm_instance_object_pool would return),
+ * in O(1); 0 for invalid objects. */
+int gm_instance_object_list_count(int object_index);
+
 /* ---- Event-pass support ------------------------------------------------------
  * The step pipeline iterates the active list by index (from the end) exactly
  * like the runner; the list can shrink while iterating (deactivation), so
@@ -285,11 +289,11 @@ void gm_instance_activate_all(void);
 
 /* ---- Built-in property setters (yyInstance.js property setters) ---------------- */
 
-void gm_instance_set_hspeed(gm_instance_t *inst, double v);
-void gm_instance_set_vspeed(gm_instance_t *inst, double v);
-void gm_instance_set_speed(gm_instance_t *inst, double v);
-void gm_instance_set_direction(gm_instance_t *inst, double v);
-void gm_instance_set_depth(gm_instance_t *inst, double depth);
+void gm_instance_set_hspeed(gm_instance_t *inst, float v);
+void gm_instance_set_vspeed(gm_instance_t *inst, float v);
+void gm_instance_set_speed(gm_instance_t *inst, float v);
+void gm_instance_set_direction(gm_instance_t *inst, float v);
+void gm_instance_set_depth(gm_instance_t *inst, float depth);
 
 /* yyInstance.AdaptSpeed (yyInstance.js L1210): friction, then gravity through
  * AddTo_Speed (L1197). The game loop applies it before moving by hspeed/vspeed. */

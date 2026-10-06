@@ -6,11 +6,11 @@ static void gml_ev_oPsychicWaveP__Create_0_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.6;
-    gml_iset_image_speed(self, 0.25);
-    self->vars[VAR_counter] = 5.0;
-    self->vars[VAR_dir] = 0.0;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.6f;
+    gml_iset_image_speed(self, 0.25f);
+    self->vars[VAR_counter] = 5.0f;
+    self->vars[VAR_dir] = 0.0f;
 }
 
 void gml_ev_oPsychicWaveP__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -22,29 +22,29 @@ void gml_ev_oPsychicWaveP__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oPsychicWaveP__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_enemy = 0.0;
-    double l_damsel = 0.0;
+    float l_enemy = 0.0f;
+    float l_damsel = 0.0f;
     (void)self;
     (void)other;
     (void)l_enemy;
     (void)l_damsel;
-    if (gml_gt(self->vars[VAR_counter], 0.0)) {
-        self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+    if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+        self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
         gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
-        if (gml_gt(self->vars[VAR_xVel], 0.0)) {
-            self->vars[VAR_dir] = 0.0;
+        if (gml_gt(self->vars[VAR_xVel], 0.0f)) {
+            self->vars[VAR_dir] = 0.0f;
         } else {
-            self->vars[VAR_dir] = 180.0;
+            self->vars[VAR_dir] = 180.0f;
         }
     } else {
-        self->vars[VAR_enemy_exists] = gml_fn_instance_exists(self, other, ((double)OBJ_oEnemy));
-        self->vars[VAR_damsel_exists] = gml_fn_instance_exists(self, other, ((double)OBJ_oDamsel));
+        self->vars[VAR_enemy_exists] = gml_fn_instance_exists(self, other, ((float)OBJ_oEnemy));
+        self->vars[VAR_damsel_exists] = gml_fn_instance_exists(self, other, ((float)OBJ_oDamsel));
         if ((gml_truthy(self->vars[VAR_enemy_exists]) || gml_truthy(self->vars[VAR_damsel_exists]))) {
             if (gml_truthy(self->vars[VAR_enemy_exists])) {
-                l_enemy = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oEnemy));
+                l_enemy = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oEnemy));
             }
             if (gml_truthy(self->vars[VAR_damsel_exists])) {
-                l_damsel = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oDamsel));
+                l_damsel = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oDamsel));
             }
             if ((gml_truthy(self->vars[VAR_enemy_exists]) && gml_truthy(self->vars[VAR_damsel_exists]))) {
                 if (gml_lt(gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(l_enemy, self, other)), gml_iget_y(gml_deref(l_enemy, self, other))), gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(l_damsel, self, other)), gml_iget_y(gml_deref(l_damsel, self, other))))) {
@@ -54,17 +54,17 @@ static void gml_ev_oPsychicWaveP__Step_0_body(gm_instance_t *self, gm_instance_t
                 }
             } else {
                 if (gml_truthy(self->vars[VAR_enemy_exists])) {
-                    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oEnemy));
+                    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oEnemy));
                 } else {
                     if (gml_truthy(self->vars[VAR_damsel_exists])) {
-                        self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oDamsel));
+                        self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oDamsel));
                     }
                 }
             }
-            self->vars[VAR_dir] = gm_point_direction(gml_iget_x(self), gml_iget_y(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0), (gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) + 8.0));
+            self->vars[VAR_dir] = gm_point_direction(gml_iget_x(self), gml_iget_y(self), (gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f), (gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) + 8.0f));
         }
-        gml_iset_x(self, (gml_iget_x(self) + (2.0 * cos(gm_degtorad(self->vars[VAR_dir])))));
-        gml_iset_y(self, (gml_iget_y(self) + ((-2.0) * sin(gm_degtorad(self->vars[VAR_dir])))));
+        gml_iset_x(self, (gml_iget_x(self) + (2.0f * cosf(gm_degtorad(self->vars[VAR_dir])))));
+        gml_iset_y(self, (gml_iget_y(self) + ((-2.0f) * sinf(gm_degtorad(self->vars[VAR_dir])))));
     }
 }
 
@@ -77,16 +77,16 @@ void gml_ev_oPsychicWaveP__Step_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oPsychicWaveP__Collision_oDamsel_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     if ((!gml_truthy(other->vars[VAR_invincible]))) {
-        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0);
-        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0, 2.0), (t1 - gml_script_rand(self, other, 1.0, 2.0)));
-        other->vars[VAR_xVel] = (-1.0);
-        other->vars[VAR_yVel] = (-6.0);
-        self->vars[VAR_status] = 2.0;
+        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0f);
+        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0f, 2.0f), (t1 - gml_script_rand(self, other, 1.0f, 2.0f)));
+        other->vars[VAR_xVel] = (-1.0f);
+        other->vars[VAR_yVel] = (-6.0f);
+        self->vars[VAR_status] = 2.0f;
     }
 }
 
@@ -99,15 +99,15 @@ void gml_ev_oPsychicWaveP__Collision_oDamsel(gm_instance_t *self, gm_instance_t 
 
 static void gml_ev_oPsychicWaveP__Collision_oEnemy_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    if ((gml_str_ne(other->strs[SVAR_type], "Alien Boss") && gml_eq(other->vars[VAR_invincible], 0.0))) {
-        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0);
-        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0, 2.0), (t1 - gml_script_rand(self, other, 1.0, 2.0)));
-        other->vars[VAR_xVel] = (-1.0);
-        other->vars[VAR_yVel] = (-6.0);
+    if ((gml_str_ne(other->strs[SVAR_type], "Alien Boss") && gml_eq(other->vars[VAR_invincible], 0.0f))) {
+        other->vars[VAR_hp] = (other->vars[VAR_hp] - 3.0f);
+        other->vars[VAR_xVel] = (t1 = gml_script_rand(self, other, 0.0f, 2.0f), (t1 - gml_script_rand(self, other, 1.0f, 2.0f)));
+        other->vars[VAR_xVel] = (-1.0f);
+        other->vars[VAR_yVel] = (-6.0f);
     }
 }
 

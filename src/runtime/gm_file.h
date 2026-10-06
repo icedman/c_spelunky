@@ -70,4 +70,43 @@ const char *gm_working_directory(void);
  * than GM_FILE_STRING_MAX - 2 characters are rejected (returns false). */
 bool gm_set_working_directory(const char *dir);
 
+/* ---- INI files (Function_ini.js, yyIniFile.js) ------------------------------------
+ *
+ * One INI file is open at a time and held in static tables. Relative names
+ * resolve against working_directory (CheckWorkingDirectory). Sections and keys
+ * keep insertion order; ini_close writes the file back only if a write
+ * changed it, as `[section]` / `key="value"` lines ending in "\r\n".
+ * Names and values longer than the limits below are truncated; writes beyond
+ * the table capacity are dropped (return false). */
+#define GM_INI_MAX_SECTIONS 16
+#define GM_INI_MAX_KEYS 128
+#define GM_INI_NAME_MAX 64   /* section and key names, including the NUL */
+#define GM_INI_VALUE_MAX 256 /* including the NUL */
+#define GM_INI_TEXT_MAX 16384
+
+/* Opens `path` (closing, and saving, any INI already open). A missing or
+ * unreadable file opens as an empty INI that ini_close will create. */
+void gm_ini_open(const char *path);
+
+/* Saves if changed and closes. Returns the INI text (static, valid until the
+ * next gm_ini_close; truncated at GM_INI_TEXT_MAX - 1 characters, the file is
+ * not), or "" when nothing was open. */
+const char *gm_ini_close(void);
+
+bool gm_ini_is_open(void);
+
+/* The stored string, or `def` when the key (or the INI) is missing. */
+const char *gm_ini_read_string(const char *section, const char *key, const char *def);
+
+/* parseFloat of the stored string, or `def` when the key is missing. Values
+ * that do not parse also give `def` (NaN in the HTML5 runner, which would
+ * poison every later comparison against the saved score). */
+float gm_ini_read_real(const char *section, const char *key, float def);
+
+/* False when no INI is open or the tables are full. */
+bool gm_ini_write_string(const char *section, const char *key, const char *value);
+
+/* Stores the JS ToString of `value` ("" + value). */
+bool gm_ini_write_real(const char *section, const char *key, float value);
+
 #endif /* GM_FILE_H */

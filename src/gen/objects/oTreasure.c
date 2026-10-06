@@ -7,18 +7,18 @@ static void gml_ev_oTreasure__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = gml_script_tr(self, other, 1, "NONE");
-    self->vars[VAR_held] = 0.0;
-    self->vars[VAR_LEFT] = 18.0;
-    self->vars[VAR_RIGHT] = 19.0;
-    self->vars[VAR_myGrav] = 0.6;
-    self->vars[VAR_trigger] = 0.0;
-    self->vars[VAR_value] = 0.0;
-    self->vars[VAR_canCollect] = 0.0;
-    self->vars[VAR_yOff] = 4.0;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_STATIC] = 0.0;
-    self->vars[VAR_ACTIVE] = 1.0;
+    self->vars[VAR_held] = 0.0f;
+    self->vars[VAR_LEFT] = 18.0f;
+    self->vars[VAR_RIGHT] = 19.0f;
+    self->vars[VAR_myGrav] = 0.6f;
+    self->vars[VAR_trigger] = 0.0f;
+    self->vars[VAR_value] = 0.0f;
+    self->vars[VAR_canCollect] = 0.0f;
+    self->vars[VAR_yOff] = 4.0f;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_STATIC] = 0.0f;
+    self->vars[VAR_ACTIVE] = 1.0f;
     self->vars[VAR_state] = self->vars[VAR_ACTIVE];
 }
 
@@ -31,12 +31,12 @@ void gml_ev_oTreasure__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTreasure__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -45,72 +45,72 @@ static void gml_ev_oTreasure__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)t4;
     (void)t5;
     (void)t6;
-    if ((((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 16.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 16.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 16.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 16.0)))) && gml_eq(self->vars[VAR_state], self->vars[VAR_ACTIVE]))) {
-        self->vars[VAR_colLeft] = 0.0;
-        self->vars[VAR_colRight] = 0.0;
-        self->vars[VAR_colBot] = 0.0;
-        if (gml_truthy(gml_script_isCollisionLeft(self, other, 1.0))) {
-            self->vars[VAR_colLeft] = 1.0;
+    if ((((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 16.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 16.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 16.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 16.0f)))) && gml_eq(self->vars[VAR_state], self->vars[VAR_ACTIVE]))) {
+        self->vars[VAR_colLeft] = 0.0f;
+        self->vars[VAR_colRight] = 0.0f;
+        self->vars[VAR_colBot] = 0.0f;
+        if (gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f))) {
+            self->vars[VAR_colLeft] = 1.0f;
         }
-        if (gml_truthy(gml_script_isCollisionRight(self, other, 1.0))) {
-            self->vars[VAR_colRight] = 1.0;
+        if (gml_truthy(gml_script_isCollisionRight(self, other, 1.0f))) {
+            self->vars[VAR_colRight] = 1.0f;
         }
-        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-            self->vars[VAR_colBot] = 1.0;
+        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+            self->vars[VAR_colBot] = 1.0f;
         }
         gml_script_moveTo(self, other, self->vars[VAR_xVel], self->vars[VAR_yVel]);
         if ((!gml_truthy(self->vars[VAR_colBot]))) {
             self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
         }
-        if (gml_gt(self->vars[VAR_yVel], 8.0)) {
-            self->vars[VAR_yVel] = 8.0;
+        if (gml_gt(self->vars[VAR_yVel], 8.0f)) {
+            self->vars[VAR_yVel] = 8.0f;
         }
-        if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0))) {
-            if (gml_lt(self->vars[VAR_yVel], 0.0)) {
-                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8);
+        if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0f))) {
+            if (gml_lt(self->vars[VAR_yVel], 0.0f)) {
+                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8f);
             } else {
-                gml_iset_y(self, (gml_iget_y(self) + 1.0));
+                gml_iset_y(self, (gml_iget_y(self) + 1.0f));
             }
         }
         if ((gml_truthy(self->vars[VAR_colLeft]) || gml_truthy(self->vars[VAR_colRight]))) {
-            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5);
+            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5f);
         }
         if (gml_truthy(self->vars[VAR_colBot])) {
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 0.1)) {
-                self->vars[VAR_xVel] = 0.0;
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 0.1f)) {
+                self->vars[VAR_xVel] = 0.0f;
             } else {
-                if (gml_ne(fabs(self->vars[VAR_xVel]), 0.0)) {
-                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3);
+                if (gml_ne(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3f);
                 }
             }
-            gml_iset_y(self, (gml_iget_y(self) - 1.0));
-            if ((!gml_truthy(gml_script_isCollisionBottom(self, other, 1.0)))) {
-                gml_iset_y(self, (gml_iget_y(self) + 1.0));
+            gml_iset_y(self, (gml_iget_y(self) - 1.0f));
+            if ((!gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f)))) {
+                gml_iset_y(self, (gml_iget_y(self) + 1.0f));
                 self->vars[VAR_status] = self->vars[VAR_STATIC];
             }
-            self->vars[VAR_yVel] = 0.0;
+            self->vars[VAR_yVel] = 0.0f;
         }
         if (gml_truthy(self->vars[VAR_colLeft])) {
             if ((!gml_truthy(self->vars[VAR_colRight]))) {
-                gml_iset_x(self, (gml_iget_x(self) + 1.0));
+                gml_iset_x(self, (gml_iget_x(self) + 1.0f));
             }
         } else {
             if (gml_truthy(self->vars[VAR_colRight])) {
-                gml_iset_x(self, (gml_iget_x(self) - 1.0));
+                gml_iset_x(self, (gml_iget_x(self) - 1.0f));
             }
         }
         if ((gml_truthy(g_gml_globals.hasSpectacles) || gml_truthy(g_gml_globals.hasUdjatEye))) {
-            gml_iset_depth(self, 0.0);
+            gml_iset_depth(self, 0.0f);
         } else {
-            gml_iset_depth(self, 101.0);
+            gml_iset_depth(self, 101.0f);
         }
-        if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 3.0), (gml_iget_y(self) - 3.0), (gml_iget_x(self) + 3.0), (gml_iget_y(self) + 3.0), ((double)OBJ_oLava), 0.0, 0.0))) {
-            self->vars[VAR_myGrav] = 0.0;
-            self->vars[VAR_xVel] = 0.0;
-            self->vars[VAR_yVel] = 0.0;
-            gml_iset_y(self, (gml_iget_y(self) + 0.05));
+        if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 3.0f), (gml_iget_y(self) - 3.0f), (gml_iget_x(self) + 3.0f), (gml_iget_y(self) + 3.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
+            self->vars[VAR_myGrav] = 0.0f;
+            self->vars[VAR_xVel] = 0.0f;
+            self->vars[VAR_yVel] = 0.0f;
+            gml_iset_y(self, (gml_iget_y(self) + 0.05f));
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 5.0), ((double)OBJ_oLava), 0.0, 0.0))) {
+        if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 5.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

@@ -9,6 +9,7 @@
 #include "gm_layer.h"
 #include "gm_math.h"
 #include "gm_object.h"
+#include "gm_perf.h"
 #include "gm_room.h"
 #include "gm_sprite.h"
 #include "gm_view.h"
@@ -28,6 +29,13 @@ static long s_frames;
 
 /* Which key event types any object handles: lets the keyboard phase skip scans. */
 static bool s_has_key_type[3];
+
+/* Which draw event numbers any object handles (inherited): passes nobody handles
+ * are skipped (except Draw, which also does the default draw and layers). */
+static const int s_draw_numbers[8] = { GM_EV_DRAW_NORMAL,    GM_EV_DRAW_GUI,      GM_EV_DRAW_BEGIN,
+                                       GM_EV_DRAW_END,       GM_EV_DRAW_GUI_BEGIN, GM_EV_DRAW_GUI_END,
+                                       GM_EV_DRAW_PRE,       GM_EV_DRAW_POST };
+static bool s_has_draw[8];
 
 /* Scratch: GetRPool snapshots and the draw order. */
 static uint16_t s_pool1[GM_INSTANCE_MAX];
@@ -134,6 +142,12 @@ bool gm_loop_init(const gm_loop_hooks_t *hooks)
         return false;
     }
     sort_pairs();
+    for (t = 0; t < 8; ++t) {
+        s_has_draw[t] = false;
+        for (o = 0; o < count && !s_has_draw[t]; ++o) {
+            s_has_draw[t] = hooks->find_event(o, GM_EV_TYPE_DRAW, s_draw_numbers[t]) != NULL;
+        }
+    }
     for (t = 0; t < 3; ++t) {
         s_has_key_type[t] = false;
         for (o = 0; o < count && !s_has_key_type[t]; ++o) {
@@ -269,17 +283,17 @@ static void update_images(void)
     for (i = 0; i < gm_instance_active_count(); ++i) {
         gm_instance_t *inst = gm_instance_active_at(i);
         const gm_sprite_def_t *spr;
-        double num;
+        float num;
 
         if (inst->marked_for_destroy || !inst->active) {
             continue;
         }
         spr = gm_sprite_get(inst->sprite_index);
-        num = spr != NULL ? (double)spr->frame_count : 0.0;
+        num = spr != NULL ? (float)spr->frame_count : 0.0f;
         if (inst->image_index >= num) {
             inst->image_index -= num;
             perform(inst, GM_EV_TYPE_OTHER, GM_EV_OTHER_ANIMATION_END);
-        } else if (inst->image_index < 0.0) {
+        } else if (inst->image_index < 0.0f) {
             inst->image_index += num;
             perform(inst, GM_EV_TYPE_OTHER, GM_EV_OTHER_ANIMATION_END);
         }
@@ -300,16 +314,20 @@ static void handle_alarms(void)
             continue;
         }
         for (a = 0; a < GM_ALARM_COUNT; ++a) {
-            gm_event_fn fn = handler(inst, GM_EV_TYPE_ALARM, a);
+            gm_event_fn fn;
             int32_t al;
 
+            if (inst->alarm[a] < 0.0f) {
+                continue;
+            }
+            fn = handler(inst, GM_EV_TYPE_ALARM, a);
             if (fn == NULL) {
                 continue;
             }
             al = gm_to_int32(inst->alarm[a]);
             if (al >= 0) {
                 al--;
-                inst->alarm[a] = (double)al;
+                inst->alarm[a] = (float)al;
             }
             if (al == 0 && !gm_room_event_blocked(inst, GM_EV_TYPE_ALARM)) {
                 fn(inst, inst);
@@ -368,7 +386,7 @@ static void update_positions(void)
         gm_instance_t *inst = gm_instance_active_at(i);
 
         gm_instance_adapt_speed(inst);
-        if (inst->hspeed != 0.0 || inst->vspeed != 0.0) {
+        if (inst->hspeed != 0.0f || inst->vspeed != 0.0f) {
             inst->x += inst->hspeed;
             inst->y += inst->vspeed;
             gm_collision_touch(inst);
@@ -381,7 +399,7 @@ static void update_positions(void)
 static void handle_other(void)
 {
     uint32_t pass = gm_instance_pass_begin();
-    double w = gm_room_width(), h = gm_room_height();
+    float w = gm_room_width(), h = gm_room_height();
     int i;
 
     for (i = 0; i < gm_instance_active_count(); ++i) {
@@ -401,10 +419,10 @@ static void handle_other(void)
             bool outside;
             if (boxed) {
                 gm_collision_update_bbox(inst);
-                outside = inst->bbox_right < 0.0 || inst->bbox_left > w || inst->bbox_bottom < 0.0 ||
+                outside = inst->bbox_right < 0.0f || inst->bbox_left > w || inst->bbox_bottom < 0.0f ||
                           inst->bbox_top > h;
             } else {
-                outside = inst->x < 0.0 || inst->x > w || inst->y < 0.0 || inst->y > h;
+                outside = inst->x < 0.0f || inst->x > w || inst->y < 0.0f || inst->y > h;
             }
             if (outside && !inst->outside_room) {
                 perform(inst, GM_EV_TYPE_OTHER, GM_EV_OTHER_OUTSIDE);
@@ -415,10 +433,10 @@ static void handle_other(void)
             bool crossing;
             if (boxed) {
                 gm_collision_update_bbox(inst);
-                crossing = inst->bbox_left < 0.0 || inst->bbox_right > w || inst->bbox_top < 0.0 ||
+                crossing = inst->bbox_left < 0.0f || inst->bbox_right > w || inst->bbox_top < 0.0f ||
                            inst->bbox_bottom > h;
             } else {
-                crossing = inst->x < 0.0 || inst->x > w || inst->y < 0.0 || inst->y > h;
+                crossing = inst->x < 0.0f || inst->x > w || inst->y < 0.0f || inst->y > h;
             }
             if (crossing) {
                 perform(inst, GM_EV_TYPE_OTHER, GM_EV_OTHER_BOUNDARY);
@@ -449,23 +467,37 @@ static void handle_collisions(void)
 
     gm_collision_grid_sync();
     while (p < s_pair_count) {
-        int id1 = s_pairs[p].a, end = p, n1, i1;
+        int id1 = s_pairs[p].a, end = p, n1, i1, q;
+        bool any_second = false;
         uint32_t pass;
 
         while (end < s_pair_count && s_pairs[end].a == id1) {
             end++;
         }
+        /* Empty pools produce no candidates (and so no events): skip them without
+         * walking the other side's list. */
+        for (q = p; q < end && !any_second; ++q) {
+            any_second = gm_instance_object_list_count(s_pairs[q].b) > 0;
+        }
+        if (!any_second || gm_instance_object_list_count(id1) == 0) {
+            p = end;
+            continue;
+        }
         pass = gm_instance_pass_begin();
         n1 = gm_instance_object_pool(id1, s_pool1, GM_INSTANCE_MAX);
         for (i1 = 0; i1 < n1; ++i1) {
             gm_instance_t *inst1 = gm_instance_at_slot(s_pool1[i1]);
-            int q;
 
             if (!collidable(inst1, pass)) {
                 continue;
             }
             for (q = p; q < end; ++q) {
-                int n2 = gm_instance_object_pool(s_pairs[q].b, s_pool2, GM_INSTANCE_MAX), i2;
+                int n2, i2;
+
+                if (gm_instance_object_list_count(s_pairs[q].b) == 0) {
+                    continue;
+                }
+                n2 = gm_instance_object_pool(s_pairs[q].b, s_pool2, GM_INSTANCE_MAX);
 
                 for (i2 = 0; i2 < n2; ++i2) {
                     gm_instance_t *inst2 = gm_instance_at_slot(s_pool2[i2]);
@@ -476,7 +508,9 @@ static void handle_collisions(void)
                     if (inst1->object_index == inst2->object_index && i2 < i1) {
                         continue;
                     }
+                    gm_perf_count(GM_PERF_AUTO_COLLISION_CANDIDATES, 1);
                     if (gm_collision_test_instance(inst1, inst2, true)) {
+                        gm_perf_count(GM_PERF_AUTO_COLLISION_HITS, 1);
                         if (inst1->solid || inst2->solid) {
                             revert(inst1);
                             revert(inst2);
@@ -496,10 +530,31 @@ static void handle_collisions(void)
  * starts; instances destroyed, deactivated or hidden meanwhile are skipped. With
  * draw_default, instances without a handler get the default draw
  * (DrawLayerInstanceElement, yyRoom.js L1092). */
+static bool any_draw_handler(int number)
+{
+    int t;
+
+    for (t = 0; t < 8; ++t) {
+        if (s_draw_numbers[t] == number) {
+            return s_has_draw[t];
+        }
+    }
+    return true;
+}
+
 static void draw_event(int number, bool draw_default)
 {
-    int i, n = gm_instance_draw_order(s_draw, GM_INSTANCE_MAX);
-    int layer = gm_layer_count() - 1;   /* DrawRoomLayers: highest depth first */
+    int i, n, layer;
+    uint64_t perf_started;
+
+    if (!draw_default && !any_draw_handler(number)) {
+        return;
+    }
+    n = gm_instance_draw_order(s_draw, GM_INSTANCE_MAX);
+    layer = gm_layer_count() - 1;   /* DrawRoomLayers: highest depth first */
+
+    gm_perf_count(GM_PERF_DRAW_PASSES, 1);
+    gm_perf_count(GM_PERF_DRAW_INSTANCES, (uint64_t)n);
 
     for (i = 0; i < n; ++i) {
         gm_instance_t *inst = s_draw[i];
@@ -507,9 +562,14 @@ static void draw_event(int number, bool draw_default)
 
         /* The normal pass interleaves the room's background and tile layers by depth
          * (a layer goes before instances of equal depth). */
-        while (draw_default && layer >= 0 && layer < gm_layer_count() &&
-               (double)gm_layer_at(layer)->depth >= floor(inst->depth)) {
-            gm_draw_layer(gm_layer_at(layer--));
+        if (draw_default && layer >= 0 && layer < gm_layer_count() &&
+            (float)gm_layer_at(layer)->depth >= floorf(inst->depth)) {
+            perf_started = gm_perf_timer_begin();
+            while (layer >= 0 && layer < gm_layer_count() &&
+                   (float)gm_layer_at(layer)->depth >= floorf(inst->depth)) {
+                gm_draw_layer(gm_layer_at(layer--));
+            }
+            gm_perf_timer_end(GM_PERF_TIMER_DRAW_LAYERS, perf_started);
         }
         if (!inst->in_use || inst->marked_for_destroy || !inst->active || !inst->visible) {
             continue;
@@ -517,14 +577,24 @@ static void draw_event(int number, bool draw_default)
         fn = handler(inst, GM_EV_TYPE_DRAW, number);
         if (fn != NULL) {
             if (!gm_room_event_blocked(inst, GM_EV_TYPE_DRAW)) {
+                perf_started = gm_perf_timer_begin();
                 fn(inst, inst);
+                gm_perf_timer_end(GM_PERF_TIMER_DRAW_HANDLERS, perf_started);
+                gm_perf_count(GM_PERF_DRAW_HANDLER_CALLS, 1);
             }
         } else if (draw_default && s_hooks->draw_self != NULL) {
+            perf_started = gm_perf_timer_begin();
             s_hooks->draw_self(inst);
+            gm_perf_timer_end(GM_PERF_TIMER_DRAW_DEFAULT, perf_started);
+            gm_perf_count(GM_PERF_DRAW_DEFAULT_CALLS, 1);
         }
     }
-    while (draw_default && layer >= 0 && layer < gm_layer_count()) {
-        gm_draw_layer(gm_layer_at(layer--));
+    if (draw_default && layer >= 0) {
+        perf_started = gm_perf_timer_begin();
+        while (layer >= 0 && layer < gm_layer_count()) {
+            gm_draw_layer(gm_layer_at(layer--));
+        }
+        gm_perf_timer_end(GM_PERF_TIMER_DRAW_LAYERS, perf_started);
     }
 }
 
@@ -546,10 +616,11 @@ static void draw(void)
     if (gm_view_enabled()) {
         int v;
         for (v = 0; v < 8; ++v) {
-            if (gm_view_get(GM_VIEW_VISIBLE, v) != 0.0) {
+            if (gm_view_get(GM_VIEW_VISIBLE, v) != 0.0f) {
                 gm_view_set_current(v);
                 gm_draw_pass_view(v);
                 draw_room();
+                break;
             }
         }
         /* The desktop runner leaves view_current at the last view slot (7) after this
@@ -572,49 +643,83 @@ static void draw(void)
 
 void gm_loop_step(void)
 {
+    uint64_t t;
+
     if (s_hooks == NULL) {
         return;
     }
     s_frames++;
+
+    /* Phases cut short by a room change are not timed (as zig/runtime/loop.zig). */
+    t = gm_perf_timer_begin();
     gm_input_start_step();
     remember_old_positions();
     update_images();
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_IMAGES, t);
+
+    t = gm_perf_timer_begin();
     gm_layer_update();
     perform_all(GM_EV_TYPE_STEP, GM_EV_STEP_BEGIN);
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_STEP_BEGIN, t);
+
+    t = gm_perf_timer_begin();
     handle_alarms();
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_ALARMS, t);
+
+    t = gm_perf_timer_begin();
     handle_keyboard();
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_KEYBOARD, t);
+
+    t = gm_perf_timer_begin();
     perform_all(GM_EV_TYPE_STEP, GM_EV_STEP_NORMAL);
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_STEP_NORMAL, t);
+
+    t = gm_perf_timer_begin();
     update_positions();
+    gm_perf_timer_end(GM_PERF_TIMER_POSITIONS, t);
+    t = gm_perf_timer_begin();
     handle_other();
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_OTHER, t);
+
+    t = gm_perf_timer_begin();
     handle_collisions();
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_COLLISION, t);
+
+    t = gm_perf_timer_begin();
     perform_all(GM_EV_TYPE_STEP, GM_EV_STEP_END);
     if (pending()) {
         return;
     }
+    gm_perf_timer_end(GM_PERF_TIMER_STEP_END, t);
+
+    t = gm_perf_timer_begin();
     gm_instance_reclaim_marked();
+    gm_perf_timer_end(GM_PERF_TIMER_RECLAIM, t);
     if (s_draw_enabled) {
+        t = gm_perf_timer_begin();
         draw();
+        gm_perf_timer_end(GM_PERF_TIMER_DRAW, t);
     }
 }
 
@@ -628,8 +733,10 @@ gm_loop_status_t gm_loop_tick(void)
     }
     for (steps = 0; steps < GM_LOOP_MAX_STEPS_PER_TICK; ++steps) {
         int next;
+        uint64_t perf_started = gm_perf_timer_begin();
 
         gm_loop_step();
+        gm_perf_timer_end(GM_PERF_TIMER_STEP, perf_started);
         next = gm_room_pending();
         if (next == GM_ROOM_NONE) {
             break;

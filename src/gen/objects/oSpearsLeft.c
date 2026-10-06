@@ -5,13 +5,13 @@ static void gml_ev_oSpearsLeft__Step_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if (((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sSpearsLeft)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oSpearTrapTop), 0.0, 0.0)))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oSpearTrapBottom), 0.0, 0.0))))) {
+    if (((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sSpearsLeft)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oSpearTrapTop), 0.0f, 0.0f)))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oSpearTrapBottom), 0.0f, 0.0f))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sSpearsRight)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oSpearTrapTop), 0.0, 0.0)))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oSpearTrapBottom), 0.0, 0.0))))) {
+    if (((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sSpearsRight)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oSpearTrapTop), 0.0f, 0.0f)))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oSpearTrapBottom), 0.0f, 0.0f))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    gml_iset_depth(self, 995.0);
+    gml_iset_depth(self, 995.0f);
 }
 
 void gml_ev_oSpearsLeft__Step_0(gm_instance_t *self, gm_instance_t *other)

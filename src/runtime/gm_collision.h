@@ -59,7 +59,7 @@
 #define GM_GRID_MAX_QUERY_CELLS 64
 
 /* distance_to_object's result when no instance matches (Globals.js L1554). */
-#define GM_COLLISION_NO_DISTANCE 10000000000.0
+#define GM_COLLISION_NO_DISTANCE 10000000000.0f
 
 /* ---- Setup ------------------------------------------------------------------ */
 
@@ -78,11 +78,11 @@ int gm_collision_update_bbox(gm_instance_t *inst);
 
 /* ---- Instance-level primitives (the yyInstance.Collision_* methods) ------------- */
 
-bool gm_collision_test_point(gm_instance_t *inst, double x, double y, bool prec);
-bool gm_collision_test_rectangle(gm_instance_t *inst, double x1, double y1,
-                                 double x2, double y2, bool prec);
-bool gm_collision_test_line(gm_instance_t *inst, double x1, double y1,
-                            double x2, double y2, bool prec);
+bool gm_collision_test_point(gm_instance_t *inst, float x, float y, bool prec);
+bool gm_collision_test_rectangle(gm_instance_t *inst, float x1, float y1,
+                                 float x2, float y2, bool prec);
+bool gm_collision_test_line(gm_instance_t *inst, float x1, float y1,
+                            float x2, float y2, bool prec);
 /* inst.Collision_Instance(other, prec): order matters for precise tests. */
 bool gm_collision_test_instance(gm_instance_t *inst, gm_instance_t *other, bool prec);
 
@@ -90,32 +90,34 @@ bool gm_collision_test_instance(gm_instance_t *inst, gm_instance_t *other, bool 
  * Instance-returning queries yield the first hit in Instance_SearchLoop order,
  * or NULL for noone. */
 
-gm_instance_t *gm_collision_point(gm_instance_t *self, double x, double y,
+gm_instance_t *gm_collision_point(gm_instance_t *self, float x, float y,
                                   int target, bool prec, bool notme);
-gm_instance_t *gm_collision_rectangle(gm_instance_t *self, double x1, double y1,
-                                      double x2, double y2, int target,
+gm_instance_t *gm_collision_rectangle(gm_instance_t *self, float x1, float y1,
+                                      float x2, float y2, int target,
                                       bool prec, bool notme);
-gm_instance_t *gm_collision_line(gm_instance_t *self, double x1, double y1,
-                                 double x2, double y2, int target,
+gm_instance_t *gm_collision_line(gm_instance_t *self, float x1, float y1,
+                                 float x2, float y2, int target,
                                  bool prec, bool notme);
 
 /* instance_place / place_meeting: self placed at (x, y), precise. */
-gm_instance_t *gm_collision_instance_place(gm_instance_t *self, double x, double y, int target);
-bool gm_collision_place_meeting(gm_instance_t *self, double x, double y, int target);
+gm_instance_t *gm_collision_instance_place(gm_instance_t *self, float x, float y, int target);
+bool gm_collision_place_meeting(gm_instance_t *self, float x, float y, int target);
 
 /* instance_position / position_meeting: precise point test. */
-gm_instance_t *gm_collision_instance_position(double x, double y, int target);
-bool gm_collision_position_meeting(double x, double y, int target);
+gm_instance_t *gm_collision_instance_position(float x, float y, int target);
+bool gm_collision_position_meeting(float x, float y, int target);
+
+void gm_move_snap(gm_instance_t *inst, float hsnap, float vsnap);
 
 /* distance_to_object: bbox gap to the nearest match (self included, as in
  * the runner); GM_COLLISION_NO_DISTANCE when nothing matches. */
-double gm_collision_distance_to_object(gm_instance_t *self, int target);
-double gm_collision_distance_to_point(gm_instance_t *self, double x, double y);
+float gm_collision_distance_to_object(gm_instance_t *self, int target);
+float gm_collision_distance_to_point(gm_instance_t *self, float x, float y);
 
 /* ---- Spatial grid -------------------------------------------------------------------- */
 
 /* Sizes the grid for a room and re-buckets indexed instances. */
-void gm_collision_grid_configure(double room_width, double room_height, double cell_size);
+void gm_collision_grid_configure(float room_width, float room_height, float cell_size);
 
 /* Indexes `object_index` and all its descendants. Queries whose target is an
  * indexed object (or a descendant of one) use the grid. Returns false if the
@@ -140,7 +142,7 @@ void gm_collision_set_verify(bool enabled);
 long gm_collision_verify_failures(void);
 
 /* Diagnostics */
-double gm_collision_grid_cell_size(void);
+float gm_collision_grid_cell_size(void);
 int gm_collision_grid_indexed_count(void); /* indexed instances in cells + oversize list */
 
 #endif /* GM_COLLISION_H */

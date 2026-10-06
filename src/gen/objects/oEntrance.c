@@ -20,9 +20,9 @@ static void gml_ev_oEntrance__Draw_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    gml_fn_draw_sprite(self, other, gml_iget_sprite_index(self), (-1.0), gml_iget_x(self), gml_iget_y(self));
+    gml_fn_draw_sprite(self, other, gml_iget_sprite_index(self), (-1.0f), gml_iget_x(self), gml_iget_y(self));
     if (gml_truthy(gml_script_isRoom(self, other, "rLevelEditor"))) {
-        gml_script_drawText(self, other, 5, self->vals[VVAR_leadsTo], "small", (16777215.0 /* c_white */), gml_iget_x(self), gml_iget_y(self));
+        gml_script_drawText(self, other, 5, self->vals[VVAR_leadsTo], "small", (16777215.0f /* c_white */), gml_iget_x(self), gml_iget_y(self));
     }
 }
 

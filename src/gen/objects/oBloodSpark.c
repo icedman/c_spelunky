@@ -6,9 +6,9 @@ static void gml_ev_oBloodSpark__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = ((-gml_script_rand(self, other, 1.0, 3.0)) * 0.2);
-    self->vars[VAR_yAcc] = 0.1;
-    gml_iset_image_speed(self, 0.5);
+    self->vars[VAR_yVel] = ((-gml_script_rand(self, other, 1.0f, 3.0f)) * 0.2f);
+    self->vars[VAR_yAcc] = 0.1f;
+    gml_iset_image_speed(self, 0.5f);
 }
 
 void gml_ev_oBloodSpark__Create_0(gm_instance_t *self, gm_instance_t *other)

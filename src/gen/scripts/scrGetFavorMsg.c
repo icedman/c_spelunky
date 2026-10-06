@@ -3,99 +3,99 @@
 
 void gml_script_scrGetFavorMsg(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    if (gml_le(g_gml_globals.favor, (-8.0))) {
+    if (gml_le(g_gml_globals.favor, (-8.0f))) {
         g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS VERY ANGRY WITH YOU!"));
     } else {
-        if (gml_lt(g_gml_globals.favor, 0.0)) {
+        if (gml_lt(g_gml_globals.favor, 0.0f)) {
             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS ANGRY WITH YOU."));
         } else {
-            if (gml_eq(g_gml_globals.favor, 0.0)) {
+            if (gml_eq(g_gml_globals.favor, 0.0f)) {
                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE HAS FORGIVEN YOU!"));
             } else {
-                if (gml_ge(g_gml_globals.favor, 32.0)) {
-                    if ((gml_ge(g_gml_globals.kaliGift, 3.0) && gml_ge(g_gml_globals.favor, (32.0 + ((g_gml_globals.kaliGift - 2.0) * 16.0))))) {
+                if (gml_ge(g_gml_globals.favor, 32.0f)) {
+                    if ((gml_ge(g_gml_globals.kaliGift, 3.0f) && gml_ge(g_gml_globals.favor, (32.0f + ((g_gml_globals.kaliGift - 2.0f) * 16.0f))))) {
                         g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL INVIGORATED!"));
-                        g_gml_globals.kaliGift = (g_gml_globals.kaliGift + 1.0);
-                        (t1 = g_gml_globals.plife, g_gml_globals.plife = (t1 + gml_script_rand(self, other, 4.0, 8.0)));
+                        g_gml_globals.kaliGift = (g_gml_globals.kaliGift + 1.0f);
+                        (t1 = g_gml_globals.plife, g_gml_globals.plife = (t1 + gml_script_rand(self, other, 4.0f, 8.0f)));
                     } else {
-                        if (gml_ge(g_gml_globals.kaliGift, 3.0)) {
+                        if (gml_ge(g_gml_globals.kaliGift, 3.0f)) {
                             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS ECSTATIC WITH YOU!"));
                         } else {
-                            if (gml_lt(g_gml_globals.bombs, 80.0)) {
+                            if (gml_lt(g_gml_globals.bombs, 80.0f)) {
                                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOUR SATCHEL FEELS VERY FULL NOW!"));
-                                g_gml_globals.kaliGift = 3.0;
-                                g_gml_globals.bombs = 99.0;
+                                g_gml_globals.kaliGift = 3.0f;
+                                g_gml_globals.bombs = 99.0f;
                             } else {
                                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL INVIGORATED!"));
-                                g_gml_globals.kaliGift = (g_gml_globals.kaliGift + 1.0);
-                                (t2 = g_gml_globals.plife, g_gml_globals.plife = (t2 + gml_script_rand(self, other, 4.0, 8.0)));
+                                g_gml_globals.kaliGift = (g_gml_globals.kaliGift + 1.0f);
+                                (t2 = g_gml_globals.plife, g_gml_globals.plife = (t2 + gml_script_rand(self, other, 4.0f, 8.0f)));
                             }
                         }
                     }
                 } else {
-                    if (gml_ge(g_gml_globals.favor, 16.0)) {
-                        if (gml_ge(g_gml_globals.kaliGift, 2.0)) {
+                    if (gml_ge(g_gml_globals.favor, 16.0f)) {
+                        if (gml_ge(g_gml_globals.kaliGift, 2.0f)) {
                             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS VERY HAPPY WITH YOU!"));
                         } else {
                             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE BESTOWS A GIFT UPON YOU!"));
-                            g_gml_globals.kaliGift = 2.0;
-                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oKapala));
-                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
+                            g_gml_globals.kaliGift = 2.0f;
+                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oKapala));
+                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
                         }
                     } else {
-                        if (gml_ge(g_gml_globals.favor, 8.0)) {
-                            if (gml_ge(g_gml_globals.kaliGift, 1.0)) {
+                        if (gml_ge(g_gml_globals.favor, 8.0f)) {
+                            if (gml_ge(g_gml_globals.kaliGift, 1.0f)) {
                                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS HAPPY WITH YOU."));
                             } else {
                                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE BESTOWS A GIFT UPON YOU!"));
-                                g_gml_globals.kaliGift = 1.0;
-                                if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oSacAltarRight)))) {
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oPoof));
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, (-1.0));
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0);
-                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oPoof));
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, 1.0);
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0);
-                                    self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 8.0);
+                                g_gml_globals.kaliGift = 1.0f;
+                                if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oSacAltarRight)))) {
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oPoof));
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, (-1.0f));
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0f);
+                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oPoof));
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, 1.0f);
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0f);
+                                    self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 8.0f);
                                     self->vars[VAR_m] = self->vars[VAR_n];
-                                    while (gml_truthy(1.0)) {
-                                        if (((gml_eq(self->vars[VAR_n], 1.0) && (!gml_truthy(g_gml_globals.hasCape))) && (!gml_truthy(g_gml_globals.hasJetpack)))) {
-                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oCapePickup));
+                                    while (gml_truthy(1.0f)) {
+                                        if (((gml_eq(self->vars[VAR_n], 1.0f) && (!gml_truthy(g_gml_globals.hasCape))) && (!gml_truthy(g_gml_globals.hasJetpack)))) {
+                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oCapePickup));
                                             break;
                                         } else {
-                                            if ((gml_eq(self->vars[VAR_n], 2.0) && (!gml_truthy(g_gml_globals.hasGloves)))) {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oGloves));
+                                            if ((gml_eq(self->vars[VAR_n], 2.0f) && (!gml_truthy(g_gml_globals.hasGloves)))) {
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oGloves));
                                                 break;
                                             } else {
-                                                if ((gml_eq(self->vars[VAR_n], 3.0) && (!gml_truthy(g_gml_globals.hasSpectacles)))) {
-                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oSpectacles));
+                                                if ((gml_eq(self->vars[VAR_n], 3.0f) && (!gml_truthy(g_gml_globals.hasSpectacles)))) {
+                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oSpectacles));
                                                     break;
                                                 } else {
-                                                    if ((gml_eq(self->vars[VAR_n], 4.0) && (!gml_truthy(g_gml_globals.hasMitt)))) {
-                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oMitt));
+                                                    if ((gml_eq(self->vars[VAR_n], 4.0f) && (!gml_truthy(g_gml_globals.hasMitt)))) {
+                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oMitt));
                                                         break;
                                                     } else {
-                                                        if ((gml_eq(self->vars[VAR_n], 5.0) && (!gml_truthy(g_gml_globals.hasSpringShoes)))) {
-                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oSpringShoes));
+                                                        if ((gml_eq(self->vars[VAR_n], 5.0f) && (!gml_truthy(g_gml_globals.hasSpringShoes)))) {
+                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oSpringShoes));
                                                             break;
                                                         } else {
-                                                            if ((gml_eq(self->vars[VAR_n], 6.0) && (!gml_truthy(g_gml_globals.hasSpikeShoes)))) {
-                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oSpikeShoes));
+                                                            if ((gml_eq(self->vars[VAR_n], 6.0f) && (!gml_truthy(g_gml_globals.hasSpikeShoes)))) {
+                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oSpikeShoes));
                                                                 break;
                                                             } else {
-                                                                if ((gml_eq(self->vars[VAR_n], 7.0) && (!gml_truthy(g_gml_globals.hasStickyBombs)))) {
-                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oPaste));
+                                                                if ((gml_eq(self->vars[VAR_n], 7.0f) && (!gml_truthy(g_gml_globals.hasStickyBombs)))) {
+                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oPaste));
                                                                     break;
                                                                 } else {
-                                                                    if ((gml_eq(self->vars[VAR_n], 8.0) && (!gml_truthy(g_gml_globals.hasCompass)))) {
-                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oCompass));
+                                                                    if ((gml_eq(self->vars[VAR_n], 8.0f) && (!gml_truthy(g_gml_globals.hasCompass)))) {
+                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oCompass));
                                                                         break;
                                                                     }
                                                                 }
@@ -105,25 +105,25 @@ void gml_script_scrGetFavorMsg(gm_instance_t *self, gm_instance_t *other)
                                                 }
                                             }
                                         }
-                                        self->vars[VAR_n] = (self->vars[VAR_n] + 1.0);
-                                        if (gml_gt(self->vars[VAR_n], 8.0)) {
-                                            self->vars[VAR_n] = 1.0;
+                                        self->vars[VAR_n] = (self->vars[VAR_n] + 1.0f);
+                                        if (gml_gt(self->vars[VAR_n], 8.0f)) {
+                                            self->vars[VAR_n] = 1.0f;
                                         }
                                         if (gml_eq(self->vars[VAR_n], self->vars[VAR_m])) {
                                             if ((!gml_truthy(g_gml_globals.hasJetpack))) {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oJetpack));
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oJetpack));
                                             } else {
-                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0), ((double)OBJ_oBombBox));
+                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oSacAltarRight), self, other)), (gml_iget_y(self) - 8.0f), ((float)OBJ_oBombBox));
                                             }
                                             break;
                                         }
                                     }
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
                                 }
                             }
                         } else {
-                            if (gml_gt(g_gml_globals.favor, 0.0)) {
+                            if (gml_gt(g_gml_globals.favor, 0.0f)) {
                                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "SHE SEEMS PLEASED WITH YOU."));
                             }
                         }

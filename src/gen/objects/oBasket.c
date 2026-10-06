@@ -5,8 +5,8 @@ static void gml_ev_oBasket__Other_7_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sBasketSwoosh))) {
-        gml_iset_sprite_index(self, ((double)SPR_sBasket));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sBasketSwoosh))) {
+        gml_iset_sprite_index(self, ((float)SPR_sBasket));
     }
 }
 

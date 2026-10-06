@@ -34,7 +34,7 @@ static void gml_ev_oBarrier__Collision_oBullet_body(gm_instance_t *self, gm_inst
         gm_instance_t *self1;
         gm_with_begin(GM_OTHER, self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            (void)(gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oSmokePuff)));
+            (void)(gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oSmokePuff)));
             gml_script_playSound(self1, self, g_gml_globals.sndHit);
             gml_fn_instance_destroy(self1, self, 0, NULL);
         }
@@ -60,18 +60,18 @@ static void gml_ev_oBarrier__Collision_oItem_body(gm_instance_t *self, gm_instan
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                gml_iset_sprite_index(self1, ((double)SPR_sBombArmed));
-                gml_iset_image_speed(self1, 1.0);
-                gml_iset_alarm(self1, 1.0, gml_script_rand(self1, self, 4.0, 8.0));
+                gml_iset_sprite_index(self1, ((float)SPR_sBombArmed));
+                gml_iset_image_speed(self1, 1.0f);
+                gml_iset_alarm(self1, 1.0f, gml_script_rand(self1, self, 4.0f, 8.0f));
             }
             gm_with_end();
         }
     }
-    other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0, 6.0));
-    other->vars[VAR_yVel] = (-2.0);
+    other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0f, 6.0f));
+    other->vars[VAR_yVel] = (-2.0f);
     if (gml_truthy(other->vars[VAR_held])) {
-        if (gml_truthy(((double)OBJ_oCharacter))) {
-            gml_ivar_set(gml_deref(((double)OBJ_oCharacter), self, other), VAR_holdItem, 0.0);
+        if (gml_truthy(((float)OBJ_oCharacter))) {
+            gml_ivar_set(gml_deref(((float)OBJ_oCharacter), self, other), VAR_holdItem, 0.0f);
         }
     }
 }
@@ -87,17 +87,17 @@ static void gml_ev_oBarrier__Collision_oCharacter_body(gm_instance_t *self, gm_i
 {
     (void)self;
     (void)other;
-    if (gml_eq(other->vars[VAR_invincible], 0.0)) {
-        other->vars[VAR_blink] = 30.0;
-        other->vars[VAR_invincible] = 30.0;
-        other->vars[VAR_yVel] = (-2.0);
+    if (gml_eq(other->vars[VAR_invincible], 0.0f)) {
+        other->vars[VAR_blink] = 30.0f;
+        other->vars[VAR_invincible] = 30.0f;
+        other->vars[VAR_yVel] = (-2.0f);
         if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-            other->vars[VAR_xVel] = (-6.0);
+            other->vars[VAR_xVel] = (-6.0f);
         } else {
-            other->vars[VAR_xVel] = 6.0;
+            other->vars[VAR_xVel] = 6.0f;
         }
-        if (gml_gt(g_gml_globals.plife, 0.0)) {
-            g_gml_globals.plife = (g_gml_globals.plife - 1.0);
+        if (gml_gt(g_gml_globals.plife, 0.0f)) {
+            g_gml_globals.plife = (g_gml_globals.plife - 1.0f);
         }
         gml_script_playSound(self, other, g_gml_globals.sndHurt);
     }

@@ -4,19 +4,19 @@
 void gml_script_scrMoveableSolidRecurseDrop(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_obj = 0.0;
+    float l_obj = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
     (void)l_obj;
-    l_obj = gml_fn_instance_place(self, other, gml_iget_x(self), (gml_iget_y(self) - 1.0), ((double)OBJ_oMoveableSolid));
+    l_obj = gml_fn_instance_place(self, other, gml_iget_x(self), (gml_iget_y(self) - 1.0f), ((float)OBJ_oMoveableSolid));
     if (gml_truthy(l_obj)) {
         {
             gm_instance_t *self1;
             gm_with_begin(gml_target(l_obj), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 gml_script_scrMoveableSolidRecurseDrop(self1, self);
-                gml_iset_y(self1, (gml_iget_y(self1) + 0.05));
+                gml_iset_y(self1, (gml_iget_y(self1) + 0.05f));
             }
             gm_with_end();
         }

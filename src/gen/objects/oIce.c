@@ -6,8 +6,8 @@ static void gml_ev_oIce__Create_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_eq(gml_script_rand(self, other, 1.0, 80.0), 1.0)) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oFrozenCaveman)));
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 80.0f), 1.0f)) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oFrozenCaveman)));
     }
 }
 
@@ -22,9 +22,9 @@ static void gml_ev_oIce__Destroy_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
     int32_t n1 = 0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -33,13 +33,13 @@ static void gml_ev_oIce__Destroy_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)t3;
     (void)t4;
     if (((!gml_truthy(self->vars[VAR_cleanDeath])) && (!gml_truthy(g_gml_globals.cleanSolids)))) {
-        for (n1 = gml_repeat_count(3.0); n1 > 0; --n1) {
-            (void)((t4 = (t2 = gml_iget_x(self), (t2 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t4, (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oDrip))));
+        for (n1 = gml_repeat_count(3.0f); n1 > 0; --n1) {
+            (void)((t4 = (t2 = gml_iget_x(self), (t2 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t4, (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oDrip))));
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oFrozenCaveman), 0.0, 0.0))) {
+        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oFrozenCaveman), 0.0f, 0.0f))) {
             {
                 gm_instance_t *self5;
-                gm_with_begin(gml_target(gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oFrozenCaveman))), self, other);
+                gm_with_begin(gml_target(gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oFrozenCaveman))), self, other);
                 while ((self5 = gm_with_next()) != NULL) {
                     gml_fn_instance_destroy(self5, self, 0, NULL);
                 }

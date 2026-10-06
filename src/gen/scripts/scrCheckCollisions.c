@@ -5,33 +5,33 @@ void gml_script_scrCheckCollisions(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    gml_script_setCollisionBounds(self, other, 2.0, 6.0, 14.0, 16.0);
+    gml_script_setCollisionBounds(self, other, 2.0f, 6.0f, 14.0f, 16.0f);
     if ((gml_truthy(self->vars[VAR_colLeft]) && (!gml_truthy(self->vars[VAR_colRight])))) {
-        gml_iset_x(self, (gml_iget_x(self) + 1.0));
+        gml_iset_x(self, (gml_iget_x(self) + 1.0f));
     } else {
         if (gml_truthy(self->vars[VAR_colRight])) {
-            gml_iset_x(self, (gml_iget_x(self) - 1.0));
+            gml_iset_x(self, (gml_iget_x(self) - 1.0f));
         }
     }
     if ((gml_truthy(self->vars[VAR_colLeft]) || gml_truthy(self->vars[VAR_colRight]))) {
-        self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5);
+        self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5f);
     }
     if ((gml_truthy(self->vars[VAR_colTop]) && (!gml_truthy(self->vars[VAR_colBot])))) {
-        gml_iset_y(self, (gml_iget_y(self) + 1.0));
+        gml_iset_y(self, (gml_iget_y(self) + 1.0f));
     } else {
         if (gml_truthy(self->vars[VAR_colBot])) {
-            if (gml_gt(self->vars[VAR_yVel], 1.0)) {
-                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.5);
+            if (gml_gt(self->vars[VAR_yVel], 1.0f)) {
+                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.5f);
             } else {
-                if (gml_lt(fabs(self->vars[VAR_yVel]), 1.0)) {
-                    self->vars[VAR_yVel] = 0.0;
+                if (gml_lt(fabsf(self->vars[VAR_yVel]), 1.0f)) {
+                    self->vars[VAR_yVel] = 0.0f;
                 }
             }
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 0.1)) {
-                self->vars[VAR_xVel] = 0.0;
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 0.1f)) {
+                self->vars[VAR_xVel] = 0.0f;
             } else {
-                if (gml_ne(fabs(self->vars[VAR_xVel]), 0.0)) {
-                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3);
+                if (gml_ne(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.3f);
                 }
             }
         }

@@ -8,10 +8,10 @@ static void gml_ev_oLockedChest__Create_0_body(gm_instance_t *self, gm_instance_
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Locked Chest";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-2.0), 6.0, 8.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.2;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-2.0f), 6.0f, 8.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.2f;
 }
 
 void gml_ev_oLockedChest__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -38,20 +38,20 @@ void gml_ev_oLockedChest__Step_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oLockedChest__Collision_oKey_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t3 = 0.0;
-    double t4 = 0.0;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
     (void)t3;
     (void)t4;
-    if ((gml_truthy(other->vars[VAR_held]) && gml_eq(gml_iget_sprite_index(self), ((double)SPR_sLockedChest)))) {
-        other->vars[VAR_held] = 0.0;
+    if ((gml_truthy(other->vars[VAR_held]) && gml_eq(gml_iget_sprite_index(self), ((float)SPR_sLockedChest)))) {
+        other->vars[VAR_held] = 0.0f;
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_holdItem] = 0.0;
+                self1->vars[VAR_holdItem] = 0.0f;
                 self1->strs[SVAR_pickupItemType] = "";
             }
             gm_with_end();
@@ -64,26 +64,26 @@ static void gml_ev_oLockedChest__Collision_oKey_body(gm_instance_t *self, gm_ins
             }
             gm_with_end();
         }
-        gml_iset_sprite_index(self, ((double)SPR_sLockedChestOpen));
+        gml_iset_sprite_index(self, ((float)SPR_sLockedChestOpen));
         gml_script_playSound(self, other, g_gml_globals.sndChestOpen);
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oUdjatEye));
-        (t4 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, (t3 = gml_script_rand(self, other, 0.0, 3.0), (t3 - gml_script_rand(self, other, 0.0, 3.0)))));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-2.0));
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPoof));
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oUdjatEye));
+        (t4 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, (t3 = gml_script_rand(self, other, 0.0f, 3.0f), (t3 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-2.0f));
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPoof));
         {
             gm_instance_t *self5;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
             while ((self5 = gm_with_next()) != NULL) {
-                self5->vars[VAR_xVel] = (-0.4);
+                self5->vars[VAR_xVel] = (-0.4f);
             }
             gm_with_end();
         }
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPoof));
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPoof));
         {
             gm_instance_t *self6;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
             while ((self6 = gm_with_next()) != NULL) {
-                self6->vars[VAR_xVel] = 0.4;
+                self6->vars[VAR_xVel] = 0.4f;
             }
             gm_with_end();
         }

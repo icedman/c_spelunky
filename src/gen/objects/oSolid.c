@@ -6,11 +6,11 @@ static void gml_ev_oSolid__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_invincible] = 0.0;
-    self->vars[VAR_shopWall] = 0.0;
+    self->vars[VAR_invincible] = 0.0f;
+    self->vars[VAR_shopWall] = 0.0f;
     self->strs[SVAR_type] = gml_script_tr(self, other, 1, "NONE");
     self->vals[VVAR_treasure] = gml_vs("");
-    self->vars[VAR_cleanDeath] = 0.0;
+    self->vars[VAR_cleanDeath] = 0.0f;
 }
 
 void gml_ev_oSolid__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -29,15 +29,15 @@ static void gml_ev_oSolid__Destroy_0_body(gm_instance_t *self, gm_instance_t *ot
     if (gml_truthy(self->vars[VAR_shopWall])) {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oShopkeeper)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oShopkeeper)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                gml_script_scrShopkeeperAnger(self1, self, 1.0);
+                gml_script_scrShopkeeperAnger(self1, self, 1.0f);
             }
             gm_with_end();
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oSpikes), 0.0, 0.0))) {
-        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oSpikes));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oSpikes), 0.0f, 0.0f))) {
+        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oSpikes));
         {
             gm_instance_t *self2;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
@@ -47,8 +47,8 @@ static void gml_ev_oSolid__Destroy_0_body(gm_instance_t *self, gm_instance_t *ot
             gm_with_end();
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oTikiTorch), 0.0, 0.0))) {
-        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oTikiTorch));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oTikiTorch), 0.0f, 0.0f))) {
+        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oTikiTorch));
         {
             gm_instance_t *self3;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
@@ -58,8 +58,8 @@ static void gml_ev_oSolid__Destroy_0_body(gm_instance_t *self, gm_instance_t *ot
             gm_with_end();
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oGrave), 0.0, 0.0))) {
-        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 1.0), ((double)OBJ_oGrave));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oGrave), 0.0f, 0.0f))) {
+        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 1.0f), ((float)OBJ_oGrave));
         {
             gm_instance_t *self4;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
@@ -69,31 +69,31 @@ static void gml_ev_oSolid__Destroy_0_body(gm_instance_t *self, gm_instance_t *ot
             gm_with_end();
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 18.0), ((double)OBJ_oLampRed), 0.0, 0.0))) {
-        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oLampRed));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 18.0f), ((float)OBJ_oLampRed), 0.0f, 0.0f))) {
+        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oLampRed));
         {
             gm_instance_t *self5;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
             while ((self5 = gm_with_next()) != NULL) {
-                (void)(gml_script_instance_create(self5, self, (gml_iget_x(self5) + 8.0), (gml_iget_y(self5) + 12.0), ((double)OBJ_oLampRedItem)));
+                (void)(gml_script_instance_create(self5, self, (gml_iget_x(self5) + 8.0f), (gml_iget_y(self5) + 12.0f), ((float)OBJ_oLampRedItem)));
                 gml_fn_instance_destroy(self5, self, 0, NULL);
             }
             gm_with_end();
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 18.0), ((double)OBJ_oLamp), 0.0, 0.0))) {
-        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oLamp));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 18.0f), ((float)OBJ_oLamp), 0.0f, 0.0f))) {
+        self->vars[VAR_obj] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oLamp));
         {
             gm_instance_t *self6;
             gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
             while ((self6 = gm_with_next()) != NULL) {
-                (void)(gml_script_instance_create(self6, self, (gml_iget_x(self6) + 8.0), (gml_iget_y(self6) + 12.0), ((double)OBJ_oLampItem)));
+                (void)(gml_script_instance_create(self6, self, (gml_iget_x(self6) + 8.0f), (gml_iget_y(self6) + 12.0f), ((float)OBJ_oLampItem)));
                 gml_fn_instance_destroy(self6, self, 0, NULL);
             }
             gm_with_end();
         }
     }
-    g_gml_globals.checkWater = 1.0;
+    g_gml_globals.checkWater = 1.0f;
 }
 
 void gml_ev_oSolid__Destroy_0(gm_instance_t *self, gm_instance_t *other)

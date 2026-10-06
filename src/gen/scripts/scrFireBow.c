@@ -3,59 +3,59 @@
 
 void gml_script_scrFireBow(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     if (gml_truthy(self->vars[VAR_holdItem])) {
         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Bow")) {
             if (gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT])) {
-                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 14.0), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0))) {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oArrow));
+                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 14.0f), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oArrow));
                 } else {
-                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) - 14.0), gml_iget_y(self), ((double)OBJ_oArrow));
+                    self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) - 14.0f), gml_iget_y(self), ((float)OBJ_oArrow));
                 }
-                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, ((self->vars[VAR_xVel] - 1.0) - self->vars[VAR_bowStrength]));
-                if (gml_ge(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel), (-1.0))) {
-                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, (-1.0));
+                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, ((self->vars[VAR_xVel] - 1.0f) - self->vars[VAR_bowStrength]));
+                if (gml_ge(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel), (-1.0f))) {
+                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, (-1.0f));
                 }
-                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0);
-                gml_iset_direction(gml_deref(self->vars[VAR_obj], self, other), 180.0);
-                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_safe, 1.0);
-                gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 2.0, 10.0);
+                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0f);
+                gml_iset_direction(gml_deref(self->vars[VAR_obj], self, other), 180.0f);
+                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_safe, 1.0f);
+                gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 2.0f, 10.0f);
                 gml_script_playSound(self, other, g_gml_globals.sndArrowTrap);
-                self->vars[VAR_firing] = 10.0;
+                self->vars[VAR_firing] = 10.0f;
             } else {
                 if (gml_eq(self->vars[VAR_facing], self->vars[VAR_RIGHT])) {
-                    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 14.0), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0))) {
-                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oArrow));
+                    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 14.0f), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
+                        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oArrow));
                     } else {
-                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) + 14.0), gml_iget_y(self), ((double)OBJ_oArrow));
+                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) + 14.0f), gml_iget_y(self), ((float)OBJ_oArrow));
                     }
-                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, ((self->vars[VAR_xVel] + 1.0) + self->vars[VAR_bowStrength]));
-                    if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel), 1.0)) {
-                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, 1.0);
+                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, ((self->vars[VAR_xVel] + 1.0f) + self->vars[VAR_bowStrength]));
+                    if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel), 1.0f)) {
+                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, 1.0f);
                     }
-                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0);
-                    gml_iset_direction(gml_deref(self->vars[VAR_obj], self, other), 0.0);
-                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_safe, 1.0);
-                    gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 2.0, 10.0);
+                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, 0.0f);
+                    gml_iset_direction(gml_deref(self->vars[VAR_obj], self, other), 0.0f);
+                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_safe, 1.0f);
+                    gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 2.0f, 10.0f);
                     gml_script_playSound(self, other, g_gml_globals.sndArrowTrap);
-                    self->vars[VAR_firing] = 10.0;
+                    self->vars[VAR_firing] = 10.0f;
                 }
             }
             if (gml_eq(self->vars[VAR_holdArrow], self->vars[VAR_ARROW_BOMB])) {
-                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sBombArrowRight));
-                gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 1.0, self->vars[VAR_bombArrowCounter]);
-                self->vars[VAR_bombArrowCounter] = 80.0;
+                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sBombArrowRight));
+                gml_iset_alarm(gml_deref(self->vars[VAR_obj], self, other), 1.0f, self->vars[VAR_bombArrowCounter]);
+                self->vars[VAR_bombArrowCounter] = 80.0f;
             }
-            self->vars[VAR_holdArrow] = 0.0;
-            g_gml_globals.arrows = (g_gml_globals.arrows - 1.0);
-            if ((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sDuckLeft)) || gml_eq(gml_iget_sprite_index(self), ((double)SPR_sDamselDuckL)))) {
-                (t1 = self->vars[VAR_obj], gml_iset_y(gml_deref(t1, self, other), (gml_iget_y(gml_deref(t1, self, other)) + 4.0)));
+            self->vars[VAR_holdArrow] = 0.0f;
+            g_gml_globals.arrows = (g_gml_globals.arrows - 1.0f);
+            if ((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sDuckLeft)) || gml_eq(gml_iget_sprite_index(self), ((float)SPR_sDamselDuckL)))) {
+                (t1 = self->vars[VAR_obj], gml_iset_y(gml_deref(t1, self, other), (gml_iget_y(gml_deref(t1, self, other)) + 4.0f)));
             }
-            self->vars[VAR_bowArmed] = 0.0;
-            self->vars[VAR_bowStrength] = 0.0;
+            self->vars[VAR_bowArmed] = 0.0f;
+            self->vars[VAR_bowStrength] = 0.0f;
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.sndBowPull))) {
                 gml_script_SS_StopSound(self, other, g_gml_globals.sndBowPull);
             }

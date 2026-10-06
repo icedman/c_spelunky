@@ -48,7 +48,7 @@ typedef struct gm_room_layer_def {
     int kind;               /* gm_layer_kind_t */
     int depth;
     bool visible;
-    double x, y, hspeed, vspeed;
+    float x, y, hspeed, vspeed;
     /* GM_LAYER_BACKGROUND */
     int bg_sprite;          /* -1: colour only */
     bool bg_htiled, bg_vtiled, bg_stretch;
@@ -61,18 +61,18 @@ typedef struct gm_room_layer_def {
 typedef struct gm_room_tile_def {
     int sprite;
     int u, v, w, h;
-    double x, y;
-    double xscale, yscale;
+    float x, y;
+    float xscale, yscale;
     uint32_t colour;        /* alpha in the top byte, then B, G, R */
 } gm_room_tile_def_t;
 
 typedef struct gm_room_inst_def {
     int id;                 /* fixed id assigned by the packer (>= GM_INSTANCE_ID_BASE) */
     int object;
-    double x, y;
-    double xscale, yscale, angle;
+    float x, y;
+    float xscale, yscale, angle;
     uint32_t colour;        /* alpha in the top byte, then B, G, R */
-    double image_index, image_speed;
+    float image_index, image_speed;
     int layer;              /* index into the room's layers */
     gm_event_fn code;       /* instance creation code, or NULL */
 } gm_room_inst_def_t;
@@ -206,14 +206,14 @@ bool gm_room_switch_pending(void);
 bool gm_room_start(int room, bool starting);
 
 /* Room built-ins of the current room (room_width ... are settable in GML). */
-double gm_room_width(void);
-double gm_room_height(void);
-double gm_room_speed(void);
+float gm_room_width(void);
+float gm_room_height(void);
+float gm_room_speed(void);
 bool gm_room_persistent(void);
 const char *gm_room_caption(void);
-void gm_room_set_width(double w);
-void gm_room_set_height(double h);
-void gm_room_set_speed(double s);
+void gm_room_set_width(float w);
+void gm_room_set_height(float h);
+void gm_room_set_speed(float s);
 void gm_room_set_persistent(bool p);
 void gm_room_set_caption(const char *caption);   /* copied (truncated) */
 

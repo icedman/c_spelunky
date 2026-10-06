@@ -7,185 +7,185 @@ void gml_script_characterSprite(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     if (((gml_truthy(g_gml_globals.isTunnelMan) && (!gml_truthy(self->vars[VAR_stunned]))) && (!gml_truthy(self->vars[VAR_whipping])))) {
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_STANDING])) {
-            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0), (gml_iget_y(self) + 9.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-                gml_iset_image_speed(self, 0.6);
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelWhoaL));
+            if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0f), (gml_iget_y(self) + 9.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+                gml_iset_image_speed(self, 0.6f);
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelWhoaL));
             } else {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelLeft));
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelLeft));
             }
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_RUNNING])) {
             if (gml_truthy(self->vars[VAR_kUp])) {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelLookRunL));
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelLookRunL));
             } else {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelRunL));
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelRunL));
             }
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKING])) {
-            if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelDuckL));
+            if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelDuckL));
             } else {
-                if (gml_lt(fabs(self->vars[VAR_xVel]), 3.0)) {
-                    gml_iset_sprite_index(self, ((double)SPR_sTunnelCrawlL));
+                if (gml_lt(fabsf(self->vars[VAR_xVel]), 3.0f)) {
+                    gml_iset_sprite_index(self, ((float)SPR_sTunnelCrawlL));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sTunnelRunL));
+                    gml_iset_sprite_index(self, ((float)SPR_sTunnelRunL));
                 }
             }
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_LOOKING_UP])) {
-            if (gml_gt(fabs(self->vars[VAR_xVel]), 0.0)) {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelRunL));
+            if (gml_gt(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelRunL));
             } else {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelLookL));
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelLookL));
             }
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_JUMPING])) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelJumpL));
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelJumpL));
         }
         if (((gml_eq(self->vars[VAR_state], self->vars[VAR_FALLING]) && gml_eq(self->vars[VAR_statePrev], self->vars[VAR_FALLING])) && gml_eq(self->vars[VAR_statePrevPrev], self->vars[VAR_FALLING]))) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelFallL));
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelFallL));
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_HANGING])) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelHangL));
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelHangL));
         }
-        if (gml_gt(self->vars[VAR_pushTimer], 20.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelPushL));
+        if (gml_gt(self->vars[VAR_pushTimer], 20.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelPushL));
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKTOHANG])) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelDtHL));
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelDtHL));
         }
         if (gml_eq(self->vars[VAR_state], self->vars[VAR_CLIMBING])) {
-            if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRope), 0.0, 0.0))) {
+            if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRope), 0.0f, 0.0f))) {
                 if (gml_truthy(self->vars[VAR_kDown])) {
-                    gml_iset_sprite_index(self, ((double)SPR_sTunnelClimb3));
+                    gml_iset_sprite_index(self, ((float)SPR_sTunnelClimb3));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sTunnelClimb2));
+                    gml_iset_sprite_index(self, ((float)SPR_sTunnelClimb2));
                 }
             } else {
-                gml_iset_sprite_index(self, ((double)SPR_sTunnelClimb));
+                gml_iset_sprite_index(self, ((float)SPR_sTunnelClimb));
             }
         }
     } else {
         if (((gml_truthy(g_gml_globals.isDamsel) && (!gml_truthy(self->vars[VAR_stunned]))) && (!gml_truthy(self->vars[VAR_whipping])))) {
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_STANDING])) {
-                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0), (gml_iget_y(self) + 9.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-                    gml_iset_image_speed(self, 0.6);
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselWhoaL));
+                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0f), (gml_iget_y(self) + 9.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+                    gml_iset_image_speed(self, 0.6f);
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselWhoaL));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselLeft));
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselLeft));
                 }
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_RUNNING])) {
                 if (gml_truthy(self->vars[VAR_kUp])) {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselRunL));
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselRunL));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselRunL));
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselRunL));
                 }
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKING])) {
-                if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselDuckL));
+                if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselDuckL));
                 } else {
-                    if (gml_lt(fabs(self->vars[VAR_xVel]), 3.0)) {
-                        gml_iset_sprite_index(self, ((double)SPR_sDamselCrawlL));
+                    if (gml_lt(fabsf(self->vars[VAR_xVel]), 3.0f)) {
+                        gml_iset_sprite_index(self, ((float)SPR_sDamselCrawlL));
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sDamselRunL));
+                        gml_iset_sprite_index(self, ((float)SPR_sDamselRunL));
                     }
                 }
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_LOOKING_UP])) {
-                if (gml_gt(fabs(self->vars[VAR_xVel]), 0.0)) {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselRunL));
+                if (gml_gt(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselRunL));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselLookL));
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselLookL));
                 }
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_JUMPING])) {
-                gml_iset_sprite_index(self, ((double)SPR_sDamselDieLR));
+                gml_iset_sprite_index(self, ((float)SPR_sDamselDieLR));
             }
             if (((gml_eq(self->vars[VAR_state], self->vars[VAR_FALLING]) && gml_eq(self->vars[VAR_statePrev], self->vars[VAR_FALLING])) && gml_eq(self->vars[VAR_statePrevPrev], self->vars[VAR_FALLING]))) {
-                gml_iset_sprite_index(self, ((double)SPR_sDamselFallL));
+                gml_iset_sprite_index(self, ((float)SPR_sDamselFallL));
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_HANGING])) {
-                gml_iset_sprite_index(self, ((double)SPR_sDamselHangL));
+                gml_iset_sprite_index(self, ((float)SPR_sDamselHangL));
             }
-            if (gml_gt(self->vars[VAR_pushTimer], 20.0)) {
-                gml_iset_sprite_index(self, ((double)SPR_sDamselPushL));
+            if (gml_gt(self->vars[VAR_pushTimer], 20.0f)) {
+                gml_iset_sprite_index(self, ((float)SPR_sDamselPushL));
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKTOHANG])) {
-                gml_iset_sprite_index(self, ((double)SPR_sDamselDtHL));
+                gml_iset_sprite_index(self, ((float)SPR_sDamselDtHL));
             }
             if (gml_eq(self->vars[VAR_state], self->vars[VAR_CLIMBING])) {
-                if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRope), 0.0, 0.0))) {
+                if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRope), 0.0f, 0.0f))) {
                     if (gml_truthy(self->vars[VAR_kDown])) {
-                        gml_iset_sprite_index(self, ((double)SPR_sDamselClimb3));
+                        gml_iset_sprite_index(self, ((float)SPR_sDamselClimb3));
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sDamselClimb2));
+                        gml_iset_sprite_index(self, ((float)SPR_sDamselClimb2));
                     }
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sDamselClimb));
+                    gml_iset_sprite_index(self, ((float)SPR_sDamselClimb));
                 }
             }
         } else {
             if (((!gml_truthy(self->vars[VAR_stunned])) && (!gml_truthy(self->vars[VAR_whipping])))) {
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_STANDING])) {
-                    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0), (gml_iget_y(self) + 9.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-                        gml_iset_image_speed(self, 0.6);
-                        gml_iset_sprite_index(self, ((double)SPR_sWhoaLeft));
+                    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 2.0f), (gml_iget_y(self) + 9.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+                        gml_iset_image_speed(self, 0.6f);
+                        gml_iset_sprite_index(self, ((float)SPR_sWhoaLeft));
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sStandLeft));
+                        gml_iset_sprite_index(self, ((float)SPR_sStandLeft));
                     }
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_RUNNING])) {
                     if (gml_truthy(self->vars[VAR_kUp])) {
-                        gml_iset_sprite_index(self, ((double)SPR_sLookRunL));
+                        gml_iset_sprite_index(self, ((float)SPR_sLookRunL));
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sRunLeft));
+                        gml_iset_sprite_index(self, ((float)SPR_sRunLeft));
                     }
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKING])) {
-                    if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                        gml_iset_sprite_index(self, ((double)SPR_sDuckLeft));
+                    if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                        gml_iset_sprite_index(self, ((float)SPR_sDuckLeft));
                     } else {
-                        if (gml_lt(fabs(self->vars[VAR_xVel]), 3.0)) {
-                            gml_iset_sprite_index(self, ((double)SPR_sCrawlLeft));
+                        if (gml_lt(fabsf(self->vars[VAR_xVel]), 3.0f)) {
+                            gml_iset_sprite_index(self, ((float)SPR_sCrawlLeft));
                         } else {
-                            gml_iset_sprite_index(self, ((double)SPR_sRunLeft));
+                            gml_iset_sprite_index(self, ((float)SPR_sRunLeft));
                         }
                     }
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_LOOKING_UP])) {
-                    if (gml_gt(fabs(self->vars[VAR_xVel]), 0.0)) {
-                        gml_iset_sprite_index(self, ((double)SPR_sLookRunL));
+                    if (gml_gt(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                        gml_iset_sprite_index(self, ((float)SPR_sLookRunL));
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sLookLeft));
+                        gml_iset_sprite_index(self, ((float)SPR_sLookLeft));
                     }
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_JUMPING])) {
-                    gml_iset_sprite_index(self, ((double)SPR_sJumpLeft));
+                    gml_iset_sprite_index(self, ((float)SPR_sJumpLeft));
                 }
                 if (((gml_eq(self->vars[VAR_state], self->vars[VAR_FALLING]) && gml_eq(self->vars[VAR_statePrev], self->vars[VAR_FALLING])) && gml_eq(self->vars[VAR_statePrevPrev], self->vars[VAR_FALLING]))) {
-                    gml_iset_sprite_index(self, ((double)SPR_sFallLeft));
+                    gml_iset_sprite_index(self, ((float)SPR_sFallLeft));
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_HANGING])) {
-                    gml_iset_sprite_index(self, ((double)SPR_sHangLeft));
+                    gml_iset_sprite_index(self, ((float)SPR_sHangLeft));
                 }
-                if (gml_gt(self->vars[VAR_pushTimer], 20.0)) {
-                    gml_iset_sprite_index(self, ((double)SPR_sPushLeft));
+                if (gml_gt(self->vars[VAR_pushTimer], 20.0f)) {
+                    gml_iset_sprite_index(self, ((float)SPR_sPushLeft));
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_CLIMBING])) {
-                    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRope), 0.0, 0.0))) {
+                    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRope), 0.0f, 0.0f))) {
                         if (gml_truthy(self->vars[VAR_kDown])) {
-                            gml_iset_sprite_index(self, ((double)SPR_sClimbUp3));
+                            gml_iset_sprite_index(self, ((float)SPR_sClimbUp3));
                         } else {
-                            gml_iset_sprite_index(self, ((double)SPR_sClimbUp2));
+                            gml_iset_sprite_index(self, ((float)SPR_sClimbUp2));
                         }
                     } else {
-                        gml_iset_sprite_index(self, ((double)SPR_sClimbUp));
+                        gml_iset_sprite_index(self, ((float)SPR_sClimbUp));
                     }
                 }
                 if (gml_eq(self->vars[VAR_state], self->vars[VAR_DUCKTOHANG])) {
-                    gml_iset_sprite_index(self, ((double)SPR_sDuckToHangL));
+                    gml_iset_sprite_index(self, ((float)SPR_sDuckToHangL));
                 }
             }
         }

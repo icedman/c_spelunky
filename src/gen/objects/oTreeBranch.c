@@ -7,7 +7,7 @@ static void gml_ev_oTreeBranch__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_truthy(g_gml_globals.cemetary)) {
-        gml_iset_sprite_index(self, ((double)SPR_sTreeBranchDeadR));
+        gml_iset_sprite_index(self, ((float)SPR_sTreeBranchDeadR));
     }
 }
 
@@ -20,11 +20,11 @@ void gml_ev_oTreeBranch__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTreeBranch__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -32,8 +32,8 @@ static void gml_ev_oTreeBranch__Destroy_0_body(gm_instance_t *self, gm_instance_
     (void)t3;
     (void)t4;
     (void)t5;
-    if ((gml_ne(gml_iget_sprite_index(self), ((double)SPR_sTreeBranchDeadL)) && gml_ne(gml_iget_sprite_index(self), ((double)SPR_sTreeBranchDeadR)))) {
-        self->vars[VAR_rubble] = (t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0), (t1 + gml_script_rand(self, other, 0.0, 8.0))), (t2 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0), (t3 + gml_script_rand(self, other, 0.0, 8.0))), (t4 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oLeaf)));
+    if ((gml_ne(gml_iget_sprite_index(self), ((float)SPR_sTreeBranchDeadL)) && gml_ne(gml_iget_sprite_index(self), ((float)SPR_sTreeBranchDeadR)))) {
+        self->vars[VAR_rubble] = (t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0f), (t1 + gml_script_rand(self, other, 0.0f, 8.0f))), (t2 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0f), (t3 + gml_script_rand(self, other, 0.0f, 8.0f))), (t4 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oLeaf)));
     }
 }
 
@@ -46,12 +46,12 @@ void gml_ev_oTreeBranch__Destroy_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTreeBranch__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -60,8 +60,8 @@ static void gml_ev_oTreeBranch__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)t4;
     (void)t5;
     (void)t6;
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 16.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 16.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 16.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 16.0))))) {
-        if (((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oTree), 0.0, 0.0))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oTree), 0.0, 0.0))))) {
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 16.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 16.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 16.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 16.0f))))) {
+        if (((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oTree), 0.0f, 0.0f))) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oTree), 0.0f, 0.0f))))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

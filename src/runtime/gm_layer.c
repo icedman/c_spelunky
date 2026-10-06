@@ -316,9 +316,9 @@ static gm_element_t *element_add(gm_layer_t *l, int type)
     e->layer = layer_slot(l);
     e->visible = true;
     e->sprite = -1;
-    e->xscale = e->yscale = 1.0;
+    e->xscale = e->yscale = 1.0f;
     e->blend = 0xFFFFFFu;
-    e->alpha = 1.0;
+    e->alpha = 1.0f;
     e->prev = -1;
     e->next = l->head;
     if (l->head >= 0) {
@@ -373,7 +373,7 @@ int gm_layer_elements(int layer_id, int *out, int max)
 }
 
 /* layer_tile_create (L5057). */
-int gm_layer_tile_create(int layer_id, double x, double y, int sprite, int left, int top, int w, int h)
+int gm_layer_tile_create(int layer_id, float x, float y, int sprite, int left, int top, int w, int h)
 {
     gm_layer_t *l = gm_layer_find(layer_id);
     gm_element_t *e = l != NULL ? element_add(l, GM_ELEMENT_TILE) : NULL;
@@ -401,7 +401,7 @@ int gm_layer_background_create(int layer_id, int sprite)
         return -1;
     }
     e->sprite = sprite;
-    e->image_speed = 1.0;
+    e->image_speed = 1.0f;
     return e->id;
 }
 
@@ -474,11 +474,11 @@ void gm_layer_room_start(const gm_room_def_t *room)
             e->vtiled = d->bg_vtiled;
             e->stretch = d->bg_stretch;
             e->blend = d->bg_colour & 0xFFFFFFu;
-            e->alpha = (double)((d->bg_colour >> 24) & 0xFFu) / 255.0;
-            e->image_speed = 1.0;
+            e->alpha = (float)((d->bg_colour >> 24) & 0xFFu) / 255.0f;
+            e->image_speed = 1.0f;
             if (d->bg_stretch && spr != NULL && spr->width > 0 && spr->height > 0) {
-                e->xscale = (double)room->width / (double)spr->width;
-                e->yscale = (double)room->height / (double)spr->height;
+                e->xscale = (float)room->width / (float)spr->width;
+                e->yscale = (float)room->height / (float)spr->height;
             }
         } else if (d->kind == GM_LAYER_ASSETS) {
             for (i = d->tile_count - 1; i >= 0; --i) {
@@ -497,7 +497,7 @@ void gm_layer_room_start(const gm_room_def_t *room)
                 e->xscale = t->xscale;
                 e->yscale = t->yscale;
                 e->blend = t->colour & 0xFFFFFFu;
-                e->alpha = (double)((t->colour >> 24) & 0xFFu) / 255.0;
+                e->alpha = (float)((t->colour >> 24) & 0xFFu) / 255.0f;
             }
         }
     }

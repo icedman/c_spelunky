@@ -650,6 +650,7 @@ srcs = files(
   'src/runtime/gm_loop.c',
   'src/runtime/gm_math.c',
   'src/runtime/gm_object.c',
+  'src/runtime/gm_perf.c',
   'src/runtime/gm_room.c',
   'src/runtime/gm_sprite.c',
   'src/runtime/gm_string.c',

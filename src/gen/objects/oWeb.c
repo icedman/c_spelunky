@@ -5,8 +5,8 @@ static void gml_ev_oWeb__Create_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_life] = 12.0;
-    self->vars[VAR_dying] = 0.0;
+    self->vars[VAR_life] = 12.0f;
+    self->vars[VAR_dying] = 0.0f;
 }
 
 void gml_ev_oWeb__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,11 +20,11 @@ static void gml_ev_oWeb__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    gml_iset_image_alpha(self, (self->vars[VAR_life] / 12.0));
+    gml_iset_image_alpha(self, (self->vars[VAR_life] / 12.0f));
     if (gml_truthy(self->vars[VAR_dying])) {
-        self->vars[VAR_life] = (self->vars[VAR_life] - 0.02);
+        self->vars[VAR_life] = (self->vars[VAR_life] - 0.02f);
     }
-    if (gml_le(self->vars[VAR_life], 1.0)) {
+    if (gml_le(self->vars[VAR_life], 1.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }
@@ -68,9 +68,9 @@ static void gml_ev_oWeb__Collision_oRubblePiece_body(gm_instance_t *self, gm_ins
 {
     (void)self;
     (void)other;
-    other->vars[VAR_xVel] = 0.0;
-    other->vars[VAR_yVel] = 0.0;
-    gml_iset_image_speed(other, 0.0);
+    other->vars[VAR_xVel] = 0.0f;
+    other->vars[VAR_yVel] = 0.0f;
+    gml_iset_image_speed(other, 0.0f);
 }
 
 void gml_ev_oWeb__Collision_oRubblePiece(gm_instance_t *self, gm_instance_t *other)
@@ -84,8 +84,8 @@ static void gml_ev_oWeb__Collision_oTreasure_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    other->vars[VAR_xVel] = 0.0;
-    other->vars[VAR_yVel] = 0.0;
+    other->vars[VAR_xVel] = 0.0f;
+    other->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oWeb__Collision_oTreasure(gm_instance_t *self, gm_instance_t *other)
@@ -102,8 +102,8 @@ static void gml_ev_oWeb__Collision_oItem_body(gm_instance_t *self, gm_instance_t
     (void)other;
     (void)s1;
     if (((!gml_truthy(other->vars[VAR_held])) && (s1 = other->strs[SVAR_type], gml_str_ne(s1, gml_script_tr(self, other, 1, "ROPE"))))) {
-        other->vars[VAR_xVel] = 0.0;
-        other->vars[VAR_yVel] = 0.0;
+        other->vars[VAR_xVel] = 0.0f;
+        other->vars[VAR_yVel] = 0.0f;
     }
 }
 
@@ -133,14 +133,14 @@ static void gml_ev_oWeb__Collision_oEnemy_body(gm_instance_t *self, gm_instance_
     (void)self;
     (void)other;
     if ((gml_str_ne(other->strs[SVAR_type], "Spider") && gml_str_ne(other->strs[SVAR_type], "Giant Spider"))) {
-        other->vars[VAR_xVel] = 0.0;
-        other->vars[VAR_yVel] = 0.0;
+        other->vars[VAR_xVel] = 0.0f;
+        other->vars[VAR_yVel] = 0.0f;
     }
     if (gml_str_eq(other->strs[SVAR_type], "Magma Man")) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if ((gml_str_eq(other->strs[SVAR_type], "Shopkeeper") && gml_gt(other->vars[VAR_hp], 0.0))) {
-        other->vars[VAR_status] = 2.0;
+    if ((gml_str_eq(other->strs[SVAR_type], "Shopkeeper") && gml_gt(other->vars[VAR_hp], 0.0f))) {
+        other->vars[VAR_status] = 2.0f;
     }
 }
 

@@ -92,7 +92,7 @@ extern const gm_room_inst_def_t g_gml_room_rTutorial_instances[404];
 /* Sounds by SND_* index; the host loads ASSET_DIR/sounds/<name>. */
 typedef struct gml_sound_def {
     const char *name;
-    double volume;
+    float volume;
 } gml_sound_def_t;
 #define GML_SOUND_COUNT 67
 extern const gml_sound_def_t g_gml_sound_defs[67];

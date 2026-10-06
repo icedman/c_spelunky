@@ -13,12 +13,12 @@
 
 #define GM_AUDIO_HANDLE_BASE 100000
 
-double gm_audio_play_sound(double sound, double priority, double loop);
-void gm_audio_stop_sound(double id);
+float gm_audio_play_sound(float sound, float priority, float loop);
+void gm_audio_stop_sound(float id);
 void gm_audio_stop_all(void);
-bool gm_audio_is_playing(double id);
-void gm_audio_sound_gain(double id, double volume, double ms);
-void gm_audio_master_gain(double volume);
+bool gm_audio_is_playing(float id);
+void gm_audio_sound_gain(float id, float volume, float ms);
+void gm_audio_master_gain(float volume);
 void gm_audio_pause_all(void);
 void gm_audio_resume_all(void);
 

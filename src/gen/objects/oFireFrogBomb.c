@@ -8,11 +8,11 @@ static void gml_ev_oFireFrogBomb__Create_0_body(gm_instance_t *self, gm_instance
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Fire Frog Bomb";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-4.0), 6.0, 8.0);
-    gml_iset_alarm(self, 1.0, 120.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_bloodless] = 0.0;
-    self->vars[VAR_swimming] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-4.0f), 6.0f, 8.0f);
+    gml_iset_alarm(self, 1.0f, 120.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_bloodless] = 0.0f;
+    self->vars[VAR_swimming] = 0.0f;
 }
 
 void gml_ev_oFireFrogBomb__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -26,14 +26,14 @@ static void gml_ev_oFireFrogBomb__Alarm_1_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oExplosion)));
-    (void)(gml_script_scrCreateBlood(self, other, gml_iget_x(self), gml_iget_y(self), 3.0));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oExplosion)));
+    (void)(gml_script_scrCreateBlood(self, other, gml_iget_x(self), gml_iget_y(self), 3.0f));
     if (gml_truthy(g_gml_globals.graphicsHigh)) {
-        gml_script_scrCreateFlame(self, other, gml_iget_x(self), gml_iget_y(self), 3.0);
+        gml_script_scrCreateFlame(self, other, gml_iget_x(self), gml_iget_y(self), 3.0f);
     }
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_truthy(((double)OBJ_oCharacter))) {
-            gml_ivar_set(gml_deref(((double)OBJ_oCharacter), self, other), VAR_holdItem, 0.0);
+        if (gml_truthy(((float)OBJ_oCharacter))) {
+            gml_ivar_set(gml_deref(((float)OBJ_oCharacter), self, other), VAR_holdItem, 0.0f);
         }
     }
     gml_fn_instance_destroy(self, other, 0, NULL);
@@ -50,9 +50,9 @@ static void gml_ev_oFireFrogBomb__Step_0_body(gm_instance_t *self, gm_instance_t
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
     gm_value_t v1 = GM_VALUE_UNDEFINED_INIT;
-    double t2 = 0.0;
+    float t2 = 0.0f;
     gm_value_t v3 = GM_VALUE_UNDEFINED_INIT;
-    double t4 = 0.0;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -61,26 +61,26 @@ static void gml_ev_oFireFrogBomb__Step_0_body(gm_instance_t *self, gm_instance_t
     (void)v3;
     (void)t4;
     gml_script_action_inherited(self, other);
-    if ((gml_truthy(self->vars[VAR_armed]) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oShopkeeper))))) {
-        if (((gml_veq((v1 = g_gml_gvals[GV_roomPath], t2 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_aget(gml_aget(v1, t2), gml_script_scrGetRoomY(self, other, gml_iget_y(self)))), gml_vreal(4.0)) || gml_veq((v3 = g_gml_gvals[GV_roomPath], t4 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_aget(gml_aget(v3, t4), gml_script_scrGetRoomY(self, other, gml_iget_y(self)))), gml_vreal(5.0))) && gml_lt(gml_fn_distance_to_object(self, other, ((double)OBJ_oShopkeeper)), 96.0))) {
+    if ((gml_truthy(self->vars[VAR_armed]) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oShopkeeper))))) {
+        if (((gml_veq((v1 = g_gml_gvals[GV_roomPath], t2 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_aget(gml_aget(v1, t2), gml_script_scrGetRoomY(self, other, gml_iget_y(self)))), gml_vreal(4.0f)) || gml_veq((v3 = g_gml_gvals[GV_roomPath], t4 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_aget(gml_aget(v3, t4), gml_script_scrGetRoomY(self, other, gml_iget_y(self)))), gml_vreal(5.0f))) && gml_lt(gml_fn_distance_to_object(self, other, ((float)OBJ_oShopkeeper)), 96.0f))) {
             {
                 gm_instance_t *self5;
-                gm_with_begin(gml_target(((double)OBJ_oShopkeeper)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oShopkeeper)), self, other);
                 while ((self5 = gm_with_next()) != NULL) {
-                    gml_script_scrShopkeeperAnger(self5, self, 2.0);
+                    gml_script_scrShopkeeperAnger(self5, self, 2.0f);
                 }
                 gm_with_end();
             }
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oWaterSwim), (-1.0), (-1.0)))) {
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oWaterSwim), (-1.0f), (-1.0f)))) {
         if ((!gml_truthy(self->vars[VAR_swimming]))) {
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSplash)));
-            self->vars[VAR_swimming] = 1.0;
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSplash)));
+            self->vars[VAR_swimming] = 1.0f;
             gml_script_playSound(self, other, g_gml_globals.sndSplash);
         }
     } else {
-        self->vars[VAR_swimming] = 0.0;
+        self->vars[VAR_swimming] = 0.0f;
     }
 }
 

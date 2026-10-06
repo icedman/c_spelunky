@@ -6,8 +6,8 @@ static void gml_ev_oLeavesTile__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     self->strs[SVAR_type] = "Tree Leaves";
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oTree), 0.0, 0.0))) {
-        gml_iset_sprite_index(self, ((double)SPR_sLeavesRight));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oTree), 0.0f, 0.0f))) {
+        gml_iset_sprite_index(self, ((float)SPR_sLeavesRight));
     }
 }
 

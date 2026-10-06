@@ -3,25 +3,25 @@
 
 static void gml_ev_oCaveBG__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
     (void)self;
     (void)other;
     (void)t1;
     (void)b2;
-    if (gml_truthy(1.0)) {
-        t1 = gml_script_rand(self, other, 1.0, 2.0);
-        b2 = (gml_rcase(t1, 1.0) ? 0 : gml_rcase(t1, 2.0) ? 1 : -1);
+    if (gml_truthy(1.0f)) {
+        t1 = gml_script_rand(self, other, 1.0f, 2.0f);
+        b2 = (gml_rcase(t1, 1.0f) ? 0 : gml_rcase(t1, 2.0f) ? 1 : -1);
         switch (b2) {
         case 0:
             {
-                gml_iset_sprite_index(self, ((double)SPR_sCaveBG1));
+                gml_iset_sprite_index(self, ((float)SPR_sCaveBG1));
                 break;
             }
         /* fall through */
         case 1:
             {
-                gml_iset_sprite_index(self, ((double)SPR_sCaveBG2));
+                gml_iset_sprite_index(self, ((float)SPR_sCaveBG2));
                 break;
             }
         }

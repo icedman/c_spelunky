@@ -54,7 +54,7 @@ typedef struct gm_layer {
     int kind;               /* gm_layer_kind_t; GM_LAYER_ASSETS for layers made at run time */
     bool dynamic;
     bool visible;
-    double x, y, hspeed, vspeed;
+    float x, y, hspeed, vspeed;
     char name[GM_LAYER_NAME_MAX];
     int head, tail, count;  /* element slots, front to back */
 } gm_layer_t;
@@ -66,13 +66,13 @@ typedef struct gm_element {
     int prev, next;         /* element slots in the layer's list, -1 at the ends */
     bool visible;
     int sprite;
-    double x, y;            /* tiles */
+    float x, y;            /* tiles */
     int xo, yo, w, h;       /* tiles: region of the sprite */
-    double xscale, yscale;
+    float xscale, yscale;
     uint32_t blend;         /* GM colour (BGR) */
-    double alpha;
+    float alpha;
     bool htiled, vtiled, stretch;     /* backgrounds */
-    double image_index, image_speed;  /* backgrounds */
+    float image_index, image_speed;  /* backgrounds */
 } gm_element_t;
 
 /* Clears everything, including the id counters. */
@@ -108,7 +108,7 @@ gm_element_t *gm_layer_element_slot(int slot);
 int gm_layer_element_type(int element_id);          /* -1 if none */
 void gm_layer_element_destroy(int element_id);
 
-int gm_layer_tile_create(int layer_id, double x, double y, int sprite, int left, int top, int w, int h);
+int gm_layer_tile_create(int layer_id, float x, float y, int sprite, int left, int top, int w, int h);
 int gm_layer_background_create(int layer_id, int sprite);
 bool gm_layer_background_exists(int layer_id, int element_id);
 

@@ -4,6 +4,7 @@
 #include "gm_draw.h"
 
 #include "gm_math.h"
+#include "gm_perf.h"
 #include "gm_room.h"
 #include "gm_sprite.h"
 #include "gm_view.h"
@@ -20,8 +21,8 @@
 #define P g_platform.user_data
 
 typedef struct xform {
-    double sx, sy, tx, ty;      /* target = world * s + t */
-    double wx, wy, ww, wh;      /* the world rectangle the target shows */
+    float sx, sy, tx, ty;      /* target = world * s + t */
+    float wx, wy, ww, wh;      /* the world rectangle the target shows */
 } xform_t;
 
 typedef struct surface {
@@ -33,13 +34,13 @@ typedef struct surface {
 typedef struct added_sprite {
     bool used;
     int frames, w, h;
-    double xorig, yorig;
+    float xorig, yorig;
 } added_sprite_t;
 
 #define TARGET_STACK 8
 
 static uint32_t s_colour = 0xFFFFFFu;
-static double s_alpha = 1.0;
+static float s_alpha = 1.0f;
 static int s_font = -1;
 static int s_app_w, s_app_h;
 static int s_gui_w, s_gui_h;
@@ -54,21 +55,21 @@ static int s_fonts[GM_DRAW_FONT_MAX];
 static int s_font_count;
 static long s_overflows;
 
-static uint32_t colour_of(double c)
+static uint32_t colour_of(float c)
 {
     return (uint32_t)gm_to_int32(c) & 0xFFFFFFu;
 }
 
-static double clamp01(double a)
+static float clamp01(float a)
 {
-    return a < 0.0 ? 0.0 : (a > 1.0 ? 1.0 : a);
+    return a < 0.0f ? 0.0f : (a > 1.0f ? 1.0f : a);
 }
 
-static void identity(double w, double h)
+static void identity(float w, float h)
 {
-    s_xf.sx = s_xf.sy = 1.0;
-    s_xf.tx = s_xf.ty = 0.0;
-    s_xf.wx = s_xf.wy = 0.0;
+    s_xf.sx = s_xf.sy = 1.0f;
+    s_xf.tx = s_xf.ty = 0.0f;
+    s_xf.wx = s_xf.wy = 0.0f;
     s_xf.ww = w;
     s_xf.wh = h;
 }
@@ -76,7 +77,7 @@ static void identity(double w, double h)
 void gm_draw_reset(void)
 {
     s_colour = 0xFFFFFFu;
-    s_alpha = 1.0;
+    s_alpha = 1.0f;
     s_font = -1;
     s_app_w = s_app_h = 0;
     s_gui_w = s_gui_h = 0;
@@ -86,7 +87,7 @@ void gm_draw_reset(void)
     memset(s_added, 0, sizeof(s_added));
     s_font_count = 0;
     s_overflows = 0;
-    identity(0.0, 0.0);
+    identity(0.0f, 0.0f);
 }
 
 long gm_draw_overflows(void)
@@ -96,13 +97,13 @@ long gm_draw_overflows(void)
 
 /* ---- state ------------------------------------------------------------------------------ */
 
-void gm_draw_set_colour(double colour)
+void gm_draw_set_colour(float colour)
 {
     s_colour = colour_of(colour);
 }
 
 /* draw_set_alpha (Function_Graphics.js): clamped to 0..1. */
-void gm_draw_set_alpha(double alpha)
+void gm_draw_set_alpha(float alpha)
 {
     s_alpha = clamp01(alpha);
 }
@@ -117,7 +118,7 @@ uint32_t gm_draw_colour(void)
     return s_colour;
 }
 
-double gm_draw_alpha(void)
+float gm_draw_alpha(void)
 {
     return s_alpha;
 }
@@ -131,7 +132,7 @@ static void default_app_size(void)
     if (s_app_w > 0 && s_app_h > 0) {
         return;
     }
-    if (gm_view_enabled() && gm_view_get(GM_VIEW_WPORT, 0) > 0.0 && gm_view_get(GM_VIEW_HPORT, 0) > 0.0) {
+    if (gm_view_enabled() && gm_view_get(GM_VIEW_WPORT, 0) > 0.0f && gm_view_get(GM_VIEW_HPORT, 0) > 0.0f) {
         s_app_w = (int)gm_view_get(GM_VIEW_WPORT, 0);
         s_app_h = (int)gm_view_get(GM_VIEW_HPORT, 0);
     } else {
@@ -146,18 +147,18 @@ void gm_draw_begin_frame(void)
     s_depth = 0;
     s_target = GM_DRAW_APP_SURFACE;
     g_platform.begin_frame(P, s_app_w, s_app_h);
-    g_platform.clear(P, 0x000000u, 1.0);
-    identity((double)s_app_w, (double)s_app_h);
+    g_platform.clear(P, 0x000000u, 1.0f);
+    identity((float)s_app_w, (float)s_app_h);
 }
 
 /* DrawViews (yyRoom.js L3890): the view's camera rectangle onto its port. */
 void gm_draw_pass_view(int view)
 {
     gm_camera_t *cam = gm_camera_get((int)gm_view_get(GM_VIEW_CAMERA, view));
-    double vx = gm_view_get(GM_VIEW_XVIEW, view), vy = gm_view_get(GM_VIEW_YVIEW, view);
-    double vw = gm_view_get(GM_VIEW_WVIEW, view), vh = gm_view_get(GM_VIEW_HVIEW, view);
-    double px = gm_view_get(GM_VIEW_XPORT, view), py = gm_view_get(GM_VIEW_YPORT, view);
-    double pw = gm_view_get(GM_VIEW_WPORT, view), ph = gm_view_get(GM_VIEW_HPORT, view);
+    float vx = gm_view_get(GM_VIEW_XVIEW, view), vy = gm_view_get(GM_VIEW_YVIEW, view);
+    float vw = gm_view_get(GM_VIEW_WVIEW, view), vh = gm_view_get(GM_VIEW_HVIEW, view);
+    float px = gm_view_get(GM_VIEW_XPORT, view), py = gm_view_get(GM_VIEW_YPORT, view);
+    float pw = gm_view_get(GM_VIEW_WPORT, view), ph = gm_view_get(GM_VIEW_HPORT, view);
 
     if (cam != NULL) {
         vx = cam->x;
@@ -165,8 +166,8 @@ void gm_draw_pass_view(int view)
         vw = cam->w;
         vh = cam->h;
     }
-    s_xf.sx = vw != 0.0 ? pw / vw : 1.0;
-    s_xf.sy = vh != 0.0 ? ph / vh : 1.0;
+    s_xf.sx = vw != 0.0f ? pw / vw : 1.0f;
+    s_xf.sy = vh != 0.0f ? ph / vh : 1.0f;
     s_xf.tx = px - vx * s_xf.sx;
     s_xf.ty = py - vy * s_xf.sy;
     s_xf.wx = vx;
@@ -184,12 +185,12 @@ void gm_draw_pass_room(void)
  * application surface. */
 void gm_draw_pass_gui(void)
 {
-    double gw = s_gui_w > 0 ? (double)s_gui_w : (double)s_app_w;
-    double gh = s_gui_h > 0 ? (double)s_gui_h : (double)s_app_h;
+    float gw = s_gui_w > 0 ? (float)s_gui_w : (float)s_app_w;
+    float gh = s_gui_h > 0 ? (float)s_gui_h : (float)s_app_h;
 
     identity(gw, gh);
-    s_xf.sx = gw > 0.0 ? (double)s_app_w / gw : 1.0;
-    s_xf.sy = gh > 0.0 ? (double)s_app_h / gh : 1.0;
+    s_xf.sx = gw > 0.0f ? (float)s_app_w / gw : 1.0f;
+    s_xf.sy = gh > 0.0f ? (float)s_app_h / gh : 1.0f;
 }
 
 void gm_draw_end_frame(void)
@@ -214,7 +215,7 @@ int gm_draw_app_height(void)
 
 typedef struct sprite_info {
     int frames, w, h;
-    double xorig, yorig;
+    float xorig, yorig;
 } sprite_info_t;
 
 static bool sprite_info(int sprite, sprite_info_t *out)
@@ -225,8 +226,8 @@ static bool sprite_info(int sprite, sprite_info_t *out)
         out->frames = spr->frame_count;
         out->w = spr->width;
         out->h = spr->height;
-        out->xorig = (double)spr->xorigin;
-        out->yorig = (double)spr->yorigin;
+        out->xorig = (float)spr->xorigin;
+        out->yorig = (float)spr->yorigin;
         return out->frames > 0;
     }
     if (sprite >= GM_SPRITE_MAX && sprite < GM_SPRITE_MAX + GM_DRAW_ADDED_SPRITE_MAX &&
@@ -243,28 +244,33 @@ static bool sprite_info(int sprite, sprite_info_t *out)
 }
 
 /* GetIndexFromImageIndex: floor, wrapped into 0 .. frames-1. */
-static int frame_of(double subimg, int frames)
+static int frame_of(float subimg, int frames)
 {
-    double f = floor(subimg);
+    float f;
     int i;
 
+    /* Common case (image_index already in range): truncation == floor for >= 0. */
+    if (subimg >= 0.0f && subimg < (float)frames) {
+        return (int)subimg;
+    }
+    f = floorf(subimg);
     if (!(f == f) || frames <= 0) {
         return 0;
     }
-    f = fmod(f, (double)frames);
+    f = fmodf(f, (float)frames);
     i = (int)f;
     return i < 0 ? i + frames : i;
 }
 
-static void image(int sprite, int frame, int sx, int sy, int sw, int sh, double x, double y,
-                  double xo, double yo, double xs, double ys, double angle, uint32_t colour, double alpha)
+static void image(int sprite, int frame, int sx, int sy, int sw, int sh, float x, float y,
+                  float xo, float yo, float xs, float ys, float angle, uint32_t colour, float alpha)
 {
     g_platform.draw_image(P, sprite, frame, sx, sy, sw, sh, x * s_xf.sx + s_xf.tx, y * s_xf.sy + s_xf.ty,
                           xo, yo, xs * s_xf.sx, ys * s_xf.sy, angle, colour, alpha);
 }
 
-void gm_draw_sprite_ext(int sprite, double subimg, double x, double y, double xscale, double yscale,
-                        double angle, double colour, double alpha)
+void gm_draw_sprite_ext(int sprite, float subimg, float x, float y, float xscale, float yscale,
+                        float angle, float colour, float alpha)
 {
     sprite_info_t s;
 
@@ -272,43 +278,60 @@ void gm_draw_sprite_ext(int sprite, double subimg, double x, double y, double xs
         return;
     }
     image(sprite, frame_of(subimg, s.frames), 0, 0, s.w, s.h, x, y, s.xorig, s.yorig, xscale, yscale, angle,
-          colour_of(colour), alpha > 1.0 ? 1.0 : alpha);
+          colour_of(colour), alpha > 1.0f ? 1.0f : alpha);
 }
 
-void gm_draw_sprite(int sprite, double subimg, double x, double y)
+void gm_draw_sprite(int sprite, float subimg, float x, float y)
 {
     sprite_info_t s;
 
     if (!sprite_info(sprite, &s)) {
         return;
     }
-    image(sprite, frame_of(subimg, s.frames), 0, 0, s.w, s.h, x, y, s.xorig, s.yorig, 1.0, 1.0, 0.0,
+    image(sprite, frame_of(subimg, s.frames), 0, 0, s.w, s.h, x, y, s.xorig, s.yorig, 1.0f, 1.0f, 0.0f,
           0xFFFFFFu, s_alpha);
 }
 
 /* Graphics_DrawStretchedExt: the frame from (x, y), origin ignored, draw alpha. */
-void gm_draw_sprite_stretched(int sprite, double subimg, double x, double y, double w, double h)
+void gm_draw_sprite_stretched(int sprite, float subimg, float x, float y, float w, float h)
 {
     sprite_info_t s;
 
     if (!sprite_info(sprite, &s) || s.w <= 0 || s.h <= 0) {
         return;
     }
-    image(sprite, frame_of(subimg, s.frames), 0, 0, s.w, s.h, x, y, 0.0, 0.0, w / s.w, h / s.h, 0.0,
+    image(sprite, frame_of(subimg, s.frames), 0, 0, s.w, s.h, x, y, 0.0f, 0.0f, w / s.w, h / s.h, 0.0f,
           0xFFFFFFu, s_alpha);
 }
 
 /* draw_self (Function_Texture.js L36) and the default draw (yyRoom.js L1092). */
 void gm_draw_self(gm_instance_t *inst)
 {
+    const gm_sprite_def_t *spr;
+    int sprite, frame;
+    float alpha;
+
     if (inst == NULL) {
         return;
     }
-    gm_draw_sprite_ext(inst->sprite_index, inst->image_index, inst->x, inst->y, inst->image_xscale,
-                       inst->image_yscale, inst->image_angle, (double)inst->image_blend, inst->image_alpha);
+    sprite = inst->sprite_index;
+    spr = gm_sprite_get(sprite);
+    if (spr != NULL) {
+        if (spr->frame_count <= 0) {
+            return;
+        }
+        frame = frame_of(inst->image_index, spr->frame_count);
+        alpha = inst->image_alpha > 1.0f ? 1.0f : inst->image_alpha;
+        image(sprite, frame, 0, 0, spr->width, spr->height, inst->x, inst->y,
+              (float)spr->xorigin, (float)spr->yorigin, inst->image_xscale, inst->image_yscale,
+              inst->image_angle, (uint32_t)inst->image_blend & 0xFFFFFFu, alpha);
+        return;
+    }
+    gm_draw_sprite_ext(sprite, inst->image_index, inst->x, inst->y, inst->image_xscale,
+                       inst->image_yscale, inst->image_angle, (float)inst->image_blend, inst->image_alpha);
 }
 
-int gm_draw_sprite_add(const char *path, int frames, double xorig, double yorig)
+int gm_draw_sprite_add(const char *path, int frames, float xorig, float yorig)
 {
     int i, w = 0, h = 0;
 
@@ -376,7 +399,7 @@ int gm_draw_font_add(const char *path, int size)
 }
 
 /* draw_text (Function_Font.js L59): draw colour and alpha, left/top aligned. */
-void gm_draw_text(double x, double y, const char *text)
+void gm_draw_text(float x, float y, const char *text)
 {
     int handle = (s_font >= 0 && s_font < s_font_count) ? s_fonts[s_font] : 0;
 
@@ -387,22 +410,22 @@ void gm_draw_text(double x, double y, const char *text)
                          s_alpha);
 }
 
-void gm_draw_rectangle(double x1, double y1, double x2, double y2, bool outline)
+void gm_draw_rectangle(float x1, float y1, float x2, float y2, bool outline)
 {
     g_platform.draw_rect(P, x1 * s_xf.sx + s_xf.tx, y1 * s_xf.sy + s_xf.ty, x2 * s_xf.sx + s_xf.tx,
                          y2 * s_xf.sy + s_xf.ty, s_colour, s_alpha, outline);
 }
 
-void gm_draw_circle(double x, double y, double r, bool outline)
+void gm_draw_circle(float x, float y, float r, bool outline)
 {
     g_platform.draw_circle(P, x * s_xf.sx + s_xf.tx, y * s_xf.sy + s_xf.ty, r * s_xf.sx, s_colour, s_alpha,
                            outline);
 }
 
 /* draw_clear (Function_Graphics.js L205): the whole target, opaque. */
-void gm_draw_clear(double colour)
+void gm_draw_clear(float colour)
 {
-    g_platform.clear(P, colour_of(colour), 1.0);
+    g_platform.clear(P, colour_of(colour), 1.0f);
 }
 
 /* ---- layers ------------------------------------------------------------------------------------ */
@@ -412,10 +435,10 @@ void gm_draw_clear(double colour)
 static void draw_background(const gm_layer_t *l, const gm_element_t *e)
 {
     sprite_info_t s;
-    double x0, y0, x, y, w, h, xs, ys;
+    float x0, y0, x, y, w, h, xs, ys;
     int frame;
 
-#if defined(DISABLE_BACKGROUND) && DISABLE_BACKGROUND
+#if defined(DISABLE_BACKGROUND)
     return;
 #endif
     if (!e->visible) {
@@ -427,25 +450,25 @@ static void draw_background(const gm_layer_t *l, const gm_element_t *e)
                              e->blend, e->alpha, false);
         return;
     }
-    xs = e->stretch ? (e->xscale != 0.0 ? e->xscale : 1.0) : 1.0;
-    ys = e->stretch ? (e->yscale != 0.0 ? e->yscale : 1.0) : 1.0;
+    xs = e->stretch ? (e->xscale != 0.0f ? e->xscale : 1.0f) : 1.0f;
+    ys = e->stretch ? (e->yscale != 0.0f ? e->yscale : 1.0f) : 1.0f;
     w = s.w * xs;
     h = s.h * ys;
-    if (w <= 0.0 || h <= 0.0) {
+    if (w <= 0.0f || h <= 0.0f) {
         return;
     }
     frame = frame_of(e->image_index, s.frames);
     x0 = l->x;
     y0 = l->y;
     if (e->htiled) {
-        x0 -= ceil((x0 - s_xf.wx) / w) * w;
+        x0 -= ceilf((x0 - s_xf.wx) / w) * w;
     }
     if (e->vtiled) {
-        y0 -= ceil((y0 - s_xf.wy) / h) * h;
+        y0 -= ceilf((y0 - s_xf.wy) / h) * h;
     }
     for (y = y0; y < s_xf.wy + s_xf.wh || y == y0; y += h) {
         for (x = x0; x < s_xf.wx + s_xf.ww || x == x0; x += w) {
-            image(e->sprite, frame, 0, 0, s.w, s.h, x, y, 0.0, 0.0, xs, ys, 0.0, e->blend, e->alpha);
+            image(e->sprite, frame, 0, 0, s.w, s.h, x, y, 0.0f, 0.0f, xs, ys, 0.0f, e->blend, e->alpha);
             if (!e->htiled) {
                 break;
             }
@@ -460,13 +483,15 @@ static void draw_background(const gm_layer_t *l, const gm_element_t *e)
  * world rectangle are skipped (the runner culls too). */
 static void draw_tile(const gm_layer_t *l, const gm_element_t *e)
 {
-    double x = e->x + l->x, y = e->y + l->y;
+    float x = e->x + l->x, y = e->y + l->y;
 
+    gm_perf_count(GM_PERF_TILES_VISITED, 1);
     if (!e->visible || x > s_xf.wx + s_xf.ww || y > s_xf.wy + s_xf.wh || x + e->w * e->xscale < s_xf.wx ||
         y + e->h * e->yscale < s_xf.wy || !gm_draw_sprite_exists(e->sprite)) {
         return;
     }
-    image(e->sprite, 0, e->xo, e->yo, e->w, e->h, x, y, 0.0, 0.0, e->xscale, e->yscale, 0.0, e->blend, e->alpha);
+    gm_perf_count(GM_PERF_TILES_DRAWN, 1);
+    image(e->sprite, 0, e->xo, e->yo, e->w, e->h, x, y, 0.0f, 0.0f, e->xscale, e->yscale, 0.0f, e->blend, e->alpha);
 }
 
 void gm_draw_layer(const gm_layer_t *layer)
@@ -574,9 +599,9 @@ bool gm_draw_surface_set_target(int id)
     s_target = id;
     g_platform.surface_target(P, s != NULL ? s->handle : 0);
     if (s != NULL) {
-        identity((double)s->w, (double)s->h);
+        identity((float)s->w, (float)s->h);
     } else {
-        identity((double)s_app_w, (double)s_app_h);
+        identity((float)s_app_w, (float)s_app_h);
     }
     return true;
 }
@@ -596,17 +621,17 @@ bool gm_draw_surface_reset_target(void)
     return true;
 }
 
-void gm_draw_surface(int id, double x, double y)
+void gm_draw_surface(int id, float x, float y)
 {
     surface_t *s = surface(id);
 
     if (s != NULL) {
-        gm_draw_surface_stretched(id, x, y, (double)s->w, (double)s->h);
+        gm_draw_surface_stretched(id, x, y, (float)s->w, (float)s->h);
     }
 }
 
 /* draw_surface_stretched (Function_Surface.js L878): white, alpha 1. */
-void gm_draw_surface_stretched(int id, double x, double y, double w, double h)
+void gm_draw_surface_stretched(int id, float x, float y, float w, float h)
 {
     surface_t *s = surface(id);
 
@@ -614,7 +639,7 @@ void gm_draw_surface_stretched(int id, double x, double y, double w, double h)
         return;
     }
     g_platform.draw_surface(P, s->handle, x * s_xf.sx + s_xf.tx, y * s_xf.sy + s_xf.ty, w * s_xf.sx,
-                            h * s_xf.sy, 1.0);
+                            h * s_xf.sy, 1.0f);
 }
 
 /* ---- window ---------------------------------------------------------------------------------------- */

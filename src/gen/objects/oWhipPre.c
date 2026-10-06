@@ -7,8 +7,8 @@ static void gml_ev_oWhipPre__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Whip";
-    self->vars[VAR_damage] = 1.0;
-    gml_iset_alarm(self, 0.0, 3.0);
+    self->vars[VAR_damage] = 1.0f;
+    gml_iset_alarm(self, 0.0f, 3.0f);
 }
 
 void gml_ev_oWhipPre__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -36,16 +36,16 @@ static void gml_ev_oWhipPre__Step_0_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
+    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sWhipPreR))) {
-            gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 16.0));
-            gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)));
+        if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sWhipPreR))) {
+            gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 16.0f));
+            gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)));
         } else {
-            if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sWhipPreL))) {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 16.0));
-                gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)));
+            if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sWhipPreL))) {
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 16.0f));
+                gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)));
             }
         }
     }

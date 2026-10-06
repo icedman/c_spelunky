@@ -6,9 +6,9 @@ static void gml_ev_oSmokePuff__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.1;
-    self->vars[VAR_yAcc] = 0.1;
-    gml_iset_image_speed(self, 0.4);
+    self->vars[VAR_yVel] = 0.1f;
+    self->vars[VAR_yAcc] = 0.1f;
+    gml_iset_image_speed(self, 0.4f);
 }
 
 void gml_ev_oSmokePuff__Create_0(gm_instance_t *self, gm_instance_t *other)

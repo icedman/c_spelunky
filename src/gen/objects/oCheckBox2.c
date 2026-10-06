@@ -6,10 +6,10 @@ static void gml_ev_oCheckBox2__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     if (gml_truthy(g_gml_globals.graphicsHigh)) {
-        self->vars[VAR_on] = 1.0;
+        self->vars[VAR_on] = 1.0f;
     } else {
-        self->vars[VAR_on] = 0.0;
-        gml_iset_sprite_index(self, ((double)SPR_sBox));
+        self->vars[VAR_on] = 0.0f;
+        gml_iset_sprite_index(self, ((float)SPR_sBox));
     }
 }
 
@@ -25,13 +25,13 @@ static void gml_ev_oCheckBox2__Mouse_4_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     if ((!gml_truthy(self->vars[VAR_on]))) {
-        self->vars[VAR_on] = 1.0;
-        gml_iset_sprite_index(self, ((double)SPR_sBoxChecked));
-        g_gml_globals.graphicsHigh = 1.0;
+        self->vars[VAR_on] = 1.0f;
+        gml_iset_sprite_index(self, ((float)SPR_sBoxChecked));
+        g_gml_globals.graphicsHigh = 1.0f;
     } else {
-        self->vars[VAR_on] = 0.0;
-        gml_iset_sprite_index(self, ((double)SPR_sBox));
-        g_gml_globals.graphicsHigh = 0.0;
+        self->vars[VAR_on] = 0.0f;
+        gml_iset_sprite_index(self, ((float)SPR_sBox));
+        g_gml_globals.graphicsHigh = 0.0f;
     }
 }
 

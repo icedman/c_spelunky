@@ -8,10 +8,10 @@ static void gml_ev_oCrate__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Crate";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), 0.0, 6.0, 8.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.2;
+    gml_script_setCollisionBounds(self, other, (-6.0f), 0.0f, 6.0f, 8.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.2f;
 }
 
 void gml_ev_oCrate__Create_0(gm_instance_t *self, gm_instance_t *other)

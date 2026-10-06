@@ -3,11 +3,11 @@
 
 static void gml_ev_oIntro__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
-    double t3 = 0.0;
+    float t3 = 0.0f;
     int b4 = 0;
-    double t5 = 0.0;
+    float t5 = 0.0f;
     int b6 = 0;
     (void)self;
     (void)other;
@@ -17,16 +17,16 @@ static void gml_ev_oIntro__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)b4;
     (void)t5;
     (void)b6;
-    self->vars[VAR_fadeIn] = 0.0;
-    self->vars[VAR_fadeOut] = 0.0;
-    self->vars[VAR_fadeLevel] = 1.0;
+    self->vars[VAR_fadeIn] = 0.0f;
+    self->vars[VAR_fadeOut] = 0.0f;
+    self->vars[VAR_fadeLevel] = 1.0f;
     (void)(gml_fn_randomize(self, other));
-    self->vars[VAR_drawStatus] = 0.0;
-    gml_iset_alarm(self, 11.0, 20.0);
+    self->vars[VAR_drawStatus] = 0.0f;
+    gml_iset_alarm(self, 11.0f, 20.0f);
     self->strs[SVAR_str] = "";
-    self->vars[VAR_n] = gm_round(gm_random_range(1.0, 8.0));
+    self->vars[VAR_n] = gm_round(gm_random_range(1.0f, 8.0f));
     t1 = self->vars[VAR_n];
-    b2 = (gml_rcase(t1, 1.0) ? 0 : gml_rcase(t1, 2.0) ? 1 : gml_rcase(t1, 3.0) ? 2 : gml_rcase(t1, 4.0) ? 3 : gml_rcase(t1, 5.0) ? 4 : gml_rcase(t1, 6.0) ? 5 : gml_rcase(t1, 7.0) ? 6 : gml_rcase(t1, 8.0) ? 7 : -1);
+    b2 = (gml_rcase(t1, 1.0f) ? 0 : gml_rcase(t1, 2.0f) ? 1 : gml_rcase(t1, 3.0f) ? 2 : gml_rcase(t1, 4.0f) ? 3 : gml_rcase(t1, 5.0f) ? 4 : gml_rcase(t1, 6.0f) ? 5 : gml_rcase(t1, 7.0f) ? 6 : gml_rcase(t1, 8.0f) ? 7 : -1);
     switch (b2) {
     case 0:
         {
@@ -76,9 +76,9 @@ static void gml_ev_oIntro__Create_0_body(gm_instance_t *self, gm_instance_t *oth
             break;
         }
     }
-    self->vars[VAR_n] = gm_round(gm_random_range(1.0, 8.0));
+    self->vars[VAR_n] = gm_round(gm_random_range(1.0f, 8.0f));
     t3 = self->vars[VAR_n];
-    b4 = (gml_rcase(t3, 1.0) ? 0 : gml_rcase(t3, 2.0) ? 1 : gml_rcase(t3, 3.0) ? 2 : gml_rcase(t3, 4.0) ? 3 : gml_rcase(t3, 5.0) ? 4 : gml_rcase(t3, 6.0) ? 5 : gml_rcase(t3, 7.0) ? 6 : gml_rcase(t3, 8.0) ? 7 : -1);
+    b4 = (gml_rcase(t3, 1.0f) ? 0 : gml_rcase(t3, 2.0f) ? 1 : gml_rcase(t3, 3.0f) ? 2 : gml_rcase(t3, 4.0f) ? 3 : gml_rcase(t3, 5.0f) ? 4 : gml_rcase(t3, 6.0f) ? 5 : gml_rcase(t3, 7.0f) ? 6 : gml_rcase(t3, 8.0f) ? 7 : -1);
     switch (b4) {
     case 0:
         {
@@ -128,9 +128,9 @@ static void gml_ev_oIntro__Create_0_body(gm_instance_t *self, gm_instance_t *oth
             break;
         }
     }
-    self->vars[VAR_n] = gm_round(gm_random_range(1.0, 8.0));
+    self->vars[VAR_n] = gm_round(gm_random_range(1.0f, 8.0f));
     t5 = self->vars[VAR_n];
-    b6 = (gml_rcase(t5, 1.0) ? 0 : gml_rcase(t5, 2.0) ? 1 : gml_rcase(t5, 3.0) ? 2 : gml_rcase(t5, 4.0) ? 3 : gml_rcase(t5, 5.0) ? 4 : gml_rcase(t5, 6.0) ? 5 : gml_rcase(t5, 7.0) ? 6 : gml_rcase(t5, 8.0) ? 7 : -1);
+    b6 = (gml_rcase(t5, 1.0f) ? 0 : gml_rcase(t5, 2.0f) ? 1 : gml_rcase(t5, 3.0f) ? 2 : gml_rcase(t5, 4.0f) ? 3 : gml_rcase(t5, 5.0f) ? 4 : gml_rcase(t5, 6.0f) ? 5 : gml_rcase(t5, 7.0f) ? 6 : gml_rcase(t5, 8.0f) ? 7 : -1);
     switch (b6) {
     case 0:
         {
@@ -194,10 +194,10 @@ static void gml_ev_oIntro__Alarm_11_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     if ((!gml_truthy(self->vars[VAR_fadeIn]))) {
-        if (gml_ge(self->vars[VAR_drawStatus], 0.0)) {
-            self->vars[VAR_drawStatus] = 1.0;
+        if (gml_ge(self->vars[VAR_drawStatus], 0.0f)) {
+            self->vars[VAR_drawStatus] = 1.0f;
         }
-        gml_iset_alarm(self, 10.0, 80.0);
+        gml_iset_alarm(self, 10.0f, 80.0f);
     }
 }
 
@@ -213,10 +213,10 @@ static void gml_ev_oIntro__Alarm_10_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     if ((!gml_truthy(self->vars[VAR_fadeIn]))) {
-        if (gml_ge(self->vars[VAR_drawStatus], 0.0)) {
-            self->vars[VAR_drawStatus] = 2.0;
+        if (gml_ge(self->vars[VAR_drawStatus], 0.0f)) {
+            self->vars[VAR_drawStatus] = 2.0f;
         }
-        gml_iset_alarm(self, 9.0, 80.0);
+        gml_iset_alarm(self, 9.0f, 80.0f);
     }
 }
 
@@ -232,10 +232,10 @@ static void gml_ev_oIntro__Alarm_9_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if ((!gml_truthy(self->vars[VAR_fadeIn]))) {
-        if (gml_ge(self->vars[VAR_drawStatus], 0.0)) {
-            self->vars[VAR_drawStatus] = 3.0;
+        if (gml_ge(self->vars[VAR_drawStatus], 0.0f)) {
+            self->vars[VAR_drawStatus] = 3.0f;
         }
-        gml_iset_alarm(self, 8.0, 80.0);
+        gml_iset_alarm(self, 8.0f, 80.0f);
     }
 }
 
@@ -251,8 +251,8 @@ static void gml_ev_oIntro__Alarm_8_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if ((!gml_truthy(self->vars[VAR_fadeIn]))) {
-        self->vars[VAR_drawStatus] = (-1.0);
-        self->vars[VAR_fadeIn] = 1.0;
+        self->vars[VAR_drawStatus] = (-1.0f);
+        self->vars[VAR_fadeIn] = 1.0f;
     }
 }
 
@@ -265,40 +265,40 @@ void gml_ev_oIntro__Alarm_8(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oIntro__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_skipCondition = 0.0;
+    float l_skipCondition = 0.0f;
     (void)self;
     (void)other;
     (void)l_skipCondition;
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     } else {
-        l_skipCondition = (((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyJumpVal]}))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyStartVal]}))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = (((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyJumpVal]}))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) || gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyStartVal]}))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
-        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy3))))) {
-            self->vars[VAR_fadeIn] = 1.0;
+        if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy3))))) {
+            self->vars[VAR_fadeIn] = 1.0f;
         } else {
-            self->vars[VAR_fadeIn] = 0.0;
-            self->vars[VAR_fadeOut] = 1.0;
+            self->vars[VAR_fadeIn] = 0.0f;
+            self->vars[VAR_fadeOut] = 1.0f;
         }
     }
     if (gml_truthy(self->vars[VAR_fadeIn])) {
-        self->vars[VAR_drawStatus] = (-1.0);
-        if (gml_gt(self->vars[VAR_fadeLevel], 0.0)) {
-            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] - 0.1);
+        self->vars[VAR_drawStatus] = (-1.0f);
+        if (gml_gt(self->vars[VAR_fadeLevel], 0.0f)) {
+            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] - 0.1f);
         } else {
-            self->vars[VAR_fadeIn] = 0.0;
-            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy3))))) {
-                (void)(gml_script_instance_create(self, other, (-32.0), 184.0, ((double)OBJ_oPDummy3)));
+            self->vars[VAR_fadeIn] = 0.0f;
+            if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy3))))) {
+                (void)(gml_script_instance_create(self, other, (-32.0f), 184.0f, ((float)OBJ_oPDummy3)));
             }
         }
     } else {
         if (gml_truthy(self->vars[VAR_fadeOut])) {
-            if (gml_lt(self->vars[VAR_fadeLevel], 1.0)) {
-                self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1);
+            if (gml_lt(self->vars[VAR_fadeLevel], 1.0f)) {
+                self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1f);
             } else {
-                g_gml_globals.gameStart = 0.0;
-                gml_fn_room_goto(self, other, ((double)RM_rTitle));
+                g_gml_globals.gameStart = 0.0f;
+                gml_fn_room_goto(self, other, ((float)RM_rTitle));
             }
         }
     }
@@ -313,11 +313,11 @@ void gml_ev_oIntro__Step_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oIntro__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -325,19 +325,19 @@ static void gml_ev_oIntro__Draw_0_body(gm_instance_t *self, gm_instance_t *other
     (void)t3;
     (void)t4;
     (void)t5;
-    gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
+    gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
     gml_fn_draw_set_alpha(self, other, self->vars[VAR_fadeLevel]);
-    (t3 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), t4 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), t5 = (t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t1 + g_gml_globals.display_w)), gml_fn_draw_rectangle(self, other, t3, t4, t5, (t2 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t2 + g_gml_globals.display_h)), 0.0));
-    gml_fn_draw_set_alpha(self, other, 1.0);
-    self->vars[VAR_offsetY] = (8.0 - g_gml_globals.fontSmallHeight);
-    if (gml_gt(self->vars[VAR_drawStatus], 0.0)) {
-        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str1]), "small", (16777215.0 /* c_white */), 0.0, ((116.0 - 16.0) + self->vars[VAR_offsetY]));
+    (t3 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), t4 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), t5 = (t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t1 + g_gml_globals.display_w)), gml_fn_draw_rectangle(self, other, t3, t4, t5, (t2 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t2 + g_gml_globals.display_h)), 0.0f));
+    gml_fn_draw_set_alpha(self, other, 1.0f);
+    self->vars[VAR_offsetY] = (8.0f - g_gml_globals.fontSmallHeight);
+    if (gml_gt(self->vars[VAR_drawStatus], 0.0f)) {
+        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str1]), "small", (16777215.0f /* c_white */), 0.0f, ((116.0f - 16.0f) + self->vars[VAR_offsetY]));
     }
-    if (gml_gt(self->vars[VAR_drawStatus], 1.0)) {
-        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str2]), "small", (16777215.0 /* c_white */), 0.0, (116.0 + self->vars[VAR_offsetY]));
+    if (gml_gt(self->vars[VAR_drawStatus], 1.0f)) {
+        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str2]), "small", (16777215.0f /* c_white */), 0.0f, (116.0f + self->vars[VAR_offsetY]));
     }
-    if (gml_gt(self->vars[VAR_drawStatus], 2.0)) {
-        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str3]), "small", (16777215.0 /* c_white */), 0.0, ((116.0 + 16.0) + self->vars[VAR_offsetY]));
+    if (gml_gt(self->vars[VAR_drawStatus], 2.0f)) {
+        gml_script_drawTextHCentered(self, other, 5, gml_vs(self->strs[SVAR_str3]), "small", (16777215.0f /* c_white */), 0.0f, ((116.0f + 16.0f) + self->vars[VAR_offsetY]));
     }
 }
 

@@ -5,9 +5,9 @@ static void gml_ev_oParachute__Step_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 8.0));
-        gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 16.0));
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 8.0f));
+        gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 16.0f));
     }
 }
 
@@ -22,8 +22,8 @@ static void gml_ev_oParachute__Collision_oItem_body(gm_instance_t *self, gm_inst
 {
     (void)self;
     (void)other;
-    if ((gml_gt(other->vars[VAR_xVel], 0.0) || gml_gt(other->vars[VAR_yVel], 0.0))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oParaUsed)));
+    if ((gml_gt(other->vars[VAR_xVel], 0.0f) || gml_gt(other->vars[VAR_yVel], 0.0f))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oParaUsed)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }
@@ -39,8 +39,8 @@ static void gml_ev_oParachute__Other_7_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sParaOpen))) {
-        gml_iset_sprite_index(self, ((double)SPR_sParachute));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sParaOpen))) {
+        gml_iset_sprite_index(self, ((float)SPR_sParachute));
     }
 }
 

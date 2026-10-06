@@ -8,8 +8,8 @@ static void gml_ev_oKapala__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Kapala";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-6.0), 6.0, 8.0);
-    self->vars[VAR_cost] = 999999.0;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-6.0f), 6.0f, 8.0f);
+    self->vars[VAR_cost] = 999999.0f;
     self->strs[SVAR_buyMessage] = gml_script_tr(self, other, 1, "I SHOULDN'T BE SELLING THIS!");
 }
 

@@ -7,8 +7,8 @@ static void gml_ev_oTemp__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Arrow Trap";
-    self->vars[VAR_fired] = 0.0;
-    self->vars[VAR_invincible] = 0.0;
+    self->vars[VAR_fired] = 0.0f;
+    self->vars[VAR_invincible] = 0.0f;
 }
 
 void gml_ev_oTemp__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -22,8 +22,8 @@ static void gml_ev_oTemp__Alarm_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oArrow));
-    gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-5.0));
+    self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oArrow));
+    gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-5.0f));
 }
 
 void gml_ev_oTemp__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -37,41 +37,41 @@ static void gml_ev_oTemp__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    if (((((gml_eq(self->vars[VAR_fired], 0.0) && gml_lt(fabs(((gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_y(self)) - 8.0)), 8.0)) && gml_lt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), (gml_iget_x(self) + 8.0))) && gml_lt(gm_point_distance((gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other))), 128.0)) && (gml_gt(fabs(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0) || gml_gt(fabs(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_yVel)), 0.0)))) {
-        self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oArrow));
-        gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0));
-        self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0);
+    if (((((gml_eq(self->vars[VAR_fired], 0.0f) && gml_lt(fabsf(((gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_y(self)) - 8.0f)), 8.0f)) && gml_lt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), (gml_iget_x(self) + 8.0f))) && gml_lt(gm_point_distance((gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other))), 128.0f)) && (gml_gt(fabsf(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0f) || gml_gt(fabsf(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_yVel)), 0.0f)))) {
+        self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oArrow));
+        gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0f));
+        self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0f);
         gml_script_sound_play(self, other, self->vars[VAR_sndArrowTrap]);
     }
-    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oEnemy));
+    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oEnemy));
     if (gml_truthy(self->vars[VAR_obj])) {
-        if (((((gml_eq(self->vars[VAR_fired], 0.0) && gml_lt(fabs(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0)), 8.0)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_x(self))) && gml_lt(gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0)) && (gml_gt(fabs(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel)), 0.0) || gml_gt(fabs(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel)), 0.0)))) {
-            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oArrow));
-            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0));
-            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0);
+        if (((((gml_eq(self->vars[VAR_fired], 0.0f) && gml_lt(fabsf(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0f)), 8.0f)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_x(self))) && gml_lt(gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0f)) && (gml_gt(fabsf(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel)), 0.0f) || gml_gt(fabsf(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel)), 0.0f)))) {
+            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oArrow));
+            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0f));
+            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0f);
             gml_script_sound_play(self, other, self->vars[VAR_sndArrowTrap]);
         }
     }
-    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oMoveableSolid));
+    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oMoveableSolid));
     if (gml_truthy(self->vars[VAR_obj])) {
-        if ((((gml_eq(self->vars[VAR_fired], 0.0) && gml_lt(fabs(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0)), 8.0)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_x(self))) && gml_lt(gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0))) {
-            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oArrow));
-            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0));
-            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0);
+        if ((((gml_eq(self->vars[VAR_fired], 0.0f) && gml_lt(fabsf(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0f)), 8.0f)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_x(self))) && gml_lt(gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0f))) {
+            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oArrow));
+            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0f));
+            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0f);
             gml_script_sound_play(self, other, self->vars[VAR_sndArrowTrap]);
         }
     }
-    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, (gml_iget_x(self) - 16.0), gml_iget_y(self), ((double)OBJ_oItem));
+    self->vars[VAR_obj] = gml_fn_instance_nearest(self, other, (gml_iget_x(self) - 16.0f), gml_iget_y(self), ((float)OBJ_oItem));
     if (gml_truthy(self->vars[VAR_obj])) {
-        if (((((gml_eq(self->vars[VAR_fired], 0.0) && gml_lt(fabs(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0)), 8.0)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), (gml_iget_x(self) + 8.0))) && gml_lt(gm_point_distance((gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0)) && (gml_gt(fabs(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel)), 0.0) || gml_gt(fabs(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel)), 0.0)))) {
-            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) + 4.0), ((double)OBJ_oArrow));
-            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0));
-            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0);
+        if (((((gml_eq(self->vars[VAR_fired], 0.0f) && gml_lt(fabsf(((gml_iget_y(gml_deref(self->vars[VAR_obj], self, other)) - gml_iget_y(self)) - 8.0f)), 8.0f)) && gml_lt(gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), (gml_iget_x(self) + 8.0f))) && gml_lt(gm_point_distance((gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), gml_iget_x(gml_deref(self->vars[VAR_obj], self, other)), gml_iget_y(gml_deref(self->vars[VAR_obj], self, other))), 128.0f)) && (gml_gt(fabsf(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel)), 0.0f) || gml_gt(fabsf(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel)), 0.0f)))) {
+            self->vars[VAR_arrow] = gml_script_instance_create(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) + 4.0f), ((float)OBJ_oArrow));
+            gml_ivar_set(gml_deref(self->vars[VAR_arrow], self, other), VAR_xVel, (-8.0f));
+            self->vars[VAR_fired] = (self->vars[VAR_fired] + 1.0f);
             gml_script_sound_play(self, other, self->vars[VAR_sndArrowTrap]);
         }
     }
-    gml_iset_x(self, ceil(gml_iget_x(self)));
-    gml_iset_y(self, ceil(gml_iget_y(self)));
+    gml_iset_x(self, ceilf(gml_iget_x(self)));
+    gml_iset_y(self, ceilf(gml_iget_y(self)));
 }
 
 void gml_ev_oTemp__Step_0(gm_instance_t *self, gm_instance_t *other)

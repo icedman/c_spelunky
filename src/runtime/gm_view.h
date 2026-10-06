@@ -52,10 +52,10 @@ typedef enum gm_view_field {
 
 typedef struct gm_camera {
     int id;
-    double x, y, w, h;
-    double angle;
-    double speed_x, speed_y;
-    double border_x, border_y;
+    float x, y, w, h;
+    float angle;
+    float speed_x, speed_y;
+    float border_x, border_y;
     int target;             /* object index (< 10000) or instance id; -1 none */
     bool cloned;
 } gm_camera_t;
@@ -83,12 +83,12 @@ bool gm_view_enabled(void);
 void gm_view_set_enabled(bool enabled);
 
 /* Legacy arrays: 0 for out-of-range indices; writes there are ignored. */
-double gm_view_get(int field, int index);
-void gm_view_set(int field, int index, double value);
+float gm_view_get(int field, int index);
+void gm_view_set(int field, int index, float value);
 
 /* Cameras. Getters return -1 for unknown cameras (camera_get_view_x ...). */
-int gm_camera_create_view(double x, double y, double w, double h, double angle, int target,
-                          double speed_x, double speed_y, double border_x, double border_y);
+int gm_camera_create_view(float x, float y, float w, float h, float angle, int target,
+                          float speed_x, float speed_y, float border_x, float border_y);
 void gm_camera_destroy(int id);
 gm_camera_t *gm_camera_get(int id);
 int gm_camera_count(void);
@@ -102,7 +102,7 @@ void gm_view_room_set_viewport(int room, int view, bool visible, int x, int y, i
 void gm_view_update(void);
 
 /* CCamera.Update for one camera against the current room size. */
-void gm_camera_follow(gm_camera_t *cam, double room_width, double room_height);
+void gm_camera_follow(gm_camera_t *cam, float room_width, float room_height);
 
 long gm_view_overflows(void);   /* cameras not created: pool full */
 

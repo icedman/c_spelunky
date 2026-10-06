@@ -3,60 +3,60 @@
 
 void gml_script_configLoad(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_settingsMap = 0.0;
-    double l_keysMap = 0.0;
-    double l_joyMap = 0.0;
+    float l_settingsMap = 0.0f;
+    float l_keysMap = 0.0f;
+    float l_joyMap = 0.0f;
     (void)self;
     (void)other;
     (void)l_settingsMap;
     (void)l_keysMap;
     (void)l_joyMap;
-    g_gml_globals.keyUpVal = (38.0 /* vk_up */);
-    g_gml_globals.keyDownVal = (40.0 /* vk_down */);
-    g_gml_globals.keyLeftVal = (37.0 /* vk_left */);
-    g_gml_globals.keyRightVal = (39.0 /* vk_right */);
+    g_gml_globals.keyUpVal = (38.0f /* vk_up */);
+    g_gml_globals.keyDownVal = (40.0f /* vk_down */);
+    g_gml_globals.keyLeftVal = (37.0f /* vk_left */);
+    g_gml_globals.keyRightVal = (39.0f /* vk_right */);
     g_gml_globals.keyJumpVal = gml_fn_ord(self, other, "Z");
     g_gml_globals.keyAttackVal = gml_fn_ord(self, other, "X");
     g_gml_globals.keyItemVal = gml_fn_ord(self, other, "C");
-    g_gml_globals.keyRunVal = (16.0 /* vk_shift */);
+    g_gml_globals.keyRunVal = (16.0f /* vk_shift */);
     g_gml_globals.keyBombVal = gml_fn_ord(self, other, "A");
     g_gml_globals.keyRopeVal = gml_fn_ord(self, other, "S");
     g_gml_globals.keyFlareVal = gml_fn_ord(self, other, "F");
     g_gml_globals.keyPayVal = gml_fn_ord(self, other, "P");
-    g_gml_globals.keyStartVal = (27.0 /* vk_escape */);
-    g_gml_globals.keyEscape = (27.0 /* vk_escape */);
-    g_gml_globals.keyEnter = (13.0 /* vk_enter */);
+    g_gml_globals.keyStartVal = (27.0f /* vk_escape */);
+    g_gml_globals.keyEscape = (27.0f /* vk_escape */);
+    g_gml_globals.keyEnter = (13.0f /* vk_enter */);
     g_gml_globals.keyLangVal = gml_fn_ord(self, other, "L");
-    if (gml_eq(gml_gget_os_type(), (5.0 /* os_android */))) {
-        g_gml_globals.keyStartVal = 8.0;
-        g_gml_globals.keyEscape = 8.0;
-        g_gml_globals.keyEnter = 10.0;
+    if (gml_eq(gml_gget_os_type(), (5.0f /* os_android */))) {
+        g_gml_globals.keyStartVal = 8.0f;
+        g_gml_globals.keyEscape = 8.0f;
+        g_gml_globals.keyEnter = 10.0f;
     }
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        g_gml_gvals[GV_joyJumpVal] = gml_vreal((32769.0 /* gp_face1 */));
-        g_gml_gvals[GV_joyAttackVal] = gml_vreal((32770.0 /* gp_face2 */));
-        g_gml_gvals[GV_joyItemVal] = gml_vreal((32771.0 /* gp_face3 */));
-        g_gml_gvals[GV_joyRunVal] = gml_vreal((32775.0 /* gp_shoulderlb */));
-        g_gml_gvals[GV_joyBombVal] = gml_vreal((32773.0 /* gp_shoulderl */));
-        g_gml_gvals[GV_joyRopeVal] = gml_vreal((32774.0 /* gp_shoulderr */));
-        g_gml_globals.joyFlareVal = (32772.0 /* gp_face4 */);
-        g_gml_gvals[GV_joyPayVal] = gml_vreal((32776.0 /* gp_shoulderrb */));
-        g_gml_gvals[GV_joyStartVal] = gml_vreal((32778.0 /* gp_start */));
-        g_gml_gvals[GV_joyLeftVal] = gml_vreal((32783.0 /* gp_padl */));
-        g_gml_gvals[GV_joyRightVal] = gml_vreal((32784.0 /* gp_padr */));
-        g_gml_gvals[GV_joyUpVal] = gml_vreal((32781.0 /* gp_padu */));
-        g_gml_gvals[GV_joyDownVal] = gml_vreal((32782.0 /* gp_padd */));
-        g_gml_gvals[GV_joyLangVal] = gml_vreal((32780.0 /* gp_stickr */));
+        g_gml_gvals[GV_joyJumpVal] = gml_vreal((32769.0f /* gp_face1 */));
+        g_gml_gvals[GV_joyAttackVal] = gml_vreal((32770.0f /* gp_face2 */));
+        g_gml_gvals[GV_joyItemVal] = gml_vreal((32771.0f /* gp_face3 */));
+        g_gml_gvals[GV_joyRunVal] = gml_vreal((32775.0f /* gp_shoulderlb */));
+        g_gml_gvals[GV_joyBombVal] = gml_vreal((32773.0f /* gp_shoulderl */));
+        g_gml_gvals[GV_joyRopeVal] = gml_vreal((32774.0f /* gp_shoulderr */));
+        g_gml_globals.joyFlareVal = (32772.0f /* gp_face4 */);
+        g_gml_gvals[GV_joyPayVal] = gml_vreal((32776.0f /* gp_shoulderrb */));
+        g_gml_gvals[GV_joyStartVal] = gml_vreal((32778.0f /* gp_start */));
+        g_gml_gvals[GV_joyLeftVal] = gml_vreal((32783.0f /* gp_padl */));
+        g_gml_gvals[GV_joyRightVal] = gml_vreal((32784.0f /* gp_padr */));
+        g_gml_gvals[GV_joyUpVal] = gml_vreal((32781.0f /* gp_padu */));
+        g_gml_gvals[GV_joyDownVal] = gml_vreal((32782.0f /* gp_padd */));
+        g_gml_gvals[GV_joyLangVal] = gml_vreal((32780.0f /* gp_stickr */));
     } else {
-        g_gml_gvals[GV_joyAttackVal] = gml_vreal(0.0);
-        g_gml_gvals[GV_joyJumpVal] = gml_vreal(1.0);
-        g_gml_gvals[GV_joyItemVal] = gml_vreal(2.0);
-        g_gml_gvals[GV_joyRunVal] = gml_vreal(3.0);
-        g_gml_globals.joyFlareVal = 4.0;
-        g_gml_gvals[GV_joyPayVal] = gml_vreal(5.0);
-        g_gml_gvals[GV_joyBombVal] = gml_vreal(6.0);
-        g_gml_gvals[GV_joyRopeVal] = gml_vreal(7.0);
-        g_gml_gvals[GV_joyStartVal] = gml_vreal(9.0);
+        g_gml_gvals[GV_joyAttackVal] = gml_vreal(0.0f);
+        g_gml_gvals[GV_joyJumpVal] = gml_vreal(1.0f);
+        g_gml_gvals[GV_joyItemVal] = gml_vreal(2.0f);
+        g_gml_gvals[GV_joyRunVal] = gml_vreal(3.0f);
+        g_gml_globals.joyFlareVal = 4.0f;
+        g_gml_gvals[GV_joyPayVal] = gml_vreal(5.0f);
+        g_gml_gvals[GV_joyBombVal] = gml_vreal(6.0f);
+        g_gml_gvals[GV_joyRopeVal] = gml_vreal(7.0f);
+        g_gml_gvals[GV_joyStartVal] = gml_vreal(9.0f);
     }
     if (gml_truthy(gml_fn_file_exists(self, other, gml_concat(gml_gget_working_directory(), "settings.json")))) {
         l_settingsMap = gml_script_json2dsmap(self, other, 1, gml_vs(gml_concat(gml_gget_working_directory(), "settings.json")));

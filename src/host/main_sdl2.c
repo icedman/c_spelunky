@@ -1,7 +1,7 @@
 /*
  * main_sdl2.c - SDL2 host for the Spelunky Classic HD port (slice 10).
  *
- * Implements sp_platform (SDL2 renderer, SDL2_image, SDL2_ttf) and sp_audio
+ * Implements sp_platform (SDL2 renderer, SDL2_image, sprite fonts) and sp_audio
  * (SDL2_mixer), feeds the keyboard into gm_input and runs gm_loop_tick at the room
  * speed. It is the only file that knows about SDL; the runtime stays pure C99.
  * Host-side allocation (textures, caches) is outside the runtime's no-allocation rule.
@@ -30,7 +30,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
-#include <SDL_ttf.h>
+
 
 #include <math.h>
 #include <stdio.h>
@@ -39,9 +39,8 @@
 
 #define SPRITE_SLOTS (GM_SPRITE_MAX + GM_DRAW_ADDED_SPRITE_MAX)
 #define SURFACE_MAX 64
-#define FONT_MAX 16
-#define TEXT_CACHE 1024
-#define TEXT_MAX 256
+#define FONT_SMALL 1
+#define FONT_LARGE 2
 #define CHANNELS 32
 #define PRESS_MAX 64
 #define PATH_MAX_LEN 1024
@@ -63,12 +62,11 @@ typedef struct sprite_tex {
     SDL_Texture **frames;
 } sprite_tex_t;
 
-typedef struct text_entry {
-    int font;
-    char text[TEXT_MAX];
-    SDL_Texture *tex;
-    int w, h;
-} text_entry_t;
+typedef struct sprite_font {
+    int sprite;   /* -1: not loaded */
+    int w, h;     /* glyph cell = advance / line height */
+    int glyphs;
+} sprite_font_t;
 
 typedef struct press {
     int frame, key, hold;
@@ -83,19 +81,18 @@ static struct host {
     char data[PATH_MAX_LEN];
     sprite_tex_t sprites[SPRITE_SLOTS];
     SDL_Texture *surfaces[SURFACE_MAX + 1];
-    TTF_Font *fonts[FONT_MAX + 1];      /* [0] = default */
-    text_entry_t text[TEXT_CACHE];
+    sprite_font_t fonts[FONT_LARGE + 1];   /* [FONT_SMALL], [FONT_LARGE] */
     const char *screenshot;
     bool want_shot;
     /* audio */
     bool audio;
     Mix_Chunk *chunks[GML_SOUND_COUNT + 1];
     bool chunk_tried[GML_SOUND_COUNT + 1];
-    double sound_gain[GML_SOUND_COUNT + 1];
+    float sound_gain[GML_SOUND_COUNT + 1];
     int ch_sound[CHANNELS];
     int ch_handle[CHANNELS];
-    double ch_gain[CHANNELS];
-    double master;
+    float ch_gain[CHANNELS];
+    float master;
     int next_handle;
     press_t presses[PRESS_MAX];
     int press_count;
@@ -105,13 +102,13 @@ static struct host {
 
 /* ===================================================================== helpers */
 
-static void colour_mod(SDL_Texture *t, uint32_t c, double alpha)
+static void colour_mod(SDL_Texture *t, uint32_t c, float alpha)
 {
     SDL_SetTextureColorMod(t, (Uint8)(c & 0xFFu), (Uint8)((c >> 8) & 0xFFu), (Uint8)((c >> 16) & 0xFFu));
     SDL_SetTextureAlphaMod(t, (Uint8)lround(fmax(0.0, fmin(1.0, alpha)) * 255.0));
 }
 
-static void draw_colour(uint32_t c, double alpha)
+static void draw_colour(uint32_t c, float alpha)
 {
     SDL_SetRenderDrawBlendMode(H.ren, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor(H.ren, (Uint8)(c & 0xFFu), (Uint8)((c >> 8) & 0xFFu), (Uint8)((c >> 16) & 0xFFu),
@@ -166,7 +163,7 @@ static void save_screenshot(void)
 static void p_present(void *ud)
 {
     int ww, wh;
-    double scale;
+    float scale;
     SDL_FRect dst;
 
     (void)ud;
@@ -178,17 +175,17 @@ static void p_present(void *ud)
     SDL_SetRenderDrawColor(H.ren, 0, 0, 0, 255);
     SDL_RenderClear(H.ren);
     SDL_GetRendererOutputSize(H.ren, &ww, &wh);
-    scale = fmin((double)ww / H.app_w, (double)wh / H.app_h);
+    scale = fmin((float)ww / H.app_w, (float)wh / H.app_h);
     dst.w = (float)(H.app_w * scale);
     dst.h = (float)(H.app_h * scale);
-    dst.x = (float)(((double)ww - H.app_w * scale) / 2.0);
-    dst.y = (float)(((double)wh - H.app_h * scale) / 2.0);
+    dst.x = (float)(((float)ww - H.app_w * scale) / 2.0);
+    dst.y = (float)(((float)wh - H.app_h * scale) / 2.0);
     SDL_RenderCopyF(H.ren, H.app, NULL, &dst);
     SDL_RenderPresent(H.ren);
 }
 
 /* RenderClear writes the colour as is (no blending), alpha included. */
-static void p_clear(void *ud, uint32_t c, double alpha)
+static void p_clear(void *ud, uint32_t c, float alpha)
 {
     (void)ud;
     SDL_SetRenderDrawColor(H.ren, (Uint8)(c & 0xFFu), (Uint8)((c >> 8) & 0xFFu), (Uint8)((c >> 16) & 0xFFu),
@@ -258,15 +255,15 @@ static SDL_Texture *frame_texture(int sprite, int frame, int *xoff)
     return (frame >= 0 && frame < s->count) ? s->frames[frame] : NULL;
 }
 
-static void p_draw_image(void *ud, int sprite, int frame, int sx, int sy, int sw, int sh, double x, double y,
-                         double xo, double yo, double xs, double ys, double angle, uint32_t c, double alpha)
+static void p_draw_image(void *ud, int sprite, int frame, int sx, int sy, int sw, int sh, float x, float y,
+                         float xo, float yo, float xs, float ys, float angle, uint32_t c, float alpha)
 {
     int xoff, tw, th;
     SDL_Texture *t = frame_texture(sprite, frame, &xoff);
     SDL_Rect src;
     SDL_FRect dst;
     SDL_FPoint centre;
-    double axs = fabs(xs), ays = fabs(ys), ox, oy;
+    float axs = fabs(xs), ays = fabs(ys), ox, oy;
     int flip = SDL_FLIP_NONE;
 
     (void)ud;
@@ -287,8 +284,8 @@ static void p_draw_image(void *ud, int sprite, int frame, int sx, int sy, int sw
     if (src.w <= 0 || src.h <= 0) {
         return;
     }
-    ox = (xs < 0.0 ? (double)sw - xo : xo) * axs;
-    oy = (ys < 0.0 ? (double)sh - yo : yo) * ays;
+    ox = (xs < 0.0 ? (float)sw - xo : xo) * axs;
+    oy = (ys < 0.0 ? (float)sh - yo : yo) * ays;
     if (xs < 0.0) {
         flip |= SDL_FLIP_HORIZONTAL;
     }
@@ -306,7 +303,7 @@ static void p_draw_image(void *ud, int sprite, int frame, int sx, int sy, int sw
 }
 
 /* draw_rectangle covers x1..x2 and y1..y2 inclusive. */
-static void p_draw_rect(void *ud, double x1, double y1, double x2, double y2, uint32_t c, double alpha, bool outline)
+static void p_draw_rect(void *ud, float x1, float y1, float x2, float y2, uint32_t c, float alpha, bool outline)
 {
     SDL_FRect r;
 
@@ -323,7 +320,7 @@ static void p_draw_rect(void *ud, double x1, double y1, double x2, double y2, ui
     }
 }
 
-static void p_draw_circle(void *ud, double x, double y, double r, uint32_t c, double alpha, bool outline)
+static void p_draw_circle(void *ud, float x, float y, float r, uint32_t c, float alpha, bool outline)
 {
     (void)ud;
     draw_colour(c, alpha);
@@ -334,15 +331,15 @@ static void p_draw_circle(void *ud, double x, double y, double r, uint32_t c, do
         SDL_FPoint pts[49];
         int i;
         for (i = 0; i <= 48; ++i) {
-            double a = i * (2.0 * HOST_PI / 48.0);
+            float a = i * (2.0 * HOST_PI / 48.0);
             pts[i].x = (float)(x + r * cos(a));
             pts[i].y = (float)(y + r * sin(a));
         }
         SDL_RenderDrawLinesF(H.ren, pts, 49);
     } else {
-        double dy;
+        float dy;
         for (dy = -floor(r); dy <= floor(r); dy += 1.0) {
-            double dx = sqrt(r * r - dy * dy);
+            float dx = sqrt(r * r - dy * dy);
             SDL_RenderDrawLineF(H.ren, (float)(x - dx), (float)(y + dy), (float)(x + dx), (float)(y + dy));
         }
     }
@@ -350,87 +347,92 @@ static void p_draw_circle(void *ud, double x, double y, double r, uint32_t c, do
 
 /* ===================================================================== platform: text */
 
-static int p_font_load(void *ud, const char *path, int size)
+/*
+ * Sprite fonts (font_add_sprite_ext with the English charset): sFont (large) and
+ * sFontSmall. Frame i is the glyph for character FONT_FIRST + i; lower case is drawn
+ * as upper case. Platform handles: FONT_LARGE, FONT_SMALL; 0 (no font) = small.
+ */
+#define FONT_FIRST ' '
+#define FONT_LAST 'Z'
+
+static int sprite_by_name(const char *name)
 {
     int i;
 
-    (void)ud;
-    for (i = 1; i <= FONT_MAX && H.fonts[i] != NULL; ++i) {
+    for (i = 0; i < GM_SPRITE_MAX; ++i) {
+        const gm_sprite_def_t *def = gm_sprite_get(i);
+        if (def != NULL && def->name != NULL && strcmp(def->name, name) == 0) {
+            return i;
+        }
     }
-    if (i > FONT_MAX || size <= 0 || (H.fonts[i] = TTF_OpenFont(path, size)) == NULL) {
-        return 0;
-    }
-    return i;
+    return -1;
 }
 
-static text_entry_t *text_texture(int font, const char *line)
+static bool font_init(sprite_font_t *f, const char *name)
 {
-    unsigned long hash = 5381u + (unsigned long)font;
-    const char *p;
-    text_entry_t *e;
-    TTF_Font *f = (font >= 0 && font <= FONT_MAX && H.fonts[font] != NULL) ? H.fonts[font] : H.fonts[0];
-    SDL_Color white = { 255, 255, 255, 255 };
-    SDL_Surface *s;
+    const gm_sprite_def_t *def;
 
-    if (f == NULL || line[0] == '\0') {
-        return NULL;
+    f->sprite = sprite_by_name(name);
+    def = gm_sprite_get(f->sprite);
+    if (def == NULL || def->width <= 0 || def->height <= 0) {
+        f->sprite = -1;
+        fprintf(stderr, "host: no sprite font %s\n", name);
+        return false;
     }
-    for (p = line; *p != '\0'; ++p) {
-        hash = hash * 33u + (unsigned char)*p;
-    }
-    e = &H.text[hash % TEXT_CACHE];
-    if (e->tex != NULL && e->font == font && strcmp(e->text, line) == 0) {
-        return e;
-    }
-    if (e->tex != NULL) {
-        SDL_DestroyTexture(e->tex);
-        e->tex = NULL;
-    }
-    s = TTF_RenderUTF8_Solid(f, line, white);
-    if (s == NULL) {
-        return NULL;
-    }
-    e->tex = SDL_CreateTextureFromSurface(H.ren, s);
-    e->w = s->w;
-    e->h = s->h;
-    SDL_FreeSurface(s);
-    e->font = font;
-    snprintf(e->text, sizeof(e->text), "%s", line);
-    return e->tex != NULL ? e : NULL;
+    f->w = def->width;
+    f->h = def->height;
+    f->glyphs = def->frame_count;
+    return true;
 }
 
-static void p_draw_text(void *ud, int font, const char *text, double x, double y, double scale, uint32_t c,
-                        double alpha)
+/* font_add: "sFont" selects the large sprite font; a locale TTF (size from
+ * setLocale: 24 / 12) maps by size; anything else is the small font. */
+static int p_font_load(void *ud, const char *path, int size)
 {
-    TTF_Font *f = (font >= 0 && font <= FONT_MAX && H.fonts[font] != NULL) ? H.fonts[font] : H.fonts[0];
-    char line[TEXT_MAX];
-    double ly = y;
+    const char *base;
 
     (void)ud;
-    if (f == NULL) {
+    if (path == NULL) {
+        return FONT_SMALL;
+    }
+    base = strrchr(path, '/');
+    base = base != NULL ? base + 1 : path;
+    if (strcmp(base, "sFont") == 0) {
+        return FONT_LARGE;
+    }
+    if (strcmp(base, "sFontSmall") == 0) {
+        return FONT_SMALL;
+    }
+    return size >= 16 ? FONT_LARGE : FONT_SMALL;
+}
+
+static void p_draw_text(void *ud, int font, const char *text, float x, float y, float scale, uint32_t c,
+                        float alpha)
+{
+    const sprite_font_t *f = &H.fonts[font == FONT_LARGE ? FONT_LARGE : FONT_SMALL];
+    float lx = x, ly = y;
+
+    if (text == NULL || f->sprite < 0) {
         return;
     }
-    while (*text != '\0') {
-        size_t n = strcspn(text, "\r\n");
-        text_entry_t *e;
-        snprintf(line, sizeof(line), "%.*s", (int)(n < TEXT_MAX - 1 ? n : TEXT_MAX - 1), text);
-        if ((e = text_texture(font, line)) != NULL) {
-            SDL_FRect dst;
-            dst.x = (float)x;
-            dst.y = (float)ly;
-            dst.w = (float)(e->w * scale);
-            dst.h = (float)(e->h * scale);
-            colour_mod(e->tex, c, alpha);
-            SDL_RenderCopyF(H.ren, e->tex, NULL, &dst);
+    for (; *text != '\0'; ++text) {
+        int ch = (unsigned char)*text;
+        if (ch == '\r' || ch == '\n') {
+            if (ch == '\r' && text[1] == '\n') {
+                text++;
+            }
+            lx = x;
+            ly += f->h * scale;
+            continue;
         }
-        ly += TTF_FontLineSkip(f) * scale;
-        text += n;
-        if (*text == '\r' && text[1] == '\n') {
-            text++;
+        if (ch >= 'a' && ch <= 'z') {
+            ch -= 'a' - 'A';
         }
-        if (*text != '\0') {
-            text++;
+        if (ch > FONT_FIRST && ch <= FONT_LAST && ch - FONT_FIRST < f->glyphs) {
+            p_draw_image(ud, f->sprite, ch - FONT_FIRST, 0, 0, f->w, f->h, lx, ly, 0.0, 0.0, scale, scale, 0.0, c,
+                         alpha);
         }
+        lx += f->w * scale;
     }
 }
 
@@ -474,7 +476,7 @@ static void p_surface_target(void *ud, int s)
     SDL_SetRenderTarget(H.ren, (s >= 1 && s <= SURFACE_MAX && H.surfaces[s] != NULL) ? H.surfaces[s] : H.app);
 }
 
-static void p_draw_surface(void *ud, int s, double x, double y, double w, double h, double alpha)
+static void p_draw_surface(void *ud, int s, float x, float y, float w, float h, float alpha)
 {
     SDL_FRect dst;
 
@@ -559,11 +561,11 @@ static Mix_Chunk *chunk(int sound)
 static void apply_volume(int ch)
 {
     int s = H.ch_sound[ch];
-    double v = H.master * H.ch_gain[ch] * (s >= 0 ? H.sound_gain[s] * g_gml_sound_defs[s].volume : 1.0);
+    float v = H.master * H.ch_gain[ch] * (s >= 0 ? H.sound_gain[s] * g_gml_sound_defs[s].volume : 1.0);
     Mix_Volume(ch, (int)lround(fmax(0.0, fmin(1.0, v)) * MIX_MAX_VOLUME));
 }
 
-static int a_play(void *ud, int sound, double volume, double pan, bool loop)
+static int a_play(void *ud, int sound, float volume, float pan, bool loop)
 {
     Mix_Chunk *c = chunk(sound);
     int ch;
@@ -605,7 +607,7 @@ static void a_stop_all(void *ud)
     }
 }
 
-static void a_volume(void *ud, int id, double v)
+static void a_volume(void *ud, int id, float v)
 {
     int ch;
     (void)ud;
@@ -650,7 +652,7 @@ static void a_resume(void *ud)
     }
 }
 
-static void a_master(void *ud, double v)
+static void a_master(void *ud, float v)
 {
     int ch;
     (void)ud;
@@ -830,13 +832,12 @@ static void install_audio(bool mute)
     g_audio.set_master_volume = a_master;
 }
 
-static const gm_room_hooks_t s_room_hooks = { gml_perform_event, NULL };
+static const gm_room_hooks_t s_room_hooks = { gml_perform_event, gml_room_begin };
 static const gm_loop_hooks_t s_loop_hooks = { gml_find_event, gml_find_own_event, gm_draw_self,
                                               gml_collect_garbage };
 
 static bool install_game(void)
 {
-    char path[PATH_BUF];
 
     gm_instance_system_reset();
     gm_heap_reset();
@@ -856,11 +857,11 @@ static bool install_game(void)
         return false;
     }
     gm_set_working_directory(H.data);
-    /* Default font: the English locale's TTF (locale/fonts.json -> 7-12-serif, 12 px). */
-    snprintf(path, sizeof(path), "%s/locale/fonts/7-12-serif/font/7-12-serif.ttf", H.data);
-    H.fonts[0] = TTF_OpenFont(path, 12);
-    if (H.fonts[0] == NULL) {
-        fprintf(stderr, "host: no default font (%s)\n", TTF_GetError());
+    /* Sprite fonts, in this order: font id 0 = sFont, font id 1 = sFontSmall. */
+    font_init(&H.fonts[FONT_LARGE], "sFont");
+    font_init(&H.fonts[FONT_SMALL], "sFontSmall");
+    if (gm_draw_font_add("sFont", 16) != 0 || gm_draw_font_add("sFontSmall", 8) != 1) {
+        fprintf(stderr, "host: sprite fonts did not get ids 0 and 1\n");
     }
     gml_rt_global_init();
     return gm_room_start_game();
@@ -878,16 +879,7 @@ static void shutdown_all(void)
         }
         free(H.sprites[i].frames);
     }
-    for (i = 0; i < TEXT_CACHE; ++i) {
-        if (H.text[i].tex != NULL) {
-            SDL_DestroyTexture(H.text[i].tex);
-        }
-    }
-    for (i = 0; i <= FONT_MAX; ++i) {
-        if (H.fonts[i] != NULL) {
-            TTF_CloseFont(H.fonts[i]);
-        }
-    }
+
     for (i = 0; i < GML_SOUND_COUNT; ++i) {
         if (H.chunks[i] != NULL) {
             Mix_FreeChunk(H.chunks[i]);
@@ -902,7 +894,7 @@ static void shutdown_all(void)
     if (H.win != NULL) {
         SDL_DestroyWindow(H.win);
     }
-    TTF_Quit();
+
     IMG_Quit();
     SDL_Quit();
 }
@@ -949,7 +941,7 @@ int main(int argc, char **argv)
         return 1;
     }
     IMG_Init(IMG_INIT_PNG);
-    TTF_Init();
+
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
     H.win = SDL_CreateWindow("Spelunky", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 960, 540,
                              SDL_WINDOW_RESIZABLE);
@@ -982,8 +974,8 @@ int main(int argc, char **argv)
 
     for (frame = 1; frames < 0 || frame <= frames; ++frame) {
         Uint64 start = SDL_GetPerformanceCounter();
-        double budget = 1000.0 / (gm_room_speed() > 0.0 ? gm_room_speed() : 30.0);
-        double used;
+        float budget = 1000.0 / (gm_room_speed() > 0.0 ? gm_room_speed() : 30.0);
+        float used;
 
         if (!pump_events()) {
             break;
@@ -997,7 +989,7 @@ int main(int argc, char **argv)
             break;
         }
         if (frames < 0) {
-            used = (double)(SDL_GetPerformanceCounter() - start) * 1000.0 / (double)SDL_GetPerformanceFrequency();
+            used = (float)(SDL_GetPerformanceCounter() - start) * 1000.0 / (float)SDL_GetPerformanceFrequency();
             if (used < budget) {
                 SDL_Delay((Uint32)(budget - used));
             }

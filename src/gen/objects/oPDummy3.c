@@ -6,14 +6,14 @@ static void gml_ev_oPDummy3__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.6);
-    self->vars[VAR_climbSndToggle] = 0.0;
-    self->vars[VAR_TRANSITION] = 0.0;
-    self->vars[VAR_ROPEDROP] = 1.0;
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_LEFT] = 0.0;
-    self->vars[VAR_RIGHT] = 1.0;
+    gml_iset_image_speed(self, 0.6f);
+    self->vars[VAR_climbSndToggle] = 0.0f;
+    self->vars[VAR_TRANSITION] = 0.0f;
+    self->vars[VAR_ROPEDROP] = 1.0f;
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_LEFT] = 0.0f;
+    self->vars[VAR_RIGHT] = 1.0f;
     self->vars[VAR_facing] = self->vars[VAR_RIGHT];
 }
 
@@ -33,7 +33,7 @@ static void gml_ev_oPDummy3__Alarm_2_body(gm_instance_t *self, gm_instance_t *ot
     } else {
         gml_script_playSound(self, other, g_gml_globals.sndClimb2);
     }
-    self->vars[VAR_climbSndToggle] = ((!gml_truthy(self->vars[VAR_climbSndToggle])) ? 1.0 : 0.0);
+    self->vars[VAR_climbSndToggle] = ((!gml_truthy(self->vars[VAR_climbSndToggle])) ? 1.0f : 0.0f);
 }
 
 void gml_ev_oPDummy3__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -47,11 +47,11 @@ static void gml_ev_oPDummy3__Alarm_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    self->vars[VAR_rope] = gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oRopeThrow));
-    gml_ivar_set(gml_deref(self->vars[VAR_rope], self, other), VAR_falling, 1.0);
-    gml_ivar_set(gml_deref(self->vars[VAR_rope], self, other), VAR_armed, 1.0);
-    gml_iset_alarm(self, 1.0, 50.0);
-    self->vars[VAR_status] = 3.0;
+    self->vars[VAR_rope] = gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oRopeThrow));
+    gml_ivar_set(gml_deref(self->vars[VAR_rope], self, other), VAR_falling, 1.0f);
+    gml_ivar_set(gml_deref(self->vars[VAR_rope], self, other), VAR_armed, 1.0f);
+    gml_iset_alarm(self, 1.0f, 50.0f);
+    self->vars[VAR_status] = 3.0f;
     gml_script_playSound(self, other, g_gml_globals.sndThrow);
 }
 
@@ -68,34 +68,34 @@ static void gml_ev_oPDummy3__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_TRANSITION])) {
-        if (gml_ge(gml_iget_x(self), 904.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sDuckLeft));
-            self->vars[VAR_status] = 1.0;
+        if (gml_ge(gml_iget_x(self), 904.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sDuckLeft));
+            self->vars[VAR_status] = 1.0f;
         } else {
-            gml_iset_x(self, (gml_iget_x(self) + 2.0));
+            gml_iset_x(self, (gml_iget_x(self) + 2.0f));
         }
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_ROPEDROP])) {
-            gml_iset_alarm(self, 0.0, 20.0);
-            self->vars[VAR_status] = (self->vars[VAR_status] + 1.0);
+            gml_iset_alarm(self, 0.0f, 20.0f);
+            self->vars[VAR_status] = (self->vars[VAR_status] + 1.0f);
         } else {
-            if (gml_eq(self->vars[VAR_status], 3.0)) {
-                gml_iset_sprite_index(self, ((double)SPR_sRunLeft));
-                if (gml_ge(gml_iget_x(self), 920.0)) {
-                    gml_iset_sprite_index(self, ((double)SPR_sClimbUp3));
-                    self->vars[VAR_status] = 4.0;
+            if (gml_eq(self->vars[VAR_status], 3.0f)) {
+                gml_iset_sprite_index(self, ((float)SPR_sRunLeft));
+                if (gml_ge(gml_iget_x(self), 920.0f)) {
+                    gml_iset_sprite_index(self, ((float)SPR_sClimbUp3));
+                    self->vars[VAR_status] = 4.0f;
                 } else {
-                    gml_iset_x(self, (gml_iget_x(self) + 2.0));
+                    gml_iset_x(self, (gml_iget_x(self) + 2.0f));
                 }
             } else {
-                if (gml_eq(self->vars[VAR_status], 4.0)) {
-                    if (gml_ge(gml_iget_y(self), 256.0)) {
-                        gml_ivar_set(gml_deref(((double)OBJ_oIntro), self, other), VAR_fadeOut, 1.0);
+                if (gml_eq(self->vars[VAR_status], 4.0f)) {
+                    if (gml_ge(gml_iget_y(self), 256.0f)) {
+                        gml_ivar_set(gml_deref(((float)OBJ_oIntro), self, other), VAR_fadeOut, 1.0f);
                     } else {
-                        gml_iset_y(self, (gml_iget_y(self) + 2.0));
+                        gml_iset_y(self, (gml_iget_y(self) + 2.0f));
                     }
-                    if (gml_lt(gml_iget_alarm(self, 2.0), 1.0)) {
-                        gml_iset_alarm(self, 2.0, 8.0);
+                    if (gml_lt(gml_iget_alarm(self, 2.0f), 1.0f)) {
+                        gml_iset_alarm(self, 2.0f, 8.0f);
                     }
                 }
             }
@@ -115,11 +115,11 @@ static void gml_ev_oPDummy3__Draw_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     if (gml_eq(self->vars[VAR_facing], self->vars[VAR_RIGHT])) {
-        gml_iset_image_xscale(self, (-1.0));
+        gml_iset_image_xscale(self, (-1.0f));
     } else {
-        gml_iset_image_xscale(self, 1.0);
+        gml_iset_image_xscale(self, 1.0f);
     }
-    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), (-1.0), gml_iget_x(self), gml_iget_y(self), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
+    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), (-1.0f), gml_iget_x(self), gml_iget_y(self), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
 }
 
 void gml_ev_oPDummy3__Draw_0(gm_instance_t *self, gm_instance_t *other)

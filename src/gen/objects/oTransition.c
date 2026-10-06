@@ -5,73 +5,73 @@ static void gml_ev_oTransition__Create_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bStartPreviousState = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.bAttackPressedPreviousState = 0.0;
-    g_gml_globals.analogLDownPreviousState = 0.0;
-    g_gml_globals.analogLUpPreviousState = 0.0;
-    g_gml_globals.analogLDownPressed = 0.0;
-    g_gml_globals.analogLUpPressed = 0.0;
-    (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oHtml5Gamepad)));
-    self->vars[VAR_debugCounter] = 0.0;
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bStartPreviousState = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.bAttackPressedPreviousState = 0.0f;
+    g_gml_globals.analogLDownPreviousState = 0.0f;
+    g_gml_globals.analogLUpPreviousState = 0.0f;
+    g_gml_globals.analogLDownPressed = 0.0f;
+    g_gml_globals.analogLUpPressed = 0.0f;
+    (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oHtml5Gamepad)));
+    self->vars[VAR_debugCounter] = 0.0f;
     g_gml_gvals[GV_message] = gml_vs("");
     g_gml_gvals[GV_message2] = gml_vs("");
-    self->vars[VAR_drawPosX] = 100.0;
-    self->vars[VAR_drawPosY] = 83.0;
-    self->vars[VAR_drawLoot] = (-2.0);
-    self->vars[VAR_moneyCount] = 0.0;
-    self->vars[VAR_hurryup] = 0.0;
-    self->vars[VAR_isLoot] = 0.0;
-    self->vars[VAR_isKills] = 0.0;
+    self->vars[VAR_drawPosX] = 100.0f;
+    self->vars[VAR_drawPosY] = 83.0f;
+    self->vars[VAR_drawLoot] = (-2.0f);
+    self->vars[VAR_moneyCount] = 0.0f;
+    self->vars[VAR_hurryup] = 0.0f;
+    self->vars[VAR_isLoot] = 0.0f;
+    self->vars[VAR_isKills] = 0.0f;
     if (gml_truthy(g_gml_globals.hasCape)) {
-        (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oCape)));
+        (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oCape)));
     }
-    if (gml_lt((g_gml_globals.currLevel - 1.0), 1.0)) {
+    if (gml_lt((g_gml_globals.currLevel - 1.0f), 1.0f)) {
         gml_script_scrClearGlobals(self, other);
-        g_gml_globals.firstTime = 0.0;
+        g_gml_globals.firstTime = 0.0f;
     }
-    if (gml_ge(g_gml_globals.kaliPunish, 2.0)) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)), (gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)) + 2.0), ((double)OBJ_oBall2)));
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)OBJ_oChain2));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 1.0);
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)OBJ_oChain2));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 2.0);
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)OBJ_oChain2));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 3.0);
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)OBJ_oChain2));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 4.0);
+    if (gml_ge(g_gml_globals.kaliPunish, 2.0f)) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)), (gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)) + 2.0f), ((float)OBJ_oBall2)));
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)OBJ_oChain2));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 1.0f);
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)OBJ_oChain2));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 2.0f);
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)OBJ_oChain2));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 3.0f);
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)OBJ_oChain2));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_linkVal, 4.0f);
     }
-    gml_iset_alarm(self, 0.0, 10.0);
-    gml_iset_alarm(self, 1.0, 30.0);
-    if (gml_gt(g_gml_globals.xdamsels, 0.0)) {
-        (void)(gml_script_instance_create(self, other, (176.0 + 8.0), (176.0 + 8.0), ((double)OBJ_oDamselKiss)));
+    gml_iset_alarm(self, 0.0f, 10.0f);
+    gml_iset_alarm(self, 1.0f, 30.0f);
+    if (gml_gt(g_gml_globals.xdamsels, 0.0f)) {
+        (void)(gml_script_instance_create(self, other, (176.0f + 8.0f), (176.0f + 8.0f), ((float)OBJ_oDamselKiss)));
     }
-    if (((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0)) && gml_truthy(gml_script_isRoom(self, other, "rTransition1x")))) {
+    if (((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f)) && gml_truthy(gml_script_isRoom(self, other, "rTransition1x")))) {
         if (gml_gt(g_gml_globals.tunnel1, g_gml_globals.tunnel1Max)) {
-            g_gml_globals.tunnel1 = (g_gml_globals.tunnel1 - 1.0);
+            g_gml_globals.tunnel1 = (g_gml_globals.tunnel1 - 1.0f);
         } else {
-            (void)(gml_script_instance_create(self, other, (96.0 + 8.0), (176.0 + 8.0), ((double)OBJ_oTunnelMan)));
+            (void)(gml_script_instance_create(self, other, (96.0f + 8.0f), (176.0f + 8.0f), ((float)OBJ_oTunnelMan)));
         }
     } else {
-        if (((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0)) && gml_truthy(gml_script_isRoom(self, other, "rTransition2x")))) {
+        if (((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f)) && gml_truthy(gml_script_isRoom(self, other, "rTransition2x")))) {
             if (gml_gt(g_gml_globals.tunnel2, g_gml_globals.tunnel2Max)) {
-                g_gml_globals.tunnel2 = (g_gml_globals.tunnel2 - 1.0);
+                g_gml_globals.tunnel2 = (g_gml_globals.tunnel2 - 1.0f);
             } else {
-                (void)(gml_script_instance_create(self, other, (96.0 + 8.0), (176.0 + 8.0), ((double)OBJ_oTunnelMan)));
+                (void)(gml_script_instance_create(self, other, (96.0f + 8.0f), (176.0f + 8.0f), ((float)OBJ_oTunnelMan)));
             }
         } else {
-            if (((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0)) && gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
+            if (((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f)) && gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
                 if (gml_gt(g_gml_globals.tunnel1, g_gml_globals.tunnel3Max)) {
-                    g_gml_globals.tunnel1 = (g_gml_globals.tunnel1 - 1.0);
+                    g_gml_globals.tunnel1 = (g_gml_globals.tunnel1 - 1.0f);
                 } else {
-                    (void)(gml_script_instance_create(self, other, (96.0 + 8.0), (176.0 + 8.0), ((double)OBJ_oTunnelMan)));
+                    (void)(gml_script_instance_create(self, other, (96.0f + 8.0f), (176.0f + 8.0f), ((float)OBJ_oTunnelMan)));
                 }
             }
         }
     }
-    self->vars[VAR_upHeld] = 0.0;
-    self->vars[VAR_downHeld] = 0.0;
+    self->vars[VAR_upHeld] = 0.0f;
+    self->vars[VAR_downHeld] = 0.0f;
     gml_script_stopAllMusic(self, other);
 }
 
@@ -86,10 +86,10 @@ static void gml_ev_oTransition__Alarm_3_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.analogLDownPressed = 0.0;
-    g_gml_globals.analogLUpPressed = 0.0;
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.analogLDownPressed = 0.0f;
+    g_gml_globals.analogLUpPressed = 0.0f;
 }
 
 void gml_ev_oTransition__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -103,12 +103,12 @@ static void gml_ev_oTransition__Alarm_1_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawLoot] = (self->vars[VAR_drawLoot] + 1.0);
-    if (gml_lt(self->vars[VAR_drawLoot], 0.0)) {
+    self->vars[VAR_drawLoot] = (self->vars[VAR_drawLoot] + 1.0f);
+    if (gml_lt(self->vars[VAR_drawLoot], 0.0f)) {
         if (gml_truthy(self->vars[VAR_hurryup])) {
-            gml_iset_alarm(self, 1.0, 1.0);
+            gml_iset_alarm(self, 1.0f, 1.0f);
         } else {
-            gml_iset_alarm(self, 1.0, 30.0);
+            gml_iset_alarm(self, 1.0f, 30.0f);
         }
     }
 }
@@ -126,237 +126,237 @@ static void gml_ev_oTransition__Alarm_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_drawLoot], 0.0)) {
-        if (gml_gt(self->vars[VAR_drawPosX], 272.0)) {
-            self->vars[VAR_drawPosX] = 100.0;
-            self->vars[VAR_drawPosY] = (self->vars[VAR_drawPosY] + 2.0);
-            if (gml_gt(self->vars[VAR_drawPosY], (83.0 + 4.0))) {
-                self->vars[VAR_drawPosY] = 83.0;
+    if (gml_eq(self->vars[VAR_drawLoot], 0.0f)) {
+        if (gml_gt(self->vars[VAR_drawPosX], 272.0f)) {
+            self->vars[VAR_drawPosX] = 100.0f;
+            self->vars[VAR_drawPosY] = (self->vars[VAR_drawPosY] + 2.0f);
+            if (gml_gt(self->vars[VAR_drawPosY], (83.0f + 4.0f))) {
+                self->vars[VAR_drawPosY] = 83.0f;
             }
         }
     } else {
-        if (gml_gt(self->vars[VAR_drawPosX], 232.0)) {
-            self->vars[VAR_drawPosX] = 96.0;
-            self->vars[VAR_drawPosY] = (self->vars[VAR_drawPosY] + 2.0);
-            if (gml_gt(self->vars[VAR_drawPosY], (91.0 + 4.0))) {
-                self->vars[VAR_drawPosY] = 91.0;
+        if (gml_gt(self->vars[VAR_drawPosX], 232.0f)) {
+            self->vars[VAR_drawPosX] = 96.0f;
+            self->vars[VAR_drawPosY] = (self->vars[VAR_drawPosY] + 2.0f);
+            if (gml_gt(self->vars[VAR_drawPosY], (91.0f + 4.0f))) {
+                self->vars[VAR_drawPosY] = 91.0f;
             }
         }
     }
-    self->vars[VAR_sprite] = gml_script_instance_create(self, other, self->vars[VAR_drawPosX], self->vars[VAR_drawPosY], ((double)OBJ_oSprite));
-    if (gml_lt(self->vars[VAR_drawLoot], 0.0)) {
+    self->vars[VAR_sprite] = gml_script_instance_create(self, other, self->vars[VAR_drawPosX], self->vars[VAR_drawPosY], ((float)OBJ_oSprite));
+    if (gml_lt(self->vars[VAR_drawLoot], 0.0f)) {
     } else {
-        if (gml_gt(g_gml_globals.gold, 0.0)) {
-            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGoldChunk));
-            g_gml_globals.gold = (g_gml_globals.gold - 1.0);
-            self->vars[VAR_isLoot] = 1.0;
+        if (gml_gt(g_gml_globals.gold, 0.0f)) {
+            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGoldChunk));
+            g_gml_globals.gold = (g_gml_globals.gold - 1.0f);
+            self->vars[VAR_isLoot] = 1.0f;
         } else {
-            if (gml_gt(g_gml_globals.emeralds, 0.0)) {
-                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sEmerald));
-                g_gml_globals.emeralds = (g_gml_globals.emeralds - 1.0);
-                self->vars[VAR_isLoot] = 1.0;
+            if (gml_gt(g_gml_globals.emeralds, 0.0f)) {
+                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sEmerald));
+                g_gml_globals.emeralds = (g_gml_globals.emeralds - 1.0f);
+                self->vars[VAR_isLoot] = 1.0f;
             } else {
-                if (gml_gt(g_gml_globals.sapphires, 0.0)) {
-                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sSapphire));
-                    g_gml_globals.sapphires = (g_gml_globals.sapphires - 1.0);
-                    self->vars[VAR_isLoot] = 1.0;
+                if (gml_gt(g_gml_globals.sapphires, 0.0f)) {
+                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sSapphire));
+                    g_gml_globals.sapphires = (g_gml_globals.sapphires - 1.0f);
+                    self->vars[VAR_isLoot] = 1.0f;
                 } else {
-                    if (gml_gt(g_gml_globals.rubies, 0.0)) {
-                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sRuby));
-                        g_gml_globals.rubies = (g_gml_globals.rubies - 1.0);
-                        self->vars[VAR_isLoot] = 1.0;
+                    if (gml_gt(g_gml_globals.rubies, 0.0f)) {
+                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sRuby));
+                        g_gml_globals.rubies = (g_gml_globals.rubies - 1.0f);
+                        self->vars[VAR_isLoot] = 1.0f;
                     } else {
-                        if (gml_gt(g_gml_globals.nuggets, 0.0)) {
-                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGoldNugget));
-                            g_gml_globals.nuggets = (g_gml_globals.nuggets - 1.0);
-                            self->vars[VAR_isLoot] = 1.0;
+                        if (gml_gt(g_gml_globals.nuggets, 0.0f)) {
+                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGoldNugget));
+                            g_gml_globals.nuggets = (g_gml_globals.nuggets - 1.0f);
+                            self->vars[VAR_isLoot] = 1.0f;
                         } else {
-                            if (gml_gt(g_gml_globals.goldbar, 0.0)) {
-                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGoldBarDraw));
-                                g_gml_globals.goldbar = (g_gml_globals.goldbar - 1.0);
-                                self->vars[VAR_isLoot] = 1.0;
+                            if (gml_gt(g_gml_globals.goldbar, 0.0f)) {
+                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGoldBarDraw));
+                                g_gml_globals.goldbar = (g_gml_globals.goldbar - 1.0f);
+                                self->vars[VAR_isLoot] = 1.0f;
                             } else {
-                                if (gml_gt(g_gml_globals.goldbars, 0.0)) {
-                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGoldBarsDraw));
-                                    g_gml_globals.goldbars = (g_gml_globals.goldbars - 1.0);
-                                    self->vars[VAR_isLoot] = 1.0;
+                                if (gml_gt(g_gml_globals.goldbars, 0.0f)) {
+                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGoldBarsDraw));
+                                    g_gml_globals.goldbars = (g_gml_globals.goldbars - 1.0f);
+                                    self->vars[VAR_isLoot] = 1.0f;
                                 } else {
-                                    if (gml_gt(g_gml_globals.bigemeralds, 0.0)) {
-                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sEmeraldBig));
-                                        g_gml_globals.bigemeralds = (g_gml_globals.bigemeralds - 1.0);
-                                        self->vars[VAR_isLoot] = 1.0;
+                                    if (gml_gt(g_gml_globals.bigemeralds, 0.0f)) {
+                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sEmeraldBig));
+                                        g_gml_globals.bigemeralds = (g_gml_globals.bigemeralds - 1.0f);
+                                        self->vars[VAR_isLoot] = 1.0f;
                                     } else {
-                                        if (gml_gt(g_gml_globals.bigsapphires, 0.0)) {
-                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sSapphireBig));
-                                            g_gml_globals.bigsapphires = (g_gml_globals.bigsapphires - 1.0);
-                                            self->vars[VAR_isLoot] = 1.0;
+                                        if (gml_gt(g_gml_globals.bigsapphires, 0.0f)) {
+                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sSapphireBig));
+                                            g_gml_globals.bigsapphires = (g_gml_globals.bigsapphires - 1.0f);
+                                            self->vars[VAR_isLoot] = 1.0f;
                                         } else {
-                                            if (gml_gt(g_gml_globals.bigrubies, 0.0)) {
-                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sRubyBig));
-                                                g_gml_globals.bigrubies = (g_gml_globals.bigrubies - 1.0);
-                                                self->vars[VAR_isLoot] = 1.0;
+                                            if (gml_gt(g_gml_globals.bigrubies, 0.0f)) {
+                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sRubyBig));
+                                                g_gml_globals.bigrubies = (g_gml_globals.bigrubies - 1.0f);
+                                                self->vars[VAR_isLoot] = 1.0f;
                                             } else {
-                                                if (gml_gt(g_gml_globals.diamonds, 0.0)) {
-                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sDiamond));
-                                                    g_gml_globals.diamonds = (g_gml_globals.diamonds - 1.0);
-                                                    self->vars[VAR_isLoot] = 1.0;
+                                                if (gml_gt(g_gml_globals.diamonds, 0.0f)) {
+                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sDiamond));
+                                                    g_gml_globals.diamonds = (g_gml_globals.diamonds - 1.0f);
+                                                    self->vars[VAR_isLoot] = 1.0f;
                                                 } else {
-                                                    if (gml_gt(g_gml_globals.xdamsels, 0.0)) {
+                                                    if (gml_gt(g_gml_globals.xdamsels, 0.0f)) {
                                                         if (gml_truthy(g_gml_globals.isDamsel)) {
-                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sStandLeft));
+                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sStandLeft));
                                                         } else {
-                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sDamselLeft));
+                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sDamselLeft));
                                                         }
-                                                        g_gml_globals.xdamsels = (g_gml_globals.xdamsels - 1.0);
-                                                        self->vars[VAR_isLoot] = 1.0;
+                                                        g_gml_globals.xdamsels = (g_gml_globals.xdamsels - 1.0f);
+                                                        self->vars[VAR_isLoot] = 1.0f;
                                                     } else {
-                                                        if (gml_gt(g_gml_globals.scarabs, 0.0)) {
-                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sScarabDisp));
-                                                            g_gml_globals.scarabs = (g_gml_globals.scarabs - 1.0);
-                                                            self->vars[VAR_isLoot] = 1.0;
+                                                        if (gml_gt(g_gml_globals.scarabs, 0.0f)) {
+                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sScarabDisp));
+                                                            g_gml_globals.scarabs = (g_gml_globals.scarabs - 1.0f);
+                                                            self->vars[VAR_isLoot] = 1.0f;
                                                         } else {
-                                                            if (gml_gt(g_gml_globals.idols, 0.0)) {
-                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGoldIdolIco));
-                                                                g_gml_globals.idols = (g_gml_globals.idols - 1.0);
-                                                                self->vars[VAR_isLoot] = 1.0;
+                                                            if (gml_gt(g_gml_globals.idols, 0.0f)) {
+                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGoldIdolIco));
+                                                                g_gml_globals.idols = (g_gml_globals.idols - 1.0f);
+                                                                self->vars[VAR_isLoot] = 1.0f;
                                                             } else {
-                                                                if (gml_gt(g_gml_globals.skulls, 0.0)) {
-                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sCrystalSkullIco));
-                                                                    g_gml_globals.skulls = (g_gml_globals.skulls - 1.0);
-                                                                    self->vars[VAR_isLoot] = 1.0;
+                                                                if (gml_gt(g_gml_globals.skulls, 0.0f)) {
+                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sCrystalSkullIco));
+                                                                    g_gml_globals.skulls = (g_gml_globals.skulls - 1.0f);
+                                                                    self->vars[VAR_isLoot] = 1.0f;
                                                                 } else {
-                                                                    if (gml_eq(self->vars[VAR_drawLoot], 0.0)) {
-                                                                        self->vars[VAR_drawPosX] = 96.0;
-                                                                        self->vars[VAR_drawPosY] = 91.0;
-                                                                        gml_iset_x(gml_deref(self->vars[VAR_sprite], self, other), 96.0);
-                                                                        gml_iset_y(gml_deref(self->vars[VAR_sprite], self, other), 91.0);
-                                                                        self->vars[VAR_drawLoot] = 1.0;
+                                                                    if (gml_eq(self->vars[VAR_drawLoot], 0.0f)) {
+                                                                        self->vars[VAR_drawPosX] = 96.0f;
+                                                                        self->vars[VAR_drawPosY] = 91.0f;
+                                                                        gml_iset_x(gml_deref(self->vars[VAR_sprite], self, other), 96.0f);
+                                                                        gml_iset_y(gml_deref(self->vars[VAR_sprite], self, other), 91.0f);
+                                                                        self->vars[VAR_drawLoot] = 1.0f;
                                                                     }
-                                                                    if (gml_gt(g_gml_globals.bats, 0.0)) {
-                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sBatLeft));
-                                                                        g_gml_globals.bats = (g_gml_globals.bats - 1.0);
-                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                    if (gml_gt(g_gml_globals.bats, 0.0f)) {
+                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sBatLeft));
+                                                                        g_gml_globals.bats = (g_gml_globals.bats - 1.0f);
+                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                     } else {
-                                                                        if (gml_gt(g_gml_globals.snakes, 0.0)) {
-                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sSnakeLeft));
-                                                                            g_gml_globals.snakes = (g_gml_globals.snakes - 1.0);
-                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                        if (gml_gt(g_gml_globals.snakes, 0.0f)) {
+                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sSnakeLeft));
+                                                                            g_gml_globals.snakes = (g_gml_globals.snakes - 1.0f);
+                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                         } else {
-                                                                            if (gml_gt(g_gml_globals.spiders, 0.0)) {
-                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sSpider));
-                                                                                g_gml_globals.spiders = (g_gml_globals.spiders - 1.0);
-                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                            if (gml_gt(g_gml_globals.spiders, 0.0f)) {
+                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sSpider));
+                                                                                g_gml_globals.spiders = (g_gml_globals.spiders - 1.0f);
+                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                             } else {
-                                                                                if (gml_gt(g_gml_globals.deadfish, 0.0)) {
-                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sDeadFishLeftIco));
-                                                                                    g_gml_globals.deadfish = (g_gml_globals.deadfish - 1.0);
-                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                if (gml_gt(g_gml_globals.deadfish, 0.0f)) {
+                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sDeadFishLeftIco));
+                                                                                    g_gml_globals.deadfish = (g_gml_globals.deadfish - 1.0f);
+                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                 } else {
-                                                                                    if (gml_gt(g_gml_globals.piranhas, 0.0)) {
-                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sPiranhaLeftIco));
-                                                                                        g_gml_globals.piranhas = (g_gml_globals.piranhas - 1.0);
-                                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                                    if (gml_gt(g_gml_globals.piranhas, 0.0f)) {
+                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sPiranhaLeftIco));
+                                                                                        g_gml_globals.piranhas = (g_gml_globals.piranhas - 1.0f);
+                                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                                     } else {
-                                                                                        if (gml_gt(g_gml_globals.skeletons, 0.0)) {
-                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sSkeletonLeft));
-                                                                                            g_gml_globals.skeletons = (g_gml_globals.skeletons - 1.0);
-                                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                                        if (gml_gt(g_gml_globals.skeletons, 0.0f)) {
+                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sSkeletonLeft));
+                                                                                            g_gml_globals.skeletons = (g_gml_globals.skeletons - 1.0f);
+                                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                                         } else {
-                                                                                            if (gml_gt(g_gml_globals.zombies, 0.0)) {
-                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sZombieLeft));
-                                                                                                g_gml_globals.zombies = (g_gml_globals.zombies - 1.0);
-                                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                                            if (gml_gt(g_gml_globals.zombies, 0.0f)) {
+                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sZombieLeft));
+                                                                                                g_gml_globals.zombies = (g_gml_globals.zombies - 1.0f);
+                                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                                             } else {
-                                                                                                if (gml_gt(g_gml_globals.vampires, 0.0)) {
-                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sVampireLeft));
-                                                                                                    g_gml_globals.vampires = (g_gml_globals.vampires - 1.0);
-                                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                                if (gml_gt(g_gml_globals.vampires, 0.0f)) {
+                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sVampireLeft));
+                                                                                                    g_gml_globals.vampires = (g_gml_globals.vampires - 1.0f);
+                                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                                 } else {
-                                                                                                    if (gml_gt(g_gml_globals.frogs, 0.0)) {
-                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sFrogLeft));
-                                                                                                        g_gml_globals.frogs = (g_gml_globals.frogs - 1.0);
-                                                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                                                    if (gml_gt(g_gml_globals.frogs, 0.0f)) {
+                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sFrogLeft));
+                                                                                                        g_gml_globals.frogs = (g_gml_globals.frogs - 1.0f);
+                                                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                                                     } else {
-                                                                                                        if (gml_gt(g_gml_globals.firefrogs, 0.0)) {
-                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sFireFrogLeft));
-                                                                                                            g_gml_globals.firefrogs = (g_gml_globals.firefrogs - 1.0);
-                                                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                                                        if (gml_gt(g_gml_globals.firefrogs, 0.0f)) {
+                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sFireFrogLeft));
+                                                                                                            g_gml_globals.firefrogs = (g_gml_globals.firefrogs - 1.0f);
+                                                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                                                         } else {
-                                                                                                            if (gml_gt(g_gml_globals.monkeys, 0.0)) {
-                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sMonkeyLeft));
-                                                                                                                g_gml_globals.monkeys = (g_gml_globals.monkeys - 1.0);
-                                                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                                                            if (gml_gt(g_gml_globals.monkeys, 0.0f)) {
+                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sMonkeyLeft));
+                                                                                                                g_gml_globals.monkeys = (g_gml_globals.monkeys - 1.0f);
+                                                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                                                             } else {
-                                                                                                                if (gml_gt(g_gml_globals.mantraps, 0.0)) {
-                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sManTrapLeft));
-                                                                                                                    g_gml_globals.mantraps = (g_gml_globals.mantraps - 1.0);
-                                                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                                                if (gml_gt(g_gml_globals.mantraps, 0.0f)) {
+                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sManTrapLeft));
+                                                                                                                    g_gml_globals.mantraps = (g_gml_globals.mantraps - 1.0f);
+                                                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                                                 } else {
-                                                                                                                    if (gml_gt(g_gml_globals.yetis, 0.0)) {
-                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sYetiLeft));
-                                                                                                                        g_gml_globals.yetis = (g_gml_globals.yetis - 1.0);
-                                                                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                                                                    if (gml_gt(g_gml_globals.yetis, 0.0f)) {
+                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sYetiLeft));
+                                                                                                                        g_gml_globals.yetis = (g_gml_globals.yetis - 1.0f);
+                                                                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                                                                     } else {
-                                                                                                                        if (gml_gt(g_gml_globals.ufos, 0.0)) {
-                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sUFO));
-                                                                                                                            g_gml_globals.ufos = (g_gml_globals.ufos - 1.0);
-                                                                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                                                                        if (gml_gt(g_gml_globals.ufos, 0.0f)) {
+                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sUFO));
+                                                                                                                            g_gml_globals.ufos = (g_gml_globals.ufos - 1.0f);
+                                                                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                                                                         } else {
-                                                                                                                            if (gml_gt(g_gml_globals.aliens, 0.0)) {
-                                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sAlien));
-                                                                                                                                g_gml_globals.aliens = (g_gml_globals.aliens - 1.0);
-                                                                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                                                                            if (gml_gt(g_gml_globals.aliens, 0.0f)) {
+                                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sAlien));
+                                                                                                                                g_gml_globals.aliens = (g_gml_globals.aliens - 1.0f);
+                                                                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                                                                             } else {
-                                                                                                                                if (gml_gt(g_gml_globals.alienbosses, 0.0)) {
-                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sAlienBossDisp));
-                                                                                                                                    g_gml_globals.alienbosses = (g_gml_globals.alienbosses - 1.0);
-                                                                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                                                                if (gml_gt(g_gml_globals.alienbosses, 0.0f)) {
+                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sAlienBossDisp));
+                                                                                                                                    g_gml_globals.alienbosses = (g_gml_globals.alienbosses - 1.0f);
+                                                                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                                                                 } else {
-                                                                                                                                    if (gml_gt(g_gml_globals.cavemen, 0.0)) {
-                                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sCavemanLeft));
-                                                                                                                                        g_gml_globals.cavemen = (g_gml_globals.cavemen - 1.0);
-                                                                                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                                                                                    if (gml_gt(g_gml_globals.cavemen, 0.0f)) {
+                                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sCavemanLeft));
+                                                                                                                                        g_gml_globals.cavemen = (g_gml_globals.cavemen - 1.0f);
+                                                                                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                                                                                     } else {
-                                                                                                                                        if (gml_gt(g_gml_globals.hawkmen, 0.0)) {
-                                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sHawkLeft));
-                                                                                                                                            g_gml_globals.hawkmen = (g_gml_globals.hawkmen - 1.0);
-                                                                                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                                                                                        if (gml_gt(g_gml_globals.hawkmen, 0.0f)) {
+                                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sHawkLeft));
+                                                                                                                                            g_gml_globals.hawkmen = (g_gml_globals.hawkmen - 1.0f);
+                                                                                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                                                                                         } else {
-                                                                                                                                            if (gml_gt(g_gml_globals.giantspiders, 0.0)) {
-                                                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sGiantSpiderDisp));
-                                                                                                                                                g_gml_globals.giantspiders = (g_gml_globals.giantspiders - 1.0);
-                                                                                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                                                                                            if (gml_gt(g_gml_globals.giantspiders, 0.0f)) {
+                                                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sGiantSpiderDisp));
+                                                                                                                                                g_gml_globals.giantspiders = (g_gml_globals.giantspiders - 1.0f);
+                                                                                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                                                                                             } else {
-                                                                                                                                                if (gml_gt(g_gml_globals.megamouths, 0.0)) {
-                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sMegaMouth));
-                                                                                                                                                    g_gml_globals.megamouths = (g_gml_globals.megamouths - 1.0);
-                                                                                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                                                                                if (gml_gt(g_gml_globals.megamouths, 0.0f)) {
+                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sMegaMouth));
+                                                                                                                                                    g_gml_globals.megamouths = (g_gml_globals.megamouths - 1.0f);
+                                                                                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                                                                                 } else {
-                                                                                                                                                    if (gml_gt(g_gml_globals.yetikings, 0.0)) {
-                                                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sYetiKingDisp));
-                                                                                                                                                        g_gml_globals.yetikings = (g_gml_globals.yetikings - 1.0);
-                                                                                                                                                        self->vars[VAR_isKills] = 1.0;
+                                                                                                                                                    if (gml_gt(g_gml_globals.yetikings, 0.0f)) {
+                                                                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sYetiKingDisp));
+                                                                                                                                                        g_gml_globals.yetikings = (g_gml_globals.yetikings - 1.0f);
+                                                                                                                                                        self->vars[VAR_isKills] = 1.0f;
                                                                                                                                                     } else {
-                                                                                                                                                        if (gml_gt(g_gml_globals.tomblords, 0.0)) {
-                                                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sTombLordDisp));
-                                                                                                                                                            g_gml_globals.tomblords = (g_gml_globals.tomblords - 1.0);
-                                                                                                                                                            self->vars[VAR_isKills] = 1.0;
+                                                                                                                                                        if (gml_gt(g_gml_globals.tomblords, 0.0f)) {
+                                                                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sTombLordDisp));
+                                                                                                                                                            g_gml_globals.tomblords = (g_gml_globals.tomblords - 1.0f);
+                                                                                                                                                            self->vars[VAR_isKills] = 1.0f;
                                                                                                                                                         } else {
-                                                                                                                                                            if (gml_gt(g_gml_globals.damselsKilled, 0.0)) {
+                                                                                                                                                            if (gml_gt(g_gml_globals.damselsKilled, 0.0f)) {
                                                                                                                                                                 if (gml_truthy(g_gml_globals.isDamsel)) {
-                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sStandLeftIco));
+                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sStandLeftIco));
                                                                                                                                                                 } else {
-                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sDamselLeftIco));
+                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sDamselLeftIco));
                                                                                                                                                                 }
-                                                                                                                                                                g_gml_globals.damselsKilled = (g_gml_globals.damselsKilled - 1.0);
-                                                                                                                                                                self->vars[VAR_isKills] = 1.0;
+                                                                                                                                                                g_gml_globals.damselsKilled = (g_gml_globals.damselsKilled - 1.0f);
+                                                                                                                                                                self->vars[VAR_isKills] = 1.0f;
                                                                                                                                                             } else {
-                                                                                                                                                                if (gml_gt(g_gml_globals.shopkeepers, 0.0)) {
-                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((double)SPR_sShopLeftIco));
-                                                                                                                                                                    g_gml_globals.shopkeepers = (g_gml_globals.shopkeepers - 1.0);
-                                                                                                                                                                    self->vars[VAR_isKills] = 1.0;
+                                                                                                                                                                if (gml_gt(g_gml_globals.shopkeepers, 0.0f)) {
+                                                                                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_sprite], self, other), ((float)SPR_sShopLeftIco));
+                                                                                                                                                                    g_gml_globals.shopkeepers = (g_gml_globals.shopkeepers - 1.0f);
+                                                                                                                                                                    self->vars[VAR_isKills] = 1.0f;
                                                                                                                                                                 } else {
-                                                                                                                                                                    self->vars[VAR_drawLoot] = 2.0;
+                                                                                                                                                                    self->vars[VAR_drawLoot] = 2.0f;
                                                                                                                                                                     {
                                                                                                                                                                         gm_instance_t *self1;
                                                                                                                                                                         gm_with_begin(gml_target(self->vars[VAR_sprite]), self, other);
@@ -405,20 +405,20 @@ static void gml_ev_oTransition__Alarm_0_body(gm_instance_t *self, gm_instance_t 
             }
         }
     }
-    if (gml_lt(self->vars[VAR_drawLoot], 0.0)) {
+    if (gml_lt(self->vars[VAR_drawLoot], 0.0f)) {
     } else {
-        if (gml_eq(self->vars[VAR_drawLoot], 0.0)) {
-            self->vars[VAR_drawPosX] = (self->vars[VAR_drawPosX] + 4.0);
+        if (gml_eq(self->vars[VAR_drawLoot], 0.0f)) {
+            self->vars[VAR_drawPosX] = (self->vars[VAR_drawPosX] + 4.0f);
         } else {
-            self->vars[VAR_drawPosX] = (self->vars[VAR_drawPosX] + 8.0);
+            self->vars[VAR_drawPosX] = (self->vars[VAR_drawPosX] + 8.0f);
         }
     }
-    if (gml_eq(self->vars[VAR_drawLoot], 2.0)) {
+    if (gml_eq(self->vars[VAR_drawLoot], 2.0f)) {
     } else {
         if (gml_truthy(self->vars[VAR_hurryup])) {
-            gml_iset_alarm(self, 0.0, 1.0);
+            gml_iset_alarm(self, 0.0f, 1.0f);
         } else {
-            gml_iset_alarm(self, 0.0, 3.0);
+            gml_iset_alarm(self, 0.0f, 3.0f);
         }
     }
 }
@@ -432,11 +432,11 @@ void gml_ev_oTransition__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTransition__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_downPressed = 0.0;
-    double l_upPressed = 0.0;
-    double l_skipCondition = 0.0;
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float l_downPressed = 0.0f;
+    float l_upPressed = 0.0f;
+    float l_skipCondition = 0.0f;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)l_downPressed;
@@ -445,105 +445,105 @@ static void gml_ev_oTransition__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)t1;
     (void)t2;
     if (gml_truthy(g_gml_globals.html5Build)) {
-        l_downPressed = ((gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0)}), 0.6) || gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0)}), 0.6)) ? 1.0 : 0.0);
-        l_upPressed = ((gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0)}), (-0.6)) || gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0)}), (-0.6))) ? 1.0 : 0.0);
+        l_downPressed = ((gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0f)}), 0.6f) || gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0f)}), 0.6f)) ? 1.0f : 0.0f);
+        l_upPressed = ((gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0f)}), (-0.6f)) || gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0f)}), (-0.6f))) ? 1.0f : 0.0f);
         if (gml_truthy(l_downPressed)) {
-            if (gml_eq(g_gml_globals.analogLDownPreviousState, 0.0)) {
-                g_gml_globals.analogLDownPressed = 1.0;
-                g_gml_globals.analogLDownPreviousState = 1.0;
+            if (gml_eq(g_gml_globals.analogLDownPreviousState, 0.0f)) {
+                g_gml_globals.analogLDownPressed = 1.0f;
+                g_gml_globals.analogLDownPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.analogLDownPreviousState = 0.0;
+            g_gml_globals.analogLDownPreviousState = 0.0f;
         }
         if (gml_truthy(l_upPressed)) {
-            if (gml_eq(g_gml_globals.analogLUpPreviousState, 0.0)) {
-                g_gml_globals.analogLUpPressed = 1.0;
-                g_gml_globals.analogLUpPreviousState = 1.0;
+            if (gml_eq(g_gml_globals.analogLUpPreviousState, 0.0f)) {
+                g_gml_globals.analogLUpPressed = 1.0f;
+                g_gml_globals.analogLUpPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.analogLUpPreviousState = 0.0;
+            g_gml_globals.analogLUpPreviousState = 0.0f;
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyStartVal]}))) {
-            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0)) {
-                g_gml_globals.bStartPressed = 1.0;
-                g_gml_globals.bStartPreviousState = 1.0;
+            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0f)) {
+                g_gml_globals.bStartPressed = 1.0f;
+                g_gml_globals.bStartPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bStartPreviousState = 0.0;
+            g_gml_globals.bStartPreviousState = 0.0f;
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) {
-            g_gml_globals.bAttackReleasedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0)) {
-                g_gml_globals.bAttackPressed = 1.0;
-                g_gml_globals.bAttackPressedPreviousState = 1.0;
+            g_gml_globals.bAttackReleasedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackPressed = 1.0f;
+                g_gml_globals.bAttackPressedPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bAttackPressedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0)) {
-                g_gml_globals.bAttackReleased = 1.0;
-                g_gml_globals.bAttackReleasedPreviousState = 1.0;
+            g_gml_globals.bAttackPressedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackReleased = 1.0f;
+                g_gml_globals.bAttackReleasedPreviousState = 1.0f;
             }
         }
-        gml_iset_alarm(self, 3.0, 1.0);
+        gml_iset_alarm(self, 3.0f, 1.0f);
     }
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_skipCondition = ((gml_truthy(gml_script_checkAttackPressed(self, other)) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((gml_truthy(gml_script_checkAttackPressed(self, other)) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     } else {
-        l_skipCondition = ((((gml_truthy(g_gml_globals.bAttackPressed) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((gml_truthy(g_gml_globals.bAttackPressed) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
-        self->vars[VAR_n] = 0.0;
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTunnelMan)))) {
-            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0, 100.0, ((double)OBJ_oTunnelMan));
-            if (gml_ne(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 6.0)) {
-                self->vars[VAR_n] = 1.0;
+        self->vars[VAR_n] = 0.0f;
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTunnelMan)))) {
+            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0f, 100.0f, ((float)OBJ_oTunnelMan));
+            if (gml_ne(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 6.0f)) {
+                self->vars[VAR_n] = 1.0f;
             }
         }
-        if (((gml_eq(self->vars[VAR_drawLoot], 2.0) && gml_eq(self->vars[VAR_moneyCount], g_gml_globals.xmoney)) && gml_eq(self->vars[VAR_n], 0.0))) {
+        if (((gml_eq(self->vars[VAR_drawLoot], 2.0f) && gml_eq(self->vars[VAR_moneyCount], g_gml_globals.xmoney)) && gml_eq(self->vars[VAR_n], 0.0f))) {
             if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed))) {
-                gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0);
+                gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0f);
             }
             if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed))) {
-                gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0);
+                gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0f);
             }
-            if (gml_gt(gml_iget_alarm(self, 0.0), 1.0)) {
-                gml_iset_alarm(self, 0.0, 1.0);
+            if (gml_gt(gml_iget_alarm(self, 0.0f), 1.0f)) {
+                gml_iset_alarm(self, 0.0f, 1.0f);
             }
-            if (gml_gt(gml_iget_alarm(self, 1.0), 1.0)) {
-                gml_iset_alarm(self, 1.0, 1.0);
+            if (gml_gt(gml_iget_alarm(self, 1.0f), 1.0f)) {
+                gml_iset_alarm(self, 1.0f, 1.0f);
             }
-            g_gml_globals.gameStart = 1.0;
-            g_gml_globals.lake = 0.0;
+            g_gml_globals.gameStart = 1.0f;
+            g_gml_globals.lake = 0.0f;
             if (gml_truthy(g_gml_globals.customLevel)) {
-                gml_fn_room_goto(self, other, ((double)RM_rLoadLevel));
+                gml_fn_room_goto(self, other, ((float)RM_rLoadLevel));
             } else {
-                if (((gml_ge(g_gml_globals.currLevel, 5.0) && gml_le(g_gml_globals.currLevel, 8.0)) && (!gml_truthy(g_gml_globals.genBlackMarket)))) {
-                    if (gml_eq(gml_script_rand(self, other, 1.0, g_gml_globals.probLake), 1.0)) {
-                        g_gml_globals.lake = 1.0;
-                        gml_fn_room_goto(self, other, ((double)RM_rLevel3));
+                if (((gml_ge(g_gml_globals.currLevel, 5.0f) && gml_le(g_gml_globals.currLevel, 8.0f)) && (!gml_truthy(g_gml_globals.genBlackMarket)))) {
+                    if (gml_eq(gml_script_rand(self, other, 1.0f, g_gml_globals.probLake), 1.0f)) {
+                        g_gml_globals.lake = 1.0f;
+                        gml_fn_room_goto(self, other, ((float)RM_rLevel3));
                     } else {
-                        gml_fn_room_goto(self, other, ((double)RM_rLevel));
+                        gml_fn_room_goto(self, other, ((float)RM_rLevel));
                     }
                 } else {
-                    if ((gml_ge(g_gml_globals.currLevel, 9.0) && gml_le(g_gml_globals.currLevel, 12.0))) {
-                        gml_fn_room_goto(self, other, ((double)RM_rLevel2));
+                    if ((gml_ge(g_gml_globals.currLevel, 9.0f) && gml_le(g_gml_globals.currLevel, 12.0f))) {
+                        gml_fn_room_goto(self, other, ((float)RM_rLevel2));
                     } else {
-                        if (gml_eq(g_gml_globals.currLevel, 16.0)) {
-                            gml_fn_room_goto(self, other, ((double)RM_rOlmec));
+                        if (gml_eq(g_gml_globals.currLevel, 16.0f)) {
+                            gml_fn_room_goto(self, other, ((float)RM_rOlmec));
                         } else {
-                            gml_fn_room_goto(self, other, ((double)RM_rLevel));
+                            gml_fn_room_goto(self, other, ((float)RM_rLevel));
                         }
                     }
                 }
             }
         } else {
-            self->vars[VAR_hurryup] = 1.0;
+            self->vars[VAR_hurryup] = 1.0f;
         }
     }
     if (gml_truthy(gml_script_checkUpPressed(self, other))) {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTunnelMan)))) {
-            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0, 100.0, ((double)OBJ_oTunnelMan));
-            (t1 = self->vars[VAR_person], gml_ivar_set(gml_deref(t1, self, other), VAR_donate, (gml_ivar(gml_deref(t1, self, other), VAR_donate) + 100.0)));
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTunnelMan)))) {
+            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0f, 100.0f, ((float)OBJ_oTunnelMan));
+            (t1 = self->vars[VAR_person], gml_ivar_set(gml_deref(t1, self, other), VAR_donate, (gml_ivar(gml_deref(t1, self, other), VAR_donate) + 100.0f)));
             if ((gml_truthy(gml_script_isRoom(self, other, "rTransition1x")) || gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
                 if (gml_gt(g_gml_globals.money, g_gml_globals.tunnel1)) {
                     if (gml_gt(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_donate), g_gml_globals.tunnel1)) {
@@ -568,30 +568,30 @@ static void gml_ev_oTransition__Step_0_body(gm_instance_t *self, gm_instance_t *
         }
     } else {
         if (gml_truthy(gml_script_checkDownPressed(self, other))) {
-            if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTunnelMan)))) {
-                self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0, 100.0, ((double)OBJ_oTunnelMan));
-                (t2 = self->vars[VAR_person], gml_ivar_set(gml_deref(t2, self, other), VAR_donate, (gml_ivar(gml_deref(t2, self, other), VAR_donate) - 100.0)));
-                if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_donate), 0.0)) {
-                    gml_ivar_set(gml_deref(self->vars[VAR_person], self, other), VAR_donate, 0.0);
+            if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTunnelMan)))) {
+                self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 100.0f, 100.0f, ((float)OBJ_oTunnelMan));
+                (t2 = self->vars[VAR_person], gml_ivar_set(gml_deref(t2, self, other), VAR_donate, (gml_ivar(gml_deref(t2, self, other), VAR_donate) - 100.0f)));
+                if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_donate), 0.0f)) {
+                    gml_ivar_set(gml_deref(self->vars[VAR_person], self, other), VAR_donate, 0.0f);
                 }
             }
         }
     }
-    if (gml_eq(self->vars[VAR_drawLoot], 2.0)) {
+    if (gml_eq(self->vars[VAR_drawLoot], 2.0f)) {
         if (gml_lt(self->vars[VAR_moneyCount], g_gml_globals.xmoney)) {
             if (gml_truthy(self->vars[VAR_hurryup])) {
                 self->vars[VAR_moneyCount] = g_gml_globals.xmoney;
             } else {
                 self->vars[VAR_moneyDiff] = (g_gml_globals.xmoney - self->vars[VAR_moneyCount]);
-                if (gml_gt(self->vars[VAR_moneyDiff], 100.0)) {
-                    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0);
+                if (gml_gt(self->vars[VAR_moneyDiff], 100.0f)) {
+                    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0f);
                 } else {
                     self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + self->vars[VAR_moneyDiff]);
                 }
             }
         }
     }
-    self->vars[VAR_debugCounter] = (self->vars[VAR_debugCounter] + 1.0);
+    self->vars[VAR_debugCounter] = (self->vars[VAR_debugCounter] + 1.0f);
 }
 
 void gml_ev_oTransition__Step_0(gm_instance_t *self, gm_instance_t *other)
@@ -622,34 +622,34 @@ void gml_ev_oTransition__Draw_64(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTransition__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     const char *s7 = "";
     const char *s8 = "";
-    double t9 = 0.0;
+    float t9 = 0.0f;
     const char *s10 = "";
     const char *s11 = "";
-    double t12 = 0.0;
+    float t12 = 0.0f;
     const char *s13 = "";
     const char *s14 = "";
-    double t15 = 0.0;
+    float t15 = 0.0f;
     const char *s16 = "";
     const char *s17 = "";
-    double t18 = 0.0;
+    float t18 = 0.0f;
     const char *s19 = "";
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t28 = 0.0;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t28 = 0.0f;
     gm_value_t v29 = GM_VALUE_UNDEFINED_INIT;
     const char *s30 = "";
     const char *s31 = "";
@@ -690,130 +690,130 @@ static void gml_ev_oTransition__Draw_0_body(gm_instance_t *self, gm_instance_t *
         gml_script_drawTouchControls(self, other);
     }
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTunnelMan)))) {
-        self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 176.0, 176.0, ((double)OBJ_oTunnelMan));
-        if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 1.0)) {
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTunnelMan)))) {
+        self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 176.0f, 176.0f, ((float)OBJ_oTunnelMan));
+        if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 1.0f)) {
             self->vars[VAR_strLen] = (t1 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "HEY THERE! I'M THE TUNNEL MAN!")), (t1 * g_gml_globals.fontSmallWidth));
-            self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-            (t2 = self->vars[VAR_n], gml_fn_draw_text(self, other, t2, 208.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "HEY THERE! I'M THE TUNNEL MAN!"))));
+            self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+            (t2 = self->vars[VAR_n], gml_fn_draw_text(self, other, t2, 208.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "HEY THERE! I'M THE TUNNEL MAN!"))));
             self->vars[VAR_strLen] = (t3 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "I DIG SHORTCUTS.")), (t3 * g_gml_globals.fontSmallWidth));
-            self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-            (t4 = self->vars[VAR_n], gml_fn_draw_text(self, other, t4, 216.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "I DIG SHORTCUTS."))));
+            self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+            (t4 = self->vars[VAR_n], gml_fn_draw_text(self, other, t4, 216.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "I DIG SHORTCUTS."))));
         } else {
-            if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 2.0)) {
+            if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 2.0f)) {
                 self->vars[VAR_strLen] = (t5 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "CAN YOU LEND ME A LITTLE MONEY?")), (t5 * g_gml_globals.fontSmallWidth));
-                self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                (t6 = self->vars[VAR_n], gml_fn_draw_text(self, other, t6, 208.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CAN YOU LEND ME A LITTLE MONEY?"))));
+                self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                (t6 = self->vars[VAR_n], gml_fn_draw_text(self, other, t6, 208.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CAN YOU LEND ME A LITTLE MONEY?"))));
                 if ((gml_truthy(gml_script_isRoom(self, other, "rTransition1x")) || gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
                     self->vars[VAR_strLen] = (t9 = gml_fn_string_length(self, other, (s8 = (s7 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s7, gml_real_str(g_gml_globals.tunnel1))), gml_concat(s8, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT.")))), (t9 * g_gml_globals.fontSmallWidth));
                 } else {
                     self->vars[VAR_strLen] = (t12 = gml_fn_string_length(self, other, (s11 = (s10 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s10, gml_real_str(g_gml_globals.tunnel2))), gml_concat(s11, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT.")))), (t12 * g_gml_globals.fontSmallWidth));
                 }
-                self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
+                self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
                 if ((gml_truthy(gml_script_isRoom(self, other, "rTransition1x")) || gml_truthy(gml_script_isRoom(self, other, "rTransition3x")))) {
-                    (t15 = self->vars[VAR_n], gml_fn_draw_text(self, other, t15, 216.0, gml_fn_string_hash_to_newline(self, other, (s14 = (s13 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s13, gml_real_str(g_gml_globals.tunnel1))), gml_concat(s14, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT."))))));
+                    (t15 = self->vars[VAR_n], gml_fn_draw_text(self, other, t15, 216.0f, gml_fn_string_hash_to_newline(self, other, (s14 = (s13 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s13, gml_real_str(g_gml_globals.tunnel1))), gml_concat(s14, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT."))))));
                 } else {
-                    (t18 = self->vars[VAR_n], gml_fn_draw_text(self, other, t18, 216.0, gml_fn_string_hash_to_newline(self, other, (s17 = (s16 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s16, gml_real_str(g_gml_globals.tunnel2))), gml_concat(s17, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT."))))));
+                    (t18 = self->vars[VAR_n], gml_fn_draw_text(self, other, t18, 216.0f, gml_fn_string_hash_to_newline(self, other, (s17 = (s16 = gml_script_tr(self, other, 1, "I NEED $"), gml_concat(s16, gml_real_str(g_gml_globals.tunnel2))), gml_concat(s17, gml_script_tr(self, other, 1, " FOR A NEW SHORTCUT."))))));
                 }
-                gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                (t20 = self->vars[VAR_n], gml_fn_draw_text(self, other, t20, 224.0, gml_fn_string_hash_to_newline(self, other, (s19 = gml_script_tr(self, other, 1, "DONATE: "), gml_concat(s19, gml_real_str(gml_ivar(gml_deref(((double)OBJ_oTunnelMan), self, other), VAR_donate)))))));
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                (t20 = self->vars[VAR_n], gml_fn_draw_text(self, other, t20, 224.0f, gml_fn_string_hash_to_newline(self, other, (s19 = gml_script_tr(self, other, 1, "DONATE: "), gml_concat(s19, gml_real_str(gml_ivar(gml_deref(((float)OBJ_oTunnelMan), self, other), VAR_donate)))))));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
             } else {
-                if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 3.0)) {
+                if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 3.0f)) {
                     self->vars[VAR_strLen] = (t21 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "THANKS! YOU WON'T REGRET IT!")), (t21 * g_gml_globals.fontSmallWidth));
-                    self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                    (t22 = self->vars[VAR_n], gml_fn_draw_text(self, other, t22, 216.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "THANKS! YOU WON'T REGRET IT!"))));
+                    self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                    (t22 = self->vars[VAR_n], gml_fn_draw_text(self, other, t22, 216.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "THANKS! YOU WON'T REGRET IT!"))));
                 } else {
-                    if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 4.0)) {
+                    if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 4.0f)) {
                         self->vars[VAR_strLen] = (t23 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "I'LL NEVER GET THIS SHORTCUT BUILT!")), (t23 * g_gml_globals.fontSmallWidth));
-                        self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                        self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                        (t24 = self->vars[VAR_n], gml_fn_draw_text(self, other, t24, 216.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "I'LL NEVER GET THIS SHORTCUT BUILT!"))));
+                        self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                        self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                        (t24 = self->vars[VAR_n], gml_fn_draw_text(self, other, t24, 216.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "I'LL NEVER GET THIS SHORTCUT BUILT!"))));
                     } else {
-                        if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 5.0)) {
+                        if (gml_eq(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_talk), 5.0f)) {
                             self->vars[VAR_strLen] = (t25 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "ONE SHORTCUT, COMING UP!")), (t25 * g_gml_globals.fontSmallWidth));
-                            self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                            (t26 = self->vars[VAR_n], gml_fn_draw_text(self, other, t26, 216.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ONE SHORTCUT, COMING UP!"))));
+                            self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                            (t26 = self->vars[VAR_n], gml_fn_draw_text(self, other, t26, 216.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ONE SHORTCUT, COMING UP!"))));
                         }
                     }
                 }
             }
         }
     } else {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oDamselKiss)))) {
-            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 176.0, 176.0, ((double)OBJ_oDamselKiss));
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oDamselKiss)))) {
+            self->vars[VAR_person] = gml_fn_instance_nearest(self, other, 176.0f, 176.0f, ((float)OBJ_oDamselKiss));
             if (gml_truthy(gml_ivar(gml_deref(self->vars[VAR_person], self, other), VAR_kissed))) {
                 self->vars[VAR_strLen] = (t27 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "MY HERO!")), (t27 * g_gml_globals.fontSmallWidth));
-                self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                (t28 = self->vars[VAR_n], gml_fn_draw_text(self, other, t28, 216.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MY HERO!"))));
+                self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                (t28 = self->vars[VAR_n], gml_fn_draw_text(self, other, t28, 216.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MY HERO!"))));
             }
         }
     }
-    gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
+    gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
     if (gml_truthy(g_gml_globals.customLevel)) {
-        gml_fn_draw_text(self, other, 32.0, 48.0, gml_fn_string_hash_to_newline(self, other, gml_as_str((v29 = g_gml_gvals[GV_customLevelName], gml_add(v29, gml_vs(gml_script_tr(self, other, 1, " COMPLETED!")))))));
+        gml_fn_draw_text(self, other, 32.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, gml_as_str((v29 = g_gml_gvals[GV_customLevelName], gml_add(v29, gml_vs(gml_script_tr(self, other, 1, " COMPLETED!")))))));
     } else {
-        if (gml_lt((g_gml_globals.currLevel - 1.0), 1.0)) {
-            gml_fn_draw_text(self, other, 32.0, 48.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TUTORIAL CAVE COMPLETED!")));
+        if (gml_lt((g_gml_globals.currLevel - 1.0f), 1.0f)) {
+            gml_fn_draw_text(self, other, 32.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TUTORIAL CAVE COMPLETED!")));
         } else {
-            gml_fn_draw_text(self, other, 32.0, 48.0, gml_fn_string_hash_to_newline(self, other, (s31 = (s30 = gml_script_tr(self, other, 1, "LEVEL "), gml_concat(s30, gml_real_str((g_gml_globals.currLevel - 1.0)))), gml_concat(s31, gml_script_tr(self, other, 1, " COMPLETED!")))));
+            gml_fn_draw_text(self, other, 32.0f, 48.0f, gml_fn_string_hash_to_newline(self, other, (s31 = (s30 = gml_script_tr(self, other, 1, "LEVEL "), gml_concat(s30, gml_real_str((g_gml_globals.currLevel - 1.0f)))), gml_concat(s31, gml_script_tr(self, other, 1, " COMPLETED!")))));
         }
     }
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-    gml_fn_draw_text(self, other, 32.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TIME  = ")));
-    gml_fn_draw_text(self, other, 32.0, 80.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LOOT  = ")));
-    gml_fn_draw_text(self, other, 32.0, 96.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "KILLS = ")));
-    gml_fn_draw_text(self, other, 32.0, 112.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MONEY = ")));
-    if ((gml_ge(self->vars[VAR_drawLoot], 1.0) && (!gml_truthy(self->vars[VAR_isLoot])))) {
-        gml_fn_draw_text(self, other, 96.0, 80.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NONE")));
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+    gml_fn_draw_text(self, other, 32.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "TIME  = ")));
+    gml_fn_draw_text(self, other, 32.0f, 80.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LOOT  = ")));
+    gml_fn_draw_text(self, other, 32.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "KILLS = ")));
+    gml_fn_draw_text(self, other, 32.0f, 112.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MONEY = ")));
+    if ((gml_ge(self->vars[VAR_drawLoot], 1.0f) && (!gml_truthy(self->vars[VAR_isLoot])))) {
+        gml_fn_draw_text(self, other, 96.0f, 80.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NONE")));
     }
-    if (gml_gt(self->vars[VAR_drawLoot], (-2.0))) {
+    if (gml_gt(self->vars[VAR_drawLoot], (-2.0f))) {
         self->vars[VAR_s] = g_gml_globals.xtime;
-        self->vars[VAR_s] = floor((self->vars[VAR_s] / 1000.0));
-        self->vars[VAR_m] = 0.0;
-        while (gml_gt(self->vars[VAR_s], 59.0)) {
-            self->vars[VAR_s] = (self->vars[VAR_s] - 60.0);
-            self->vars[VAR_m] = (self->vars[VAR_m] + 1.0);
+        self->vars[VAR_s] = floorf((self->vars[VAR_s] / 1000.0f));
+        self->vars[VAR_m] = 0.0f;
+        while (gml_gt(self->vars[VAR_s], 59.0f)) {
+            self->vars[VAR_s] = (self->vars[VAR_s] - 60.0f);
+            self->vars[VAR_m] = (self->vars[VAR_m] + 1.0f);
         }
-        if (gml_le(self->vars[VAR_s], 20.0)) {
-            g_gml_globals.noDarkLevel = 1.0;
+        if (gml_le(self->vars[VAR_s], 20.0f)) {
+            g_gml_globals.noDarkLevel = 1.0f;
         } else {
-            g_gml_globals.noDarkLevel = 0.0;
+            g_gml_globals.noDarkLevel = 0.0f;
         }
         self->vars[VAR_s2] = g_gml_globals.time;
-        self->vars[VAR_s2] = floor((self->vars[VAR_s2] / 1000.0));
-        self->vars[VAR_m2] = 0.0;
-        while (gml_gt(self->vars[VAR_s2], 59.0)) {
-            self->vars[VAR_s2] = (self->vars[VAR_s2] - 60.0);
-            self->vars[VAR_m2] = (self->vars[VAR_m2] + 1.0);
+        self->vars[VAR_s2] = floorf((self->vars[VAR_s2] / 1000.0f));
+        self->vars[VAR_m2] = 0.0f;
+        while (gml_gt(self->vars[VAR_s2], 59.0f)) {
+            self->vars[VAR_s2] = (self->vars[VAR_s2] - 60.0f);
+            self->vars[VAR_m2] = (self->vars[VAR_m2] + 1.0f);
         }
-        if ((gml_lt(self->vars[VAR_s], 10.0) && gml_lt(self->vars[VAR_s2], 10.0))) {
-            gml_fn_draw_text(self, other, 96.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":0"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":0"), gml_real_str(self->vars[VAR_s2]))));
+        if ((gml_lt(self->vars[VAR_s], 10.0f) && gml_lt(self->vars[VAR_s2], 10.0f))) {
+            gml_fn_draw_text(self, other, 96.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":0"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":0"), gml_real_str(self->vars[VAR_s2]))));
         } else {
-            if (gml_lt(self->vars[VAR_s], 10.0)) {
-                gml_fn_draw_text(self, other, 96.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":0"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":"), gml_real_str(self->vars[VAR_s2]))));
+            if (gml_lt(self->vars[VAR_s], 10.0f)) {
+                gml_fn_draw_text(self, other, 96.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":0"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":"), gml_real_str(self->vars[VAR_s2]))));
             } else {
-                if (gml_lt(self->vars[VAR_s2], 10.0)) {
-                    gml_fn_draw_text(self, other, 96.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":0"), gml_real_str(self->vars[VAR_s2]))));
+                if (gml_lt(self->vars[VAR_s2], 10.0f)) {
+                    gml_fn_draw_text(self, other, 96.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":0"), gml_real_str(self->vars[VAR_s2]))));
                 } else {
-                    gml_fn_draw_text(self, other, 96.0, 64.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":"), gml_real_str(self->vars[VAR_s2]))));
+                    gml_fn_draw_text(self, other, 96.0f, 64.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_real_str(self->vars[VAR_m]), ":"), gml_real_str(self->vars[VAR_s])), " / "), gml_real_str(self->vars[VAR_m2])), ":"), gml_real_str(self->vars[VAR_s2]))));
                 }
             }
         }
     }
-    if (gml_eq(self->vars[VAR_drawLoot], 2.0)) {
+    if (gml_eq(self->vars[VAR_drawLoot], 2.0f)) {
         if ((!gml_truthy(self->vars[VAR_isKills]))) {
-            gml_fn_draw_text(self, other, 96.0, 96.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NONE")));
+            gml_fn_draw_text(self, other, 96.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NONE")));
         }
-        gml_fn_draw_text(self, other, 96.0, 112.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat("$", gml_real_str(self->vars[VAR_moneyCount])), " / $"), gml_real_str(g_gml_globals.money))));
+        gml_fn_draw_text(self, other, 96.0f, 112.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat("$", gml_real_str(self->vars[VAR_moneyCount])), " / $"), gml_real_str(g_gml_globals.money))));
     }
 }
 

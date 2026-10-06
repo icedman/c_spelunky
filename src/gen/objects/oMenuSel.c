@@ -7,18 +7,18 @@ static void gml_ev_oMenuSel__Mouse_7_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     (void)wd;
-    self->vars[VAR_n] = ((gml_iget_y(self) - 112.0) / 8.0);
-    if (gml_le((self->vars[VAR_n] + 1.0), (gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_numLevels) - ((gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page) - 1.0) * 10.0)))) {
-        gml_vvar_set(gml_deref(((double)OBJ_oLoadLevel), self, other), VVAR_levelName, gml_vs(gml_fn_string_upper(self, other, gml_as_str(gml_aget(gml_vvar(gml_deref(((double)OBJ_oLoadLevel), self, other), VVAR_levelList), (((gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page) - 1.0) * 10.0) + self->vars[VAR_n]))))));
+    self->vars[VAR_n] = ((gml_iget_y(self) - 112.0f) / 8.0f);
+    if (gml_le((self->vars[VAR_n] + 1.0f), (gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_numLevels) - ((gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page) - 1.0f) * 10.0f)))) {
+        gml_vvar_set(gml_deref(((float)OBJ_oLoadLevel), self, other), VVAR_levelName, gml_vs(gml_fn_string_upper(self, other, gml_as_str(gml_aget(gml_vvar(gml_deref(((float)OBJ_oLoadLevel), self, other), VVAR_levelList), (((gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page) - 1.0f) * 10.0f) + self->vars[VAR_n]))))));
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oMenuSel)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oMenuSel)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                gml_iset_sprite_index(self1, ((double)SPR_sMenuSelOff));
+                gml_iset_sprite_index(self1, ((float)SPR_sMenuSelOff));
             }
             gm_with_end();
         }
-        gml_iset_sprite_index(self, ((double)SPR_sMenuSelOn));
+        gml_iset_sprite_index(self, ((float)SPR_sMenuSelOn));
     }
 }
 

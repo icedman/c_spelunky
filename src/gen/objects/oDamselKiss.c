@@ -6,16 +6,16 @@ static void gml_ev_oDamselKiss__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.5);
-    self->vars[VAR_kissed] = 0.0;
-    self->vars[VAR_IDLE] = 0.0;
-    self->vars[VAR_RUN] = 1.0;
-    self->vars[VAR_THROWN] = 2.0;
-    self->vars[VAR_YELL] = 3.0;
-    self->vars[VAR_EXIT] = 4.0;
+    gml_iset_image_speed(self, 0.5f);
+    self->vars[VAR_kissed] = 0.0f;
+    self->vars[VAR_IDLE] = 0.0f;
+    self->vars[VAR_RUN] = 1.0f;
+    self->vars[VAR_THROWN] = 2.0f;
+    self->vars[VAR_YELL] = 3.0f;
+    self->vars[VAR_EXIT] = 4.0f;
     self->vars[VAR_status] = self->vars[VAR_IDLE];
     if (gml_truthy(g_gml_globals.isDamsel)) {
-        gml_iset_sprite_index(self, ((double)SPR_sStandLeft));
+        gml_iset_sprite_index(self, ((float)SPR_sStandLeft));
     }
 }
 
@@ -31,8 +31,8 @@ static void gml_ev_oDamselKiss__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sDamselKissL)) || gml_eq(gml_iget_sprite_index(self), ((double)SPR_sPKissL))) && gml_eq(gml_iget_image_index(self), 7.0))) {
-        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oHeart)));
+    if (((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sDamselKissL)) || gml_eq(gml_iget_sprite_index(self), ((float)SPR_sPKissL))) && gml_eq(gml_iget_image_index(self), 7.0f))) {
+        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oHeart)));
         gml_script_playSound(self, other, g_gml_globals.sndKiss);
     }
 }
@@ -48,12 +48,12 @@ static void gml_ev_oDamselKiss__Other_7_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    if ((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sDamselKissL)) || gml_eq(gml_iget_sprite_index(self), ((double)SPR_sPKissL)))) {
-        self->vars[VAR_kissed] = 1.0;
+    if ((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sDamselKissL)) || gml_eq(gml_iget_sprite_index(self), ((float)SPR_sPKissL)))) {
+        self->vars[VAR_kissed] = 1.0f;
         if (gml_truthy(g_gml_globals.isDamsel)) {
-            gml_iset_sprite_index(self, ((double)SPR_sStandLeft));
+            gml_iset_sprite_index(self, ((float)SPR_sStandLeft));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sDamselLeft));
+            gml_iset_sprite_index(self, ((float)SPR_sDamselLeft));
         }
     }
 }
@@ -69,7 +69,7 @@ static void gml_ev_oDamselKiss__Other_5_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    g_gml_globals.plife = (g_gml_globals.plife + 1.0);
+    g_gml_globals.plife = (g_gml_globals.plife + 1.0f);
 }
 
 void gml_ev_oDamselKiss__Other_5(gm_instance_t *self, gm_instance_t *other)

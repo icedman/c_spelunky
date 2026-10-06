@@ -20,18 +20,18 @@ static void gml_ev_oPageDown__Mouse_7_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     (void)wd;
-    gml_ivar_set(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page, (gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page) + 1.0));
+    gml_ivar_set(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page, (gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page) + 1.0f));
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oMenuSel)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oMenuSel)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            gml_iset_sprite_index(self1, ((double)SPR_sMenuSelOff));
+            gml_iset_sprite_index(self1, ((float)SPR_sMenuSelOff));
         }
         gm_with_end();
     }
-    gml_fn_instance_activate_object(self, other, ((double)OBJ_oPageUp));
-    if (gml_ge(gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page), gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_numPages))) {
-        gml_fn_instance_deactivate_object(self, other, ((double)OBJ_oPageDown));
+    gml_fn_instance_activate_object(self, other, ((float)OBJ_oPageUp));
+    if (gml_ge(gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page), gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_numPages))) {
+        gml_fn_instance_deactivate_object(self, other, ((float)OBJ_oPageDown));
     }
 }
 
@@ -61,18 +61,18 @@ static void gml_ev_oPageDown__KeyPress_40_body(gm_instance_t *self, gm_instance_
     (void)self;
     (void)other;
     (void)wd;
-    gml_ivar_set(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page, (gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page) + 1.0));
+    gml_ivar_set(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page, (gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page) + 1.0f));
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oMenuSel)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oMenuSel)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            gml_iset_sprite_index(self1, ((double)SPR_sMenuSelOff));
+            gml_iset_sprite_index(self1, ((float)SPR_sMenuSelOff));
         }
         gm_with_end();
     }
-    gml_fn_instance_activate_object(self, other, ((double)OBJ_oPageUp));
-    if (gml_ge(gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_page), gml_ivar(gml_deref(((double)OBJ_oLoadLevel), self, other), VAR_numPages))) {
-        gml_fn_instance_deactivate_object(self, other, ((double)OBJ_oPageDown));
+    gml_fn_instance_activate_object(self, other, ((float)OBJ_oPageUp));
+    if (gml_ge(gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_page), gml_ivar(gml_deref(((float)OBJ_oLoadLevel), self, other), VAR_numPages))) {
+        gml_fn_instance_deactivate_object(self, other, ((float)OBJ_oPageDown));
     }
 }
 

@@ -5,7 +5,7 @@ static void gml_ev_oArrowTrapTest__Create_0_body(gm_instance_t *self, gm_instanc
 {
     (void)self;
     (void)other;
-    self->vars[VAR_trapID] = 0.0;
+    self->vars[VAR_trapID] = 0.0f;
 }
 
 void gml_ev_oArrowTrapTest__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,23 +21,23 @@ static void gml_ev_oArrowTrapTest__Collision_oBoulder_body(gm_instance_t *self, 
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if ((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0))) {
+        if ((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }
@@ -61,23 +61,23 @@ static void gml_ev_oArrowTrapTest__Collision_oTreasure_body(gm_instance_t *self,
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if ((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0))) {
+        if ((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }
@@ -101,23 +101,23 @@ static void gml_ev_oArrowTrapTest__Collision_oItem_body(gm_instance_t *self, gm_
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if ((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0))) {
+        if ((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }
@@ -141,23 +141,23 @@ static void gml_ev_oArrowTrapTest__Collision_oMoveableSolid_body(gm_instance_t *
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if ((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0))) {
+        if ((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }
@@ -181,23 +181,23 @@ static void gml_ev_oArrowTrapTest__Collision_oEnemy_body(gm_instance_t *self, gm
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if ((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0))) {
+        if ((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }
@@ -221,23 +221,23 @@ static void gml_ev_oArrowTrapTest__Collision_oCharacter_body(gm_instance_t *self
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_eq(self->vars[VAR_trapID], 0.0)) {
+    if (gml_eq(self->vars[VAR_trapID], 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if (((((gml_gt(fabs(other->vars[VAR_xVel]), 0.0) || gml_gt(fabs(other->vars[VAR_yVel]), 0.0)) || (gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sDuckToHangL)) && gml_gt(gml_iget_image_index(gml_deref(((double)OBJ_oPlayer1), self, other)), 6.0))) || (gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sDamselDtHL)) && gml_gt(gml_iget_image_index(gml_deref(((double)OBJ_oPlayer1), self, other)), 6.0))) || (gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sTunnelDtHL)) && gml_gt(gml_iget_image_index(gml_deref(((double)OBJ_oPlayer1), self, other)), 6.0)))) {
+        if (((((gml_gt(fabsf(other->vars[VAR_xVel]), 0.0f) || gml_gt(fabsf(other->vars[VAR_yVel]), 0.0f)) || (gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sDuckToHangL)) && gml_gt(gml_iget_image_index(gml_deref(((float)OBJ_oPlayer1), self, other)), 6.0f))) || (gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sDamselDtHL)) && gml_gt(gml_iget_image_index(gml_deref(((float)OBJ_oPlayer1), self, other)), 6.0f))) || (gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sTunnelDtHL)) && gml_gt(gml_iget_image_index(gml_deref(((float)OBJ_oPlayer1), self, other)), 6.0f)))) {
             {
                 gm_instance_t *self1;
                 gm_with_begin(gml_target(self->vars[VAR_trapID]), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_fired], 0.0)) {
-                        if (gml_eq(self1->vars[VAR_facing], 0.0)) {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0));
+                    if (gml_eq(self1->vars[VAR_fired], 0.0f)) {
+                        if (gml_eq(self1->vars[VAR_facing], 0.0f)) {
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) - 2.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, (-8.0f));
                         } else {
-                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0), (gml_iget_y(self1) + 4.0), ((double)OBJ_oArrow));
-                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0);
+                            self1->vars[VAR_arrow] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 18.0f), (gml_iget_y(self1) + 4.0f), ((float)OBJ_oArrow));
+                            gml_ivar_set(gml_deref(self1->vars[VAR_arrow], self1, self), VAR_xVel, 8.0f);
                         }
-                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0);
+                        self1->vars[VAR_fired] = (self1->vars[VAR_fired] + 1.0f);
                         gml_script_playSound(self1, self, g_gml_globals.sndArrowTrap);
                     }
                 }

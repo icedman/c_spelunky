@@ -6,12 +6,12 @@ static void gml_ev_oPushBlock__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_invincible] = 0.0;
-    gml_script_setCollisionBounds(self, other, 0.0, 0.0, 16.0, 16.0);
+    self->vars[VAR_invincible] = 0.0f;
+    gml_script_setCollisionBounds(self, other, 0.0f, 0.0f, 16.0f, 16.0f);
     if (gml_truthy(g_gml_globals.cityOfGold)) {
-        gml_iset_sprite_index(self, ((double)SPR_sGoldBlock));
+        gml_iset_sprite_index(self, ((float)SPR_sGoldBlock));
     }
-    self->vars[VAR_cleanDeath] = 0.0;
+    self->vars[VAR_cleanDeath] = 0.0f;
 }
 
 void gml_ev_oPushBlock__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,37 +23,37 @@ void gml_ev_oPushBlock__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oPushBlock__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t28 = 0.0;
-    double t29 = 0.0;
-    double t30 = 0.0;
-    double t31 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t28 = 0.0f;
+    float t29 = 0.0f;
+    float t30 = 0.0f;
+    float t31 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -89,21 +89,21 @@ static void gml_ev_oPushBlock__Destroy_0_body(gm_instance_t *self, gm_instance_t
     (void)t31;
     if (((!gml_truthy(self->vars[VAR_cleanDeath])) && (!gml_truthy(g_gml_globals.cleanSolids)))) {
         if ((!gml_truthy(g_gml_globals.cityOfGold))) {
-            self->vars[VAR_rubble] = (t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0), (t1 + gml_script_rand(self, other, 0.0, 8.0))), (t2 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0), (t3 + gml_script_rand(self, other, 0.0, 8.0))), (t4 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubble)));
-            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((double)SPR_sRubbleLush));
-            self->vars[VAR_rubble] = (t10 = (t7 = (t6 = (gml_iget_x(self) + 8.0), (t6 + gml_script_rand(self, other, 0.0, 8.0))), (t7 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t10, (t9 = (t8 = (gml_iget_y(self) + 8.0), (t8 + gml_script_rand(self, other, 0.0, 8.0))), (t9 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubbleSmall)));
-            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((double)SPR_sRubbleLushSmall));
-            self->vars[VAR_rubble] = (t15 = (t12 = (t11 = (gml_iget_x(self) + 8.0), (t11 + gml_script_rand(self, other, 0.0, 8.0))), (t12 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t15, (t14 = (t13 = (gml_iget_y(self) + 8.0), (t13 + gml_script_rand(self, other, 0.0, 8.0))), (t14 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubbleSmall)));
-            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((double)SPR_sRubbleLushSmall));
+            self->vars[VAR_rubble] = (t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0f), (t1 + gml_script_rand(self, other, 0.0f, 8.0f))), (t2 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0f), (t3 + gml_script_rand(self, other, 0.0f, 8.0f))), (t4 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubble)));
+            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((float)SPR_sRubbleLush));
+            self->vars[VAR_rubble] = (t10 = (t7 = (t6 = (gml_iget_x(self) + 8.0f), (t6 + gml_script_rand(self, other, 0.0f, 8.0f))), (t7 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t10, (t9 = (t8 = (gml_iget_y(self) + 8.0f), (t8 + gml_script_rand(self, other, 0.0f, 8.0f))), (t9 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubbleSmall)));
+            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((float)SPR_sRubbleLushSmall));
+            self->vars[VAR_rubble] = (t15 = (t12 = (t11 = (gml_iget_x(self) + 8.0f), (t11 + gml_script_rand(self, other, 0.0f, 8.0f))), (t12 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t15, (t14 = (t13 = (gml_iget_y(self) + 8.0f), (t13 + gml_script_rand(self, other, 0.0f, 8.0f))), (t14 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubbleSmall)));
+            gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((float)SPR_sRubbleLushSmall));
         } else {
-            for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                self->vars[VAR_gold] = (t20 = (t17 = (t16 = (gml_iget_x(self) + 8.0), (t16 + gml_script_rand(self, other, 0.0, 4.0))), (t17 - gml_script_rand(self, other, 0.0, 4.0))), gml_script_instance_create(self, other, t20, (t19 = (t18 = (gml_iget_y(self) + 8.0), (t18 + gml_script_rand(self, other, 0.0, 4.0))), (t19 - gml_script_rand(self, other, 0.0, 4.0))), ((double)OBJ_oGoldChunk)));
-                (t22 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t22, self, other), VAR_xVel, (t21 = gml_script_rand(self, other, 0.0, 3.0), (t21 - gml_script_rand(self, other, 0.0, 3.0)))));
-                (t23 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t23, self, other), VAR_yVel, (gml_script_rand(self, other, 2.0, 4.0) * 1.0)));
+            for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                self->vars[VAR_gold] = (t20 = (t17 = (t16 = (gml_iget_x(self) + 8.0f), (t16 + gml_script_rand(self, other, 0.0f, 4.0f))), (t17 - gml_script_rand(self, other, 0.0f, 4.0f))), gml_script_instance_create(self, other, t20, (t19 = (t18 = (gml_iget_y(self) + 8.0f), (t18 + gml_script_rand(self, other, 0.0f, 4.0f))), (t19 - gml_script_rand(self, other, 0.0f, 4.0f))), ((float)OBJ_oGoldChunk)));
+                (t22 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t22, self, other), VAR_xVel, (t21 = gml_script_rand(self, other, 0.0f, 3.0f), (t21 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+                (t23 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t23, self, other), VAR_yVel, (gml_script_rand(self, other, 2.0f, 4.0f) * 1.0f)));
             }
-            self->vars[VAR_gold] = (t28 = (t25 = (t24 = (gml_iget_x(self) + 8.0), (t24 + gml_script_rand(self, other, 0.0, 4.0))), (t25 - gml_script_rand(self, other, 0.0, 4.0))), gml_script_instance_create(self, other, t28, (t27 = (t26 = (gml_iget_y(self) + 8.0), (t26 + gml_script_rand(self, other, 0.0, 4.0))), (t27 - gml_script_rand(self, other, 0.0, 4.0))), ((double)OBJ_oGoldNugget)));
-            (t30 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t30, self, other), VAR_xVel, (t29 = gml_script_rand(self, other, 0.0, 3.0), (t29 - gml_script_rand(self, other, 0.0, 3.0)))));
-            (t31 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t31, self, other), VAR_yVel, (gml_script_rand(self, other, 2.0, 4.0) * 1.0)));
+            self->vars[VAR_gold] = (t28 = (t25 = (t24 = (gml_iget_x(self) + 8.0f), (t24 + gml_script_rand(self, other, 0.0f, 4.0f))), (t25 - gml_script_rand(self, other, 0.0f, 4.0f))), gml_script_instance_create(self, other, t28, (t27 = (t26 = (gml_iget_y(self) + 8.0f), (t26 + gml_script_rand(self, other, 0.0f, 4.0f))), (t27 - gml_script_rand(self, other, 0.0f, 4.0f))), ((float)OBJ_oGoldNugget)));
+            (t30 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t30, self, other), VAR_xVel, (t29 = gml_script_rand(self, other, 0.0f, 3.0f), (t29 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+            (t31 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t31, self, other), VAR_yVel, (gml_script_rand(self, other, 2.0f, 4.0f) * 1.0f)));
         }
     }
 }
@@ -120,11 +120,11 @@ static void gml_ev_oPushBlock__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 14.0), ((double)OBJ_oLava), 0.0, 0.0)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 17.0), ((double)OBJ_oSolid), 0.0, 0.0))))) {
-        self->vars[VAR_yVel] = 0.0;
-        self->vars[VAR_myGrav] = 0.0;
+    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 14.0f), ((float)OBJ_oLava), 0.0f, 0.0f)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 17.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+        self->vars[VAR_yVel] = 0.0f;
+        self->vars[VAR_myGrav] = 0.0f;
         gml_script_scrMoveableSolidRecurseDrop(self, other);
-        gml_iset_y(self, (gml_iget_y(self) + 0.05));
+        gml_iset_y(self, (gml_iget_y(self) + 0.05f));
     }
 }
 

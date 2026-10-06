@@ -7,39 +7,39 @@ static void gml_ev_oOlmec__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Olmec";
-    self->vars[VAR_shopWall] = 0.0;
+    self->vars[VAR_shopWall] = 0.0f;
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, 2.0, 0.0, 62.0, 64.0);
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yDelta] = (-0.4);
-    self->vars[VAR_myGrav] = 0.2;
-    self->vars[VAR_invincible] = 1.0;
-    self->vars[VAR_viscidTop] = 1.0;
-    self->vars[VAR_carryPlayer] = 0.0;
-    gml_iset_image_speed(self, 0.4);
-    self->vars[VAR_LEFT] = 0.0;
-    self->vars[VAR_RIGHT] = 1.0;
-    self->vars[VAR_facing] = gml_script_rand(self, other, 0.0, 1.0);
-    self->vars[VAR_START2] = (-2.0);
-    self->vars[VAR_START1] = (-1.0);
-    self->vars[VAR_IDLE] = 0.0;
-    self->vars[VAR_BOUNCE] = 1.0;
-    self->vars[VAR_RECOVER] = 2.0;
-    self->vars[VAR_WALK] = 3.0;
-    self->vars[VAR_DROWNING] = 4.0;
-    self->vars[VAR_PREPARE] = 5.0;
-    self->vars[VAR_SLAM] = 6.0;
-    self->vars[VAR_CREATE] = 7.0;
-    self->vars[VAR_DEAD] = 99.0;
-    self->vars[VAR_status] = (-1.0);
-    self->vars[VAR_counter] = 0.0;
-    self->vars[VAR_bounceCounter] = 0.0;
-    self->vars[VAR_slammed] = 0.0;
-    (void)(gml_script___view_set(self, other, (5.0 /* e__VW.HBorder */), 0.0, 0.0));
-    (void)(gml_script___view_set(self, other, (6.0 /* e__VW.VBorder */), 0.0, 0.0));
-    (void)(gml_script___view_set(self, other, (1.0 /* e__VW.YView */), 0.0, 400.0));
-    (void)(gml_script___view_set(self, other, (9.0 /* e__VW.Object */), 0.0, ((double)OBJ_oOlmec)));
+    gml_script_setCollisionBounds(self, other, 2.0f, 0.0f, 62.0f, 64.0f);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yDelta] = (-0.4f);
+    self->vars[VAR_myGrav] = 0.2f;
+    self->vars[VAR_invincible] = 1.0f;
+    self->vars[VAR_viscidTop] = 1.0f;
+    self->vars[VAR_carryPlayer] = 0.0f;
+    gml_iset_image_speed(self, 0.4f);
+    self->vars[VAR_LEFT] = 0.0f;
+    self->vars[VAR_RIGHT] = 1.0f;
+    self->vars[VAR_facing] = gml_script_rand(self, other, 0.0f, 1.0f);
+    self->vars[VAR_START2] = (-2.0f);
+    self->vars[VAR_START1] = (-1.0f);
+    self->vars[VAR_IDLE] = 0.0f;
+    self->vars[VAR_BOUNCE] = 1.0f;
+    self->vars[VAR_RECOVER] = 2.0f;
+    self->vars[VAR_WALK] = 3.0f;
+    self->vars[VAR_DROWNING] = 4.0f;
+    self->vars[VAR_PREPARE] = 5.0f;
+    self->vars[VAR_SLAM] = 6.0f;
+    self->vars[VAR_CREATE] = 7.0f;
+    self->vars[VAR_DEAD] = 99.0f;
+    self->vars[VAR_status] = (-1.0f);
+    self->vars[VAR_counter] = 0.0f;
+    self->vars[VAR_bounceCounter] = 0.0f;
+    self->vars[VAR_slammed] = 0.0f;
+    (void)(gml_script___view_set(self, other, (5.0f /* e__VW.HBorder */), 0.0f, 0.0f));
+    (void)(gml_script___view_set(self, other, (6.0f /* e__VW.VBorder */), 0.0f, 0.0f));
+    (void)(gml_script___view_set(self, other, (1.0f /* e__VW.YView */), 0.0f, 400.0f));
+    (void)(gml_script___view_set(self, other, (9.0f /* e__VW.Object */), 0.0f, ((float)OBJ_oOlmec)));
 }
 
 void gml_ev_oOlmec__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -57,14 +57,14 @@ static void gml_ev_oOlmec__Alarm_6_body(gm_instance_t *self, gm_instance_t *othe
     (void)wd;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oCavemanWorship)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oCavemanWorship)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_obj] = gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((double)OBJ_oCaveman));
+            self1->vars[VAR_obj] = gml_script_instance_create(self1, self, gml_iget_x(self1), gml_iget_y(self1), ((float)OBJ_oCaveman));
             {
                 gm_instance_t *self2;
                 gm_with_begin(gml_target(self1->vars[VAR_obj]), self1, self);
                 while ((self2 = gm_with_next()) != NULL) {
-                    self2->vars[VAR_facing] = 1.0;
+                    self2->vars[VAR_facing] = 1.0f;
                 }
                 gm_with_end();
             }
@@ -72,7 +72,7 @@ static void gml_ev_oOlmec__Alarm_6_body(gm_instance_t *self, gm_instance_t *othe
                 gm_instance_t *self3;
                 gm_with_begin(gml_target(self1->vars[VAR_obj]), self1, self);
                 while ((self3 = gm_with_next()) != NULL) {
-                    self3->vars[VAR_status] = 2.0;
+                    self3->vars[VAR_status] = 2.0f;
                 }
                 gm_with_end();
             }
@@ -95,21 +95,21 @@ static void gml_ev_oOlmec__Alarm_5_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     (void)wd;
-    (void)(gml_script___view_set(self, other, (5.0 /* e__VW.HBorder */), 0.0, (g_gml_globals.display_w / 2.0)));
-    (void)(gml_script___view_set(self, other, (6.0 /* e__VW.VBorder */), 0.0, 64.0));
-    (void)(gml_script___view_set(self, other, (0.0 /* e__VW.XView */), 0.0, 0.0));
-    (void)(gml_script___view_set(self, other, (9.0 /* e__VW.Object */), 0.0, ((double)OBJ_oPlayer1)));
+    (void)(gml_script___view_set(self, other, (5.0f /* e__VW.HBorder */), 0.0f, (g_gml_globals.display_w / 2.0f)));
+    (void)(gml_script___view_set(self, other, (6.0f /* e__VW.VBorder */), 0.0f, 64.0f));
+    (void)(gml_script___view_set(self, other, (0.0f /* e__VW.XView */), 0.0f, 0.0f));
+    (void)(gml_script___view_set(self, other, (9.0f /* e__VW.Object */), 0.0f, ((float)OBJ_oPlayer1)));
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_active] = 1.0;
+            self1->vars[VAR_active] = 1.0f;
         }
         gm_with_end();
     }
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_counter] = 100.0;
-    gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0);
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_counter] = 100.0f;
+    gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0f);
 }
 
 void gml_ev_oOlmec__Alarm_5(gm_instance_t *self, gm_instance_t *other)
@@ -123,11 +123,11 @@ static void gml_ev_oOlmec__Alarm_4_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_toggle] = 1.0;
+    self->vars[VAR_toggle] = 1.0f;
     self->vars[VAR_status] = self->vars[VAR_BOUNCE];
     gml_script_playSound(self, other, g_gml_globals.sndBigJump);
     gml_script_playSound(self, other, g_gml_globals.sndAlert);
-    gml_iset_alarm(self, 6.0, 20.0);
+    gml_iset_alarm(self, 6.0f, 20.0f);
 }
 
 void gml_ev_oOlmec__Alarm_4(gm_instance_t *self, gm_instance_t *other)
@@ -139,12 +139,12 @@ void gml_ev_oOlmec__Alarm_4(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oOlmec__Alarm_3_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -153,14 +153,14 @@ static void gml_ev_oOlmec__Alarm_3_body(gm_instance_t *self, gm_instance_t *othe
     (void)t4;
     (void)t5;
     (void)t6;
-    gml_iset_sprite_index(self, ((double)SPR_sOlmec));
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 12.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_debris] = (t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 64.0))), gml_script_instance_create(self, other, t3, (t2 = (gml_iget_y(self) + 32.0), (t2 + gml_script_rand(self, other, 0.0, 32.0))), ((double)OBJ_oOlmecDebris)));
-        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_xVel, (t4 = gml_script_rand(self, other, 1.0, 4.0), (t4 - gml_script_rand(self, other, 1.0, 4.0)))));
-        (t6 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t6, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0, 3.0))));
+    gml_iset_sprite_index(self, ((float)SPR_sOlmec));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 12.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_debris] = (t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 64.0f))), gml_script_instance_create(self, other, t3, (t2 = (gml_iget_y(self) + 32.0f), (t2 + gml_script_rand(self, other, 0.0f, 32.0f))), ((float)OBJ_oOlmecDebris)));
+        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_xVel, (t4 = gml_script_rand(self, other, 1.0f, 4.0f), (t4 - gml_script_rand(self, other, 1.0f, 4.0f)))));
+        (t6 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t6, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0f, 3.0f))));
     }
     gml_script_playSound(self, other, g_gml_globals.sndThump);
-    gml_iset_alarm(self, 4.0, 50.0);
+    gml_iset_alarm(self, 4.0f, 50.0f);
 }
 
 void gml_ev_oOlmec__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -172,11 +172,11 @@ void gml_ev_oOlmec__Alarm_3(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oOlmec__Alarm_2_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -184,12 +184,12 @@ static void gml_ev_oOlmec__Alarm_2_body(gm_instance_t *self, gm_instance_t *othe
     (void)t3;
     (void)t4;
     (void)t5;
-    gml_iset_sprite_index(self, ((double)SPR_sOlmecStart3));
-    gml_iset_alarm(self, 3.0, 50.0);
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 6.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_debris] = (t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 32.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0, 32.0))), ((double)OBJ_oOlmecDebris)));
-        (t4 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, (-gml_script_rand(self, other, 1.0, 4.0))));
-        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0, 3.0))));
+    gml_iset_sprite_index(self, ((float)SPR_sOlmecStart3));
+    gml_iset_alarm(self, 3.0f, 50.0f);
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 6.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_debris] = (t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 32.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0f, 32.0f))), ((float)OBJ_oOlmecDebris)));
+        (t4 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, (-gml_script_rand(self, other, 1.0f, 4.0f))));
+        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0f, 3.0f))));
     }
     gml_script_playSound(self, other, g_gml_globals.sndThump);
 }
@@ -204,11 +204,11 @@ void gml_ev_oOlmec__Alarm_2(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oOlmec__Alarm_1_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -217,27 +217,27 @@ static void gml_ev_oOlmec__Alarm_1_body(gm_instance_t *self, gm_instance_t *othe
     (void)t3;
     (void)t4;
     (void)t5;
-    gml_iset_sprite_index(self, ((double)SPR_sOlmecStart2));
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 6.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_debris] = (t3 = (t1 = (gml_iget_x(self) + 32.0), (t1 + gml_script_rand(self, other, 0.0, 32.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0, 32.0))), ((double)OBJ_oOlmecDebris)));
-        (t4 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, gml_script_rand(self, other, 1.0, 4.0)));
-        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0, 3.0))));
+    gml_iset_sprite_index(self, ((float)SPR_sOlmecStart2));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 6.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_debris] = (t3 = (t1 = (gml_iget_x(self) + 32.0f), (t1 + gml_script_rand(self, other, 0.0f, 32.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0f, 32.0f))), ((float)OBJ_oOlmecDebris)));
+        (t4 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t4, self, other), VAR_xVel, gml_script_rand(self, other, 1.0f, 4.0f)));
+        (t5 = self->vars[VAR_debris], gml_ivar_set(gml_deref(t5, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0f, 3.0f))));
     }
     gml_script_playSound(self, other, g_gml_globals.sndThump);
     {
         gm_instance_t *self6;
-        gm_with_begin(gml_target(((double)OBJ_oHawkmanWorship)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oHawkmanWorship)), self, other);
         while ((self6 = gm_with_next()) != NULL) {
-            self6->vars[VAR_obj] = gml_script_instance_create(self6, self, gml_iget_x(self6), gml_iget_y(self6), ((double)OBJ_oHawkman));
+            self6->vars[VAR_obj] = gml_script_instance_create(self6, self, gml_iget_x(self6), gml_iget_y(self6), ((float)OBJ_oHawkman));
             {
                 gm_instance_t *self7;
                 gm_with_begin(gml_target(self6->vars[VAR_obj]), self6, self);
                 while ((self7 = gm_with_next()) != NULL) {
-                    self7->vars[VAR_status] = 98.0;
-                    self7->vars[VAR_hp] = 1.0;
-                    self7->vars[VAR_xVel] = (-3.0);
-                    self7->vars[VAR_yVel] = (-5.0);
-                    self7->vars[VAR_counter] = 300.0;
+                    self7->vars[VAR_status] = 98.0f;
+                    self7->vars[VAR_hp] = 1.0f;
+                    self7->vars[VAR_xVel] = (-3.0f);
+                    self7->vars[VAR_yVel] = (-5.0f);
+                    self7->vars[VAR_counter] = 300.0f;
                 }
                 gm_with_end();
             }
@@ -247,14 +247,14 @@ static void gml_ev_oOlmec__Alarm_1_body(gm_instance_t *self, gm_instance_t *othe
     }
     {
         gm_instance_t *self8;
-        gm_with_begin(gml_target(((double)OBJ_oCavemanWorship)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oCavemanWorship)), self, other);
         while ((self8 = gm_with_next()) != NULL) {
-            gml_iset_image_index(self8, 0.0);
-            gml_iset_image_speed(self8, 0.0);
+            gml_iset_image_index(self8, 0.0f);
+            gml_iset_image_speed(self8, 0.0f);
         }
         gm_with_end();
     }
-    gml_iset_alarm(self, 2.0, 50.0);
+    gml_iset_alarm(self, 2.0f, 50.0f);
 }
 
 void gml_ev_oOlmec__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -266,13 +266,13 @@ void gml_ev_oOlmec__Alarm_1(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oOlmec__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int32_t n2 = 0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -283,179 +283,179 @@ static void gml_ev_oOlmec__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)t6;
     (void)t7;
     gml_script_action_inherited(self, other);
-    if ((gml_truthy(self->vars[VAR_carryPlayer]) || gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0), gml_iget_y(self), (gml_iget_x(self) + 66.0), (gml_iget_y(self) + 62.0), ((double)OBJ_oPlayer1), 0.0, 0.0)))) {
-        gml_iset_x(gml_deref(((double)OBJ_oPlayer1), self, other), (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + self->vars[VAR_xVel]));
-        gml_iset_y(gml_deref(((double)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) + self->vars[VAR_yVel]));
+    if ((gml_truthy(self->vars[VAR_carryPlayer]) || gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0f), gml_iget_y(self), (gml_iget_x(self) + 66.0f), (gml_iget_y(self) + 62.0f), ((float)OBJ_oPlayer1), 0.0f, 0.0f)))) {
+        gml_iset_x(gml_deref(((float)OBJ_oPlayer1), self, other), (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + self->vars[VAR_xVel]));
+        gml_iset_y(gml_deref(((float)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) + self->vars[VAR_yVel]));
     }
     gml_script_moveTo(self, other, self->vars[VAR_xVel], self->vars[VAR_yVel]);
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
         self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
     }
-    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) - 16.0), ((double)OBJ_oOlmecSlam)));
-        gml_iset_y(self, (gml_iget_y(self) + 1.0));
-        if (gml_lt(self->vars[VAR_yVel], 0.0)) {
-            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8);
+    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0f))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) - 16.0f), ((float)OBJ_oOlmecSlam)));
+        gml_iset_y(self, (gml_iget_y(self) + 1.0f));
+        if (gml_lt(self->vars[VAR_yVel], 0.0f)) {
+            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8f);
         }
     }
-    if (gml_truthy(gml_script_isCollisionLeft(self, other, 1.0))) {
-        gml_iset_x(self, (gml_iget_x(self) + 1.0));
-        self->vars[VAR_xVel] = 0.0;
+    if (gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f))) {
+        gml_iset_x(self, (gml_iget_x(self) + 1.0f));
+        self->vars[VAR_xVel] = 0.0f;
     }
-    if (gml_truthy(gml_script_isCollisionRight(self, other, 1.0))) {
-        gml_iset_x(self, (gml_iget_x(self) - 1.0));
-        self->vars[VAR_xVel] = 0.0;
+    if (gml_truthy(gml_script_isCollisionRight(self, other, 1.0f))) {
+        gml_iset_x(self, (gml_iget_x(self) - 1.0f));
+        self->vars[VAR_xVel] = 0.0f;
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 64.0), ((double)OBJ_oLava), 0.0, 0.0))) {
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 64.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
         self->vars[VAR_status] = self->vars[VAR_DROWNING];
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 2.0), ((double)OBJ_oLava), 0.0, 0.0))) {
-        gml_aset(&g_gml_gvals[GV_enemyKills], 21.0, gml_add(gml_aget(g_gml_gvals[GV_enemyKills], 21.0), gml_vreal(1.0)));
-        g_gml_globals.olmecDead = 1.0;
-        g_gml_globals.kills = (g_gml_globals.kills + 1.0);
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) - 2.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
+        gml_aset(&g_gml_gvals[GV_enemyKills], 21.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyKills], 21.0f), gml_vreal(1.0f)));
+        g_gml_globals.olmecDead = 1.0f;
+        g_gml_globals.kills = (g_gml_globals.kills + 1.0f);
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    self->vars[VAR_dist] = (gml_fn_distance_to_object(self, other, ((double)OBJ_oPlayer1)) + 32.0);
-    if (gml_truthy(gml_fn_collision_rectangle(self, other, gml_iget_x(self), (gml_iget_y(self) - 2.0), (gml_iget_x(self) + 64.0), (gml_iget_y(self) + 64.0), ((double)OBJ_oPlayer1), 0.0, 0.0))) {
-        self->vars[VAR_carryPlayer] = 1.0;
+    self->vars[VAR_dist] = (gml_fn_distance_to_object(self, other, ((float)OBJ_oPlayer1)) + 32.0f);
+    if (gml_truthy(gml_fn_collision_rectangle(self, other, gml_iget_x(self), (gml_iget_y(self) - 2.0f), (gml_iget_x(self) + 64.0f), (gml_iget_y(self) + 64.0f), ((float)OBJ_oPlayer1), 0.0f, 0.0f))) {
+        self->vars[VAR_carryPlayer] = 1.0f;
     } else {
-        self->vars[VAR_carryPlayer] = 0.0;
+        self->vars[VAR_carryPlayer] = 0.0f;
     }
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_START1])) {
-        if ((t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_lt(t1, (176.0 - g_gml_globals.room_offset)))) {
-            (void)(gml_script___view_set(self, other, (0.0 /* e__VW.XView */), 0.0, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 2.0)));
+        if ((t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_lt(t1, (176.0f - g_gml_globals.room_offset)))) {
+            (void)(gml_script___view_set(self, other, (0.0f /* e__VW.XView */), 0.0f, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 2.0f)));
         } else {
-            gml_iset_alarm(self, 1.0, 100.0);
+            gml_iset_alarm(self, 1.0f, 100.0f);
             self->vars[VAR_status] = self->vars[VAR_START2];
         }
-        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-            self->vars[VAR_yVel] = 0.0;
+        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+            self->vars[VAR_yVel] = 0.0f;
         }
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_START2])) {
-            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-                self->vars[VAR_yVel] = 0.0;
+            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+                self->vars[VAR_yVel] = 0.0f;
             }
         } else {
             if (gml_eq(self->vars[VAR_status], self->vars[VAR_IDLE])) {
-                if (gml_gt(self->vars[VAR_counter], 0.0)) {
-                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+                if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
                 }
-                if (gml_eq(self->vars[VAR_counter], 0.0)) {
+                if (gml_eq(self->vars[VAR_counter], 0.0f)) {
                     self->vars[VAR_status] = self->vars[VAR_BOUNCE];
                 }
-                if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-                    self->vars[VAR_yVel] = 0.0;
+                if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+                    self->vars[VAR_yVel] = 0.0f;
                 }
-                self->vars[VAR_toggle] = 1.0;
+                self->vars[VAR_toggle] = 1.0f;
             } else {
                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_CREATE])) {
-                    for (n2 = gml_repeat_count(6.0); n2 > 0; --n2) {
-                        (void)((t7 = (t4 = (t3 = (gml_iget_x(self) + 32.0), (t3 + gml_script_rand(self, other, 0.0, 32.0))), (t4 - gml_script_rand(self, other, 0.0, 32.0))), gml_script_instance_create(self, other, t7, (t6 = (t5 = (gml_iget_y(self) + 14.0), (t5 + gml_script_rand(self, other, 0.0, 32.0))), (t6 - gml_script_rand(self, other, 0.0, 32.0))), ((double)OBJ_oPsychicCreate2))));
+                    for (n2 = gml_repeat_count(6.0f); n2 > 0; --n2) {
+                        (void)((t7 = (t4 = (t3 = (gml_iget_x(self) + 32.0f), (t3 + gml_script_rand(self, other, 0.0f, 32.0f))), (t4 - gml_script_rand(self, other, 0.0f, 32.0f))), gml_script_instance_create(self, other, t7, (t6 = (t5 = (gml_iget_y(self) + 14.0f), (t5 + gml_script_rand(self, other, 0.0f, 32.0f))), (t6 - gml_script_rand(self, other, 0.0f, 32.0f))), ((float)OBJ_oPsychicCreate2))));
                     }
-                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oYellowBall)));
-                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oYellowBall)));
-                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oYellowBall)));
+                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oYellowBall)));
+                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oYellowBall)));
+                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 32.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oYellowBall)));
                     gml_script_playSound(self, other, g_gml_globals.sndPsychic);
                     self->vars[VAR_status] = self->vars[VAR_IDLE];
                 } else {
                     if (gml_eq(self->vars[VAR_status], self->vars[VAR_RECOVER])) {
-                        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
+                        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
                             gml_script_playSound(self, other, g_gml_globals.sndThump);
                             self->vars[VAR_status] = self->vars[VAR_IDLE];
-                            self->vars[VAR_xVel] = 0.0;
-                            self->vars[VAR_yVel] = 0.0;
-                            self->vars[VAR_counter] = gml_script_rand(self, other, 40.0, 100.0);
+                            self->vars[VAR_xVel] = 0.0f;
+                            self->vars[VAR_yVel] = 0.0f;
+                            self->vars[VAR_counter] = gml_script_rand(self, other, 40.0f, 100.0f);
                         } else {
-                            if (gml_gt(self->vars[VAR_counter], 1.0)) {
-                                self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+                            if (gml_gt(self->vars[VAR_counter], 1.0f)) {
+                                self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
                             } else {
-                                if (gml_eq(self->vars[VAR_counter], 1.0)) {
-                                    if (gml_lt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
-                                        self->vars[VAR_xVel] = (-0.25);
+                                if (gml_eq(self->vars[VAR_counter], 1.0f)) {
+                                    if (gml_lt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
+                                        self->vars[VAR_xVel] = (-0.25f);
                                     } else {
-                                        if (gml_gt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), (gml_iget_x(self) + 64.0))) {
-                                            self->vars[VAR_xVel] = 0.25;
+                                        if (gml_gt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), (gml_iget_x(self) + 64.0f))) {
+                                            self->vars[VAR_xVel] = 0.25f;
                                         } else {
-                                            self->vars[VAR_xVel] = 0.0;
+                                            self->vars[VAR_xVel] = 0.0f;
                                         }
                                     }
-                                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+                                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
                                 } else {
-                                    if ((gml_lt(self->vars[VAR_xVel], 0.0) && gml_truthy(self->vars[VAR_toggle]))) {
-                                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.25);
+                                    if ((gml_lt(self->vars[VAR_xVel], 0.0f) && gml_truthy(self->vars[VAR_toggle]))) {
+                                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.25f);
                                     } else {
-                                        if ((gml_lt(self->vars[VAR_xVel], 0.0) && (!gml_truthy(self->vars[VAR_toggle])))) {
-                                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.25);
+                                        if ((gml_lt(self->vars[VAR_xVel], 0.0f) && (!gml_truthy(self->vars[VAR_toggle])))) {
+                                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.25f);
                                         }
                                     }
-                                    if ((gml_gt(self->vars[VAR_xVel], 0.0) && gml_truthy(self->vars[VAR_toggle]))) {
-                                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.25);
+                                    if ((gml_gt(self->vars[VAR_xVel], 0.0f) && gml_truthy(self->vars[VAR_toggle]))) {
+                                        self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.25f);
                                     } else {
-                                        if ((gml_gt(self->vars[VAR_xVel], 0.0) && (!gml_truthy(self->vars[VAR_toggle])))) {
-                                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.25);
+                                        if ((gml_gt(self->vars[VAR_xVel], 0.0f) && (!gml_truthy(self->vars[VAR_toggle])))) {
+                                            self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.25f);
                                         }
                                     }
-                                    if ((gml_le(self->vars[VAR_xVel], (-2.0)) || gml_ge(self->vars[VAR_xVel], 2.0))) {
-                                        self->vars[VAR_toggle] = ((!gml_truthy(self->vars[VAR_toggle])) ? 1.0 : 0.0);
+                                    if ((gml_le(self->vars[VAR_xVel], (-2.0f)) || gml_ge(self->vars[VAR_xVel], 2.0f))) {
+                                        self->vars[VAR_toggle] = ((!gml_truthy(self->vars[VAR_toggle])) ? 1.0f : 0.0f);
                                     }
                                 }
                             }
-                            if ((((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active))) && gml_ge(self->vars[VAR_yVel], 0.0)) || ((gml_gt(gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_y(self)) && gml_lt(fabs((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - (gml_iget_x(self) + 32.0))), 32.0)) && gml_gt(self->vars[VAR_xVel], (-1.0))))) {
+                            if ((((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active))) && gml_ge(self->vars[VAR_yVel], 0.0f)) || ((gml_gt(gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_y(self)) && gml_lt(fabsf((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - (gml_iget_x(self) + 32.0f))), 32.0f)) && gml_gt(self->vars[VAR_xVel], (-1.0f))))) {
                                 self->vars[VAR_status] = self->vars[VAR_PREPARE];
-                                self->vars[VAR_yVel] = 0.0;
-                                self->vars[VAR_xVel] = 0.0;
-                                self->vars[VAR_myGrav] = 0.0;
-                                self->vars[VAR_counter] = 20.0;
+                                self->vars[VAR_yVel] = 0.0f;
+                                self->vars[VAR_xVel] = 0.0f;
+                                self->vars[VAR_myGrav] = 0.0f;
+                                self->vars[VAR_counter] = 20.0f;
                             }
                         }
                     } else {
                         if (gml_eq(self->vars[VAR_status], self->vars[VAR_BOUNCE])) {
-                            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-                                self->vars[VAR_yVel] = (-4.0);
+                            if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+                                self->vars[VAR_yVel] = (-4.0f);
                             } else {
-                                self->vars[VAR_counter] = 10.0;
+                                self->vars[VAR_counter] = 10.0f;
                                 self->vars[VAR_status] = self->vars[VAR_RECOVER];
                                 gml_script_playSound(self, other, g_gml_globals.sndBigJump);
                             }
                         } else {
                             if (gml_eq(self->vars[VAR_status], self->vars[VAR_PREPARE])) {
-                                if (gml_gt(self->vars[VAR_counter], 0.0)) {
-                                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+                                if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+                                    self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
                                 } else {
-                                    self->vars[VAR_yVel] = 5.0;
-                                    self->vars[VAR_myGrav] = 0.2;
+                                    self->vars[VAR_yVel] = 5.0f;
+                                    self->vars[VAR_myGrav] = 0.2f;
                                     self->vars[VAR_status] = self->vars[VAR_SLAM];
-                                    self->vars[VAR_slammed] = 0.0;
+                                    self->vars[VAR_slammed] = 0.0f;
                                 }
                             } else {
                                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_SLAM])) {
-                                    self->vars[VAR_carryPlayer] = 0.0;
-                                    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
+                                    self->vars[VAR_carryPlayer] = 0.0f;
+                                    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
                                         if ((!gml_truthy(self->vars[VAR_slammed]))) {
-                                            (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 64.0), ((double)OBJ_oOlmecSlam)));
-                                            self->vars[VAR_slammed] = 1.0;
-                                            gml_script_scrShake(self, other, 5.0);
+                                            (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 64.0f), ((float)OBJ_oOlmecSlam)));
+                                            self->vars[VAR_slammed] = 1.0f;
+                                            gml_script_scrShake(self, other, 5.0f);
                                         } else {
-                                            if ((gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0) || (!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active))))) {
+                                            if ((gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f) || (!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active))))) {
                                                 self->vars[VAR_status] = self->vars[VAR_IDLE];
                                             } else {
                                                 self->vars[VAR_status] = self->vars[VAR_CREATE];
                                             }
-                                            self->vars[VAR_xVel] = 0.0;
-                                            self->vars[VAR_yVel] = 0.0;
-                                            self->vars[VAR_counter] = 60.0;
-                                            if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active)))) {
-                                                gml_iset_alarm(self, 5.0, 50.0);
+                                            self->vars[VAR_xVel] = 0.0f;
+                                            self->vars[VAR_yVel] = 0.0f;
+                                            self->vars[VAR_counter] = 60.0f;
+                                            if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active)))) {
+                                                gml_iset_alarm(self, 5.0f, 50.0f);
                                             }
                                         }
                                     }
                                 } else {
                                     if (gml_eq(self->vars[VAR_status], self->vars[VAR_DROWNING])) {
-                                        self->vars[VAR_xVel] = 0.0;
-                                        self->vars[VAR_yVel] = 0.1;
-                                        self->vars[VAR_myGrav] = 0.0;
-                                        gml_script_scrShake(self, other, 10.0);
+                                        self->vars[VAR_xVel] = 0.0f;
+                                        self->vars[VAR_yVel] = 0.1f;
+                                        self->vars[VAR_myGrav] = 0.0f;
+                                        gml_script_scrShake(self, other, 10.0f);
                                         if ((!gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.sndFlame)))) {
                                             gml_script_playSound(self, other, g_gml_globals.sndFlame);
                                         }
@@ -468,14 +468,14 @@ static void gml_ev_oOlmec__Step_0_body(gm_instance_t *self, gm_instance_t *other
             }
         }
     }
-    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0))) {
-        self->vars[VAR_yVel] = 1.0;
+    if (gml_truthy(gml_script_isCollisionTop(self, other, 1.0f))) {
+        self->vars[VAR_yVel] = 1.0f;
     }
-    if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0)))) {
+    if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0f)))) {
         self->vars[VAR_xVel] = (-self->vars[VAR_xVel]);
     }
     if (gml_truthy(gml_script_isCollisionSolid(self, other))) {
-        gml_iset_y(self, (gml_iget_y(self) - 2.0));
+        gml_iset_y(self, (gml_iget_y(self) - 2.0f));
     }
 }
 

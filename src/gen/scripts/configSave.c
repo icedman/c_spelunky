@@ -3,7 +3,7 @@
 
 void gml_script_configSave(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_settingsMap = 0.0;
+    float l_settingsMap = 0.0f;
     (void)self;
     (void)other;
     (void)l_settingsMap;
@@ -14,10 +14,10 @@ void gml_script_configSave(gm_instance_t *self, gm_instance_t *other)
     gml_fn_ds_map_replace(self, other, l_settingsMap, "locale", g_gml_gvals[GV_locale]);
     gml_fn_ds_map_replace(self, other, l_settingsMap, "locale2", g_gml_gvals[GV_locale2]);
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        gml_fn_ds_map_replace(self, other, l_settingsMap, "fullscreen", gml_vreal((gml_truthy(g_gml_globals.fullscreen) ? 1.0 : 0.0)));
-        gml_fn_ds_map_replace(self, other, l_settingsMap, "music", gml_vreal((gml_truthy(g_gml_globals.music) ? 1.0 : 0.0)));
-        gml_fn_ds_map_replace(self, other, l_settingsMap, "toggleRunEnabled", gml_vreal((gml_truthy(g_gml_globals.toggleRunEnabled) ? 1.0 : 0.0)));
-        gml_fn_ds_map_replace(self, other, l_settingsMap, "firstLaunch", gml_vreal((gml_truthy(g_gml_globals.firstLaunch) ? 1.0 : 0.0)));
+        gml_fn_ds_map_replace(self, other, l_settingsMap, "fullscreen", gml_vreal((gml_truthy(g_gml_globals.fullscreen) ? 1.0f : 0.0f)));
+        gml_fn_ds_map_replace(self, other, l_settingsMap, "music", gml_vreal((gml_truthy(g_gml_globals.music) ? 1.0f : 0.0f)));
+        gml_fn_ds_map_replace(self, other, l_settingsMap, "toggleRunEnabled", gml_vreal((gml_truthy(g_gml_globals.toggleRunEnabled) ? 1.0f : 0.0f)));
+        gml_fn_ds_map_replace(self, other, l_settingsMap, "firstLaunch", gml_vreal((gml_truthy(g_gml_globals.firstLaunch) ? 1.0f : 0.0f)));
     } else {
         gml_fn_ds_map_replace(self, other, l_settingsMap, "fullscreen", gml_vreal(g_gml_globals.fullscreen));
         gml_fn_ds_map_replace(self, other, l_settingsMap, "music", gml_vreal(g_gml_globals.music));

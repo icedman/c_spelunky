@@ -6,12 +6,12 @@ static void gml_ev_oIceBlock__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_invincible] = 0.0;
-    gml_script_setCollisionBounds(self, other, 0.0, 0.0, 16.0, 16.0);
+    self->vars[VAR_invincible] = 0.0f;
+    gml_script_setCollisionBounds(self, other, 0.0f, 0.0f, 16.0f, 16.0f);
     if (gml_truthy(g_gml_globals.cityOfGold)) {
-        gml_iset_sprite_index(self, ((double)SPR_sGoldBlock));
+        gml_iset_sprite_index(self, ((float)SPR_sGoldBlock));
     }
-    self->vars[VAR_cleanDeath] = 0.0;
+    self->vars[VAR_cleanDeath] = 0.0f;
 }
 
 void gml_ev_oIceBlock__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,9 +24,9 @@ void gml_ev_oIceBlock__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oIceBlock__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int32_t n1 = 0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)n1;
@@ -34,8 +34,8 @@ static void gml_ev_oIceBlock__Destroy_0_body(gm_instance_t *self, gm_instance_t 
     (void)t3;
     (void)t4;
     if (((!gml_truthy(self->vars[VAR_cleanDeath])) && (!gml_truthy(g_gml_globals.cleanSolids)))) {
-        for (n1 = gml_repeat_count(3.0); n1 > 0; --n1) {
-            (void)((t4 = (t2 = gml_iget_x(self), (t2 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t4, (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oDrip))));
+        for (n1 = gml_repeat_count(3.0f); n1 > 0; --n1) {
+            (void)((t4 = (t2 = gml_iget_x(self), (t2 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t4, (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oDrip))));
         }
     }
 }
@@ -52,12 +52,12 @@ static void gml_ev_oIceBlock__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oLava), 0.0, 0.0)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 17.0), ((double)OBJ_oSolid), 0.0, 0.0))))) {
-        self->vars[VAR_yVel] = 0.0;
-        self->vars[VAR_myGrav] = 0.0;
-        gml_iset_y(self, (gml_iget_y(self) + 0.05));
+    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oLava), 0.0f, 0.0f)) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 17.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+        self->vars[VAR_yVel] = 0.0f;
+        self->vars[VAR_myGrav] = 0.0f;
+        gml_iset_y(self, (gml_iget_y(self) + 0.05f));
     }
-    if (gml_gt(gml_iget_y(self), 576.0)) {
+    if (gml_gt(gml_iget_y(self), 576.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

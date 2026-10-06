@@ -6,7 +6,7 @@ static void gml_ev_oChain__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     self->strs[SVAR_type] = "Chain";
-    self->vars[VAR_linkVal] = 2.0;
+    self->vars[VAR_linkVal] = 2.0f;
 }
 
 void gml_ev_oChain__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,11 +20,11 @@ static void gml_ev_oChain__Step_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oBall))))) {
+    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oBall))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oBall), self, other)) + (((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_x(gml_deref(((double)OBJ_oBall), self, other))) / 4.0) * self->vars[VAR_linkVal])));
-        gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oBall), self, other)) + (((gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_y(gml_deref(((double)OBJ_oBall), self, other))) / 4.0) * self->vars[VAR_linkVal])));
+        gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oBall), self, other)) + (((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_x(gml_deref(((float)OBJ_oBall), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
+        gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oBall), self, other)) + (((gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_y(gml_deref(((float)OBJ_oBall), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
     }
 }
 

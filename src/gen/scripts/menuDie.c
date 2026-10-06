@@ -7,37 +7,37 @@ void gml_script_menuDie(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     (void)wd;
-    if (((gml_truthy(self->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0)) && gml_truthy(gml_script_isLevel(self, other)))) {
+    if (((gml_truthy(self->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0f)) && gml_truthy(gml_script_isLevel(self, other)))) {
         gml_fn_instance_activate_all(self, other);
-        self->vars[VAR_paused] = 0.0;
+        self->vars[VAR_paused] = 0.0f;
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                if (gml_eq(self1->vars[VAR_facing], 18.0)) {
-                    self1->vars[VAR_xVel] = (-3.0);
+                if (gml_eq(self1->vars[VAR_facing], 18.0f)) {
+                    self1->vars[VAR_xVel] = (-3.0f);
                 } else {
-                    self1->vars[VAR_xVel] = 3.0;
+                    self1->vars[VAR_xVel] = 3.0f;
                 }
-                self1->vars[VAR_yVel] = (-6.0);
-                g_gml_globals.plife = (-99.0);
+                self1->vars[VAR_yVel] = (-6.0f);
+                g_gml_globals.plife = (-99.0f);
             }
             gm_with_end();
         }
         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTitle))) {
-            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, 10000.0);
+            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, 10000.0f);
         }
         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musCave))) {
-            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, 10000.0);
+            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, 10000.0f);
         }
         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musLush))) {
-            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, 10000.0);
+            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, 10000.0f);
         }
         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTemple))) {
-            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, 10000.0);
+            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, 10000.0f);
         }
         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musBoss))) {
-            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, 10000.0);
+            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, 10000.0f);
         }
         gml_script_stopAllMusic(self, other);
     }

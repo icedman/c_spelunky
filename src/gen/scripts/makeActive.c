@@ -5,8 +5,8 @@ void gml_script_makeActive(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_xAcc] = 0.0;
-    self->vars[VAR_yAcc] = 0.0;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_xAcc] = 0.0f;
+    self->vars[VAR_yAcc] = 0.0f;
 }

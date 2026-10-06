@@ -60,8 +60,8 @@ typedef enum {
 
 typedef struct sp_gamepad_state {
     bool connected;
-    double button_value[SP_GAMEPAD_BUTTON_COUNT]; /* 0.0 .. 1.0 (analog triggers) */
-    double axis[SP_GAMEPAD_AXIS_COUNT];           /* -1.0 .. 1.0 */
+    float button_value[SP_GAMEPAD_BUTTON_COUNT]; /* 0.0 .. 1.0 (analog triggers) */
+    float axis[SP_GAMEPAD_AXIS_COUNT];           /* -1.0 .. 1.0 */
 } sp_gamepad_state_t;
 
 typedef struct sp_input_state {
@@ -87,7 +87,7 @@ typedef struct sp_platform_interface {
     /* Ends a frame: the application surface, scaled to fit, is shown in the window. */
     void (*present)(void *user_data);
     /* Fills the current target. */
-    void (*clear)(void *user_data, uint32_t colour, double alpha);
+    void (*clear)(void *user_data, uint32_t colour, float alpha);
 
     /* ---- Images ---- */
     /* sprite_add: loads `path` (a horizontal strip of `frames` frames) as sprite index
@@ -97,26 +97,26 @@ typedef struct sp_platform_interface {
      * (xorig, yorig) lands on (x, y), scaled (negative = mirrored) and rotated
      * `angle` degrees counter-clockwise around that point, tinted by colour. */
     void (*draw_image)(void *user_data, int sprite, int frame, int sx, int sy, int sw, int sh,
-                       double x, double y, double xorig, double yorig, double xscale, double yscale,
-                       double angle, uint32_t colour, double alpha);
-    void (*draw_rect)(void *user_data, double x1, double y1, double x2, double y2,
-                      uint32_t colour, double alpha, bool outline);
-    void (*draw_circle)(void *user_data, double x, double y, double r,
-                        uint32_t colour, double alpha, bool outline);
+                       float x, float y, float xorig, float yorig, float xscale, float yscale,
+                       float angle, uint32_t colour, float alpha);
+    void (*draw_rect)(void *user_data, float x1, float y1, float x2, float y2,
+                      uint32_t colour, float alpha, bool outline);
+    void (*draw_circle)(void *user_data, float x, float y, float r,
+                        uint32_t colour, float alpha, bool outline);
 
     /* ---- Text ---- */
     /* Returns a font handle > 0, or 0 on failure. Font 0 is the host's default font. */
     int (*font_load)(void *user_data, const char *path, int size);
     /* Top-left aligned; "\n" starts a new line. */
-    void (*draw_text)(void *user_data, int font, const char *text, double x, double y,
-                      double scale, uint32_t colour, double alpha);
+    void (*draw_text)(void *user_data, int font, const char *text, float x, float y,
+                      float scale, uint32_t colour, float alpha);
 
     /* ---- Surfaces (render targets) ---- */
     int (*surface_create)(void *user_data, int w, int h);   /* handle > 0, or 0 */
     void (*surface_free)(void *user_data, int surface);
     void (*surface_target)(void *user_data, int surface);   /* 0: the application surface */
-    void (*draw_surface)(void *user_data, int surface, double x, double y, double w, double h,
-                         double alpha);
+    void (*draw_surface)(void *user_data, int surface, float x, float y, float w, float h,
+                         float alpha);
 
     /* ---- Window ---- */
     void (*window_size)(void *user_data, int *w, int *h);
@@ -176,7 +176,7 @@ static bool sp__null_poll_events(void *ud, sp_input_state_t *out_input)
 
 static void sp__null_begin_frame(void *ud, int w, int h) { (void)ud; (void)w; (void)h; }
 static void sp__null_present(void *ud) { (void)ud; }
-static void sp__null_clear(void *ud, uint32_t c, double a) { (void)ud; (void)c; (void)a; }
+static void sp__null_clear(void *ud, uint32_t c, float a) { (void)ud; (void)c; (void)a; }
 
 static bool sp__null_sprite_load(void *ud, int sprite, const char *path, int frames, int *w, int *h)
 {
@@ -191,20 +191,20 @@ static bool sp__null_sprite_load(void *ud, int sprite, const char *path, int fra
 }
 
 static void sp__null_draw_image(void *ud, int sprite, int frame, int sx, int sy, int sw, int sh,
-                                double x, double y, double xo, double yo, double xs, double ys,
-                                double angle, uint32_t c, double a)
+                                float x, float y, float xo, float yo, float xs, float ys,
+                                float angle, uint32_t c, float a)
 {
     (void)ud; (void)sprite; (void)frame; (void)sx; (void)sy; (void)sw; (void)sh;
     (void)x; (void)y; (void)xo; (void)yo; (void)xs; (void)ys; (void)angle; (void)c; (void)a;
 }
 
-static void sp__null_draw_rect(void *ud, double x1, double y1, double x2, double y2,
-                               uint32_t c, double a, bool outline)
+static void sp__null_draw_rect(void *ud, float x1, float y1, float x2, float y2,
+                               uint32_t c, float a, bool outline)
 {
     (void)ud; (void)x1; (void)y1; (void)x2; (void)y2; (void)c; (void)a; (void)outline;
 }
 
-static void sp__null_draw_circle(void *ud, double x, double y, double r, uint32_t c, double a,
+static void sp__null_draw_circle(void *ud, float x, float y, float r, uint32_t c, float a,
                                  bool outline)
 {
     (void)ud; (void)x; (void)y; (void)r; (void)c; (void)a; (void)outline;
@@ -216,8 +216,8 @@ static int sp__null_font_load(void *ud, const char *path, int size)
     return 0;
 }
 
-static void sp__null_draw_text(void *ud, int font, const char *text, double x, double y,
-                               double scale, uint32_t c, double a)
+static void sp__null_draw_text(void *ud, int font, const char *text, float x, float y,
+                               float scale, uint32_t c, float a)
 {
     (void)ud; (void)font; (void)text; (void)x; (void)y; (void)scale; (void)c; (void)a;
 }
@@ -234,7 +234,7 @@ static int sp__null_surface_create(void *ud, int w, int h)
 static void sp__null_surface_free(void *ud, int s) { (void)ud; (void)s; }
 static void sp__null_surface_target(void *ud, int s) { (void)ud; (void)s; }
 
-static void sp__null_draw_surface(void *ud, int s, double x, double y, double w, double h, double a)
+static void sp__null_draw_surface(void *ud, int s, float x, float y, float w, float h, float a)
 {
     (void)ud; (void)s; (void)x; (void)y; (void)w; (void)h; (void)a;
 }

@@ -8,82 +8,82 @@ static void gml_ev_oScreen__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     gml_script_scrReadStats(self, other);
     gml_script_scrInit(self, other);
     gml_fn_instance_destroy(self, other, 0, NULL);
-    self->vars[VAR_py] = 0.0;
-    self->vars[VAR_screen_x] = 0.0;
-    self->vars[VAR_screen_y] = 0.0;
+    self->vars[VAR_py] = 0.0f;
+    self->vars[VAR_screen_x] = 0.0f;
+    self->vars[VAR_screen_y] = 0.0f;
     self->vars[VAR_screen_w] = gml_fn_display_get_width(self, other);
     self->vars[VAR_screen_h] = gml_fn_display_get_height(self, other);
-    self->vars[VAR_enabled] = 1.0;
-    self->vars[VAR_pSurf] = (-1.0);
+    self->vars[VAR_enabled] = 1.0f;
+    self->vars[VAR_pSurf] = (-1.0f);
     (void)(gml_fn_surface_create(self, other, self->vars[VAR_screen_w], self->vars[VAR_screen_h]));
-    self->vars[VAR_canPause] = 1.0;
-    self->vars[VAR_paused] = 0.0;
-    self->vars[VAR_screen] = (-1.0);
+    self->vars[VAR_canPause] = 1.0f;
+    self->vars[VAR_paused] = 0.0f;
+    self->vars[VAR_screen] = (-1.0f);
     self->vars[VAR_darkSurf] = gml_fn_surface_create(self, other, self->vars[VAR_screen_w], self->vars[VAR_screen_h]);
-    self->vars[VAR_h] = 240.0;
+    self->vars[VAR_h] = 240.0f;
     g_gml_globals.screenAspectRatio = (self->vars[VAR_screen_w] / self->vars[VAR_screen_h]);
-    self->vars[VAR_w] = gm_round((240.0 * g_gml_globals.screenAspectRatio));
-    g_gml_globals.touchCorrectionH = 0.0;
-    g_gml_globals.touchCorrectionV = 0.0;
-    g_gml_globals.room_offset = ((self->vars[VAR_w] - 320.0) / 2.0);
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rIntro), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 0.0, (-1.0), (-1.0), ((double)OBJ_oPDummy3)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rCredits1), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rCredits2), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTitle), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rHighscores), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rSun), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rMoon), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rStars), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rLevelEditor), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, (-1.0), (-1.0), (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rLoadLevel), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTutorial), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rLevel), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rLevel2), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rLevel3), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rOlmec), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0), 96.0, (-1.0), (-1.0), ((double)OBJ_oPlayer1)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition1), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition1x), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition2), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition2x), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition3), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition3x), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rTransition4), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rEnd), 0.0, 1.0, 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, ((double)OBJ_oPDummy)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rEnd2), 0.0, 1.0, ((-2.0) * g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], ((-2.0) * g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rEnd3), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rEndCustom), 0.0, 1.0, (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0, self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    self->vars[VAR_conf_x] = ((self->vars[VAR_w] - 160.0) / 2.0);
-    self->vars[VAR_conf_y] = (((self->vars[VAR_h] - 120.0) - 32.0) / 2.0);
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rKeyConfig), 0.0, 1.0, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rJoyConfig), 0.0, 1.0, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
-    (void)(gml_script_room_set_view(self, other, ((double)RM_rJoyConfigHtml5), 0.0, 1.0, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0, 0.0, 0.0, 0.0, (-4.0 /* noone */)));
+    self->vars[VAR_w] = gm_round((240.0f * g_gml_globals.screenAspectRatio));
+    g_gml_globals.touchCorrectionH = 0.0f;
+    g_gml_globals.touchCorrectionV = 0.0f;
+    g_gml_globals.room_offset = ((self->vars[VAR_w] - 320.0f) / 2.0f);
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rIntro), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 0.0f, (-1.0f), (-1.0f), ((float)OBJ_oPDummy3)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rCredits1), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rCredits2), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTitle), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rHighscores), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rSun), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rMoon), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rStars), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rLevelEditor), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, (-1.0f), (-1.0f), (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rLoadLevel), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTutorial), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rLevel), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rLevel2), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rLevel3), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rOlmec), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], (self->vars[VAR_w] / 2.0f), 96.0f, (-1.0f), (-1.0f), ((float)OBJ_oPlayer1)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition1), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition1x), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition2), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition2x), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition3), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition3x), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rTransition4), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rEnd), 0.0f, 1.0f, 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, ((float)OBJ_oPDummy)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rEnd2), 0.0f, 1.0f, ((-2.0f) * g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], ((-2.0f) * g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rEnd3), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rEndCustom), 0.0f, 1.0f, (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], (-g_gml_globals.room_offset), 0.0f, self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    self->vars[VAR_conf_x] = ((self->vars[VAR_w] - 160.0f) / 2.0f);
+    self->vars[VAR_conf_y] = (((self->vars[VAR_h] - 120.0f) - 32.0f) / 2.0f);
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rKeyConfig), 0.0f, 1.0f, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rJoyConfig), 0.0f, 1.0f, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
+    (void)(gml_script_room_set_view(self, other, ((float)RM_rJoyConfigHtml5), 0.0f, 1.0f, (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], (-self->vars[VAR_conf_x]), (-self->vars[VAR_conf_y]), self->vars[VAR_w], self->vars[VAR_h], 0.0f, 0.0f, 0.0f, 0.0f, (-4.0f /* noone */)));
     gml_fn_window_set_size(self, other, self->vars[VAR_screen_w], self->vars[VAR_screen_h]);
     if (gml_truthy(g_gml_globals.fullscreen)) {
         if ((!gml_truthy(g_gml_globals.html5Build))) {
             gml_fn_window_set_size(self, other, self->vars[VAR_screen_w], self->vars[VAR_screen_h]);
-            gml_fn_window_set_fullscreen(self, other, 1.0);
+            gml_fn_window_set_fullscreen(self, other, 1.0f);
         } else {
             if (gml_truthy(g_gml_globals.electronBuild)) {
-                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0)});
-                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0)));
+                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0f)});
+                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0f)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0f)));
             }
         }
     }
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        gml_fn_window_set_size(self, other, 800.0, (800.0 / g_gml_globals.screenAspectRatio));
+        gml_fn_window_set_size(self, other, 800.0f, (800.0f / g_gml_globals.screenAspectRatio));
     }
     gml_fn_surface_resize(self, other, gml_gget_application_surface(), self->vars[VAR_w], self->vars[VAR_h]);
-    (void)(gml_script___view_set(self, other, (2.0 /* e__VW.WView */), 0.0, self->vars[VAR_w]));
-    (void)(gml_script___view_set(self, other, (13.0 /* e__VW.WPort */), 0.0, self->vars[VAR_w]));
-    (void)(gml_script___view_set(self, other, (3.0 /* e__VW.HView */), 0.0, self->vars[VAR_h]));
-    (void)(gml_script___view_set(self, other, (14.0 /* e__VW.HPort */), 0.0, self->vars[VAR_h]));
+    (void)(gml_script___view_set(self, other, (2.0f /* e__VW.WView */), 0.0f, self->vars[VAR_w]));
+    (void)(gml_script___view_set(self, other, (13.0f /* e__VW.WPort */), 0.0f, self->vars[VAR_w]));
+    (void)(gml_script___view_set(self, other, (3.0f /* e__VW.HView */), 0.0f, self->vars[VAR_h]));
+    (void)(gml_script___view_set(self, other, (14.0f /* e__VW.HPort */), 0.0f, self->vars[VAR_h]));
     g_gml_globals.display_w = self->vars[VAR_w];
     g_gml_globals.display_h = self->vars[VAR_h];
     gml_fn_room_goto_next(self, other);
     gml_script_action_reverse_xdir(self, other);
-    gml_script_action_linear_step(self, other, 0.0, 0.0, 0.0, 0.0);
-    gml_script_action_linear_step(self, other, 0.0, 0.0, 0.0, 0.0);
-    gml_script_action_move_to(self, other, 0.0, 0.0);
+    gml_script_action_linear_step(self, other, 0.0f, 0.0f, 0.0f, 0.0f);
+    gml_script_action_linear_step(self, other, 0.0f, 0.0f, 0.0f, 0.0f);
+    gml_script_action_move_to(self, other, 0.0f, 0.0f);
 }
 
 void gml_ev_oScreen__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -96,52 +96,52 @@ void gml_ev_oScreen__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oScreen__Step_1_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t29 = 0.0;
-    double t30 = 0.0;
-    double t31 = 0.0;
-    double t33 = 0.0;
-    double t34 = 0.0;
-    double t35 = 0.0;
-    double t37 = 0.0;
-    double t38 = 0.0;
-    double t39 = 0.0;
-    double t41 = 0.0;
-    double t42 = 0.0;
-    double t43 = 0.0;
-    double t45 = 0.0;
-    double t46 = 0.0;
-    double t47 = 0.0;
-    double t49 = 0.0;
-    double t50 = 0.0;
-    double t51 = 0.0;
-    double t53 = 0.0;
-    double t54 = 0.0;
-    double t55 = 0.0;
-    double t57 = 0.0;
-    double t58 = 0.0;
-    double t59 = 0.0;
-    double t61 = 0.0;
-    double t62 = 0.0;
-    double t63 = 0.0;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t29 = 0.0f;
+    float t30 = 0.0f;
+    float t31 = 0.0f;
+    float t33 = 0.0f;
+    float t34 = 0.0f;
+    float t35 = 0.0f;
+    float t37 = 0.0f;
+    float t38 = 0.0f;
+    float t39 = 0.0f;
+    float t41 = 0.0f;
+    float t42 = 0.0f;
+    float t43 = 0.0f;
+    float t45 = 0.0f;
+    float t46 = 0.0f;
+    float t47 = 0.0f;
+    float t49 = 0.0f;
+    float t50 = 0.0f;
+    float t51 = 0.0f;
+    float t53 = 0.0f;
+    float t54 = 0.0f;
+    float t55 = 0.0f;
+    float t57 = 0.0f;
+    float t58 = 0.0f;
+    float t59 = 0.0f;
+    float t61 = 0.0f;
+    float t62 = 0.0f;
+    float t63 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -201,40 +201,40 @@ static void gml_ev_oScreen__Step_1_body(gm_instance_t *self, gm_instance_t *othe
         self->vars[VAR_darkSurf] = gml_fn_surface_create(self, other, g_gml_globals.display_w, g_gml_globals.display_h);
     }
     if (gml_truthy(gml_script_checkBombPressed(self, other))) {
-        if (((gml_truthy(self->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0)) && gml_truthy(gml_script_isLevel(self, other)))) {
+        if (((gml_truthy(self->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0f)) && gml_truthy(gml_script_isLevel(self, other)))) {
             gml_fn_instance_activate_all(self, other);
-            self->vars[VAR_paused] = 0.0;
+            self->vars[VAR_paused] = 0.0f;
             {
                 gm_instance_t *self1;
-                gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    if (gml_eq(self1->vars[VAR_facing], 18.0)) {
-                        self1->vars[VAR_xVel] = (-3.0);
+                    if (gml_eq(self1->vars[VAR_facing], 18.0f)) {
+                        self1->vars[VAR_xVel] = (-3.0f);
                     } else {
-                        self1->vars[VAR_xVel] = 3.0;
+                        self1->vars[VAR_xVel] = 3.0f;
                     }
-                    self1->vars[VAR_yVel] = (-6.0);
-                    g_gml_globals.plife = (-99.0);
+                    self1->vars[VAR_yVel] = (-6.0f);
+                    g_gml_globals.plife = (-99.0f);
                 }
                 gm_with_end();
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTitle))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musCave))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musLush))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musIce))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTemple))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musBoss))) {
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             }
             if ((!gml_truthy(g_gml_globals.hasAnkh))) {
                 gml_script_stopAllMusic(self, other);
@@ -243,220 +243,220 @@ static void gml_ev_oScreen__Step_1_body(gm_instance_t *self, gm_instance_t *othe
     } else {
         if (gml_truthy(gml_script_checkStartPressed(self, other))) {
             if (((!gml_truthy(self->vars[VAR_paused])) && gml_truthy(self->vars[VAR_canPause]))) {
-                if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-                    if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead)))) {
+                if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+                    if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead)))) {
                         (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_pSurf]));
                         if (gml_truthy(g_gml_globals.darkLevel)) {
-                            gml_fn_draw_set_alpha(self, other, 1.0);
+                            gml_fn_draw_set_alpha(self, other, 1.0f);
                         } else {
-                            gml_fn_draw_set_alpha(self, other, 0.9);
+                            gml_fn_draw_set_alpha(self, other, 0.9f);
                         }
-                        gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
-                        gml_fn_draw_rectangle(self, other, 0.0, 0.0, g_gml_globals.display_w, g_gml_globals.display_h, 0.0);
-                        gml_fn_draw_set_alpha(self, other, 1.0);
+                        gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
+                        gml_fn_draw_rectangle(self, other, 0.0f, 0.0f, g_gml_globals.display_w, g_gml_globals.display_h, 0.0f);
+                        gml_fn_draw_set_alpha(self, other, 1.0f);
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTitle))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, 0.0f);
                         }
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musCave))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, 0.0f);
                         }
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musLush))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, 0.0f);
                         }
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musIce))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, 0.0f);
                         }
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTemple))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, 0.0f);
                         }
                         if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musBoss))) {
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, 0.0);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, 0.0f);
                         }
-                        self->vars[VAR_py] = gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other));
-                        gml_fn_instance_deactivate_all(self, other, 1.0);
-                        gml_fn_instance_activate_object(self, other, ((double)OBJ_oGamepad));
-                        gml_fn_instance_activate_object(self, other, ((double)OBJ_oNAL));
-                        self->vars[VAR_paused] = 1.0;
+                        self->vars[VAR_py] = gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other));
+                        gml_fn_instance_deactivate_all(self, other, 1.0f);
+                        gml_fn_instance_activate_object(self, other, ((float)OBJ_oGamepad));
+                        gml_fn_instance_activate_object(self, other, ((float)OBJ_oNAL));
+                        self->vars[VAR_paused] = 1.0f;
                     }
                 }
             } else {
                 gml_fn_instance_activate_all(self, other);
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTitle))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTitle, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musCave))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musLush))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musIce))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musTemple))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
                 if (gml_truthy(gml_script_SS_IsSoundPlaying(self, other, g_gml_globals.musBoss))) {
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 }
-                self->vars[VAR_paused] = 0.0;
+                self->vars[VAR_paused] = 0.0f;
             }
         }
     }
     (void)(gml_fn_surface_reset_target(self, other));
-    gml_fn_draw_clear(self, other, 0.0);
+    gml_fn_draw_clear(self, other, 0.0f);
     if (gml_truthy(self->vars[VAR_paused])) {
         gml_fn_draw_surface_stretched(self, other, self->vars[VAR_pSurf], self->vars[VAR_screen_x], self->vars[VAR_screen_y], gml_fn_window_get_width(self, other), gml_fn_window_get_height(self, other));
     } else {
         if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
             (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_screen]));
-            gml_fn_draw_set_alpha(self, other, gml_ivar(gml_deref(((double)OBJ_oTitle), self, other), VAR_darkness));
-            gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
-            gml_fn_draw_set_alpha(self, other, 1.0);
+            gml_fn_draw_set_alpha(self, other, gml_ivar(gml_deref(((float)OBJ_oTitle), self, other), VAR_darkness));
+            gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
+            gml_fn_draw_set_alpha(self, other, 1.0f);
             (void)(gml_fn_surface_reset_target(self, other));
         } else {
-            if ((gml_truthy(gml_script_isLevel(self, other)) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
-                if ((gml_truthy(g_gml_globals.darkLevel) && (!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead))))) {
+            if ((gml_truthy(gml_script_isLevel(self, other)) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
+                if ((gml_truthy(g_gml_globals.darkLevel) && (!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead))))) {
                     (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_darkSurf]));
-                    gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
-                    gml_fn_draw_rectangle(self, other, 0.0, 0.0, g_gml_globals.display_w, g_gml_globals.display_h, 0.0);
-                    gml_fn_draw_set_color(self, other, gml_fn_make_color_rgb(self, other, (255.0 - (255.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self, other), VAR_darkness))), (255.0 - (255.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self, other), VAR_darkness))), 255.0));
-                    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLampRed)))) {
+                    gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
+                    gml_fn_draw_rectangle(self, other, 0.0f, 0.0f, g_gml_globals.display_w, g_gml_globals.display_h, 0.0f);
+                    gml_fn_draw_set_color(self, other, gml_fn_make_color_rgb(self, other, (255.0f - (255.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self, other), VAR_darkness))), (255.0f - (255.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self, other), VAR_darkness))), 255.0f));
+                    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLampRed)))) {
                         {
                             gm_instance_t *self2;
-                            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                             while ((self2 = gm_with_next()) != NULL) {
-                                self2->vars[VAR_distToLamp] = gml_fn_distance_to_object(self2, self, ((double)OBJ_oLampRed));
-                                if (gml_le(self2->vars[VAR_distToLamp], 96.0)) {
-                                    gml_fn_draw_set_color(self2, self, gml_fn_make_color_rgb(self2, self, (255.0 - self2->vars[VAR_distToLamp]), (120.0 - (96.0 - self2->vars[VAR_distToLamp])), (120.0 - (96.0 - self2->vars[VAR_distToLamp]))));
+                                self2->vars[VAR_distToLamp] = gml_fn_distance_to_object(self2, self, ((float)OBJ_oLampRed));
+                                if (gml_le(self2->vars[VAR_distToLamp], 96.0f)) {
+                                    gml_fn_draw_set_color(self2, self, gml_fn_make_color_rgb(self2, self, (255.0f - self2->vars[VAR_distToLamp]), (120.0f - (96.0f - self2->vars[VAR_distToLamp])), (120.0f - (96.0f - self2->vars[VAR_distToLamp]))));
                                 }
                             }
                             gm_with_end();
                         }
                     }
-                    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLampRedItem)))) {
+                    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLampRedItem)))) {
                         {
                             gm_instance_t *self3;
-                            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                             while ((self3 = gm_with_next()) != NULL) {
-                                self3->vars[VAR_distToLamp] = gml_fn_distance_to_object(self3, self, ((double)OBJ_oLampRedItem));
-                                if (gml_le(self3->vars[VAR_distToLamp], 96.0)) {
-                                    gml_fn_draw_set_color(self3, self, gml_fn_make_color_rgb(self3, self, (255.0 - self3->vars[VAR_distToLamp]), (120.0 - (96.0 - self3->vars[VAR_distToLamp])), (120.0 - (96.0 - self3->vars[VAR_distToLamp]))));
+                                self3->vars[VAR_distToLamp] = gml_fn_distance_to_object(self3, self, ((float)OBJ_oLampRedItem));
+                                if (gml_le(self3->vars[VAR_distToLamp], 96.0f)) {
+                                    gml_fn_draw_set_color(self3, self, gml_fn_make_color_rgb(self3, self, (255.0f - self3->vars[VAR_distToLamp]), (120.0f - (96.0f - self3->vars[VAR_distToLamp])), (120.0f - (96.0f - self3->vars[VAR_distToLamp]))));
                                 }
                             }
                             gm_with_end();
                         }
                     }
-                    (t6 = (t4 = gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), (t4 - gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0))), t7 = (t5 = gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)), (t5 - gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0))), gml_fn_draw_circle(self, other, t6, t7, (96.0 - (64.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self, other), VAR_darkness))), 0.0));
+                    (t6 = (t4 = gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), (t4 - gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f))), t7 = (t5 = gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)), (t5 - gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f))), gml_fn_draw_circle(self, other, t6, t7, (96.0f - (64.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self, other), VAR_darkness))), 0.0f));
                     {
                         gm_instance_t *self8;
-                        gm_with_begin(gml_target(((double)OBJ_oFlare)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oFlare)), self, other);
                         while ((self8 = gm_with_next()) != NULL) {
-                            (t11 = (t9 = gml_iget_x(self8), (t9 - gml_script___view_get(self8, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self8, self, t11, (t10 = gml_iget_y(self8), (t10 - gml_script___view_get(self8, self, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                            (t11 = (t9 = gml_iget_x(self8), (t9 - gml_script___view_get(self8, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self8, self, t11, (t10 = gml_iget_y(self8), (t10 - gml_script___view_get(self8, self, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self12;
-                        gm_with_begin(gml_target(((double)OBJ_oFlareCrate)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oFlareCrate)), self, other);
                         while ((self12 = gm_with_next()) != NULL) {
-                            (t15 = (t13 = gml_iget_x(self12), (t13 - gml_script___view_get(self12, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self12, self, t15, (t14 = gml_iget_y(self12), (t14 - gml_script___view_get(self12, self, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                            (t15 = (t13 = gml_iget_x(self12), (t13 - gml_script___view_get(self12, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self12, self, t15, (t14 = gml_iget_y(self12), (t14 - gml_script___view_get(self12, self, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self16;
-                        gm_with_begin(gml_target(((double)OBJ_oLamp)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oLamp)), self, other);
                         while ((self16 = gm_with_next()) != NULL) {
-                            (t19 = (t17 = (gml_iget_x(self16) + 8.0), (t17 - gml_script___view_get(self16, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self16, self, t19, (t18 = (gml_iget_y(self16) + 8.0), (t18 - gml_script___view_get(self16, self, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                            (t19 = (t17 = (gml_iget_x(self16) + 8.0f), (t17 - gml_script___view_get(self16, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self16, self, t19, (t18 = (gml_iget_y(self16) + 8.0f), (t18 - gml_script___view_get(self16, self, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self20;
-                        gm_with_begin(gml_target(((double)OBJ_oLampItem)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oLampItem)), self, other);
                         while ((self20 = gm_with_next()) != NULL) {
-                            (t23 = (t21 = gml_iget_x(self20), (t21 - gml_script___view_get(self20, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self20, self, t23, (t22 = (gml_iget_y(self20) - 4.0), (t22 - gml_script___view_get(self20, self, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                            (t23 = (t21 = gml_iget_x(self20), (t21 - gml_script___view_get(self20, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self20, self, t23, (t22 = (gml_iget_y(self20) - 4.0f), (t22 - gml_script___view_get(self20, self, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self24;
-                        gm_with_begin(gml_target(((double)OBJ_oArrowTrapLeftLit)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oArrowTrapLeftLit)), self, other);
                         while ((self24 = gm_with_next()) != NULL) {
-                            (t27 = (t25 = (gml_iget_x(self24) + 8.0), (t25 - gml_script___view_get(self24, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self24, self, t27, (t26 = (gml_iget_y(self24) + 8.0), (t26 - gml_script___view_get(self24, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t27 = (t25 = (gml_iget_x(self24) + 8.0f), (t25 - gml_script___view_get(self24, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self24, self, t27, (t26 = (gml_iget_y(self24) + 8.0f), (t26 - gml_script___view_get(self24, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self28;
-                        gm_with_begin(gml_target(((double)OBJ_oArrowTrapRightLit)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oArrowTrapRightLit)), self, other);
                         while ((self28 = gm_with_next()) != NULL) {
-                            (t31 = (t29 = (gml_iget_x(self28) + 8.0), (t29 - gml_script___view_get(self28, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self28, self, t31, (t30 = (gml_iget_y(self28) + 8.0), (t30 - gml_script___view_get(self28, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t31 = (t29 = (gml_iget_x(self28) + 8.0f), (t29 - gml_script___view_get(self28, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self28, self, t31, (t30 = (gml_iget_y(self28) + 8.0f), (t30 - gml_script___view_get(self28, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self32;
-                        gm_with_begin(gml_target(((double)OBJ_oTikiTorch)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oTikiTorch)), self, other);
                         while ((self32 = gm_with_next()) != NULL) {
-                            (t35 = (t33 = (gml_iget_x(self32) + 8.0), (t33 - gml_script___view_get(self32, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self32, self, t35, (t34 = (gml_iget_y(self32) + 8.0), (t34 - gml_script___view_get(self32, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t35 = (t33 = (gml_iget_x(self32) + 8.0f), (t33 - gml_script___view_get(self32, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self32, self, t35, (t34 = (gml_iget_y(self32) + 8.0f), (t34 - gml_script___view_get(self32, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self36;
-                        gm_with_begin(gml_target(((double)OBJ_oFireFrog)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oFireFrog)), self, other);
                         while ((self36 = gm_with_next()) != NULL) {
-                            (t39 = (t37 = (gml_iget_x(self36) + 8.0), (t37 - gml_script___view_get(self36, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self36, self, t39, (t38 = (gml_iget_y(self36) + 8.0), (t38 - gml_script___view_get(self36, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t39 = (t37 = (gml_iget_x(self36) + 8.0f), (t37 - gml_script___view_get(self36, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self36, self, t39, (t38 = (gml_iget_y(self36) + 8.0f), (t38 - gml_script___view_get(self36, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self40;
-                        gm_with_begin(gml_target(((double)OBJ_oSpearTrapLit)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oSpearTrapLit)), self, other);
                         while ((self40 = gm_with_next()) != NULL) {
-                            (t43 = (t41 = (gml_iget_x(self40) + 8.0), (t41 - gml_script___view_get(self40, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self40, self, t43, (t42 = (gml_iget_y(self40) + 8.0), (t42 - gml_script___view_get(self40, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t43 = (t41 = (gml_iget_x(self40) + 8.0f), (t41 - gml_script___view_get(self40, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self40, self, t43, (t42 = (gml_iget_y(self40) + 8.0f), (t42 - gml_script___view_get(self40, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self44;
-                        gm_with_begin(gml_target(((double)OBJ_oSmashTrapLit)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oSmashTrapLit)), self, other);
                         while ((self44 = gm_with_next()) != NULL) {
-                            (t47 = (t45 = (gml_iget_x(self44) + 8.0), (t45 - gml_script___view_get(self44, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self44, self, t47, (t46 = (gml_iget_y(self44) + 8.0), (t46 - gml_script___view_get(self44, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t47 = (t45 = (gml_iget_x(self44) + 8.0f), (t45 - gml_script___view_get(self44, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self44, self, t47, (t46 = (gml_iget_y(self44) + 8.0f), (t46 - gml_script___view_get(self44, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self48;
-                        gm_with_begin(gml_target(((double)OBJ_oExplosion)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oExplosion)), self, other);
                         while ((self48 = gm_with_next()) != NULL) {
-                            (t51 = (t49 = gml_iget_x(self48), (t49 - gml_script___view_get(self48, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self48, self, t51, (t50 = gml_iget_y(self48), (t50 - gml_script___view_get(self48, self, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                            (t51 = (t49 = gml_iget_x(self48), (t49 - gml_script___view_get(self48, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self48, self, t51, (t50 = gml_iget_y(self48), (t50 - gml_script___view_get(self48, self, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self52;
-                        gm_with_begin(gml_target(((double)OBJ_oLava)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oLava)), self, other);
                         while ((self52 = gm_with_next()) != NULL) {
-                            (t55 = (t53 = (gml_iget_x(self52) + 8.0), (t53 - gml_script___view_get(self52, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self52, self, t55, (t54 = (gml_iget_y(self52) + 8.0), (t54 - gml_script___view_get(self52, self, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                            (t55 = (t53 = (gml_iget_x(self52) + 8.0f), (t53 - gml_script___view_get(self52, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self52, self, t55, (t54 = (gml_iget_y(self52) + 8.0f), (t54 - gml_script___view_get(self52, self, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self56;
-                        gm_with_begin(gml_target(((double)OBJ_oScarab)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oScarab)), self, other);
                         while ((self56 = gm_with_next()) != NULL) {
-                            (t59 = (t57 = (gml_iget_x(self56) + 8.0), (t57 - gml_script___view_get(self56, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self56, self, t59, (t58 = (gml_iget_y(self56) + 8.0), (t58 - gml_script___view_get(self56, self, (1.0 /* e__VW.YView */), 0.0))), 16.0, 0.0));
+                            (t59 = (t57 = (gml_iget_x(self56) + 8.0f), (t57 - gml_script___view_get(self56, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self56, self, t59, (t58 = (gml_iget_y(self56) + 8.0f), (t58 - gml_script___view_get(self56, self, (1.0f /* e__VW.YView */), 0.0f))), 16.0f, 0.0f));
                         }
                         gm_with_end();
                     }
                     {
                         gm_instance_t *self60;
-                        gm_with_begin(gml_target(((double)OBJ_oGhost)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oGhost)), self, other);
                         while ((self60 = gm_with_next()) != NULL) {
-                            (t63 = (t61 = (gml_iget_x(self60) + 16.0), (t61 - gml_script___view_get(self60, self, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self60, self, t63, (t62 = (gml_iget_y(self60) + 16.0), (t62 - gml_script___view_get(self60, self, (1.0 /* e__VW.YView */), 0.0))), 64.0, 0.0));
+                            (t63 = (t61 = (gml_iget_x(self60) + 16.0f), (t61 - gml_script___view_get(self60, self, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self60, self, t63, (t62 = (gml_iget_y(self60) + 16.0f), (t62 - gml_script___view_get(self60, self, (1.0f /* e__VW.YView */), 0.0f))), 64.0f, 0.0f));
                         }
                         gm_with_end();
                     }
@@ -464,7 +464,7 @@ static void gml_ev_oScreen__Step_1_body(gm_instance_t *self, gm_instance_t *othe
                 (void)(gml_fn_surface_reset_target(self, other));
             }
         }
-        if (gml_eq(gml_gget_view_current(), 0.0)) {
+        if (gml_eq(gml_gget_view_current(), 0.0f)) {
             gml_fn_draw_surface_stretched(self, other, self->vars[VAR_screen], self->vars[VAR_screen_x], self->vars[VAR_screen_y], g_gml_globals.display_w, g_gml_globals.display_h);
         }
     }
@@ -482,7 +482,7 @@ static void gml_ev_oScreen__Other_5_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_screen]));
-    gml_fn_draw_clear(self, other, 0.0);
+    gml_fn_draw_clear(self, other, 0.0f);
 }
 
 void gml_ev_oScreen__Other_5(gm_instance_t *self, gm_instance_t *other)
@@ -498,17 +498,17 @@ static void gml_ev_oScreen__Other_3_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     if (gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_screen]))) {
         (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_screen]));
-        gml_fn_draw_clear(self, other, 0.0);
+        gml_fn_draw_clear(self, other, 0.0f);
         gml_fn_surface_free(self, other, self->vars[VAR_screen]);
     }
     if (gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_pSurf]))) {
         (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_pSurf]));
-        gml_fn_draw_clear(self, other, 0.0);
+        gml_fn_draw_clear(self, other, 0.0f);
         gml_fn_surface_free(self, other, self->vars[VAR_pSurf]);
     }
     if (gml_truthy(gml_fn_surface_exists(self, other, self->vars[VAR_darkSurf]))) {
         (void)(gml_fn_surface_set_target(self, other, self->vars[VAR_darkSurf]));
-        gml_fn_draw_clear(self, other, 0.0);
+        gml_fn_draw_clear(self, other, 0.0f);
         gml_fn_surface_free(self, other, self->vars[VAR_darkSurf]);
     }
     gml_script_stopAllMusic(self, other);

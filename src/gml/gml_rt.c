@@ -3,6 +3,8 @@
  */
 #include "gml_rt.h"
 
+#include "gm_perf.h"
+
 #include <string.h>
 
 /* ------------------------------------------------------------------ values */
@@ -31,7 +33,7 @@ int gml_str_cmp(const char *a, const char *b)
     return c == 0 ? 0 : (c > 0 ? 1 : -1);
 }
 
-double gml_str_real(const char *s)
+float gml_str_real(const char *s)
 {
     return gm_value_to_real(gm_value_string(s));
 }
@@ -41,12 +43,12 @@ int gml_str_truthy(const char *s)
     return gm_value_to_bool(gm_value_string(s));
 }
 
-double gml_str_to_real(const char *s)
+float gml_str_to_real(const char *s)
 {
     return gm_string_parse_real(gml_s(s), NULL);
 }
 
-const char *gml_real_str(double d)
+const char *gml_real_str(float d)
 {
     return gm_value_to_string(gm_value_real(d)).str;
 }
@@ -69,36 +71,36 @@ gm_value_t gml_add(gm_value_t a, gm_value_t b)
     return gm_value_real(gm_value_to_real(a) + gm_value_to_real(b));
 }
 
-double gml_div(double a, double b)
+float gml_div(float a, float b)
 {
     int32_t ia, ib;
 
     if (isnan(a) || isnan(b)) {
         if (isnan(a) && isnan(b)) {
-            return 1.0;
+            return 1.0f;
         }
         if (isnan(a)) {
-            return isfinite(b) ? a : 1.0;
+            return isfinite(b) ? a : 1.0f;
         }
-        return isfinite(a) ? b : 1.0;
+        return isfinite(a) ? b : 1.0f;
     }
     if (a == b) {
-        return 1.0;
+        return 1.0f;
     }
     ia = gm_to_int32(a);
     ib = gm_to_int32(b);
     if (ib == 0) {
-        return 0.0; /* ~~(x / 0) == 0 after the runner's divide-by-zero error */
+        return 0.0f; /* ~~(x / 0) == 0 after the runner's divide-by-zero error */
     }
-    return (double)gm_to_int32((double)ia / (double)ib);
+    return (float)gm_to_int32((float)ia / (float)ib);
 }
 
 /* yyfbitshiftleft/right: the magnitude goes through `new Long(v)` (whose low
  * word is ToInt32(v)), is shifted as a 64-bit value and re-negated. */
-static double shift(double a, double n, int left)
+static float shift(float a, float n, int left)
 {
     int32_t s = gm_to_int32(n);
-    int neg = a < 0.0;
+    int neg = a < 0.0f;
     int64_t v = (int64_t)(uint32_t)gm_to_int32(neg ? -a : a);
     int64_t r;
 
@@ -108,20 +110,20 @@ static double shift(double a, double n, int left)
         unsigned k = (unsigned)s & 63u;
         r = left ? (int64_t)((uint64_t)v << k) : (v >> k);
     }
-    return neg ? -(double)r : (double)r;
+    return neg ? -(float)r : (float)r;
 }
 
-double gml_shl(double a, double n)
+float gml_shl(float a, float n)
 {
     return shift(a, n, 1);
 }
 
-double gml_shr(double a, double n)
+float gml_shr(float a, float n)
 {
     return shift(a, n, 0);
 }
 
-double gml_to_real(gm_value_t v)
+float gml_to_real(gm_value_t v)
 {
     switch (v.kind) {
     case GM_VALUE_REAL:
@@ -131,7 +133,7 @@ double gml_to_real(gm_value_t v)
     case GM_VALUE_UNDEFINED:
     case GM_VALUE_ARRAY:
     default:
-        return 0.0; /* runner error */
+        return 0.0f; /* runner error */
     }
 }
 
@@ -154,12 +156,12 @@ const char *gml_keep_str(const char *s, char *buf, size_t size)
 
 /* ------------------------------------------------------------------ typed ds_map reads */
 
-double gml_ds_map_find_real(double map, const char *key)
+float gml_ds_map_find_real(float map, const char *key)
 {
     return gm_value_to_real(gm_ds_map_find_value(gml_target(map), gml_s(key)));
 }
 
-const char *gml_ds_map_find_str(double map, const char *key)
+const char *gml_ds_map_find_str(float map, const char *key)
 {
     gm_value_t v = gm_ds_map_find_value(gml_target(map), gml_s(key));
 
@@ -167,16 +169,16 @@ const char *gml_ds_map_find_str(double map, const char *key)
     return v.kind == GM_VALUE_STRING ? gm_heap_str(v.str) : gml_as_str(v);
 }
 
-double gml_ds_map_missing(double map, const char *key)
+float gml_ds_map_missing(float map, const char *key)
 {
-    return gm_ds_map_find_value(gml_target(map), gml_s(key)).kind == GM_VALUE_UNDEFINED ? 1.0 : 0.0;
+    return gm_ds_map_find_value(gml_target(map), gml_s(key)).kind == GM_VALUE_UNDEFINED ? 1.0f : 0.0f;
 }
 
 /* ------------------------------------------------------------------ instances */
 
 static gm_value_t s_vvar_scratch;
 
-gm_instance_t *gml_deref(double target, gm_instance_t *self, gm_instance_t *other)
+gm_instance_t *gml_deref(float target, gm_instance_t *self, gm_instance_t *other)
 {
     int t = gml_target(target);
     gm_instance_cursor_t c;
@@ -411,20 +413,22 @@ static uint32_t s_type_mask[GM_OBJECT_MAX];
 static gml_event_fn s_dense[GM_OBJECT_MAX][DENSE_COUNT];
 static bool s_cache_ready;
 
-static int dense_slot(int type, int number)
+static inline int dense_slot(int type, int number)
 {
-    int i;
-
     switch (type) {
     case GM_EV_TYPE_STEP:
         return (number >= 0 && number < 3) ? DENSE_STEP + number : -1;
     case GM_EV_TYPE_ALARM:
         return (number >= 0 && number < GM_ALARM_COUNT) ? DENSE_ALARM + number : -1;
     case GM_EV_TYPE_DRAW:
-        for (i = 0; i < 8; ++i) {
-            if (s_draw_numbers[i] == number) {
-                return DENSE_DRAW + i;
-            }
+        if (number == 0) {
+            return DENSE_DRAW;
+        }
+        if (number >= 72 && number <= 77) {
+            return DENSE_DRAW + 2 + (number - 72);
+        }
+        if (number == 64) {
+            return DENSE_DRAW + 1;
         }
         return -1;
     default:
@@ -502,7 +506,7 @@ void gml_perform_event(gm_instance_t *inst, int type, int number)
     }
 }
 
-gm_value_t gml_script_execute(gm_instance_t *self, gm_instance_t *other, double script,
+gm_value_t gml_script_execute(gm_instance_t *self, gm_instance_t *other, float script,
                               int argc, const gm_value_t *argv)
 {
     int index = gml_target(script);
@@ -576,8 +580,23 @@ static void visit_roots(gm_heap_visit_fn visit)
 void gml_collect_garbage(void)
 {
     if (gm_heap_used() > (GM_HEAP_BYTES * 3) / 4) {
+        uint64_t perf_started = gm_perf_timer_begin();
+
+        gm_perf_count(GM_PERF_GC_RUNS, 1);
         gm_heap_collect(visit_roots);
+        gm_perf_timer_end(GM_PERF_TIMER_GC, perf_started);
     }
+}
+
+void gml_collect_garbage_force(void)
+{
+    gm_heap_collect(visit_roots);
+}
+
+void gml_room_begin(int room)
+{
+    (void)room;
+    gm_heap_collect(visit_roots);
 }
 
 void gml_rt_reset(void)

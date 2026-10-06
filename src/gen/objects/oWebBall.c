@@ -6,13 +6,13 @@ static void gml_ev_oWebBall__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = ((-1.0) * (gm_random(3.0) + 1.0));
-    self->vars[VAR_xVel] = gml_script_rand(self, other, 1.0, 3.0);
-    if (gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) {
-        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-1.0));
+    self->vars[VAR_yVel] = ((-1.0f) * (gm_random(3.0f) + 1.0f));
+    self->vars[VAR_xVel] = gml_script_rand(self, other, 1.0f, 3.0f);
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) {
+        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-1.0f));
     }
-    self->vars[VAR_life] = gml_script_rand(self, other, 20.0, 100.0);
-    self->vars[VAR_invincible] = 1.0;
+    self->vars[VAR_life] = gml_script_rand(self, other, 20.0f, 100.0f);
+    self->vars[VAR_invincible] = 1.0f;
 }
 
 void gml_ev_oWebBall__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -26,10 +26,10 @@ static void gml_ev_oWebBall__Alarm_1_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_lt(gml_fn_instance_number(self, other, ((double)OBJ_oYellowTrail)), 12.0)) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oYellowTrail)));
+    if (gml_lt(gml_fn_instance_number(self, other, ((float)OBJ_oYellowTrail)), 12.0f)) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oYellowTrail)));
     }
-    gml_iset_alarm(self, 1.0, 4.0);
+    gml_iset_alarm(self, 1.0f, 4.0f);
 }
 
 void gml_ev_oWebBall__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -43,7 +43,7 @@ static void gml_ev_oWebBall__Alarm_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    self->vars[VAR_invincible] = 0.0;
+    self->vars[VAR_invincible] = 0.0f;
 }
 
 void gml_ev_oWebBall__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -59,13 +59,13 @@ static void gml_ev_oWebBall__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
-        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.2);
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
+        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.2f);
     }
-    if (gml_gt(self->vars[VAR_life], 0.0)) {
-        self->vars[VAR_life] = (self->vars[VAR_life] - 1.0);
+    if (gml_gt(self->vars[VAR_life], 0.0f)) {
+        self->vars[VAR_life] = (self->vars[VAR_life] - 1.0f);
     } else {
-        gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
+        gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
     }
 }
 
@@ -80,9 +80,9 @@ static void gml_ev_oWebBall__Collision_oWeb_body(gm_instance_t *self, gm_instanc
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
+    gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oWebBall__Collision_oWeb(gm_instance_t *self, gm_instance_t *other)
@@ -96,9 +96,9 @@ static void gml_ev_oWebBall__Collision_oItem_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
+    gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oWebBall__Collision_oItem(gm_instance_t *self, gm_instance_t *other)
@@ -112,9 +112,9 @@ static void gml_ev_oWebBall__Collision_oWater_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
+    gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oWebBall__Collision_oWater(gm_instance_t *self, gm_instance_t *other)
@@ -128,9 +128,9 @@ static void gml_ev_oWebBall__Collision_oSolid_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
+    gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
 }
 
 void gml_ev_oWebBall__Collision_oSolid(gm_instance_t *self, gm_instance_t *other)
@@ -145,9 +145,9 @@ static void gml_ev_oWebBall__Collision_oEnemy_body(gm_instance_t *self, gm_insta
     (void)self;
     (void)other;
     if (gml_str_ne(other->strs[SVAR_type], "Giant Spider")) {
-        gml_iset_sprite_index(self, ((double)SPR_sWebCreate));
-        self->vars[VAR_xVel] = 0.0;
-        self->vars[VAR_yVel] = 0.0;
+        gml_iset_sprite_index(self, ((float)SPR_sWebCreate));
+        self->vars[VAR_xVel] = 0.0f;
+        self->vars[VAR_yVel] = 0.0f;
     }
 }
 
@@ -162,9 +162,9 @@ static void gml_ev_oWebBall__Other_7_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sWebCreate))) {
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oWeb));
-        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_dying, 1.0);
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sWebCreate))) {
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oWeb));
+        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_dying, 1.0f);
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

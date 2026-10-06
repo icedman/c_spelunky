@@ -5,7 +5,7 @@ static void gml_inst_code_rCredits1__inst_4669D3DE_body(gm_instance_t *self, gm_
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xOff] = (-120.0);
+    self->vars[VAR_xOff] = (-120.0f);
 }
 
 void gml_inst_code_rCredits1__inst_4669D3DE(gm_instance_t *self, gm_instance_t *other)
@@ -19,7 +19,7 @@ static void gml_inst_code_rCredits1__inst_279B8F07_body(gm_instance_t *self, gm_
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xOff] = 288.0;
+    self->vars[VAR_xOff] = 288.0f;
 }
 
 void gml_inst_code_rCredits1__inst_279B8F07(gm_instance_t *self, gm_instance_t *other)

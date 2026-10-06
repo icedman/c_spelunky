@@ -30,14 +30,14 @@ typedef struct sp_audio_interface {
     void (*shutdown)(void *user_data);
 
     /* Sound effects. play_sound returns a handle > 0, or <= 0 on failure. */
-    int  (*play_sound)(void *user_data, int sound_id, double volume, double pan, bool loop);
+    int  (*play_sound)(void *user_data, int sound_id, float volume, float pan, bool loop);
     void (*stop_sound)(void *user_data, int sound_handle);
     void (*stop_all_sounds)(void *user_data);
-    void (*set_sound_volume)(void *user_data, int sound_handle, double volume);
+    void (*set_sound_volume)(void *user_data, int sound_handle, float volume);
     bool (*is_playing)(void *user_data, int sound_id_or_handle);
     void (*pause_all)(void *user_data);
     void (*resume_all)(void *user_data);
-    void (*set_master_volume)(void *user_data, double volume);
+    void (*set_master_volume)(void *user_data, float volume);
 
     /* Music */
     void (*play_music)(void *user_data, int music_id, bool loop);
@@ -71,7 +71,7 @@ static bool sp__null_audio_init(void *ud)
 
 static void sp__null_audio_shutdown(void *ud) { (void)ud; }
 
-static int sp__null_play_sound(void *ud, int sound_id, double volume, double pan, bool loop)
+static int sp__null_play_sound(void *ud, int sound_id, float volume, float pan, bool loop)
 {
     (void)ud; (void)sound_id; (void)volume; (void)pan; (void)loop;
     if (sp__null_next_handle <= 0 || sp__null_next_handle == 0x7fffffff) {
@@ -82,11 +82,11 @@ static int sp__null_play_sound(void *ud, int sound_id, double volume, double pan
 
 static void sp__null_stop_sound(void *ud, int h) { (void)ud; (void)h; }
 static void sp__null_stop_all_sounds(void *ud) { (void)ud; }
-static void sp__null_set_sound_volume(void *ud, int h, double v) { (void)ud; (void)h; (void)v; }
+static void sp__null_set_sound_volume(void *ud, int h, float v) { (void)ud; (void)h; (void)v; }
 static bool sp__null_is_playing(void *ud, int h) { (void)ud; (void)h; return false; }
 static void sp__null_pause_all(void *ud) { (void)ud; }
 static void sp__null_resume_all(void *ud) { (void)ud; }
-static void sp__null_set_master_volume(void *ud, double v) { (void)ud; (void)v; }
+static void sp__null_set_master_volume(void *ud, float v) { (void)ud; (void)v; }
 static void sp__null_play_music(void *ud, int id, bool loop) { (void)ud; (void)id; (void)loop; }
 static void sp__null_stop_music(void *ud) { (void)ud; }
 

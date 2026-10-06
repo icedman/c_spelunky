@@ -3,23 +3,23 @@
 
 void gml_script_scrDrawHUD(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t17 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -40,132 +40,132 @@ void gml_script_scrDrawHUD(gm_instance_t *self, gm_instance_t *other)
     (void)t16;
     (void)t17;
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        self->vars[VAR_condition3] = (gml_eq(gml_gget_view_current(), 7.0) ? 1.0 : 0.0);
+        self->vars[VAR_condition3] = (gml_eq(gml_gget_view_current(), 7.0f) ? 1.0f : 0.0f);
     } else {
-        self->vars[VAR_condition3] = 1.0;
+        self->vars[VAR_condition3] = 1.0f;
     }
-    if (((gml_truthy(g_gml_globals.drawHUD) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) && gml_truthy(self->vars[VAR_condition3]))) {
+    if (((gml_truthy(g_gml_globals.drawHUD) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) && gml_truthy(self->vars[VAR_condition3]))) {
         if ((!gml_truthy(g_gml_globals.html5Build))) {
-            self->vars[VAR_vxv] = 0.0;
-            self->vars[VAR_vyv] = 0.0;
+            self->vars[VAR_vxv] = 0.0f;
+            self->vars[VAR_vyv] = 0.0f;
         } else {
-            self->vars[VAR_vxv] = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0);
-            self->vars[VAR_vyv] = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0);
+            self->vars[VAR_vxv] = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f);
+            self->vars[VAR_vyv] = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f);
         }
-        self->vars[VAR_lifeX] = (self->vars[VAR_vxv] + 8.0);
-        self->vars[VAR_bombX] = (self->vars[VAR_vxv] + 64.0);
-        self->vars[VAR_ropeX] = (self->vars[VAR_vxv] + 120.0);
-        self->vars[VAR_moneyX] = (self->vars[VAR_vxv] + 176.0);
-        gml_fn_draw_sprite(self, other, ((double)SPR_sHeart), (-1.0), self->vars[VAR_lifeX], (self->vars[VAR_vyv] + 8.0));
+        self->vars[VAR_lifeX] = (self->vars[VAR_vxv] + 8.0f);
+        self->vars[VAR_bombX] = (self->vars[VAR_vxv] + 64.0f);
+        self->vars[VAR_ropeX] = (self->vars[VAR_vxv] + 120.0f);
+        self->vars[VAR_moneyX] = (self->vars[VAR_vxv] + 176.0f);
+        gml_fn_draw_sprite(self, other, ((float)SPR_sHeart), (-1.0f), self->vars[VAR_lifeX], (self->vars[VAR_vyv] + 8.0f));
         self->vars[VAR_life] = g_gml_globals.plife;
-        if (gml_lt(self->vars[VAR_life], 0.0)) {
-            self->vars[VAR_life] = 0.0;
+        if (gml_lt(self->vars[VAR_life], 0.0f)) {
+            self->vars[VAR_life] = 0.0f;
         }
-        gml_script_drawText(self, other, 5, gml_vreal(self->vars[VAR_life]), "large", (16777215.0 /* c_white */), (self->vars[VAR_lifeX] + 16.0), ((self->vars[VAR_vyv] + 8.0) + g_gml_globals.fontOffsetY));
+        gml_script_drawText(self, other, 5, gml_vreal(self->vars[VAR_life]), "large", (16777215.0f /* c_white */), (self->vars[VAR_lifeX] + 16.0f), ((self->vars[VAR_vyv] + 8.0f) + g_gml_globals.fontOffsetY));
         if (gml_truthy(g_gml_globals.hasStickyBombs)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sStickyBombIcon), (-1.0), self->vars[VAR_bombX], (self->vars[VAR_vyv] + 8.0));
+            gml_fn_draw_sprite(self, other, ((float)SPR_sStickyBombIcon), (-1.0f), self->vars[VAR_bombX], (self->vars[VAR_vyv] + 8.0f));
         } else {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sBombIcon), (-1.0), self->vars[VAR_bombX], (self->vars[VAR_vyv] + 8.0));
+            gml_fn_draw_sprite(self, other, ((float)SPR_sBombIcon), (-1.0f), self->vars[VAR_bombX], (self->vars[VAR_vyv] + 8.0f));
         }
-        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.bombs), "large", (16777215.0 /* c_white */), (self->vars[VAR_bombX] + 16.0), ((self->vars[VAR_vyv] + 8.0) + g_gml_globals.fontOffsetY));
-        gml_fn_draw_sprite(self, other, ((double)SPR_sRopeIcon), (-1.0), self->vars[VAR_ropeX], (self->vars[VAR_vyv] + 8.0));
-        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.rope), "large", (16777215.0 /* c_white */), (self->vars[VAR_ropeX] + 16.0), ((self->vars[VAR_vyv] + 8.0) + g_gml_globals.fontOffsetY));
-        gml_fn_draw_sprite(self, other, ((double)SPR_sDollarSign), (-1.0), self->vars[VAR_moneyX], (self->vars[VAR_vyv] + 8.0));
-        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.money), "large", (16777215.0 /* c_white */), (self->vars[VAR_moneyX] + 16.0), ((self->vars[VAR_vyv] + 8.0) + g_gml_globals.fontOffsetY));
+        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.bombs), "large", (16777215.0f /* c_white */), (self->vars[VAR_bombX] + 16.0f), ((self->vars[VAR_vyv] + 8.0f) + g_gml_globals.fontOffsetY));
+        gml_fn_draw_sprite(self, other, ((float)SPR_sRopeIcon), (-1.0f), self->vars[VAR_ropeX], (self->vars[VAR_vyv] + 8.0f));
+        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.rope), "large", (16777215.0f /* c_white */), (self->vars[VAR_ropeX] + 16.0f), ((self->vars[VAR_vyv] + 8.0f) + g_gml_globals.fontOffsetY));
+        gml_fn_draw_sprite(self, other, ((float)SPR_sDollarSign), (-1.0f), self->vars[VAR_moneyX], (self->vars[VAR_vyv] + 8.0f));
+        gml_script_drawText(self, other, 5, gml_vreal(g_gml_globals.money), "large", (16777215.0f /* c_white */), (self->vars[VAR_moneyX] + 16.0f), ((self->vars[VAR_vyv] + 8.0f) + g_gml_globals.fontOffsetY));
         if (gml_truthy(gml_script_isRoom(self, other, "rOlmec"))) {
-            g_gml_globals.exitX = 640.0;
-            g_gml_globals.exitY = 544.0;
+            g_gml_globals.exitX = 640.0f;
+            g_gml_globals.exitY = 544.0f;
         }
         if (gml_truthy(g_gml_globals.hasCompass)) {
-            if ((t1 = g_gml_globals.exitY, gml_gt(t1, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 240.0)))) {
-                if ((t2 = g_gml_globals.exitX, gml_lt(t2, gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0)))) {
-                    if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
-                        gml_fn_draw_sprite(self, other, ((double)SPR_sCompassSmallLL), (-1.0), (self->vars[VAR_vxv] + 0.0), (self->vars[VAR_vyv] + 224.0));
+            if ((t1 = g_gml_globals.exitY, gml_gt(t1, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 240.0f)))) {
+                if ((t2 = g_gml_globals.exitX, gml_lt(t2, gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f)))) {
+                    if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
+                        gml_fn_draw_sprite(self, other, ((float)SPR_sCompassSmallLL), (-1.0f), (self->vars[VAR_vxv] + 0.0f), (self->vars[VAR_vyv] + 224.0f));
                     } else {
-                        gml_fn_draw_sprite(self, other, ((double)SPR_sCompassLL), (-1.0), (self->vars[VAR_vxv] + 0.0), (self->vars[VAR_vyv] + 224.0));
+                        gml_fn_draw_sprite(self, other, ((float)SPR_sCompassLL), (-1.0f), (self->vars[VAR_vxv] + 0.0f), (self->vars[VAR_vyv] + 224.0f));
                     }
                 } else {
-                    if ((t3 = g_gml_globals.exitX, gml_gt(t3, ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0) - 16.0)))) {
-                        if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
-                            gml_fn_draw_sprite(self, other, ((double)SPR_sCompassSmallLR), (-1.0), (self->vars[VAR_vxv] + 304.0), (self->vars[VAR_vyv] + 224.0));
+                    if ((t3 = g_gml_globals.exitX, gml_gt(t3, ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f) - 16.0f)))) {
+                        if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
+                            gml_fn_draw_sprite(self, other, ((float)SPR_sCompassSmallLR), (-1.0f), (self->vars[VAR_vxv] + 304.0f), (self->vars[VAR_vyv] + 224.0f));
                         } else {
-                            gml_fn_draw_sprite(self, other, ((double)SPR_sCompassLR), (-1.0), (self->vars[VAR_vxv] + 304.0), (self->vars[VAR_vyv] + 224.0));
+                            gml_fn_draw_sprite(self, other, ((float)SPR_sCompassLR), (-1.0f), (self->vars[VAR_vxv] + 304.0f), (self->vars[VAR_vyv] + 224.0f));
                         }
                     } else {
-                        if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
-                            (t5 = (t4 = (self->vars[VAR_vxv] + g_gml_globals.exitX), (t4 - gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassSmallDown), (-1.0), t5, (self->vars[VAR_vyv] + 224.0)));
+                        if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
+                            (t5 = (t4 = (self->vars[VAR_vxv] + g_gml_globals.exitX), (t4 - gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassSmallDown), (-1.0f), t5, (self->vars[VAR_vyv] + 224.0f)));
                         } else {
-                            (t7 = (t6 = (self->vars[VAR_vxv] + g_gml_globals.exitX), (t6 - gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassDown), (-1.0), t7, (self->vars[VAR_vyv] + 224.0)));
+                            (t7 = (t6 = (self->vars[VAR_vxv] + g_gml_globals.exitX), (t6 - gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassDown), (-1.0f), t7, (self->vars[VAR_vyv] + 224.0f)));
                         }
                     }
                 }
             } else {
-                if ((t8 = g_gml_globals.exitX, gml_lt(t8, gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0)))) {
-                    if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
-                        (t10 = (self->vars[VAR_vxv] + 0.0), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassSmallLeft), (-1.0), t10, (t9 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t9 - gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))));
+                if ((t8 = g_gml_globals.exitX, gml_lt(t8, gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f)))) {
+                    if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
+                        (t10 = (self->vars[VAR_vxv] + 0.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassSmallLeft), (-1.0f), t10, (t9 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t9 - gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))));
                     } else {
-                        (t12 = (self->vars[VAR_vxv] + 0.0), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassLeft), (-1.0), t12, (t11 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t11 - gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))));
+                        (t12 = (self->vars[VAR_vxv] + 0.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassLeft), (-1.0f), t12, (t11 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t11 - gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))));
                     }
                 } else {
-                    if ((t13 = g_gml_globals.exitX, gml_gt(t13, ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0) - 16.0)))) {
-                        if (gml_gt(g_gml_globals.messageTimer, 0.0)) {
-                            (t15 = (self->vars[VAR_vxv] + 304.0), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassSmallRight), (-1.0), t15, (t14 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t14 - gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))));
+                    if ((t13 = g_gml_globals.exitX, gml_gt(t13, ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f) - 16.0f)))) {
+                        if (gml_gt(g_gml_globals.messageTimer, 0.0f)) {
+                            (t15 = (self->vars[VAR_vxv] + 304.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassSmallRight), (-1.0f), t15, (t14 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t14 - gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))));
                         } else {
-                            (t17 = (self->vars[VAR_vxv] + 304.0), gml_fn_draw_sprite(self, other, ((double)SPR_sCompassRight), (-1.0), t17, (t16 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t16 - gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))));
+                            (t17 = (self->vars[VAR_vxv] + 304.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sCompassRight), (-1.0f), t17, (t16 = (self->vars[VAR_vyv] + g_gml_globals.exitY), (t16 - gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))));
                         }
                     }
                 }
             }
         }
-        gml_fn_draw_sprite(self, other, ((double)SPR_sHoldItemIcon), (-1.0), (self->vars[VAR_vxv] + 8.0), (self->vars[VAR_vyv] + 24.0));
-        if (gml_str_ne(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "")) {
-            if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Rock")) {
-                gml_fn_draw_sprite(self, other, ((double)SPR_sRock), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+        gml_fn_draw_sprite(self, other, ((float)SPR_sHoldItemIcon), (-1.0f), (self->vars[VAR_vxv] + 8.0f), (self->vars[VAR_vyv] + 24.0f));
+        if (gml_str_ne(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "")) {
+            if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Rock")) {
+                gml_fn_draw_sprite(self, other, ((float)SPR_sRock), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
             } else {
-                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Jar")) {
-                    gml_fn_draw_sprite(self, other, ((double)SPR_sJar), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Jar")) {
+                    gml_fn_draw_sprite(self, other, ((float)SPR_sJar), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                 } else {
-                    if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Skull")) {
-                        gml_fn_draw_sprite(self, other, ((double)SPR_sSkull), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                    if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Skull")) {
+                        gml_fn_draw_sprite(self, other, ((float)SPR_sSkull), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                     } else {
-                        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Fish Bone")) {
-                            gml_fn_draw_sprite(self, other, ((double)SPR_sFishBone), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Fish Bone")) {
+                            gml_fn_draw_sprite(self, other, ((float)SPR_sFishBone), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                         } else {
-                            if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Arrow")) {
-                                gml_fn_draw_sprite(self, other, ((double)SPR_sArrowRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                            if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Arrow")) {
+                                gml_fn_draw_sprite(self, other, ((float)SPR_sArrowRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                             } else {
-                                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Machete")) {
-                                    gml_fn_draw_sprite(self, other, ((double)SPR_sMacheteRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Machete")) {
+                                    gml_fn_draw_sprite(self, other, ((float)SPR_sMacheteRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                 } else {
-                                    if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Mattock")) {
-                                        gml_fn_draw_sprite(self, other, ((double)SPR_sMattockRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                    if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Mattock")) {
+                                        gml_fn_draw_sprite(self, other, ((float)SPR_sMattockRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                     } else {
-                                        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Mattock Head")) {
-                                            gml_fn_draw_sprite(self, other, ((double)SPR_sMattockHead), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Mattock Head")) {
+                                            gml_fn_draw_sprite(self, other, ((float)SPR_sMattockHead), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                         } else {
-                                            if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Pistol")) {
-                                                gml_fn_draw_sprite(self, other, ((double)SPR_sPistolRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                            if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Pistol")) {
+                                                gml_fn_draw_sprite(self, other, ((float)SPR_sPistolRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                             } else {
-                                                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Web Cannon")) {
-                                                    gml_fn_draw_sprite(self, other, ((double)SPR_sWebCannonR), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Web Cannon")) {
+                                                    gml_fn_draw_sprite(self, other, ((float)SPR_sWebCannonR), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                 } else {
-                                                    if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Teleporter")) {
-                                                        gml_fn_draw_sprite(self, other, ((double)SPR_sTeleporter), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                    if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Teleporter")) {
+                                                        gml_fn_draw_sprite(self, other, ((float)SPR_sTeleporter), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                     } else {
-                                                        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Shotgun")) {
-                                                            gml_fn_draw_sprite(self, other, ((double)SPR_sShotgunRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Shotgun")) {
+                                                            gml_fn_draw_sprite(self, other, ((float)SPR_sShotgunRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                         } else {
-                                                            if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Bow")) {
-                                                                gml_fn_draw_sprite(self, other, ((double)SPR_sBowDisp), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                            if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Bow")) {
+                                                                gml_fn_draw_sprite(self, other, ((float)SPR_sBowDisp), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                             } else {
-                                                                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Sceptre")) {
-                                                                    gml_fn_draw_sprite(self, other, ((double)SPR_sSceptreRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Sceptre")) {
+                                                                    gml_fn_draw_sprite(self, other, ((float)SPR_sSceptreRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                                 } else {
-                                                                    if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Flare")) {
-                                                                        gml_fn_draw_sprite(self, other, ((double)SPR_sFlare), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                                    if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Flare")) {
+                                                                        gml_fn_draw_sprite(self, other, ((float)SPR_sFlare), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                                     } else {
-                                                                        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Key")) {
-                                                                            gml_fn_draw_sprite(self, other, ((double)SPR_sKeyRight), (-1.0), ((self->vars[VAR_vxv] + 8.0) + 8.0), ((self->vars[VAR_vyv] + 24.0) + 8.0));
+                                                                        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Key")) {
+                                                                            gml_fn_draw_sprite(self, other, ((float)SPR_sKeyRight), (-1.0f), ((self->vars[VAR_vxv] + 8.0f) + 8.0f), ((self->vars[VAR_vyv] + 24.0f) + 8.0f));
                                                                         }
                                                                     }
                                                                 }
@@ -183,91 +183,91 @@ void gml_script_scrDrawHUD(gm_instance_t *self, gm_instance_t *other)
                 }
             }
         }
-        self->vars[VAR_n] = 28.0;
+        self->vars[VAR_n] = 28.0f;
         if (gml_truthy(g_gml_globals.hasUdjatEye)) {
             if (gml_truthy(g_gml_globals.udjatBlink)) {
-                gml_fn_draw_sprite(self, other, ((double)SPR_sUdjatEyeIcon2), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                gml_fn_draw_sprite(self, other, ((float)SPR_sUdjatEyeIcon2), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
             } else {
-                gml_fn_draw_sprite(self, other, ((double)SPR_sUdjatEyeIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                gml_fn_draw_sprite(self, other, ((float)SPR_sUdjatEyeIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
             }
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasAnkh)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sAnkhIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sAnkhIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasCrown)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sCrownIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sCrownIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasKapala)) {
-            if (gml_eq(g_gml_globals.bloodLevel, 0.0)) {
-                gml_fn_draw_sprite(self, other, ((double)SPR_sKapalaIcon), 0.0, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+            if (gml_eq(g_gml_globals.bloodLevel, 0.0f)) {
+                gml_fn_draw_sprite(self, other, ((float)SPR_sKapalaIcon), 0.0f, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
             } else {
-                if (gml_le(g_gml_globals.bloodLevel, 2.0)) {
-                    gml_fn_draw_sprite(self, other, ((double)SPR_sKapalaIcon), 1.0, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                if (gml_le(g_gml_globals.bloodLevel, 2.0f)) {
+                    gml_fn_draw_sprite(self, other, ((float)SPR_sKapalaIcon), 1.0f, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
                 } else {
-                    if (gml_le(g_gml_globals.bloodLevel, 4.0)) {
-                        gml_fn_draw_sprite(self, other, ((double)SPR_sKapalaIcon), 2.0, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                    if (gml_le(g_gml_globals.bloodLevel, 4.0f)) {
+                        gml_fn_draw_sprite(self, other, ((float)SPR_sKapalaIcon), 2.0f, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
                     } else {
-                        if (gml_le(g_gml_globals.bloodLevel, 6.0)) {
-                            gml_fn_draw_sprite(self, other, ((double)SPR_sKapalaIcon), 3.0, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                        if (gml_le(g_gml_globals.bloodLevel, 6.0f)) {
+                            gml_fn_draw_sprite(self, other, ((float)SPR_sKapalaIcon), 3.0f, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
                         } else {
-                            if (gml_le(g_gml_globals.bloodLevel, 8.0)) {
-                                gml_fn_draw_sprite(self, other, ((double)SPR_sKapalaIcon), 4.0, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
+                            if (gml_le(g_gml_globals.bloodLevel, 8.0f)) {
+                                gml_fn_draw_sprite(self, other, ((float)SPR_sKapalaIcon), 4.0f, (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
                             }
                         }
                     }
                 }
             }
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasSpectacles)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sSpectaclesIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sSpectaclesIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasGloves)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sGlovesIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sGlovesIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasMitt)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sMittIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sMittIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasSpringShoes)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sSpringShoesIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sSpringShoesIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasSpikeShoes)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sSpikeShoesIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sSpikeShoesIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasCape)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sCapeIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sCapeIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasJetpack)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sJetpackIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sJetpackIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasCompass)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sCompassIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sCompassIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
         if (gml_truthy(g_gml_globals.hasParachute)) {
-            gml_fn_draw_sprite(self, other, ((double)SPR_sParachuteIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0);
+            gml_fn_draw_sprite(self, other, ((float)SPR_sParachuteIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 20.0f);
         }
-        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Bow")) {
+        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Bow")) {
             self->vars[VAR_m] = g_gml_globals.arrows;
-            while (gml_gt(self->vars[VAR_m], 0.0)) {
-                gml_fn_draw_sprite(self, other, ((double)SPR_sArrowIcon), (-1.0), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0));
-                self->vars[VAR_n] = (self->vars[VAR_n] + 4.0);
-                self->vars[VAR_m] = (self->vars[VAR_m] - 1.0);
+            while (gml_gt(self->vars[VAR_m], 0.0f)) {
+                gml_fn_draw_sprite(self, other, ((float)SPR_sArrowIcon), (-1.0f), (self->vars[VAR_vxv] + self->vars[VAR_n]), (self->vars[VAR_vyv] + 24.0f));
+                self->vars[VAR_n] = (self->vars[VAR_n] + 4.0f);
+                self->vars[VAR_m] = (self->vars[VAR_m] - 1.0f);
             }
         }
-        if (gml_gt(g_gml_globals.collect, 0.0)) {
-            gml_script_drawText(self, other, 5, gml_vs(gml_concat("+", gml_real_str(g_gml_globals.collect))), "small", (65535.0 /* c_yellow */), self->vars[VAR_moneyX], ((self->vars[VAR_vyv] + 8.0) + 16.0));
+        if (gml_gt(g_gml_globals.collect, 0.0f)) {
+            gml_script_drawText(self, other, 5, gml_vs(gml_concat("+", gml_real_str(g_gml_globals.collect))), "small", (65535.0f /* c_yellow */), self->vars[VAR_moneyX], ((self->vars[VAR_vyv] + 8.0f) + 16.0f));
         }
     }
 }

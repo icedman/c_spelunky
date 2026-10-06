@@ -6,9 +6,9 @@ static void gml_ev_oPsychicCreateP__Create_0_body(gm_instance_t *self, gm_instan
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    gml_iset_image_speed(self, 0.2);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    gml_iset_image_speed(self, 0.2f);
 }
 
 void gml_ev_oPsychicCreateP__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,8 +24,8 @@ static void gml_ev_oPsychicCreateP__Step_0_body(gm_instance_t *self, gm_instance
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
-        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.6);
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
+        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.6f);
     }
 }
 

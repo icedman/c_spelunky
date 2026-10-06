@@ -5,8 +5,8 @@ static void gml_ev_oJoyConfig__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_joy] = 0.0;
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_joy] = 0.0f;
 }
 
 void gml_ev_oJoyConfig__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,62 +20,62 @@ static void gml_ev_oJoyConfig__Step_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_joyReleased] = 0.0;
-    self->vars[VAR_joyPressed] = 0.0;
+    self->vars[VAR_joyReleased] = 0.0f;
+    self->vars[VAR_joyPressed] = 0.0f;
     self->vals[VVAR_joyKey] = gml_script_checkJoyButton(self, other);
     if (gml_truthy(self->vars[VAR_joy])) {
-        if (gml_vne(self->vals[VVAR_joyKey], gml_vreal(0.0))) {
-            self->vars[VAR_joy] = 1.0;
+        if (gml_vne(self->vals[VVAR_joyKey], gml_vreal(0.0f))) {
+            self->vars[VAR_joy] = 1.0f;
         } else {
-            self->vars[VAR_joyReleased] = 1.0;
-            self->vars[VAR_joy] = 0.0;
+            self->vars[VAR_joyReleased] = 1.0f;
+            self->vars[VAR_joy] = 0.0f;
         }
     } else {
-        if (gml_vne(self->vals[VVAR_joyKey], gml_vreal(0.0))) {
-            self->vars[VAR_joyPressed] = 1.0;
-            self->vars[VAR_joy] = 1.0;
+        if (gml_vne(self->vals[VVAR_joyKey], gml_vreal(0.0f))) {
+            self->vars[VAR_joyPressed] = 1.0f;
+            self->vars[VAR_joy] = 1.0f;
         } else {
-            self->vars[VAR_joy] = 0.0;
+            self->vars[VAR_joy] = 0.0f;
         }
     }
     if (gml_truthy(self->vars[VAR_joyPressed])) {
-        if (gml_eq(self->vars[VAR_status], 0.0)) {
+        if (gml_eq(self->vars[VAR_status], 0.0f)) {
             g_gml_gvals[GV_joyJumpVal] = self->vals[VVAR_joyKey];
         } else {
-            if (gml_eq(self->vars[VAR_status], 1.0)) {
+            if (gml_eq(self->vars[VAR_status], 1.0f)) {
                 g_gml_gvals[GV_joyAttackVal] = self->vals[VVAR_joyKey];
             } else {
-                if (gml_eq(self->vars[VAR_status], 2.0)) {
+                if (gml_eq(self->vars[VAR_status], 2.0f)) {
                     g_gml_gvals[GV_joyItemVal] = self->vals[VVAR_joyKey];
                 } else {
-                    if (gml_eq(self->vars[VAR_status], 3.0)) {
+                    if (gml_eq(self->vars[VAR_status], 3.0f)) {
                         g_gml_gvals[GV_joyRunVal] = self->vals[VVAR_joyKey];
                     } else {
-                        if (gml_eq(self->vars[VAR_status], 4.0)) {
+                        if (gml_eq(self->vars[VAR_status], 4.0f)) {
                             g_gml_gvals[GV_joyBombVal] = self->vals[VVAR_joyKey];
                         } else {
-                            if (gml_eq(self->vars[VAR_status], 5.0)) {
+                            if (gml_eq(self->vars[VAR_status], 5.0f)) {
                                 g_gml_gvals[GV_joyRopeVal] = self->vals[VVAR_joyKey];
                             } else {
-                                if (gml_eq(self->vars[VAR_status], 6.0)) {
+                                if (gml_eq(self->vars[VAR_status], 6.0f)) {
                                     g_gml_gvals[GV_joyPayVal] = self->vals[VVAR_joyKey];
                                 } else {
-                                    if (gml_eq(self->vars[VAR_status], 7.0)) {
+                                    if (gml_eq(self->vars[VAR_status], 7.0f)) {
                                         g_gml_gvals[GV_joyStartVal] = self->vals[VVAR_joyKey];
                                     } else {
-                                        if (gml_eq(self->vars[VAR_status], 8.0)) {
+                                        if (gml_eq(self->vars[VAR_status], 8.0f)) {
                                             g_gml_gvals[GV_joyLangVal] = self->vals[VVAR_joyKey];
                                         } else {
-                                            if (gml_eq(self->vars[VAR_status], 9.0)) {
+                                            if (gml_eq(self->vars[VAR_status], 9.0f)) {
                                                 g_gml_gvals[GV_joyLeftVal] = self->vals[VVAR_joyKey];
                                             } else {
-                                                if (gml_eq(self->vars[VAR_status], 10.0)) {
+                                                if (gml_eq(self->vars[VAR_status], 10.0f)) {
                                                     g_gml_gvals[GV_joyRightVal] = self->vals[VVAR_joyKey];
                                                 } else {
-                                                    if (gml_eq(self->vars[VAR_status], 11.0)) {
+                                                    if (gml_eq(self->vars[VAR_status], 11.0f)) {
                                                         g_gml_gvals[GV_joyUpVal] = self->vals[VVAR_joyKey];
                                                     } else {
-                                                        if (gml_eq(self->vars[VAR_status], 12.0)) {
+                                                        if (gml_eq(self->vars[VAR_status], 12.0f)) {
                                                             g_gml_gvals[GV_joyDownVal] = self->vals[VVAR_joyKey];
                                                         }
                                                     }
@@ -91,21 +91,21 @@ static void gml_ev_oJoyConfig__Step_0_body(gm_instance_t *self, gm_instance_t *o
             }
         }
     }
-    if ((gml_truthy(self->vars[VAR_joyPressed]) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, (27.0 /* vk_escape */))))) {
-        self->vars[VAR_status] = (self->vars[VAR_status] + 1.0);
+    if ((gml_truthy(self->vars[VAR_joyPressed]) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, (27.0f /* vk_escape */))))) {
+        self->vars[VAR_status] = (self->vars[VAR_status] + 1.0f);
         if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed))) {
-            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0);
+            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0f);
         }
         if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed))) {
-            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0);
+            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0f);
         }
-        if (gml_eq(gml_gget_os_type(), (0.0 /* os_windows */))) {
-            if (gml_gt(self->vars[VAR_status], 8.0)) {
-                gml_fn_room_goto(self, other, ((double)RM_rTitle));
+        if (gml_eq(gml_gget_os_type(), (0.0f /* os_windows */))) {
+            if (gml_gt(self->vars[VAR_status], 8.0f)) {
+                gml_fn_room_goto(self, other, ((float)RM_rTitle));
             }
         }
-        if (gml_gt(self->vars[VAR_status], 12.0)) {
-            gml_fn_room_goto(self, other, ((double)RM_rTitle));
+        if (gml_gt(self->vars[VAR_status], 12.0f)) {
+            gml_fn_room_goto(self, other, ((float)RM_rTitle));
         }
     }
 }
@@ -134,34 +134,34 @@ void gml_ev_oJoyConfig__Other_5(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oJoyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t28 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t28 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -193,132 +193,132 @@ static void gml_ev_oJoyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *o
     (void)t27;
     (void)t28;
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
+    gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
     self->vars[VAR_strLen] = (t1 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "PRESS BUTTON FOR")), (t1 * g_gml_globals.fontSmallWidth));
-    self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-    (t2 = self->vars[VAR_n], gml_fn_draw_text(self, other, t2, 32.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS BUTTON FOR"))));
-    gml_fn_draw_text(self, other, 8.0, 96.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ESC TO KEEP SAME.")));
-    gml_fn_draw_text(self, other, 8.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CURRENT: ")));
-    if (((!gml_truthy(gml_fn_gamepad_is_connected(self, other, g_gml_globals.joyid))) && gml_lt(gml_fn_string_length(self, other, gml_fn_gamepad_get_description(self, other, g_gml_globals.joyid)), 1.0))) {
-        gml_fn_draw_set_color(self, other, (255.0 /* c_red */));
-        gml_fn_draw_text(self, other, 8.0, 88.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NO GAMEPAD FOUND!")));
+    self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+    (t2 = self->vars[VAR_n], gml_fn_draw_text(self, other, t2, 32.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS BUTTON FOR"))));
+    gml_fn_draw_text(self, other, 8.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ESC TO KEEP SAME.")));
+    gml_fn_draw_text(self, other, 8.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CURRENT: ")));
+    if (((!gml_truthy(gml_fn_gamepad_is_connected(self, other, g_gml_globals.joyid))) && gml_lt(gml_fn_string_length(self, other, gml_fn_gamepad_get_description(self, other, g_gml_globals.joyid)), 1.0f))) {
+        gml_fn_draw_set_color(self, other, (255.0f /* c_red */));
+        gml_fn_draw_text(self, other, 8.0f, 88.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NO GAMEPAD FOUND!")));
     }
-    if (gml_eq(self->vars[VAR_status], 0.0)) {
+    if (gml_eq(self->vars[VAR_status], 0.0f)) {
         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
         self->vars[VAR_strLen] = (t3 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "JUMP")), (t3 * g_gml_globals.fontLargeWidth));
-        self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-        self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-        (t4 = self->vars[VAR_n], gml_fn_draw_text(self, other, t4, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "JUMP"))));
+        self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+        self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+        (t4 = self->vars[VAR_n], gml_fn_draw_text(self, other, t4, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "JUMP"))));
         self->vals[VVAR_currVal] = g_gml_gvals[GV_joyJumpVal];
     } else {
-        if (gml_eq(self->vars[VAR_status], 1.0)) {
+        if (gml_eq(self->vars[VAR_status], 1.0f)) {
             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
             self->vars[VAR_strLen] = (t5 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "ACTION")), (t5 * g_gml_globals.fontLargeWidth));
-            self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-            (t6 = self->vars[VAR_n], gml_fn_draw_text(self, other, t6, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ACTION"))));
+            self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+            (t6 = self->vars[VAR_n], gml_fn_draw_text(self, other, t6, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ACTION"))));
             self->vals[VVAR_currVal] = g_gml_gvals[GV_joyAttackVal];
         } else {
-            if (gml_eq(self->vars[VAR_status], 2.0)) {
+            if (gml_eq(self->vars[VAR_status], 2.0f)) {
                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                 self->vars[VAR_strLen] = (t7 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "SWITCH")), (t7 * g_gml_globals.fontLargeWidth));
-                self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                (t8 = self->vars[VAR_n], gml_fn_draw_text(self, other, t8, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SWITCH"))));
+                self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                (t8 = self->vars[VAR_n], gml_fn_draw_text(self, other, t8, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SWITCH"))));
                 self->vals[VVAR_currVal] = g_gml_gvals[GV_joyItemVal];
             } else {
-                if (gml_eq(self->vars[VAR_status], 3.0)) {
+                if (gml_eq(self->vars[VAR_status], 3.0f)) {
                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                     self->vars[VAR_strLen] = (t9 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "RUN")), (t9 * g_gml_globals.fontLargeWidth));
-                    self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                    (t10 = self->vars[VAR_n], gml_fn_draw_text(self, other, t10, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RUN"))));
+                    self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                    (t10 = self->vars[VAR_n], gml_fn_draw_text(self, other, t10, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RUN"))));
                     self->vals[VVAR_currVal] = g_gml_gvals[GV_joyRunVal];
                 } else {
-                    if (gml_eq(self->vars[VAR_status], 4.0)) {
+                    if (gml_eq(self->vars[VAR_status], 4.0f)) {
                         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                         self->vars[VAR_strLen] = (t11 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "BOMB")), (t11 * g_gml_globals.fontLargeWidth));
-                        self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                        self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                        (t12 = self->vars[VAR_n], gml_fn_draw_text(self, other, t12, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BOMB"))));
+                        self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                        self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                        (t12 = self->vars[VAR_n], gml_fn_draw_text(self, other, t12, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BOMB"))));
                         self->vals[VVAR_currVal] = g_gml_gvals[GV_joyBombVal];
                     } else {
-                        if (gml_eq(self->vars[VAR_status], 5.0)) {
+                        if (gml_eq(self->vars[VAR_status], 5.0f)) {
                             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                             self->vars[VAR_strLen] = (t13 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "ROPE")), (t13 * g_gml_globals.fontLargeWidth));
-                            self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                            (t14 = self->vars[VAR_n], gml_fn_draw_text(self, other, t14, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ROPE"))));
+                            self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                            (t14 = self->vars[VAR_n], gml_fn_draw_text(self, other, t14, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ROPE"))));
                             self->vals[VVAR_currVal] = g_gml_gvals[GV_joyRopeVal];
                         } else {
-                            if (gml_eq(self->vars[VAR_status], 6.0)) {
+                            if (gml_eq(self->vars[VAR_status], 6.0f)) {
                                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                 self->vars[VAR_strLen] = (t15 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "PURCHASE")), (t15 * g_gml_globals.fontLargeWidth));
-                                self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                (t16 = self->vars[VAR_n], gml_fn_draw_text(self, other, t16, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PURCHASE"))));
+                                self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                (t16 = self->vars[VAR_n], gml_fn_draw_text(self, other, t16, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PURCHASE"))));
                                 self->vals[VVAR_currVal] = g_gml_gvals[GV_joyPayVal];
                             } else {
-                                if (gml_eq(self->vars[VAR_status], 7.0)) {
+                                if (gml_eq(self->vars[VAR_status], 7.0f)) {
                                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                     self->vars[VAR_strLen] = (t17 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "START")), (t17 * g_gml_globals.fontLargeWidth));
-                                    self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                    (t18 = self->vars[VAR_n], gml_fn_draw_text(self, other, t18, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "START"))));
+                                    self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                    (t18 = self->vars[VAR_n], gml_fn_draw_text(self, other, t18, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "START"))));
                                     self->vals[VVAR_currVal] = g_gml_gvals[GV_joyStartVal];
                                 } else {
-                                    if (gml_eq(self->vars[VAR_status], 8.0)) {
+                                    if (gml_eq(self->vars[VAR_status], 8.0f)) {
                                         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                         self->vars[VAR_strLen] = (t19 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "LANGUAGE")), (t19 * g_gml_globals.fontLargeWidth));
-                                        self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                        self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                        (t20 = self->vars[VAR_n], gml_fn_draw_text(self, other, t20, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LANGUAGE"))));
+                                        self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                        self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                        (t20 = self->vars[VAR_n], gml_fn_draw_text(self, other, t20, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LANGUAGE"))));
                                         self->vals[VVAR_currVal] = g_gml_gvals[GV_joyLangVal];
                                     } else {
-                                        if (gml_eq(self->vars[VAR_status], 9.0)) {
+                                        if (gml_eq(self->vars[VAR_status], 9.0f)) {
                                             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                             self->vars[VAR_strLen] = (t21 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "LEFT")), (t21 * g_gml_globals.fontLargeWidth));
-                                            self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                            self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                            (t22 = self->vars[VAR_n], gml_fn_draw_text(self, other, t22, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT"))));
+                                            self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                            self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                            (t22 = self->vars[VAR_n], gml_fn_draw_text(self, other, t22, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT"))));
                                             self->vals[VVAR_currVal] = g_gml_gvals[GV_joyLeftVal];
                                         } else {
-                                            if (gml_eq(self->vars[VAR_status], 10.0)) {
+                                            if (gml_eq(self->vars[VAR_status], 10.0f)) {
                                                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                                 self->vars[VAR_strLen] = (t23 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "RIGHT")), (t23 * g_gml_globals.fontLargeWidth));
-                                                self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                (t24 = self->vars[VAR_n], gml_fn_draw_text(self, other, t24, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT"))));
+                                                self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                (t24 = self->vars[VAR_n], gml_fn_draw_text(self, other, t24, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT"))));
                                                 self->vals[VVAR_currVal] = g_gml_gvals[GV_joyRightVal];
                                             } else {
-                                                if (gml_eq(self->vars[VAR_status], 11.0)) {
+                                                if (gml_eq(self->vars[VAR_status], 11.0f)) {
                                                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                                     self->vars[VAR_strLen] = (t25 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "UP")), (t25 * g_gml_globals.fontLargeWidth));
-                                                    self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                    (t26 = self->vars[VAR_n], gml_fn_draw_text(self, other, t26, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP"))));
+                                                    self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                    (t26 = self->vars[VAR_n], gml_fn_draw_text(self, other, t26, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP"))));
                                                     self->vals[VVAR_currVal] = g_gml_gvals[GV_joyUpVal];
                                                 } else {
-                                                    if (gml_eq(self->vars[VAR_status], 12.0)) {
+                                                    if (gml_eq(self->vars[VAR_status], 12.0f)) {
                                                         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                                         self->vars[VAR_strLen] = (t27 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "DOWN")), (t27 * g_gml_globals.fontLargeWidth));
-                                                        self->vars[VAR_n] = (160.0 - self->vars[VAR_strLen]);
-                                                        self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                        (t28 = self->vars[VAR_n], gml_fn_draw_text(self, other, t28, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN"))));
+                                                        self->vars[VAR_n] = (160.0f - self->vars[VAR_strLen]);
+                                                        self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                        (t28 = self->vars[VAR_n], gml_fn_draw_text(self, other, t28, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN"))));
                                                         self->vals[VVAR_currVal] = g_gml_gvals[GV_joyDownVal];
                                                     }
                                                 }
@@ -334,7 +334,7 @@ static void gml_ev_oJoyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *o
         }
     }
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_scrGetJoy(self, other, 1, self->vals[VVAR_currVal])));
+    gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_scrGetJoy(self, other, 1, self->vals[VVAR_currVal])));
 }
 
 void gml_ev_oJoyConfig__Draw_0(gm_instance_t *self, gm_instance_t *other)

@@ -7,7 +7,7 @@ static void gml_ev_oWater__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Water";
-    self->vars[VAR_checked] = 0.0;
+    self->vars[VAR_checked] = 0.0f;
 }
 
 void gml_ev_oWater__Create_0(gm_instance_t *self, gm_instance_t *other)

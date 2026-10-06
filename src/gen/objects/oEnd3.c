@@ -7,31 +7,31 @@ static void gml_ev_oEnd3__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     (void)wd;
-    (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oHtml5Gamepad)));
-    self->vars[VAR_drawStatus] = 0.0;
-    self->vars[VAR_moneyCount] = 0.0;
-    self->vars[VAR_fadeOut] = 0.0;
-    self->vars[VAR_fadeLevel] = 0.0;
-    self->vars[VAR_poop] = 0.0;
-    gml_iset_alarm(self, 0.0, 50.0);
+    (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oHtml5Gamepad)));
+    self->vars[VAR_drawStatus] = 0.0f;
+    self->vars[VAR_moneyCount] = 0.0f;
+    self->vars[VAR_fadeOut] = 0.0f;
+    self->vars[VAR_fadeLevel] = 0.0f;
+    self->vars[VAR_poop] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 50.0f);
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oMenu)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oMenu)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            gml_iset_visible(self1, 0.0);
+            gml_iset_visible(self1, 0.0f);
         }
         gm_with_end();
     }
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bStartPreviousState = 0.0;
-    g_gml_globals.bJumpPressed = 0.0;
-    g_gml_globals.bJumpPressedPreviousState = 0.0;
-    g_gml_globals.bJumpReleased = 0.0;
-    g_gml_globals.bJumpReleasedPreviousState = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.bAttackPressedPreviousState = 0.0;
-    g_gml_globals.bAttackReleased = 0.0;
-    g_gml_globals.bAttackReleasedPreviousState = 0.0;
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bStartPreviousState = 0.0f;
+    g_gml_globals.bJumpPressed = 0.0f;
+    g_gml_globals.bJumpPressedPreviousState = 0.0f;
+    g_gml_globals.bJumpReleased = 0.0f;
+    g_gml_globals.bJumpReleasedPreviousState = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.bAttackPressedPreviousState = 0.0f;
+    g_gml_globals.bAttackReleased = 0.0f;
+    g_gml_globals.bAttackReleasedPreviousState = 0.0f;
 }
 
 void gml_ev_oEnd3__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -45,11 +45,11 @@ static void gml_ev_oEnd3__Alarm_11_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 4.0;
+    self->vars[VAR_drawStatus] = 4.0f;
     gml_script_playSound(self, other, g_gml_globals.sndThump);
-    g_gml_globals.money = (g_gml_globals.money + 50000.0);
-    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 50000.0);
-    gml_iset_alarm(self, 3.0, 50.0);
+    g_gml_globals.money = (g_gml_globals.money + 50000.0f);
+    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 50000.0f);
+    gml_iset_alarm(self, 3.0f, 50.0f);
 }
 
 void gml_ev_oEnd3__Alarm_11(gm_instance_t *self, gm_instance_t *other)
@@ -63,11 +63,11 @@ static void gml_ev_oEnd3__Alarm_6_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bJumpPressed = 0.0;
-    g_gml_globals.bJumpReleased = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.bAttackReleased = 0.0;
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bJumpPressed = 0.0f;
+    g_gml_globals.bJumpReleased = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.bAttackReleased = 0.0f;
 }
 
 void gml_ev_oEnd3__Alarm_6(gm_instance_t *self, gm_instance_t *other)
@@ -81,7 +81,7 @@ static void gml_ev_oEnd3__Alarm_5_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 7.0;
+    self->vars[VAR_drawStatus] = 7.0f;
 }
 
 void gml_ev_oEnd3__Alarm_5(gm_instance_t *self, gm_instance_t *other)
@@ -95,8 +95,8 @@ static void gml_ev_oEnd3__Alarm_4_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 6.0;
-    gml_iset_alarm(self, 5.0, 10.0);
+    self->vars[VAR_drawStatus] = 6.0f;
+    gml_iset_alarm(self, 5.0f, 10.0f);
 }
 
 void gml_ev_oEnd3__Alarm_4(gm_instance_t *self, gm_instance_t *other)
@@ -110,8 +110,8 @@ static void gml_ev_oEnd3__Alarm_3_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 5.0;
-    gml_iset_alarm(self, 4.0, 10.0);
+    self->vars[VAR_drawStatus] = 5.0f;
+    gml_iset_alarm(self, 4.0f, 10.0f);
 }
 
 void gml_ev_oEnd3__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -125,7 +125,7 @@ static void gml_ev_oEnd3__Alarm_2_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 3.0;
+    self->vars[VAR_drawStatus] = 3.0f;
 }
 
 void gml_ev_oEnd3__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -139,8 +139,8 @@ static void gml_ev_oEnd3__Alarm_1_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 2.0;
-    gml_iset_alarm(self, 2.0, 50.0);
+    self->vars[VAR_drawStatus] = 2.0f;
+    gml_iset_alarm(self, 2.0f, 50.0f);
 }
 
 void gml_ev_oEnd3__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -154,7 +154,7 @@ static void gml_ev_oEnd3__Alarm_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, 144.0, (-32.0), ((double)OBJ_oPDummy2)));
+    (void)(gml_script_instance_create(self, other, 144.0f, (-32.0f), ((float)OBJ_oPDummy2)));
     gml_script_playSound(self, other, g_gml_globals.sndPFall);
 }
 
@@ -167,92 +167,92 @@ void gml_ev_oEnd3__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oEnd3__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_skipCondition = 0.0;
+    float l_skipCondition = 0.0f;
     (void)self;
     (void)other;
     (void)l_skipCondition;
     if (gml_truthy(g_gml_globals.html5Build)) {
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyStartVal]}))) {
-            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0)) {
-                g_gml_globals.bStartPressed = 1.0;
-                g_gml_globals.bStartPreviousState = 1.0;
+            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0f)) {
+                g_gml_globals.bStartPressed = 1.0f;
+                g_gml_globals.bStartPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bStartPreviousState = 0.0;
+            g_gml_globals.bStartPreviousState = 0.0f;
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyJumpVal]}))) {
-            g_gml_globals.bJumpReleasedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bJumpPressedPreviousState, 0.0)) {
-                g_gml_globals.bJumpPressed = 1.0;
-                g_gml_globals.bJumpPressedPreviousState = 1.0;
+            g_gml_globals.bJumpReleasedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bJumpPressedPreviousState, 0.0f)) {
+                g_gml_globals.bJumpPressed = 1.0f;
+                g_gml_globals.bJumpPressedPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bJumpPressedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bJumpReleasedPreviousState, 0.0)) {
-                g_gml_globals.bJumpReleased = 1.0;
-                g_gml_globals.bJumpReleasedPreviousState = 1.0;
+            g_gml_globals.bJumpPressedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bJumpReleasedPreviousState, 0.0f)) {
+                g_gml_globals.bJumpReleased = 1.0f;
+                g_gml_globals.bJumpReleasedPreviousState = 1.0f;
             }
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) {
-            g_gml_globals.bAttackReleasedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0)) {
-                g_gml_globals.bAttackPressed = 1.0;
-                g_gml_globals.bAttackPressedPreviousState = 1.0;
+            g_gml_globals.bAttackReleasedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackPressed = 1.0f;
+                g_gml_globals.bAttackPressedPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bAttackPressedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0)) {
-                g_gml_globals.bAttackReleased = 1.0;
-                g_gml_globals.bAttackReleasedPreviousState = 1.0;
+            g_gml_globals.bAttackPressedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackReleased = 1.0f;
+                g_gml_globals.bAttackReleasedPreviousState = 1.0f;
             }
         }
-        gml_iset_alarm(self, 6.0, 1.0);
+        gml_iset_alarm(self, 6.0f, 1.0f);
     }
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     } else {
-        l_skipCondition = ((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(g_gml_globals.bAttackPressed)) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(g_gml_globals.bAttackPressed)) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
-        if (gml_eq(self->vars[VAR_drawStatus], 7.0)) {
+        if (gml_eq(self->vars[VAR_drawStatus], 7.0f)) {
             if (gml_lt(self->vars[VAR_moneyCount], g_gml_globals.money)) {
                 self->vars[VAR_moneyCount] = g_gml_globals.money;
             } else {
-                self->vars[VAR_fadeOut] = 1.0;
+                self->vars[VAR_fadeOut] = 1.0f;
             }
         } else {
-            if (gml_eq(self->vars[VAR_drawStatus], 8.0)) {
+            if (gml_eq(self->vars[VAR_drawStatus], 8.0f)) {
                 if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed))) {
-                    gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0);
+                    gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0f);
                 }
                 if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed))) {
-                    gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0);
+                    gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0f);
                 }
-                gml_fn_room_goto(self, other, ((double)RM_rCredits2));
+                gml_fn_room_goto(self, other, ((float)RM_rCredits2));
             }
         }
     }
-    if (gml_gt(self->vars[VAR_drawStatus], 2.0)) {
+    if (gml_gt(self->vars[VAR_drawStatus], 2.0f)) {
         self->vars[VAR_moneyDiff] = (g_gml_globals.money - self->vars[VAR_moneyCount]);
-        if (gml_gt(self->vars[VAR_moneyDiff], 1000.0)) {
-            self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 1000.0);
+        if (gml_gt(self->vars[VAR_moneyDiff], 1000.0f)) {
+            self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 1000.0f);
         } else {
-            if (gml_gt(self->vars[VAR_moneyDiff], 100.0)) {
-                self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0);
+            if (gml_gt(self->vars[VAR_moneyDiff], 100.0f)) {
+                self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0f);
             } else {
                 self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + self->vars[VAR_moneyDiff]);
             }
         }
-        if (((gml_eq(self->vars[VAR_drawStatus], 3.0) && gml_eq(self->vars[VAR_moneyDiff], 0.0)) && (!gml_truthy(self->vars[VAR_poop])))) {
-            gml_iset_alarm(self, 11.0, 50.0);
-            self->vars[VAR_poop] = 1.0;
+        if (((gml_eq(self->vars[VAR_drawStatus], 3.0f) && gml_eq(self->vars[VAR_moneyDiff], 0.0f)) && (!gml_truthy(self->vars[VAR_poop])))) {
+            gml_iset_alarm(self, 11.0f, 50.0f);
+            self->vars[VAR_poop] = 1.0f;
         }
     }
     if (gml_truthy(self->vars[VAR_fadeOut])) {
-        if (gml_lt(self->vars[VAR_fadeLevel], 1.0)) {
-            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1);
+        if (gml_lt(self->vars[VAR_fadeLevel], 1.0f)) {
+            self->vars[VAR_fadeLevel] = (self->vars[VAR_fadeLevel] + 0.1f);
         } else {
-            self->vars[VAR_drawStatus] = 8.0;
+            self->vars[VAR_drawStatus] = 8.0f;
         }
     }
 }
@@ -294,7 +294,7 @@ static void gml_ev_oEnd3__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
     }
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oEnd3)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oEnd3)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
             gml_script_showFinalScore(self1, self, 2, self1->vars[VAR_drawStatus], self1->vars[VAR_fadeOut]);
         }

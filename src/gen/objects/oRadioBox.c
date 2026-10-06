@@ -5,22 +5,22 @@ static void gml_ev_oRadioBox__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_on] = 0.0;
-    if ((gml_eq(gml_iget_y(self), 24.0) && gml_eq(g_gml_globals.screenScale, 1.0))) {
-        self->vars[VAR_on] = 1.0;
-        gml_iset_sprite_index(self, ((double)SPR_sBoxMarked));
+    self->vars[VAR_on] = 0.0f;
+    if ((gml_eq(gml_iget_y(self), 24.0f) && gml_eq(g_gml_globals.screenScale, 1.0f))) {
+        self->vars[VAR_on] = 1.0f;
+        gml_iset_sprite_index(self, ((float)SPR_sBoxMarked));
     } else {
-        if ((gml_eq(gml_iget_y(self), 32.0) && gml_eq(g_gml_globals.screenScale, 2.0))) {
-            self->vars[VAR_on] = 1.0;
-            gml_iset_sprite_index(self, ((double)SPR_sBoxMarked));
+        if ((gml_eq(gml_iget_y(self), 32.0f) && gml_eq(g_gml_globals.screenScale, 2.0f))) {
+            self->vars[VAR_on] = 1.0f;
+            gml_iset_sprite_index(self, ((float)SPR_sBoxMarked));
         } else {
-            if ((gml_eq(gml_iget_y(self), 40.0) && gml_eq(g_gml_globals.screenScale, 3.0))) {
-                self->vars[VAR_on] = 1.0;
-                gml_iset_sprite_index(self, ((double)SPR_sBoxMarked));
+            if ((gml_eq(gml_iget_y(self), 40.0f) && gml_eq(g_gml_globals.screenScale, 3.0f))) {
+                self->vars[VAR_on] = 1.0f;
+                gml_iset_sprite_index(self, ((float)SPR_sBoxMarked));
             } else {
-                if ((gml_eq(gml_iget_y(self), 48.0) && gml_eq(g_gml_globals.screenScale, 4.0))) {
-                    self->vars[VAR_on] = 1.0;
-                    gml_iset_sprite_index(self, ((double)SPR_sBoxMarked));
+                if ((gml_eq(gml_iget_y(self), 48.0f) && gml_eq(g_gml_globals.screenScale, 4.0f))) {
+                    self->vars[VAR_on] = 1.0f;
+                    gml_iset_sprite_index(self, ((float)SPR_sBoxMarked));
                 }
             }
         }
@@ -43,26 +43,26 @@ static void gml_ev_oRadioBox__Mouse_4_body(gm_instance_t *self, gm_instance_t *o
     if ((!gml_truthy(self->vars[VAR_on]))) {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oRadioBox)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oRadioBox)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_on] = 0.0;
-                gml_iset_sprite_index(self1, ((double)SPR_sBox));
+                self1->vars[VAR_on] = 0.0f;
+                gml_iset_sprite_index(self1, ((float)SPR_sBox));
             }
             gm_with_end();
         }
-        self->vars[VAR_on] = 1.0;
-        gml_iset_sprite_index(self, ((double)SPR_sBoxMarked));
-        if (gml_eq(gml_iget_y(self), 24.0)) {
-            g_gml_globals.screenScale = 1.0;
+        self->vars[VAR_on] = 1.0f;
+        gml_iset_sprite_index(self, ((float)SPR_sBoxMarked));
+        if (gml_eq(gml_iget_y(self), 24.0f)) {
+            g_gml_globals.screenScale = 1.0f;
         } else {
-            if (gml_eq(gml_iget_y(self), 32.0)) {
-                g_gml_globals.screenScale = 2.0;
+            if (gml_eq(gml_iget_y(self), 32.0f)) {
+                g_gml_globals.screenScale = 2.0f;
             } else {
-                if (gml_eq(gml_iget_y(self), 40.0)) {
-                    g_gml_globals.screenScale = 3.0;
+                if (gml_eq(gml_iget_y(self), 40.0f)) {
+                    g_gml_globals.screenScale = 3.0f;
                 } else {
-                    if (gml_eq(gml_iget_y(self), 48.0)) {
-                        g_gml_globals.screenScale = 4.0;
+                    if (gml_eq(gml_iget_y(self), 48.0f)) {
+                        g_gml_globals.screenScale = 4.0f;
                     }
                 }
             }

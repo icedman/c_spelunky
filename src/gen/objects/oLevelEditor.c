@@ -3,29 +3,29 @@
 
 static void gml_ev_oLevelEditor__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    g_gml_globals.cleanSolids = 1.0;
-    gml_fn_window_set_cursor(self, other, (-1.0 /* cr_none */));
-    self->vars[VAR_dropVal] = 0.0;
-    self->vars[VAR_GET_FILE_NAME] = 0.0;
-    self->vars[VAR_EDIT] = 1.0;
-    self->vars[VAR_INFO_NAME] = 2.0;
-    self->vars[VAR_INFO_AUTHOR] = 3.0;
-    self->vars[VAR_INFO_MUSIC] = 4.0;
-    self->vars[VAR_INFO_LIFE] = 5.0;
-    self->vars[VAR_INFO_BOMBS] = 6.0;
-    self->vars[VAR_INFO_ROPE] = 7.0;
-    self->vars[VAR_INFO_NEXT] = 8.0;
-    self->vars[VAR_EXIT] = 9.0;
-    self->vars[VAR_NEW] = 10.0;
-    self->vars[VAR_EDIT_DOOR] = 11.0;
-    self->vars[VAR_EDIT_MSG] = 12.0;
-    self->vars[VAR_status] = 0.0;
+    g_gml_globals.cleanSolids = 1.0f;
+    gml_fn_window_set_cursor(self, other, (-1.0f /* cr_none */));
+    self->vars[VAR_dropVal] = 0.0f;
+    self->vars[VAR_GET_FILE_NAME] = 0.0f;
+    self->vars[VAR_EDIT] = 1.0f;
+    self->vars[VAR_INFO_NAME] = 2.0f;
+    self->vars[VAR_INFO_AUTHOR] = 3.0f;
+    self->vars[VAR_INFO_MUSIC] = 4.0f;
+    self->vars[VAR_INFO_LIFE] = 5.0f;
+    self->vars[VAR_INFO_BOMBS] = 6.0f;
+    self->vars[VAR_INFO_ROPE] = 7.0f;
+    self->vars[VAR_INFO_NEXT] = 8.0f;
+    self->vars[VAR_EXIT] = 9.0f;
+    self->vars[VAR_NEW] = 10.0f;
+    self->vars[VAR_EDIT_DOOR] = 11.0f;
+    self->vars[VAR_EDIT_MSG] = 12.0f;
+    self->vars[VAR_status] = 0.0f;
     self->vals[VVAR_levelName] = gml_vs("");
     self->strs[SVAR_author] = "ANONYMOUS";
     self->strs[SVAR_music] = "CAVE";
@@ -34,122 +34,122 @@ static void gml_ev_oLevelEditor__Create_0_body(gm_instance_t *self, gm_instance_
     self->strs[SVAR_ropeStart] = "4";
     self->strs[SVAR_nextLevel] = gml_script_tr(self, other, 1, "NONE");
     self->vals[VVAR_textEdit] = gml_vs("");
-    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs("0"));
         }
     }
-    self->vars[VAR_BLOCKS] = 0.0;
-    self->vars[VAR_ENEMIES] = 1.0;
-    self->vars[VAR_TRAPS] = 2.0;
-    self->vars[VAR_ITEMS] = 3.0;
-    self->vars[VAR_dropSelect] = 0.0;
-    if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0))) {
-        self->vars[VAR_dropMax] = 18.0;
+    self->vars[VAR_BLOCKS] = 0.0f;
+    self->vars[VAR_ENEMIES] = 1.0f;
+    self->vars[VAR_TRAPS] = 2.0f;
+    self->vars[VAR_ITEMS] = 3.0f;
+    self->vars[VAR_dropSelect] = 0.0f;
+    if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f))) {
+        self->vars[VAR_dropMax] = 18.0f;
     } else {
-        if ((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-            self->vars[VAR_dropMax] = 21.0;
+        if ((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+            self->vars[VAR_dropMax] = 21.0f;
         } else {
-            if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                self->vars[VAR_dropMax] = 23.0;
+            if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                self->vars[VAR_dropMax] = 23.0f;
             } else {
-                self->vars[VAR_dropMax] = 10.0;
+                self->vars[VAR_dropMax] = 10.0f;
             }
         }
     }
-    gml_aset(&self->vals[VVAR_blockArray], 0.0, gml_vs("@"));
-    gml_aset(&self->vals[VVAR_blockArray], 1.0, gml_vs("X"));
-    gml_aset(&self->vals[VVAR_blockArray], 2.0, gml_vs("I"));
-    gml_aset(&self->vals[VVAR_blockArray], 3.0, gml_vs("1"));
-    gml_aset(&self->vals[VVAR_blockArray], 4.0, gml_vs("L"));
-    gml_aset(&self->vals[VVAR_blockArray], 5.0, gml_vs("P"));
-    gml_aset(&self->vals[VVAR_blockArray], 6.0, gml_vs("B"));
-    gml_aset(&self->vals[VVAR_blockArray], 7.0, gml_vs("&"));
-    gml_aset(&self->vals[VVAR_blockArray], 8.0, gml_vs("r"));
-    gml_aset(&self->vals[VVAR_blockArray], 9.0, gml_vs("j"));
-    gml_aset(&self->vals[VVAR_blockArray], 10.0, gml_vs("k"));
-    gml_aset(&self->vals[VVAR_blockArray], 11.0, gml_vs("2"));
-    gml_aset(&self->vals[VVAR_blockArray], 12.0, gml_vs("w"));
-    gml_aset(&self->vals[VVAR_blockArray], 13.0, gml_vs("v"));
-    gml_aset(&self->vals[VVAR_blockArray], 14.0, gml_vs("t"));
-    gml_aset(&self->vals[VVAR_blockArray], 15.0, gml_vs("|"));
-    gml_aset(&self->vals[VVAR_blockArray], 16.0, gml_vs("x"));
-    gml_aset(&self->vals[VVAR_blockArray], 17.0, gml_vs(")"));
-    gml_aset(&self->vals[VVAR_blockArray], 18.0, gml_vs("q"));
-    gml_aset(&self->vals[VVAR_blockArray], 19.0, gml_vs("3"));
-    gml_aset(&self->vals[VVAR_blockArray], 20.0, gml_vs("d"));
-    gml_aset(&self->vals[VVAR_blockArray], 21.0, gml_vs("i"));
-    gml_aset(&self->vals[VVAR_blockArray], 22.0, gml_vs("4"));
-    gml_aset(&self->vals[VVAR_blockArray], 23.0, gml_vs("l"));
-    gml_aset(&self->vals[VVAR_enemyArray], 0.0, gml_vs("b"));
-    gml_aset(&self->vals[VVAR_enemyArray], 1.0, gml_vs("n"));
-    gml_aset(&self->vals[VVAR_enemyArray], 2.0, gml_vs("s"));
-    gml_aset(&self->vals[VVAR_enemyArray], 3.0, gml_vs("S"));
-    gml_aset(&self->vals[VVAR_enemyArray], 4.0, gml_vs("K"));
-    gml_aset(&self->vals[VVAR_enemyArray], 5.0, gml_vs("h"));
-    gml_aset(&self->vals[VVAR_enemyArray], 6.0, gml_vs("!"));
-    gml_aset(&self->vals[VVAR_enemyArray], 7.0, gml_vs("f"));
-    gml_aset(&self->vals[VVAR_enemyArray], 8.0, gml_vs("F"));
-    gml_aset(&self->vals[VVAR_enemyArray], 9.0, gml_vs("z"));
-    gml_aset(&self->vals[VVAR_enemyArray], 10.0, gml_vs("A"));
-    gml_aset(&self->vals[VVAR_enemyArray], 11.0, gml_vs("M"));
-    gml_aset(&self->vals[VVAR_enemyArray], 12.0, gml_vs("m"));
-    gml_aset(&self->vals[VVAR_enemyArray], 13.0, gml_vs("p"));
-    gml_aset(&self->vals[VVAR_enemyArray], 14.0, gml_vs("{"));
-    gml_aset(&self->vals[VVAR_enemyArray], 15.0, gml_vs("a"));
-    gml_aset(&self->vals[VVAR_enemyArray], 16.0, gml_vs("U"));
-    gml_aset(&self->vals[VVAR_enemyArray], 17.0, gml_vs("E"));
-    gml_aset(&self->vals[VVAR_enemyArray], 18.0, gml_vs("y"));
-    gml_aset(&self->vals[VVAR_enemyArray], 19.0, gml_vs("Y"));
-    gml_aset(&self->vals[VVAR_enemyArray], 20.0, gml_vs("H"));
-    gml_aset(&self->vals[VVAR_enemyArray], 21.0, gml_vs("T"));
-    gml_aset(&self->vals[VVAR_trapArray], 0.0, gml_vs("^"));
-    gml_aset(&self->vals[VVAR_trapArray], 1.0, gml_vs("<"));
-    gml_aset(&self->vals[VVAR_trapArray], 2.0, gml_vs(">"));
-    gml_aset(&self->vals[VVAR_trapArray], 3.0, gml_vs("]"));
-    gml_aset(&self->vals[VVAR_trapArray], 4.0, gml_vs("["));
-    gml_aset(&self->vals[VVAR_trapArray], 5.0, gml_vs("_"));
-    gml_aset(&self->vals[VVAR_trapArray], 6.0, gml_vs("+"));
-    gml_aset(&self->vals[VVAR_lootArray], 0.0, gml_vs("$"));
-    gml_aset(&self->vals[VVAR_lootArray], 1.0, gml_vs("*"));
-    gml_aset(&self->vals[VVAR_lootArray], 2.0, gml_vs("#"));
-    gml_aset(&self->vals[VVAR_lootArray], 3.0, gml_vs("O"));
-    gml_aset(&self->vals[VVAR_lootArray], 4.0, gml_vs("5"));
-    gml_aset(&self->vals[VVAR_lootArray], 5.0, gml_vs("6"));
-    gml_aset(&self->vals[VVAR_lootArray], 6.0, gml_vs("7"));
-    gml_aset(&self->vals[VVAR_lootArray], 7.0, gml_vs("8"));
-    gml_aset(&self->vals[VVAR_lootArray], 8.0, gml_vs("c"));
-    gml_aset(&self->vals[VVAR_lootArray], 9.0, gml_vs("C"));
-    gml_aset(&self->vals[VVAR_lootArray], 10.0, gml_vs("D"));
-    gml_aset(&self->vals[VVAR_lootArray], 11.0, gml_vs("."));
-    gml_aset(&self->vals[VVAR_lootArray], 12.0, gml_vs(":"));
-    gml_aset(&self->vals[VVAR_lootArray], 13.0, gml_vs("u"));
-    gml_aset(&self->vals[VVAR_lootArray], 14.0, gml_vs("R"));
-    gml_aset(&self->vals[VVAR_lootArray], 15.0, gml_vs("`"));
-    gml_aset(&self->vals[VVAR_lootArray], 16.0, gml_vs("o"));
-    gml_aset(&self->vals[VVAR_lootArray], 17.0, gml_vs("/"));
-    gml_aset(&self->vals[VVAR_lootArray], 18.0, gml_vs("~"));
-    gml_aset(&self->vals[VVAR_lootArray], 19.0, gml_vs("V"));
-    gml_aset(&self->vals[VVAR_lootArray], 20.0, gml_vs("}"));
-    gml_aset(&self->vals[VVAR_lootArray], 21.0, gml_vs("-"));
-    gml_aset(&self->vals[VVAR_lootArray], 22.0, gml_vs("="));
-    gml_aset(&self->vals[VVAR_lootArray], 23.0, gml_vs("W"));
-    gml_aset(&self->vals[VVAR_lootArray], 24.0, gml_vs("%"));
-    gml_aset(&self->vals[VVAR_lootArray], 25.0, gml_vs("G"));
-    gml_aset(&self->vals[VVAR_lootArray], 26.0, gml_vs("g"));
-    gml_aset(&self->vals[VVAR_lootArray], 27.0, gml_vs("?"));
-    gml_aset(&self->vals[VVAR_lootArray], 28.0, gml_vs("("));
-    gml_aset(&self->vals[VVAR_lootArray], 29.0, gml_vs("\\"));
-    gml_aset(&self->vals[VVAR_lootArray], 30.0, gml_vs("J"));
+    gml_aset(&self->vals[VVAR_blockArray], 0.0f, gml_vs("@"));
+    gml_aset(&self->vals[VVAR_blockArray], 1.0f, gml_vs("X"));
+    gml_aset(&self->vals[VVAR_blockArray], 2.0f, gml_vs("I"));
+    gml_aset(&self->vals[VVAR_blockArray], 3.0f, gml_vs("1"));
+    gml_aset(&self->vals[VVAR_blockArray], 4.0f, gml_vs("L"));
+    gml_aset(&self->vals[VVAR_blockArray], 5.0f, gml_vs("P"));
+    gml_aset(&self->vals[VVAR_blockArray], 6.0f, gml_vs("B"));
+    gml_aset(&self->vals[VVAR_blockArray], 7.0f, gml_vs("&"));
+    gml_aset(&self->vals[VVAR_blockArray], 8.0f, gml_vs("r"));
+    gml_aset(&self->vals[VVAR_blockArray], 9.0f, gml_vs("j"));
+    gml_aset(&self->vals[VVAR_blockArray], 10.0f, gml_vs("k"));
+    gml_aset(&self->vals[VVAR_blockArray], 11.0f, gml_vs("2"));
+    gml_aset(&self->vals[VVAR_blockArray], 12.0f, gml_vs("w"));
+    gml_aset(&self->vals[VVAR_blockArray], 13.0f, gml_vs("v"));
+    gml_aset(&self->vals[VVAR_blockArray], 14.0f, gml_vs("t"));
+    gml_aset(&self->vals[VVAR_blockArray], 15.0f, gml_vs("|"));
+    gml_aset(&self->vals[VVAR_blockArray], 16.0f, gml_vs("x"));
+    gml_aset(&self->vals[VVAR_blockArray], 17.0f, gml_vs(")"));
+    gml_aset(&self->vals[VVAR_blockArray], 18.0f, gml_vs("q"));
+    gml_aset(&self->vals[VVAR_blockArray], 19.0f, gml_vs("3"));
+    gml_aset(&self->vals[VVAR_blockArray], 20.0f, gml_vs("d"));
+    gml_aset(&self->vals[VVAR_blockArray], 21.0f, gml_vs("i"));
+    gml_aset(&self->vals[VVAR_blockArray], 22.0f, gml_vs("4"));
+    gml_aset(&self->vals[VVAR_blockArray], 23.0f, gml_vs("l"));
+    gml_aset(&self->vals[VVAR_enemyArray], 0.0f, gml_vs("b"));
+    gml_aset(&self->vals[VVAR_enemyArray], 1.0f, gml_vs("n"));
+    gml_aset(&self->vals[VVAR_enemyArray], 2.0f, gml_vs("s"));
+    gml_aset(&self->vals[VVAR_enemyArray], 3.0f, gml_vs("S"));
+    gml_aset(&self->vals[VVAR_enemyArray], 4.0f, gml_vs("K"));
+    gml_aset(&self->vals[VVAR_enemyArray], 5.0f, gml_vs("h"));
+    gml_aset(&self->vals[VVAR_enemyArray], 6.0f, gml_vs("!"));
+    gml_aset(&self->vals[VVAR_enemyArray], 7.0f, gml_vs("f"));
+    gml_aset(&self->vals[VVAR_enemyArray], 8.0f, gml_vs("F"));
+    gml_aset(&self->vals[VVAR_enemyArray], 9.0f, gml_vs("z"));
+    gml_aset(&self->vals[VVAR_enemyArray], 10.0f, gml_vs("A"));
+    gml_aset(&self->vals[VVAR_enemyArray], 11.0f, gml_vs("M"));
+    gml_aset(&self->vals[VVAR_enemyArray], 12.0f, gml_vs("m"));
+    gml_aset(&self->vals[VVAR_enemyArray], 13.0f, gml_vs("p"));
+    gml_aset(&self->vals[VVAR_enemyArray], 14.0f, gml_vs("{"));
+    gml_aset(&self->vals[VVAR_enemyArray], 15.0f, gml_vs("a"));
+    gml_aset(&self->vals[VVAR_enemyArray], 16.0f, gml_vs("U"));
+    gml_aset(&self->vals[VVAR_enemyArray], 17.0f, gml_vs("E"));
+    gml_aset(&self->vals[VVAR_enemyArray], 18.0f, gml_vs("y"));
+    gml_aset(&self->vals[VVAR_enemyArray], 19.0f, gml_vs("Y"));
+    gml_aset(&self->vals[VVAR_enemyArray], 20.0f, gml_vs("H"));
+    gml_aset(&self->vals[VVAR_enemyArray], 21.0f, gml_vs("T"));
+    gml_aset(&self->vals[VVAR_trapArray], 0.0f, gml_vs("^"));
+    gml_aset(&self->vals[VVAR_trapArray], 1.0f, gml_vs("<"));
+    gml_aset(&self->vals[VVAR_trapArray], 2.0f, gml_vs(">"));
+    gml_aset(&self->vals[VVAR_trapArray], 3.0f, gml_vs("]"));
+    gml_aset(&self->vals[VVAR_trapArray], 4.0f, gml_vs("["));
+    gml_aset(&self->vals[VVAR_trapArray], 5.0f, gml_vs("_"));
+    gml_aset(&self->vals[VVAR_trapArray], 6.0f, gml_vs("+"));
+    gml_aset(&self->vals[VVAR_lootArray], 0.0f, gml_vs("$"));
+    gml_aset(&self->vals[VVAR_lootArray], 1.0f, gml_vs("*"));
+    gml_aset(&self->vals[VVAR_lootArray], 2.0f, gml_vs("#"));
+    gml_aset(&self->vals[VVAR_lootArray], 3.0f, gml_vs("O"));
+    gml_aset(&self->vals[VVAR_lootArray], 4.0f, gml_vs("5"));
+    gml_aset(&self->vals[VVAR_lootArray], 5.0f, gml_vs("6"));
+    gml_aset(&self->vals[VVAR_lootArray], 6.0f, gml_vs("7"));
+    gml_aset(&self->vals[VVAR_lootArray], 7.0f, gml_vs("8"));
+    gml_aset(&self->vals[VVAR_lootArray], 8.0f, gml_vs("c"));
+    gml_aset(&self->vals[VVAR_lootArray], 9.0f, gml_vs("C"));
+    gml_aset(&self->vals[VVAR_lootArray], 10.0f, gml_vs("D"));
+    gml_aset(&self->vals[VVAR_lootArray], 11.0f, gml_vs("."));
+    gml_aset(&self->vals[VVAR_lootArray], 12.0f, gml_vs(":"));
+    gml_aset(&self->vals[VVAR_lootArray], 13.0f, gml_vs("u"));
+    gml_aset(&self->vals[VVAR_lootArray], 14.0f, gml_vs("R"));
+    gml_aset(&self->vals[VVAR_lootArray], 15.0f, gml_vs("`"));
+    gml_aset(&self->vals[VVAR_lootArray], 16.0f, gml_vs("o"));
+    gml_aset(&self->vals[VVAR_lootArray], 17.0f, gml_vs("/"));
+    gml_aset(&self->vals[VVAR_lootArray], 18.0f, gml_vs("~"));
+    gml_aset(&self->vals[VVAR_lootArray], 19.0f, gml_vs("V"));
+    gml_aset(&self->vals[VVAR_lootArray], 20.0f, gml_vs("}"));
+    gml_aset(&self->vals[VVAR_lootArray], 21.0f, gml_vs("-"));
+    gml_aset(&self->vals[VVAR_lootArray], 22.0f, gml_vs("="));
+    gml_aset(&self->vals[VVAR_lootArray], 23.0f, gml_vs("W"));
+    gml_aset(&self->vals[VVAR_lootArray], 24.0f, gml_vs("%"));
+    gml_aset(&self->vals[VVAR_lootArray], 25.0f, gml_vs("G"));
+    gml_aset(&self->vals[VVAR_lootArray], 26.0f, gml_vs("g"));
+    gml_aset(&self->vals[VVAR_lootArray], 27.0f, gml_vs("?"));
+    gml_aset(&self->vals[VVAR_lootArray], 28.0f, gml_vs("("));
+    gml_aset(&self->vals[VVAR_lootArray], 29.0f, gml_vs("\\"));
+    gml_aset(&self->vals[VVAR_lootArray], 30.0f, gml_vs("J"));
     if (gml_vne(g_gml_gvals[GV_testLevel], gml_vs(""))) {
         self->vars[VAR_status] = self->vars[VAR_EDIT];
         self->vals[VVAR_levelName] = g_gml_gvals[GV_testLevel];
         self->vars[VAR_file] = gml_fn_file_text_open_read(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp"));
         if (gml_truthy(self->vars[VAR_file])) {
-            for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
+            for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
                 self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-                for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                    gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_str], (self->vars[VAR_i] + 1.0))));
+                for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                    gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_str], (self->vars[VAR_i] + 1.0f))));
                 }
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             }
@@ -164,64 +164,64 @@ static void gml_ev_oLevelEditor__Create_0_body(gm_instance_t *self, gm_instance_
             self->strs[SVAR_ropeStart] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_nextLevel] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->vars[VAR_exitNamesNum] = 0.0;
+            self->vars[VAR_exitNamesNum] = 0.0f;
             if ((!gml_truthy(gml_fn_file_text_eof(self, other, self->vars[VAR_file])))) {
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                 self->vars[VAR_exitNamesNum] = gml_str_to_real(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]));
             }
-            if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+            if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-                for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+                for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
                     (t1 = self->vars[VAR_i], gml_aset(&self->vals[VVAR_exitNames], t1, gml_vs(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]))));
-                    if (gml_lt(self->vars[VAR_i], (self->vars[VAR_exitNamesNum] - 1.0))) {
+                    if (gml_lt(self->vars[VAR_i], (self->vars[VAR_exitNamesNum] - 1.0f))) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                     }
                 }
             }
-            self->vars[VAR_signNamesNum] = 0.0;
+            self->vars[VAR_signNamesNum] = 0.0f;
             if ((!gml_truthy(gml_fn_file_text_eof(self, other, self->vars[VAR_file])))) {
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                 self->vars[VAR_signNamesNum] = gml_str_to_real(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]));
             }
-            if (gml_gt(self->vars[VAR_signNamesNum], 0.0)) {
+            if (gml_gt(self->vars[VAR_signNamesNum], 0.0f)) {
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-                for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+                for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
                     (t2 = self->vars[VAR_i], gml_aset(&self->vals[VVAR_signNames], t2, gml_vs(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]))));
-                    if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesNum] - 1.0))) {
+                    if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesNum] - 1.0f))) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                     }
                 }
             }
             gml_fn_file_text_close(self, other, self->vars[VAR_file]);
-            self->vars[VAR_exitNamesID] = 0.0;
-            self->vars[VAR_signNamesID] = 0.0;
-            for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-                for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                    gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])), (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)));
+            self->vars[VAR_exitNamesID] = 0.0f;
+            self->vars[VAR_signNamesID] = 0.0f;
+            for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+                for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                    gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])), (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)));
                     if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("X"))) {
-                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oExit));
+                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oExit));
                         if (gml_truthy(self->vars[VAR_obj])) {
-                            if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+                            if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                                 gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo, gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID]));
-                                self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                                self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                             }
                         }
                     } else {
                         if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("@"))) {
-                            self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oEntrance));
+                            self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oEntrance));
                             if (gml_truthy(self->vars[VAR_obj])) {
-                                if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+                                if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                                     gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo, gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID]));
-                                    self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                                    self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                                 }
                             }
                         } else {
                             if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("I"))) {
-                                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oMsgSign));
+                                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oMsgSign));
                                 if (gml_truthy(self->vars[VAR_obj])) {
-                                    if (gml_gt(self->vars[VAR_signNamesNum], 0.0)) {
+                                    if (gml_gt(self->vars[VAR_signNamesNum], 0.0f)) {
                                         gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_message, gml_aget(self->vals[VVAR_signNames], self->vars[VAR_signNamesID]));
-                                        self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0);
+                                        self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0f);
                                     }
                                 }
                             }
@@ -230,11 +230,11 @@ static void gml_ev_oLevelEditor__Create_0_body(gm_instance_t *self, gm_instance_
                 }
             }
         }
-        gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oEditButton)));
-        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 32.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 32.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+        gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oEditButton)));
+        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 32.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 32.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
     }
 }
 
@@ -248,16 +248,16 @@ void gml_ev_oLevelEditor__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oLevelEditor__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -272,62 +272,62 @@ static void gml_ev_oLevelEditor__Step_0_body(gm_instance_t *self, gm_instance_t 
     (void)t9;
     (void)t10;
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT])) {
-        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-        gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
+        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+        gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
     } else {
-        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 0.0);
-        gml_fn_window_set_cursor(self, other, (-1.0 /* cr_none */));
+        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 0.0f);
+        gml_fn_window_set_cursor(self, other, (-1.0f /* cr_none */));
     }
-    if (((((gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT]) && (t1 = gml_gget_mouse_x(), gml_gt(t1, gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0)))) && (t2 = gml_gget_mouse_x(), gml_lt(t2, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0)))) && (t3 = gml_gget_mouse_y(), gml_gt(t3, gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0)))) && (t4 = gml_gget_mouse_y(), gml_lt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 240.0))))) {
-        if (((t5 = gml_gget_mouse_x(), gml_gt(t5, ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0) - 16.0))) && (t6 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_lt(t6, (gml_gget_room_width() - 320.0))))) {
-            (void)(gml_script___view_set(self, other, (0.0 /* e__VW.XView */), 0.0, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 4.0)));
+    if (((((gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT]) && (t1 = gml_gget_mouse_x(), gml_gt(t1, gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f)))) && (t2 = gml_gget_mouse_x(), gml_lt(t2, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f)))) && (t3 = gml_gget_mouse_y(), gml_gt(t3, gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f)))) && (t4 = gml_gget_mouse_y(), gml_lt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 240.0f))))) {
+        if (((t5 = gml_gget_mouse_x(), gml_gt(t5, ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f) - 16.0f))) && (t6 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_lt(t6, (gml_gget_room_width() - 320.0f))))) {
+            (void)(gml_script___view_set(self, other, (0.0f /* e__VW.XView */), 0.0f, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 4.0f)));
         } else {
-            if (((t7 = gml_gget_mouse_x(), gml_lt(t7, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 16.0))) && gml_gt(gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), 0.0))) {
-                (void)(gml_script___view_set(self, other, (0.0 /* e__VW.XView */), 0.0, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 4.0)));
+            if (((t7 = gml_gget_mouse_x(), gml_lt(t7, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 16.0f))) && gml_gt(gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), 0.0f))) {
+                (void)(gml_script___view_set(self, other, (0.0f /* e__VW.XView */), 0.0f, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 4.0f)));
             }
         }
-        if (((t8 = gml_gget_mouse_y(), gml_gt(t8, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 240.0) - 16.0))) && (t9 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), gml_lt(t9, (gml_gget_room_height() - 240.0))))) {
-            (void)(gml_script___view_set(self, other, (1.0 /* e__VW.YView */), 0.0, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 4.0)));
+        if (((t8 = gml_gget_mouse_y(), gml_gt(t8, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 240.0f) - 16.0f))) && (t9 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), gml_lt(t9, (gml_gget_room_height() - 240.0f))))) {
+            (void)(gml_script___view_set(self, other, (1.0f /* e__VW.YView */), 0.0f, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 4.0f)));
         } else {
-            if (((t10 = gml_gget_mouse_y(), gml_lt(t10, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 16.0))) && gml_gt(gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), 0.0))) {
-                (void)(gml_script___view_set(self, other, (1.0 /* e__VW.YView */), 0.0, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 4.0)));
+            if (((t10 = gml_gget_mouse_y(), gml_lt(t10, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 16.0f))) && gml_gt(gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), 0.0f))) {
+                (void)(gml_script___view_set(self, other, (1.0f /* e__VW.YView */), 0.0f, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 4.0f)));
             }
         }
         if (gml_truthy(gml_script_checkAttackPressed(self, other))) {
             gml_script_scrTestLevel(self, other);
-            gml_fn_room_goto(self, other, ((double)RM_rLoadLevel));
+            gml_fn_room_goto(self, other, ((float)RM_rLoadLevel));
         } else {
-            if ((((((((gml_gt(gml_gget_mouse_x(), 16.0) && gml_lt(gml_gget_mouse_x(), (gml_gget_room_width() - 16.0))) && gml_gt(gml_gget_mouse_y(), 16.0)) && gml_lt(gml_gget_mouse_y(), (gml_gget_room_height() - 16.0))) && gml_ge(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), 16.0)) && gml_lt(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), (gml_gget_room_width() - 16.0))) && gml_ge(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)), 16.0)) && gml_lt(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)), (gml_gget_room_height() - 16.0)))) {
-                if ((((gml_truthy(gml_fn_mouse_check_button(self, other, (253.0 /* mb_left */))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((double)OBJ_oEditButton), 0.0, 0.0)))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((double)OBJ_oNewButton), 0.0, 0.0)))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((double)OBJ_oTestButton), 0.0, 0.0))))) {
+            if ((((((((gml_gt(gml_gget_mouse_x(), 16.0f) && gml_lt(gml_gget_mouse_x(), (gml_gget_room_width() - 16.0f))) && gml_gt(gml_gget_mouse_y(), 16.0f)) && gml_lt(gml_gget_mouse_y(), (gml_gget_room_height() - 16.0f))) && gml_ge(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), 16.0f)) && gml_lt(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), (gml_gget_room_width() - 16.0f))) && gml_ge(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)), 16.0f)) && gml_lt(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)), (gml_gget_room_height() - 16.0f)))) {
+                if ((((gml_truthy(gml_fn_mouse_check_button(self, other, (253.0f /* mb_left */))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((float)OBJ_oEditButton), 0.0f, 0.0f)))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((float)OBJ_oNewButton), 0.0f, 0.0f)))) && (!gml_truthy(gml_fn_collision_point(self, other, gml_gget_mouse_x(), gml_gget_mouse_y(), ((float)OBJ_oTestButton), 0.0f, 0.0f))))) {
                     if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_BLOCKS])) {
-                        gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)));
-                        gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floor((gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0)), (floor((gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0), gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]));
+                        gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)));
+                        gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floorf((gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f)), (floorf((gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f), gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]));
                     } else {
                         if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_ENEMIES])) {
-                            gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)));
-                            gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floor((gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0)), (floor((gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0), gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]));
+                            gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)));
+                            gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floorf((gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f)), (floorf((gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f), gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]));
                         } else {
                             if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_TRAPS])) {
-                                gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)));
-                                gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floor((gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0)), (floor((gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0), gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]));
+                                gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)));
+                                gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floorf((gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f)), (floorf((gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f), gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]));
                             } else {
                                 if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_ITEMS])) {
-                                    gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)));
-                                    gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floor((gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0)), (floor((gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0), gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]));
+                                    gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal])), gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)));
+                                    gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floorf((gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f)), (floorf((gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f), gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]));
                                 }
                             }
                         }
                     }
                 } else {
-                    if (gml_truthy(gml_fn_mouse_check_button(self, other, (254.0 /* mb_right */)))) {
-                        self->vars[VAR_obj] = gml_fn_collision_rectangle(self, other, gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)), (gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) + 15.0), (gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) + 15.0), ((double)OBJ_oDrawnSprite), 0.0, 0.0);
+                    if (gml_truthy(gml_fn_mouse_check_button(self, other, (254.0f /* mb_right */)))) {
+                        self->vars[VAR_obj] = gml_fn_collision_rectangle(self, other, gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)), (gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) + 15.0f), (gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) + 15.0f), ((float)OBJ_oDrawnSprite), 0.0f, 0.0f);
                         if (gml_truthy(self->vars[VAR_obj])) {
                             {
                                 gm_instance_t *self11;
                                 gm_with_begin(gml_target(self->vars[VAR_obj]), self, other);
                                 while ((self11 = gm_with_next()) != NULL) {
                                     if ((gml_str_eq(self11->strs[SVAR_type], "Giant Spider") || gml_str_eq(self11->strs[SVAR_type], "Tomb Lord"))) {
-                                        if ((gml_eq(gml_iget_x(self11), gml_iget_x(gml_deref(((double)OBJ_oCursObj), self11, self))) && gml_eq(gml_iget_y(self11), gml_iget_y(gml_deref(((double)OBJ_oCursObj), self11, self))))) {
+                                        if ((gml_eq(gml_iget_x(self11), gml_iget_x(gml_deref(((float)OBJ_oCursObj), self11, self))) && gml_eq(gml_iget_y(self11), gml_iget_y(gml_deref(((float)OBJ_oCursObj), self11, self))))) {
                                             gml_fn_instance_destroy(self11, self, 0, NULL);
                                         }
                                     } else {
@@ -337,7 +337,7 @@ static void gml_ev_oLevelEditor__Step_0_body(gm_instance_t *self, gm_instance_t 
                                 gm_with_end();
                             }
                         }
-                        gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floor((gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0)), (floor((gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) / 16.0)) - 1.0), gml_vs("0"));
+                        gml_aset(gml_aref(&self->vals[VVAR_levelArray], (floorf((gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f)), (floorf((gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) / 16.0f)) - 1.0f), gml_vs("0"));
                     }
                 }
             }
@@ -356,9 +356,9 @@ static void gml_ev_oLevelEditor__Mouse_61_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] - 1.0);
-        if (gml_lt(self->vars[VAR_dropVal], 0.0)) {
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] - 1.0f);
+        if (gml_lt(self->vars[VAR_dropVal], 0.0f)) {
             self->vars[VAR_dropVal] = self->vars[VAR_dropMax];
         }
         gml_script_scrSetCursorTile(self, other);
@@ -376,10 +376,10 @@ static void gml_ev_oLevelEditor__Mouse_60_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] + 1.0);
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] + 1.0f);
         if (gml_gt(self->vars[VAR_dropVal], self->vars[VAR_dropMax])) {
-            self->vars[VAR_dropVal] = 0.0;
+            self->vars[VAR_dropVal] = 0.0f;
         }
         gml_script_scrSetCursorTile(self, other);
     }
@@ -394,55 +394,55 @@ void gml_ev_oLevelEditor__Mouse_60(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLevelEditor__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
     const char *s15 = "";
-    double t16 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t28 = 0.0;
-    double t29 = 0.0;
-    double t30 = 0.0;
-    double t31 = 0.0;
-    double t32 = 0.0;
-    double t33 = 0.0;
-    double t34 = 0.0;
-    double t35 = 0.0;
-    double t36 = 0.0;
-    double t37 = 0.0;
-    double t38 = 0.0;
-    double t39 = 0.0;
-    double t40 = 0.0;
-    double t41 = 0.0;
-    double t42 = 0.0;
-    double t43 = 0.0;
-    double t44 = 0.0;
-    double t45 = 0.0;
-    double t46 = 0.0;
-    double t47 = 0.0;
-    double t48 = 0.0;
-    double t49 = 0.0;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t28 = 0.0f;
+    float t29 = 0.0f;
+    float t30 = 0.0f;
+    float t31 = 0.0f;
+    float t32 = 0.0f;
+    float t33 = 0.0f;
+    float t34 = 0.0f;
+    float t35 = 0.0f;
+    float t36 = 0.0f;
+    float t37 = 0.0f;
+    float t38 = 0.0f;
+    float t39 = 0.0f;
+    float t40 = 0.0f;
+    float t41 = 0.0f;
+    float t42 = 0.0f;
+    float t43 = 0.0f;
+    float t44 = 0.0f;
+    float t45 = 0.0f;
+    float t46 = 0.0f;
+    float t47 = 0.0f;
+    float t48 = 0.0f;
+    float t49 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -495,66 +495,66 @@ static void gml_ev_oLevelEditor__Draw_0_body(gm_instance_t *self, gm_instance_t 
     (void)t48;
     (void)t49;
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_GET_FILE_NAME])) {
-        (t1 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t2 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t1, t2, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("EDIT LEVEL: "), self->vals[VVAR_levelName])))));
+        (t1 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t2 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t1, t2, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("EDIT LEVEL: "), self->vals[VVAR_levelName])))));
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT_DOOR])) {
-            (t3 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t4 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 100.0), gml_fn_draw_text(self, other, t3, t4, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LABEL:"))));
-            (t5 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t6 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_as_str(self->vals[VVAR_textEdit]))));
+            (t3 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t4 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 100.0f), gml_fn_draw_text(self, other, t3, t4, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LABEL:"))));
+            (t5 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t6 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_as_str(self->vals[VVAR_textEdit]))));
         } else {
             if (gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT_MSG])) {
-                (t7 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t8 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 100.0), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MESSAGE:"))));
-                (t9 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t10 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t9, t10, gml_fn_string_hash_to_newline(self, other, gml_as_str(self->vals[VVAR_textEdit]))));
+                (t7 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t8 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 100.0f), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "MESSAGE:"))));
+                (t9 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t10 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t9, t10, gml_fn_string_hash_to_newline(self, other, gml_as_str(self->vals[VVAR_textEdit]))));
             } else {
                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_NAME])) {
-                    (t11 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t12 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t11, t12, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("LEVEL NAME: "), self->vals[VVAR_levelName])))));
+                    (t11 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t12 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t11, t12, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("LEVEL NAME: "), self->vals[VVAR_levelName])))));
                 } else {
                     if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_AUTHOR])) {
-                        (t13 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t14 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t13, t14, gml_fn_string_hash_to_newline(self, other, gml_concat("AUTHOR: ", self->strs[SVAR_author]))));
+                        (t13 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t14 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t13, t14, gml_fn_string_hash_to_newline(self, other, gml_concat("AUTHOR: ", self->strs[SVAR_author]))));
                     } else {
                         if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_MUSIC])) {
-                            (t16 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t17 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t16, t17, gml_fn_string_hash_to_newline(self, other, (s15 = gml_script_tr(self, other, 1, "MUSIC: "), gml_concat(s15, self->strs[SVAR_music])))));
+                            (t16 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t17 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t16, t17, gml_fn_string_hash_to_newline(self, other, (s15 = gml_script_tr(self, other, 1, "MUSIC: "), gml_concat(s15, self->strs[SVAR_music])))));
                         } else {
                             if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_LIFE])) {
-                                (t18 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t19 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t18, t19, gml_fn_string_hash_to_newline(self, other, gml_concat("START LIFE: ", self->strs[SVAR_lifeStart]))));
+                                (t18 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t19 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t18, t19, gml_fn_string_hash_to_newline(self, other, gml_concat("START LIFE: ", self->strs[SVAR_lifeStart]))));
                             } else {
                                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_BOMBS])) {
-                                    (t20 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t21 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t20, t21, gml_fn_string_hash_to_newline(self, other, gml_concat("START BOMBS: ", self->strs[SVAR_bombStart]))));
+                                    (t20 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t21 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t20, t21, gml_fn_string_hash_to_newline(self, other, gml_concat("START BOMBS: ", self->strs[SVAR_bombStart]))));
                                 } else {
                                     if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_ROPE])) {
-                                        (t22 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t23 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t22, t23, gml_fn_string_hash_to_newline(self, other, gml_concat("START ROPE: ", self->strs[SVAR_ropeStart]))));
+                                        (t22 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t23 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t22, t23, gml_fn_string_hash_to_newline(self, other, gml_concat("START ROPE: ", self->strs[SVAR_ropeStart]))));
                                     } else {
                                         if (gml_eq(self->vars[VAR_status], self->vars[VAR_INFO_NEXT])) {
-                                            (t24 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 9.0), t25 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t24, t25, gml_fn_string_hash_to_newline(self, other, gml_concat("NEXT LEVEL: ", self->strs[SVAR_nextLevel]))));
+                                            (t24 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 9.0f), t25 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t24, t25, gml_fn_string_hash_to_newline(self, other, gml_concat("NEXT LEVEL: ", self->strs[SVAR_nextLevel]))));
                                         } else {
                                             if ((gml_eq(self->vars[VAR_status], self->vars[VAR_EXIT]) || gml_eq(self->vars[VAR_status], self->vars[VAR_NEW]))) {
                                                 self->vars[VAR_strLen] = (t26 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "SAVE LEVEL? (Y/N)")), (t26 * g_gml_globals.fontSmallWidth));
-                                                self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                                                self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                (t28 = (t27 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t27 + self->vars[VAR_n])), t29 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), gml_fn_draw_text(self, other, t28, t29, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SAVE LEVEL? (Y/N)"))));
-                                                self->vars[VAR_m] = 16.0;
-                                                gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oEntrance))))) {
+                                                self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                                                self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                (t28 = (t27 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t27 + self->vars[VAR_n])), t29 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), gml_fn_draw_text(self, other, t28, t29, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SAVE LEVEL? (Y/N)"))));
+                                                self->vars[VAR_m] = 16.0f;
+                                                gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oEntrance))))) {
                                                     self->vars[VAR_strLen] = (t30 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "WARNING: NO ENTRANCE!")), (t30 * g_gml_globals.fontSmallWidth));
-                                                    self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                                                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                    (t33 = (t31 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t31 + self->vars[VAR_n])), t34 = (t32 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), (t32 + self->vars[VAR_m])), gml_fn_draw_text(self, other, t33, t34, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "WARNING: NO ENTRANCE!"))));
-                                                    self->vars[VAR_m] = (self->vars[VAR_m] + 8.0);
+                                                    self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                                                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                    (t33 = (t31 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t31 + self->vars[VAR_n])), t34 = (t32 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), (t32 + self->vars[VAR_m])), gml_fn_draw_text(self, other, t33, t34, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "WARNING: NO ENTRANCE!"))));
+                                                    self->vars[VAR_m] = (self->vars[VAR_m] + 8.0f);
                                                 }
-                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oExit))))) {
+                                                if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oExit))))) {
                                                     self->vars[VAR_strLen] = (t35 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "WARNING: NO EXIT!")), (t35 * g_gml_globals.fontSmallWidth));
-                                                    self->vars[VAR_n] = (320.0 - self->vars[VAR_strLen]);
-                                                    self->vars[VAR_n] = ceil((self->vars[VAR_n] / 2.0));
-                                                    (t38 = (t36 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t36 + self->vars[VAR_n])), t39 = (t37 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 116.0), (t37 + self->vars[VAR_m])), gml_fn_draw_text(self, other, t38, t39, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "WARNING: NO EXIT!"))));
+                                                    self->vars[VAR_n] = (320.0f - self->vars[VAR_strLen]);
+                                                    self->vars[VAR_n] = ceilf((self->vars[VAR_n] / 2.0f));
+                                                    (t38 = (t36 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t36 + self->vars[VAR_n])), t39 = (t37 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 116.0f), (t37 + self->vars[VAR_m])), gml_fn_draw_text(self, other, t38, t39, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "WARNING: NO EXIT!"))));
                                                 }
                                             } else {
-                                                if (gml_eq(gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), 0.0)) {
-                                                    (t41 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t42 = ((t40 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t40 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) - 32.0), gml_fn_draw_text(self, other, t41, t42, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_add(self->vals[VVAR_levelName], gml_vs(" BY ")), gml_vs(self->strs[SVAR_author]))))));
-                                                    (t44 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t45 = ((t43 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t43 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) - 24.0), gml_fn_draw_text(self, other, t44, t45, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other))), ", "), gml_real_str(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)))))));
+                                                if (gml_eq(gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), 0.0f)) {
+                                                    (t41 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t42 = ((t40 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t40 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) - 32.0f), gml_fn_draw_text(self, other, t41, t42, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_add(self->vals[VVAR_levelName], gml_vs(" BY ")), gml_vs(self->strs[SVAR_author]))))));
+                                                    (t44 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t45 = ((t43 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t43 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) - 24.0f), gml_fn_draw_text(self, other, t44, t45, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other))), ", "), gml_real_str(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)))))));
                                                 } else {
-                                                    (t46 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t47 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 16.0), gml_fn_draw_text(self, other, t46, t47, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_add(self->vals[VVAR_levelName], gml_vs(" BY ")), gml_vs(self->strs[SVAR_author]))))));
-                                                    (t48 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t49 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 24.0), gml_fn_draw_text(self, other, t48, t49, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other))), ", "), gml_real_str(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)))))));
+                                                    (t46 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t47 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 16.0f), gml_fn_draw_text(self, other, t46, t47, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_add(self->vals[VVAR_levelName], gml_vs(" BY ")), gml_vs(self->strs[SVAR_author]))))));
+                                                    (t48 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t49 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 24.0f), gml_fn_draw_text(self, other, t48, t49, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other))), ", "), gml_real_str(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)))))));
                                                 }
                                             }
                                         }
@@ -582,29 +582,29 @@ static void gml_ev_oLevelEditor__KeyPress_89_body(gm_instance_t *self, gm_instan
     (void)other;
     if ((gml_eq(self->vars[VAR_status], self->vars[VAR_EXIT]) || gml_eq(self->vars[VAR_status], self->vars[VAR_NEW]))) {
         (void)(gml_fn_file_delete(self, other, gml_as_str(self->vals[VVAR_levelName])));
-        gml_aset(&self->vals[VVAR_exitNames], 0.0, gml_vs(""));
-        self->vars[VAR_exitNamesID] = 0.0;
-        gml_aset(&self->vals[VVAR_signNames], 0.0, gml_vs(""));
-        self->vars[VAR_signNamesID] = 0.0;
+        gml_aset(&self->vals[VVAR_exitNames], 0.0f, gml_vs(""));
+        self->vars[VAR_exitNamesID] = 0.0f;
+        gml_aset(&self->vals[VVAR_signNames], 0.0f, gml_vs(""));
+        self->vars[VAR_signNamesID] = 0.0f;
         self->vars[VAR_file] = gml_fn_file_text_open_write(self, other, gml_concat(gml_concat(gml_concat(gml_gget_working_directory(), "levels/"), gml_fn_string_lower(self, other, gml_as_str(self->vals[VVAR_levelName]))), ".lvl"));
-        for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-            for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+            for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
                 gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])));
                 if ((gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("X")) || gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("@")))) {
-                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oExit));
+                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oExit));
                     if ((!gml_truthy(self->vars[VAR_obj]))) {
-                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oEntrance));
+                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oEntrance));
                     }
                     if (gml_truthy(self->vars[VAR_obj])) {
                         gml_aset(&self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID], gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo));
-                        self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                        self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                     }
                 } else {
                     if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("I"))) {
-                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oMsgSign));
+                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oMsgSign));
                         if (gml_truthy(self->vars[VAR_obj])) {
                             gml_aset(&self->vals[VVAR_signNames], self->vars[VAR_signNamesID], gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_message));
-                            self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0);
+                            self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0f);
                         }
                     }
                 }
@@ -624,33 +624,33 @@ static void gml_ev_oLevelEditor__KeyPress_89_body(gm_instance_t *self, gm_instan
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], self->strs[SVAR_nextLevel]);
         gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_real_str(self->vars[VAR_exitNamesID]));
-        if (gml_gt(self->vars[VAR_exitNamesID], 0.0)) {
+        if (gml_gt(self->vars[VAR_exitNamesID], 0.0f)) {
             gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
         }
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_i])));
             if (gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesID])) {
                 gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
             }
         }
         gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_real_str(self->vars[VAR_signNamesID]));
-        if (gml_gt(self->vars[VAR_signNamesID], 0.0)) {
+        if (gml_gt(self->vars[VAR_signNamesID], 0.0f)) {
             gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
         }
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesID]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             gml_fn_file_text_write_string(self, other, self->vars[VAR_file], gml_as_str(gml_aget(self->vals[VVAR_signNames], self->vars[VAR_i])));
-            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesID] - 1.0))) {
+            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesID] - 1.0f))) {
                 gml_fn_file_text_writeln(self, other, self->vars[VAR_file]);
             }
         }
         gml_fn_file_text_close(self, other, self->vars[VAR_file]);
     }
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_EXIT])) {
-        g_gml_globals.titleStart = 2.0;
+        g_gml_globals.titleStart = 2.0f;
         if (gml_truthy(gml_fn_file_exists(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp")))) {
             (void)(gml_fn_file_delete(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp")));
         }
-        gml_fn_room_goto(self, other, ((double)RM_rTitle));
+        gml_fn_room_goto(self, other, ((float)RM_rTitle));
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_NEW])) {
             g_gml_gvals[GV_testLevel] = gml_vs("");
@@ -670,10 +670,10 @@ static void gml_ev_oLevelEditor__KeyPress_83_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] + 1.0);
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] + 1.0f);
         if (gml_gt(self->vars[VAR_dropVal], self->vars[VAR_dropMax])) {
-            self->vars[VAR_dropVal] = 0.0;
+            self->vars[VAR_dropVal] = 0.0f;
         }
         gml_script_scrSetCursorTile(self, other);
     }
@@ -691,11 +691,11 @@ static void gml_ev_oLevelEditor__KeyPress_78_body(gm_instance_t *self, gm_instan
     (void)self;
     (void)other;
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_EXIT])) {
-        g_gml_globals.titleStart = 2.0;
+        g_gml_globals.titleStart = 2.0f;
         if (gml_truthy(gml_fn_file_exists(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp")))) {
             (void)(gml_fn_file_delete(self, other, gml_concat(gml_gget_working_directory(), "levels/test.tmp")));
         }
-        gml_fn_room_goto(self, other, ((double)RM_rTitle));
+        gml_fn_room_goto(self, other, ((float)RM_rTitle));
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_NEW])) {
             g_gml_gvals[GV_testLevel] = gml_vs("");
@@ -715,9 +715,9 @@ static void gml_ev_oLevelEditor__KeyPress_65_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] - 1.0);
-        if (gml_lt(self->vars[VAR_dropVal], 0.0)) {
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropVal] = (self->vars[VAR_dropVal] - 1.0f);
+        if (gml_lt(self->vars[VAR_dropVal], 0.0f)) {
             self->vars[VAR_dropVal] = self->vars[VAR_dropMax];
         }
         gml_script_scrSetCursorTile(self, other);
@@ -735,11 +735,11 @@ static void gml_ev_oLevelEditor__KeyPress_52_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropSelect] = 3.0;
-        self->vars[VAR_dropMax] = 30.0;
-        self->vars[VAR_dropVal] = 0.0;
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGoldBarTile));
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropSelect] = 3.0f;
+        self->vars[VAR_dropMax] = 30.0f;
+        self->vars[VAR_dropVal] = 0.0f;
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGoldBarTile));
     }
 }
 
@@ -754,23 +754,23 @@ static void gml_ev_oLevelEditor__KeyPress_51_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropSelect] = 2.0;
-        if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0))) {
-            self->vars[VAR_dropMax] = 4.0;
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropSelect] = 2.0f;
+        if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f))) {
+            self->vars[VAR_dropMax] = 4.0f;
         } else {
-            if ((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                self->vars[VAR_dropMax] = 5.0;
+            if ((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                self->vars[VAR_dropMax] = 5.0f;
             } else {
-                if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                    self->vars[VAR_dropMax] = 6.0;
+                if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                    self->vars[VAR_dropMax] = 6.0f;
                 } else {
-                    self->vars[VAR_dropMax] = 2.0;
+                    self->vars[VAR_dropMax] = 2.0f;
                 }
             }
         }
-        self->vars[VAR_dropVal] = 0.0;
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpikes));
+        self->vars[VAR_dropVal] = 0.0f;
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpikes));
     }
 }
 
@@ -785,23 +785,23 @@ static void gml_ev_oLevelEditor__KeyPress_50_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropSelect] = 1.0;
-        if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0))) {
-            self->vars[VAR_dropMax] = 14.0;
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropSelect] = 1.0f;
+        if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f))) {
+            self->vars[VAR_dropMax] = 14.0f;
         } else {
-            if ((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                self->vars[VAR_dropMax] = 19.0;
+            if ((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                self->vars[VAR_dropMax] = 19.0f;
             } else {
-                if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                    self->vars[VAR_dropMax] = 21.0;
+                if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                    self->vars[VAR_dropMax] = 21.0f;
                 } else {
-                    self->vars[VAR_dropMax] = 6.0;
+                    self->vars[VAR_dropMax] = 6.0f;
                 }
             }
         }
-        self->vars[VAR_dropVal] = 0.0;
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBatLeft));
+        self->vars[VAR_dropVal] = 0.0f;
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBatLeft));
     }
 }
 
@@ -816,23 +816,23 @@ static void gml_ev_oLevelEditor__KeyPress_49_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 1.0)) {
-        self->vars[VAR_dropSelect] = 0.0;
-        if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_gt(g_gml_globals.tunnel2, 0.0))) {
-            self->vars[VAR_dropMax] = 18.0;
+    if (gml_eq(self->vars[VAR_status], 1.0f)) {
+        self->vars[VAR_dropSelect] = 0.0f;
+        if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_gt(g_gml_globals.tunnel2, 0.0f))) {
+            self->vars[VAR_dropMax] = 18.0f;
         } else {
-            if ((gml_gt(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                self->vars[VAR_dropMax] = 21.0;
+            if ((gml_gt(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                self->vars[VAR_dropMax] = 21.0f;
             } else {
-                if ((gml_eq(g_gml_globals.tunnel1, 0.0) && gml_eq(g_gml_globals.tunnel2, 0.0))) {
-                    self->vars[VAR_dropMax] = 23.0;
+                if ((gml_eq(g_gml_globals.tunnel1, 0.0f) && gml_eq(g_gml_globals.tunnel2, 0.0f))) {
+                    self->vars[VAR_dropMax] = 23.0f;
                 } else {
-                    self->vars[VAR_dropMax] = 10.0;
+                    self->vars[VAR_dropMax] = 10.0f;
                 }
             }
         }
-        self->vars[VAR_dropVal] = 0.0;
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sEntrance));
+        self->vars[VAR_dropVal] = 0.0f;
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sEntrance));
     }
 }
 
@@ -852,12 +852,12 @@ static void gml_ev_oLevelEditor__KeyPress_27_body(gm_instance_t *self, gm_instan
     } else {
         if (((gml_eq(self->vars[VAR_status], self->vars[VAR_EXIT]) || gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT_DOOR])) || gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT_MSG]))) {
             self->vars[VAR_status] = self->vars[VAR_EDIT];
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oEditButton)));
-            (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 32.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-            (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 32.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oEditButton)));
+            (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 32.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+            (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 32.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
         } else {
-            g_gml_globals.titleStart = 2.0;
-            gml_fn_room_goto(self, other, ((double)RM_rTitle));
+            g_gml_globals.titleStart = 2.0f;
+            gml_fn_room_goto(self, other, ((float)RM_rTitle));
         }
     }
 }
@@ -872,8 +872,8 @@ void gml_ev_oLevelEditor__KeyPress_27(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     gm_value_t v3 = GM_VALUE_UNDEFINED_INIT;
     gm_value_t v10 = GM_VALUE_UNDEFINED_INIT;
     gm_value_t v11 = GM_VALUE_UNDEFINED_INIT;
@@ -905,10 +905,10 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                 self->vars[VAR_status] = self->vars[VAR_EDIT];
                 self->vars[VAR_file] = gml_fn_file_text_open_read(self, other, gml_concat(gml_concat(gml_concat(gml_gget_working_directory(), "levels/"), gml_fn_string_lower(self, other, gml_as_str(self->vals[VVAR_levelName]))), ".lvl"));
                 if (gml_truthy(self->vars[VAR_file])) {
-                    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
+                    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
                         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-                        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                            gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_str], (self->vars[VAR_i] + 1.0))));
+                        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                            gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_str], (self->vars[VAR_i] + 1.0f))));
                         }
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                     }
@@ -923,64 +923,64 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                     self->strs[SVAR_ropeStart] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
                     (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                     self->strs[SVAR_nextLevel] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-                    self->vars[VAR_exitNamesNum] = 0.0;
+                    self->vars[VAR_exitNamesNum] = 0.0f;
                     if ((!gml_truthy(gml_fn_file_text_eof(self, other, self->vars[VAR_file])))) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                         self->vars[VAR_exitNamesNum] = gml_str_to_real(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]));
                     }
-                    if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+                    if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-                        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+                        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_exitNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
                             (t1 = self->vars[VAR_i], gml_aset(&self->vals[VVAR_exitNames], t1, gml_vs(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]))));
-                            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_exitNamesNum] - 1.0))) {
+                            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_exitNamesNum] - 1.0f))) {
                                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                             }
                         }
                     }
-                    self->vars[VAR_signNamesNum] = 0.0;
+                    self->vars[VAR_signNamesNum] = 0.0f;
                     if ((!gml_truthy(gml_fn_file_text_eof(self, other, self->vars[VAR_file])))) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                         self->vars[VAR_signNamesNum] = gml_str_to_real(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]));
                     }
-                    if (gml_gt(self->vars[VAR_signNamesNum], 0.0)) {
+                    if (gml_gt(self->vars[VAR_signNamesNum], 0.0f)) {
                         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-                        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+                        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], self->vars[VAR_signNamesNum]); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
                             (t2 = self->vars[VAR_i], gml_aset(&self->vals[VVAR_signNames], t2, gml_vs(gml_fn_file_text_read_string(self, other, self->vars[VAR_file]))));
-                            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesNum] - 1.0))) {
+                            if (gml_lt(self->vars[VAR_i], (self->vars[VAR_signNamesNum] - 1.0f))) {
                                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                             }
                         }
                     }
                     gml_fn_file_text_close(self, other, self->vars[VAR_file]);
-                    self->vars[VAR_exitNamesID] = 0.0;
-                    self->vars[VAR_signNamesID] = 0.0;
-                    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-                        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                            gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])), (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)));
+                    self->vars[VAR_exitNamesID] = 0.0f;
+                    self->vars[VAR_signNamesID] = 0.0f;
+                    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+                        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                            gml_script_scrCreateTile(self, other, gml_as_str(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j])), (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)));
                             if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("X"))) {
-                                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oExit));
+                                self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oExit));
                                 if (gml_truthy(self->vars[VAR_obj])) {
-                                    if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+                                    if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                                         gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo, gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID]));
-                                        self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                                        self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                                     }
                                 }
                             } else {
                                 if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("@"))) {
-                                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oEntrance));
+                                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oEntrance));
                                     if (gml_truthy(self->vars[VAR_obj])) {
-                                        if (gml_gt(self->vars[VAR_exitNamesNum], 0.0)) {
+                                        if (gml_gt(self->vars[VAR_exitNamesNum], 0.0f)) {
                                             gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo, gml_aget(self->vals[VVAR_exitNames], self->vars[VAR_exitNamesID]));
-                                            self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0);
+                                            self->vars[VAR_exitNamesID] = (self->vars[VAR_exitNamesID] + 1.0f);
                                         }
                                     }
                                 } else {
                                     if (gml_veq(gml_aget(gml_aget(self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j]), gml_vs("I"))) {
-                                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0 + (self->vars[VAR_i] * 16.0)), (16.0 + (self->vars[VAR_j] * 16.0)), ((double)OBJ_oMsgSign));
+                                        self->vars[VAR_obj] = gml_fn_instance_position(self, other, (16.0f + (self->vars[VAR_i] * 16.0f)), (16.0f + (self->vars[VAR_j] * 16.0f)), ((float)OBJ_oMsgSign));
                                         if (gml_truthy(self->vars[VAR_obj])) {
-                                            if (gml_gt(self->vars[VAR_signNamesNum], 0.0)) {
+                                            if (gml_gt(self->vars[VAR_signNamesNum], 0.0f)) {
                                                 gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_message, gml_aget(self->vals[VVAR_signNames], self->vars[VAR_signNamesID]));
-                                                self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0);
+                                                self->vars[VAR_signNamesID] = (self->vars[VAR_signNamesID] + 1.0f);
                                             }
                                         }
                                     }
@@ -989,15 +989,15 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                         }
                     }
                 }
-                gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oEditButton)));
-                (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 32.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-                (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+                gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oEditButton)));
+                (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 32.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+                (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
             }
         } else {
-            if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0));
+            if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0f));
             } else {
                 self->vals[VVAR_levelName] = (v3 = self->vals[VVAR_levelName], gml_add(v3, gml_vs(gml_script_scrGetChar(self, other, gml_gget_keyboard_key()))));
             }
@@ -1005,15 +1005,15 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_EDIT])) {
             if (gml_eq(gml_gget_keyboard_key(), gml_fn_ord(self, other, "E"))) {
-                if ((((((((gml_gt(gml_gget_mouse_x(), 16.0) && gml_lt(gml_gget_mouse_x(), (gml_gget_room_width() - 16.0))) && gml_gt(gml_gget_mouse_y(), 16.0)) && gml_lt(gml_gget_mouse_y(), (gml_gget_room_height() - 16.0))) && gml_ge(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), 16.0)) && gml_lt(gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)), (gml_gget_room_width() - 16.0))) && gml_ge(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)), 16.0)) && gml_lt(gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)), (gml_gget_room_height() - 16.0)))) {
-                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (gml_iget_x(gml_deref(((double)OBJ_oCursObj), self, other)) + 8.0), (gml_iget_y(gml_deref(((double)OBJ_oCursObj), self, other)) + 12.0), ((double)OBJ_oDrawnSprite));
+                if ((((((((gml_gt(gml_gget_mouse_x(), 16.0f) && gml_lt(gml_gget_mouse_x(), (gml_gget_room_width() - 16.0f))) && gml_gt(gml_gget_mouse_y(), 16.0f)) && gml_lt(gml_gget_mouse_y(), (gml_gget_room_height() - 16.0f))) && gml_ge(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), 16.0f)) && gml_lt(gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)), (gml_gget_room_width() - 16.0f))) && gml_ge(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)), 16.0f)) && gml_lt(gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)), (gml_gget_room_height() - 16.0f)))) {
+                    self->vars[VAR_obj] = gml_fn_instance_position(self, other, (gml_iget_x(gml_deref(((float)OBJ_oCursObj), self, other)) + 8.0f), (gml_iget_y(gml_deref(((float)OBJ_oCursObj), self, other)) + 12.0f), ((float)OBJ_oDrawnSprite));
                     if (gml_truthy(self->vars[VAR_obj])) {
                         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_obj], self, other), SVAR_type), "Exit")) {
                             self->vals[VVAR_textEdit] = gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo);
-                            gml_ivar_set(gml_deref(((double)OBJ_oLevelEditor), self, other), VAR_status, self->vars[VAR_EDIT_DOOR]);
+                            gml_ivar_set(gml_deref(((float)OBJ_oLevelEditor), self, other), VAR_status, self->vars[VAR_EDIT_DOOR]);
                             {
                                 gm_instance_t *self4;
-                                gm_with_begin(gml_target(((double)OBJ_oNewButton)), self, other);
+                                gm_with_begin(gml_target(((float)OBJ_oNewButton)), self, other);
                                 while ((self4 = gm_with_next()) != NULL) {
                                     gml_fn_instance_destroy(self4, self, 0, NULL);
                                 }
@@ -1021,7 +1021,7 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                             }
                             {
                                 gm_instance_t *self5;
-                                gm_with_begin(gml_target(((double)OBJ_oTestButton)), self, other);
+                                gm_with_begin(gml_target(((float)OBJ_oTestButton)), self, other);
                                 while ((self5 = gm_with_next()) != NULL) {
                                     gml_fn_instance_destroy(self5, self, 0, NULL);
                                 }
@@ -1029,7 +1029,7 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                             }
                             {
                                 gm_instance_t *self6;
-                                gm_with_begin(gml_target(((double)OBJ_oEditButton)), self, other);
+                                gm_with_begin(gml_target(((float)OBJ_oEditButton)), self, other);
                                 while ((self6 = gm_with_next()) != NULL) {
                                     gml_fn_instance_destroy(self6, self, 0, NULL);
                                 }
@@ -1038,10 +1038,10 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                         } else {
                             if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_obj], self, other), SVAR_type), "Message Sign")) {
                                 self->vals[VVAR_textEdit] = gml_vvar(gml_deref(self->vars[VAR_obj], self, other), VVAR_message);
-                                gml_ivar_set(gml_deref(((double)OBJ_oLevelEditor), self, other), VAR_status, self->vars[VAR_EDIT_MSG]);
+                                gml_ivar_set(gml_deref(((float)OBJ_oLevelEditor), self, other), VAR_status, self->vars[VAR_EDIT_MSG]);
                                 {
                                     gm_instance_t *self7;
-                                    gm_with_begin(gml_target(((double)OBJ_oNewButton)), self, other);
+                                    gm_with_begin(gml_target(((float)OBJ_oNewButton)), self, other);
                                     while ((self7 = gm_with_next()) != NULL) {
                                         gml_fn_instance_destroy(self7, self, 0, NULL);
                                     }
@@ -1049,7 +1049,7 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                 }
                                 {
                                     gm_instance_t *self8;
-                                    gm_with_begin(gml_target(((double)OBJ_oTestButton)), self, other);
+                                    gm_with_begin(gml_target(((float)OBJ_oTestButton)), self, other);
                                     while ((self8 = gm_with_next()) != NULL) {
                                         gml_fn_instance_destroy(self8, self, 0, NULL);
                                     }
@@ -1057,7 +1057,7 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                 }
                                 {
                                     gm_instance_t *self9;
-                                    gm_with_begin(gml_target(((double)OBJ_oEditButton)), self, other);
+                                    gm_with_begin(gml_target(((float)OBJ_oEditButton)), self, other);
                                     while ((self9 = gm_with_next()) != NULL) {
                                         gml_fn_instance_destroy(self9, self, 0, NULL);
                                     }
@@ -1073,16 +1073,16 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                 if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                     gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_leadsTo, self->vals[VVAR_textEdit]);
                     self->vars[VAR_status] = self->vars[VAR_EDIT];
-                    gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                    gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oEditButton)));
-                    (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-                    (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+                    gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                    gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+                    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oEditButton)));
+                    (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+                    (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
                 } else {
-                    if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                        self->vals[VVAR_textEdit] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_textEdit]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 1.0));
+                    if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                        self->vals[VVAR_textEdit] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_textEdit]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 1.0f));
                     } else {
-                        if (gml_lt(gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 38.0)) {
+                        if (gml_lt(gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 38.0f)) {
                             self->vals[VVAR_textEdit] = (v10 = self->vals[VVAR_textEdit], gml_add(v10, gml_vs(gml_script_scrGetChar(self, other, gml_gget_keyboard_key()))));
                         }
                     }
@@ -1092,16 +1092,16 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                     if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                         gml_vvar_set(gml_deref(self->vars[VAR_obj], self, other), VVAR_message, self->vals[VVAR_textEdit]);
                         self->vars[VAR_status] = self->vars[VAR_EDIT];
-                        gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oEditButton)));
-                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+                        gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oEditButton)));
+                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
                     } else {
-                        if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                            self->vals[VVAR_textEdit] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_textEdit]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 1.0));
+                        if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                            self->vals[VVAR_textEdit] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_textEdit]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 1.0f));
                         } else {
-                            if (gml_lt(gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 38.0)) {
+                            if (gml_lt(gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_textEdit])), 38.0f)) {
                                 self->vals[VVAR_textEdit] = (v11 = self->vals[VVAR_textEdit], gml_add(v11, gml_vs(gml_script_scrGetChar(self, other, gml_gget_keyboard_key()))));
                             }
                         }
@@ -1111,12 +1111,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                         if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                             if (gml_vne(self->vals[VVAR_levelName], gml_vs(""))) {
                                 self->vars[VAR_status] = self->vars[VAR_INFO_AUTHOR];
-                                gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                             }
                         } else {
-                            if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0));
+                            if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0f));
                             } else {
                                 self->vals[VVAR_levelName] = (v12 = self->vals[VVAR_levelName], gml_add(v12, gml_vs(gml_script_scrGetChar(self, other, gml_gget_keyboard_key()))));
                             }
@@ -1126,12 +1126,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                             if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                 if (gml_str_ne(self->strs[SVAR_author], "")) {
                                     self->vars[VAR_status] = self->vars[VAR_INFO_MUSIC];
-                                    gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                    gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                    gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                    gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                                 }
                             } else {
-                                if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                    self->strs[SVAR_author] = gml_fn_string_delete(self, other, self->strs[SVAR_author], gml_fn_string_length(self, other, self->strs[SVAR_author]), 1.0);
+                                if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                    self->strs[SVAR_author] = gml_fn_string_delete(self, other, self->strs[SVAR_author], gml_fn_string_length(self, other, self->strs[SVAR_author]), 1.0f);
                                 } else {
                                     self->strs[SVAR_author] = (s13 = self->strs[SVAR_author], gml_concat(s13, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                 }
@@ -1141,12 +1141,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                 if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                     if (gml_str_ne(self->strs[SVAR_music], "")) {
                                         self->vars[VAR_status] = self->vars[VAR_INFO_LIFE];
-                                        gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                        gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                                     }
                                 } else {
-                                    if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                        self->strs[SVAR_music] = gml_fn_string_delete(self, other, self->strs[SVAR_music], gml_fn_string_length(self, other, self->strs[SVAR_music]), 1.0);
+                                    if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                        self->strs[SVAR_music] = gml_fn_string_delete(self, other, self->strs[SVAR_music], gml_fn_string_length(self, other, self->strs[SVAR_music]), 1.0f);
                                     } else {
                                         self->strs[SVAR_music] = (s14 = self->strs[SVAR_music], gml_concat(s14, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                     }
@@ -1156,12 +1156,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                     if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                         if (gml_str_ne(self->strs[SVAR_lifeStart], "")) {
                                             self->vars[VAR_status] = self->vars[VAR_INFO_BOMBS];
-                                            gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                            gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                            gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                            gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                                         }
                                     } else {
-                                        if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                            self->strs[SVAR_lifeStart] = gml_fn_string_delete(self, other, self->strs[SVAR_lifeStart], gml_fn_string_length(self, other, self->strs[SVAR_lifeStart]), 1.0);
+                                        if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                            self->strs[SVAR_lifeStart] = gml_fn_string_delete(self, other, self->strs[SVAR_lifeStart], gml_fn_string_length(self, other, self->strs[SVAR_lifeStart]), 1.0f);
                                         } else {
                                             self->strs[SVAR_lifeStart] = (s15 = self->strs[SVAR_lifeStart], gml_concat(s15, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                         }
@@ -1171,12 +1171,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                         if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                             if (gml_str_ne(self->strs[SVAR_bombStart], "")) {
                                                 self->vars[VAR_status] = self->vars[VAR_INFO_ROPE];
-                                                gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                                gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                                gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                                gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                                             }
                                         } else {
-                                            if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                                self->strs[SVAR_bombStart] = gml_fn_string_delete(self, other, self->strs[SVAR_bombStart], gml_fn_string_length(self, other, self->strs[SVAR_bombStart]), 1.0);
+                                            if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                                self->strs[SVAR_bombStart] = gml_fn_string_delete(self, other, self->strs[SVAR_bombStart], gml_fn_string_length(self, other, self->strs[SVAR_bombStart]), 1.0f);
                                             } else {
                                                 self->strs[SVAR_bombStart] = (s16 = self->strs[SVAR_bombStart], gml_concat(s16, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                             }
@@ -1186,12 +1186,12 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                             if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                                 if (gml_str_ne(self->strs[SVAR_ropeStart], "")) {
                                                     self->vars[VAR_status] = self->vars[VAR_INFO_NEXT];
-                                                    gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                                    gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
+                                                    gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                                    gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
                                                 }
                                             } else {
-                                                if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                                    self->strs[SVAR_ropeStart] = gml_fn_string_delete(self, other, self->strs[SVAR_ropeStart], gml_fn_string_length(self, other, self->strs[SVAR_ropeStart]), 1.0);
+                                                if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                                    self->strs[SVAR_ropeStart] = gml_fn_string_delete(self, other, self->strs[SVAR_ropeStart], gml_fn_string_length(self, other, self->strs[SVAR_ropeStart]), 1.0f);
                                                 } else {
                                                     self->strs[SVAR_ropeStart] = (s17 = self->strs[SVAR_ropeStart], gml_concat(s17, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                                 }
@@ -1201,15 +1201,15 @@ static void gml_ev_oLevelEditor__KeyPress_1_body(gm_instance_t *self, gm_instanc
                                                 if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                                                     if (gml_str_ne(self->strs[SVAR_nextLevel], "")) {
                                                         self->vars[VAR_status] = self->vars[VAR_EDIT];
-                                                        gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-                                                        gml_iset_visible(gml_deref(((double)OBJ_oCursObj), self, other), 1.0);
-                                                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oEditButton)));
-                                                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oNewButton)));
-                                                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0) - 48.0), gml_iget_y(self), ((double)OBJ_oTestButton)));
+                                                        gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+                                                        gml_iset_visible(gml_deref(((float)OBJ_oCursObj), self, other), 1.0f);
+                                                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oEditButton)));
+                                                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oNewButton)));
+                                                        (void)(gml_script_instance_create(self, other, ((gml_iget_x(self) + 320.0f) - 48.0f), gml_iget_y(self), ((float)OBJ_oTestButton)));
                                                     }
                                                 } else {
-                                                    if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                                                        self->strs[SVAR_nextLevel] = gml_fn_string_delete(self, other, self->strs[SVAR_nextLevel], gml_fn_string_length(self, other, self->strs[SVAR_nextLevel]), 1.0);
+                                                    if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                                                        self->strs[SVAR_nextLevel] = gml_fn_string_delete(self, other, self->strs[SVAR_nextLevel], gml_fn_string_length(self, other, self->strs[SVAR_nextLevel]), 1.0f);
                                                     } else {
                                                         self->strs[SVAR_nextLevel] = (s18 = self->strs[SVAR_nextLevel], gml_concat(s18, gml_script_scrGetChar(self, other, gml_gget_keyboard_key())));
                                                     }

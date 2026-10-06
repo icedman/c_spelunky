@@ -5,10 +5,10 @@ static void gml_ev_oBatIntro__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.0;
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.0f;
 }
 
 void gml_ev_oBatIntro__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,18 +20,18 @@ void gml_ev_oBatIntro__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oBatIntro__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_eq(self->vars[VAR_status], 0.0)) {
-        if ((t1 = gml_iget_x(self), gml_lt(t1, ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 320.0) + 16.0)))) {
-            self->vars[VAR_status] = 1.0;
-            self->vars[VAR_xVel] = ((-gm_random(3.0)) - 2.0);
-            self->vars[VAR_yVel] = (-gm_random(1.0));
-            self->vars[VAR_yAcc] = ((-gm_random(1.0)) * 0.2);
+    if (gml_eq(self->vars[VAR_status], 0.0f)) {
+        if ((t1 = gml_iget_x(self), gml_lt(t1, ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 320.0f) + 16.0f)))) {
+            self->vars[VAR_status] = 1.0f;
+            self->vars[VAR_xVel] = ((-gm_random(3.0f)) - 2.0f);
+            self->vars[VAR_yVel] = (-gm_random(1.0f));
+            self->vars[VAR_yAcc] = ((-gm_random(1.0f)) * 0.2f);
             gml_script_playSound(self, other, g_gml_globals.sndBat);
         }
     }

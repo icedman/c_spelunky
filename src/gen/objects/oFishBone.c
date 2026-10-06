@@ -8,9 +8,9 @@ static void gml_ev_oFishBone__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Fish Bone";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_myGrav] = 0.2;
-    self->vars[VAR_safe] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_myGrav] = 0.2f;
+    self->vars[VAR_safe] = 0.0f;
 }
 
 void gml_ev_oFishBone__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,7 +24,7 @@ static void gml_ev_oFishBone__Alarm_2_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_safe] = 0.0;
+    self->vars[VAR_safe] = 0.0f;
 }
 
 void gml_ev_oFishBone__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -39,22 +39,22 @@ static void gml_ev_oFishBone__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if ((gml_gt(self->vars[VAR_xVel], 0.0) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-        gml_iset_direction(self, gm_radtodeg(atan(((-self->vars[VAR_yVel]) / self->vars[VAR_xVel]))));
+    if ((gml_gt(self->vars[VAR_xVel], 0.0f) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+        gml_iset_direction(self, gm_radtodeg(atanf(((-self->vars[VAR_yVel]) / self->vars[VAR_xVel]))));
     } else {
-        if ((gml_lt(self->vars[VAR_xVel], 0.0) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-            gml_iset_direction(self, (180.0 - gm_radtodeg(atan(((-self->vars[VAR_yVel]) / (-self->vars[VAR_xVel]))))));
+        if ((gml_lt(self->vars[VAR_xVel], 0.0f) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+            gml_iset_direction(self, (180.0f - gm_radtodeg(atanf(((-self->vars[VAR_yVel]) / (-self->vars[VAR_xVel]))))));
         } else {
-            if ((gml_gt(self->vars[VAR_xVel], 0.0) && gml_gt(self->vars[VAR_yVel], 0.0))) {
-                gml_iset_direction(self, gm_radtodeg(atan((self->vars[VAR_yVel] / self->vars[VAR_xVel]))));
+            if ((gml_gt(self->vars[VAR_xVel], 0.0f) && gml_gt(self->vars[VAR_yVel], 0.0f))) {
+                gml_iset_direction(self, gm_radtodeg(atanf((self->vars[VAR_yVel] / self->vars[VAR_xVel]))));
             } else {
-                if ((gml_lt(self->vars[VAR_xVel], 0.0) && gml_gt(self->vars[VAR_yVel], 0.0))) {
-                    gml_iset_direction(self, (180.0 + gm_radtodeg(atan((self->vars[VAR_yVel] / (-self->vars[VAR_xVel]))))));
+                if ((gml_lt(self->vars[VAR_xVel], 0.0f) && gml_gt(self->vars[VAR_yVel], 0.0f))) {
+                    gml_iset_direction(self, (180.0f + gm_radtodeg(atanf((self->vars[VAR_yVel] / (-self->vars[VAR_xVel]))))));
                 } else {
-                    if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-                        gml_iset_direction(self, 180.0);
+                    if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+                        gml_iset_direction(self, 180.0f);
                     } else {
-                        gml_iset_direction(self, 0.0);
+                        gml_iset_direction(self, 0.0f);
                     }
                 }
             }

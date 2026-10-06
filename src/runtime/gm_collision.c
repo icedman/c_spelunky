@@ -8,6 +8,7 @@
 
 #include "gm_math.h"
 #include "gm_object.h"
+#include "gm_perf.h"
 
 #include <math.h>
 #include <stddef.h>
@@ -15,34 +16,34 @@
 
 /* Math.PI: some precise routines use it instead of the runner's truncated
  * Pi (GM_PI). Each port below uses whichever constant its reference uses. */
-#define JS_MATH_PI 3.141592653589793
+#define JS_MATH_PI 3.141592653589793f
 
 /* g_GMLMathEpsilon default (Function_Maths.js L19). */
-#define GML_MATH_EPSILON 1e-5
+#define GML_MATH_EPSILON 1e-5f
 
 /* Collision_Point / Collision_Line col_delta (compatibility mode off). */
-#define COL_DELTA (-0.00001)
+#define COL_DELTA (-0.00001f)
 
-/* Loops below step doubles by 1.0; beyond 2^52 that would never terminate. */
-#define LOOP_LIMIT 4503599627370496.0
+/* Loops below step floats by 1.0; beyond 2^52 that would never terminate. */
+#define LOOP_LIMIT 4503599627370496.0f
 
 typedef struct bbox {
-    double left, top, right, bottom;
+    float left, top, right, bottom;
 } bbox_t;
 
 /* yymin / yymax (Function_Maths.js L336): not gm_min/gm_max, whose NaN and
  * signed-zero behaviour differs. */
-static double yymin(double a, double b)
+static float yymin(float a, float b)
 {
     return a < b ? a : b;
 }
 
-static double yymax(double a, double b)
+static float yymax(float a, float b)
 {
     return a > b ? a : b;
 }
 
-static bool loop_range_ok(double lo, double hi)
+static bool loop_range_ok(float lo, float hi)
 {
     return lo > -LOOP_LIMIT && hi < LOOP_LIMIT;
 }
@@ -55,7 +56,7 @@ typedef struct coll_state {
     int id;
     uint32_t sprite_gen;
     int sprite_index, mask_index;
-    double x, y, xscale, yscale, angle;
+    float x, y, xscale, yscale, angle;
     int colcheck;
 
     /* grid membership */
@@ -88,7 +89,7 @@ static int16_t s_big_next[GM_INSTANCE_MAX];
 static int16_t s_big_prev[GM_INSTANCE_MAX];
 
 static int s_cols, s_rows; /* 0 = grid not configured */
-static double s_cell_size;
+static float s_cell_size;
 static int s_grid_count;
 
 static int s_roots[GM_GRID_MAX_ROOTS];
@@ -112,26 +113,26 @@ static const gm_sprite_def_t *collision_sprite(const gm_instance_t *inst)
 static void compute_bbox(gm_instance_t *inst, coll_state_t *cs)
 {
     const gm_sprite_def_t *spr = collision_sprite(inst);
-    double l, t, r, b, tmp;
+    float l, t, r, b, tmp;
 
     if (spr == NULL) {
         /* No sprite: a point box, never collides (L1507-1518). */
         l = r = inst->x;
         t = b = inst->y;
         cs->colcheck = GM_COLCHECK_AABB;
-    } else if (inst->image_angle == 0.0) {
+    } else if (inst->image_angle == 0.0f) {
         /* L1539-1577 (non-compatibility branches) */
-        double width = (double)((spr->bbox_right + 1) - spr->bbox_left);
-        double height = (double)((spr->bbox_bottom + 1) - spr->bbox_top);
+        float width = (float)((spr->bbox_right + 1) - spr->bbox_left);
+        float height = (float)((spr->bbox_bottom + 1) - spr->bbox_top);
 
-        l = inst->x + inst->image_xscale * (double)(spr->bbox_left - spr->xorigin);
+        l = inst->x + inst->image_xscale * (float)(spr->bbox_left - spr->xorigin);
         r = l + inst->image_xscale * width;
         if (l > r) {
             tmp = l;
             l = r;
             r = tmp;
         }
-        t = inst->y + inst->image_yscale * (double)(spr->bbox_top - spr->yorigin);
+        t = inst->y + inst->image_yscale * (float)(spr->bbox_top - spr->yorigin);
         b = t + inst->image_yscale * height;
         if (t > b) {
             tmp = t;
@@ -141,16 +142,16 @@ static void compute_bbox(gm_instance_t *inst, coll_state_t *cs)
         cs->colcheck = spr->colcheck;
     } else {
         /* Rotated: axis-aligned box around the rotated rectangle (L1609-1672). */
-        double xmin = inst->image_xscale * (double)(spr->bbox_left - spr->xorigin);
-        double xmax = inst->image_xscale * (double)(spr->bbox_right - spr->xorigin + 1);
-        double ymin = inst->image_yscale * (double)(spr->bbox_top - spr->yorigin);
-        double ymax = inst->image_yscale * (double)(spr->bbox_bottom - spr->yorigin + 1);
-        double cc = cos(inst->image_angle * GM_PI / 180.0);
-        double ss = sin(inst->image_angle * GM_PI / 180.0);
-        double cc_xmax = cc * xmax, cc_xmin = cc * xmin;
-        double ss_ymax = ss * ymax, ss_ymin = ss * ymin;
-        double cc_ymax = cc * ymax, cc_ymin = cc * ymin;
-        double ss_xmax = ss * xmax, ss_xmin = ss * xmin;
+        float xmin = inst->image_xscale * (float)(spr->bbox_left - spr->xorigin);
+        float xmax = inst->image_xscale * (float)(spr->bbox_right - spr->xorigin + 1);
+        float ymin = inst->image_yscale * (float)(spr->bbox_top - spr->yorigin);
+        float ymax = inst->image_yscale * (float)(spr->bbox_bottom - spr->yorigin + 1);
+        float cc = gm_dcos(inst->image_angle);
+        float ss = gm_dsin(inst->image_angle);
+        float cc_xmax = cc * xmax, cc_xmin = cc * xmin;
+        float ss_ymax = ss * ymax, ss_ymin = ss * ymin;
+        float cc_ymax = cc * ymax, cc_ymin = cc * ymin;
+        float ss_xmax = ss * xmax, ss_xmin = ss * xmin;
 
         if (cc_xmax < cc_xmin) {
             tmp = cc_xmin;
@@ -230,13 +231,14 @@ int gm_collision_update_bbox(gm_instance_t *inst)
 /* ---- Masks (ColMaskSet, yySprite.js L1626) ------------------------------------ */
 
 /* A NULL mask stands for the runner's missing colmask entry: always set. */
-static bool colmask_set(const gm_sprite_def_t *spr, double u, double v, const uint8_t *mask)
+static bool colmask_set(const gm_sprite_def_t *spr, float u, float v, const uint8_t *mask)
 {
     int32_t ui, vi;
 
     if (mask == NULL) {
         return true;
     }
+    gm_perf_count(GM_PERF_PRECISE_MASK_SAMPLES, 1);
     if (u < spr->bbox_left || u > spr->bbox_right) {
         return false;
     }
@@ -255,14 +257,14 @@ static bool colmask_set(const gm_sprite_def_t *spr, double u, double v, const ui
 
 /* Math.floor(img) % colmask.length, made non-negative. -1 for NaN/Inf
  * (colmask[NaN] is undefined, which gm_sprite_mask maps to NULL). */
-static int wrap_frame_floor(double img, int len)
+static int wrap_frame_floor(float img, int len)
 {
-    double r = fmod(floor(img), (double)len);
+    float r = fmodf(floorf(img), (float)len);
 
-    if (r < 0.0) {
-        r += (double)len;
+    if (r < 0.0f) {
+        r += (float)len;
     }
-    return (r >= 0.0 && r < (double)len) ? (int)r : -1;
+    return (r >= 0.0f && r < (float)len) ? (int)r : -1;
 }
 
 /* (img | 0) % colmask.length, made non-negative (len > 0). */
@@ -275,10 +277,10 @@ static int wrap_frame_int(int32_t img, int len)
 /* ---- Precise tests (yySprite.js) ------------------------------------------------ */
 
 /* PreciseCollisionPoint (L2126). img is the unfloored image_index. */
-static bool precise_point(const gm_sprite_def_t *spr, double img, double x1, double y1,
-                          double scalex, double scaley, double angle, double x, double y)
+static bool precise_point(const gm_sprite_def_t *spr, float img, float x1, float y1,
+                          float scalex, float scaley, float angle, float x, float y)
 {
-    double xx, yy;
+    float xx, yy;
     int n;
 
     if (spr->mask_count == 0) {
@@ -289,27 +291,27 @@ static bool precise_point(const gm_sprite_def_t *spr, double img, double x1, dou
     }
     n = wrap_frame_floor(img, spr->mask_count);
 
-    x1 -= 0.5;
-    y1 -= 0.5;
-    if (fabs(angle) < 0.0001) {
-        xx = floor((x - x1) / scalex + spr->xorigin);
-        yy = floor((y - y1) / scaley + spr->yorigin);
+    x1 -= 0.5f;
+    y1 -= 0.5f;
+    if (fabsf(angle) < 0.0001f) {
+        xx = floorf((x - x1) / scalex + spr->xorigin);
+        yy = floorf((y - y1) / scaley + spr->yorigin);
     } else {
-        double ss = sin(-angle * JS_MATH_PI / 180.0);
-        double cc = cos(-angle * JS_MATH_PI / 180.0);
-        xx = floor((cc * (x - x1) + ss * (y - y1)) / scalex + spr->xorigin);
-        yy = floor((cc * (y - y1) - ss * (x - x1)) / scaley + spr->yorigin);
+        float ss = gm_dsin(-angle);
+        float cc = gm_dcos(-angle);
+        xx = floorf((cc * (x - x1) + ss * (y - y1)) / scalex + spr->xorigin);
+        yy = floorf((cc * (y - y1) - ss * (x - x1)) / scaley + spr->yorigin);
     }
     return colmask_set(spr, xx, yy, gm_sprite_mask(spr, n));
 }
 
 /* PreciseCollisionRectangle (L2171). img is floored by the callee. */
-static bool precise_rectangle(const gm_sprite_def_t *spr, double img, const bbox_t *bb1,
-                              double x1, double y1, double scalex, double scaley,
-                              double angle, const bbox_t *rr)
+static bool precise_rectangle(const gm_sprite_def_t *spr, float img, const bbox_t *bb1,
+                              float x1, float y1, float scalex, float scaley,
+                              float angle, const bbox_t *rr)
 {
     const uint8_t *mask;
-    double l, r, t, b, i, j;
+    float l, r, t, b, i, j;
 
     if (spr->mask_count == 0) {
         return true;
@@ -327,9 +329,9 @@ static bool precise_rectangle(const gm_sprite_def_t *spr, double img, const bbox
         return false;
     }
 
-    x1 -= 0.5;
-    y1 -= 0.5;
-    if (scalex == 1.0 && scaley == 1.0 && fabs(angle) < 0.0001) {
+    x1 -= 0.5f;
+    y1 -= 0.5f;
+    if (scalex == 1.0f && scaley == 1.0f && fabsf(angle) < 0.0001f) {
         for (i = l; i <= r; i++) {
             for (j = t; j <= b; j++) {
                 int32_t xx = gm_to_int32(i - x1 + spr->xorigin);
@@ -340,20 +342,20 @@ static bool precise_rectangle(const gm_sprite_def_t *spr, double img, const bbox
                 if (yy < 0 || yy >= spr->height) {
                     continue;
                 }
-                if (colmask_set(spr, (double)xx, (double)yy, mask)) {
+                if (colmask_set(spr, (float)xx, (float)yy, mask)) {
                     return true;
                 }
             }
         }
     } else {
-        double ss = sin(-angle * GM_PI / 180.0);
-        double cc = cos(-angle * GM_PI / 180.0);
-        double onescalex = 1.0 / scalex;
-        double onescaley = 1.0 / scaley;
+        float ss = gm_dsin(-angle);
+        float cc = gm_dcos(-angle);
+        float onescalex = 1.0f / scalex;
+        float onescaley = 1.0f / scaley;
         for (i = l; i <= r; i++) {
             for (j = t; j <= b; j++) {
-                double xx = floor((cc * (i - x1) + ss * (j - y1)) * onescalex + spr->xorigin);
-                double yy = floor((cc * (j - y1) - ss * (i - x1)) * onescaley + spr->yorigin);
+                float xx = floorf((cc * (i - x1) + ss * (j - y1)) * onescalex + spr->xorigin);
+                float yy = floorf((cc * (j - y1) - ss * (i - x1)) * onescaley + spr->yorigin);
                 if (xx < 0 || xx >= spr->width) {
                     continue;
                 }
@@ -371,11 +373,11 @@ static bool precise_rectangle(const gm_sprite_def_t *spr, double img, const bbox
 
 /* PreciseCollisionLine (L2709). img is image_index | 0. */
 static bool precise_line(const gm_sprite_def_t *spr, int32_t img, const bbox_t *bb1,
-                         double x1, double y1, double scalex, double scaley, double angle,
-                         double xl, double yl, double xr, double yr)
+                         float x1, float y1, float scalex, float scaley, float angle,
+                         float xl, float yl, float xr, float yr)
 {
     const uint8_t *mask;
-    double ss, cc, dd, i, val, lo, hi;
+    float ss, cc, dd, i, val, lo, hi;
     int n;
 
     if (spr->mask_count == 0) {
@@ -394,16 +396,16 @@ static bool precise_line(const gm_sprite_def_t *spr, int32_t img, const bbox_t *
         rc.top = yymin(yl, yr);
         rc.right = xr;
         rc.bottom = yymax(yl, yr);
-        return precise_rectangle(spr, (double)n, bb1, x1, y1, scalex, scaley, angle, &rc);
+        return precise_rectangle(spr, (float)n, bb1, x1, y1, scalex, scaley, angle, &rc);
     }
     mask = gm_sprite_mask(spr, n);
 
-    ss = sin(-angle * JS_MATH_PI / 180.0);
-    cc = cos(-angle * JS_MATH_PI / 180.0);
-    x1 -= 0.5;
-    y1 -= 0.5;
+    ss = gm_dsin(-angle);
+    cc = gm_dcos(-angle);
+    x1 -= 0.5f;
+    y1 -= 0.5f;
 
-    if (fabs(xr - xl) >= fabs(yr - yl)) {
+    if (fabsf(xr - xl) >= fabsf(yr - yl)) {
         if (xr < xl) {
             val = xr;
             xr = xl;
@@ -419,8 +421,8 @@ static bool precise_line(const gm_sprite_def_t *spr, int32_t img, const bbox_t *
             return false;
         }
         for (i = lo; i <= hi; i++) {
-            double xx = floor((cc * (i - x1) + ss * (yl + (i - xl) * dd - y1)) / scalex + spr->xorigin);
-            double yy = floor((cc * (yl + (i - xl) * dd - y1) - ss * (i - x1)) / scaley + spr->yorigin);
+            float xx = floorf((cc * (i - x1) + ss * (yl + (i - xl) * dd - y1)) / scalex + spr->xorigin);
+            float yy = floorf((cc * (yl + (i - xl) * dd - y1) - ss * (i - x1)) / scaley + spr->yorigin);
             if (colmask_set(spr, xx, yy, mask)) {
                 return true;
             }
@@ -441,8 +443,8 @@ static bool precise_line(const gm_sprite_def_t *spr, int32_t img, const bbox_t *
             return false;
         }
         for (i = lo; i <= hi; i++) {
-            double xx = floor((cc * (xl + (i - yl) * dd - x1) + ss * (i - y1)) / scalex + spr->xorigin);
-            double yy = floor((cc * (i - y1) - ss * (xl + (i - yl) * dd - x1)) / scaley + spr->yorigin);
+            float xx = floorf((cc * (xl + (i - yl) * dd - x1) + ss * (i - y1)) / scalex + spr->xorigin);
+            float yy = floorf((cc * (i - y1) - ss * (xl + (i - yl) * dd - x1)) / scaley + spr->yorigin);
             if (colmask_set(spr, xx, yy, mask)) {
                 return true;
             }
@@ -456,7 +458,7 @@ typedef struct precise_side {
     const gm_sprite_def_t *spr;
     int32_t img;
     const bbox_t *bb;
-    double x, y, scalex, scaley, angle;
+    float x, y, scalex, scaley, angle;
 } precise_side_t;
 
 static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
@@ -465,9 +467,9 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
     const gm_sprite_def_t *s2 = o->spr;
     const uint8_t *mask1 = NULL, *mask2 = NULL;
     int32_t img1 = a->img, img2 = o->img;
-    double sc1x, sc1y, sc2x, sc2y, l, r, t, b, i, j;
-    double leftedge, rightedge, topedge, bottomedge;
-    double sleftedge, srightedge, stopedge, sbottomedge;
+    float sc1x, sc1y, sc2x, sc2y, l, r, t, b, i, j;
+    float leftedge, rightedge, topedge, bottomedge;
+    float sleftedge, srightedge, stopedge, sbottomedge;
     bool hasrot1, hasrot2;
     bool prec1 = s1->colcheck == GM_COLCHECK_PRECISE;
     bool prec2 = s2->colcheck == GM_COLCHECK_PRECISE;
@@ -490,16 +492,16 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
         mask2 = gm_sprite_mask(s2, img2);
     }
 
-    sc1x = 1.0 / a->scalex;
-    sc1y = 1.0 / a->scaley;
-    sc2x = 1.0 / o->scalex;
-    sc2y = 1.0 / o->scaley;
+    sc1x = 1.0f / a->scalex;
+    sc1y = 1.0f / a->scaley;
+    sc2x = 1.0f / o->scalex;
+    sc2y = 1.0f / o->scaley;
 
     l = yymax(a->bb->left, o->bb->left);
-    l = floor(l) + 0.5;
+    l = floorf(l) + 0.5f;
     r = yymin(a->bb->right, o->bb->right);
     t = yymax(a->bb->top, o->bb->top);
-    t = floor(t) + 0.5;
+    t = floorf(t) + 0.5f;
     b = yymin(a->bb->bottom, o->bb->bottom);
     if (!loop_range_ok(l, r) || !loop_range_ok(t, b)) {
         return false;
@@ -509,51 +511,51 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
      * `colcheck === yySprite.PRECISE` - an undefined property - so the
      * clamping never happens (L2401, L2420). Reproduced by omission. */
     leftedge = s1->bbox_left;
-    rightedge = s1->bbox_right + 1.0;
+    rightedge = s1->bbox_right + 1.0f;
     topedge = s1->bbox_top;
-    bottomedge = s1->bbox_bottom + 1.0;
+    bottomedge = s1->bbox_bottom + 1.0f;
     sleftedge = s2->bbox_left;
-    srightedge = s2->bbox_right + 1.0;
+    srightedge = s2->bbox_right + 1.0f;
     stopedge = s2->bbox_top;
-    sbottomedge = s2->bbox_bottom + 1.0;
+    sbottomedge = s2->bbox_bottom + 1.0f;
 
     hasrot1 = a->angle > GML_MATH_EPSILON || a->angle < -GML_MATH_EPSILON;
     hasrot2 = o->angle > GML_MATH_EPSILON || o->angle < -GML_MATH_EPSILON;
 
     if (!hasrot1 && !hasrot2) {
-        double du1 = sc1x;
-        double du2 = sc2x;
-        double u1 = (l - a->x) * sc1x + s1->xorigin;
-        double u2 = (l - o->x) * sc2x + s2->xorigin;
+        float du1 = sc1x;
+        float du2 = sc2x;
+        float u1 = (l - a->x) * sc1x + s1->xorigin;
+        float u2 = (l - o->x) * sc2x + s2->xorigin;
 
-        for (i = l; i < r; i += 1.0, u1 += du1, u2 += du2) {
-            double u1i, u2i;
+        for (i = l; i < r; i += 1.0f, u1 += du1, u2 += du2) {
+            float u1i, u2i;
             if (u1 < leftedge || u1 >= rightedge) {
                 continue;
             }
             if (u2 < sleftedge || u2 >= srightedge) {
                 continue;
             }
-            u1i = (double)gm_to_int32(u1);
-            u2i = (double)gm_to_int32(u2);
-            for (j = t; j < b; j += 1.0) {
+            u1i = (float)gm_to_int32(u1);
+            u2i = (float)gm_to_int32(u2);
+            for (j = t; j < b; j += 1.0f) {
                 if (prec1) {
-                    double v1 = (j - a->y) * sc1y + s1->yorigin;
+                    float v1 = (j - a->y) * sc1y + s1->yorigin;
                     if (v1 < topedge || v1 >= bottomedge) {
                         continue;
                     }
                     if (s1->mask_count > 0 &&
-                        !colmask_set(s1, u1i, (double)gm_to_int32(v1), mask1)) {
+                        !colmask_set(s1, u1i, (float)gm_to_int32(v1), mask1)) {
                         continue;
                     }
                 }
                 if (prec2) {
-                    double v2 = (j - o->y) * sc2y + s2->yorigin;
+                    float v2 = (j - o->y) * sc2y + s2->yorigin;
                     if (v2 < stopedge || v2 >= sbottomedge) {
                         continue;
                     }
                     if (s2->mask_count > 0 &&
-                        !colmask_set(s2, u2i, (double)gm_to_int32(v2), mask2)) {
+                        !colmask_set(s2, u2i, (float)gm_to_int32(v2), mask2)) {
                         continue;
                     }
                 }
@@ -561,18 +563,18 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
             }
         }
     } else {
-        double ss1 = 0.0, cc1 = 0.0, ss2 = 0.0, cc2 = 0.0;
-        double u1 = 0.0, u2 = 0.0, v1, v2;
+        float ss1 = 0.0f, cc1 = 0.0f, ss2 = 0.0f, cc2 = 0.0f;
+        float u1 = 0.0f, u2 = 0.0f, v1, v2;
 
         if (hasrot1) {
-            ss1 = sin(-a->angle * GM_PI / 180.0);
-            cc1 = cos(-a->angle * GM_PI / 180.0);
+            ss1 = gm_dsin(-a->angle);
+            cc1 = gm_dcos(-a->angle);
         }
         if (hasrot2) {
-            ss2 = sin(-o->angle * GM_PI / 180.0);
-            cc2 = cos(-o->angle * GM_PI / 180.0);
+            ss2 = gm_dsin(-o->angle);
+            cc2 = gm_dcos(-o->angle);
         }
-        for (i = l; i < r; i += 1.0) {
+        for (i = l; i < r; i += 1.0f) {
             if (!hasrot1) {
                 u1 = (i - a->x) * sc1x + s1->xorigin;
                 if (u1 < leftedge || u1 >= rightedge) {
@@ -585,7 +587,7 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
                     continue;
                 }
             }
-            for (j = t; j < b; j += 1.0) {
+            for (j = t; j < b; j += 1.0f) {
                 if (hasrot1) {
                     u1 = (cc1 * (i - a->x) + ss1 * (j - a->y)) * sc1x + s1->xorigin;
                     if (u1 < leftedge || u1 >= rightedge) {
@@ -599,7 +601,7 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
                     continue;
                 }
                 if (prec1 && s1->mask_count > 0 &&
-                    !colmask_set(s1, (double)gm_to_int32(u1), (double)gm_to_int32(v1), mask1)) {
+                    !colmask_set(s1, (float)gm_to_int32(u1), (float)gm_to_int32(v1), mask1)) {
                     continue;
                 }
 
@@ -617,7 +619,7 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
                 }
                 /* The reference passes u2 untruncated here (L2563). */
                 if (prec2 && s2->mask_count > 0 &&
-                    !colmask_set(s2, u2, (double)gm_to_int32(v2), mask2)) {
+                    !colmask_set(s2, u2, (float)gm_to_int32(v2), mask2)) {
                     continue;
                 }
                 return true;
@@ -630,7 +632,7 @@ static bool precise_collision(const precise_side_t *a, const precise_side_t *o)
 /* ---- Instance primitives (yyInstance.js) --------------------------------------- */
 
 /* Collision_Point (L1730) */
-bool gm_collision_test_point(gm_instance_t *inst, double x, double y, bool prec)
+bool gm_collision_test_point(gm_instance_t *inst, float x, float y, bool prec)
 {
     const gm_sprite_def_t *spr;
     coll_state_t *cs;
@@ -665,13 +667,13 @@ bool gm_collision_test_point(gm_instance_t *inst, double x, double y, bool prec)
 }
 
 /* Collision_Rectangle (L1807) */
-bool gm_collision_test_rectangle(gm_instance_t *inst, double x1, double y1,
-                                 double x2, double y2, bool prec)
+bool gm_collision_test_rectangle(gm_instance_t *inst, float x1, float y1,
+                                 float x2, float y2, bool prec)
 {
     const gm_sprite_def_t *spr;
     coll_state_t *cs;
     bbox_t bb, rr;
-    double bl, br, bt, bbm;
+    float bl, br, bt, bbm;
 
     if (inst == NULL || inst->marked_for_destroy) {
         return false;
@@ -700,14 +702,14 @@ bool gm_collision_test_rectangle(gm_instance_t *inst, double x1, double y1,
         return false;
     }
     if (!prec || cs->colcheck == GM_COLCHECK_AABB) {
-        double l = yymax(bl, bb.left);
-        double t = yymax(bt, bb.top);
-        double r = yymin(br, bb.right);
-        double b = yymin(bbm, bb.bottom);
-        if (floor(l + 0.5) == floor(r + 0.5)) {
+        float l = yymax(bl, bb.left);
+        float t = yymax(bt, bb.top);
+        float r = yymin(br, bb.right);
+        float b = yymin(bbm, bb.bottom);
+        if (floorf(l + 0.5f) == floorf(r + 0.5f)) {
             return false;
         }
-        if (floor(t + 0.5) == floor(b + 0.5)) {
+        if (floorf(t + 0.5f) == floorf(b + 0.5f)) {
             return false;
         }
         return true;
@@ -722,8 +724,8 @@ bool gm_collision_test_rectangle(gm_instance_t *inst, double x1, double y1,
 }
 
 /* Collision_Line (L2053) */
-bool gm_collision_test_line(gm_instance_t *inst, double x1, double y1,
-                            double x2, double y2, bool prec)
+bool gm_collision_test_line(gm_instance_t *inst, float x1, float y1,
+                            float x2, float y2, bool prec)
 {
     const gm_sprite_def_t *spr;
     coll_state_t *cs;
@@ -749,7 +751,7 @@ bool gm_collision_test_line(gm_instance_t *inst, double x1, double y1,
 
     /* make the line run left to right, then clip it to the box */
     if (x2 < x1) {
-        double val = x2;
+        float val = x2;
         x2 = x1;
         x1 = val;
         val = y2;
@@ -822,14 +824,14 @@ bool gm_collision_test_instance(gm_instance_t *inst, gm_instance_t *other, bool 
     }
 
     if (!prec || (cs2->colcheck == GM_COLCHECK_AABB && cs1->colcheck == GM_COLCHECK_AABB)) {
-        double l = yymax(b1.left, b2.left);
-        double t = yymax(b1.top, b2.top);
-        double r = yymin(b1.right, b2.right);
-        double b = yymin(b1.bottom, b2.bottom);
-        if (floor(l + 0.5) == floor(r + 0.5)) {
+        float l = yymax(b1.left, b2.left);
+        float t = yymax(b1.top, b2.top);
+        float r = yymin(b1.right, b2.right);
+        float b = yymin(b1.bottom, b2.bottom);
+        if (floorf(l + 0.5f) == floorf(r + 0.5f)) {
             return false;
         }
-        if (floor(t + 0.5) == floor(b + 0.5)) {
+        if (floorf(t + 0.5f) == floorf(b + 0.5f)) {
             return false;
         }
         return true;
@@ -862,12 +864,12 @@ static bool grid_active(void)
     return s_cols > 0;
 }
 
-static int cell_clamp(double c, int n)
+static int cell_clamp(float c, int n)
 {
-    if (!(c > 0.0)) {
+    if (!(c > 0.0f)) {
         return 0;
     }
-    if (c >= (double)(n - 1)) {
+    if (c >= (float)(n - 1)) {
         return n - 1;
     }
     return (int)c;
@@ -878,16 +880,16 @@ static int cell_clamp(double c, int n)
  * grid_query_cells). False when the box is degenerate or not finite. */
 static bool instance_cells(const gm_instance_t *inst, int *cx0, int *cy0, int *cx1, int *cy1)
 {
-    double l = inst->bbox_left, t = inst->bbox_top;
-    double r = inst->bbox_right, b = inst->bbox_bottom;
+    float l = inst->bbox_left, t = inst->bbox_top;
+    float r = inst->bbox_right, b = inst->bbox_bottom;
 
     if (!(r > l && b > t) || !isfinite(l) || !isfinite(r) || !isfinite(t) || !isfinite(b)) {
         return false;
     }
-    *cx0 = cell_clamp(floor(l / s_cell_size), s_cols);
-    *cx1 = cell_clamp(ceil(r / s_cell_size) - 1.0, s_cols);
-    *cy0 = cell_clamp(floor(t / s_cell_size), s_rows);
-    *cy1 = cell_clamp(ceil(b / s_cell_size) - 1.0, s_rows);
+    *cx0 = cell_clamp(floorf(l / s_cell_size), s_cols);
+    *cx1 = cell_clamp(ceilf(r / s_cell_size) - 1.0f, s_cols);
+    *cy0 = cell_clamp(floorf(t / s_cell_size), s_rows);
+    *cy1 = cell_clamp(ceilf(b / s_cell_size) - 1.0f, s_rows);
     return true;
 }
 
@@ -1058,6 +1060,9 @@ static void hook_reset(void)
 
 static void hook_enter(gm_instance_t *inst)
 {
+    /* Room instances reuse fixed ids, so a re-created instance can land in its
+     * old slot with an identical cache key while inst->bbox_* was reset. */
+    s_cs[gm_instance_slot(inst)].valid = false;
     if (wants_grid(inst)) {
         grid_insert(inst);
     }
@@ -1083,7 +1088,7 @@ void gm_collision_shutdown(void)
     memset(s_stamp, 0, sizeof(s_stamp));
     s_stamp_counter = 0;
     s_cols = s_rows = 0;
-    s_cell_size = 0.0;
+    s_cell_size = 0.0f;
     s_root_count = 0;
     memset(s_indexed, 0, sizeof(s_indexed));
     s_verify = false;
@@ -1106,27 +1111,27 @@ void gm_collision_index_default_roots(void)
     }
 }
 
-void gm_collision_grid_configure(double room_width, double room_height, double cell_size)
+void gm_collision_grid_configure(float room_width, float room_height, float cell_size)
 {
-    double cols, rows;
+    float cols, rows;
 
     grid_clear_contents();
     s_cols = s_rows = 0;
-    s_cell_size = 0.0;
-    if (!(cell_size > 0.0) || !isfinite(cell_size) || !(room_width > 0.0) ||
-        !(room_height > 0.0) || !isfinite(room_width) || !isfinite(room_height)) {
+    s_cell_size = 0.0f;
+    if (!(cell_size > 0.0f) || !isfinite(cell_size) || !(room_width > 0.0f) ||
+        !(room_height > 0.0f) || !isfinite(room_width) || !isfinite(room_height)) {
         return;
     }
     if (s_root_count == 0) {
         gm_collision_index_default_roots();
     }
     for (;;) {
-        cols = ceil(room_width / cell_size);
-        rows = ceil(room_height / cell_size);
+        cols = ceilf(room_width / cell_size);
+        rows = ceilf(room_height / cell_size);
         if (cols <= GM_GRID_MAX_COLS && rows <= GM_GRID_MAX_ROWS) {
             break;
         }
-        cell_size *= 2.0;
+        cell_size *= 2.0f;
     }
     s_cols = (int)cols;
     s_rows = (int)rows;
@@ -1191,7 +1196,7 @@ long gm_collision_verify_failures(void)
     return s_verify_failures;
 }
 
-double gm_collision_grid_cell_size(void)
+float gm_collision_grid_cell_size(void)
 {
     return s_cell_size;
 }
@@ -1207,7 +1212,7 @@ typedef enum { Q_POINT, Q_RECT, Q_LINE, Q_PLACE } query_kind_t;
 
 typedef struct query {
     query_kind_t kind;
-    double x1, y1, x2, y2;
+    float x1, y1, x2, y2;
     bool prec;
     gm_instance_t *place; /* Q_PLACE: the placed instance (_pInst) */
     gm_instance_t *skip;  /* notme */
@@ -1241,6 +1246,7 @@ static gm_instance_t *query_linear(const query_t *q, int target)
         if (inst == q->skip) {
             continue;
         }
+        gm_perf_count(GM_PERF_COLLISION_QUERY_CANDIDATES, 1);
         if (query_hit(q, inst)) {
             return inst;
         }
@@ -1253,16 +1259,16 @@ static gm_instance_t *query_linear(const query_t *q, int target)
  * (point: l <= x < r; rect/line: qmin < r && qmax >= l; place: strict
  * overlap), and floor/ceil/clamp are monotonic, so the cell ranges of any
  * hit intersect. False when the range is unusable (non-finite or too big). */
-static bool grid_query_cells(double x0, double y0, double x1, double y1,
+static bool grid_query_cells(float x0, float y0, float x1, float y1,
                              int *cx0, int *cy0, int *cx1, int *cy1)
 {
     if (!isfinite(x0) || !isfinite(x1) || !isfinite(y0) || !isfinite(y1)) {
         return false;
     }
-    *cx0 = cell_clamp(floor(x0 / s_cell_size), s_cols);
-    *cx1 = cell_clamp(floor(x1 / s_cell_size), s_cols);
-    *cy0 = cell_clamp(floor(y0 / s_cell_size), s_rows);
-    *cy1 = cell_clamp(floor(y1 / s_cell_size), s_rows);
+    *cx0 = cell_clamp(floorf(x0 / s_cell_size), s_cols);
+    *cx1 = cell_clamp(floorf(x1 / s_cell_size), s_cols);
+    *cy0 = cell_clamp(floorf(y0 / s_cell_size), s_rows);
+    *cy1 = cell_clamp(floorf(y1 / s_cell_size), s_rows);
     return (*cx1 - *cx0 + 1) * (*cy1 - *cy0 + 1) <= GM_GRID_MAX_QUERY_CELLS;
 }
 
@@ -1274,6 +1280,7 @@ static void consider(const query_t *q, int target, int slot, gm_instance_t **bes
         return;
     }
     s_stamp[slot] = s_stamp_counter;
+    gm_perf_count(GM_PERF_COLLISION_QUERY_CANDIDATES, 1);
     inst = gm_instance_at_slot(slot);
     if (inst == NULL || !inst->active || inst->marked_for_destroy || inst == q->skip ||
         !gm_object_is_a(inst->object_index, target)) {
@@ -1289,8 +1296,8 @@ static void consider(const query_t *q, int target, int slot, gm_instance_t **bes
 }
 
 /* Returns false when the grid cannot serve the query (caller goes linear). */
-static bool query_grid(const query_t *q, int target, double x0, double y0,
-                       double x1, double y1, gm_instance_t **result)
+static bool query_grid(const query_t *q, int target, float x0, float y0,
+                       float x1, float y1, gm_instance_t **result)
 {
     gm_instance_t *best = NULL;
     int cx0, cy0, cx1, cy1, cx, cy, slot;
@@ -1319,21 +1326,30 @@ static bool query_grid(const query_t *q, int target, double x0, double y0,
     return true;
 }
 
-static gm_instance_t *run_query(const query_t *q, int target, double x0, double y0,
-                                double x1, double y1)
+static gm_instance_t *run_query(const query_t *q, int target, float x0, float y0,
+                                float x1, float y1)
 {
+    uint64_t perf_started = gm_perf_timer_begin();
     gm_instance_t *hit;
 
+    gm_perf_count(GM_PERF_COLLISION_QUERIES, 1);
     if (!query_grid(q, target, x0, y0, x1, y1, &hit)) {
-        return query_linear(q, target);
+        gm_perf_count(GM_PERF_COLLISION_LINEAR_QUERIES, 1);
+        hit = query_linear(q, target);
+    } else {
+        gm_perf_count(GM_PERF_COLLISION_GRID_QUERIES, 1);
+        if (s_verify && query_linear(q, target) != hit) {
+            s_verify_failures++;
+        }
     }
-    if (s_verify && query_linear(q, target) != hit) {
-        s_verify_failures++;
+    if (hit != NULL) {
+        gm_perf_count(GM_PERF_COLLISION_QUERY_HITS, 1);
     }
+    gm_perf_timer_end(GM_PERF_TIMER_COLLISION_QUERY, perf_started);
     return hit;
 }
 
-gm_instance_t *gm_collision_point(gm_instance_t *self, double x, double y,
+gm_instance_t *gm_collision_point(gm_instance_t *self, float x, float y,
                                   int target, bool prec, bool notme)
 {
     query_t q;
@@ -1349,8 +1365,8 @@ gm_instance_t *gm_collision_point(gm_instance_t *self, double x, double y,
     return run_query(&q, target, x, y, x, y);
 }
 
-gm_instance_t *gm_collision_rectangle(gm_instance_t *self, double x1, double y1,
-                                      double x2, double y2, int target,
+gm_instance_t *gm_collision_rectangle(gm_instance_t *self, float x1, float y1,
+                                      float x2, float y2, int target,
                                       bool prec, bool notme)
 {
     query_t q;
@@ -1366,8 +1382,8 @@ gm_instance_t *gm_collision_rectangle(gm_instance_t *self, double x1, double y1,
     return run_query(&q, target, yymin(x1, x2), yymin(y1, y2), yymax(x1, x2), yymax(y1, y2));
 }
 
-gm_instance_t *gm_collision_line(gm_instance_t *self, double x1, double y1,
-                                 double x2, double y2, int target,
+gm_instance_t *gm_collision_line(gm_instance_t *self, float x1, float y1,
+                                 float x2, float y2, int target,
                                  bool prec, bool notme)
 {
     query_t q;
@@ -1385,9 +1401,9 @@ gm_instance_t *gm_collision_line(gm_instance_t *self, double x1, double y1,
 
 /* Command_InstancePlace (Function_Movement.js L473): move self to (x, y),
  * search (notme = false; Collision_Instance skips self), move back. */
-gm_instance_t *gm_collision_instance_place(gm_instance_t *self, double x, double y, int target)
+gm_instance_t *gm_collision_instance_place(gm_instance_t *self, float x, float y, int target)
 {
-    double xx, yy;
+    float xx, yy;
     gm_instance_t *hit;
     query_t q;
 
@@ -1401,7 +1417,7 @@ gm_instance_t *gm_collision_instance_place(gm_instance_t *self, double x, double
     gm_collision_update_bbox(self);
 
     q.kind = Q_PLACE;
-    q.x1 = q.y1 = q.x2 = q.y2 = 0.0;
+    q.x1 = q.y1 = q.x2 = q.y2 = 0.0f;
     q.prec = true;
     q.place = self;
     q.skip = NULL;
@@ -1414,27 +1430,27 @@ gm_instance_t *gm_collision_instance_place(gm_instance_t *self, double x, double
     return hit;
 }
 
-bool gm_collision_place_meeting(gm_instance_t *self, double x, double y, int target)
+bool gm_collision_place_meeting(gm_instance_t *self, float x, float y, int target)
 {
     return gm_collision_instance_place(self, x, y, target) != NULL;
 }
 
 /* Command_InstancePosition (Function_Movement.js L503) and position_meeting
  * (Command_CollisionPoint with prec = true, notme = false): identical walks. */
-gm_instance_t *gm_collision_instance_position(double x, double y, int target)
+gm_instance_t *gm_collision_instance_position(float x, float y, int target)
 {
     return gm_collision_point(NULL, x, y, target, true, false);
 }
 
-bool gm_collision_position_meeting(double x, double y, int target)
+bool gm_collision_position_meeting(float x, float y, int target)
 {
     return gm_collision_instance_position(x, y, target) != NULL;
 }
 
 /* distance_to_object (Function_Movement.js L902) via Instance_SearchLoop2. */
-double gm_collision_distance_to_object(gm_instance_t *self, int target)
+float gm_collision_distance_to_object(gm_instance_t *self, int target)
 {
-    double dist = GM_COLLISION_NO_DISTANCE;
+    float dist = GM_COLLISION_NO_DISTANCE;
     gm_instance_cursor_t c;
     gm_instance_t *inst;
     bbox_t s;
@@ -1446,7 +1462,7 @@ double gm_collision_distance_to_object(gm_instance_t *self, int target)
     gm_instance_search_begin(&c, target);
     while ((inst = gm_instance_search_next(&c)) != NULL) {
         bbox_t r;
-        double xd = 0.0, yd = 0.0, d;
+        float xd = 0.0f, yd = 0.0f, d;
 
         ensure_bbox(inst, &r);
         if (r.left > s.right) {
@@ -1461,7 +1477,7 @@ double gm_collision_distance_to_object(gm_instance_t *self, int target)
         if (r.bottom < s.top) {
             yd = r.bottom - s.top;
         }
-        d = sqrt(xd * xd + yd * yd);
+        d = sqrtf(xd * xd + yd * yd);
         if (d < dist) {
             dist = d;
         }
@@ -1470,13 +1486,13 @@ double gm_collision_distance_to_object(gm_instance_t *self, int target)
 }
 
 /* distance_to_point (Function_Movement.js L869) */
-double gm_collision_distance_to_point(gm_instance_t *self, double x, double y)
+float gm_collision_distance_to_point(gm_instance_t *self, float x, float y)
 {
-    double xd = 0.0, yd = 0.0;
+    float xd = 0.0f, yd = 0.0f;
     bbox_t r;
 
     if (self == NULL) {
-        return 0.0;
+        return 0.0f;
     }
     ensure_bbox(self, &r);
     if (x > r.right) {
@@ -1491,5 +1507,19 @@ double gm_collision_distance_to_point(gm_instance_t *self, double x, double y)
     if (y < r.top) {
         yd = y - r.top;
     }
-    return sqrt(xd * xd + yd * yd);
+    return sqrtf(xd * xd + yd * yd);
 }
+
+void gm_move_snap(gm_instance_t *inst, float hsnap, float vsnap)
+{
+    if (inst == NULL) {
+        return;
+    }
+    if (hsnap > 0.0f) {
+        inst->x = roundf(inst->x / (float)hsnap) * (float)hsnap;
+    }
+    if (vsnap > 0.0f) {
+        inst->y = roundf(inst->y / (float)vsnap) * (float)vsnap;
+    }
+}
+

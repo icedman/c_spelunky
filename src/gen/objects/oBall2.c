@@ -8,9 +8,9 @@ static void gml_ev_oBall2__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Ball";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-5.0), (-5.0), 5.0, 5.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_myGrav] = 1.0;
+    gml_script_setCollisionBounds(self, other, (-5.0f), (-5.0f), 5.0f, 5.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_myGrav] = 1.0f;
 }
 
 void gml_ev_oBall2__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,9 +25,9 @@ static void gml_ev_oBall2__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy)))) {
-        if (gml_ge(gml_fn_distance_to_object(self, other, ((double)OBJ_oPDummy)), 24.0)) {
-            gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)) - 24.0));
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy)))) {
+        if (gml_ge(gml_fn_distance_to_object(self, other, ((float)OBJ_oPDummy)), 24.0f)) {
+            gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)) - 24.0f));
         }
     }
 }

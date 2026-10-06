@@ -5,13 +5,13 @@ static void gml_ev_oCamel__Create_0_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.5);
-    self->vars[VAR_status] = 0.0;
+    gml_iset_image_speed(self, 0.5f);
+    self->vars[VAR_status] = 0.0f;
     if (gml_truthy(g_gml_globals.isDamsel)) {
-        gml_iset_sprite_index(self, ((double)SPR_sCamelDamsel));
+        gml_iset_sprite_index(self, ((float)SPR_sCamelDamsel));
     } else {
         if (gml_truthy(g_gml_globals.isTunnelMan)) {
-            gml_iset_sprite_index(self, ((double)SPR_sCamelTunnel));
+            gml_iset_sprite_index(self, ((float)SPR_sCamelTunnel));
         }
     }
 }
@@ -27,25 +27,25 @@ static void gml_ev_oCamel__Step_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_status], 0.0)) {
-        gml_iset_x(self, (gml_iget_x(self) - 1.0));
-        if (gml_le(gml_iget_x(self), 160.0)) {
+    if (gml_eq(self->vars[VAR_status], 0.0f)) {
+        gml_iset_x(self, (gml_iget_x(self) - 1.0f));
+        if (gml_le(gml_iget_x(self), 160.0f)) {
             if (gml_truthy(g_gml_globals.music)) {
-                (void)(gml_fn_audio_play_sound(self, other, g_gml_globals.musCredits, 10.0, 0.0));
+                (void)(gml_fn_audio_play_sound(self, other, g_gml_globals.musCredits, 10.0f, 0.0f));
             }
-            self->vars[VAR_status] = 1.0;
+            self->vars[VAR_status] = 1.0f;
         }
     } else {
-        if (gml_eq(self->vars[VAR_status], 1.0)) {
-            gml_iset_x(self, (gml_iget_x(self) - 0.01));
+        if (gml_eq(self->vars[VAR_status], 1.0f)) {
+            gml_iset_x(self, (gml_iget_x(self) - 0.01f));
         } else {
-            if (gml_eq(self->vars[VAR_status], 2.0)) {
-                gml_iset_x(self, (gml_iget_x(self) - 2.0));
+            if (gml_eq(self->vars[VAR_status], 2.0f)) {
+                gml_iset_x(self, (gml_iget_x(self) - 2.0f));
             }
         }
     }
-    if ((gml_truthy(gml_script_isRoom(self, other, "rCredits1")) && gml_lt(gml_iget_x(self), (-64.0)))) {
-        gml_ivar_set(gml_deref(((double)OBJ_oCredits1), self, other), VAR_fadeOut, 1.0);
+    if ((gml_truthy(gml_script_isRoom(self, other, "rCredits1")) && gml_lt(gml_iget_x(self), (-64.0f)))) {
+        gml_ivar_set(gml_deref(((float)OBJ_oCredits1), self, other), VAR_fadeOut, 1.0f);
     }
 }
 

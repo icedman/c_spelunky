@@ -7,7 +7,7 @@ static void gml_ev_oTombLordTile__Create_0_body(gm_instance_t *self, gm_instance
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Tomb Lord";
-    gml_iset_image_speed(self, 0.0);
+    gml_iset_image_speed(self, 0.0f);
 }
 
 void gml_ev_oTombLordTile__Create_0(gm_instance_t *self, gm_instance_t *other)

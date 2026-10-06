@@ -5,9 +5,9 @@ static void gml_ev_oScreenFirst__Step_1_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    g_gml_globals.drawpSurf = 0.0;
-    g_gml_globals.drawscreen = 0.0;
-    g_gml_globals.drawdarkSurf = 0.0;
+    g_gml_globals.drawpSurf = 0.0f;
+    g_gml_globals.drawscreen = 0.0f;
+    g_gml_globals.drawdarkSurf = 0.0f;
 }
 
 void gml_ev_oScreenFirst__Step_1(gm_instance_t *self, gm_instance_t *other)

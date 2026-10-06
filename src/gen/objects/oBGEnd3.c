@@ -7,8 +7,8 @@ static void gml_ev_oBGEnd3__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)other;
     if (gml_truthy(gml_script_isRoom(self, other, "rEnd3"))) {
     } else {
-        self->vars[VAR_xOff] = (-48.0);
-        gml_iset_x(self, (-48.0));
+        self->vars[VAR_xOff] = (-48.0f);
+        gml_iset_x(self, (-48.0f));
     }
 }
 
@@ -21,18 +21,18 @@ void gml_ev_oBGEnd3__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oBGEnd3__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     if (gml_truthy(gml_script_isRoom(self, other, "rEnd3"))) {
     } else {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCamel)))) {
-            if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oCamel), self, other), VAR_status), 2.0)) {
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCamel)))) {
+            if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oCamel), self, other), VAR_status), 2.0f)) {
             } else {
-                if (gml_le(gml_iget_x(gml_deref(((double)OBJ_oCamel), self, other)), 160.0)) {
-                    gml_iset_x(self, (t1 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t1 + self->vars[VAR_xOff])));
-                    self->vars[VAR_xOff] = (self->vars[VAR_xOff] + 0.02);
+                if (gml_le(gml_iget_x(gml_deref(((float)OBJ_oCamel), self, other)), 160.0f)) {
+                    gml_iset_x(self, (t1 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t1 + self->vars[VAR_xOff])));
+                    self->vars[VAR_xOff] = (self->vars[VAR_xOff] + 0.02f);
                 }
             }
         }

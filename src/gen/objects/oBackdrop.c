@@ -5,7 +5,7 @@ static void gml_ev_oBackdrop__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    gml_iset_depth(self, 1000000000.0);
+    gml_iset_depth(self, 1000000000.0f);
 }
 
 void gml_ev_oBackdrop__Create_0(gm_instance_t *self, gm_instance_t *other)

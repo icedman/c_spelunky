@@ -18,7 +18,7 @@ typedef struct map_entry {
     uint32_t hash;
     size_t key_off;
     gm_value_kind_t kind;
-    double real;
+    float real;
     size_t str_off; /* valid when kind == GM_VALUE_STRING */
 } map_entry_t;
 
@@ -270,7 +270,7 @@ bool gm_ds_map_replace(int id, const char *key, gm_value_t value)
         e = &m->entries[idx];
     }
     e->kind = value.kind;
-    e->real = value.kind == GM_VALUE_REAL ? value.real : 0.0;
+    e->real = value.kind == GM_VALUE_REAL ? value.real : 0.0f;
     e->str_off = is_string ? arena_append(m, s_stage_val, val_size) : 0u;
     return true;
 }

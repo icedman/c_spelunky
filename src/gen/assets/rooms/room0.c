@@ -3,12 +3,12 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_room0_layers[2] = {
-    { "Compatibility_Instances_Depth_0", 111, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 112, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 111, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 112, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_room0_instances[3] = {
-    { 110217, OBJ_mascara, 32.0, 32.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_D834A413 */
-    { 110218, OBJ_mascara2, 32.0, 80.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_1BEA84BE */
-    { 110219, OBJ_core, 0.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_DC583963 */
+    { 110217, OBJ_mascara, 32.0f, 32.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_D834A413 */
+    { 110218, OBJ_mascara2, 32.0f, 80.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_1BEA84BE */
+    { 110219, OBJ_core, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_DC583963 */
 };

@@ -10,8 +10,8 @@ static void gml_ev_oRopePile__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Rope Pile";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), (-5.0), 6.0, 5.0);
-    self->vars[VAR_cost] = 2500.0;
+    gml_script_setCollisionBounds(self, other, (-6.0f), (-5.0f), 6.0f, 5.0f);
+    self->vars[VAR_cost] = 2500.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "EXTRA ROPE");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "EXTRA ROPE FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
 }

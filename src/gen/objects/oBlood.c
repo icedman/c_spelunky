@@ -3,21 +3,21 @@
 
 static void gml_ev_oBlood__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.3);
-    self->vars[VAR_xVel] = (t1 = gm_random(4.0), (t1 - gm_random(4.0)));
-    self->vars[VAR_yVel] = ((-1.0) - gm_random(2.0));
-    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0, 6.0) * 0.1);
-    self->vars[VAR_invincible] = 1.0;
-    self->vars[VAR_bounce] = 0.0;
-    self->vars[VAR_collectible] = 0.0;
-    gml_iset_alarm(self, 0.0, 1.0);
-    gml_iset_alarm(self, 1.0, 1.0);
-    gml_iset_alarm(self, 2.0, 5.0);
+    gml_iset_image_speed(self, 0.3f);
+    self->vars[VAR_xVel] = (t1 = gm_random(4.0f), (t1 - gm_random(4.0f)));
+    self->vars[VAR_yVel] = ((-1.0f) - gm_random(2.0f));
+    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0f, 6.0f) * 0.1f);
+    self->vars[VAR_invincible] = 1.0f;
+    self->vars[VAR_bounce] = 0.0f;
+    self->vars[VAR_collectible] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 1.0f);
+    gml_iset_alarm(self, 1.0f, 1.0f);
+    gml_iset_alarm(self, 2.0f, 5.0f);
 }
 
 void gml_ev_oBlood__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -31,7 +31,7 @@ static void gml_ev_oBlood__Alarm_2_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_collectible] = 1.0;
+    self->vars[VAR_collectible] = 1.0f;
 }
 
 void gml_ev_oBlood__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -45,8 +45,8 @@ static void gml_ev_oBlood__Alarm_1_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_invincible] = 0.0;
-    self->vars[VAR_bounce] = 1.0;
+    self->vars[VAR_invincible] = 0.0f;
+    self->vars[VAR_bounce] = 1.0f;
 }
 
 void gml_ev_oBlood__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -61,10 +61,10 @@ static void gml_ev_oBlood__Alarm_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if (gml_truthy(g_gml_globals.graphicsHigh)) {
-        if (gml_lt(gml_fn_instance_number(self, other, ((double)OBJ_oBloodTrail)), 12.0)) {
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oBloodTrail)));
+        if (gml_lt(gml_fn_instance_number(self, other, ((float)OBJ_oBloodTrail)), 12.0f)) {
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oBloodTrail)));
         }
-        gml_iset_alarm(self, 0.0, 4.0);
+        gml_iset_alarm(self, 0.0f, 4.0f);
     }
 }
 
@@ -80,12 +80,12 @@ static void gml_ev_oBlood__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_gt(self->vars[VAR_yVel], 6.0)) {
+    if (gml_gt(self->vars[VAR_yVel], 6.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-        if (gml_gt(self->vars[VAR_life], 20.0)) {
-            self->vars[VAR_life] = 20.0;
+    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+        if (gml_gt(self->vars[VAR_life], 20.0f)) {
+            self->vars[VAR_life] = 20.0f;
         }
     }
 }

@@ -38,7 +38,7 @@ static void gml_ev_core__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     self->vars[VAR_pos] = gml_script_SS_GetSoundPosition(self, other, self->vals[VVAR_handle]);
     self->vars[VAR_len] = gml_script_SS_GetSoundLength(self, other, self->vals[VVAR_handle]);
-    gml_fn_draw_text(self, other, 20.0, 10.0, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat("Sound position/length: ", gml_real_str(floor((self->vars[VAR_pos] / self->vars[VAR_bps])))), "/"), gml_real_str(floor((self->vars[VAR_len] / self->vars[VAR_bps])))), "  =  "), gml_real_str(((self->vars[VAR_pos] / self->vars[VAR_len]) * 100.0))), "%")));
+    gml_fn_draw_text(self, other, 20.0f, 10.0f, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_concat(gml_concat(gml_concat(gml_concat("Sound position/length: ", gml_real_str(floorf((self->vars[VAR_pos] / self->vars[VAR_bps])))), "/"), gml_real_str(floorf((self->vars[VAR_len] / self->vars[VAR_bps])))), "  =  "), gml_real_str(((self->vars[VAR_pos] / self->vars[VAR_len]) * 100.0f))), "%")));
 }
 
 void gml_ev_core__Draw_0(gm_instance_t *self, gm_instance_t *other)

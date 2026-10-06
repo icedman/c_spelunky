@@ -5,62 +5,62 @@ static void gml_ev_oGame__Create_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 0.0;
-    self->vars[VAR_moneyCount] = 0.0;
-    g_gml_globals.debug = 0.0;
-    g_gml_globals.ghostExists = 0.0;
-    self->vars[VAR_paused] = 0.0;
-    self->vars[VAR_damsel] = 0.0;
-    self->vars[VAR_idol] = 0.0;
-    self->vars[VAR_altar] = 0.0;
-    self->vars[VAR_genClothingShop] = 0.0;
-    self->vars[VAR_genBombShop] = 0.0;
-    self->vars[VAR_genSupplyShop] = 0.0;
-    self->vars[VAR_genRareShop] = 0.0;
-    self->vars[VAR_genWeaponShop] = 0.0;
-    if (gml_gt(gml_fn_instance_number(self, other, ((double)OBJ_oGame)), 1.0)) {
+    self->vars[VAR_drawStatus] = 0.0f;
+    self->vars[VAR_moneyCount] = 0.0f;
+    g_gml_globals.debug = 0.0f;
+    g_gml_globals.ghostExists = 0.0f;
+    self->vars[VAR_paused] = 0.0f;
+    self->vars[VAR_damsel] = 0.0f;
+    self->vars[VAR_idol] = 0.0f;
+    self->vars[VAR_altar] = 0.0f;
+    self->vars[VAR_genClothingShop] = 0.0f;
+    self->vars[VAR_genBombShop] = 0.0f;
+    self->vars[VAR_genSupplyShop] = 0.0f;
+    self->vars[VAR_genRareShop] = 0.0f;
+    self->vars[VAR_genWeaponShop] = 0.0f;
+    if (gml_gt(gml_fn_instance_number(self, other, ((float)OBJ_oGame)), 1.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    self->vars[VAR_moveableSolidGrav] = 1.0;
-    self->vars[VAR_time] = 1.0;
+    self->vars[VAR_moveableSolidGrav] = 1.0f;
+    self->vars[VAR_time] = 1.0f;
     if (gml_truthy(g_gml_globals.gameStart)) {
         gml_script_scrInitLevel(self, other);
     }
-    self->vars[VAR_menuItemIndex] = 0.0;
+    self->vars[VAR_menuItemIndex] = 0.0f;
     if (gml_truthy(g_gml_globals.debugBuild)) {
-        (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oDebug)));
+        (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oDebug)));
     }
     if (gml_truthy(g_gml_globals.html5Build)) {
         if (gml_truthy(g_gml_globals.mobileBuild)) {
-            self->vars[VAR_maxIndexTitle] = 7.0;
-            self->vars[VAR_maxIndexGame] = 5.0;
+            self->vars[VAR_maxIndexTitle] = 7.0f;
+            self->vars[VAR_maxIndexGame] = 5.0f;
         } else {
-            self->vars[VAR_maxIndexTitle] = 8.0;
-            self->vars[VAR_maxIndexGame] = 6.0;
+            self->vars[VAR_maxIndexTitle] = 8.0f;
+            self->vars[VAR_maxIndexGame] = 6.0f;
         }
     } else {
-        self->vars[VAR_maxIndexTitle] = 7.0;
-        self->vars[VAR_maxIndexGame] = 6.0;
+        self->vars[VAR_maxIndexTitle] = 7.0f;
+        self->vars[VAR_maxIndexGame] = 6.0f;
     }
-    self->vars[VAR_firstMenuItemTitleY] = (((240.0 - g_gml_globals.fontSmallHeight) - (20.0 * self->vars[VAR_maxIndexTitle])) / 2.0);
-    self->vars[VAR_firstMenuItemGameY] = (((240.0 - g_gml_globals.fontSmallHeight) - (20.0 * self->vars[VAR_maxIndexGame])) / 2.0);
-    g_gml_globals.analogLDownPreviousState = 0.0;
-    g_gml_globals.analogLUpPreviousState = 0.0;
-    g_gml_globals.analogLDownPressed = 0.0;
-    g_gml_globals.analogLUpPressed = 0.0;
-    self->vars[VAR_localeChanged] = 0.0;
-    self->vars[VAR_changeSprites] = 0.0;
-    (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oHtml5Gamepad)));
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bStartPreviousState = 0.0;
-    g_gml_globals.bJumpPressed = 0.0;
-    g_gml_globals.bJumpPressedPreviousState = 0.0;
-    g_gml_globals.bJumpReleased = 0.0;
-    g_gml_globals.bJumpReleasedPreviousState = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.bAttackPressedPreviousState = 0.0;
-    g_gml_globals.bAttackReleased = 0.0;
-    g_gml_globals.bAttackReleasedPreviousState = 0.0;
+    self->vars[VAR_firstMenuItemTitleY] = (((240.0f - g_gml_globals.fontSmallHeight) - (20.0f * self->vars[VAR_maxIndexTitle])) / 2.0f);
+    self->vars[VAR_firstMenuItemGameY] = (((240.0f - g_gml_globals.fontSmallHeight) - (20.0f * self->vars[VAR_maxIndexGame])) / 2.0f);
+    g_gml_globals.analogLDownPreviousState = 0.0f;
+    g_gml_globals.analogLUpPreviousState = 0.0f;
+    g_gml_globals.analogLDownPressed = 0.0f;
+    g_gml_globals.analogLUpPressed = 0.0f;
+    self->vars[VAR_localeChanged] = 0.0f;
+    self->vars[VAR_changeSprites] = 0.0f;
+    (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oHtml5Gamepad)));
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bStartPreviousState = 0.0f;
+    g_gml_globals.bJumpPressed = 0.0f;
+    g_gml_globals.bJumpPressedPreviousState = 0.0f;
+    g_gml_globals.bJumpReleased = 0.0f;
+    g_gml_globals.bJumpReleasedPreviousState = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.bAttackPressedPreviousState = 0.0f;
+    g_gml_globals.bAttackReleased = 0.0f;
+    g_gml_globals.bAttackReleasedPreviousState = 0.0f;
 }
 
 void gml_ev_oGame__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -74,11 +74,11 @@ static void gml_ev_oGame__Alarm_4_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    g_gml_globals.bStartPressed = 0.0;
-    g_gml_globals.bJumpPressed = 0.0;
-    g_gml_globals.bJumpReleased = 0.0;
-    g_gml_globals.bAttackPressed = 0.0;
-    g_gml_globals.bAttackReleased = 0.0;
+    g_gml_globals.bStartPressed = 0.0f;
+    g_gml_globals.bJumpPressed = 0.0f;
+    g_gml_globals.bJumpReleased = 0.0f;
+    g_gml_globals.bAttackPressed = 0.0f;
+    g_gml_globals.bAttackReleased = 0.0f;
 }
 
 void gml_ev_oGame__Alarm_4(gm_instance_t *self, gm_instance_t *other)
@@ -92,8 +92,8 @@ static void gml_ev_oGame__Alarm_3_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    g_gml_globals.analogLDownPressed = 0.0;
-    g_gml_globals.analogLUpPressed = 0.0;
+    g_gml_globals.analogLDownPressed = 0.0f;
+    g_gml_globals.analogLUpPressed = 0.0f;
 }
 
 void gml_ev_oGame__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -107,7 +107,7 @@ static void gml_ev_oGame__Alarm_2_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    g_gml_globals.udjatBlink = ((!gml_truthy(g_gml_globals.udjatBlink)) ? 1.0 : 0.0);
+    g_gml_globals.udjatBlink = ((!gml_truthy(g_gml_globals.udjatBlink)) ? 1.0f : 0.0f);
     if (gml_truthy(g_gml_globals.hasUdjatEye)) {
         if (gml_truthy(g_gml_globals.udjatBlink)) {
             gml_script_playSound(self, other, g_gml_globals.sndBlink1);
@@ -128,8 +128,8 @@ static void gml_ev_oGame__Alarm_1_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if (gml_lt(self->vars[VAR_drawStatus], 3.0)) {
-        self->vars[VAR_drawStatus] = 3.0;
+    if (gml_lt(self->vars[VAR_drawStatus], 3.0f)) {
+        self->vars[VAR_drawStatus] = 3.0f;
     }
 }
 
@@ -144,10 +144,10 @@ static void gml_ev_oGame__Alarm_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if (gml_lt(self->vars[VAR_drawStatus], 3.0)) {
-        self->vars[VAR_drawStatus] = 2.0;
+    if (gml_lt(self->vars[VAR_drawStatus], 3.0f)) {
+        self->vars[VAR_drawStatus] = 2.0f;
     }
-    gml_iset_alarm(self, 1.0, 50.0);
+    gml_iset_alarm(self, 1.0f, 50.0f);
 }
 
 void gml_ev_oGame__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -160,17 +160,17 @@ void gml_ev_oGame__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_downPressed = 0.0;
-    double l_upPressed = 0.0;
+    float l_downPressed = 0.0f;
+    float l_upPressed = 0.0f;
     gm_value_t l_locale_tmp = GM_VALUE_UNDEFINED_INIT;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t8 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t8 = 0.0f;
     int b9 = 0;
-    double t10 = 0.0;
+    float t10 = 0.0f;
     int b11 = 0;
     (void)self;
     (void)other;
@@ -188,116 +188,116 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)t10;
     (void)b11;
     gml_script_gameStepEvent(self, other);
-    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oXMarket))))) {
-        g_gml_globals.udjatBlink = 0.0;
+    if ((!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oXMarket))))) {
+        g_gml_globals.udjatBlink = 0.0f;
     } else {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_dm] = gml_fn_distance_to_object(self1, self, ((double)OBJ_oXMarket));
-                if (gml_lt(self1->vars[VAR_dm], 4.0)) {
-                    self1->vars[VAR_dm] = 4.0;
+                self1->vars[VAR_dm] = gml_fn_distance_to_object(self1, self, ((float)OBJ_oXMarket));
+                if (gml_lt(self1->vars[VAR_dm], 4.0f)) {
+                    self1->vars[VAR_dm] = 4.0f;
                 }
-                if ((gml_lt(gml_iget_alarm(gml_deref(((double)OBJ_oGame), self1, self), 2.0), 1.0) || gml_lt(self1->vars[VAR_dm], gml_iget_alarm(gml_deref(((double)OBJ_oGame), self1, self), 2.0)))) {
-                    gml_iset_alarm(gml_deref(((double)OBJ_oGame), self1, self), 2.0, self1->vars[VAR_dm]);
+                if ((gml_lt(gml_iget_alarm(gml_deref(((float)OBJ_oGame), self1, self), 2.0f), 1.0f) || gml_lt(self1->vars[VAR_dm], gml_iget_alarm(gml_deref(((float)OBJ_oGame), self1, self), 2.0f)))) {
+                    gml_iset_alarm(gml_deref(((float)OBJ_oGame), self1, self), 2.0f, self1->vars[VAR_dm]);
                 }
             }
             gm_with_end();
         }
     }
-    if (((gml_truthy(g_gml_globals.gameStart) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oCharacter)))) && gml_truthy(gml_script_isLevel(self, other)))) {
-        if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oCharacter), self, other), VAR_dead)))) {
+    if (((gml_truthy(g_gml_globals.gameStart) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oCharacter)))) && gml_truthy(gml_script_isLevel(self, other)))) {
+        if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oCharacter), self, other), VAR_dead)))) {
             g_gml_globals.time = (g_gml_globals.time + gml_gget_room_speed());
             g_gml_globals.xtime = (g_gml_globals.xtime + gml_gget_room_speed());
         }
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if ((((((((gml_truthy(gml_script_isLevel(self, other)) && (!gml_truthy(gml_script_isRoom(self, other, "rOlmec")))) && (!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel")))) && gml_gt(g_gml_globals.currLevel, 1.0)) && (!gml_truthy(g_gml_globals.hasCrown))) && gml_gt(g_gml_globals.xtime, 120000.0)) && gml_ne(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sPExit))) && gml_ne(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sDamselExit)))) {
-            if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oLevel), self, other), VAR_musicFade)))) {
-                gml_ivar_set(gml_deref(((double)OBJ_oLevel), self, other), VAR_musicFade, 1.0);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if ((((((((gml_truthy(gml_script_isLevel(self, other)) && (!gml_truthy(gml_script_isRoom(self, other, "rOlmec")))) && (!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel")))) && gml_gt(g_gml_globals.currLevel, 1.0f)) && (!gml_truthy(g_gml_globals.hasCrown))) && gml_gt(g_gml_globals.xtime, 120000.0f)) && gml_ne(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sPExit))) && gml_ne(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sDamselExit)))) {
+            if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oLevel), self, other), VAR_musicFade)))) {
+                gml_ivar_set(gml_deref(((float)OBJ_oLevel), self, other), VAR_musicFade, 1.0f);
                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "A CHILL RUNS UP YOUR SPINE..."));
                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "LET'S GET OUT OF HERE!"));
-                g_gml_globals.messageTimer = 200.0;
+                g_gml_globals.messageTimer = 200.0f;
             }
         }
-        if (((((((((gml_truthy(gml_script_isLevel(self, other)) && (!gml_truthy(gml_script_isRoom(self, other, "rOlmec")))) && (!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel")))) && gml_gt(g_gml_globals.currLevel, 1.0)) && (!gml_truthy(g_gml_globals.hasCrown))) && gml_gt(g_gml_globals.xtime, 150000.0)) && (!gml_truthy(g_gml_globals.ghostExists))) && gml_ne(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sPExit))) && gml_ne(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sDamselExit)))) {
-            if (gml_gt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), (gml_gget_room_width() / 2.0))) {
-                (void)((t4 = ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 8.0), gml_script_instance_create(self, other, t4, (t3 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t3 + floor((gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0) / 2.0)))), ((double)OBJ_oGhost))));
+        if (((((((((gml_truthy(gml_script_isLevel(self, other)) && (!gml_truthy(gml_script_isRoom(self, other, "rOlmec")))) && (!gml_truthy(gml_script_isRoom(self, other, "rLoadLevel")))) && gml_gt(g_gml_globals.currLevel, 1.0f)) && (!gml_truthy(g_gml_globals.hasCrown))) && gml_gt(g_gml_globals.xtime, 150000.0f)) && (!gml_truthy(g_gml_globals.ghostExists))) && gml_ne(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sPExit))) && gml_ne(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sDamselExit)))) {
+            if (gml_gt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), (gml_gget_room_width() / 2.0f))) {
+                (void)((t4 = ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 8.0f), gml_script_instance_create(self, other, t4, (t3 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t3 + floorf((gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f) / 2.0f)))), ((float)OBJ_oGhost))));
             } else {
-                (void)((t6 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 32.0), gml_script_instance_create(self, other, t6, (t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + floor((gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0) / 2.0)))), ((double)OBJ_oGhost))));
+                (void)((t6 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 32.0f), gml_script_instance_create(self, other, t6, (t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + floorf((gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f) / 2.0f)))), ((float)OBJ_oGhost))));
             }
-            g_gml_globals.ghostExists = 1.0;
+            g_gml_globals.ghostExists = 1.0f;
         }
     }
     if (gml_truthy(g_gml_globals.checkWater)) {
-        g_gml_globals.waterCounter = 0.0;
+        g_gml_globals.waterCounter = 0.0f;
         {
             gm_instance_t *self7;
-            gm_with_begin(gml_target(((double)OBJ_oWater)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oWater)), self, other);
             while ((self7 = gm_with_next()) != NULL) {
                 if ((!gml_truthy(gml_script_isRoom(self7, self, "rOlmec")))) {
-                    if ((((!gml_truthy(gml_script_isRoom(self7, self, "rLoadLevel"))) && gml_lt(gml_iget_y(self7), 512.0)) || gml_truthy(gml_script_isRoom(self7, self, "rLoadLevel")))) {
-                        gml_fn_instance_activate_region(self7, self, (gml_iget_x(self7) - 16.0), (gml_iget_y(self7) - 16.0), 48.0, 48.0, 1.0);
-                        if (((!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) - 16.0), ((double)OBJ_oSolid), 0.0, 0.0))) && (!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) - 16.0), ((double)OBJ_oWater), 0.0, 0.0))))) {
+                    if ((((!gml_truthy(gml_script_isRoom(self7, self, "rLoadLevel"))) && gml_lt(gml_iget_y(self7), 512.0f)) || gml_truthy(gml_script_isRoom(self7, self, "rLoadLevel")))) {
+                        gml_fn_instance_activate_region(self7, self, (gml_iget_x(self7) - 16.0f), (gml_iget_y(self7) - 16.0f), 48.0f, 48.0f, 1.0f);
+                        if (((!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) - 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))) && (!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) - 16.0f), ((float)OBJ_oWater), 0.0f, 0.0f))))) {
                             if (gml_str_eq(self7->strs[SVAR_type], "Lava")) {
-                                gml_iset_sprite_index(self7, ((double)SPR_sLavaTop));
+                                gml_iset_sprite_index(self7, ((float)SPR_sLavaTop));
                             } else {
-                                gml_iset_sprite_index(self7, ((double)SPR_sWaterTop));
+                                gml_iset_sprite_index(self7, ((float)SPR_sWaterTop));
                             }
                         }
-                        self7->vars[VAR_obj] = gml_fn_instance_place(self7, self, (gml_iget_x(self7) - 16.0), gml_iget_y(self7), ((double)OBJ_oWater));
+                        self7->vars[VAR_obj] = gml_fn_instance_place(self7, self, (gml_iget_x(self7) - 16.0f), gml_iget_y(self7), ((float)OBJ_oWater));
                         if (gml_truthy(gml_fn_instance_exists(self7, self, self7->vars[VAR_obj]))) {
-                            if ((gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((double)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((double)SPR_sLavaTop)))) {
+                            if ((gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((float)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((float)SPR_sLavaTop)))) {
                                 if (gml_str_eq(self7->strs[SVAR_type], "Lava")) {
-                                    gml_iset_sprite_index(self7, ((double)SPR_sLavaTop));
+                                    gml_iset_sprite_index(self7, ((float)SPR_sLavaTop));
                                 } else {
-                                    gml_iset_sprite_index(self7, ((double)SPR_sWaterTop));
+                                    gml_iset_sprite_index(self7, ((float)SPR_sWaterTop));
                                 }
                             }
                         }
-                        self7->vars[VAR_obj] = gml_fn_instance_place(self7, self, (gml_iget_x(self7) + 16.0), gml_iget_y(self7), ((double)OBJ_oWater));
+                        self7->vars[VAR_obj] = gml_fn_instance_place(self7, self, (gml_iget_x(self7) + 16.0f), gml_iget_y(self7), ((float)OBJ_oWater));
                         if (gml_truthy(gml_fn_instance_exists(self7, self, self7->vars[VAR_obj]))) {
-                            if ((gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((double)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((double)SPR_sLavaTop)))) {
+                            if ((gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((float)SPR_sWaterTop)) || gml_eq(gml_iget_sprite_index(gml_deref(self7->vars[VAR_obj], self7, self)), ((float)SPR_sLavaTop)))) {
                                 if (gml_str_eq(self7->strs[SVAR_type], "Lava")) {
-                                    gml_iset_sprite_index(self7, ((double)SPR_sLavaTop));
+                                    gml_iset_sprite_index(self7, ((float)SPR_sLavaTop));
                                 } else {
-                                    gml_iset_sprite_index(self7, ((double)SPR_sWaterTop));
+                                    gml_iset_sprite_index(self7, ((float)SPR_sWaterTop));
                                 }
                             }
                         }
-                        if (((((!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) - 16.0), gml_iget_y(self7), ((double)OBJ_oSolid), 0.0, 0.0))) && (!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) - 16.0), gml_iget_y(self7), ((double)OBJ_oWater), 0.0, 0.0)))) || ((!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) + 16.0), gml_iget_y(self7), ((double)OBJ_oSolid), 0.0, 0.0))) && (!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) + 16.0), gml_iget_y(self7), ((double)OBJ_oWater), 0.0, 0.0))))) || ((!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) + 16.0), ((double)OBJ_oSolid), 0.0, 0.0))) && (!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) + 16.0), ((double)OBJ_oWater), 0.0, 0.0)))))) {
+                        if (((((!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) - 16.0f), gml_iget_y(self7), ((float)OBJ_oSolid), 0.0f, 0.0f))) && (!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) - 16.0f), gml_iget_y(self7), ((float)OBJ_oWater), 0.0f, 0.0f)))) || ((!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) + 16.0f), gml_iget_y(self7), ((float)OBJ_oSolid), 0.0f, 0.0f))) && (!gml_truthy(gml_fn_collision_point(self7, self, (gml_iget_x(self7) + 16.0f), gml_iget_y(self7), ((float)OBJ_oWater), 0.0f, 0.0f))))) || ((!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) + 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))) && (!gml_truthy(gml_fn_collision_point(self7, self, gml_iget_x(self7), (gml_iget_y(self7) + 16.0f), ((float)OBJ_oWater), 0.0f, 0.0f)))))) {
                             gml_fn_instance_destroy(self7, self, 0, NULL);
-                            g_gml_globals.waterCounter = (g_gml_globals.waterCounter + 1.0);
+                            g_gml_globals.waterCounter = (g_gml_globals.waterCounter + 1.0f);
                         }
-                        g_gml_globals.waterLoopSafety = (g_gml_globals.waterLoopSafety + 1.0);
-                        if (gml_gt(g_gml_globals.waterLoopSafety, 100000.0)) {
-                            g_gml_globals.checkWater = 0.0;
+                        g_gml_globals.waterLoopSafety = (g_gml_globals.waterLoopSafety + 1.0f);
+                        if (gml_gt(g_gml_globals.waterLoopSafety, 100000.0f)) {
+                            g_gml_globals.checkWater = 0.0f;
                         }
                     }
                 }
             }
             gm_with_end();
         }
-        if (gml_eq(g_gml_globals.waterCounter, 0.0)) {
-            g_gml_globals.checkWater = 0.0;
+        if (gml_eq(g_gml_globals.waterCounter, 0.0f)) {
+            g_gml_globals.checkWater = 0.0f;
         }
     } else {
-        g_gml_globals.waterLoopSafety = 0.0;
+        g_gml_globals.waterLoopSafety = 0.0f;
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead))) {
-            if (gml_eq(self->vars[VAR_drawStatus], 0.0)) {
-                gml_iset_alarm(self, 0.0, 50.0);
-                self->vars[VAR_drawStatus] = (self->vars[VAR_drawStatus] + 1.0);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead))) {
+            if (gml_eq(self->vars[VAR_drawStatus], 0.0f)) {
+                gml_iset_alarm(self, 0.0f, 50.0f);
+                self->vars[VAR_drawStatus] = (self->vars[VAR_drawStatus] + 1.0f);
             }
-            if (gml_gt(self->vars[VAR_drawStatus], 2.0)) {
+            if (gml_gt(self->vars[VAR_drawStatus], 2.0f)) {
                 self->vars[VAR_moneyDiff] = (g_gml_globals.money - self->vars[VAR_moneyCount]);
-                if (gml_gt(self->vars[VAR_moneyDiff], 1000.0)) {
-                    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 1000.0);
+                if (gml_gt(self->vars[VAR_moneyDiff], 1000.0f)) {
+                    self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 1000.0f);
                 } else {
-                    if (gml_gt(self->vars[VAR_moneyDiff], 100.0)) {
-                        self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0);
+                    if (gml_gt(self->vars[VAR_moneyDiff], 100.0f)) {
+                        self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + 100.0f);
                     } else {
                         self->vars[VAR_moneyCount] = (self->vars[VAR_moneyCount] + self->vars[VAR_moneyDiff]);
                     }
@@ -306,69 +306,69 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
         }
     }
     if (gml_truthy(gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal])))) {
-        gml_fn_event_perform(self, other, (9.0 /* ev_keypress */), (27.0 /* vk_escape */));
+        gml_fn_event_perform(self, other, (9.0f /* ev_keypress */), (27.0f /* vk_escape */));
     }
     if (gml_truthy(g_gml_globals.html5Build)) {
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyStartVal]}))) {
-            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0)) {
-                g_gml_globals.bStartPressed = 1.0;
-                g_gml_globals.bStartPreviousState = 1.0;
+            if (gml_eq(g_gml_globals.bStartPreviousState, 0.0f)) {
+                g_gml_globals.bStartPressed = 1.0f;
+                g_gml_globals.bStartPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bStartPreviousState = 0.0;
+            g_gml_globals.bStartPreviousState = 0.0f;
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyJumpVal]}))) {
-            g_gml_globals.bJumpReleasedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bJumpPressedPreviousState, 0.0)) {
-                g_gml_globals.bJumpPressed = 1.0;
-                g_gml_globals.bJumpPressedPreviousState = 1.0;
+            g_gml_globals.bJumpReleasedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bJumpPressedPreviousState, 0.0f)) {
+                g_gml_globals.bJumpPressed = 1.0f;
+                g_gml_globals.bJumpPressedPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bJumpPressedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bJumpReleasedPreviousState, 0.0)) {
-                g_gml_globals.bJumpReleased = 1.0;
-                g_gml_globals.bJumpReleasedPreviousState = 1.0;
+            g_gml_globals.bJumpPressedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bJumpReleasedPreviousState, 0.0f)) {
+                g_gml_globals.bJumpReleased = 1.0f;
+                g_gml_globals.bJumpReleasedPreviousState = 1.0f;
             }
         }
         if (gml_truthy(gml_ext_html5_gamepad_button_check(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), g_gml_gvals[GV_joyAttackVal]}))) {
-            g_gml_globals.bAttackReleasedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0)) {
-                g_gml_globals.bAttackPressed = 1.0;
-                g_gml_globals.bAttackPressedPreviousState = 1.0;
+            g_gml_globals.bAttackReleasedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackPressedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackPressed = 1.0f;
+                g_gml_globals.bAttackPressedPreviousState = 1.0f;
             }
         } else {
-            g_gml_globals.bAttackPressedPreviousState = 0.0;
-            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0)) {
-                g_gml_globals.bAttackReleased = 1.0;
-                g_gml_globals.bAttackReleasedPreviousState = 1.0;
+            g_gml_globals.bAttackPressedPreviousState = 0.0f;
+            if (gml_eq(g_gml_globals.bAttackReleasedPreviousState, 0.0f)) {
+                g_gml_globals.bAttackReleased = 1.0f;
+                g_gml_globals.bAttackReleasedPreviousState = 1.0f;
             }
         }
-        gml_iset_alarm(self, 4.0, 1.0);
+        gml_iset_alarm(self, 4.0f, 1.0f);
     }
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_downPressed = (gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), 0.6) ? 1.0 : 0.0);
-        l_upPressed = (gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0 /* gp_axislv */)), (-0.6)) ? 1.0 : 0.0);
+        l_downPressed = (gml_gt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), 0.6f) ? 1.0f : 0.0f);
+        l_upPressed = (gml_lt(gml_fn_gamepad_axis_value(self, other, g_gml_globals.joyid, (32786.0f /* gp_axislv */)), (-0.6f)) ? 1.0f : 0.0f);
     } else {
-        l_downPressed = ((gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0)}), 0.6) || gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0)}), 0.6)) ? 1.0 : 0.0);
-        l_upPressed = ((gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0)}), (-0.6)) || gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0)}), (-0.6))) ? 1.0 : 0.0);
+        l_downPressed = ((gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0f)}), 0.6f) || gml_gt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0f)}), 0.6f)) ? 1.0f : 0.0f);
+        l_upPressed = ((gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(1.0f)}), (-0.6f)) || gml_lt(gml_ext_html5_gamepad_axis_value(self, other, 2, (gm_value_t[]){gml_vreal(g_gml_globals.joyid), gml_vreal(5.0f)}), (-0.6f))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_downPressed)) {
-        if (gml_eq(g_gml_globals.analogLDownPreviousState, 0.0)) {
-            g_gml_globals.analogLDownPressed = 1.0;
-            g_gml_globals.analogLDownPreviousState = 1.0;
+        if (gml_eq(g_gml_globals.analogLDownPreviousState, 0.0f)) {
+            g_gml_globals.analogLDownPressed = 1.0f;
+            g_gml_globals.analogLDownPreviousState = 1.0f;
         }
     } else {
-        g_gml_globals.analogLDownPreviousState = 0.0;
+        g_gml_globals.analogLDownPreviousState = 0.0f;
     }
     if (gml_truthy(l_upPressed)) {
-        if (gml_eq(g_gml_globals.analogLUpPreviousState, 0.0)) {
-            g_gml_globals.analogLUpPressed = 1.0;
-            g_gml_globals.analogLUpPreviousState = 1.0;
+        if (gml_eq(g_gml_globals.analogLUpPreviousState, 0.0f)) {
+            g_gml_globals.analogLUpPressed = 1.0f;
+            g_gml_globals.analogLUpPreviousState = 1.0f;
         }
     } else {
-        g_gml_globals.analogLUpPreviousState = 0.0;
+        g_gml_globals.analogLUpPreviousState = 0.0f;
     }
-    gml_iset_alarm(self, 3.0, 1.0);
+    gml_iset_alarm(self, 3.0f, 1.0f);
     if ((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyLangVal)) || gml_truthy(gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyLangVal]))))) {
         if ((!gml_truthy(self->vars[VAR_paused]))) {
             l_locale_tmp = g_gml_gvals[GV_locale];
@@ -378,55 +378,55 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
             gml_script_loadLocalizedSprites(self, other);
         }
     }
-    if ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyStartVal)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, (27.0 /* vk_escape */)))) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal]))))) {
+    if ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyStartVal)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, (27.0f /* vk_escape */)))) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_fn_gamepad_button_check_pressed(self, other, g_gml_globals.joyid, gml_real(g_gml_gvals[GV_joyStartVal]))))) {
         if ((!gml_truthy(gml_script_isRoom(self, other, "rIntro")))) {
             if ((!gml_truthy(self->vars[VAR_paused]))) {
-                gml_fn_instance_deactivate_all(self, other, 1.0);
+                gml_fn_instance_deactivate_all(self, other, 1.0f);
                 gml_fn_audio_pause_all(self, other);
-                self->vars[VAR_paused] = 1.0;
+                self->vars[VAR_paused] = 1.0f;
             } else {
-                self->vars[VAR_paused] = 0.0;
+                self->vars[VAR_paused] = 0.0f;
                 gml_fn_instance_activate_all(self, other);
                 gml_fn_audio_resume_all(self, other);
-                if ((gml_truthy(g_gml_globals.html5Build) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
-                    gml_iset_y(gml_deref(((double)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 1.0));
+                if ((gml_truthy(g_gml_globals.html5Build) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
+                    gml_iset_y(gml_deref(((float)OBJ_oPlayer1), self, other), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 1.0f));
                 }
             }
         }
     }
     if (gml_truthy(self->vars[VAR_paused])) {
         if (gml_truthy(gml_script_checkDownPressed(self, other))) {
-            self->vars[VAR_menuItemIndex] = (self->vars[VAR_menuItemIndex] + 1.0);
+            self->vars[VAR_menuItemIndex] = (self->vars[VAR_menuItemIndex] + 1.0f);
             if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
                 if (gml_gt(self->vars[VAR_menuItemIndex], self->vars[VAR_maxIndexTitle])) {
-                    self->vars[VAR_menuItemIndex] = 0.0;
+                    self->vars[VAR_menuItemIndex] = 0.0f;
                 }
             } else {
                 if (gml_gt(self->vars[VAR_menuItemIndex], self->vars[VAR_maxIndexGame])) {
-                    self->vars[VAR_menuItemIndex] = 0.0;
+                    self->vars[VAR_menuItemIndex] = 0.0f;
                 }
             }
         } else {
             if (gml_truthy(gml_script_checkUpPressed(self, other))) {
-                self->vars[VAR_menuItemIndex] = (self->vars[VAR_menuItemIndex] - 1.0);
+                self->vars[VAR_menuItemIndex] = (self->vars[VAR_menuItemIndex] - 1.0f);
                 if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
-                    if (gml_lt(self->vars[VAR_menuItemIndex], 0.0)) {
+                    if (gml_lt(self->vars[VAR_menuItemIndex], 0.0f)) {
                         self->vars[VAR_menuItemIndex] = self->vars[VAR_maxIndexTitle];
                     }
                 } else {
-                    if (gml_lt(self->vars[VAR_menuItemIndex], 0.0)) {
+                    if (gml_lt(self->vars[VAR_menuItemIndex], 0.0f)) {
                         self->vars[VAR_menuItemIndex] = self->vars[VAR_maxIndexGame];
                     }
                 }
             } else {
                 if (gml_truthy(gml_script_checkJumpPressed(self, other))) {
-                    self->vars[VAR_paused] = 0.0;
+                    self->vars[VAR_paused] = 0.0f;
                     gml_fn_instance_activate_all(self, other);
                 } else {
                     if ((gml_truthy(gml_script_checkAttackPressed(self, other)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)))) {
                         if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
                             t8 = self->vars[VAR_menuItemIndex];
-                            b9 = (gml_rcase(t8, 0.0) ? 0 : gml_rcase(t8, 1.0) ? 1 : gml_rcase(t8, 2.0) ? 2 : gml_rcase(t8, 3.0) ? 3 : gml_rcase(t8, 4.0) ? 4 : gml_rcase(t8, 5.0) ? 5 : gml_rcase(t8, 6.0) ? 6 : gml_rcase(t8, 7.0) ? 7 : gml_rcase(t8, 8.0) ? 8 : -1);
+                            b9 = (gml_rcase(t8, 0.0f) ? 0 : gml_rcase(t8, 1.0f) ? 1 : gml_rcase(t8, 2.0f) ? 2 : gml_rcase(t8, 3.0f) ? 3 : gml_rcase(t8, 4.0f) ? 4 : gml_rcase(t8, 5.0f) ? 5 : gml_rcase(t8, 6.0f) ? 6 : gml_rcase(t8, 7.0f) ? 7 : gml_rcase(t8, 8.0f) ? 8 : -1);
                             switch (b9) {
                             case 0:
                                 {
@@ -440,7 +440,7 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                             case 1:
                                 {
                                     gml_fn_instance_activate_all(self, other);
-                                    gml_fn_room_goto(self, other, ((double)RM_rKeyConfig));
+                                    gml_fn_room_goto(self, other, ((float)RM_rKeyConfig));
                                     break;
                                 }
                             /* fall through */
@@ -449,9 +449,9 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                                     if (gml_truthy(g_gml_globals.html5Build)) {
                                         g_gml_globals.joyid = gml_ext_html5_gamepad_next(self, other, 1, (gm_value_t[]){gml_vreal(g_gml_globals.joyid)});
                                     } else {
-                                        self->vars[VAR_paused] = 0.0;
+                                        self->vars[VAR_paused] = 0.0f;
                                         gml_fn_instance_activate_all(self, other);
-                                        gml_fn_room_goto(self, other, ((double)RM_rJoyConfig));
+                                        gml_fn_room_goto(self, other, ((float)RM_rJoyConfig));
                                     }
                                     break;
                                 }
@@ -459,11 +459,11 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                             case 3:
                                 {
                                     if (gml_truthy(g_gml_globals.html5Build)) {
-                                        self->vars[VAR_paused] = 0.0;
+                                        self->vars[VAR_paused] = 0.0f;
                                         gml_fn_instance_activate_all(self, other);
-                                        gml_fn_room_goto(self, other, ((double)RM_rJoyConfigHtml5));
+                                        gml_fn_room_goto(self, other, ((float)RM_rJoyConfigHtml5));
                                     } else {
-                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0 : 0.0);
+                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0f : 0.0f);
                                     }
                                     break;
                                 }
@@ -485,7 +485,7 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                             case 5:
                                 {
                                     if (gml_truthy(g_gml_globals.html5Build)) {
-                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0 : 0.0);
+                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0f : 0.0f);
                                     } else {
                                         gml_script_menuLanguage(self, other);
                                     }
@@ -540,7 +540,7 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                             }
                         } else {
                             t10 = self->vars[VAR_menuItemIndex];
-                            b11 = (gml_rcase(t10, 0.0) ? 0 : gml_rcase(t10, 1.0) ? 1 : gml_rcase(t10, 2.0) ? 2 : gml_rcase(t10, 3.0) ? 3 : gml_rcase(t10, 4.0) ? 4 : gml_rcase(t10, 5.0) ? 5 : gml_rcase(t10, 6.0) ? 6 : -1);
+                            b11 = (gml_rcase(t10, 0.0f) ? 0 : gml_rcase(t10, 1.0f) ? 1 : gml_rcase(t10, 2.0f) ? 2 : gml_rcase(t10, 3.0f) ? 3 : gml_rcase(t10, 4.0f) ? 4 : gml_rcase(t10, 5.0f) ? 5 : gml_rcase(t10, 6.0f) ? 6 : -1);
                             switch (b11) {
                             case 0:
                                 {
@@ -556,7 +556,7 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                                     if (gml_truthy(g_gml_globals.html5Build)) {
                                         gml_script_menuTouchControls(self, other);
                                     } else {
-                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0 : 0.0);
+                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0f : 0.0f);
                                     }
                                     break;
                                 }
@@ -564,7 +564,7 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
                             case 2:
                                 {
                                     if (gml_truthy(g_gml_globals.html5Build)) {
-                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0 : 0.0);
+                                        g_gml_globals.toggleRunEnabled = ((!gml_truthy(g_gml_globals.toggleRunEnabled)) ? 1.0f : 0.0f);
                                     } else {
                                         if (gml_truthy(g_gml_globals.mobileBuild)) {
                                             gml_script_menuTouchControls(self, other);
@@ -641,11 +641,11 @@ static void gml_ev_oGame__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     if (gml_truthy(g_gml_globals.html5Build)) {
         if (gml_truthy(self->vars[VAR_localeChanged])) {
             gml_script_setLocale(self, other);
-            self->vars[VAR_localeChanged] = 0.0;
+            self->vars[VAR_localeChanged] = 0.0f;
         }
         if (((!gml_truthy(self->vars[VAR_paused])) && gml_truthy(self->vars[VAR_changeSprites]))) {
             gml_script_loadLocalizedSprites(self, other);
-            self->vars[VAR_changeSprites] = 0.0;
+            self->vars[VAR_changeSprites] = 0.0f;
         }
     }
 }
@@ -673,157 +673,157 @@ void gml_ev_oGame__Other_3(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oGame__Draw_64_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_color0 = 0.0;
-    double l_color1 = 0.0;
-    double l_color2 = 0.0;
-    double l_color3 = 0.0;
-    double l_color4 = 0.0;
-    double l_color5 = 0.0;
-    double l_color6 = 0.0;
-    double l_color7 = 0.0;
-    double l_color8 = 0.0;
+    float l_color0 = 0.0f;
+    float l_color1 = 0.0f;
+    float l_color2 = 0.0f;
+    float l_color3 = 0.0f;
+    float l_color4 = 0.0f;
+    float l_color5 = 0.0f;
+    float l_color6 = 0.0f;
+    float l_color7 = 0.0f;
+    float l_color8 = 0.0f;
     const char *l_strMusic = "";
     const char *l_strFullscreen = "";
     const char *l_strToggleRunEnabled = "";
     const char *l_strLocaleName = "";
     const char *l_strLocaleName2 = "";
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
     const char *s3 = "";
     gm_value_t v4 = GM_VALUE_UNDEFINED_INIT;
-    double t5 = 0.0;
+    float t5 = 0.0f;
     gm_value_t v6 = GM_VALUE_UNDEFINED_INIT;
-    double t7 = 0.0;
+    float t7 = 0.0f;
     const char *s8 = "";
     gm_value_t v9 = GM_VALUE_UNDEFINED_INIT;
-    double t10 = 0.0;
+    float t10 = 0.0f;
     gm_value_t v11 = GM_VALUE_UNDEFINED_INIT;
-    double t12 = 0.0;
+    float t12 = 0.0f;
     const char *s13 = "";
     gm_value_t v14 = GM_VALUE_UNDEFINED_INIT;
-    double t15 = 0.0;
+    float t15 = 0.0f;
     const char *s16 = "";
     gm_value_t v17 = GM_VALUE_UNDEFINED_INIT;
-    double t18 = 0.0;
+    float t18 = 0.0f;
     const char *s19 = "";
     gm_value_t v20 = GM_VALUE_UNDEFINED_INIT;
-    double t21 = 0.0;
+    float t21 = 0.0f;
     gm_value_t v22 = GM_VALUE_UNDEFINED_INIT;
-    double t23 = 0.0;
+    float t23 = 0.0f;
     gm_value_t v24 = GM_VALUE_UNDEFINED_INIT;
-    double t25 = 0.0;
+    float t25 = 0.0f;
     const char *s26 = "";
     gm_value_t v27 = GM_VALUE_UNDEFINED_INIT;
-    double t28 = 0.0;
+    float t28 = 0.0f;
     gm_value_t v29 = GM_VALUE_UNDEFINED_INIT;
-    double t30 = 0.0;
+    float t30 = 0.0f;
     const char *s31 = "";
     gm_value_t v32 = GM_VALUE_UNDEFINED_INIT;
-    double t33 = 0.0;
+    float t33 = 0.0f;
     const char *s34 = "";
     gm_value_t v35 = GM_VALUE_UNDEFINED_INIT;
-    double t36 = 0.0;
+    float t36 = 0.0f;
     gm_value_t v37 = GM_VALUE_UNDEFINED_INIT;
-    double t38 = 0.0;
+    float t38 = 0.0f;
     const char *s39 = "";
     gm_value_t v40 = GM_VALUE_UNDEFINED_INIT;
-    double t41 = 0.0;
+    float t41 = 0.0f;
     gm_value_t v42 = GM_VALUE_UNDEFINED_INIT;
-    double t43 = 0.0;
+    float t43 = 0.0f;
     gm_value_t v44 = GM_VALUE_UNDEFINED_INIT;
-    double t45 = 0.0;
+    float t45 = 0.0f;
     const char *s46 = "";
     gm_value_t v47 = GM_VALUE_UNDEFINED_INIT;
-    double t48 = 0.0;
+    float t48 = 0.0f;
     const char *s49 = "";
     gm_value_t v50 = GM_VALUE_UNDEFINED_INIT;
-    double t51 = 0.0;
+    float t51 = 0.0f;
     const char *s52 = "";
     gm_value_t v53 = GM_VALUE_UNDEFINED_INIT;
-    double t54 = 0.0;
+    float t54 = 0.0f;
     const char *s55 = "";
     gm_value_t v56 = GM_VALUE_UNDEFINED_INIT;
-    double t57 = 0.0;
+    float t57 = 0.0f;
     gm_value_t v58 = GM_VALUE_UNDEFINED_INIT;
-    double t59 = 0.0;
+    float t59 = 0.0f;
     const char *s60 = "";
     gm_value_t v61 = GM_VALUE_UNDEFINED_INIT;
-    double t62 = 0.0;
+    float t62 = 0.0f;
     const char *s63 = "";
     gm_value_t v64 = GM_VALUE_UNDEFINED_INIT;
-    double t65 = 0.0;
+    float t65 = 0.0f;
     const char *s66 = "";
     gm_value_t v67 = GM_VALUE_UNDEFINED_INIT;
-    double t68 = 0.0;
+    float t68 = 0.0f;
     gm_value_t v69 = GM_VALUE_UNDEFINED_INIT;
-    double t70 = 0.0;
+    float t70 = 0.0f;
     const char *s71 = "";
     gm_value_t v72 = GM_VALUE_UNDEFINED_INIT;
-    double t73 = 0.0;
+    float t73 = 0.0f;
     const char *s74 = "";
     gm_value_t v75 = GM_VALUE_UNDEFINED_INIT;
-    double t76 = 0.0;
+    float t76 = 0.0f;
     const char *s77 = "";
     gm_value_t v78 = GM_VALUE_UNDEFINED_INIT;
-    double t79 = 0.0;
+    float t79 = 0.0f;
     const char *s80 = "";
     gm_value_t v81 = GM_VALUE_UNDEFINED_INIT;
-    double t82 = 0.0;
+    float t82 = 0.0f;
     gm_value_t v83 = GM_VALUE_UNDEFINED_INIT;
-    double t84 = 0.0;
+    float t84 = 0.0f;
     gm_value_t v85 = GM_VALUE_UNDEFINED_INIT;
-    double t86 = 0.0;
+    float t86 = 0.0f;
     gm_value_t v87 = GM_VALUE_UNDEFINED_INIT;
-    double t88 = 0.0;
+    float t88 = 0.0f;
     const char *s89 = "";
     gm_value_t v90 = GM_VALUE_UNDEFINED_INIT;
-    double t91 = 0.0;
+    float t91 = 0.0f;
     gm_value_t v92 = GM_VALUE_UNDEFINED_INIT;
-    double t93 = 0.0;
+    float t93 = 0.0f;
     gm_value_t v94 = GM_VALUE_UNDEFINED_INIT;
-    double t95 = 0.0;
+    float t95 = 0.0f;
     const char *s96 = "";
     gm_value_t v97 = GM_VALUE_UNDEFINED_INIT;
-    double t98 = 0.0;
+    float t98 = 0.0f;
     const char *s99 = "";
     gm_value_t v100 = GM_VALUE_UNDEFINED_INIT;
-    double t101 = 0.0;
+    float t101 = 0.0f;
     gm_value_t v102 = GM_VALUE_UNDEFINED_INIT;
-    double t103 = 0.0;
+    float t103 = 0.0f;
     gm_value_t v104 = GM_VALUE_UNDEFINED_INIT;
-    double t105 = 0.0;
+    float t105 = 0.0f;
     const char *s106 = "";
     gm_value_t v107 = GM_VALUE_UNDEFINED_INIT;
-    double t108 = 0.0;
+    float t108 = 0.0f;
     const char *s109 = "";
     gm_value_t v110 = GM_VALUE_UNDEFINED_INIT;
-    double t111 = 0.0;
+    float t111 = 0.0f;
     const char *s112 = "";
     gm_value_t v113 = GM_VALUE_UNDEFINED_INIT;
-    double t114 = 0.0;
+    float t114 = 0.0f;
     const char *s115 = "";
     gm_value_t v116 = GM_VALUE_UNDEFINED_INIT;
-    double t117 = 0.0;
+    float t117 = 0.0f;
     const char *s118 = "";
     gm_value_t v119 = GM_VALUE_UNDEFINED_INIT;
-    double t120 = 0.0;
+    float t120 = 0.0f;
     gm_value_t v121 = GM_VALUE_UNDEFINED_INIT;
-    double t122 = 0.0;
+    float t122 = 0.0f;
     gm_value_t v123 = GM_VALUE_UNDEFINED_INIT;
-    double t124 = 0.0;
+    float t124 = 0.0f;
     const char *s125 = "";
     gm_value_t v126 = GM_VALUE_UNDEFINED_INIT;
-    double t127 = 0.0;
+    float t127 = 0.0f;
     const char *s128 = "";
     gm_value_t v129 = GM_VALUE_UNDEFINED_INIT;
-    double t130 = 0.0;
+    float t130 = 0.0f;
     const char *s131 = "";
     gm_value_t v132 = GM_VALUE_UNDEFINED_INIT;
-    double t133 = 0.0;
+    float t133 = 0.0f;
     gm_value_t v134 = GM_VALUE_UNDEFINED_INIT;
-    double t135 = 0.0;
+    float t135 = 0.0f;
     gm_value_t v136 = GM_VALUE_UNDEFINED_INIT;
-    double t137 = 0.0;
+    float t137 = 0.0f;
     (void)self;
     (void)other;
     (void)l_color0;
@@ -978,69 +978,69 @@ static void gml_ev_oGame__Draw_64_body(gm_instance_t *self, gm_instance_t *other
     (void)v136;
     (void)t137;
     if (gml_truthy(self->vars[VAR_paused])) {
-        l_color0 = (16777215.0 /* c_white */);
-        l_color1 = (16777215.0 /* c_white */);
-        l_color2 = (16777215.0 /* c_white */);
-        l_color3 = (16777215.0 /* c_white */);
-        l_color4 = (16777215.0 /* c_white */);
-        l_color5 = (16777215.0 /* c_white */);
-        l_color6 = (16777215.0 /* c_white */);
-        l_color7 = (16777215.0 /* c_white */);
-        l_color8 = (16777215.0 /* c_white */);
+        l_color0 = (16777215.0f /* c_white */);
+        l_color1 = (16777215.0f /* c_white */);
+        l_color2 = (16777215.0f /* c_white */);
+        l_color3 = (16777215.0f /* c_white */);
+        l_color4 = (16777215.0f /* c_white */);
+        l_color5 = (16777215.0f /* c_white */);
+        l_color6 = (16777215.0f /* c_white */);
+        l_color7 = (16777215.0f /* c_white */);
+        l_color8 = (16777215.0f /* c_white */);
         t1 = self->vars[VAR_menuItemIndex];
-        b2 = (gml_rcase(t1, 0.0) ? 0 : gml_rcase(t1, 1.0) ? 1 : gml_rcase(t1, 2.0) ? 2 : gml_rcase(t1, 3.0) ? 3 : gml_rcase(t1, 4.0) ? 4 : gml_rcase(t1, 5.0) ? 5 : gml_rcase(t1, 6.0) ? 6 : gml_rcase(t1, 7.0) ? 7 : gml_rcase(t1, 8.0) ? 8 : -1);
+        b2 = (gml_rcase(t1, 0.0f) ? 0 : gml_rcase(t1, 1.0f) ? 1 : gml_rcase(t1, 2.0f) ? 2 : gml_rcase(t1, 3.0f) ? 3 : gml_rcase(t1, 4.0f) ? 4 : gml_rcase(t1, 5.0f) ? 5 : gml_rcase(t1, 6.0f) ? 6 : gml_rcase(t1, 7.0f) ? 7 : gml_rcase(t1, 8.0f) ? 8 : -1);
         switch (b2) {
         case 0:
             {
-                l_color0 = (65535.0 /* c_yellow */);
+                l_color0 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 1:
             {
-                l_color1 = (65535.0 /* c_yellow */);
+                l_color1 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 2:
             {
-                l_color2 = (65535.0 /* c_yellow */);
+                l_color2 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 3:
             {
-                l_color3 = (65535.0 /* c_yellow */);
+                l_color3 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 4:
             {
-                l_color4 = (65535.0 /* c_yellow */);
+                l_color4 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 5:
             {
-                l_color5 = (65535.0 /* c_yellow */);
+                l_color5 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 6:
             {
-                l_color6 = (65535.0 /* c_yellow */);
+                l_color6 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 7:
             {
-                l_color7 = (65535.0 /* c_yellow */);
+                l_color7 = (65535.0f /* c_yellow */);
                 break;
             }
         /* fall through */
         case 8:
             {
-                l_color8 = (65535.0 /* c_yellow */);
+                l_color8 = (65535.0f /* c_yellow */);
                 break;
             }
         }
@@ -1063,80 +1063,80 @@ static void gml_ev_oGame__Draw_64_body(gm_instance_t *self, gm_instance_t *other
         l_strLocaleName2 = gml_fn_string_upper(self, other, gml_as_str(gml_struct_get(gml_struct_get(g_gml_gvals[GV_localesTr], g_gml_gvals[GV_locale]), g_gml_gvals[GV_locale2])));
         if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
             if (gml_truthy(g_gml_globals.html5Build)) {
-                (v4 = gml_vs(gml_concat((s3 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s3, l_strMusic)), ">")), t5 = l_color0, gml_script_drawTextHCentered(self, other, 5, v4, "small", t5, 0.0, self->vars[VAR_firstMenuItemTitleY]));
-                (v6 = gml_vs(gml_script_tr(self, other, 1, "KEYBOARD CONFIGURATION")), t7 = l_color1, gml_script_drawTextHCentered(self, other, 5, v6, "small", t7, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 20.0)));
-                (v9 = gml_vs(gml_concat((s8 = gml_concat(gml_script_tr(self, other, 1, "GAMEPAD"), " <"), gml_concat(s8, gml_real_str(g_gml_globals.joyid))), ">")), t10 = l_color2, gml_script_drawTextHCentered(self, other, 5, v9, "small", t10, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 40.0)));
-                (v11 = gml_vs(gml_script_tr(self, other, 1, "GAMEPAD CONFIGURATION")), t12 = l_color3, gml_script_drawTextHCentered(self, other, 5, v11, "small", t12, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 60.0)));
-                (v14 = gml_vs(gml_concat((s13 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s13, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t15 = l_color4, gml_script_drawTextHCentered(self, other, 5, v14, "small", t15, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 80.0)));
-                (v17 = gml_vs(gml_concat((s16 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s16, l_strToggleRunEnabled)), ">")), t18 = l_color5, gml_script_drawTextHCentered(self, other, 5, v17, "small", t18, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 100.0)));
+                (v4 = gml_vs(gml_concat((s3 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s3, l_strMusic)), ">")), t5 = l_color0, gml_script_drawTextHCentered(self, other, 5, v4, "small", t5, 0.0f, self->vars[VAR_firstMenuItemTitleY]));
+                (v6 = gml_vs(gml_script_tr(self, other, 1, "KEYBOARD CONFIGURATION")), t7 = l_color1, gml_script_drawTextHCentered(self, other, 5, v6, "small", t7, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 20.0f)));
+                (v9 = gml_vs(gml_concat((s8 = gml_concat(gml_script_tr(self, other, 1, "GAMEPAD"), " <"), gml_concat(s8, gml_real_str(g_gml_globals.joyid))), ">")), t10 = l_color2, gml_script_drawTextHCentered(self, other, 5, v9, "small", t10, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 40.0f)));
+                (v11 = gml_vs(gml_script_tr(self, other, 1, "GAMEPAD CONFIGURATION")), t12 = l_color3, gml_script_drawTextHCentered(self, other, 5, v11, "small", t12, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 60.0f)));
+                (v14 = gml_vs(gml_concat((s13 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s13, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t15 = l_color4, gml_script_drawTextHCentered(self, other, 5, v14, "small", t15, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 80.0f)));
+                (v17 = gml_vs(gml_concat((s16 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s16, l_strToggleRunEnabled)), ">")), t18 = l_color5, gml_script_drawTextHCentered(self, other, 5, v17, "small", t18, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 100.0f)));
                 if (gml_truthy(g_gml_globals.mobileBuild)) {
-                    (v20 = gml_vs(gml_concat((s19 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s19, l_strLocaleName)), ">")), t21 = l_color6, gml_script_drawTextHCentered(self, other, 5, v20, "small", t21, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 120.0)));
-                    (v22 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t23 = l_color7, gml_script_drawTextHCentered(self, other, 5, v22, "small", t23, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 140.0)));
+                    (v20 = gml_vs(gml_concat((s19 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s19, l_strLocaleName)), ">")), t21 = l_color6, gml_script_drawTextHCentered(self, other, 5, v20, "small", t21, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 120.0f)));
+                    (v22 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t23 = l_color7, gml_script_drawTextHCentered(self, other, 5, v22, "small", t23, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 140.0f)));
                 } else {
                     if (gml_truthy(g_gml_globals.browserBuild)) {
-                        (v24 = gml_vs(gml_script_tr(self, other, 1, "TOGGLE FULLSCREEN")), t25 = l_color6, gml_script_drawTextHCentered(self, other, 5, v24, "small", t25, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 120.0)));
-                        (v27 = gml_vs(gml_concat((s26 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s26, l_strLocaleName)), ">")), t28 = l_color7, gml_script_drawTextHCentered(self, other, 5, v27, "small", t28, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 140.0)));
-                        (v29 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t30 = l_color8, gml_script_drawTextHCentered(self, other, 5, v29, "small", t30, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 160.0)));
+                        (v24 = gml_vs(gml_script_tr(self, other, 1, "TOGGLE FULLSCREEN")), t25 = l_color6, gml_script_drawTextHCentered(self, other, 5, v24, "small", t25, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 120.0f)));
+                        (v27 = gml_vs(gml_concat((s26 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s26, l_strLocaleName)), ">")), t28 = l_color7, gml_script_drawTextHCentered(self, other, 5, v27, "small", t28, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 140.0f)));
+                        (v29 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t30 = l_color8, gml_script_drawTextHCentered(self, other, 5, v29, "small", t30, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 160.0f)));
                     } else {
-                        (v32 = gml_vs(gml_concat((s31 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s31, l_strFullscreen)), ">")), t33 = l_color6, gml_script_drawTextHCentered(self, other, 5, v32, "small", t33, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 120.0)));
-                        (v35 = gml_vs(gml_concat((s34 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s34, l_strLocaleName)), ">")), t36 = l_color7, gml_script_drawTextHCentered(self, other, 5, v35, "small", t36, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 140.0)));
-                        (v37 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t38 = l_color8, gml_script_drawTextHCentered(self, other, 5, v37, "small", t38, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 160.0)));
+                        (v32 = gml_vs(gml_concat((s31 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s31, l_strFullscreen)), ">")), t33 = l_color6, gml_script_drawTextHCentered(self, other, 5, v32, "small", t33, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 120.0f)));
+                        (v35 = gml_vs(gml_concat((s34 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s34, l_strLocaleName)), ">")), t36 = l_color7, gml_script_drawTextHCentered(self, other, 5, v35, "small", t36, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 140.0f)));
+                        (v37 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t38 = l_color8, gml_script_drawTextHCentered(self, other, 5, v37, "small", t38, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 160.0f)));
                     }
                 }
             } else {
-                (v40 = gml_vs(gml_concat((s39 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s39, l_strMusic)), ">")), t41 = l_color0, gml_script_drawTextHCentered(self, other, 5, v40, "small", t41, 0.0, self->vars[VAR_firstMenuItemTitleY]));
-                (v42 = gml_vs(gml_script_tr(self, other, 1, "KEYBOARD CONFIGURATION")), t43 = l_color1, gml_script_drawTextHCentered(self, other, 5, v42, "small", t43, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 20.0)));
-                (v44 = gml_vs(gml_script_tr(self, other, 1, "GAMEPAD CONFIGURATION")), t45 = l_color2, gml_script_drawTextHCentered(self, other, 5, v44, "small", t45, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 40.0)));
-                (v47 = gml_vs(gml_concat((s46 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s46, l_strToggleRunEnabled)), ">")), t48 = l_color3, gml_script_drawTextHCentered(self, other, 5, v47, "small", t48, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 60.0)));
+                (v40 = gml_vs(gml_concat((s39 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s39, l_strMusic)), ">")), t41 = l_color0, gml_script_drawTextHCentered(self, other, 5, v40, "small", t41, 0.0f, self->vars[VAR_firstMenuItemTitleY]));
+                (v42 = gml_vs(gml_script_tr(self, other, 1, "KEYBOARD CONFIGURATION")), t43 = l_color1, gml_script_drawTextHCentered(self, other, 5, v42, "small", t43, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 20.0f)));
+                (v44 = gml_vs(gml_script_tr(self, other, 1, "GAMEPAD CONFIGURATION")), t45 = l_color2, gml_script_drawTextHCentered(self, other, 5, v44, "small", t45, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 40.0f)));
+                (v47 = gml_vs(gml_concat((s46 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s46, l_strToggleRunEnabled)), ">")), t48 = l_color3, gml_script_drawTextHCentered(self, other, 5, v47, "small", t48, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 60.0f)));
                 if (gml_truthy(g_gml_globals.mobileBuild)) {
-                    (v50 = gml_vs(gml_concat((s49 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s49, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t51 = l_color4, gml_script_drawTextHCentered(self, other, 5, v50, "small", t51, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 80.0)));
-                    (v53 = gml_vs(gml_concat((s52 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s52, l_strLocaleName)), ">")), t54 = l_color5, gml_script_drawTextHCentered(self, other, 5, v53, "small", t54, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 100.0)));
-                    (v56 = gml_vs(gml_concat((s55 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s55, l_strLocaleName2)), ">")), t57 = l_color6, gml_script_drawTextHCentered(self, other, 5, v56, "small", t57, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 120.0)));
-                    (v58 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t59 = l_color7, gml_script_drawTextHCentered(self, other, 5, v58, "small", t59, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 140.0)));
+                    (v50 = gml_vs(gml_concat((s49 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s49, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t51 = l_color4, gml_script_drawTextHCentered(self, other, 5, v50, "small", t51, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 80.0f)));
+                    (v53 = gml_vs(gml_concat((s52 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s52, l_strLocaleName)), ">")), t54 = l_color5, gml_script_drawTextHCentered(self, other, 5, v53, "small", t54, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 100.0f)));
+                    (v56 = gml_vs(gml_concat((s55 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s55, l_strLocaleName2)), ">")), t57 = l_color6, gml_script_drawTextHCentered(self, other, 5, v56, "small", t57, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 120.0f)));
+                    (v58 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t59 = l_color7, gml_script_drawTextHCentered(self, other, 5, v58, "small", t59, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 140.0f)));
                 } else {
-                    (v61 = gml_vs(gml_concat((s60 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s60, l_strFullscreen)), ">")), t62 = l_color4, gml_script_drawTextHCentered(self, other, 5, v61, "small", t62, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 80.0)));
-                    (v64 = gml_vs(gml_concat((s63 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s63, l_strLocaleName)), ">")), t65 = l_color5, gml_script_drawTextHCentered(self, other, 5, v64, "small", t65, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 100.0)));
-                    (v67 = gml_vs(gml_concat((s66 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s66, l_strLocaleName2)), ">")), t68 = l_color6, gml_script_drawTextHCentered(self, other, 5, v67, "small", t68, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 120.0)));
-                    (v69 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t70 = l_color7, gml_script_drawTextHCentered(self, other, 5, v69, "small", t70, 0.0, (self->vars[VAR_firstMenuItemTitleY] + 140.0)));
+                    (v61 = gml_vs(gml_concat((s60 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s60, l_strFullscreen)), ">")), t62 = l_color4, gml_script_drawTextHCentered(self, other, 5, v61, "small", t62, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 80.0f)));
+                    (v64 = gml_vs(gml_concat((s63 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s63, l_strLocaleName)), ">")), t65 = l_color5, gml_script_drawTextHCentered(self, other, 5, v64, "small", t65, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 100.0f)));
+                    (v67 = gml_vs(gml_concat((s66 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s66, l_strLocaleName2)), ">")), t68 = l_color6, gml_script_drawTextHCentered(self, other, 5, v67, "small", t68, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 120.0f)));
+                    (v69 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t70 = l_color7, gml_script_drawTextHCentered(self, other, 5, v69, "small", t70, 0.0f, (self->vars[VAR_firstMenuItemTitleY] + 140.0f)));
                 }
             }
         } else {
             if (gml_truthy(g_gml_globals.html5Build)) {
-                (v72 = gml_vs(gml_concat((s71 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s71, l_strMusic)), ">")), t73 = l_color0, gml_script_drawTextHCentered(self, other, 5, v72, "small", t73, 0.0, self->vars[VAR_firstMenuItemGameY]));
-                (v75 = gml_vs(gml_concat((s74 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s74, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t76 = l_color1, gml_script_drawTextHCentered(self, other, 5, v75, "small", t76, 0.0, (self->vars[VAR_firstMenuItemGameY] + 20.0)));
-                (v78 = gml_vs(gml_concat((s77 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s77, l_strToggleRunEnabled)), ">")), t79 = l_color2, gml_script_drawTextHCentered(self, other, 5, v78, "small", t79, 0.0, (self->vars[VAR_firstMenuItemGameY] + 40.0)));
+                (v72 = gml_vs(gml_concat((s71 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s71, l_strMusic)), ">")), t73 = l_color0, gml_script_drawTextHCentered(self, other, 5, v72, "small", t73, 0.0f, self->vars[VAR_firstMenuItemGameY]));
+                (v75 = gml_vs(gml_concat((s74 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s74, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t76 = l_color1, gml_script_drawTextHCentered(self, other, 5, v75, "small", t76, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 20.0f)));
+                (v78 = gml_vs(gml_concat((s77 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s77, l_strToggleRunEnabled)), ">")), t79 = l_color2, gml_script_drawTextHCentered(self, other, 5, v78, "small", t79, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 40.0f)));
                 if (gml_truthy(g_gml_globals.mobileBuild)) {
-                    (v81 = gml_vs(gml_concat((s80 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s80, l_strLocaleName)), ">")), t82 = l_color3, gml_script_drawTextHCentered(self, other, 5, v81, "small", t82, 0.0, (self->vars[VAR_firstMenuItemGameY] + 60.0)));
-                    (v83 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t84 = l_color4, gml_script_drawTextHCentered(self, other, 5, v83, "small", t84, 0.0, (self->vars[VAR_firstMenuItemGameY] + 80.0)));
-                    (v85 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t86 = l_color5, gml_script_drawTextHCentered(self, other, 5, v85, "small", t86, 0.0, (self->vars[VAR_firstMenuItemGameY] + 100.0)));
+                    (v81 = gml_vs(gml_concat((s80 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s80, l_strLocaleName)), ">")), t82 = l_color3, gml_script_drawTextHCentered(self, other, 5, v81, "small", t82, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 60.0f)));
+                    (v83 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t84 = l_color4, gml_script_drawTextHCentered(self, other, 5, v83, "small", t84, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 80.0f)));
+                    (v85 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t86 = l_color5, gml_script_drawTextHCentered(self, other, 5, v85, "small", t86, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 100.0f)));
                 } else {
                     if (gml_truthy(g_gml_globals.browserBuild)) {
-                        (v87 = gml_vs(gml_script_tr(self, other, 1, "TOGGLE FULLSCREEN")), t88 = l_color3, gml_script_drawTextHCentered(self, other, 5, v87, "small", t88, 0.0, (self->vars[VAR_firstMenuItemGameY] + 60.0)));
-                        (v90 = gml_vs(gml_concat((s89 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s89, l_strLocaleName)), ">")), t91 = l_color4, gml_script_drawTextHCentered(self, other, 5, v90, "small", t91, 0.0, (self->vars[VAR_firstMenuItemGameY] + 80.0)));
-                        (v92 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t93 = l_color5, gml_script_drawTextHCentered(self, other, 5, v92, "small", t93, 0.0, (self->vars[VAR_firstMenuItemGameY] + 100.0)));
-                        (v94 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t95 = l_color6, gml_script_drawTextHCentered(self, other, 5, v94, "small", t95, 0.0, (self->vars[VAR_firstMenuItemGameY] + 120.0)));
+                        (v87 = gml_vs(gml_script_tr(self, other, 1, "TOGGLE FULLSCREEN")), t88 = l_color3, gml_script_drawTextHCentered(self, other, 5, v87, "small", t88, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 60.0f)));
+                        (v90 = gml_vs(gml_concat((s89 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s89, l_strLocaleName)), ">")), t91 = l_color4, gml_script_drawTextHCentered(self, other, 5, v90, "small", t91, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 80.0f)));
+                        (v92 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t93 = l_color5, gml_script_drawTextHCentered(self, other, 5, v92, "small", t93, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 100.0f)));
+                        (v94 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t95 = l_color6, gml_script_drawTextHCentered(self, other, 5, v94, "small", t95, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 120.0f)));
                     } else {
-                        (v97 = gml_vs(gml_concat((s96 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s96, l_strFullscreen)), ">")), t98 = l_color3, gml_script_drawTextHCentered(self, other, 5, v97, "small", t98, 0.0, (self->vars[VAR_firstMenuItemGameY] + 60.0)));
-                        (v100 = gml_vs(gml_concat((s99 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s99, l_strLocaleName)), ">")), t101 = l_color4, gml_script_drawTextHCentered(self, other, 5, v100, "small", t101, 0.0, (self->vars[VAR_firstMenuItemGameY] + 80.0)));
-                        (v102 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t103 = l_color5, gml_script_drawTextHCentered(self, other, 5, v102, "small", t103, 0.0, (self->vars[VAR_firstMenuItemGameY] + 100.0)));
-                        (v104 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t105 = l_color6, gml_script_drawTextHCentered(self, other, 5, v104, "small", t105, 0.0, (self->vars[VAR_firstMenuItemGameY] + 120.0)));
+                        (v97 = gml_vs(gml_concat((s96 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s96, l_strFullscreen)), ">")), t98 = l_color3, gml_script_drawTextHCentered(self, other, 5, v97, "small", t98, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 60.0f)));
+                        (v100 = gml_vs(gml_concat((s99 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " <"), gml_concat(s99, l_strLocaleName)), ">")), t101 = l_color4, gml_script_drawTextHCentered(self, other, 5, v100, "small", t101, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 80.0f)));
+                        (v102 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t103 = l_color5, gml_script_drawTextHCentered(self, other, 5, v102, "small", t103, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 100.0f)));
+                        (v104 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t105 = l_color6, gml_script_drawTextHCentered(self, other, 5, v104, "small", t105, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 120.0f)));
                     }
                 }
             } else {
-                (v107 = gml_vs(gml_concat((s106 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s106, l_strMusic)), ">")), t108 = l_color0, gml_script_drawTextHCentered(self, other, 5, v107, "small", t108, 0.0, self->vars[VAR_firstMenuItemGameY]));
-                (v110 = gml_vs(gml_concat((s109 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s109, l_strToggleRunEnabled)), ">")), t111 = l_color1, gml_script_drawTextHCentered(self, other, 5, v110, "small", t111, 0.0, (self->vars[VAR_firstMenuItemGameY] + 20.0)));
+                (v107 = gml_vs(gml_concat((s106 = gml_concat(gml_script_tr(self, other, 1, "MUSIC"), " <"), gml_concat(s106, l_strMusic)), ">")), t108 = l_color0, gml_script_drawTextHCentered(self, other, 5, v107, "small", t108, 0.0f, self->vars[VAR_firstMenuItemGameY]));
+                (v110 = gml_vs(gml_concat((s109 = gml_concat(gml_script_tr(self, other, 1, "TOGGLEABLE RUN BUTTON"), " <"), gml_concat(s109, l_strToggleRunEnabled)), ">")), t111 = l_color1, gml_script_drawTextHCentered(self, other, 5, v110, "small", t111, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 20.0f)));
                 if (gml_truthy(g_gml_globals.mobileBuild)) {
-                    (v113 = gml_vs(gml_concat((s112 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s112, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t114 = l_color2, gml_script_drawTextHCentered(self, other, 5, v113, "small", t114, 0.0, (self->vars[VAR_firstMenuItemGameY] + 40.0)));
-                    (v116 = gml_vs(gml_concat((s115 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s115, l_strLocaleName)), ">")), t117 = l_color3, gml_script_drawTextHCentered(self, other, 5, v116, "small", t117, 0.0, (self->vars[VAR_firstMenuItemGameY] + 60.0)));
-                    (v119 = gml_vs(gml_concat((s118 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s118, l_strLocaleName2)), ">")), t120 = l_color4, gml_script_drawTextHCentered(self, other, 5, v119, "small", t120, 0.0, (self->vars[VAR_firstMenuItemGameY] + 80.0)));
-                    (v121 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t122 = l_color5, gml_script_drawTextHCentered(self, other, 5, v121, "small", t122, 0.0, (self->vars[VAR_firstMenuItemGameY] + 100.0)));
-                    (v123 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t124 = l_color6, gml_script_drawTextHCentered(self, other, 5, v123, "small", t124, 0.0, (self->vars[VAR_firstMenuItemGameY] + 120.0)));
+                    (v113 = gml_vs(gml_concat((s112 = gml_concat(gml_script_tr(self, other, 1, "TOUCH CONTROLS VISIBILITY"), " <"), gml_concat(s112, gml_real_str(g_gml_globals.touchControlsVisibility))), ">")), t114 = l_color2, gml_script_drawTextHCentered(self, other, 5, v113, "small", t114, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 40.0f)));
+                    (v116 = gml_vs(gml_concat((s115 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s115, l_strLocaleName)), ">")), t117 = l_color3, gml_script_drawTextHCentered(self, other, 5, v116, "small", t117, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 60.0f)));
+                    (v119 = gml_vs(gml_concat((s118 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s118, l_strLocaleName2)), ">")), t120 = l_color4, gml_script_drawTextHCentered(self, other, 5, v119, "small", t120, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 80.0f)));
+                    (v121 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t122 = l_color5, gml_script_drawTextHCentered(self, other, 5, v121, "small", t122, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 100.0f)));
+                    (v123 = gml_vs(gml_script_tr(self, other, 1, "RESTART")), t124 = l_color6, gml_script_drawTextHCentered(self, other, 5, v123, "small", t124, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 120.0f)));
                 } else {
-                    (v126 = gml_vs(gml_concat((s125 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s125, l_strFullscreen)), ">")), t127 = l_color2, gml_script_drawTextHCentered(self, other, 5, v126, "small", t127, 0.0, (self->vars[VAR_firstMenuItemGameY] + 40.0)));
-                    (v129 = gml_vs(gml_concat((s128 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s128, l_strLocaleName)), ">")), t130 = l_color3, gml_script_drawTextHCentered(self, other, 5, v129, "small", t130, 0.0, (self->vars[VAR_firstMenuItemGameY] + 60.0)));
-                    (v132 = gml_vs(gml_concat((s131 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s131, l_strLocaleName2)), ">")), t133 = l_color4, gml_script_drawTextHCentered(self, other, 5, v132, "small", t133, 0.0, (self->vars[VAR_firstMenuItemGameY] + 80.0)));
-                    (v134 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t135 = l_color5, gml_script_drawTextHCentered(self, other, 5, v134, "small", t135, 0.0, (self->vars[VAR_firstMenuItemGameY] + 100.0)));
-                    (v136 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t137 = l_color6, gml_script_drawTextHCentered(self, other, 5, v136, "small", t137, 0.0, (self->vars[VAR_firstMenuItemGameY] + 120.0)));
+                    (v126 = gml_vs(gml_concat((s125 = gml_concat(gml_script_tr(self, other, 1, "FULLSCREEN"), " <"), gml_concat(s125, l_strFullscreen)), ">")), t127 = l_color2, gml_script_drawTextHCentered(self, other, 5, v126, "small", t127, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 40.0f)));
+                    (v129 = gml_vs(gml_concat((s128 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 1 <"), gml_concat(s128, l_strLocaleName)), ">")), t130 = l_color3, gml_script_drawTextHCentered(self, other, 5, v129, "small", t130, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 60.0f)));
+                    (v132 = gml_vs(gml_concat((s131 = gml_concat(gml_script_tr(self, other, 1, "LANGUAGE"), " 2 <"), gml_concat(s131, l_strLocaleName2)), ">")), t133 = l_color4, gml_script_drawTextHCentered(self, other, 5, v132, "small", t133, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 80.0f)));
+                    (v134 = gml_vs(gml_script_tr(self, other, 1, "DIE!")), t135 = l_color5, gml_script_drawTextHCentered(self, other, 5, v134, "small", t135, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 100.0f)));
+                    (v136 = gml_vs(gml_script_tr(self, other, 1, "QUIT")), t137 = l_color6, gml_script_drawTextHCentered(self, other, 5, v136, "small", t137, 0.0f, (self->vars[VAR_firstMenuItemGameY] + 120.0f)));
                 }
             }
         }
@@ -1167,11 +1167,11 @@ void gml_ev_oGame__Draw_64(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     gm_value_t v1 = GM_VALUE_UNDEFINED_INIT;
-    double t2 = 0.0;
+    float t2 = 0.0f;
     gm_value_t v3 = GM_VALUE_UNDEFINED_INIT;
-    double t4 = 0.0;
+    float t4 = 0.0f;
     gm_value_t v5 = GM_VALUE_UNDEFINED_INIT;
-    double t6 = 0.0;
+    float t6 = 0.0f;
     const char *s7 = "";
     const char *s8 = "";
     const char *s9 = "";
@@ -1181,25 +1181,25 @@ static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
     const char *s13 = "";
     const char *s14 = "";
     gm_value_t v15 = GM_VALUE_UNDEFINED_INIT;
-    double t16 = 0.0;
+    float t16 = 0.0f;
     const char *s17 = "";
     const char *s18 = "";
     const char *s19 = "";
     const char *s20 = "";
     gm_value_t v21 = GM_VALUE_UNDEFINED_INIT;
-    double t22 = 0.0;
+    float t22 = 0.0f;
     gm_value_t v23 = GM_VALUE_UNDEFINED_INIT;
-    double t24 = 0.0;
+    float t24 = 0.0f;
     gm_value_t v25 = GM_VALUE_UNDEFINED_INIT;
-    double t26 = 0.0;
+    float t26 = 0.0f;
     gm_value_t v27 = GM_VALUE_UNDEFINED_INIT;
-    double t28 = 0.0;
+    float t28 = 0.0f;
     gm_value_t v29 = GM_VALUE_UNDEFINED_INIT;
-    double t30 = 0.0;
+    float t30 = 0.0f;
     gm_value_t v31 = GM_VALUE_UNDEFINED_INIT;
-    double t32 = 0.0;
+    float t32 = 0.0f;
     gm_value_t v33 = GM_VALUE_UNDEFINED_INIT;
-    double t34 = 0.0;
+    float t34 = 0.0f;
     (void)self;
     (void)other;
     (void)v1;
@@ -1236,17 +1236,17 @@ static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)t32;
     (void)v33;
     (void)t34;
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if ((gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead)) || gml_truthy(gml_script_isRoom(self, other, "rMoon")))) {
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if ((gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead)) || gml_truthy(gml_script_isRoom(self, other, "rMoon")))) {
             if (gml_truthy(gml_script_isLevel(self, other))) {
-                if (gml_gt(self->vars[VAR_drawStatus], 0.0)) {
-                    (v1 = gml_vs(gml_script_tr(self, other, 1, "GAME OVER")), t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v1, "large", (65535.0 /* c_yellow */), t2, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 32.0) + 16.0)));
+                if (gml_gt(self->vars[VAR_drawStatus], 0.0f)) {
+                    (v1 = gml_vs(gml_script_tr(self, other, 1, "GAME OVER")), t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v1, "large", (65535.0f /* c_yellow */), t2, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 32.0f) + 16.0f)));
                 }
-                if (gml_gt(self->vars[VAR_drawStatus], 1.0)) {
-                    (v3 = gml_vs(gml_script_tr(self, other, 1, "FINAL SCORE:")), t4 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v3, "small", (65535.0 /* c_yellow */), t4, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 64.0) + 16.0)));
+                if (gml_gt(self->vars[VAR_drawStatus], 1.0f)) {
+                    (v3 = gml_vs(gml_script_tr(self, other, 1, "FINAL SCORE:")), t4 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v3, "small", (65535.0f /* c_yellow */), t4, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 64.0f) + 16.0f)));
                 }
-                if (gml_gt(self->vars[VAR_drawStatus], 2.0)) {
-                    (v5 = gml_vs(gml_concat("$", gml_real_str(self->vars[VAR_moneyCount]))), t6 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v5, "large", (16777215.0 /* c_white */), t6, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 72.0) + 16.0)));
+                if (gml_gt(self->vars[VAR_drawStatus], 2.0f)) {
+                    (v5 = gml_vs(gml_concat("$", gml_real_str(self->vars[VAR_moneyCount]))), t6 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v5, "large", (16777215.0f /* c_white */), t6, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 72.0f) + 16.0f)));
                     if (gml_truthy(g_gml_globals.customLevel)) {
                         if (gml_vne(g_gml_gvals[GV_testLevel], gml_vs(""))) {
                             if (gml_truthy(g_gml_globals.gamepadOn)) {
@@ -1261,56 +1261,56 @@ static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
                                 self->strs[SVAR_str] = (s14 = (s13 = gml_script_tr(self, other, 1, "PRESS "), gml_concat(s13, gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal))), gml_concat(s14, gml_script_tr(self, other, 1, " TO LOAD ANOTHER LEVEL.")));
                             }
                         }
-                        (v15 = gml_vs(self->strs[SVAR_str]), t16 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v15, "small", (65535.0 /* c_yellow */), t16, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 120.0)));
+                        (v15 = gml_vs(self->strs[SVAR_str]), t16 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v15, "small", (65535.0f /* c_yellow */), t16, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 120.0f)));
                     } else {
                         if (gml_truthy(g_gml_globals.gamepadOn)) {
                             self->strs[SVAR_str] = (s18 = (s17 = gml_script_tr(self, other, 1, "PRESS "), gml_concat(s17, gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal]))), gml_concat(s18, gml_script_tr(self, other, 1, " FOR HIGH SCORES.")));
                         } else {
                             self->strs[SVAR_str] = (s20 = (s19 = gml_script_tr(self, other, 1, "PRESS "), gml_concat(s19, gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal))), gml_concat(s20, gml_script_tr(self, other, 1, " FOR HIGH SCORES.")));
                         }
-                        (v21 = gml_vs(self->strs[SVAR_str]), t22 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v21, "small", (65535.0 /* c_yellow */), t22, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 120.0)));
+                        (v21 = gml_vs(self->strs[SVAR_str]), t22 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v21, "small", (65535.0f /* c_yellow */), t22, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 120.0f)));
                     }
                 }
             } else {
                 if (gml_truthy(gml_script_isRoom(self, other, "rSun"))) {
-                    if (gml_gt(self->vars[VAR_drawStatus], 0.0)) {
-                        (v23 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t24 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v23, "large", (65535.0 /* c_yellow */), t24, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 32.0) + 16.0)));
+                    if (gml_gt(self->vars[VAR_drawStatus], 0.0f)) {
+                        (v23 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t24 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v23, "large", (65535.0f /* c_yellow */), t24, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 32.0f) + 16.0f)));
                     }
-                    if (gml_gt(self->vars[VAR_drawStatus], 1.0)) {
-                        if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oSunRoom), self, other), VAR_highscore))) {
+                    if (gml_gt(self->vars[VAR_drawStatus], 1.0f)) {
+                        if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oSunRoom), self, other), VAR_highscore))) {
                             self->strs[SVAR_str] = gml_script_tr(self, other, 1, "YOU SET A NEW RECORD!");
                         } else {
                             self->strs[SVAR_str] = gml_script_tr(self, other, 1, "BETTER LUCK NEXT TIME...");
                         }
-                        (v25 = gml_vs(self->strs[SVAR_str]), t26 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v25, "small", (65535.0 /* c_yellow */), t26, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 64.0) + 16.0)));
+                        (v25 = gml_vs(self->strs[SVAR_str]), t26 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v25, "small", (65535.0f /* c_yellow */), t26, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 64.0f) + 16.0f)));
                     }
                 } else {
                     if (gml_truthy(gml_script_isRoom(self, other, "rMoon"))) {
-                        if (gml_lt(gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_timer), 0.0)) {
-                            if (gml_gt(self->vars[VAR_drawStatus], 0.0)) {
-                                (v27 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t28 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v27, "large", (65535.0 /* c_yellow */), t28, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 32.0) + 16.0)));
+                        if (gml_lt(gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_timer), 0.0f)) {
+                            if (gml_gt(self->vars[VAR_drawStatus], 0.0f)) {
+                                (v27 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t28 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v27, "large", (65535.0f /* c_yellow */), t28, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 32.0f) + 16.0f)));
                             }
-                            if (gml_gt(self->vars[VAR_drawStatus], 1.0)) {
-                                if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_highscore))) {
+                            if (gml_gt(self->vars[VAR_drawStatus], 1.0f)) {
+                                if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_highscore))) {
                                     self->strs[SVAR_str] = gml_script_tr(self, other, 1, "YOU SET A NEW RECORD!");
                                 } else {
                                     self->strs[SVAR_str] = gml_script_tr(self, other, 1, "BETTER LUCK NEXT TIME...");
                                 }
-                                (v29 = gml_vs(self->strs[SVAR_str]), t30 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v29, "small", (65535.0 /* c_yellow */), t30, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 64.0) + 16.0)));
+                                (v29 = gml_vs(self->strs[SVAR_str]), t30 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v29, "small", (65535.0f /* c_yellow */), t30, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 64.0f) + 16.0f)));
                             }
                         }
                     } else {
                         if (gml_truthy(gml_script_isRoom(self, other, "rStars"))) {
-                            if (gml_gt(self->vars[VAR_drawStatus], 0.0)) {
-                                (v31 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t32 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v31, "large", (65535.0 /* c_yellow */), t32, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 32.0) + 16.0)));
+                            if (gml_gt(self->vars[VAR_drawStatus], 0.0f)) {
+                                (v31 = gml_vs(gml_script_tr(self, other, 1, "FINISHED!")), t32 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v31, "large", (65535.0f /* c_yellow */), t32, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 32.0f) + 16.0f)));
                             }
-                            if (gml_gt(self->vars[VAR_drawStatus], 1.0)) {
-                                if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oStarsRoom), self, other), VAR_highscore))) {
+                            if (gml_gt(self->vars[VAR_drawStatus], 1.0f)) {
+                                if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oStarsRoom), self, other), VAR_highscore))) {
                                     self->strs[SVAR_str] = gml_script_tr(self, other, 1, "YOU SET A NEW RECORD!");
                                 } else {
                                     self->strs[SVAR_str] = gml_script_tr(self, other, 1, "BETTER LUCK NEXT TIME...");
                                 }
-                                (v33 = gml_vs(self->strs[SVAR_str]), t34 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), gml_script_drawTextHCentered(self, other, 5, v33, "small", (65535.0 /* c_yellow */), t34, ((gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 64.0) + 16.0)));
+                                (v33 = gml_vs(self->strs[SVAR_str]), t34 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), gml_script_drawTextHCentered(self, other, 5, v33, "small", (65535.0f /* c_yellow */), t34, ((gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 64.0f) + 16.0f)));
                             }
                         }
                     }
@@ -1318,15 +1318,15 @@ static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
             }
         }
     }
-    gml_script_action_color(self, other, 16777215.0);
-    if ((gml_truthy(0.0) && gml_eq(gml_gget_room(), ((double)RM_rLevel)))) {
-        for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 4.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-            for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 4.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-                gml_fn_draw_text(self, other, ((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 48.0) + (self->vars[VAR_i] * 16.0)), (((gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 64.0) + 16.0) + (self->vars[VAR_j] * 16.0)), gml_fn_string_hash_to_newline(self, other, gml_fn_string(self, other, gml_aget(gml_aget(g_gml_gvals[GV_roomPath], self->vars[VAR_i]), self->vars[VAR_j]))));
+    gml_script_action_color(self, other, 16777215.0f);
+    if ((gml_truthy(0.0f) && gml_eq(gml_gget_room(), ((float)RM_rLevel)))) {
+        for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 4.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+            for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 4.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+                gml_fn_draw_text(self, other, ((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 48.0f) + (self->vars[VAR_i] * 16.0f)), (((gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 64.0f) + 16.0f) + (self->vars[VAR_j] * 16.0f)), gml_fn_string_hash_to_newline(self, other, gml_fn_string(self, other, gml_aget(gml_aget(g_gml_gvals[GV_roomPath], self->vars[VAR_i]), self->vars[VAR_j]))));
             }
         }
     }
-    if ((gml_truthy(0.0) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
+    if ((gml_truthy(0.0f) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
         self->vars[VAR_file] = gml_fn_file_text_open_read(self, other, gml_concat(gml_gget_working_directory(), "stats.txt"));
         if (gml_truthy(self->vars[VAR_file])) {
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
@@ -1334,23 +1334,23 @@ static void gml_ev_oGame__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
             g_gml_globals.totalCrates = gml_str_to_real(self->strs[SVAR_str]);
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 16.0), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 16.0), gml_fn_string_hash_to_newline(self, other, self->strs[SVAR_str]));
+            gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 16.0f), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 16.0f), gml_fn_string_hash_to_newline(self, other, self->strs[SVAR_str]));
             gml_fn_file_text_close(self, other, self->vars[VAR_file]);
         }
     }
-    if ((gml_truthy(0.0) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1))))) {
+    if ((gml_truthy(0.0f) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1))))) {
         gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-        gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 16.0), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 16.0), gml_fn_string_hash_to_newline(self, other, gml_real_str(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_stunTimer))));
+        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+        gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 16.0f), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 16.0f), gml_fn_string_hash_to_newline(self, other, gml_real_str(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_stunTimer))));
     }
-    gml_script_action_color(self, other, (-100.0));
-    if (((gml_truthy(0.0) && gml_eq(gml_gget_room(), ((double)RM_rLevel))) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oXMarket))))) {
-        gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 24.0), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 48.0), gml_fn_string_hash_to_newline(self, other, gml_real_str((gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_x(gml_deref(((double)OBJ_oXMarket), self, other))))));
-        gml_fn_draw_text(self, other, gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 48.0), gml_fn_string_hash_to_newline(self, other, gml_real_str((gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - gml_iget_y(gml_deref(((double)OBJ_oXMarket), self, other))))));
+    gml_script_action_color(self, other, (-100.0f));
+    if (((gml_truthy(0.0f) && gml_eq(gml_gget_room(), ((float)RM_rLevel))) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oXMarket))))) {
+        gml_fn_draw_text(self, other, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 24.0f), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 48.0f), gml_fn_string_hash_to_newline(self, other, gml_real_str((gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_x(gml_deref(((float)OBJ_oXMarket), self, other))))));
+        gml_fn_draw_text(self, other, gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 48.0f), gml_fn_string_hash_to_newline(self, other, gml_real_str((gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - gml_iget_y(gml_deref(((float)OBJ_oXMarket), self, other))))));
     }
     if (gml_truthy(g_gml_globals.html5Build)) {
         gml_script_scrDrawHUD(self, other);

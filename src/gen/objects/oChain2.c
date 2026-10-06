@@ -6,7 +6,7 @@ static void gml_ev_oChain2__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     self->strs[SVAR_type] = "Chain";
-    self->vars[VAR_linkVal] = 2.0;
+    self->vars[VAR_linkVal] = 2.0f;
 }
 
 void gml_ev_oChain2__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,12 +20,12 @@ static void gml_ev_oChain2__Step_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy)))) {
-        gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oBall2), self, other)) + (((gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)) - gml_iget_x(gml_deref(((double)OBJ_oBall2), self, other))) / 4.0) * self->vars[VAR_linkVal])));
-        gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oBall2), self, other)) + (((gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)) - gml_iget_y(gml_deref(((double)OBJ_oBall2), self, other))) / 4.0) * self->vars[VAR_linkVal])));
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy)))) {
+        gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oBall2), self, other)) + (((gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)) - gml_iget_x(gml_deref(((float)OBJ_oBall2), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
+        gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oBall2), self, other)) + (((gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)) - gml_iget_y(gml_deref(((float)OBJ_oBall2), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
     } else {
-        gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oBall2), self, other)) + (((280.0 - gml_iget_x(gml_deref(((double)OBJ_oBall2), self, other))) / 4.0) * self->vars[VAR_linkVal])));
-        gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oBall2), self, other)) + (((184.0 - gml_iget_y(gml_deref(((double)OBJ_oBall2), self, other))) / 4.0) * self->vars[VAR_linkVal])));
+        gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oBall2), self, other)) + (((280.0f - gml_iget_x(gml_deref(((float)OBJ_oBall2), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
+        gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oBall2), self, other)) + (((184.0f - gml_iget_y(gml_deref(((float)OBJ_oBall2), self, other))) / 4.0f) * self->vars[VAR_linkVal])));
     }
 }
 

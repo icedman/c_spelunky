@@ -5,43 +5,43 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
     gm_value_t v1 = GM_VALUE_UNDEFINED_INIT;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     int b6 = 0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
     int b10 = 0;
-    double t11 = 0.0;
+    float t11 = 0.0f;
     int b12 = 0;
-    double t13 = 0.0;
+    float t13 = 0.0f;
     int b14 = 0;
-    double t15 = 0.0;
+    float t15 = 0.0f;
     int b16 = 0;
-    double t17 = 0.0;
+    float t17 = 0.0f;
     int b18 = 0;
-    double t19 = 0.0;
+    float t19 = 0.0f;
     int b20 = 0;
-    double t21 = 0.0;
+    float t21 = 0.0f;
     int b22 = 0;
-    double t23 = 0.0;
+    float t23 = 0.0f;
     int b24 = 0;
-    double t25 = 0.0;
+    float t25 = 0.0f;
     int b26 = 0;
-    double t27 = 0.0;
+    float t27 = 0.0f;
     int b28 = 0;
-    double t29 = 0.0;
+    float t29 = 0.0f;
     int b30 = 0;
-    double t31 = 0.0;
+    float t31 = 0.0f;
     int b32 = 0;
-    double t33 = 0.0;
+    float t33 = 0.0f;
     int b34 = 0;
-    double t35 = 0.0;
+    float t35 = 0.0f;
     int b36 = 0;
-    double t37 = 0.0;
-    double t38 = 0.0;
+    float t37 = 0.0f;
+    float t38 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -86,13 +86,13 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
     self->strs[SVAR_strTemp] = "00000000000000000000000000000000000000000000000000000000000000000000000000000000";
     self->vars[VAR_roomPath] = gml_real((v1 = g_gml_gvals[GV_roomPath], t2 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_aget(gml_aget(v1, t2), gml_script_scrGetRoomY(self, other, gml_iget_y(self)))));
     if (((t3 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_eq(t3, g_gml_globals.startRoomX)) && (t4 = gml_script_scrGetRoomY(self, other, gml_iget_y(self)), gml_eq(t4, g_gml_globals.startRoomY)))) {
-        if (gml_eq(self->vars[VAR_roomPath], 2.0)) {
-            self->vars[VAR_n] = gml_script_rand(self, other, 2.0, 2.0);
+        if (gml_eq(self->vars[VAR_roomPath], 2.0f)) {
+            self->vars[VAR_n] = gml_script_rand(self, other, 2.0f, 2.0f);
         } else {
-            self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 1.0);
+            self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 1.0f);
         }
         t5 = self->vars[VAR_n];
-        b6 = (gml_rcase(t5, 1.0) ? 0 : gml_rcase(t5, 2.0) ? 1 : -1);
+        b6 = (gml_rcase(t5, 1.0f) ? 0 : gml_rcase(t5, 2.0f) ? 1 : -1);
         switch (b6) {
         case 0:
             {
@@ -108,9 +108,9 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
         }
     } else {
         if (((t7 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_eq(t7, g_gml_globals.endRoomX)) && (t8 = gml_script_scrGetRoomY(self, other, gml_iget_y(self)), gml_eq(t8, g_gml_globals.endRoomY)))) {
-            self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 1.0);
+            self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 1.0f);
             t9 = self->vars[VAR_n];
-            b10 = (gml_rcase(t9, 1.0) ? 0 : -1);
+            b10 = (gml_rcase(t9, 1.0f) ? 0 : -1);
             switch (b10) {
             case 0:
                 {
@@ -119,22 +119,22 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                 }
             }
         } else {
-            if ((gml_eq(self->vars[VAR_roomPath], 0.0) && gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0))) {
-                if (((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_altar))) && gml_eq(gml_script_rand(self, other, 1.0, 12.0), 1.0))) {
-                    self->vars[VAR_n] = 10.0;
-                    gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_altar, 1.0);
+            if ((gml_eq(self->vars[VAR_roomPath], 0.0f) && gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f))) {
+                if (((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_altar))) && gml_eq(gml_script_rand(self, other, 1.0f, 12.0f), 1.0f))) {
+                    self->vars[VAR_n] = 10.0f;
+                    gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_altar, 1.0f);
                 } else {
-                    if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_idol))) {
-                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 8.0);
+                    if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_idol))) {
+                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 8.0f);
                     } else {
-                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 9.0);
-                        if (gml_eq(self->vars[VAR_n], 9.0)) {
-                            gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_idol, 1.0);
+                        self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 9.0f);
+                        if (gml_eq(self->vars[VAR_n], 9.0f)) {
+                            gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_idol, 1.0f);
                         }
                     }
                 }
                 t11 = self->vars[VAR_n];
-                b12 = (gml_rcase(t11, 1.0) ? 0 : gml_rcase(t11, 2.0) ? 1 : gml_rcase(t11, 3.0) ? 2 : gml_rcase(t11, 4.0) ? 3 : gml_rcase(t11, 5.0) ? 4 : gml_rcase(t11, 6.0) ? 5 : gml_rcase(t11, 7.0) ? 6 : gml_rcase(t11, 8.0) ? 7 : gml_rcase(t11, 9.0) ? 8 : gml_rcase(t11, 10.0) ? 9 : -1);
+                b12 = (gml_rcase(t11, 1.0f) ? 0 : gml_rcase(t11, 2.0f) ? 1 : gml_rcase(t11, 3.0f) ? 2 : gml_rcase(t11, 4.0f) ? 3 : gml_rcase(t11, 5.0f) ? 4 : gml_rcase(t11, 6.0f) ? 5 : gml_rcase(t11, 7.0f) ? 6 : gml_rcase(t11, 8.0f) ? 7 : gml_rcase(t11, 9.0f) ? 8 : gml_rcase(t11, 10.0f) ? 9 : -1);
                 switch (b12) {
                 case 0:
                     {
@@ -197,9 +197,9 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                     }
                 }
             } else {
-                if ((((gml_eq(self->vars[VAR_roomPath], 0.0) || gml_eq(self->vars[VAR_roomPath], 1.0)) || gml_eq(self->vars[VAR_roomPath], 2.0)) && gml_lt(gml_script_rand(self, other, 1.0, 10.0), 10.0))) {
-                    t13 = gml_script_rand(self, other, 1.0, 9.0);
-                    b14 = (gml_rcase(t13, 1.0) ? 0 : gml_rcase(t13, 2.0) ? 1 : gml_rcase(t13, 3.0) ? 2 : gml_rcase(t13, 4.0) ? 3 : gml_rcase(t13, 5.0) ? 4 : gml_rcase(t13, 6.0) ? 5 : gml_rcase(t13, 7.0) ? 6 : gml_rcase(t13, 8.0) ? 7 : gml_rcase(t13, 9.0) ? 8 : -1);
+                if ((((gml_eq(self->vars[VAR_roomPath], 0.0f) || gml_eq(self->vars[VAR_roomPath], 1.0f)) || gml_eq(self->vars[VAR_roomPath], 2.0f)) && gml_lt(gml_script_rand(self, other, 1.0f, 10.0f), 10.0f))) {
+                    t13 = gml_script_rand(self, other, 1.0f, 9.0f);
+                    b14 = (gml_rcase(t13, 1.0f) ? 0 : gml_rcase(t13, 2.0f) ? 1 : gml_rcase(t13, 3.0f) ? 2 : gml_rcase(t13, 4.0f) ? 3 : gml_rcase(t13, 5.0f) ? 4 : gml_rcase(t13, 6.0f) ? 5 : gml_rcase(t13, 7.0f) ? 6 : gml_rcase(t13, 8.0f) ? 7 : gml_rcase(t13, 9.0f) ? 8 : -1);
                     switch (b14) {
                     case 0:
                         {
@@ -256,10 +256,10 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                         }
                     }
                 } else {
-                    if (gml_eq(self->vars[VAR_roomPath], 4.0)) {
+                    if (gml_eq(self->vars[VAR_roomPath], 4.0f)) {
                         self->strs[SVAR_strTemp] = "111111111111111111111111221111111l000211...000W010...00000k0..K$$$$000::::::::::";
-                        t15 = gml_script_rand(self, other, 1.0, 7.0);
-                        b16 = (gml_rcase(t15, 1.0) ? 0 : gml_rcase(t15, 2.0) ? 1 : gml_rcase(t15, 3.0) ? 2 : gml_rcase(t15, 4.0) ? 3 : gml_rcase(t15, 5.0) ? 4 : gml_rcase(t15, 6.0) ? 5 : gml_rcase(t15, 7.0) ? 6 : -1);
+                        t15 = gml_script_rand(self, other, 1.0f, 7.0f);
+                        b16 = (gml_rcase(t15, 1.0f) ? 0 : gml_rcase(t15, 2.0f) ? 1 : gml_rcase(t15, 3.0f) ? 2 : gml_rcase(t15, 4.0f) ? 3 : gml_rcase(t15, 5.0f) ? 4 : gml_rcase(t15, 6.0f) ? 5 : gml_rcase(t15, 7.0f) ? 6 : -1);
                         switch (b16) {
                         case 0:
                             {
@@ -302,15 +302,15 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                             {
                                 self->strs[SVAR_shopType] = "Kissing";
                                 self->strs[SVAR_strTemp] = "111111111111111111111111221111111l000211...000W010...00000k0..K00!0000::::::::::";
-                                gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_damsel, 1.0);
+                                gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_damsel, 1.0f);
                                 break;
                             }
                         }
                     } else {
-                        if (gml_eq(self->vars[VAR_roomPath], 5.0)) {
+                        if (gml_eq(self->vars[VAR_roomPath], 5.0f)) {
                             self->strs[SVAR_strTemp] = "111111111111111111111111221111112000l11101W0000...0k00000...000$$$$K..::::::::::";
-                            t17 = gml_script_rand(self, other, 1.0, 7.0);
-                            b18 = (gml_rcase(t17, 1.0) ? 0 : gml_rcase(t17, 2.0) ? 1 : gml_rcase(t17, 3.0) ? 2 : gml_rcase(t17, 4.0) ? 3 : gml_rcase(t17, 5.0) ? 4 : gml_rcase(t17, 6.0) ? 5 : gml_rcase(t17, 7.0) ? 6 : -1);
+                            t17 = gml_script_rand(self, other, 1.0f, 7.0f);
+                            b18 = (gml_rcase(t17, 1.0f) ? 0 : gml_rcase(t17, 2.0f) ? 1 : gml_rcase(t17, 3.0f) ? 2 : gml_rcase(t17, 4.0f) ? 3 : gml_rcase(t17, 5.0f) ? 4 : gml_rcase(t17, 6.0f) ? 5 : gml_rcase(t17, 7.0f) ? 6 : -1);
                             switch (b18) {
                             case 0:
                                 {
@@ -353,14 +353,14 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                 {
                                     self->strs[SVAR_shopType] = "Kissing";
                                     self->strs[SVAR_strTemp] = "111111111111111111111111221111112000l11101W0000...0k00000...0000!00K..::::::::::";
-                                    gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_damsel, 1.0);
+                                    gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_damsel, 1.0f);
                                     break;
                                 }
                             }
                         } else {
-                            if (gml_eq(self->vars[VAR_roomPath], 6.0)) {
-                                t19 = gml_script_rand(self, other, 1.0, 2.0);
-                                b20 = (gml_rcase(t19, 1.0) ? 0 : gml_rcase(t19, 2.0) ? 1 : -1);
+                            if (gml_eq(self->vars[VAR_roomPath], 6.0f)) {
+                                t19 = gml_script_rand(self, other, 1.0f, 2.0f);
+                                b20 = (gml_rcase(t19, 1.0f) ? 0 : gml_rcase(t19, 2.0f) ? 1 : -1);
                                 switch (b20) {
                                 case 0:
                                     {
@@ -375,9 +375,9 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                     }
                                 }
                             } else {
-                                if (gml_eq(self->vars[VAR_roomPath], 7.0)) {
-                                    t21 = gml_script_rand(self, other, 1.0, 1.0);
-                                    b22 = (gml_rcase(t21, 1.0) ? 0 : -1);
+                                if (gml_eq(self->vars[VAR_roomPath], 7.0f)) {
+                                    t21 = gml_script_rand(self, other, 1.0f, 1.0f);
+                                    b22 = (gml_rcase(t21, 1.0f) ? 0 : -1);
                                     switch (b22) {
                                     case 0:
                                         {
@@ -386,9 +386,9 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                         }
                                     }
                                 } else {
-                                    if (gml_eq(self->vars[VAR_roomPath], 8.0)) {
-                                        t23 = gml_script_rand(self, other, 1.0, 1.0);
-                                        b24 = (gml_rcase(t23, 1.0) ? 0 : -1);
+                                    if (gml_eq(self->vars[VAR_roomPath], 8.0f)) {
+                                        t23 = gml_script_rand(self, other, 1.0f, 1.0f);
+                                        b24 = (gml_rcase(t23, 1.0f) ? 0 : -1);
                                         switch (b24) {
                                         case 0:
                                             {
@@ -397,9 +397,9 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                             }
                                         }
                                     } else {
-                                        if (gml_eq(self->vars[VAR_roomPath], 9.0)) {
-                                            t25 = gml_script_rand(self, other, 1.0, 1.0);
-                                            b26 = (gml_rcase(t25, 1.0) ? 0 : -1);
+                                        if (gml_eq(self->vars[VAR_roomPath], 9.0f)) {
+                                            t25 = gml_script_rand(self, other, 1.0f, 1.0f);
+                                            b26 = (gml_rcase(t25, 1.0f) ? 0 : -1);
                                             switch (b26) {
                                             case 0:
                                                 {
@@ -408,8 +408,8 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                                 }
                                             }
                                         } else {
-                                            t27 = gml_script_rand(self, other, 1.0, 1.0);
-                                            b28 = (gml_rcase(t27, 1.0) ? 0 : -1);
+                                            t27 = gml_script_rand(self, other, 1.0f, 1.0f);
+                                            b28 = (gml_rcase(t27, 1.0f) ? 0 : -1);
                                             switch (b28) {
                                             case 0:
                                                 {
@@ -427,15 +427,15 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
             }
         }
     }
-    for (self->vars[VAR_i] = 1.0; gml_lt(self->vars[VAR_i], 81.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_i] = 1.0f; gml_lt(self->vars[VAR_i], 81.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
         self->vars[VAR_j] = self->vars[VAR_i];
         self->strs[SVAR_strObs1] = "00000";
         self->strs[SVAR_strObs2] = "00000";
         self->strs[SVAR_strObs3] = "00000";
         self->vals[VVAR_tile] = gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_strTemp], self->vars[VAR_i]));
         if (gml_veq(self->vals[VVAR_tile], gml_vs("8"))) {
-            t29 = gml_script_rand(self, other, 1.0, 6.0);
-            b30 = (gml_rcase(t29, 1.0) ? 0 : gml_rcase(t29, 2.0) ? 1 : gml_rcase(t29, 3.0) ? 2 : gml_rcase(t29, 4.0) ? 3 : gml_rcase(t29, 5.0) ? 4 : gml_rcase(t29, 6.0) ? 5 : -1);
+            t29 = gml_script_rand(self, other, 1.0f, 6.0f);
+            b30 = (gml_rcase(t29, 1.0f) ? 0 : gml_rcase(t29, 2.0f) ? 1 : gml_rcase(t29, 3.0f) ? 2 : gml_rcase(t29, 4.0f) ? 3 : gml_rcase(t29, 5.0f) ? 4 : gml_rcase(t29, 6.0f) ? 5 : -1);
             switch (b30) {
             case 0:
                 {
@@ -487,8 +487,8 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
             }
         } else {
             if (gml_veq(self->vals[VVAR_tile], gml_vs("5"))) {
-                t31 = gml_script_rand(self, other, 1.0, 15.0);
-                b32 = (gml_rcase(t31, 1.0) ? 0 : gml_rcase(t31, 2.0) ? 1 : gml_rcase(t31, 3.0) ? 2 : gml_rcase(t31, 4.0) ? 3 : gml_rcase(t31, 5.0) ? 4 : gml_rcase(t31, 6.0) ? 5 : gml_rcase(t31, 7.0) ? 6 : gml_rcase(t31, 8.0) ? 7 : gml_rcase(t31, 9.0) ? 8 : gml_rcase(t31, 10.0) ? 9 : gml_rcase(t31, 11.0) ? 10 : gml_rcase(t31, 12.0) ? 11 : gml_rcase(t31, 13.0) ? 12 : gml_rcase(t31, 14.0) ? 13 : gml_rcase(t31, 15.0) ? 14 : -1);
+                t31 = gml_script_rand(self, other, 1.0f, 15.0f);
+                b32 = (gml_rcase(t31, 1.0f) ? 0 : gml_rcase(t31, 2.0f) ? 1 : gml_rcase(t31, 3.0f) ? 2 : gml_rcase(t31, 4.0f) ? 3 : gml_rcase(t31, 5.0f) ? 4 : gml_rcase(t31, 6.0f) ? 5 : gml_rcase(t31, 7.0f) ? 6 : gml_rcase(t31, 8.0f) ? 7 : gml_rcase(t31, 9.0f) ? 8 : gml_rcase(t31, 10.0f) ? 9 : gml_rcase(t31, 11.0f) ? 10 : gml_rcase(t31, 12.0f) ? 11 : gml_rcase(t31, 13.0f) ? 12 : gml_rcase(t31, 14.0f) ? 13 : gml_rcase(t31, 15.0f) ? 14 : -1);
                 switch (b32) {
                 case 0:
                     {
@@ -612,8 +612,8 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                 }
             } else {
                 if (gml_veq(self->vals[VVAR_tile], gml_vs("6"))) {
-                    t33 = gml_script_rand(self, other, 1.0, 4.0);
-                    b34 = (gml_rcase(t33, 1.0) ? 0 : gml_rcase(t33, 2.0) ? 1 : gml_rcase(t33, 3.0) ? 2 : gml_rcase(t33, 4.0) ? 3 : -1);
+                    t33 = gml_script_rand(self, other, 1.0f, 4.0f);
+                    b34 = (gml_rcase(t33, 1.0f) ? 0 : gml_rcase(t33, 2.0f) ? 1 : gml_rcase(t33, 3.0f) ? 2 : gml_rcase(t33, 4.0f) ? 3 : -1);
                     switch (b34) {
                     case 0:
                         {
@@ -649,8 +649,8 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                     }
                 } else {
                     if (gml_veq(self->vals[VVAR_tile], gml_vs("F"))) {
-                        t35 = gml_script_rand(self, other, 1.0, 12.0);
-                        b36 = (gml_rcase(t35, 1.0) ? 0 : gml_rcase(t35, 2.0) ? 1 : gml_rcase(t35, 3.0) ? 2 : gml_rcase(t35, 4.0) ? 3 : gml_rcase(t35, 5.0) ? 4 : gml_rcase(t35, 6.0) ? 5 : gml_rcase(t35, 7.0) ? 6 : gml_rcase(t35, 8.0) ? 7 : gml_rcase(t35, 9.0) ? 8 : gml_rcase(t35, 10.0) ? 9 : gml_rcase(t35, 11.0) ? 10 : gml_rcase(t35, 12.0) ? 11 : -1);
+                        t35 = gml_script_rand(self, other, 1.0f, 12.0f);
+                        b36 = (gml_rcase(t35, 1.0f) ? 0 : gml_rcase(t35, 2.0f) ? 1 : gml_rcase(t35, 3.0f) ? 2 : gml_rcase(t35, 4.0f) ? 3 : gml_rcase(t35, 5.0f) ? 4 : gml_rcase(t35, 6.0f) ? 5 : gml_rcase(t35, 7.0f) ? 6 : gml_rcase(t35, 8.0f) ? 7 : gml_rcase(t35, 9.0f) ? 8 : gml_rcase(t35, 10.0f) ? 9 : gml_rcase(t35, 11.0f) ? 10 : gml_rcase(t35, 12.0f) ? 11 : -1);
                         switch (b36) {
                         case 0:
                             {
@@ -753,147 +753,147 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
             }
         }
         if (((gml_veq(self->vals[VVAR_tile], gml_vs("5")) || gml_veq(self->vals[VVAR_tile], gml_vs("6"))) || gml_veq(self->vals[VVAR_tile], gml_vs("8")))) {
-            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0);
+            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0f);
             self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs1], self->strs[SVAR_strTemp], self->vars[VAR_j]);
-            self->vars[VAR_j] = (self->vars[VAR_j] + 10.0);
-            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0);
+            self->vars[VAR_j] = (self->vars[VAR_j] + 10.0f);
+            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0f);
             self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs2], self->strs[SVAR_strTemp], self->vars[VAR_j]);
-            self->vars[VAR_j] = (self->vars[VAR_j] + 10.0);
-            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0);
+            self->vars[VAR_j] = (self->vars[VAR_j] + 10.0f);
+            self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 5.0f);
             self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs3], self->strs[SVAR_strTemp], self->vars[VAR_j]);
         } else {
             if (gml_veq(self->vals[VVAR_tile], gml_vs("F"))) {
-                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0);
+                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0f);
                 self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs1], self->strs[SVAR_strTemp], self->vars[VAR_j]);
-                self->vars[VAR_j] = (self->vars[VAR_j] + 10.0);
-                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0);
+                self->vars[VAR_j] = (self->vars[VAR_j] + 10.0f);
+                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0f);
                 self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs2], self->strs[SVAR_strTemp], self->vars[VAR_j]);
-                self->vars[VAR_j] = (self->vars[VAR_j] + 10.0);
-                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0);
+                self->vars[VAR_j] = (self->vars[VAR_j] + 10.0f);
+                self->strs[SVAR_strTemp] = gml_fn_string_delete(self, other, self->strs[SVAR_strTemp], self->vars[VAR_j], 3.0f);
                 self->strs[SVAR_strTemp] = gml_fn_string_insert(self, other, self->strs[SVAR_strObs3], self->strs[SVAR_strTemp], self->vars[VAR_j]);
             }
         }
     }
-    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 8.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-        for (self->vars[VAR_i] = 1.0; gml_lt(self->vars[VAR_i], 11.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-            self->vals[VVAR_tile] = gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_strTemp], (self->vars[VAR_i] + (self->vars[VAR_j] * 10.0))));
-            self->vars[VAR_xpos] = (gml_iget_x(self) + ((self->vars[VAR_i] - 1.0) * 16.0));
-            self->vars[VAR_ypos] = (gml_iget_y(self) + (self->vars[VAR_j] * 16.0));
-            if ((gml_veq(self->vals[VVAR_tile], gml_vs("1")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid), 0.0, 0.0))))) {
-                if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oIce)));
+    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 8.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+        for (self->vars[VAR_i] = 1.0f; gml_lt(self->vars[VAR_i], 11.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+            self->vals[VVAR_tile] = gml_vs(gml_fn_string_char_at(self, other, self->strs[SVAR_strTemp], (self->vars[VAR_i] + (self->vars[VAR_j] * 10.0f))));
+            self->vars[VAR_xpos] = (gml_iget_x(self) + ((self->vars[VAR_i] - 1.0f) * 16.0f));
+            self->vars[VAR_ypos] = (gml_iget_y(self) + (self->vars[VAR_j] * 16.0f));
+            if ((gml_veq(self->vals[VVAR_tile], gml_vs("1")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+                if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oIce)));
                 } else {
-                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark)));
+                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark)));
                 }
             } else {
-                if (((gml_veq(self->vals[VVAR_tile], gml_vs("2")) && gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid), 0.0, 0.0))))) {
-                    if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oIce)));
+                if (((gml_veq(self->vals[VVAR_tile], gml_vs("2")) && gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+                    if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oIce)));
                     } else {
-                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark)));
+                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark)));
                     }
                 } else {
                     if (gml_veq(self->vals[VVAR_tile], gml_vs("L"))) {
-                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oVine)));
+                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oVine)));
                     } else {
                         if (gml_veq(self->vals[VVAR_tile], gml_vs("P"))) {
-                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oVine)));
+                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oVine)));
                         } else {
                             if (gml_veq(self->vals[VVAR_tile], gml_vs("7"))) {
-                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSpikes)));
+                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSpikes)));
                             } else {
-                                if ((gml_veq(self->vals[VVAR_tile], gml_vs("4")) && gml_eq(gml_script_rand(self, other, 1.0, 4.0), 1.0))) {
-                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oPushBlock)));
+                                if ((gml_veq(self->vals[VVAR_tile], gml_vs("4")) && gml_eq(gml_script_rand(self, other, 1.0f, 4.0f), 1.0f))) {
+                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oPushBlock)));
                                 } else {
                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("9"))) {
-                                        self->vars[VAR_block] = gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0), ((double)OBJ_oDark));
+                                        self->vars[VAR_block] = gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0f), ((float)OBJ_oDark));
                                         if (((t37 = gml_script_scrGetRoomX(self, other, gml_iget_x(self)), gml_eq(t37, g_gml_globals.startRoomX)) && (t38 = gml_script_scrGetRoomY(self, other, gml_iget_y(self)), gml_eq(t38, g_gml_globals.startRoomY)))) {
-                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oEntrance)));
+                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oEntrance)));
                                         } else {
-                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oExit)));
+                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oExit)));
                                             g_gml_globals.exitX = self->vars[VAR_xpos];
                                             g_gml_globals.exitY = self->vars[VAR_ypos];
-                                            gml_ivar_set(gml_deref(self->vars[VAR_block], self, other), VAR_invincible, 1.0);
+                                            gml_ivar_set(gml_deref(self->vars[VAR_block], self, other), VAR_invincible, 1.0f);
                                         }
                                     } else {
                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("a"))) {
-                                            if (gml_eq(gml_script_rand(self, other, 1.0, 1.0), 1.0)) {
-                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oChest)));
+                                            if (gml_eq(gml_script_rand(self, other, 1.0f, 1.0f), 1.0f)) {
+                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oChest)));
                                             }
                                         } else {
                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("I"))) {
-                                                (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 12.0), ((double)OBJ_oGoldIdol)));
+                                                (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 12.0f), ((float)OBJ_oGoldIdol)));
                                             } else {
-                                                if ((gml_veq(self->vals[VVAR_tile], gml_vs(".")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid), 0.0, 0.0))))) {
-                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark));
-                                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0);
+                                                if ((gml_veq(self->vals[VVAR_tile], gml_vs(".")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark));
+                                                    gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0f);
                                                 } else {
                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("Q"))) {
                                                         if (gml_str_eq(self->strs[SVAR_shopType], "Craps")) {
-                                                            (void)(gml_script_tile_add(self, other, ((double)SPR_bgDiceSign), 0.0, 0.0, 48.0, 32.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0));
+                                                            (void)(gml_script_tile_add(self, other, ((float)SPR_bgDiceSign), 0.0f, 0.0f, 48.0f, 32.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0f));
                                                         }
                                                     } else {
                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("q"))) {
-                                                            self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 6.0);
-                                                            gml_script_scrGenerateItem(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), 1.0);
-                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_inDiceHouse, 1.0);
+                                                            self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 6.0f);
+                                                            gml_script_scrGenerateItem(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), 1.0f);
+                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_inDiceHouse, 1.0f);
                                                         } else {
                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("+"))) {
-                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid));
-                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sIceBlock));
-                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0);
+                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid));
+                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sIceBlock));
+                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0f);
                                                             } else {
                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("W"))) {
-                                                                    if ((gml_truthy(g_gml_globals.murderer) || gml_gt(g_gml_globals.thiefLevel, 0.0))) {
+                                                                    if ((gml_truthy(g_gml_globals.murderer) || gml_gt(g_gml_globals.thiefLevel, 0.0f))) {
                                                                         if (gml_truthy(g_gml_globals.isDamsel)) {
-                                                                            (void)(gml_script_tile_add(self, other, ((double)SPR_bgWanted), 32.0, 0.0, 32.0, 32.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0));
+                                                                            (void)(gml_script_tile_add(self, other, ((float)SPR_bgWanted), 32.0f, 0.0f, 32.0f, 32.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0f));
                                                                         } else {
                                                                             if (gml_truthy(g_gml_globals.isTunnelMan)) {
-                                                                                (void)(gml_script_tile_add(self, other, ((double)SPR_bgWanted), 64.0, 0.0, 32.0, 32.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0));
+                                                                                (void)(gml_script_tile_add(self, other, ((float)SPR_bgWanted), 64.0f, 0.0f, 32.0f, 32.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0f));
                                                                             } else {
-                                                                                (void)(gml_script_tile_add(self, other, ((double)SPR_bgWanted), 0.0, 0.0, 32.0, 32.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0));
+                                                                                (void)(gml_script_tile_add(self, other, ((float)SPR_bgWanted), 0.0f, 0.0f, 32.0f, 32.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9004.0f));
                                                                             }
                                                                         }
                                                                     }
                                                                 } else {
                                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs(":"))) {
-                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oBrickSmooth));
-                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sDarkSmooth));
-                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0);
+                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oBrickSmooth));
+                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sDarkSmooth));
+                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_shopWall, 1.0f);
                                                                     } else {
                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("l"))) {
-                                                                            if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_damsel))) {
-                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oLampRed)));
+                                                                            if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_damsel))) {
+                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oLampRed)));
                                                                             } else {
-                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oLamp)));
+                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oLamp)));
                                                                             }
                                                                         } else {
                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("K"))) {
-                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oShopkeeper));
+                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oShopkeeper));
                                                                                 gml_svar_set(gml_deref(self->vars[VAR_obj], self, other), SVAR_style, self->strs[SVAR_shopType]);
                                                                             } else {
                                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("k"))) {
-                                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSign));
+                                                                                    self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSign));
                                                                                     if (gml_str_eq(self->strs[SVAR_shopType], "General")) {
-                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignGeneral));
+                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignGeneral));
                                                                                     } else {
                                                                                         if (gml_str_eq(self->strs[SVAR_shopType], "Bomb")) {
-                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignBomb));
+                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignBomb));
                                                                                         } else {
                                                                                             if (gml_str_eq(self->strs[SVAR_shopType], "Weapon")) {
-                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignWeapon));
+                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignWeapon));
                                                                                             } else {
                                                                                                 if (gml_str_eq(self->strs[SVAR_shopType], "Clothing")) {
-                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignClothing));
+                                                                                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignClothing));
                                                                                                 } else {
                                                                                                     if (gml_str_eq(self->strs[SVAR_shopType], "Rare")) {
-                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignRare));
+                                                                                                        gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignRare));
                                                                                                     } else {
                                                                                                         if (gml_str_eq(self->strs[SVAR_shopType], "Craps")) {
-                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignCraps));
+                                                                                                            gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignCraps));
                                                                                                         } else {
                                                                                                             if (gml_str_eq(self->strs[SVAR_shopType], "Kissing")) {
-                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((double)SPR_sSignKissing));
+                                                                                                                gml_iset_sprite_index(gml_deref(self->vars[VAR_obj], self, other), ((float)SPR_sSignKissing));
                                                                                                             }
                                                                                                         }
                                                                                                     }
@@ -906,156 +906,156 @@ void gml_script_scrRoomGen3(gm_instance_t *self, gm_instance_t *other)
                                                                                         gml_script_scrShopItemsGen(self, other);
                                                                                     } else {
                                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("u"))) {
-                                                                                            (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oDice)));
+                                                                                            (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oDice)));
                                                                                         } else {
                                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("!"))) {
-                                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oDamsel));
-                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 1.0);
-                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_status, 5.0);
+                                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oDamsel));
+                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 1.0f);
+                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_status, 5.0f);
                                                                                             } else {
                                                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("Y"))) {
-                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oYeti)));
+                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oYeti)));
                                                                                                 } else {
                                                                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("A"))) {
-                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienShip)));
-                                                                                                        (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienShip)));
+                                                                                                        (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                     } else {
                                                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("B"))) {
-                                                                                                            self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienShip)));
+                                                                                                            self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienShip)));
                                                                                                             {
                                                                                                                 gm_instance_t *self39;
                                                                                                                 gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                 while ((self39 = gm_with_next()) != NULL) {
-                                                                                                                    gml_iset_sprite_index(self39, ((double)SPR_sAlienFloor));
+                                                                                                                    gml_iset_sprite_index(self39, ((float)SPR_sAlienFloor));
                                                                                                                 }
                                                                                                                 gm_with_end();
                                                                                                             }
-                                                                                                            (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                            (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                         } else {
                                                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("b"))) {
-                                                                                                                if (gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) {
-                                                                                                                    if (gml_eq(gml_script_rand(self, other, 1.0, 10.0), 1.0)) {
-                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oIce)));
+                                                                                                                if (gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) {
+                                                                                                                    if (gml_eq(gml_script_rand(self, other, 1.0f, 10.0f), 1.0f)) {
+                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oIce)));
                                                                                                                     } else {
-                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark)));
+                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark)));
                                                                                                                     }
                                                                                                                 } else {
-                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienShip)));
+                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienShip)));
                                                                                                                     {
                                                                                                                         gm_instance_t *self40;
                                                                                                                         gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                         while ((self40 = gm_with_next()) != NULL) {
-                                                                                                                            gml_iset_sprite_index(self40, ((double)SPR_sAlienFloor));
+                                                                                                                            gml_iset_sprite_index(self40, ((float)SPR_sAlienFloor));
                                                                                                                         }
                                                                                                                         gm_with_end();
                                                                                                                     }
-                                                                                                                    (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                                    (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                                 }
                                                                                                             } else {
                                                                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("C"))) {
-                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienShip)));
+                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienShip)));
                                                                                                                     {
                                                                                                                         gm_instance_t *self41;
                                                                                                                         gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                         while ((self41 = gm_with_next()) != NULL) {
-                                                                                                                            gml_iset_sprite_index(self41, ((double)SPR_sAlienFront));
+                                                                                                                            gml_iset_sprite_index(self41, ((float)SPR_sAlienFront));
                                                                                                                         }
                                                                                                                         gm_with_end();
                                                                                                                     }
-                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0), ((double)OBJ_oAlienShip)));
+                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0f), ((float)OBJ_oAlienShip)));
                                                                                                                     {
                                                                                                                         gm_instance_t *self42;
                                                                                                                         gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                         while ((self42 = gm_with_next()) != NULL) {
-                                                                                                                            gml_iset_sprite_index(self42, ((double)SPR_sAlienFront));
+                                                                                                                            gml_iset_sprite_index(self42, ((float)SPR_sAlienFront));
                                                                                                                         }
                                                                                                                         gm_with_end();
                                                                                                                     }
-                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 32.0), ((double)OBJ_oAlienShip)));
+                                                                                                                    self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 32.0f), ((float)OBJ_oAlienShip)));
                                                                                                                     {
                                                                                                                         gm_instance_t *self43;
                                                                                                                         gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                         while ((self43 = gm_with_next()) != NULL) {
-                                                                                                                            gml_iset_sprite_index(self43, ((double)SPR_sAlienFront2));
+                                                                                                                            gml_iset_sprite_index(self43, ((float)SPR_sAlienFront2));
                                                                                                                         }
                                                                                                                         gm_with_end();
                                                                                                                     }
-                                                                                                                    (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
-                                                                                                                    (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0), 160.0));
-                                                                                                                    (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 32.0), 160.0));
+                                                                                                                    (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
+                                                                                                                    (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 16.0f), 160.0f));
+                                                                                                                    (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], (self->vars[VAR_ypos] + 32.0f), 160.0f));
                                                                                                                 } else {
                                                                                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("D"))) {
-                                                                                                                        self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienShip)));
+                                                                                                                        self->vals[VVAR_tile] = gml_vreal(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienShip)));
                                                                                                                         {
                                                                                                                             gm_instance_t *self44;
                                                                                                                             gm_with_begin(gml_target(gml_real(self->vals[VVAR_tile])), self, other);
                                                                                                                             while ((self44 = gm_with_next()) != NULL) {
-                                                                                                                                gml_iset_sprite_index(self44, ((double)SPR_sAlienFront3));
+                                                                                                                                gml_iset_sprite_index(self44, ((float)SPR_sAlienFront3));
                                                                                                                             }
                                                                                                                             gm_with_end();
                                                                                                                         }
-                                                                                                                        (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                                        (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                                     } else {
                                                                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("E"))) {
-                                                                                                                            if (gml_eq(gml_script_rand(self, other, 1.0, 3.0), 1.0)) {
-                                                                                                                                (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip), 32.0, 0.0, 32.0, 64.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                                            if (gml_eq(gml_script_rand(self, other, 1.0f, 3.0f), 1.0f)) {
+                                                                                                                                (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip), 32.0f, 0.0f, 32.0f, 64.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                                             } else {
-                                                                                                                                (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip), 0.0, 0.0, 32.0, 64.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                                                (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip), 0.0f, 0.0f, 32.0f, 64.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                                             }
                                                                                                                         } else {
                                                                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("G"))) {
-                                                                                                                                (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip2), 0.0, 0.0, 32.0, 48.0, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0));
+                                                                                                                                (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip2), 0.0f, 0.0f, 32.0f, 48.0f, self->vars[VAR_xpos], self->vars[VAR_ypos], 9005.0f));
                                                                                                                             } else {
                                                                                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("X"))) {
-                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oAlienBoss)));
+                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oAlienBoss)));
                                                                                                                                 } else {
                                                                                                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("x"))) {
-                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSacAltarLeft)));
-                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), self->vars[VAR_ypos], ((double)OBJ_oSacAltarRight)));
-                                                                                                                                        (void)(gml_script_tile_add(self, other, ((double)SPR_bgKaliBody), 0.0, 0.0, 64.0, 64.0, (self->vars[VAR_xpos] - 16.0), (self->vars[VAR_ypos] - 48.0), 10001.0));
-                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), ((self->vars[VAR_ypos] - 80.0) + 16.0), ((double)OBJ_oKaliHead)));
+                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSacAltarLeft)));
+                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), self->vars[VAR_ypos], ((float)OBJ_oSacAltarRight)));
+                                                                                                                                        (void)(gml_script_tile_add(self, other, ((float)SPR_bgKaliBody), 0.0f, 0.0f, 64.0f, 64.0f, (self->vars[VAR_xpos] - 16.0f), (self->vars[VAR_ypos] - 48.0f), 10001.0f));
+                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), ((self->vars[VAR_ypos] - 80.0f) + 16.0f), ((float)OBJ_oKaliHead)));
                                                                                                                                     } else {
                                                                                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("T"))) {
-                                                                                                                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark)));
-                                                                                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0), (self->vars[VAR_ypos] + 8.0), ((double)OBJ_oJetpack));
-                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
+                                                                                                                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark)));
+                                                                                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 8.0f), (self->vars[VAR_ypos] + 8.0f), ((float)OBJ_oJetpack));
+                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
                                                                                                                                         } else {
                                                                                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("t"))) {
-                                                                                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oBarrierEmitter)));
+                                                                                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oBarrierEmitter)));
                                                                                                                                             } else {
                                                                                                                                                 if (gml_veq(self->vals[VVAR_tile], gml_vs("c"))) {
-                                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oThinIce)));
+                                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oThinIce)));
                                                                                                                                                 } else {
-                                                                                                                                                    if ((gml_veq(self->vals[VVAR_tile], gml_vs("M")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid), 0.0, 0.0))))) {
-                                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oMoai)));
-                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), self->vars[VAR_ypos], ((double)OBJ_oMoai2)));
-                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 32.0), self->vars[VAR_ypos], ((double)OBJ_oMoai3)));
-                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 16.0), ((double)OBJ_oMoaiInside)));
-                                                                                                                                                        (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 16.0), 150.0));
-                                                                                                                                                        (void)(gml_script_tile_add(self, other, ((double)SPR_bgAlienShip3), 0.0, 0.0, 16.0, 16.0, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 32.0), 150.0));
-                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 32.0), ((double)OBJ_oThinIce)));
-                                                                                                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0), (self->vars[VAR_ypos] + 48.0), ((double)OBJ_oExit));
+                                                                                                                                                    if ((gml_veq(self->vals[VVAR_tile], gml_vs("M")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+                                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oMoai)));
+                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), self->vars[VAR_ypos], ((float)OBJ_oMoai2)));
+                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 32.0f), self->vars[VAR_ypos], ((float)OBJ_oMoai3)));
+                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 16.0f), ((float)OBJ_oMoaiInside)));
+                                                                                                                                                        (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 16.0f), 150.0f));
+                                                                                                                                                        (void)(gml_script_tile_add(self, other, ((float)SPR_bgAlienShip3), 0.0f, 0.0f, 16.0f, 16.0f, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 32.0f), 150.0f));
+                                                                                                                                                        (void)(gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 32.0f), ((float)OBJ_oThinIce)));
+                                                                                                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, (self->vars[VAR_xpos] + 16.0f), (self->vars[VAR_ypos] + 48.0f), ((float)OBJ_oExit));
                                                                                                                                                         gml_svar_set(gml_deref(self->vars[VAR_obj], self, other), SVAR_type, "Moai Exit");
-                                                                                                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, ((self->vars[VAR_xpos] + 16.0) + 8.0), ((self->vars[VAR_ypos] + 48.0) + 8.0), ((double)OBJ_oCrown));
-                                                                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                                                                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
+                                                                                                                                                        self->vars[VAR_obj] = gml_script_instance_create(self, other, ((self->vars[VAR_xpos] + 16.0f) + 8.0f), ((self->vars[VAR_ypos] + 48.0f) + 8.0f), ((float)OBJ_oCrown));
+                                                                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                                                                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
                                                                                                                                                     } else {
-                                                                                                                                                        if ((gml_veq(self->vals[VVAR_tile], gml_vs("m")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oSolid), 0.0, 0.0))))) {
-                                                                                                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDark));
-                                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0);
+                                                                                                                                                        if ((gml_veq(self->vals[VVAR_tile], gml_vs("m")) && (!gml_truthy(gml_fn_collision_point(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oSolid), 0.0f, 0.0f))))) {
+                                                                                                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDark));
+                                                                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible, 1.0f);
                                                                                                                                                         } else {
                                                                                                                                                             if (gml_veq(self->vals[VVAR_tile], gml_vs("i"))) {
-                                                                                                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oIce)));
+                                                                                                                                                                (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oIce)));
                                                                                                                                                             } else {
-                                                                                                                                                                if ((gml_veq(self->vals[VVAR_tile], gml_vs("j")) && gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0))) {
-                                                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oIce)));
+                                                                                                                                                                if ((gml_veq(self->vals[VVAR_tile], gml_vs("j")) && gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f))) {
+                                                                                                                                                                    (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oIce)));
                                                                                                                                                                 } else {
                                                                                                                                                                     if (gml_veq(self->vals[VVAR_tile], gml_vs("f"))) {
-                                                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oDarkFall)));
+                                                                                                                                                                        (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oDarkFall)));
                                                                                                                                                                     } else {
                                                                                                                                                                         if (gml_veq(self->vals[VVAR_tile], gml_vs("w"))) {
-                                                                                                                                                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((double)OBJ_oWaterSwim)));
+                                                                                                                                                                            (void)(gml_script_instance_create(self, other, self->vars[VAR_xpos], self->vars[VAR_ypos], ((float)OBJ_oWaterSwim)));
                                                                                                                                                                         }
                                                                                                                                                                     }
                                                                                                                                                                 }

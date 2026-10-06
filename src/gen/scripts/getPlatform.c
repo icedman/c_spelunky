@@ -5,12 +5,12 @@ void gml_script_getPlatform(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    g_gml_globals.html5Build = ((!gml_eq(gml_gget_os_browser(), (0.0 /* browser_not_a_browser */))) ? 1.0 : 0.0);
-    g_gml_globals.mobileBuild = ((gml_eq(gml_gget_os_type(), (5.0 /* os_android */)) || gml_eq(gml_gget_os_type(), (4.0 /* os_ios */))) ? 1.0 : 0.0);
+    g_gml_globals.html5Build = ((!gml_eq(gml_gget_os_browser(), (0.0f /* browser_not_a_browser */))) ? 1.0f : 0.0f);
+    g_gml_globals.mobileBuild = ((gml_eq(gml_gget_os_type(), (5.0f /* os_android */)) || gml_eq(gml_gget_os_type(), (4.0f /* os_ios */))) ? 1.0f : 0.0f);
     if (gml_truthy(g_gml_globals.html5Build)) {
         g_gml_globals.electronBuild = gml_ext_isElectron(self, other, 0, NULL);
     } else {
-        g_gml_globals.electronBuild = 0.0;
+        g_gml_globals.electronBuild = 0.0f;
     }
-    g_gml_globals.browserBuild = ((gml_truthy(g_gml_globals.html5Build) && (!gml_truthy(g_gml_globals.electronBuild))) ? 1.0 : 0.0);
+    g_gml_globals.browserBuild = ((gml_truthy(g_gml_globals.html5Build) && (!gml_truthy(g_gml_globals.electronBuild))) ? 1.0f : 0.0f);
 }

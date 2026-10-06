@@ -7,20 +7,20 @@ static void gml_ev_oStarsRoom__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     (void)wd;
-    g_gml_globals.plife = 8.0;
-    self->vars[VAR_highscore] = 0.0;
-    self->vars[VAR_kills] = 0.0;
-    self->vars[VAR_drawStatus] = 0.0;
-    gml_iset_alarm(self, 0.0, 100.0);
-    gml_iset_alarm(self, 1.0, 30.0);
-    gml_iset_alarm(self, 10.0, 100.0);
-    gml_iset_alarm(self, 11.0, 110.0);
+    g_gml_globals.plife = 8.0f;
+    self->vars[VAR_highscore] = 0.0f;
+    self->vars[VAR_kills] = 0.0f;
+    self->vars[VAR_drawStatus] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 100.0f);
+    gml_iset_alarm(self, 1.0f, 30.0f);
+    gml_iset_alarm(self, 10.0f, 100.0f);
+    gml_iset_alarm(self, 11.0f, 110.0f);
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oBrick)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oBrick)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            if ((((gml_le(gml_iget_x(self1), 16.0) || gml_ge(gml_iget_x(self1), 288.0)) || gml_le(gml_iget_y(self1), 16.0)) || gml_ge(gml_iget_y(self1), 208.0))) {
-                self1->vars[VAR_invincible] = 1.0;
+            if ((((gml_le(gml_iget_x(self1), 16.0f) || gml_ge(gml_iget_x(self1), 288.0f)) || gml_le(gml_iget_y(self1), 16.0f)) || gml_ge(gml_iget_y(self1), 208.0f))) {
+                self1->vars[VAR_invincible] = 1.0f;
             }
         }
         gm_with_end();
@@ -36,16 +36,16 @@ void gml_ev_oStarsRoom__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oStarsRoom__Alarm_11_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    if (((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead))) && (t1 = gml_script_rand(self, other, 1.0, 100.0), gml_lt(t1, self->vars[VAR_kills])))) {
-        self->vars[VAR_n] = gml_script_rand(self, other, 0.0, 3.0);
-        (void)(gml_script_instance_create(self, other, (32.0 + (self->vars[VAR_n] * 80.0)), 0.0, ((double)OBJ_oSpider)));
+    if (((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead))) && (t1 = gml_script_rand(self, other, 1.0f, 100.0f), gml_lt(t1, self->vars[VAR_kills])))) {
+        self->vars[VAR_n] = gml_script_rand(self, other, 0.0f, 3.0f);
+        (void)(gml_script_instance_create(self, other, (32.0f + (self->vars[VAR_n] * 80.0f)), 0.0f, ((float)OBJ_oSpider)));
     }
-    if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead)))) {
-        gml_iset_alarm(self, 11.0, 20.0);
+    if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead)))) {
+        gml_iset_alarm(self, 11.0f, 20.0f);
     }
 }
 
@@ -76,7 +76,7 @@ static void gml_ev_oStarsRoom__Alarm_3_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 3.0;
+    self->vars[VAR_drawStatus] = 3.0f;
 }
 
 void gml_ev_oStarsRoom__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -90,8 +90,8 @@ static void gml_ev_oStarsRoom__Alarm_2_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 2.0;
-    gml_iset_alarm(self, 3.0, 10.0);
+    self->vars[VAR_drawStatus] = 2.0f;
+    gml_iset_alarm(self, 3.0f, 10.0f);
 }
 
 void gml_ev_oStarsRoom__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -105,8 +105,8 @@ static void gml_ev_oStarsRoom__Alarm_1_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 1.0;
-    gml_iset_alarm(self, 2.0, 30.0);
+    self->vars[VAR_drawStatus] = 1.0f;
+    gml_iset_alarm(self, 2.0f, 30.0f);
 }
 
 void gml_ev_oStarsRoom__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -120,22 +120,22 @@ static void gml_ev_oStarsRoom__Alarm_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_dead)))) {
-        self->vars[VAR_n] = gml_script_rand(self, other, 0.0, 3.0);
-        (void)(gml_script_instance_create(self, other, (32.0 + (self->vars[VAR_n] * 80.0)), 0.0, ((double)OBJ_oShopkeeper2)));
-        if (gml_ge(self->vars[VAR_kills], 40.0)) {
-            gml_iset_alarm(self, 0.0, 100.0);
+    if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_dead)))) {
+        self->vars[VAR_n] = gml_script_rand(self, other, 0.0f, 3.0f);
+        (void)(gml_script_instance_create(self, other, (32.0f + (self->vars[VAR_n] * 80.0f)), 0.0f, ((float)OBJ_oShopkeeper2)));
+        if (gml_ge(self->vars[VAR_kills], 40.0f)) {
+            gml_iset_alarm(self, 0.0f, 100.0f);
         } else {
-            if (gml_ge(self->vars[VAR_kills], 30.0)) {
-                gml_iset_alarm(self, 0.0, 125.0);
+            if (gml_ge(self->vars[VAR_kills], 30.0f)) {
+                gml_iset_alarm(self, 0.0f, 125.0f);
             } else {
-                if (gml_ge(self->vars[VAR_kills], 20.0)) {
-                    gml_iset_alarm(self, 0.0, 150.0);
+                if (gml_ge(self->vars[VAR_kills], 20.0f)) {
+                    gml_iset_alarm(self, 0.0f, 150.0f);
                 } else {
-                    if (gml_ge(self->vars[VAR_kills], 10.0)) {
-                        gml_iset_alarm(self, 0.0, 175.0);
+                    if (gml_ge(self->vars[VAR_kills], 10.0f)) {
+                        gml_iset_alarm(self, 0.0f, 175.0f);
                     } else {
-                        gml_iset_alarm(self, 0.0, 200.0);
+                        gml_iset_alarm(self, 0.0f, 200.0f);
                     }
                 }
             }
@@ -152,12 +152,12 @@ void gml_ev_oStarsRoom__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oStarsRoom__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     const char *s7 = "";
     gm_value_t v8 = GM_VALUE_UNDEFINED_INIT;
     (void)self;
@@ -171,17 +171,17 @@ static void gml_ev_oStarsRoom__Draw_0_body(gm_instance_t *self, gm_instance_t *o
     (void)s7;
     (void)v8;
     self->vars[VAR_life] = g_gml_globals.plife;
-    if (gml_lt(self->vars[VAR_life], 0.0)) {
-        self->vars[VAR_life] = 0.0;
+    if (gml_lt(self->vars[VAR_life], 0.0f)) {
+        self->vars[VAR_life] = 0.0f;
     }
     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-    (t1 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 8.0), gml_fn_draw_sprite(self, other, ((double)SPR_sHeart), (-1.0), t1, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0)));
-    (t2 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 24.0), t3 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0), gml_fn_draw_text(self, other, t2, t3, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_life]))));
-    (t4 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 64.0), gml_fn_draw_sprite(self, other, ((double)SPR_sShopkeeperIcon), (-1.0), t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0)));
-    (t5 = ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 64.0) + 16.0), t6 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_kills]))));
-    if (gml_lt(self->vars[VAR_drawStatus], 3.0)) {
-        (v8 = gml_vs(gml_concat((s7 = gml_script_tr(self, other, 1, "SHOTGUN CHALLENGE BEGINS IN "), gml_concat(s7, gml_real_str((3.0 - self->vars[VAR_drawStatus])))), "...")), gml_script_drawTextHCentered(self, other, 5, v8, "small", (65535.0 /* c_yellow */), (-g_gml_globals.room_offset), 216.0));
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+    (t1 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 8.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sHeart), (-1.0f), t1, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f)));
+    (t2 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 24.0f), t3 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f), gml_fn_draw_text(self, other, t2, t3, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_life]))));
+    (t4 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 64.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sShopkeeperIcon), (-1.0f), t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f)));
+    (t5 = ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 64.0f) + 16.0f), t6 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_kills]))));
+    if (gml_lt(self->vars[VAR_drawStatus], 3.0f)) {
+        (v8 = gml_vs(gml_concat((s7 = gml_script_tr(self, other, 1, "SHOTGUN CHALLENGE BEGINS IN "), gml_concat(s7, gml_real_str((3.0f - self->vars[VAR_drawStatus])))), "...")), gml_script_drawTextHCentered(self, other, 5, v8, "small", (65535.0f /* c_yellow */), (-g_gml_globals.room_offset), 216.0f));
     }
 }
 

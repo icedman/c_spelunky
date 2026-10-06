@@ -6,12 +6,12 @@ static void gml_ev_oYellowBall__Create_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = ((-1.0) * (gm_random(3.0) + 4.0));
-    self->vars[VAR_xVel] = gml_script_rand(self, other, 2.0, 5.0);
-    if (gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) {
-        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-1.0));
+    self->vars[VAR_yVel] = ((-1.0f) * (gm_random(3.0f) + 4.0f));
+    self->vars[VAR_xVel] = gml_script_rand(self, other, 2.0f, 5.0f);
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) {
+        self->vars[VAR_xVel] = (self->vars[VAR_xVel] * (-1.0f));
     }
-    gml_iset_alarm(self, 1.0, 1.0);
+    gml_iset_alarm(self, 1.0f, 1.0f);
 }
 
 void gml_ev_oYellowBall__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,10 +25,10 @@ static void gml_ev_oYellowBall__Alarm_1_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    if (gml_lt(gml_fn_instance_number(self, other, ((double)OBJ_oYellowTrail)), 12.0)) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oYellowTrail)));
+    if (gml_lt(gml_fn_instance_number(self, other, ((float)OBJ_oYellowTrail)), 12.0f)) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oYellowTrail)));
     }
-    gml_iset_alarm(self, 1.0, 4.0);
+    gml_iset_alarm(self, 1.0f, 4.0f);
 }
 
 void gml_ev_oYellowBall__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -42,7 +42,7 @@ static void gml_ev_oYellowBall__Alarm_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_invincible] = 0.0;
+    self->vars[VAR_invincible] = 0.0f;
 }
 
 void gml_ev_oYellowBall__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -54,7 +54,7 @@ void gml_ev_oYellowBall__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oYellowBall__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
     (void)self;
     (void)other;
@@ -62,51 +62,51 @@ static void gml_ev_oYellowBall__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)b2;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if ((gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oSolid), 0.0, 0.0)) && (!gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oOlmec), 0.0, 0.0))))) {
+    if ((gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)) && (!gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oOlmec), 0.0f, 0.0f))))) {
         gml_iset_x(self, (gml_iget_x(self) - self->vars[VAR_xVel]));
         gml_iset_y(self, (gml_iget_y(self) - self->vars[VAR_yVel]));
-        if (gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) {
-            self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 4.0);
+        if (gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) {
+            self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 4.0f);
         } else {
-            self->vars[VAR_n] = gml_script_rand(self, other, 1.0, 5.0);
+            self->vars[VAR_n] = gml_script_rand(self, other, 1.0f, 5.0f);
         }
         t1 = self->vars[VAR_n];
-        b2 = (gml_rcase(t1, 1.0) ? 0 : gml_rcase(t1, 2.0) ? 1 : gml_rcase(t1, 3.0) ? 2 : gml_rcase(t1, 4.0) ? 3 : gml_rcase(t1, 5.0) ? 4 : -1);
+        b2 = (gml_rcase(t1, 1.0f) ? 0 : gml_rcase(t1, 2.0f) ? 1 : gml_rcase(t1, 3.0f) ? 2 : gml_rcase(t1, 4.0f) ? 3 : gml_rcase(t1, 5.0f) ? 4 : -1);
         switch (b2) {
         case 0:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oBat)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oBat)));
                 break;
             }
         /* fall through */
         case 1:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oSpider)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oSpider)));
                 break;
             }
         /* fall through */
         case 2:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oSnake)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oSnake)));
                 break;
             }
         /* fall through */
         case 3:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oFrog)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oFrog)));
                 break;
             }
         /* fall through */
         case 4:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oFireFrog)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oFireFrog)));
                 break;
             }
         }
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
-        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.15);
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
+        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.15f);
     }
 }
 

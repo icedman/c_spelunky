@@ -10,11 +10,11 @@ static void gml_ev_oJetpack__Create_0_body(gm_instance_t *self, gm_instance_t *o
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Jetpack";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-5.0), (-5.0), 5.0, 8.0);
-    self->vars[VAR_cost] = 20000.0;
+    gml_script_setCollisionBounds(self, other, (-5.0f), (-5.0f), 5.0f, 8.0f);
+    self->vars[VAR_cost] = 20000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "JETPACK");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "JETPACK FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
-    self->vars[VAR_heavy] = 1.0;
+    self->vars[VAR_heavy] = 1.0f;
 }
 
 void gml_ev_oJetpack__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -29,8 +29,8 @@ static void gml_ev_oJetpack__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if ((!gml_truthy(gml_iget_visible(gml_deref(((double)OBJ_oPlayer1), self, other))))) {
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if ((!gml_truthy(gml_iget_visible(gml_deref(((float)OBJ_oPlayer1), self, other))))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

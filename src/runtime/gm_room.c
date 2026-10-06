@@ -22,7 +22,7 @@ static long s_errors;
 static long s_overflows;
 
 /* Room built-ins (yyRoom.SetWidth ... copy them into g_pBuiltIn, yyRoom.js L111). */
-static double s_width, s_height, s_speed;
+static float s_width, s_height, s_speed;
 static bool s_persistent;
 static char s_caption[128];
 
@@ -118,9 +118,9 @@ void gm_room_reset(void)
     s_pending = GM_ROOM_NONE;
     s_errors = 0;
     s_overflows = 0;
-    s_width = 640.0;
-    s_height = 480.0;
-    s_speed = 30.0;
+    s_width = 640.0f;
+    s_height = 480.0f;
+    s_speed = 30.0f;
     s_persistent = false;
     s_caption[0] = '\0';
 }
@@ -328,7 +328,7 @@ static bool carried(int id)
 /* yyRoom.CreateInstance (yyRoom.js L739) + the layer element's depth (Function_Layers.js L734). */
 static gm_instance_t *create_storage_instance(const gm_room_def_t *r, const gm_room_inst_def_t *d)
 {
-    gm_instance_t *inst = gm_instance_add_with_id(d->x, d->y, (double)r->layers[d->layer].depth, d->object, d->id);
+    gm_instance_t *inst = gm_instance_add_with_id(d->x, d->y, (float)r->layers[d->layer].depth, d->object, d->id);
 
     if (inst == NULL) {
         s_overflows++;
@@ -340,7 +340,7 @@ static gm_instance_t *create_storage_instance(const gm_room_def_t *r, const gm_r
     inst->image_yscale = d->yscale;
     inst->image_angle = d->angle;
     inst->image_blend = d->colour & 0xFFFFFFu;
-    inst->image_alpha = (double)((d->colour >> 24) & 0xFFu) / 255.0;
+    inst->image_alpha = (float)((d->colour >> 24) & 0xFFu) / 255.0f;
     gm_collision_touch(inst);
     return inst;
 }
@@ -364,12 +364,12 @@ bool gm_room_start(int room, bool starting)
 
     /* Step 3: the new room (CreateRoomFromStorage, yyRoom.js L532). */
     s_current = room;
-    s_width = (double)r->width;
-    s_height = (double)r->height;
-    s_speed = (double)r->speed;
+    s_width = (float)r->width;
+    s_height = (float)r->height;
+    s_speed = (float)r->speed;
     s_persistent = r->persistent;
     s_caption[0] = '\0';
-    gm_collision_grid_configure(s_width, s_height, 32.0);
+    gm_collision_grid_configure(s_width, s_height, 32.0f);
     gm_view_room_start(room, r);
     gm_layer_room_start(r);
     if (s_hooks != NULL && s_hooks->room_begin != NULL) {
@@ -458,17 +458,17 @@ bool gm_room_restart_game(void)
 
 /* ---- Room built-ins ------------------------------------------------------------------ */
 
-double gm_room_width(void)
+float gm_room_width(void)
 {
     return s_width;
 }
 
-double gm_room_height(void)
+float gm_room_height(void)
 {
     return s_height;
 }
 
-double gm_room_speed(void)
+float gm_room_speed(void)
 {
     return s_speed;
 }
@@ -483,17 +483,17 @@ const char *gm_room_caption(void)
     return s_caption;
 }
 
-void gm_room_set_width(double w)
+void gm_room_set_width(float w)
 {
     s_width = w;
 }
 
-void gm_room_set_height(double h)
+void gm_room_set_height(float h)
 {
     s_height = h;
 }
 
-void gm_room_set_speed(double s)
+void gm_room_set_speed(float s)
 {
     s_speed = s;
 }

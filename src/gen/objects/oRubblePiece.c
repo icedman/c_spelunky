@@ -7,9 +7,9 @@ static void gml_ev_oRubblePiece__Create_0_body(gm_instance_t *self, gm_instance_
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = gml_script_tr(self, other, 1, "NONE");
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.6;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.6f;
 }
 
 void gml_ev_oRubblePiece__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,12 +21,12 @@ void gml_ev_oRubblePiece__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oRubblePiece__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -38,27 +38,27 @@ static void gml_ev_oRubblePiece__Step_0_body(gm_instance_t *self, gm_instance_t 
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
     self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_yAcc]);
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oWaterSwim), 0.0, 0.0))) {
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oWaterSwim), 0.0f, 0.0f))) {
         if (gml_str_eq(self->strs[SVAR_type], "Drip")) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         } else {
             if (gml_str_eq(self->strs[SVAR_type], "Leaf")) {
-                self->vars[VAR_yVel] = 0.0;
-                gml_iset_sprite_index(self, ((double)SPR_sLeafStill));
+                self->vars[VAR_yVel] = 0.0f;
+                gml_iset_sprite_index(self, ((float)SPR_sLeafStill));
             } else {
-                self->vars[VAR_yVel] = 0.2;
+                self->vars[VAR_yVel] = 0.2f;
             }
         }
     } else {
-        if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oLava), 0.0, 0.0))) {
+        if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oLava), 0.0f, 0.0f))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0))) {
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
     if (gml_truthy(gml_gget_view_enabled())) {
-        if (((((t1 = gml_iget_x(self), gml_lt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 32.0))) || (t3 = gml_iget_x(self), gml_gt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 32.0)))) || (t4 = gml_iget_y(self), gml_lt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 32.0)))) || (t6 = gml_iget_y(self), gml_gt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 32.0))))) {
+        if (((((t1 = gml_iget_x(self), gml_lt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 32.0f))) || (t3 = gml_iget_x(self), gml_gt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 32.0f)))) || (t4 = gml_iget_y(self), gml_lt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 32.0f)))) || (t6 = gml_iget_y(self), gml_gt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 32.0f))))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

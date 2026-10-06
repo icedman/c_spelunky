@@ -3,20 +3,20 @@
 
 static void gml_ev_oMagma__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.3);
+    gml_iset_image_speed(self, 0.3f);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-8.0), (-8.0), 8.0, 8.0);
-    self->vars[VAR_xVel] = (t1 = gm_random(4.0), (t1 - gm_random(4.0)));
-    self->vars[VAR_yVel] = ((-1.0) - gm_random(2.0));
-    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0, 6.0) * 0.1);
-    self->vars[VAR_hp] = 200.0;
-    gml_iset_alarm(self, 0.0, 2.0);
-    gml_iset_alarm(self, 1.0, 50.0);
+    gml_script_setCollisionBounds(self, other, (-8.0f), (-8.0f), 8.0f, 8.0f);
+    self->vars[VAR_xVel] = (t1 = gm_random(4.0f), (t1 - gm_random(4.0f)));
+    self->vars[VAR_yVel] = ((-1.0f) - gm_random(2.0f));
+    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0f, 6.0f) * 0.1f);
+    self->vars[VAR_hp] = 200.0f;
+    gml_iset_alarm(self, 0.0f, 2.0f);
+    gml_iset_alarm(self, 1.0f, 50.0f);
 }
 
 void gml_ev_oMagma__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -30,8 +30,8 @@ static void gml_ev_oMagma__Alarm_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oMagmaTrail)));
-    gml_iset_alarm(self, 0.0, 2.0);
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oMagmaTrail)));
+    gml_iset_alarm(self, 0.0f, 2.0f);
 }
 
 void gml_ev_oMagma__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -46,11 +46,11 @@ static void gml_ev_oMagma__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-        gml_iset_sprite_index(self, ((double)SPR_sMagmaManCreate));
-        self->vars[VAR_xVel] = 0.0;
-        self->vars[VAR_yVel] = 0.0;
-        self->vars[VAR_dying] = 1.0;
+    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+        gml_iset_sprite_index(self, ((float)SPR_sMagmaManCreate));
+        self->vars[VAR_xVel] = 0.0f;
+        self->vars[VAR_yVel] = 0.0f;
+        self->vars[VAR_dying] = 1.0f;
     }
 }
 
@@ -65,7 +65,7 @@ static void gml_ev_oMagma__Collision_oWater_body(gm_instance_t *self, gm_instanc
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSmokePuff)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSmokePuff)));
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
 
@@ -83,23 +83,23 @@ static void gml_ev_oMagma__Collision_oEnemy_body(gm_instance_t *self, gm_instanc
     (void)other;
     (void)wd;
     if (gml_str_ne(other->strs[SVAR_type], "Magma Man")) {
-        other->vars[VAR_yVel] = (-4.0);
+        other->vars[VAR_yVel] = (-4.0f);
         if (gml_lt(gml_iget_x(self), gml_iget_x(other))) {
-            other->vars[VAR_xVel] = (-3.0);
+            other->vars[VAR_xVel] = (-3.0f);
         } else {
-            other->vars[VAR_xVel] = 3.0;
+            other->vars[VAR_xVel] = 3.0f;
         }
-        if (gml_ne(other->vars[VAR_status], 98.0)) {
+        if (gml_ne(other->vars[VAR_status], 98.0f)) {
             gml_script_playSound(self, other, g_gml_globals.sndFlame);
         }
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_burning] = 100.0;
-                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0);
-                self1->vars[VAR_status] = 98.0;
-                self1->vars[VAR_counter] = 50.0;
+                self1->vars[VAR_burning] = 100.0f;
+                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0f);
+                self1->vars[VAR_status] = 98.0f;
+                self1->vars[VAR_counter] = 50.0f;
             }
             gm_with_end();
         }
@@ -117,21 +117,21 @@ static void gml_ev_oMagma__Collision_oCharacter_body(gm_instance_t *self, gm_ins
 {
     (void)self;
     (void)other;
-    if (gml_eq(other->vars[VAR_invincible], 0.0)) {
-        other->vars[VAR_blink] = 30.0;
-        other->vars[VAR_invincible] = 30.0;
-        other->vars[VAR_stunned] = 1.0;
-        other->vars[VAR_stunTimer] = 20.0;
-        other->vars[VAR_burning] = 100.0;
-        other->vars[VAR_yVel] = (-4.0);
+    if (gml_eq(other->vars[VAR_invincible], 0.0f)) {
+        other->vars[VAR_blink] = 30.0f;
+        other->vars[VAR_invincible] = 30.0f;
+        other->vars[VAR_stunned] = 1.0f;
+        other->vars[VAR_stunTimer] = 20.0f;
+        other->vars[VAR_burning] = 100.0f;
+        other->vars[VAR_yVel] = (-4.0f);
         if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-            other->vars[VAR_xVel] = (-6.0);
+            other->vars[VAR_xVel] = (-6.0f);
         } else {
-            other->vars[VAR_xVel] = 6.0;
+            other->vars[VAR_xVel] = 6.0f;
         }
-        (void)(gml_script_instance_create(self, other, gml_iget_x(other), gml_iget_y(other), ((double)OBJ_oBlood)));
-        if (gml_gt(g_gml_globals.plife, 0.0)) {
-            g_gml_globals.plife = (g_gml_globals.plife - 2.0);
+        (void)(gml_script_instance_create(self, other, gml_iget_x(other), gml_iget_y(other), ((float)OBJ_oBlood)));
+        if (gml_gt(g_gml_globals.plife, 0.0f)) {
+            g_gml_globals.plife = (g_gml_globals.plife - 2.0f);
         }
         gml_script_playSound(self, other, g_gml_globals.sndHurt);
         gml_script_playSound(self, other, g_gml_globals.sndFlame);
@@ -150,7 +150,7 @@ static void gml_ev_oMagma__Other_7_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if (gml_truthy(self->vars[VAR_dying])) {
-        self->vars[VAR_magma] = gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0), (gml_iget_y(self) - 8.0), ((double)OBJ_oMagmaMan));
+        self->vars[VAR_magma] = gml_script_instance_create(self, other, (gml_iget_x(self) - 8.0f), (gml_iget_y(self) - 8.0f), ((float)OBJ_oMagmaMan));
         gml_ivar_set(gml_deref(self->vars[VAR_magma], self, other), VAR_hp, self->vars[VAR_hp]);
         gml_fn_instance_destroy(self, other, 0, NULL);
     }

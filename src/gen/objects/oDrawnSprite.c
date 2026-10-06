@@ -6,7 +6,7 @@ static void gml_ev_oDrawnSprite__Create_0_body(gm_instance_t *self, gm_instance_
     (void)self;
     (void)other;
     self->strs[SVAR_type] = "";
-    self->vars[VAR_blinkToggle] = 0.0;
+    self->vars[VAR_blinkToggle] = 0.0f;
 }
 
 void gml_ev_oDrawnSprite__Create_0(gm_instance_t *self, gm_instance_t *other)

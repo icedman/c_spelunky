@@ -5,9 +5,9 @@ static void gml_ev_oEnd2__Create_0_body(gm_instance_t *self, gm_instance_t *othe
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, 0.0, 0.0, ((double)OBJ_oHtml5Gamepad)));
-    gml_iset_alarm(self, 0.0, 50.0);
-    gml_iset_alarm(self, 2.0, 10.0);
+    (void)(gml_script_instance_create(self, other, 0.0f, 0.0f, ((float)OBJ_oHtml5Gamepad)));
+    gml_iset_alarm(self, 0.0f, 50.0f);
+    gml_iset_alarm(self, 2.0f, 10.0f);
 }
 
 void gml_ev_oEnd2__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,12 +19,12 @@ void gml_ev_oEnd2__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oEnd2__Alarm_2_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    (void)((t1 = (224.0 + gml_script_rand(self, other, 0.0, 48.0)), gml_script_instance_create(self, other, t1, (144.0 + gml_script_rand(self, other, 0.0, 8.0)), ((double)OBJ_oVolcanoFlame))));
-    gml_iset_alarm(self, 2.0, gml_script_rand(self, other, 10.0, 20.0));
+    (void)((t1 = (224.0f + gml_script_rand(self, other, 0.0f, 48.0f)), gml_script_instance_create(self, other, t1, (144.0f + gml_script_rand(self, other, 0.0f, 8.0f)), ((float)OBJ_oVolcanoFlame))));
+    gml_iset_alarm(self, 2.0f, gml_script_rand(self, other, 10.0f, 20.0f));
 }
 
 void gml_ev_oEnd2__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -38,7 +38,7 @@ static void gml_ev_oEnd2__Alarm_1_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_player] = gml_script_instance_create(self, other, 240.0, 132.0, ((double)OBJ_oTreasureSil));
+    self->vars[VAR_player] = gml_script_instance_create(self, other, 240.0f, 132.0f, ((float)OBJ_oTreasureSil));
 }
 
 void gml_ev_oEnd2__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -52,8 +52,8 @@ static void gml_ev_oEnd2__Alarm_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    self->vars[VAR_player] = gml_script_instance_create(self, other, 240.0, 132.0, ((double)OBJ_oPlayerSil));
-    gml_iset_alarm(self, 1.0, 30.0);
+    self->vars[VAR_player] = gml_script_instance_create(self, other, 240.0f, 132.0f, ((float)OBJ_oPlayerSil));
+    gml_iset_alarm(self, 1.0f, 30.0f);
 }
 
 void gml_ev_oEnd2__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -65,24 +65,24 @@ void gml_ev_oEnd2__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oEnd2__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_skipCondition = 0.0;
+    float l_skipCondition = 0.0f;
     (void)self;
     (void)other;
     (void)l_skipCondition;
     if ((!gml_truthy(g_gml_globals.html5Build))) {
-        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     } else {
-        l_skipCondition = ((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(g_gml_globals.bAttackPressed)) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0 : 0.0);
+        l_skipCondition = ((((((gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEnter)) || gml_truthy(gml_fn_keyboard_check_pressed(self, other, g_gml_globals.keyEscape))) || gml_truthy(g_gml_globals.bAttackPressed)) || gml_truthy(g_gml_globals.bStartPressed)) || gml_truthy(gml_script_checkAttackPressed(self, other))) || gml_truthy(gml_script_checkStartPressed(self, other))) ? 1.0f : 0.0f);
     }
     if (gml_truthy(l_skipCondition)) {
         if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed))) {
-            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0);
+            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed, 0.0f);
         }
         if (gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed))) {
-            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0);
+            gml_ivar_set(gml_deref(g_gml_globals.gamepad, self, other), VAR_startPressed, 0.0f);
         }
-        g_gml_globals.gameStart = 0.0;
-        gml_fn_room_goto(self, other, ((double)RM_rEnd3));
+        g_gml_globals.gameStart = 0.0f;
+        gml_fn_room_goto(self, other, ((float)RM_rEnd3));
     }
 }
 

@@ -7,9 +7,9 @@ static void gml_ev_oLeaf__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Leaf";
-    self->vars[VAR_yVel] = 0.4;
-    self->vars[VAR_yAcc] = 0.01;
-    gml_iset_image_speed(self, 0.2);
+    self->vars[VAR_yVel] = 0.4f;
+    self->vars[VAR_yAcc] = 0.01f;
+    gml_iset_image_speed(self, 0.2f);
 }
 
 void gml_ev_oLeaf__Create_0(gm_instance_t *self, gm_instance_t *other)

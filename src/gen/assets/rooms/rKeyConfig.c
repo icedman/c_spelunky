@@ -3,10 +3,10 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rKeyConfig_layers[2] = {
-    { "Compatibility_Instances_Depth_0", 68, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 69, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xff000000u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 68, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 69, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xff000000u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rKeyConfig_instances[1] = {
-    { 110213, OBJ_oKeyConfig, 0.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_AD30D93B */
+    { 110213, OBJ_oKeyConfig, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_AD30D93B */
 };

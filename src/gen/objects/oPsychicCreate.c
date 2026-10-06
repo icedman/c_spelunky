@@ -6,11 +6,11 @@ static void gml_ev_oPsychicCreate__Create_0_body(gm_instance_t *self, gm_instanc
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.6;
-    gml_iset_image_speed(self, 0.4);
-    self->vars[VAR_grav] = 0.0;
-    self->vars[VAR_dir] = gm_point_direction(gml_iget_x(self), gml_iget_y(self), (gml_iget_x(gml_deref(((double)OBJ_oAlienBoss), self, other)) + 16.0), (gml_iget_y(gml_deref(((double)OBJ_oAlienBoss), self, other)) + 16.0));
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.6f;
+    gml_iset_image_speed(self, 0.4f);
+    self->vars[VAR_grav] = 0.0f;
+    self->vars[VAR_dir] = gm_point_direction(gml_iget_x(self), gml_iget_y(self), (gml_iget_x(gml_deref(((float)OBJ_oAlienBoss), self, other)) + 16.0f), (gml_iget_y(gml_deref(((float)OBJ_oAlienBoss), self, other)) + 16.0f));
 }
 
 void gml_ev_oPsychicCreate__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,8 +24,8 @@ static void gml_ev_oPsychicCreate__Step_0_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    gml_iset_x(self, (gml_iget_x(self) + (2.0 * cos(gm_degtorad(self->vars[VAR_dir])))));
-    gml_iset_y(self, (gml_iget_y(self) + ((-2.0) * sin(gm_degtorad(self->vars[VAR_dir])))));
+    gml_iset_x(self, (gml_iget_x(self) + (2.0f * cosf(gm_degtorad(self->vars[VAR_dir])))));
+    gml_iset_y(self, (gml_iget_y(self) + ((-2.0f) * sinf(gm_degtorad(self->vars[VAR_dir])))));
 }
 
 void gml_ev_oPsychicCreate__Step_0(gm_instance_t *self, gm_instance_t *other)

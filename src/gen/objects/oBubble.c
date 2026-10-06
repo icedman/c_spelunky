@@ -6,9 +6,9 @@ static void gml_ev_oBubble__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = ((-gml_script_rand(self, other, 1.0, 3.0)) * 0.1);
-    self->vars[VAR_yAcc] = 0.1;
-    gml_iset_image_speed(self, 0.2);
+    self->vars[VAR_yVel] = ((-gml_script_rand(self, other, 1.0f, 3.0f)) * 0.1f);
+    self->vars[VAR_yAcc] = 0.1f;
+    gml_iset_image_speed(self, 0.2f);
 }
 
 void gml_ev_oBubble__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,7 +23,7 @@ static void gml_ev_oBubble__Step_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oWater), 0.0, 0.0)))) {
+    if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oWater), 0.0f, 0.0f)))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

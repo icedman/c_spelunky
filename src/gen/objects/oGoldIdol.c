@@ -8,10 +8,10 @@ static void gml_ev_oGoldIdol__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Gold Idol";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_trigger] = 1.0;
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_value] = 5000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_trigger] = 1.0f;
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_value] = 5000.0f;
 }
 
 void gml_ev_oGoldIdol__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,12 +23,12 @@ void gml_ev_oGoldIdol__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oGoldIdol__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -38,28 +38,28 @@ static void gml_ev_oGoldIdol__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)t5;
     (void)t6;
     gml_script_action_inherited(self, other);
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 8.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 8.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 8.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 8.0))))) {
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 8.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 8.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 8.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 8.0f))))) {
         if (gml_truthy(gml_script_isLevel(self, other))) {
-            if ((((((!gml_truthy(self->vars[VAR_held])) && gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 4.0), ((double)OBJ_oBrickSmooth), 0.0, 0.0))) && gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oShopkeeper)))) && gml_eq(g_gml_globals.thiefLevel, 0.0)) && (!gml_truthy(g_gml_globals.murderer)))) {
-                if ((gml_eq(gml_ivar(gml_deref(((double)OBJ_oShopkeeper), self, other), VAR_status), 0.0) && gml_lt(fabs((gml_iget_x(self) - gml_iget_x(gml_deref(((double)OBJ_oShopkeeper), self, other)))), 80.0))) {
-                    g_gml_globals.collect = (g_gml_globals.collect + (self->vars[VAR_value] * (g_gml_globals.levelType + 1.0)));
-                    g_gml_globals.collectCounter = (g_gml_globals.collectCounter + 20.0);
-                    if (gml_gt(g_gml_globals.collectCounter, 100.0)) {
-                        g_gml_globals.collectCounter = 100.0;
+            if ((((((!gml_truthy(self->vars[VAR_held])) && gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 4.0f), ((float)OBJ_oBrickSmooth), 0.0f, 0.0f))) && gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oShopkeeper)))) && gml_eq(g_gml_globals.thiefLevel, 0.0f)) && (!gml_truthy(g_gml_globals.murderer)))) {
+                if ((gml_eq(gml_ivar(gml_deref(((float)OBJ_oShopkeeper), self, other), VAR_status), 0.0f) && gml_lt(fabsf((gml_iget_x(self) - gml_iget_x(gml_deref(((float)OBJ_oShopkeeper), self, other)))), 80.0f))) {
+                    g_gml_globals.collect = (g_gml_globals.collect + (self->vars[VAR_value] * (g_gml_globals.levelType + 1.0f)));
+                    g_gml_globals.collectCounter = (g_gml_globals.collectCounter + 20.0f);
+                    if (gml_gt(g_gml_globals.collectCounter, 100.0f)) {
+                        g_gml_globals.collectCounter = 100.0f;
                     }
-                    g_gml_globals.idols = (g_gml_globals.idols + 1.0);
+                    g_gml_globals.idols = (g_gml_globals.idols + 1.0f);
                     gml_script_playSound(self, other, g_gml_globals.sndCoin);
-                    (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) - 8.0), ((double)OBJ_oBigCollect)));
+                    (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) - 8.0f), ((float)OBJ_oBigCollect)));
                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "PLEASURE DOING BUSINESS!"));
                     g_gml_gvals[GV_message2] = gml_vs("");
-                    g_gml_globals.messageTimer = 100.0;
+                    g_gml_globals.messageTimer = 100.0f;
                     gml_fn_instance_destroy(self, other, 0, NULL);
                 }
             }
         }
         if (((!gml_truthy(self->vars[VAR_colBot])) && gml_truthy(self->vars[VAR_trigger]))) {
-            self->vars[VAR_trigger] = 0.0;
-            g_gml_globals.idolsGrabbed = (g_gml_globals.idolsGrabbed + 1.0);
+            self->vars[VAR_trigger] = 0.0f;
+            g_gml_globals.idolsGrabbed = (g_gml_globals.idolsGrabbed + 1.0f);
         }
     }
 }

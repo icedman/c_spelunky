@@ -3,13 +3,13 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rEnd2_layers[4] = {
-    { "Compatibility_Foreground_0", 22, GM_LAYER_BACKGROUND, -2147482100, false, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0x00000000u, 0, 0 },
-    { "Compatibility_Instances_Depth_0", 23, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Instances_Depth_9999", 24, GM_LAYER_INSTANCES, 9999, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Colour", 25, GM_LAYER_BACKGROUND, 2147483600, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
+    { "Compatibility_Foreground_0", 22, GM_LAYER_BACKGROUND, -2147482100, false, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0x00000000u, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 23, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Instances_Depth_9999", 24, GM_LAYER_INSTANCES, 9999, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Colour", 25, GM_LAYER_BACKGROUND, 2147483600, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffc0c0c0u, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rEnd2_instances[2] = {
-    { 109219, OBJ_oEnd2BG, -320.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 2, NULL }, /* inst_5D4913FD */
-    { 109220, OBJ_oEnd2, 0.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_89AB039E */
+    { 109219, OBJ_oEnd2BG, -320.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 2, NULL }, /* inst_5D4913FD */
+    { 109220, OBJ_oEnd2, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_89AB039E */
 };

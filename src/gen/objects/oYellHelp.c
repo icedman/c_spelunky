@@ -6,9 +6,9 @@ static void gml_ev_oYellHelp__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.1;
-    self->vars[VAR_yAcc] = 0.1;
-    gml_iset_alarm(self, 0.0, 40.0);
+    self->vars[VAR_yVel] = 0.1f;
+    self->vars[VAR_yAcc] = 0.1f;
+    gml_iset_alarm(self, 0.0f, 40.0f);
 }
 
 void gml_ev_oYellHelp__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -36,7 +36,7 @@ static void gml_ev_oYellHelp__Step_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    gml_iset_y(self, (gml_iget_y(self) - 0.1));
+    gml_iset_y(self, (gml_iget_y(self) - 0.1f));
 }
 
 void gml_ev_oYellHelp__Step_0(gm_instance_t *self, gm_instance_t *other)

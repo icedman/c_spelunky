@@ -5,7 +5,7 @@ static void gml_ev_oWalDamsel__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.5);
+    gml_iset_image_speed(self, 0.5f);
 }
 
 void gml_ev_oWalDamsel__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,9 +19,9 @@ static void gml_ev_oWalDamsel__Step_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_image_index(self), 11.0)) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0), ((double)OBJ_oHeart)));
-        if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oEndCustom), self, other), VAR_fadeOut)))) {
+    if (gml_eq(gml_iget_image_index(self), 11.0f)) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0f), ((float)OBJ_oHeart)));
+        if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oEndCustom), self, other), VAR_fadeOut)))) {
             gml_script_playSound(self, other, g_gml_globals.sndKiss);
         }
     }

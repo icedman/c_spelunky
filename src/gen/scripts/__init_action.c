@@ -3,17 +3,17 @@
 
 void gml_script___init_action(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_i = 0.0;
+    float l_i = 0.0f;
     (void)self;
     (void)other;
     (void)l_i;
     ((void)0);
-    g_gml_globals.v___part_syst = (-1.0);
+    g_gml_globals.v___part_syst = (-1.0f);
     g_gml_gvals[GV___part_emit] = gm_array_new(0);
-    g_gml_globals.v___argument_relative = 0.0;
+    g_gml_globals.v___argument_relative = 0.0f;
     g_gml_gvals[GV___part_type] = gm_array_new(0);
-    for (l_i = 0.0; gml_le(l_i, 15.0); l_i = (l_i + 1.0)) {
-        gml_aset(&g_gml_gvals[GV___part_type], l_i, gml_vreal((-1.0)));
-        gml_aset(&g_gml_gvals[GV___part_emit], l_i, gml_vreal((-1.0)));
+    for (l_i = 0.0f; gml_le(l_i, 15.0f); l_i = (l_i + 1.0f)) {
+        gml_aset(&g_gml_gvals[GV___part_type], l_i, gml_vreal((-1.0f)));
+        gml_aset(&g_gml_gvals[GV___part_emit], l_i, gml_vreal((-1.0f)));
     }
 }

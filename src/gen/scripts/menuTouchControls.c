@@ -5,8 +5,8 @@ void gml_script_menuTouchControls(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    g_gml_globals.touchControlsVisibility = (g_gml_globals.touchControlsVisibility + 1.0);
-    if (gml_ge(g_gml_globals.touchControlsVisibility, 3.0)) {
-        g_gml_globals.touchControlsVisibility = 0.0;
+    g_gml_globals.touchControlsVisibility = (g_gml_globals.touchControlsVisibility + 1.0f);
+    if (gml_ge(g_gml_globals.touchControlsVisibility, 3.0f)) {
+        g_gml_globals.touchControlsVisibility = 0.0f;
     }
 }

@@ -6,27 +6,27 @@ void gml_script_startMusic(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     if (gml_truthy(g_gml_globals.music)) {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oLoadLevel)))) {
-            if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oLoadLevel), self, other), SVAR_music), "LUSH")) {
-                gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0);
-                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oLoadLevel)))) {
+            if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oLoadLevel), self, other), SVAR_music), "LUSH")) {
+                gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0f);
+                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
             } else {
-                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oLoadLevel), self, other), SVAR_music), "ICE")) {
-                    gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0);
-                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oLoadLevel), self, other), SVAR_music), "ICE")) {
+                    gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0f);
+                    gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                 } else {
-                    if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oLoadLevel), self, other), SVAR_music), "TEMPLE")) {
-                        gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0);
-                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oLoadLevel), self, other), SVAR_music), "TEMPLE")) {
+                        gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0f);
+                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     } else {
-                        if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oLoadLevel), self, other), SVAR_music), "BOSS")) {
-                            if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active))) {
-                                gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0);
-                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oLoadLevel), self, other), SVAR_music), "BOSS")) {
+                            if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active))) {
+                                gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0f);
+                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                             }
                         } else {
-                            gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0);
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                            gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0f);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                         }
                     }
                 }
@@ -34,25 +34,25 @@ void gml_script_startMusic(gm_instance_t *self, gm_instance_t *other)
         } else {
             if (gml_truthy(gml_script_isLevel(self, other))) {
                 if (gml_truthy(gml_script_isRoom(self, other, "rOlmec"))) {
-                    if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active))) {
-                        gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0);
-                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active))) {
+                        gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0f);
+                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                 } else {
-                    if (gml_eq(g_gml_globals.levelType, 1.0)) {
-                        gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0);
-                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                    if (gml_eq(g_gml_globals.levelType, 1.0f)) {
+                        gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0f);
+                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     } else {
-                        if (gml_eq(g_gml_globals.levelType, 2.0)) {
-                            gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0);
-                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        if (gml_eq(g_gml_globals.levelType, 2.0f)) {
+                            gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0f);
+                            gml_script_SS_SetSoundVol(self, other, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                         } else {
-                            if (gml_eq(g_gml_globals.levelType, 3.0)) {
-                                gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0);
-                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                            if (gml_eq(g_gml_globals.levelType, 3.0f)) {
+                                gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0f);
+                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                             } else {
-                                gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0);
-                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                                gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0f);
+                                gml_script_SS_SetSoundVol(self, other, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                             }
                         }
                     }
@@ -62,8 +62,8 @@ void gml_script_startMusic(gm_instance_t *self, gm_instance_t *other)
                     gml_script_SS_StopSound(self, other, g_gml_globals.musTitle);
                 } else {
                     if (((gml_truthy(gml_script_isRoom(self, other, "rSun")) || gml_truthy(gml_script_isRoom(self, other, "rMoon"))) || gml_truthy(gml_script_isRoom(self, other, "rStars")))) {
-                        gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0);
-                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0f);
+                        gml_script_SS_SetSoundVol(self, other, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                 }
             }

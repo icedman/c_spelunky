@@ -7,9 +7,9 @@ static void gml_ev_oSlash__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Machete";
-    self->vars[VAR_damage] = 2.0;
-    gml_iset_image_speed(self, 1.0);
-    self->vars[VAR_puncture] = 1.0;
+    self->vars[VAR_damage] = 2.0f;
+    gml_iset_image_speed(self, 1.0f);
+    self->vars[VAR_puncture] = 1.0f;
 }
 
 void gml_ev_oSlash__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,16 +23,16 @@ static void gml_ev_oSlash__Step_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_fn_instance_number(self, other, ((double)OBJ_oCharacter)), 0.0)) {
+    if (gml_eq(gml_fn_instance_number(self, other, ((float)OBJ_oCharacter)), 0.0f)) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sSlashRight))) {
-        gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oCharacter), self, other)) + 16.0));
-        gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oCharacter), self, other)));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sSlashRight))) {
+        gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oCharacter), self, other)) + 16.0f));
+        gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oCharacter), self, other)));
     } else {
-        if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sSlashLeft))) {
-            gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oCharacter), self, other)) - 16.0));
-            gml_iset_y(self, gml_iget_y(gml_deref(((double)OBJ_oCharacter), self, other)));
+        if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sSlashLeft))) {
+            gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oCharacter), self, other)) - 16.0f));
+            gml_iset_y(self, gml_iget_y(gml_deref(((float)OBJ_oCharacter), self, other)));
         }
     }
 }

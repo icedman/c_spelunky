@@ -7,21 +7,21 @@ static void gml_ev_oMoonRoom__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     (void)wd;
-    g_gml_globals.plife = 8.0;
-    self->vars[VAR_highscore] = 0.0;
-    self->vars[VAR_baskets] = 0.0;
-    self->vars[VAR_timer] = 60.0;
-    self->vars[VAR_drawStatus] = 0.0;
-    gml_iset_alarm(self, 0.0, 100.0);
-    gml_iset_alarm(self, 1.0, 30.0);
-    gml_iset_alarm(self, 9.0, 100.0);
-    g_gml_globals.arrows = 100.0;
+    g_gml_globals.plife = 8.0f;
+    self->vars[VAR_highscore] = 0.0f;
+    self->vars[VAR_baskets] = 0.0f;
+    self->vars[VAR_timer] = 60.0f;
+    self->vars[VAR_drawStatus] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 100.0f);
+    gml_iset_alarm(self, 1.0f, 30.0f);
+    gml_iset_alarm(self, 9.0f, 100.0f);
+    g_gml_globals.arrows = 100.0f;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oBrick)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oBrick)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            if ((((gml_le(gml_iget_x(self1), 16.0) || gml_ge(gml_iget_x(self1), 288.0)) || gml_le(gml_iget_y(self1), 16.0)) || gml_ge(gml_iget_y(self1), 208.0))) {
-                self1->vars[VAR_invincible] = 1.0;
+            if ((((gml_le(gml_iget_x(self1), 16.0f) || gml_ge(gml_iget_x(self1), 288.0f)) || gml_le(gml_iget_y(self1), 16.0f)) || gml_ge(gml_iget_y(self1), 208.0f))) {
+                self1->vars[VAR_invincible] = 1.0f;
             }
         }
         gm_with_end();
@@ -41,41 +41,41 @@ static void gml_ev_oMoonRoom__Alarm_11_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     (void)wd;
-    self->vars[VAR_timer] = (self->vars[VAR_timer] - 1.0);
-    if (gml_eq(self->vars[VAR_timer], 0.0)) {
-        g_gml_globals.mini2 = gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets);
-        if (gml_gt(g_gml_globals.mini2, 99.0)) {
-            g_gml_globals.mini2 = 99.0;
+    self->vars[VAR_timer] = (self->vars[VAR_timer] - 1.0f);
+    if (gml_eq(self->vars[VAR_timer], 0.0f)) {
+        g_gml_globals.mini2 = gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets);
+        if (gml_gt(g_gml_globals.mini2, 99.0f)) {
+            g_gml_globals.mini2 = 99.0f;
         }
-        gml_script_scrUpdateHighscores(self, other, 2.0);
-        self->vars[VAR_timer] = (self->vars[VAR_timer] - 1.0);
-        gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_drawStatus, 1.0);
+        gml_script_scrUpdateHighscores(self, other, 2.0f);
+        self->vars[VAR_timer] = (self->vars[VAR_timer] - 1.0f);
+        gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_drawStatus, 1.0f);
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oBatTarget)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oBatTarget)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_obj] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0), gml_iget_y(self1), ((double)OBJ_oPoof));
-                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_xVel, 0.0);
-                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_yVel, (-1.0));
-                self1->vars[VAR_obj] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0), gml_iget_y(self1), ((double)OBJ_oPoof));
-                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_xVel, 0.0);
-                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_yVel, 1.0);
+                self1->vars[VAR_obj] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0f), gml_iget_y(self1), ((float)OBJ_oPoof));
+                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_xVel, 0.0f);
+                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_yVel, (-1.0f));
+                self1->vars[VAR_obj] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0f), gml_iget_y(self1), ((float)OBJ_oPoof));
+                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_xVel, 0.0f);
+                gml_ivar_set(gml_deref(self1->vars[VAR_obj], self1, self), VAR_yVel, 1.0f);
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
             gm_with_end();
         }
         {
             gm_instance_t *self2;
-            gm_with_begin(gml_target(((double)OBJ_oEntrance)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oEntrance)), self, other);
             while ((self2 = gm_with_next()) != NULL) {
-                (void)(gml_script_instance_create(self2, self, gml_iget_x(self2), gml_iget_y(self2), ((double)OBJ_oXScores)));
+                (void)(gml_script_instance_create(self2, self, gml_iget_x(self2), gml_iget_y(self2), ((float)OBJ_oXScores)));
                 gml_fn_instance_destroy(self2, self, 0, NULL);
             }
             gm_with_end();
         }
-        gml_iset_alarm(self, 10.0, 30.0);
+        gml_iset_alarm(self, 10.0f, 30.0f);
     } else {
-        gml_iset_alarm(self, 11.0, 30.0);
+        gml_iset_alarm(self, 11.0f, 30.0f);
     }
 }
 
@@ -90,9 +90,9 @@ static void gml_ev_oMoonRoom__Alarm_10_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    if (gml_lt(self->vars[VAR_timer], 0.0)) {
-        if (gml_lt(gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_drawStatus), 3.0)) {
-            gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_drawStatus, 3.0);
+    if (gml_lt(self->vars[VAR_timer], 0.0f)) {
+        if (gml_lt(gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_drawStatus), 3.0f)) {
+            gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_drawStatus, 3.0f);
         }
         gml_script_stopAllMusic(self, other);
     }
@@ -125,10 +125,10 @@ static void gml_ev_oMoonRoom__Alarm_3_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 3.0;
-    (void)(gml_script_instance_create(self, other, 160.0, (-16.0), ((double)OBJ_oBatTarget)));
-    (void)(gml_script_instance_create(self, other, 208.0, (-64.0), ((double)OBJ_oBatTarget)));
-    (void)(gml_script_instance_create(self, other, 256.0, (-128.0), ((double)OBJ_oBatTarget)));
+    self->vars[VAR_drawStatus] = 3.0f;
+    (void)(gml_script_instance_create(self, other, 160.0f, (-16.0f), ((float)OBJ_oBatTarget)));
+    (void)(gml_script_instance_create(self, other, 208.0f, (-64.0f), ((float)OBJ_oBatTarget)));
+    (void)(gml_script_instance_create(self, other, 256.0f, (-128.0f), ((float)OBJ_oBatTarget)));
 }
 
 void gml_ev_oMoonRoom__Alarm_3(gm_instance_t *self, gm_instance_t *other)
@@ -142,8 +142,8 @@ static void gml_ev_oMoonRoom__Alarm_2_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 2.0;
-    gml_iset_alarm(self, 3.0, 10.0);
+    self->vars[VAR_drawStatus] = 2.0f;
+    gml_iset_alarm(self, 3.0f, 10.0f);
 }
 
 void gml_ev_oMoonRoom__Alarm_2(gm_instance_t *self, gm_instance_t *other)
@@ -157,8 +157,8 @@ static void gml_ev_oMoonRoom__Alarm_1_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_drawStatus] = 1.0;
-    gml_iset_alarm(self, 2.0, 30.0);
+    self->vars[VAR_drawStatus] = 1.0f;
+    gml_iset_alarm(self, 2.0f, 30.0f);
 }
 
 void gml_ev_oMoonRoom__Alarm_1(gm_instance_t *self, gm_instance_t *other)
@@ -172,8 +172,8 @@ static void gml_ev_oMoonRoom__Alarm_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    if (gml_eq(self->vars[VAR_timer], 60.0)) {
-        gml_iset_alarm(self, 11.0, 1.0);
+    if (gml_eq(self->vars[VAR_timer], 60.0f)) {
+        gml_iset_alarm(self, 11.0f, 1.0f);
     }
 }
 
@@ -186,14 +186,14 @@ void gml_ev_oMoonRoom__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oMoonRoom__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
     const char *s9 = "";
     gm_value_t v10 = GM_VALUE_UNDEFINED_INIT;
     (void)self;
@@ -209,21 +209,21 @@ static void gml_ev_oMoonRoom__Draw_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)s9;
     (void)v10;
     self->vars[VAR_life] = g_gml_globals.plife;
-    if (gml_lt(self->vars[VAR_life], 0.0)) {
-        self->vars[VAR_life] = 0.0;
+    if (gml_lt(self->vars[VAR_life], 0.0f)) {
+        self->vars[VAR_life] = 0.0f;
     }
     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-    (t1 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 8.0), gml_fn_draw_sprite(self, other, ((double)SPR_sHoopsIcon), (-1.0), t1, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0)));
-    (t2 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 24.0), t3 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0), gml_fn_draw_text(self, other, t2, t3, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_baskets]))));
-    (t4 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 64.0), gml_fn_draw_sprite(self, other, ((double)SPR_sTimerIcon), (-1.0), t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0)));
-    if (gml_ge(self->vars[VAR_timer], 0.0)) {
-        (t5 = ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 64.0) + 16.0), t6 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_timer]))));
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+    (t1 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 8.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sHoopsIcon), (-1.0f), t1, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f)));
+    (t2 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 24.0f), t3 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f), gml_fn_draw_text(self, other, t2, t3, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_baskets]))));
+    (t4 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 64.0f), gml_fn_draw_sprite(self, other, ((float)SPR_sTimerIcon), (-1.0f), t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f)));
+    if (gml_ge(self->vars[VAR_timer], 0.0f)) {
+        (t5 = ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 64.0f) + 16.0f), t6 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_real_str(self->vars[VAR_timer]))));
     } else {
-        (t7 = ((gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 64.0) + 16.0), t8 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 8.0), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, "0")));
+        (t7 = ((gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 64.0f) + 16.0f), t8 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 8.0f), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, "0")));
     }
-    if (gml_lt(self->vars[VAR_drawStatus], 3.0)) {
-        (v10 = gml_vs(gml_concat((s9 = gml_script_tr(self, other, 1, "ARCHERY CHALLENGE BEGINS IN "), gml_concat(s9, gml_real_str((3.0 - self->vars[VAR_drawStatus])))), "...")), gml_script_drawTextHCentered(self, other, 5, v10, "small", (65535.0 /* c_yellow */), (-g_gml_globals.room_offset), 216.0));
+    if (gml_lt(self->vars[VAR_drawStatus], 3.0f)) {
+        (v10 = gml_vs(gml_concat((s9 = gml_script_tr(self, other, 1, "ARCHERY CHALLENGE BEGINS IN "), gml_concat(s9, gml_real_str((3.0f - self->vars[VAR_drawStatus])))), "...")), gml_script_drawTextHCentered(self, other, 5, v10, "small", (65535.0f /* c_yellow */), (-g_gml_globals.room_offset), 216.0f));
     }
 }
 

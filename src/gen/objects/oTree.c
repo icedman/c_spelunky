@@ -7,7 +7,7 @@ static void gml_ev_oTree__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)other;
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Tree";
-    self->vars[VAR_burning] = 0.0;
+    self->vars[VAR_burning] = 0.0f;
 }
 
 void gml_ev_oTree__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,21 +19,21 @@ void gml_ev_oTree__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTree__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -53,9 +53,9 @@ static void gml_ev_oTree__Destroy_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)t15;
     gml_script_action_inherited(self, other);
     if (((!gml_truthy(self->vars[VAR_cleanDeath])) && (!gml_truthy(g_gml_globals.cleanSolids)))) {
-        (void)((t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0), (t1 + gml_script_rand(self, other, 0.0, 8.0))), (t2 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0), (t3 + gml_script_rand(self, other, 0.0, 8.0))), (t4 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubble))));
-        (void)((t10 = (t7 = (t6 = (gml_iget_x(self) + 8.0), (t6 + gml_script_rand(self, other, 0.0, 8.0))), (t7 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t10, (t9 = (t8 = (gml_iget_y(self) + 8.0), (t8 + gml_script_rand(self, other, 0.0, 8.0))), (t9 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubbleSmall))));
-        (void)((t15 = (t12 = (t11 = (gml_iget_x(self) + 8.0), (t11 + gml_script_rand(self, other, 0.0, 8.0))), (t12 - gml_script_rand(self, other, 0.0, 8.0))), gml_script_instance_create(self, other, t15, (t14 = (t13 = (gml_iget_y(self) + 8.0), (t13 + gml_script_rand(self, other, 0.0, 8.0))), (t14 - gml_script_rand(self, other, 0.0, 8.0))), ((double)OBJ_oRubbleSmall))));
+        (void)((t5 = (t2 = (t1 = (gml_iget_x(self) + 8.0f), (t1 + gml_script_rand(self, other, 0.0f, 8.0f))), (t2 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) + 8.0f), (t3 + gml_script_rand(self, other, 0.0f, 8.0f))), (t4 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubble))));
+        (void)((t10 = (t7 = (t6 = (gml_iget_x(self) + 8.0f), (t6 + gml_script_rand(self, other, 0.0f, 8.0f))), (t7 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t10, (t9 = (t8 = (gml_iget_y(self) + 8.0f), (t8 + gml_script_rand(self, other, 0.0f, 8.0f))), (t9 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubbleSmall))));
+        (void)((t15 = (t12 = (t11 = (gml_iget_x(self) + 8.0f), (t11 + gml_script_rand(self, other, 0.0f, 8.0f))), (t12 - gml_script_rand(self, other, 0.0f, 8.0f))), gml_script_instance_create(self, other, t15, (t14 = (t13 = (gml_iget_y(self) + 8.0f), (t13 + gml_script_rand(self, other, 0.0f, 8.0f))), (t14 - gml_script_rand(self, other, 0.0f, 8.0f))), ((float)OBJ_oRubbleSmall))));
     }
 }
 
@@ -68,12 +68,12 @@ void gml_ev_oTree__Destroy_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oTree__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -82,8 +82,8 @@ static void gml_ev_oTree__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)t4;
     (void)t5;
     (void)t6;
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 16.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 16.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 16.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 16.0))))) {
-        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 16.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 16.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 16.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 16.0f))))) {
+        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

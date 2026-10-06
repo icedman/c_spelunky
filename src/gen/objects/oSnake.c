@@ -7,26 +7,26 @@ static void gml_ev_oSnake__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_script_action_inherited(self, other);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, 2.0, 0.0, 14.0, 16.0);
-    self->vars[VAR_xVel] = 2.5;
-    gml_iset_image_speed(self, 0.4);
+    gml_script_setCollisionBounds(self, other, 2.0f, 0.0f, 14.0f, 16.0f);
+    self->vars[VAR_xVel] = 2.5f;
+    gml_iset_image_speed(self, 0.4f);
     self->strs[SVAR_type] = "Snake";
-    self->vars[VAR_hp] = 1.0;
-    self->vars[VAR_invincible] = 0.0;
-    self->vars[VAR_IDLE] = 0.0;
-    self->vars[VAR_WALK] = 1.0;
-    self->vars[VAR_ATTACK] = 2.0;
-    self->vars[VAR_STUNNED] = 98.0;
-    self->vars[VAR_DEAD] = 99.0;
+    self->vars[VAR_hp] = 1.0f;
+    self->vars[VAR_invincible] = 0.0f;
+    self->vars[VAR_IDLE] = 0.0f;
+    self->vars[VAR_WALK] = 1.0f;
+    self->vars[VAR_ATTACK] = 2.0f;
+    self->vars[VAR_STUNNED] = 98.0f;
+    self->vars[VAR_DEAD] = 99.0f;
     self->vars[VAR_status] = self->vars[VAR_IDLE];
-    self->vars[VAR_bounced] = 0.0;
-    self->vars[VAR_dead] = 0.0;
-    self->vars[VAR_counter] = 0.0;
-    self->vars[VAR_LEFT] = 0.0;
-    self->vars[VAR_RIGHT] = 1.0;
+    self->vars[VAR_bounced] = 0.0f;
+    self->vars[VAR_dead] = 0.0f;
+    self->vars[VAR_counter] = 0.0f;
+    self->vars[VAR_LEFT] = 0.0f;
+    self->vars[VAR_RIGHT] = 1.0f;
     self->vars[VAR_facing] = self->vars[VAR_RIGHT];
-    self->vars[VAR_shakeCounter] = 0.0;
-    self->vars[VAR_shakeToggle] = 1.0;
+    self->vars[VAR_shakeCounter] = 0.0f;
+    self->vars[VAR_shakeToggle] = 1.0f;
 }
 
 void gml_ev_oSnake__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -38,12 +38,12 @@ void gml_ev_oSnake__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oSnake__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -53,70 +53,70 @@ static void gml_ev_oSnake__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)t5;
     (void)t6;
     gml_script_action_inherited(self, other);
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 20.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 4.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 20.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 4.0))))) {
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 20.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 4.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 20.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 4.0f))))) {
         gml_script_moveTo(self, other, self->vars[VAR_xVel], self->vars[VAR_yVel]);
         self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
         if (gml_gt(self->vars[VAR_yVel], self->vars[VAR_yVelLimit])) {
             self->vars[VAR_yVel] = self->vars[VAR_yVelLimit];
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oSolid), 0.0, 0.0))) {
-            self->vars[VAR_hp] = 0.0;
+        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
+            self->vars[VAR_hp] = 0.0f;
         }
-        if (gml_lt(self->vars[VAR_hp], 1.0)) {
-            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), 3.0));
+        if (gml_lt(self->vars[VAR_hp], 1.0f)) {
+            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), 3.0f));
             if (gml_truthy(self->vars[VAR_countsAsKill])) {
                 if (gml_truthy(gml_script_isRealLevel(self, other))) {
-                    gml_aset(&g_gml_gvals[GV_enemyKills], 1.0, gml_add(gml_aget(g_gml_gvals[GV_enemyKills], 1.0), gml_vreal(1.0)));
+                    gml_aset(&g_gml_gvals[GV_enemyKills], 1.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyKills], 1.0f), gml_vreal(1.0f)));
                 }
-                g_gml_globals.snakes = (g_gml_globals.snakes + 1.0);
-                g_gml_globals.kills = (g_gml_globals.kills + 1.0);
+                g_gml_globals.snakes = (g_gml_globals.snakes + 1.0f);
+                g_gml_globals.kills = (g_gml_globals.kills + 1.0f);
             }
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
-        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0)) && gml_ne(self->vars[VAR_status], self->vars[VAR_STUNNED]))) {
-            self->vars[VAR_yVel] = 0.0;
+        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f)) && gml_ne(self->vars[VAR_status], self->vars[VAR_STUNNED]))) {
+            self->vars[VAR_yVel] = 0.0f;
         }
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_IDLE])) {
-            if (gml_gt(self->vars[VAR_counter], 0.0)) {
-                self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+            if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+                self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
             } else {
-                self->vars[VAR_facing] = gml_script_rand(self, other, 0.0, 1.0);
+                self->vars[VAR_facing] = gml_script_rand(self, other, 0.0f, 1.0f);
                 self->vars[VAR_status] = self->vars[VAR_WALK];
             }
         } else {
             if (gml_eq(self->vars[VAR_status], self->vars[VAR_WALK])) {
-                if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0)))) {
+                if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0f)))) {
                     if (gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT])) {
                         self->vars[VAR_facing] = self->vars[VAR_RIGHT];
                     } else {
                         self->vars[VAR_facing] = self->vars[VAR_LEFT];
                     }
                 }
-                if ((gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT]) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0)))))) {
+                if ((gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT]) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))))) {
                     self->vars[VAR_facing] = self->vars[VAR_RIGHT];
                 } else {
-                    if ((gml_eq(self->vars[VAR_facing], self->vars[VAR_RIGHT]) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0)))))) {
+                    if ((gml_eq(self->vars[VAR_facing], self->vars[VAR_RIGHT]) && (!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))))) {
                         self->vars[VAR_facing] = self->vars[VAR_LEFT];
                     }
                 }
-                if ((((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0)))) || gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0), gml_iget_y(self), ((double)OBJ_oSolid), (-1.0), (-1.0)))) && ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0)))) || gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), gml_iget_y(self), ((double)OBJ_oSolid), (-1.0), (-1.0)))))) {
-                    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0), gml_iget_y(self), ((double)OBJ_oSolid), (-1.0), (-1.0)))) {
+                if ((((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))) || gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0f), gml_iget_y(self), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))) && ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))) || gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), gml_iget_y(self), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))))) {
+                    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0f), gml_iget_y(self), ((float)OBJ_oSolid), (-1.0f), (-1.0f)))) {
                         self->vars[VAR_facing] = self->vars[VAR_RIGHT];
                     } else {
                         self->vars[VAR_facing] = self->vars[VAR_LEFT];
                     }
-                    self->vars[VAR_xVel] = 0.0;
+                    self->vars[VAR_xVel] = 0.0f;
                 } else {
                     if (gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT])) {
-                        self->vars[VAR_xVel] = (-1.0);
+                        self->vars[VAR_xVel] = (-1.0f);
                     } else {
-                        self->vars[VAR_xVel] = 1.0;
+                        self->vars[VAR_xVel] = 1.0f;
                     }
                 }
-                if (gml_eq(gml_script_rand(self, other, 1.0, 100.0), 1.0)) {
+                if (gml_eq(gml_script_rand(self, other, 1.0f, 100.0f), 1.0f)) {
                     self->vars[VAR_status] = self->vars[VAR_IDLE];
-                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0, 50.0);
-                    self->vars[VAR_xVel] = 0.0;
+                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0f, 50.0f);
+                    self->vars[VAR_xVel] = 0.0f;
                 }
             } else {
                 if (gml_eq(self->vars[VAR_status], self->vars[VAR_ATTACK])) {
@@ -124,15 +124,15 @@ static void gml_ev_oSnake__Step_0_body(gm_instance_t *self, gm_instance_t *other
             }
         }
         if (gml_truthy(gml_script_isCollisionSolid(self, other))) {
-            gml_iset_y(self, (gml_iget_y(self) - 2.0));
+            gml_iset_y(self, (gml_iget_y(self) - 2.0f));
         }
         if (gml_ne(self->vars[VAR_status], self->vars[VAR_STUNNED])) {
-            if (gml_eq(self->vars[VAR_xVel], 0.0)) {
-                gml_iset_image_speed(self, 0.2);
+            if (gml_eq(self->vars[VAR_xVel], 0.0f)) {
+                gml_iset_image_speed(self, 0.2f);
             } else {
-                gml_iset_image_speed(self, 0.4);
+                gml_iset_image_speed(self, 0.4f);
             }
-            gml_iset_sprite_index(self, ((double)SPR_sSnakeWalkL));
+            gml_iset_sprite_index(self, ((float)SPR_sSnakeWalkL));
         }
     }
 }

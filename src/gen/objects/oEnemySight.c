@@ -5,7 +5,7 @@ static void gml_ev_oEnemySight__Create_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    self->vars[VAR_owner] = 0.0;
+    self->vars[VAR_owner] = 0.0f;
 }
 
 void gml_ev_oEnemySight__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -37,10 +37,10 @@ static void gml_ev_oEnemySight__Collision_oCharacter_body(gm_instance_t *self, g
     (void)wd;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oCaveman)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oCaveman)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            if ((gml_lt(gml_fn_distance_to_object(self1, self, ((double)OBJ_oPlayer1)), 100.0) && gml_lt(self1->vars[VAR_status], 98.0))) {
-                self1->vars[VAR_status] = 2.0;
+            if ((gml_lt(gml_fn_distance_to_object(self1, self, ((float)OBJ_oPlayer1)), 100.0f) && gml_lt(self1->vars[VAR_status], 98.0f))) {
+                self1->vars[VAR_status] = 2.0f;
                 gml_script_playSound(self1, self, g_gml_globals.sndAlert);
             }
         }
@@ -48,10 +48,10 @@ static void gml_ev_oEnemySight__Collision_oCharacter_body(gm_instance_t *self, g
     }
     {
         gm_instance_t *self2;
-        gm_with_begin(gml_target(((double)OBJ_oHawkman)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oHawkman)), self, other);
         while ((self2 = gm_with_next()) != NULL) {
-            if ((gml_lt(gml_fn_distance_to_object(self2, self, ((double)OBJ_oPlayer1)), 100.0) && gml_lt(self2->vars[VAR_status], 98.0))) {
-                self2->vars[VAR_status] = 2.0;
+            if ((gml_lt(gml_fn_distance_to_object(self2, self, ((float)OBJ_oPlayer1)), 100.0f) && gml_lt(self2->vars[VAR_status], 98.0f))) {
+                self2->vars[VAR_status] = 2.0f;
                 gml_script_playSound(self2, self, g_gml_globals.sndAlert);
             }
         }

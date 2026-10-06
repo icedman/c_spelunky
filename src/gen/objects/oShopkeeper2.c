@@ -7,8 +7,8 @@ static void gml_ev_oShopkeeper2__Create_0_body(gm_instance_t *self, gm_instance_
     (void)other;
     gml_script_action_inherited(self, other);
     self->vars[VAR_status] = self->vars[VAR_ATTACK];
-    self->vars[VAR_hasGun] = 0.0;
-    self->vars[VAR_deathTimer] = 200.0;
+    self->vars[VAR_hasGun] = 0.0f;
+    self->vars[VAR_deathTimer] = 200.0f;
 }
 
 void gml_ev_oShopkeeper2__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,10 +24,10 @@ static void gml_ev_oShopkeeper2__Step_0_body(gm_instance_t *self, gm_instance_t 
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_DEAD])) {
-        if (gml_gt(self->vars[VAR_deathTimer], 0.0)) {
-            self->vars[VAR_deathTimer] = (self->vars[VAR_deathTimer] - 1.0);
+        if (gml_gt(self->vars[VAR_deathTimer], 0.0f)) {
+            self->vars[VAR_deathTimer] = (self->vars[VAR_deathTimer] - 1.0f);
         } else {
-            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), 3.0));
+            (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), 3.0f));
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

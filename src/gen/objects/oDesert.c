@@ -7,7 +7,7 @@ static void gml_ev_oDesert__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_str_eq(gml_fn_room_get_name(self, other, gml_gget_room()), "rIntro")) {
-        gml_iset_sprite_index(self, ((double)SPR_sDesertNight));
+        gml_iset_sprite_index(self, ((float)SPR_sDesertNight));
     }
 }
 

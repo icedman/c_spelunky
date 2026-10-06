@@ -5,9 +5,9 @@ static void gml_ev_oUFOCrash__Create_0_body(gm_instance_t *self, gm_instance_t *
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    gml_iset_alarm(self, 0.0, 3.0);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 3.0f);
 }
 
 void gml_ev_oUFOCrash__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,12 +19,12 @@ void gml_ev_oUFOCrash__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oUFOCrash__Alarm_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -33,12 +33,12 @@ static void gml_ev_oUFOCrash__Alarm_0_body(gm_instance_t *self, gm_instance_t *o
     (void)t4;
     (void)t5;
     (void)t6;
-    if (gml_eq(gml_script_rand(self, other, 1.0, 2.0), 1.0)) {
-        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oFlameTrail))));
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 2.0f), 1.0f)) {
+        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oFlameTrail))));
     } else {
-        (void)((t6 = (t4 = gml_iget_x(self), (t4 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t6, (t5 = gml_iget_y(self), (t5 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oBurn))));
+        (void)((t6 = (t4 = gml_iget_x(self), (t4 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t6, (t5 = gml_iget_y(self), (t5 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oBurn))));
     }
-    gml_iset_alarm(self, 0.0, 3.0);
+    gml_iset_alarm(self, 0.0f, 3.0f);
 }
 
 void gml_ev_oUFOCrash__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -54,8 +54,8 @@ static void gml_ev_oUFOCrash__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
-        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.6);
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
+        self->vars[VAR_yVel] = (self->vars[VAR_yVel] + 0.6f);
     }
 }
 
@@ -70,7 +70,7 @@ static void gml_ev_oUFOCrash__Collision_oSolid_body(gm_instance_t *self, gm_inst
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oExplosion)));
+    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oExplosion)));
     gml_script_playSound(self, other, g_gml_globals.sndExplosion);
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
@@ -86,7 +86,7 @@ static void gml_ev_oUFOCrash__Collision_oEnemy_body(gm_instance_t *self, gm_inst
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oExplosion)));
+    (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oExplosion)));
     gml_script_playSound(self, other, g_gml_globals.sndExplosion);
     gml_fn_instance_destroy(self, other, 0, NULL);
 }

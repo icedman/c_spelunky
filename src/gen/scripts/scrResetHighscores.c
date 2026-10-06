@@ -6,15 +6,15 @@ void gml_script_scrResetHighscores(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     gml_fn_ini_open(self, other, "spelunky.ini");
-    gml_fn_ini_write_real(self, other, "highscore", "value1", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value2", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value3", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value4", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value5", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value6", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value7", 0.0);
-    gml_fn_ini_write_real(self, other, "highscore", "value8", (g_gml_globals.tunnel1Max + 1.0));
-    gml_fn_ini_write_real(self, other, "highscore", "value9", (g_gml_globals.tunnel2Max + 1.0));
-    gml_fn_ini_write_real(self, other, "highscore", "value10", 0.0);
+    gml_fn_ini_write_real(self, other, "highscore", "value1", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value2", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value3", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value4", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value5", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value6", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value7", 0.0f);
+    gml_fn_ini_write_real(self, other, "highscore", "value8", (g_gml_globals.tunnel1Max + 1.0f));
+    gml_fn_ini_write_real(self, other, "highscore", "value9", (g_gml_globals.tunnel2Max + 1.0f));
+    gml_fn_ini_write_real(self, other, "highscore", "value10", 0.0f);
     (void)(gml_fn_ini_close(self, other));
 }

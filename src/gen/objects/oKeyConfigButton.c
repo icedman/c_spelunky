@@ -5,7 +5,7 @@ static void gml_ev_oKeyConfigButton__Mouse_11_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sKeyConfigButton));
+    gml_iset_sprite_index(self, ((float)SPR_sKeyConfigButton));
 }
 
 void gml_ev_oKeyConfigButton__Mouse_11(gm_instance_t *self, gm_instance_t *other)
@@ -19,10 +19,10 @@ static void gml_ev_oKeyConfigButton__Mouse_7_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sKeyConfigButtonPressed))) {
-        gml_fn_room_goto(self, other, ((double)RM_rKeyConfig));
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sKeyConfigButtonPressed))) {
+        gml_fn_room_goto(self, other, ((float)RM_rKeyConfig));
     }
-    gml_iset_sprite_index(self, ((double)SPR_sKeyConfigButton));
+    gml_iset_sprite_index(self, ((float)SPR_sKeyConfigButton));
 }
 
 void gml_ev_oKeyConfigButton__Mouse_7(gm_instance_t *self, gm_instance_t *other)
@@ -36,7 +36,7 @@ static void gml_ev_oKeyConfigButton__Mouse_4_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sKeyConfigButtonPressed));
+    gml_iset_sprite_index(self, ((float)SPR_sKeyConfigButtonPressed));
 }
 
 void gml_ev_oKeyConfigButton__Mouse_4(gm_instance_t *self, gm_instance_t *other)

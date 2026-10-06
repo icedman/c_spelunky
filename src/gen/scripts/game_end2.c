@@ -5,7 +5,7 @@ void gml_script_game_end2(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_gget_os_browser(), (0.0 /* browser_not_a_browser */))) {
+    if (gml_eq(gml_gget_os_browser(), (0.0f /* browser_not_a_browser */))) {
         gml_fn_game_end(self, other);
     } else {
         gml_script_sound_stop_all(self, other);

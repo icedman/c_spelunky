@@ -6,7 +6,7 @@ static void gml_ev_oCape__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_open] = 0.0;
+    self->vars[VAR_open] = 0.0f;
 }
 
 void gml_ev_oCape__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -20,64 +20,64 @@ static void gml_ev_oCape__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    if ((gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oTransition))) && (!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy)))))) {
+    if ((gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oTransition))) && (!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy)))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     } else {
-        if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPDummy)))) {
-            if (((gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sPExit)) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sDamselExit))) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sTunnelExit)))) {
-                gml_iset_x(self, gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)));
-                gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)) + 4.0));
-                gml_iset_sprite_index(self, ((double)SPR_sCapeBack));
-                gml_iset_depth(self, 0.0);
+        if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPDummy)))) {
+            if (((gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sPExit)) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sDamselExit))) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sTunnelExit)))) {
+                gml_iset_x(self, gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)));
+                gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)) + 4.0f));
+                gml_iset_sprite_index(self, ((float)SPR_sCapeBack));
+                gml_iset_depth(self, 0.0f);
             } else {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPDummy), self, other)) - 4.0));
-                gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPDummy), self, other)) - 2.0));
-                if (((gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sRunLeft)) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sDamselRunL))) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPDummy), self, other)), ((double)SPR_sTunnelRunL)))) {
-                    gml_iset_sprite_index(self, ((double)SPR_sCapeRight));
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPDummy), self, other)) - 4.0f));
+                gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPDummy), self, other)) - 2.0f));
+                if (((gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sRunLeft)) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sDamselRunL))) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPDummy), self, other)), ((float)SPR_sTunnelRunL)))) {
+                    gml_iset_sprite_index(self, ((float)SPR_sCapeRight));
                 } else {
-                    gml_iset_sprite_index(self, ((double)SPR_sCapeDR));
+                    gml_iset_sprite_index(self, ((float)SPR_sCapeDR));
                 }
-                gml_iset_depth(self, 100.0);
+                gml_iset_depth(self, 100.0f);
             }
         } else {
-            if (((gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_state), 14.0) || ((gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sPExit)) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sDamselExit))) || gml_eq(gml_iget_sprite_index(gml_deref(((double)OBJ_oPlayer1), self, other)), ((double)SPR_sTunnelExit)))) && (!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_whipping))))) {
-                gml_iset_x(self, gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)));
-                gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) + 4.0));
-                gml_iset_sprite_index(self, ((double)SPR_sCapeBack));
-                gml_iset_depth(self, 0.0);
+            if (((gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_state), 14.0f) || ((gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sPExit)) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sDamselExit))) || gml_eq(gml_iget_sprite_index(gml_deref(((float)OBJ_oPlayer1), self, other)), ((float)SPR_sTunnelExit)))) && (!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_whipping))))) {
+                gml_iset_x(self, gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)));
+                gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) + 4.0f));
+                gml_iset_sprite_index(self, ((float)SPR_sCapeBack));
+                gml_iset_depth(self, 0.0f);
             } else {
-                if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 19.0)) {
-                    gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 4.0));
-                    gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 2.0));
-                    if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oCape), self, other), VAR_open))) {
-                        gml_iset_sprite_index(self, ((double)SPR_sCapeUR));
+                if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 19.0f)) {
+                    gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 4.0f));
+                    gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 2.0f));
+                    if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oCape), self, other), VAR_open))) {
+                        gml_iset_sprite_index(self, ((float)SPR_sCapeUR));
                     } else {
-                        if (gml_gt(fabs(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0)) {
-                            gml_iset_sprite_index(self, ((double)SPR_sCapeRight));
+                        if (gml_gt(fabsf(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0f)) {
+                            gml_iset_sprite_index(self, ((float)SPR_sCapeRight));
                         } else {
-                            gml_iset_sprite_index(self, ((double)SPR_sCapeDR));
+                            gml_iset_sprite_index(self, ((float)SPR_sCapeDR));
                         }
                     }
-                    gml_iset_depth(self, 100.0);
+                    gml_iset_depth(self, 100.0f);
                 } else {
-                    gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) + 4.0));
-                    gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 2.0));
-                    if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oCape), self, other), VAR_open))) {
-                        gml_iset_sprite_index(self, ((double)SPR_sCapeUL));
+                    gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) + 4.0f));
+                    gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 2.0f));
+                    if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oCape), self, other), VAR_open))) {
+                        gml_iset_sprite_index(self, ((float)SPR_sCapeUL));
                     } else {
-                        if (gml_gt(fabs(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0)) {
-                            gml_iset_sprite_index(self, ((double)SPR_sCapeLeft));
+                        if (gml_gt(fabsf(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel)), 0.0f)) {
+                            gml_iset_sprite_index(self, ((float)SPR_sCapeLeft));
                         } else {
-                            gml_iset_sprite_index(self, ((double)SPR_sCapeDL));
+                            gml_iset_sprite_index(self, ((float)SPR_sCapeDL));
                         }
                     }
-                    gml_iset_depth(self, 100.0);
+                    gml_iset_depth(self, 100.0f);
                 }
             }
         }
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oPlayer1)))) {
-        if ((!gml_truthy(gml_iget_visible(gml_deref(((double)OBJ_oPlayer1), self, other))))) {
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oPlayer1)))) {
+        if ((!gml_truthy(gml_iget_visible(gml_deref(((float)OBJ_oPlayer1), self, other))))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
     }

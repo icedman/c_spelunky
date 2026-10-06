@@ -6,18 +6,18 @@ static void gml_ev_oPDummy5__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.6);
+    gml_iset_image_speed(self, 0.6f);
     if (gml_truthy(g_gml_globals.isDamsel)) {
-        gml_iset_sprite_index(self, ((double)SPR_sDamselClimb2));
+        gml_iset_sprite_index(self, ((float)SPR_sDamselClimb2));
     }
     if (gml_truthy(g_gml_globals.isTunnelMan)) {
-        gml_iset_sprite_index(self, ((double)SPR_sTunnelClimb2));
+        gml_iset_sprite_index(self, ((float)SPR_sTunnelClimb2));
     } else {
-        gml_iset_sprite_index(self, ((double)SPR_sClimbUp2));
+        gml_iset_sprite_index(self, ((float)SPR_sClimbUp2));
     }
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = (-1.0);
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = (-1.0f);
 }
 
 void gml_ev_oPDummy5__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -33,8 +33,8 @@ static void gml_ev_oPDummy5__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(gml_iget_y(self), (-32.0))) {
-        gml_ivar_set(gml_deref(((double)OBJ_oTitle), self, other), VAR_fadeOut, 1.0);
+    if (gml_lt(gml_iget_y(self), (-32.0f))) {
+        gml_ivar_set(gml_deref(((float)OBJ_oTitle), self, other), VAR_fadeOut, 1.0f);
     }
 }
 

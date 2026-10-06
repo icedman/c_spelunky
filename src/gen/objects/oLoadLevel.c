@@ -5,75 +5,75 @@ static void gml_ev_oLoadLevel__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    g_gml_globals.cleanSolids = 0.0;
+    g_gml_globals.cleanSolids = 0.0f;
     g_gml_gvals[GV_message] = gml_vs("");
     g_gml_gvals[GV_message2] = gml_vs("");
-    gml_fn_window_set_cursor(self, other, (0.0 /* cr_default */));
-    g_gml_globals.keepScore = 0.0;
-    g_gml_globals.currLevel = 1.0;
-    self->vars[VAR_levelLoaded] = 0.0;
+    gml_fn_window_set_cursor(self, other, (0.0f /* cr_default */));
+    g_gml_globals.keepScore = 0.0f;
+    g_gml_globals.currLevel = 1.0f;
+    self->vars[VAR_levelLoaded] = 0.0f;
     self->strs[SVAR_msg] = gml_script_tr(self, other, 1, "PRESS ESCAPE TO RETURN TO TITLE.");
-    self->vars[VAR_msgTimer] = 0.0;
-    self->vars[VAR_GET_FILE_NAME] = 0.0;
-    self->vars[VAR_status] = 0.0;
-    self->vars[VAR_blackOut] = 0.0;
+    self->vars[VAR_msgTimer] = 0.0f;
+    self->vars[VAR_GET_FILE_NAME] = 0.0f;
+    self->vars[VAR_status] = 0.0f;
+    self->vars[VAR_blackOut] = 0.0f;
     if (gml_truthy(g_gml_globals.customLevel)) {
-        self->vars[VAR_status] = 1.0;
-        self->vars[VAR_blackOut] = 1.0;
+        self->vars[VAR_status] = 1.0f;
+        self->vars[VAR_blackOut] = 1.0f;
     } else {
         self->strs[SVAR_lifeStart] = "4";
         self->strs[SVAR_bombStart] = "4";
         self->strs[SVAR_ropeStart] = "4";
-        (void)(gml_script_instance_create(self, other, 256.0, 64.0, ((double)OBJ_oLoadButton)));
+        (void)(gml_script_instance_create(self, other, 256.0f, 64.0f, ((float)OBJ_oLoadButton)));
         g_gml_gvals[GV_prevCustomLevel] = gml_vs("");
     }
     self->vals[VVAR_levelName] = g_gml_gvals[GV_firstCustomLevel];
     self->strs[SVAR_author] = "ANONYMOUS";
     self->strs[SVAR_music] = "CAVE";
     self->strs[SVAR_nextLevel] = "";
-    for (self->vars[VAR_j] = 0.0; gml_lt(self->vars[VAR_j], 32.0); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0)) {
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 40.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+    for (self->vars[VAR_j] = 0.0f; gml_lt(self->vars[VAR_j], 32.0f); self->vars[VAR_j] = (self->vars[VAR_j] + 1.0f)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 40.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             gml_aset(gml_aref(&self->vals[VVAR_levelArray], self->vars[VAR_i]), self->vars[VAR_j], gml_vs("0"));
         }
     }
     if ((!gml_truthy(g_gml_globals.customLevel))) {
-        self->strs[SVAR_tempFile] = gml_fn_file_find_first(self, other, gml_concat(gml_gget_working_directory(), "levels/*.lvl"), 0.0);
+        self->strs[SVAR_tempFile] = gml_fn_file_find_first(self, other, gml_concat(gml_gget_working_directory(), "levels/*.lvl"), 0.0f);
         while (gml_str_ne(self->strs[SVAR_tempFile], "")) {
-            if (gml_str_ne(gml_fn_string_char_at(self, other, self->strs[SVAR_tempFile], 0.0), "!")) {
+            if (gml_str_ne(gml_fn_string_char_at(self, other, self->strs[SVAR_tempFile], 0.0f), "!")) {
                 break;
             }
             self->strs[SVAR_tempFile] = gml_fn_file_find_next(self, other);
         }
-        gml_aset(&self->vals[VVAR_levelList], 0.0, gml_vs(""));
-        gml_aset(&self->vals[VVAR_levelList], 0.0, gml_vs(self->strs[SVAR_tempFile]));
-        gml_aset(&self->vals[VVAR_levelList], 0.0, gml_vs(gml_fn_string_delete(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], 0.0)), (gml_fn_string_length(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], 0.0))) - 3.0), 4.0)));
-        self->vars[VAR_numLevels] = 1.0;
-        while (gml_vne(gml_aget(self->vals[VVAR_levelList], (self->vars[VAR_numLevels] - 1.0)), gml_vs(""))) {
+        gml_aset(&self->vals[VVAR_levelList], 0.0f, gml_vs(""));
+        gml_aset(&self->vals[VVAR_levelList], 0.0f, gml_vs(self->strs[SVAR_tempFile]));
+        gml_aset(&self->vals[VVAR_levelList], 0.0f, gml_vs(gml_fn_string_delete(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], 0.0f)), (gml_fn_string_length(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], 0.0f))) - 3.0f), 4.0f)));
+        self->vars[VAR_numLevels] = 1.0f;
+        while (gml_vne(gml_aget(self->vals[VVAR_levelList], (self->vars[VAR_numLevels] - 1.0f)), gml_vs(""))) {
             self->strs[SVAR_tempFile] = gml_fn_file_find_next(self, other);
             if (gml_str_ne(self->strs[SVAR_tempFile], "")) {
-                if (gml_str_ne(gml_fn_string_char_at(self, other, self->strs[SVAR_tempFile], 0.0), "!")) {
+                if (gml_str_ne(gml_fn_string_char_at(self, other, self->strs[SVAR_tempFile], 0.0f), "!")) {
                     gml_aset(&self->vals[VVAR_levelList], self->vars[VAR_numLevels], gml_vs(self->strs[SVAR_tempFile]));
-                    gml_aset(&self->vals[VVAR_levelList], self->vars[VAR_numLevels], gml_vs(gml_fn_string_delete(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], self->vars[VAR_numLevels])), (gml_fn_string_length(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], self->vars[VAR_numLevels]))) - 3.0), 4.0)));
-                    self->vars[VAR_numLevels] = (self->vars[VAR_numLevels] + 1.0);
+                    gml_aset(&self->vals[VVAR_levelList], self->vars[VAR_numLevels], gml_vs(gml_fn_string_delete(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], self->vars[VAR_numLevels])), (gml_fn_string_length(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], self->vars[VAR_numLevels]))) - 3.0f), 4.0f)));
+                    self->vars[VAR_numLevels] = (self->vars[VAR_numLevels] + 1.0f);
                 }
             } else {
                 break;
             }
         }
-        if (gml_veq(gml_aget(self->vals[VVAR_levelList], 0.0), gml_vs(""))) {
-            self->vars[VAR_numLevels] = 0.0;
+        if (gml_veq(gml_aget(self->vals[VVAR_levelList], 0.0f), gml_vs(""))) {
+            self->vars[VAR_numLevels] = 0.0f;
         }
-        self->vars[VAR_page] = 1.0;
-        self->vars[VAR_numPages] = ceil((self->vars[VAR_numLevels] / 10.0));
-        gml_fn_instance_deactivate_object(self, other, ((double)OBJ_oPageUp));
-        if (gml_le(self->vars[VAR_numPages], 1.0)) {
-            gml_fn_instance_deactivate_object(self, other, ((double)OBJ_oPageDown));
+        self->vars[VAR_page] = 1.0f;
+        self->vars[VAR_numPages] = ceilf((self->vars[VAR_numLevels] / 10.0f));
+        gml_fn_instance_deactivate_object(self, other, ((float)OBJ_oPageUp));
+        if (gml_le(self->vars[VAR_numPages], 1.0f)) {
+            gml_fn_instance_deactivate_object(self, other, ((float)OBJ_oPageDown));
         }
     }
     if ((gml_truthy(g_gml_globals.customLevel) && (!gml_truthy(self->vars[VAR_levelLoaded])))) {
-        gml_script_scrLoadLevel(self, other, (-1.0));
+        gml_script_scrLoadLevel(self, other, (-1.0f));
     } else {
-        gml_ivar_set(gml_deref(((double)OBJ_oScreen), self, other), VAR_enabled, 0.0);
+        gml_ivar_set(gml_deref(((float)OBJ_oScreen), self, other), VAR_enabled, 0.0f);
     }
 }
 
@@ -88,8 +88,8 @@ static void gml_ev_oLoadLevel__Step_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    if (gml_gt(self->vars[VAR_msgTimer], 0.0)) {
-        self->vars[VAR_msgTimer] = (self->vars[VAR_msgTimer] - 1.0);
+    if (gml_gt(self->vars[VAR_msgTimer], 0.0f)) {
+        self->vars[VAR_msgTimer] = (self->vars[VAR_msgTimer] - 1.0f);
     } else {
         self->strs[SVAR_msg] = gml_script_tr(self, other, 1, "PRESS ESCAPE TO RETURN TO TITLE.");
     }
@@ -104,19 +104,19 @@ void gml_ev_oLoadLevel__Step_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLoadLevel__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -133,31 +133,31 @@ static void gml_ev_oLoadLevel__Draw_0_body(gm_instance_t *self, gm_instance_t *o
     (void)t12;
     (void)t13;
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_GET_FILE_NAME])) {
-        (t1 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 32.0), t2 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 64.0), gml_fn_draw_text(self, other, t1, t2, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("LOAD LEVEL: "), self->vals[VVAR_levelName])))));
-        gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
-        (t3 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t4 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 96.0), gml_fn_draw_text(self, other, t3, t4, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEVELS"))));
-        (t5 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 224.0), t6 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 96.0), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(self->vars[VAR_page]), "/"), gml_real_str(self->vars[VAR_numPages])))));
-        if (gml_gt(self->vars[VAR_msgTimer], 0.0)) {
-            gml_fn_draw_set_color(self, other, (255.0 /* c_red */));
-            (t7 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 32.0), t8 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 224.0), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NO SUCH LEVEL EXISTS!"))));
+        (t1 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 32.0f), t2 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 64.0f), gml_fn_draw_text(self, other, t1, t2, gml_fn_string_hash_to_newline(self, other, gml_as_str(gml_add(gml_vs("LOAD LEVEL: "), self->vals[VVAR_levelName])))));
+        gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
+        (t3 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t4 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 96.0f), gml_fn_draw_text(self, other, t3, t4, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEVELS"))));
+        (t5 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 224.0f), t6 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 96.0f), gml_fn_draw_text(self, other, t5, t6, gml_fn_string_hash_to_newline(self, other, gml_concat(gml_concat(gml_real_str(self->vars[VAR_page]), "/"), gml_real_str(self->vars[VAR_numPages])))));
+        if (gml_gt(self->vars[VAR_msgTimer], 0.0f)) {
+            gml_fn_draw_set_color(self, other, (255.0f /* c_red */));
+            (t7 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 32.0f), t8 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 224.0f), gml_fn_draw_text(self, other, t7, t8, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "NO SUCH LEVEL EXISTS!"))));
         } else {
-            (t9 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 32.0), t10 = (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) + 224.0), gml_fn_draw_text(self, other, t9, t10, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS ESCAPE TO RETURN TO TITLE."))));
+            (t9 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 32.0f), t10 = (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) + 224.0f), gml_fn_draw_text(self, other, t9, t10, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS ESCAPE TO RETURN TO TITLE."))));
         }
-        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
-        self->vars[VAR_n] = 112.0;
-        self->vars[VAR_m] = 0.0;
-        self->vars[VAR_i] = ((self->vars[VAR_page] - 1.0) * 10.0);
-        while ((gml_lt(self->vars[VAR_m], 10.0) && gml_lt((self->vars[VAR_i] + self->vars[VAR_m]), self->vars[VAR_numLevels]))) {
-            (t12 = (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) + 40.0), t13 = (t11 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t11 + self->vars[VAR_n])), gml_fn_draw_text(self, other, t12, t13, gml_fn_string_hash_to_newline(self, other, gml_fn_string_upper(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], (self->vars[VAR_i] + self->vars[VAR_m])))))));
-            self->vars[VAR_n] = (self->vars[VAR_n] + 8.0);
-            self->vars[VAR_m] = (self->vars[VAR_m] + 1.0);
+        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
+        self->vars[VAR_n] = 112.0f;
+        self->vars[VAR_m] = 0.0f;
+        self->vars[VAR_i] = ((self->vars[VAR_page] - 1.0f) * 10.0f);
+        while ((gml_lt(self->vars[VAR_m], 10.0f) && gml_lt((self->vars[VAR_i] + self->vars[VAR_m]), self->vars[VAR_numLevels]))) {
+            (t12 = (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) + 40.0f), t13 = (t11 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t11 + self->vars[VAR_n])), gml_fn_draw_text(self, other, t12, t13, gml_fn_string_hash_to_newline(self, other, gml_fn_string_upper(self, other, gml_as_str(gml_aget(self->vals[VVAR_levelList], (self->vars[VAR_i] + self->vars[VAR_m])))))));
+            self->vars[VAR_n] = (self->vars[VAR_n] + 8.0f);
+            self->vars[VAR_m] = (self->vars[VAR_m] + 1.0f);
         }
     }
     if (gml_truthy(self->vars[VAR_blackOut])) {
-        gml_fn_draw_set_color(self, other, (0.0 /* c_black */));
-        gml_fn_draw_rectangle(self, other, 0.0, 0.0, 320.0, 240.0, 0.0);
+        gml_fn_draw_set_color(self, other, (0.0f /* c_black */));
+        gml_fn_draw_rectangle(self, other, 0.0f, 0.0f, 320.0f, 240.0f, 0.0f);
     }
 }
 
@@ -177,22 +177,22 @@ static void gml_ev_oLoadLevel__KeyPress_1_body(gm_instance_t *self, gm_instance_
     (void)wd;
     (void)v2;
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_GET_FILE_NAME])) {
-        if (gml_eq(gml_gget_keyboard_key(), (27.0 /* vk_escape */))) {
-            g_gml_globals.gameStart = 0.0;
-            g_gml_globals.titleStart = 2.0;
-            gml_fn_room_goto(self, other, ((double)RM_rTitle));
+        if (gml_eq(gml_gget_keyboard_key(), (27.0f /* vk_escape */))) {
+            g_gml_globals.gameStart = 0.0f;
+            g_gml_globals.titleStart = 2.0f;
+            gml_fn_room_goto(self, other, ((float)RM_rTitle));
         } else {
             if (gml_eq(gml_gget_keyboard_key(), g_gml_globals.keyEnter)) {
                 g_gml_gvals[GV_firstCustomLevel] = self->vals[VVAR_levelName];
-                gml_script_scrLoadLevel(self, other, 0.0);
+                gml_script_scrLoadLevel(self, other, 0.0f);
             } else {
-                if ((gml_eq(gml_gget_keyboard_key(), (8.0 /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0 /* vk_delete */)))) {
-                    self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0));
+                if ((gml_eq(gml_gget_keyboard_key(), (8.0f /* vk_backspace */)) || gml_eq(gml_gget_keyboard_key(), (46.0f /* vk_delete */)))) {
+                    self->vals[VVAR_levelName] = gml_vs(gml_fn_string_delete(self, other, gml_as_str(self->vals[VVAR_levelName]), gml_fn_string_length(self, other, gml_as_str(self->vals[VVAR_levelName])), 1.0f));
                     {
                         gm_instance_t *self1;
-                        gm_with_begin(gml_target(((double)OBJ_oMenuSel)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oMenuSel)), self, other);
                         while ((self1 = gm_with_next()) != NULL) {
-                            gml_iset_sprite_index(self1, ((double)SPR_sMenuSelOff));
+                            gml_iset_sprite_index(self1, ((float)SPR_sMenuSelOff));
                         }
                         gm_with_end();
                     }
@@ -200,9 +200,9 @@ static void gml_ev_oLoadLevel__KeyPress_1_body(gm_instance_t *self, gm_instance_
                     self->vals[VVAR_levelName] = (v2 = self->vals[VVAR_levelName], gml_add(v2, gml_vs(gml_script_scrGetChar(self, other, gml_gget_keyboard_key()))));
                     {
                         gm_instance_t *self3;
-                        gm_with_begin(gml_target(((double)OBJ_oMenuSel)), self, other);
+                        gm_with_begin(gml_target(((float)OBJ_oMenuSel)), self, other);
                         while ((self3 = gm_with_next()) != NULL) {
-                            gml_iset_sprite_index(self3, ((double)SPR_sMenuSelOff));
+                            gml_iset_sprite_index(self3, ((float)SPR_sMenuSelOff));
                         }
                         gm_with_end();
                     }

@@ -8,9 +8,9 @@ static void gml_ev_oGoldBar__Create_0_body(gm_instance_t *self, gm_instance_t *o
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Gold Bar";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_value] = 500.0;
-    self->vars[VAR_canCollect] = 1.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_value] = 500.0f;
+    self->vars[VAR_canCollect] = 1.0f;
 }
 
 void gml_ev_oGoldBar__Create_0(gm_instance_t *self, gm_instance_t *other)

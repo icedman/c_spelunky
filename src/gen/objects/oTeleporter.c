@@ -10,8 +10,8 @@ static void gml_ev_oTeleporter__Create_0_body(gm_instance_t *self, gm_instance_t
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Teleporter";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_cost] = 10000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_cost] = 10000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "A TELEPORTER");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "A TELEPORTER FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
 }

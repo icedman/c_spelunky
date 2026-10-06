@@ -5,34 +5,34 @@ void gml_script_scrReadStats(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    g_gml_globals.gameStart = 0.0;
-    g_gml_globals.totalCrates = 0.0;
-    g_gml_globals.totalChests = 0.0;
-    g_gml_globals.idolsGrabbed = 0.0;
-    g_gml_globals.idolsConverted = 0.0;
-    g_gml_globals.damselsGrabbed = 0.0;
-    g_gml_globals.kissesBought = 0.0;
-    g_gml_globals.damselsBought = 0.0;
-    g_gml_globals.damselsSavedTotal = 0.0;
-    g_gml_globals.damselsKilledTotal = 0.0;
-    g_gml_globals.itemsBought = 0.0;
-    g_gml_globals.itemsStolen = 0.0;
-    g_gml_globals.diceGamesPlayed = 0.0;
-    g_gml_globals.diceGamesWon = 0.0;
-    g_gml_globals.diceGamesLost = 0.0;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 16.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        gml_aset(&g_gml_gvals[GV_levelDeaths], self->vars[VAR_i], gml_vreal(0.0));
+    g_gml_globals.gameStart = 0.0f;
+    g_gml_globals.totalCrates = 0.0f;
+    g_gml_globals.totalChests = 0.0f;
+    g_gml_globals.idolsGrabbed = 0.0f;
+    g_gml_globals.idolsConverted = 0.0f;
+    g_gml_globals.damselsGrabbed = 0.0f;
+    g_gml_globals.kissesBought = 0.0f;
+    g_gml_globals.damselsBought = 0.0f;
+    g_gml_globals.damselsSavedTotal = 0.0f;
+    g_gml_globals.damselsKilledTotal = 0.0f;
+    g_gml_globals.itemsBought = 0.0f;
+    g_gml_globals.itemsStolen = 0.0f;
+    g_gml_globals.diceGamesPlayed = 0.0f;
+    g_gml_globals.diceGamesWon = 0.0f;
+    g_gml_globals.diceGamesLost = 0.0f;
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 16.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        gml_aset(&g_gml_gvals[GV_levelDeaths], self->vars[VAR_i], gml_vreal(0.0f));
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 24.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        gml_aset(&g_gml_gvals[GV_enemyDeaths], self->vars[VAR_i], gml_vreal(0.0));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 24.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        gml_aset(&g_gml_gvals[GV_enemyDeaths], self->vars[VAR_i], gml_vreal(0.0f));
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 12.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        gml_aset(&g_gml_gvals[GV_miscDeaths], self->vars[VAR_i], gml_vreal(0.0));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 12.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        gml_aset(&g_gml_gvals[GV_miscDeaths], self->vars[VAR_i], gml_vreal(0.0f));
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 22.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        gml_aset(&g_gml_gvals[GV_enemyKills], self->vars[VAR_i], gml_vreal(0.0));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 22.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        gml_aset(&g_gml_gvals[GV_enemyKills], self->vars[VAR_i], gml_vreal(0.0f));
     }
-    g_gml_globals.totalMonkeyKills = 0.0;
+    g_gml_globals.totalMonkeyKills = 0.0f;
     self->strs[SVAR_filePath] = gml_concat(gml_gget_working_directory(), "stats.txt");
     if (gml_truthy(gml_fn_file_exists(self, other, self->strs[SVAR_filePath]))) {
         self->vars[VAR_file] = gml_fn_file_text_open_read(self, other, self->strs[SVAR_filePath]);
@@ -41,72 +41,72 @@ void gml_script_scrReadStats(gm_instance_t *self, gm_instance_t *other)
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.totalCrates = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.totalChests = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.idolsGrabbed = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.idolsConverted = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.damselsGrabbed = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.kissesBought = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.damselsBought = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.damselsSavedTotal = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.damselsKilledTotal = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.itemsBought = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.itemsStolen = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.diceGamesPlayed = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.diceGamesWon = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 20.0);
+        self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 20.0f);
         g_gml_globals.diceGamesLost = gml_str_to_real(self->strs[SVAR_str]);
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 16.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 16.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 14.0);
+            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 14.0f);
             gml_aset(&g_gml_gvals[GV_levelDeaths], self->vars[VAR_i], gml_vreal(gml_str_to_real(self->strs[SVAR_str])));
         }
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
@@ -114,33 +114,33 @@ void gml_script_scrReadStats(gm_instance_t *self, gm_instance_t *other)
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 24.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 24.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 14.0);
+            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 14.0f);
             gml_aset(&g_gml_gvals[GV_enemyDeaths], self->vars[VAR_i], gml_vreal(gml_str_to_real(self->strs[SVAR_str])));
         }
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 12.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 12.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 14.0);
+            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 14.0f);
             gml_aset(&g_gml_gvals[GV_miscDeaths], self->vars[VAR_i], gml_vreal(gml_str_to_real(self->strs[SVAR_str])));
         }
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
         (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
-        for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 22.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
+        for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 22.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
             (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
             self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 14.0);
+            self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 14.0f);
             gml_aset(&g_gml_gvals[GV_enemyKills], self->vars[VAR_i], gml_vreal(gml_str_to_real(self->strs[SVAR_str])));
-            if (gml_eq(self->vars[VAR_i], 8.0)) {
+            if (gml_eq(self->vars[VAR_i], 8.0f)) {
                 (void)(gml_fn_file_text_readln(self, other, self->vars[VAR_file]));
                 self->strs[SVAR_str] = gml_fn_file_text_read_string(self, other, self->vars[VAR_file]);
-                self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0, 14.0);
+                self->strs[SVAR_str] = gml_fn_string_delete(self, other, self->strs[SVAR_str], 1.0f, 14.0f);
                 g_gml_globals.totalMonkeyKills = gml_str_to_real(self->strs[SVAR_str]);
             }
         }

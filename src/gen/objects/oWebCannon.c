@@ -10,8 +10,8 @@ static void gml_ev_oWebCannon__Create_0_body(gm_instance_t *self, gm_instance_t 
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Web Cannon";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_cost] = 2000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_cost] = 2000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "A WEB CANNON");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "A WEB CANNON FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
 }
@@ -29,10 +29,10 @@ static void gml_ev_oWebCannon__Step_0_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 18.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sWebCannonL));
+        if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 18.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sWebCannonL));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sWebCannonR));
+            gml_iset_sprite_index(self, ((float)SPR_sWebCannonR));
         }
     }
 }

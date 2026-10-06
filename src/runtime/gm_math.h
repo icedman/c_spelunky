@@ -21,28 +21,33 @@
 #include <stdint.h>
 
 /* HTML5 runner's Pi (Globals.js L16), NOT M_PI. */
-#define GM_PI 3.14159265
+#define GM_PI 3.14159265f
 
 /* JavaScript ToInt32 (what yyGetInt32 / `~~x` / `x | 0` do): truncate, then
  * wrap modulo 2^32 into [-2^31, 2^31). NaN and infinities map to 0. */
-int32_t gm_to_int32(double x);
+int32_t gm_to_int32(float x);
 
-double gm_round(double x); /* banker's rounding: round(2.5) == 2 */
-double gm_frac(double x);  /* x - ToInt32(x) */
-double gm_sign(double x);
-double gm_min(double a, double b);
-double gm_max(double a, double b);
-double gm_clamp(double value, double lo, double hi);
-double gm_lerp(double a, double b, double amount);
-double gm_sqr(double x);
-double gm_power(double x, double n);
-double gm_degtorad(double deg);
-double gm_radtodeg(double rad);
+float gm_round(float x); /* banker's rounding: round(2.5) == 2 */
+float gm_frac(float x);  /* x - ToInt32(x) */
+float gm_sign(float x);
+float gm_min(float a, float b);
+float gm_max(float a, float b);
+float gm_clamp(float value, float lo, float hi);
+float gm_lerp(float a, float b, float amount);
+float gm_sqr(float x);
+float gm_power(float x, float n);
+float gm_degtorad(float deg);
+float gm_radtodeg(float rad);
 
-double gm_lengthdir_x(double len, double dir);
-double gm_lengthdir_y(double len, double dir);
-double gm_point_distance(double x1, double y1, double x2, double y2);
-double gm_point_direction(double x1, double y1, double x2, double y2);
+/* sin/cos of an angle in DEGREES. Table-driven when gm_math.c defines
+ * ENABLE_LUT (error < 4e-7), else sinf/cosf. */
+float gm_dsin(float deg);
+float gm_dcos(float deg);
+
+float gm_lengthdir_x(float len, float dir);
+float gm_lengthdir_y(float len, float dir);
+float gm_point_distance(float x1, float y1, float x2, float y2);
+float gm_point_direction(float x1, float y1, float x2, float y2);
 
 /* ---- Random (WELL512, Function_Maths.js L412-636) ------------------------ */
 
@@ -54,13 +59,13 @@ int32_t gm_random_get_seed(void);
 int32_t gm_randomize(void);
 
 /* Raw generator output in [0, 1] (`rand()` in the reference). */
-double gm_rand01(void);
+float gm_rand01(void);
 
 /* random(x): [0, x). Consumes one generator step. */
-double gm_random(double x);
+float gm_random(float x);
 
 /* random_range(a, b): [min, max). Consumes two generator steps, or none when
  * a == b (matching the reference exactly). */
-double gm_random_range(double a, double b);
+float gm_random_range(float a, float b);
 
 #endif /* GM_MATH_H */

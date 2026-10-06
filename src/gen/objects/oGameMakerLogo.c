@@ -5,17 +5,17 @@ static void gml_ev_oGameMakerLogo__Create_0_body(gm_instance_t *self, gm_instanc
 {
     (void)self;
     (void)other;
-    self->vars[VAR_sc] = 0.25;
+    self->vars[VAR_sc] = 0.25f;
     gml_iset_image_xscale(self, self->vars[VAR_sc]);
     gml_iset_image_yscale(self, self->vars[VAR_sc]);
-    gml_iset_x(self, (gml_gget_room_width() / 2.0));
-    gml_iset_y(self, (gml_gget_room_height() * 0.45));
-    gml_aset(&self->vals[VVAR_cogbit], 0.0, gml_vreal(((double)SPR_sGameMakerLogoCog3)));
-    gml_aset(&self->vals[VVAR_cogbit], 1.0, gml_vreal(((double)SPR_sGameMakerLogoCog4)));
-    gml_aset(&self->vals[VVAR_cogbit], 2.0, gml_vreal(((double)SPR_sGameMakerLogoCog1)));
-    gml_aset(&self->vals[VVAR_cogbit], 3.0, gml_vreal(((double)SPR_sGameMakerLogoCog2)));
-    gml_iset_alarm(self, 0.0, floor((gml_gget_room_speed() / 3.0)));
-    gml_iset_alarm(self, 10.0, floor((gml_gget_room_speed() * 2.5)));
+    gml_iset_x(self, (gml_gget_room_width() / 2.0f));
+    gml_iset_y(self, (gml_gget_room_height() * 0.45f));
+    gml_aset(&self->vals[VVAR_cogbit], 0.0f, gml_vreal(((float)SPR_sGameMakerLogoCog3)));
+    gml_aset(&self->vals[VVAR_cogbit], 1.0f, gml_vreal(((float)SPR_sGameMakerLogoCog4)));
+    gml_aset(&self->vals[VVAR_cogbit], 2.0f, gml_vreal(((float)SPR_sGameMakerLogoCog1)));
+    gml_aset(&self->vals[VVAR_cogbit], 3.0f, gml_vreal(((float)SPR_sGameMakerLogoCog2)));
+    gml_iset_alarm(self, 0.0f, floorf((gml_gget_room_speed() / 3.0f)));
+    gml_iset_alarm(self, 10.0f, floorf((gml_gget_room_speed() * 2.5f)));
 }
 
 void gml_ev_oGameMakerLogo__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -43,7 +43,7 @@ static void gml_ev_oGameMakerLogo__Alarm_0_body(gm_instance_t *self, gm_instance
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + floor((gml_gget_room_height() * 0.21))), ((double)OBJ_oGameMakerLogoMadeWith)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), (gml_iget_y(self) + floorf((gml_gget_room_height() * 0.21f))), ((float)OBJ_oGameMakerLogoMadeWith)));
 }
 
 void gml_ev_oGameMakerLogo__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -56,51 +56,51 @@ void gml_ev_oGameMakerLogo__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oGameMakerLogo__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_aladj = 0.0;
-    double t2 = 0.0;
+    float l_aladj = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
     (void)l_aladj;
     (void)t2;
-    (void)(gml_script___background_set(self, other, (9.0 /* e__BG.XScale */), 0.0, (gml_gget_room_width() / 960.0)));
-    (void)(gml_script___background_set(self, other, (10.0 /* e__BG.YScale */), 0.0, (gml_gget_room_height() / 720.0)));
-    l_aladj = (gml_iget_alarm(self, 0.0) * (60.0 / gml_gget_room_speed()));
-    gml_script_draw_background_stretched(self, other, ((double)SPR_bGameMakerIntroBack), 0.0, 0.0, gml_gget_room_width(), gml_gget_room_height());
+    (void)(gml_script___background_set(self, other, (9.0f /* e__BG.XScale */), 0.0f, (gml_gget_room_width() / 960.0f)));
+    (void)(gml_script___background_set(self, other, (10.0f /* e__BG.YScale */), 0.0f, (gml_gget_room_height() / 720.0f)));
+    l_aladj = (gml_iget_alarm(self, 0.0f) * (60.0f / gml_gget_room_speed()));
+    gml_script_draw_background_stretched(self, other, ((float)SPR_bGameMakerIntroBack), 0.0f, 0.0f, gml_gget_room_width(), gml_gget_room_height());
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oGameMakerLogoPoof)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oGameMakerLogoPoof)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
             gml_fn_draw_self(self1, self);
         }
         gm_with_end();
     }
-    if (gml_ge(l_aladj, 0.0)) {
-        self->vars[VAR_sc] = (0.1 + (gm_power(l_aladj, 0.5) * 0.06));
-        gml_iset_image_alpha(self, gm_power((1.0 - (l_aladj / 20.0)), 3.0));
-        gml_iset_image_angle(self, (l_aladj * 2.0));
+    if (gml_ge(l_aladj, 0.0f)) {
+        self->vars[VAR_sc] = (0.1f + (gm_power(l_aladj, 0.5f) * 0.06f));
+        gml_iset_image_alpha(self, gm_power((1.0f - (l_aladj / 20.0f)), 3.0f));
+        gml_iset_image_angle(self, (l_aladj * 2.0f));
         gml_iset_image_xscale(self, self->vars[VAR_sc]);
         gml_iset_image_yscale(self, self->vars[VAR_sc]);
-        if ((gml_lt(l_aladj, (gml_gget_room_speed() / 5.0)) && (!gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oGameMakerLogoPoof)))))) {
-            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oGameMakerLogoPoof)));
+        if ((gml_lt(l_aladj, (gml_gget_room_speed() / 5.0f)) && (!gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oGameMakerLogoPoof)))))) {
+            (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oGameMakerLogoPoof)));
         }
-        for (self->vars[VAR_i] = 0.0; gml_le(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-            gml_fn_draw_sprite_ext(self, other, ((double)SPR_sGameMakerLogoCog3), 0.0, (gml_iget_x(self) + gm_lengthdir_x((gm_power(l_aladj, 0.5) * 60.0), ((self->vars[VAR_i] * 90.0) - (75.0 * (l_aladj / 20.0))))), (gml_iget_y(self) + gm_lengthdir_y((gm_power(l_aladj, 0.5) * 60.0), ((self->vars[VAR_i] * 90.0) - (75.0 * (l_aladj / 20.0))))), self->vars[VAR_sc], self->vars[VAR_sc], ((self->vars[VAR_i] * 90.0) - (l_aladj * 2.0)), (16777215.0 /* c_white */), gml_iget_image_alpha(self));
+        for (self->vars[VAR_i] = 0.0f; gml_le(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+            gml_fn_draw_sprite_ext(self, other, ((float)SPR_sGameMakerLogoCog3), 0.0f, (gml_iget_x(self) + gm_lengthdir_x((gm_power(l_aladj, 0.5f) * 60.0f), ((self->vars[VAR_i] * 90.0f) - (75.0f * (l_aladj / 20.0f))))), (gml_iget_y(self) + gm_lengthdir_y((gm_power(l_aladj, 0.5f) * 60.0f), ((self->vars[VAR_i] * 90.0f) - (75.0f * (l_aladj / 20.0f))))), self->vars[VAR_sc], self->vars[VAR_sc], ((self->vars[VAR_i] * 90.0f) - (l_aladj * 2.0f)), (16777215.0f /* c_white */), gml_iget_image_alpha(self));
         }
         gml_fn_draw_self(self, other);
     } else {
-        self->vars[VAR_sc] = (t2 = self->vars[VAR_sc], gm_lerp(t2, 0.135, gml_script_gmitf(self, other, 0.07)));
-        gml_iset_image_alpha(self, 1.0);
-        gml_iset_image_angle(self, (l_aladj * 2.0));
+        self->vars[VAR_sc] = (t2 = self->vars[VAR_sc], gm_lerp(t2, 0.135f, gml_script_gmitf(self, other, 0.07f)));
+        gml_iset_image_alpha(self, 1.0f);
+        gml_iset_image_angle(self, (l_aladj * 2.0f));
         gml_iset_image_xscale(self, self->vars[VAR_sc]);
         gml_iset_image_yscale(self, self->vars[VAR_sc]);
-        for (self->vars[VAR_i] = 0.0; gml_le(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-            gml_fn_draw_sprite_ext(self, other, gml_real(gml_aget(self->vals[VVAR_cogbit], self->vars[VAR_i])), 0.0, gml_iget_x(self), gml_iget_y(self), self->vars[VAR_sc], self->vars[VAR_sc], 0.0, (16777215.0 /* c_white */), 1.0);
+        for (self->vars[VAR_i] = 0.0f; gml_le(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+            gml_fn_draw_sprite_ext(self, other, gml_real(gml_aget(self->vals[VVAR_cogbit], self->vars[VAR_i])), 0.0f, gml_iget_x(self), gml_iget_y(self), self->vars[VAR_sc], self->vars[VAR_sc], 0.0f, (16777215.0f /* c_white */), 1.0f);
         }
         gml_fn_draw_self(self, other);
     }
-    gml_iset_x(self, (gml_gget_room_width() / 2.0));
-    gml_iset_y(self, (gml_gget_room_height() * 0.45));
+    gml_iset_x(self, (gml_gget_room_width() / 2.0f));
+    gml_iset_y(self, (gml_gget_room_height() * 0.45f));
 }
 
 void gml_ev_oGameMakerLogo__Draw_0(gm_instance_t *self, gm_instance_t *other)

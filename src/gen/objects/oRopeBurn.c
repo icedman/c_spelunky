@@ -6,8 +6,8 @@ static void gml_ev_oRopeBurn__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = (-1.0);
-    gml_iset_image_speed(self, 0.8);
+    self->vars[VAR_yVel] = (-1.0f);
+    gml_iset_image_speed(self, 0.8f);
 }
 
 void gml_ev_oRopeBurn__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,16 +24,16 @@ static void gml_ev_oRopeBurn__Step_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)other;
     (void)wd;
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if ((gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSolid), 0.0, 0.0)) || (!gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0), (gml_iget_y(self) - 8.0), (gml_iget_x(self) + 1.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oRope), 0.0, 0.0))))) {
+    if ((gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSolid), 0.0f, 0.0f)) || (!gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 1.0f), (gml_iget_y(self) - 8.0f), (gml_iget_x(self) + 1.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oRope), 0.0f, 0.0f))))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRope), 0.0, 0.0))) {
-        self->vars[VAR_rope] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oRope));
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRope), 0.0f, 0.0f))) {
+        self->vars[VAR_rope] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oRope));
         {
             gm_instance_t *self1;
             gm_with_begin(gml_target(self->vars[VAR_rope]), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_burnTimer] = 1.0;
+                self1->vars[VAR_burnTimer] = 1.0f;
             }
             gm_with_end();
         }

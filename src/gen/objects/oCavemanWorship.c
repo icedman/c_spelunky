@@ -5,7 +5,7 @@ static void gml_ev_oCavemanWorship__Create_0_body(gm_instance_t *self, gm_instan
 {
     (void)self;
     (void)other;
-    gml_iset_image_speed(self, 0.25);
+    gml_iset_image_speed(self, 0.25f);
 }
 
 void gml_ev_oCavemanWorship__Create_0(gm_instance_t *self, gm_instance_t *other)

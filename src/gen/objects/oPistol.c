@@ -10,8 +10,8 @@ static void gml_ev_oPistol__Create_0_body(gm_instance_t *self, gm_instance_t *ot
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Pistol";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_cost] = 5000.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_cost] = 5000.0f;
     self->strs[SVAR_shopDesc] = gml_script_tr(self, other, 1, "A PISTOL");
     self->strs[SVAR_buyMessage] = gml_concat((s1 = gml_script_tr(self, other, 1, "A PISTOL FOR $"), gml_concat(s1, gml_real_str(self->vars[VAR_cost]))), ".");
 }
@@ -29,10 +29,10 @@ static void gml_ev_oPistol__Step_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 18.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sPistolLeft));
+        if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 18.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sPistolLeft));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sPistolRight));
+            gml_iset_sprite_index(self, ((float)SPR_sPistolRight));
         }
     }
 }

@@ -5,33 +5,33 @@ void gml_script_menuToggleFullscreen(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    g_gml_globals.fullscreen = ((!gml_truthy(g_gml_globals.fullscreen)) ? 1.0 : 0.0);
+    g_gml_globals.fullscreen = ((!gml_truthy(g_gml_globals.fullscreen)) ? 1.0f : 0.0f);
     if (gml_truthy(g_gml_globals.fullscreen)) {
         if ((!gml_truthy(g_gml_globals.html5Build))) {
-            gml_fn_window_set_fullscreen(self, other, 1.0);
+            gml_fn_window_set_fullscreen(self, other, 1.0f);
         } else {
             if (gml_truthy(g_gml_globals.electronBuild)) {
-                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0)});
-                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0)));
+                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0f)});
+                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0f)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0f)));
             } else {
                 if (gml_truthy(g_gml_globals.browserBuild)) {
-                    self->vars[VAR_newSize] = gml_ext_html5_set_fullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0)});
-                    gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0)));
+                    self->vars[VAR_newSize] = gml_ext_html5_set_fullscreen(self, other, 1, (gm_value_t[]){gml_vreal(1.0f)});
+                    gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0f)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0f)));
                 }
             }
         }
     } else {
         if ((!gml_truthy(g_gml_globals.html5Build))) {
-            gml_fn_window_set_fullscreen(self, other, 0.0);
-            gml_fn_window_set_size(self, other, 800.0, (800.0 / (gml_fn_display_get_width(self, other) / gml_fn_display_get_height(self, other))));
+            gml_fn_window_set_fullscreen(self, other, 0.0f);
+            gml_fn_window_set_size(self, other, 800.0f, (800.0f / (gml_fn_display_get_width(self, other) / gml_fn_display_get_height(self, other))));
         } else {
             if (gml_truthy(g_gml_globals.electronBuild)) {
-                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(0.0)});
-                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0)));
+                self->vars[VAR_newSize] = gml_ext_electronSetFullscreen(self, other, 1, (gm_value_t[]){gml_vreal(0.0f)});
+                gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0f)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0f)));
             } else {
                 if (gml_truthy(g_gml_globals.browserBuild)) {
-                    self->vars[VAR_newSize] = gml_ext_html5_set_fullscreen(self, other, 1, (gm_value_t[]){gml_vreal(0.0)});
-                    gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0)));
+                    self->vars[VAR_newSize] = gml_ext_html5_set_fullscreen(self, other, 1, (gm_value_t[]){gml_vreal(0.0f)});
+                    gml_fn_window_set_size(self, other, gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 0.0f)), gml_real(gml_aget(gml_vreal(self->vars[VAR_newSize]), 1.0f)));
                 }
             }
         }

@@ -4,17 +4,17 @@
 void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_player = 0.0;
-    double t6 = 0.0;
-    double t9 = 0.0;
-    double t12 = 0.0;
-    double t14 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
+    float l_player = 0.0f;
+    float t6 = 0.0f;
+    float t9 = 0.0f;
+    float t12 = 0.0f;
+    float t14 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -29,115 +29,115 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
     (void)t20;
     (void)t21;
     (void)t22;
-    if (gml_truthy(1.0)) {
-        gml_aset(gml_vvar_ref(gml_deref(((double)OBJ_oGame), self, other), VVAR_players), 0.0, gml_vreal((-4.0 /* noone */)));
-        gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_players_length, 0.0);
+    if (gml_truthy(1.0f)) {
+        gml_aset(gml_vvar_ref(gml_deref(((float)OBJ_oGame), self, other), VVAR_players), 0.0f, gml_vreal((-4.0f /* noone */)));
+        gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_players_length, 0.0f);
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oCharacter)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oCharacter)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_viscidMovementOk] = 1.0;
-                gml_aset(gml_vvar_ref(gml_deref(((double)OBJ_oGame), self1, self), VVAR_players), gml_ivar(gml_deref(((double)OBJ_oGame), self1, self), VAR_players_length), gml_vreal(gml_iget_id(self1)));
-                gml_ivar_set(gml_deref(((double)OBJ_oGame), self1, self), VAR_players_length, (gml_ivar(gml_deref(((double)OBJ_oGame), self1, self), VAR_players_length) + 1.0));
+                self1->vars[VAR_viscidMovementOk] = 1.0f;
+                gml_aset(gml_vvar_ref(gml_deref(((float)OBJ_oGame), self1, self), VVAR_players), gml_ivar(gml_deref(((float)OBJ_oGame), self1, self), VAR_players_length), gml_vreal(gml_iget_id(self1)));
+                gml_ivar_set(gml_deref(((float)OBJ_oGame), self1, self), VAR_players_length, (gml_ivar(gml_deref(((float)OBJ_oGame), self1, self), VAR_players_length) + 1.0f));
             }
             gm_with_end();
         }
-        gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_time, (gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_time) + 1.0));
-        if (gml_gt(gml_ivar(gml_deref(((double)OBJ_oGame), self, other), VAR_time), 100000000.0)) {
-            gml_ivar_set(gml_deref(((double)OBJ_oGame), self, other), VAR_time, 0.0);
+        gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_time, (gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_time) + 1.0f));
+        if (gml_gt(gml_ivar(gml_deref(((float)OBJ_oGame), self, other), VAR_time), 100000000.0f)) {
+            gml_ivar_set(gml_deref(((float)OBJ_oGame), self, other), VAR_time, 0.0f);
         }
         {
             gm_instance_t *self2;
-            gm_with_begin(gml_target(((double)OBJ_oMovingSolid)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oMovingSolid)), self, other);
             while ((self2 = gm_with_next()) != NULL) {
                 self2->vars[VAR_xVel] = (self2->vars[VAR_xVel] + self2->vars[VAR_xAcc]);
                 self2->vars[VAR_yVel] = (self2->vars[VAR_yVel] + self2->vars[VAR_yAcc]);
                 if (gml_truthy(gml_script_approximatelyZero(self2, self, self2->vars[VAR_xVel]))) {
-                    self2->vars[VAR_xVel] = 0.0;
+                    self2->vars[VAR_xVel] = 0.0f;
                 }
                 if (gml_truthy(gml_script_approximatelyZero(self2, self, self2->vars[VAR_yVel]))) {
-                    self2->vars[VAR_yVel] = 0.0;
+                    self2->vars[VAR_yVel] = 0.0f;
                 }
                 if (gml_truthy(gml_script_approximatelyZero(self2, self, self2->vars[VAR_xAcc]))) {
-                    self2->vars[VAR_xAcc] = 0.0;
+                    self2->vars[VAR_xAcc] = 0.0f;
                 }
                 if (gml_truthy(gml_script_approximatelyZero(self2, self, self2->vars[VAR_yAcc]))) {
-                    self2->vars[VAR_yAcc] = 0.0;
+                    self2->vars[VAR_yAcc] = 0.0f;
                 }
                 self2->vars[VAR_mstXPrev] = gml_iget_x(self2);
                 self2->vars[VAR_mstYPrev] = gml_iget_y(self2);
-                self2->vars[VAR_xVelFrac] = gm_frac(fabs(self2->vars[VAR_xVel]));
-                self2->vars[VAR_yVelFrac] = gm_frac(fabs(self2->vars[VAR_yVel]));
-                self2->vars[VAR_xVelInteger] = 0.0;
-                self2->vars[VAR_yVelInteger] = 0.0;
-                if (gml_ne(self2->vars[VAR_xVelFrac], 0.0)) {
-                    if (gml_ne(gm_round((1.0 / self2->vars[VAR_xVelFrac])), 0.0)) {
-                        self2->vars[VAR_xVelInteger] = (gml_eq(gml_mod(gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_time), gm_round((1.0 / self2->vars[VAR_xVelFrac]))), 0.0) ? 1.0 : 0.0);
+                self2->vars[VAR_xVelFrac] = gm_frac(fabsf(self2->vars[VAR_xVel]));
+                self2->vars[VAR_yVelFrac] = gm_frac(fabsf(self2->vars[VAR_yVel]));
+                self2->vars[VAR_xVelInteger] = 0.0f;
+                self2->vars[VAR_yVelInteger] = 0.0f;
+                if (gml_ne(self2->vars[VAR_xVelFrac], 0.0f)) {
+                    if (gml_ne(gm_round((1.0f / self2->vars[VAR_xVelFrac])), 0.0f)) {
+                        self2->vars[VAR_xVelInteger] = (gml_eq(gml_mod(gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_time), gm_round((1.0f / self2->vars[VAR_xVelFrac]))), 0.0f) ? 1.0f : 0.0f);
                     }
                 }
-                if (gml_ne(self2->vars[VAR_yVelFrac], 0.0)) {
-                    if (gml_ne(gm_round((1.0 / self2->vars[VAR_yVelFrac])), 0.0)) {
-                        self2->vars[VAR_yVelInteger] = (gml_eq(gml_mod(gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_time), gm_round((1.0 / self2->vars[VAR_yVelFrac]))), 0.0) ? 1.0 : 0.0);
+                if (gml_ne(self2->vars[VAR_yVelFrac], 0.0f)) {
+                    if (gml_ne(gm_round((1.0f / self2->vars[VAR_yVelFrac])), 0.0f)) {
+                        self2->vars[VAR_yVelInteger] = (gml_eq(gml_mod(gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_time), gm_round((1.0f / self2->vars[VAR_yVelFrac]))), 0.0f) ? 1.0f : 0.0f);
                     }
                 }
-                self2->vars[VAR_xVelInteger] = (self2->vars[VAR_xVelInteger] + floor(fabs(self2->vars[VAR_xVel])));
-                self2->vars[VAR_yVelInteger] = (self2->vars[VAR_yVelInteger] + floor(fabs(self2->vars[VAR_yVel])));
-                if (gml_lt(self2->vars[VAR_xVel], 0.0)) {
-                    self2->vars[VAR_xVelInteger] = (self2->vars[VAR_xVelInteger] * (-1.0));
+                self2->vars[VAR_xVelInteger] = (self2->vars[VAR_xVelInteger] + floorf(fabsf(self2->vars[VAR_xVel])));
+                self2->vars[VAR_yVelInteger] = (self2->vars[VAR_yVelInteger] + floorf(fabsf(self2->vars[VAR_yVel])));
+                if (gml_lt(self2->vars[VAR_xVel], 0.0f)) {
+                    self2->vars[VAR_xVelInteger] = (self2->vars[VAR_xVelInteger] * (-1.0f));
                 }
-                if (gml_lt(self2->vars[VAR_yVel], 0.0)) {
-                    self2->vars[VAR_yVelInteger] = (self2->vars[VAR_yVelInteger] * (-1.0));
+                if (gml_lt(self2->vars[VAR_yVel], 0.0f)) {
+                    self2->vars[VAR_yVelInteger] = (self2->vars[VAR_yVelInteger] * (-1.0f));
                 }
                 self2->vars[VAR_xVelInteger] = gm_round(self2->vars[VAR_xVelInteger]);
                 self2->vars[VAR_yVelInteger] = gm_round(self2->vars[VAR_yVelInteger]);
                 {
                     gm_instance_t *self3;
-                    gm_with_begin(gml_target(((double)OBJ_oCharacter)), self2, self);
+                    gm_with_begin(gml_target(((float)OBJ_oCharacter)), self2, self);
                     while ((self3 = gm_with_next()) != NULL) {
                         gml_script_calculateCollisionBounds(self3, self2);
                     }
                     gm_with_end();
                 }
-                self2->vars[VAR_solidIsNearPlayers] = 0.0;
-                for (self2->vars[VAR_i] = 0.0; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0)) {
-                    if (gml_truthy(gml_script_isCollisionRectangle(self2, self, (((gml_iget_x(self2) - fabs(self2->vars[VAR_xVelInteger])) - gml_iget_sprite_xoffset(self2)) - 2.0), (((gml_iget_y(self2) - fabs(self2->vars[VAR_yVelInteger])) - gml_iget_sprite_yoffset(self2)) - 2.0), ((((gml_iget_x(self2) + gml_iget_sprite_width(self2)) + fabs(self2->vars[VAR_xVelInteger])) - gml_iget_sprite_xoffset(self2)) + 2.0), ((((gml_iget_y(self2) + gml_iget_sprite_height(self2)) + fabs(self2->vars[VAR_yVelInteger])) - gml_iget_sprite_yoffset(self2)) + 2.0), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_lb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_tb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_rb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_bb)))) {
-                        self2->vars[VAR_solidIsNearPlayers] = 1.0;
+                self2->vars[VAR_solidIsNearPlayers] = 0.0f;
+                for (self2->vars[VAR_i] = 0.0f; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0f)) {
+                    if (gml_truthy(gml_script_isCollisionRectangle(self2, self, (((gml_iget_x(self2) - fabsf(self2->vars[VAR_xVelInteger])) - gml_iget_sprite_xoffset(self2)) - 2.0f), (((gml_iget_y(self2) - fabsf(self2->vars[VAR_yVelInteger])) - gml_iget_sprite_yoffset(self2)) - 2.0f), ((((gml_iget_x(self2) + gml_iget_sprite_width(self2)) + fabsf(self2->vars[VAR_xVelInteger])) - gml_iget_sprite_xoffset(self2)) + 2.0f), ((((gml_iget_y(self2) + gml_iget_sprite_height(self2)) + fabsf(self2->vars[VAR_yVelInteger])) - gml_iget_sprite_yoffset(self2)) + 2.0f), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_lb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_tb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_rb), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_bb)))) {
+                        self2->vars[VAR_solidIsNearPlayers] = 1.0f;
                         break;
                     }
                 }
                 if (gml_truthy(self2->vars[VAR_solidIsNearPlayers])) {
-                    if (gml_gt(self2->vars[VAR_xVelInteger], 0.0)) {
-                        self2->vars[VAR_breakNow] = 0.0;
-                        for (gml_iset_x(self2, gml_iget_x(self2)); gml_lt(gml_iget_x(self2), (self2->vars[VAR_mstXPrev] + self2->vars[VAR_xVelInteger])); gml_iset_x(self2, (gml_iget_x(self2) + 1.0))) {
-                            for (self2->vars[VAR_i] = 0.0; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0)) {
-                                l_player = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]));
-                                if (((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0, l_player))) && (gml_eq(gml_ivar(gml_deref(l_player, self2, self), VAR_viscidMovementOk), 1.0) || gml_eq(gml_ivar(gml_deref(l_player, self2, self), VAR_viscidMovementOk), 2.0)))) {
+                    if (gml_gt(self2->vars[VAR_xVelInteger], 0.0f)) {
+                        self2->vars[VAR_breakNow] = 0.0f;
+                        for (gml_iset_x(self2, gml_iget_x(self2)); gml_lt(gml_iget_x(self2), (self2->vars[VAR_mstXPrev] + self2->vars[VAR_xVelInteger])); gml_iset_x(self2, (gml_iget_x(self2) + 1.0f))) {
+                            for (self2->vars[VAR_i] = 0.0f; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0f)) {
+                                l_player = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]));
+                                if (((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0f, l_player))) && (gml_eq(gml_ivar(gml_deref(l_player, self2, self), VAR_viscidMovementOk), 1.0f) || gml_eq(gml_ivar(gml_deref(l_player, self2, self), VAR_viscidMovementOk), 2.0f)))) {
                                     {
                                         gm_instance_t *self4;
-                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                         while ((self4 = gm_with_next()) != NULL) {
-                                            if (gml_eq(gml_script_isCollisionRight(self4, self2, 1.0), 0.0)) {
-                                                gml_iset_x(self4, (gml_iget_x(self4) + 1.0));
-                                                self4->vars[VAR_viscidMovementOk] = 2.0;
+                                            if (gml_eq(gml_script_isCollisionRight(self4, self2, 1.0f), 0.0f)) {
+                                                gml_iset_x(self4, (gml_iget_x(self4) + 1.0f));
+                                                self4->vars[VAR_viscidMovementOk] = 2.0f;
                                             }
                                         }
                                         gm_with_end();
                                     }
                                 } else {
-                                    if (gml_truthy(gml_script_isCollisionCharacterRight(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
+                                    if (gml_truthy(gml_script_isCollisionCharacterRight(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
                                         {
                                             gm_instance_t *self5;
-                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                             while ((self5 = gm_with_next()) != NULL) {
-                                                self5->vars[VAR_collision] = gml_script_isCollisionRight(self5, self2, 1.0);
+                                                self5->vars[VAR_collision] = gml_script_isCollisionRight(self5, self2, 1.0f);
                                             }
                                             gm_with_end();
                                         }
-                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
-                                            self2->vars[VAR_breakNow] = 1.0;
+                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
+                                            self2->vars[VAR_breakNow] = 1.0f;
                                             break;
                                         }
-                                        (t6 = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_x(gml_deref(t6, self2, self), (gml_iget_x(gml_deref(t6, self2, self)) + 1.0)));
+                                        (t6 = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_x(gml_deref(t6, self2, self), (gml_iget_x(gml_deref(t6, self2, self)) + 1.0f)));
                                     }
                                 }
                             }
@@ -146,37 +146,37 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
                             }
                         }
                     }
-                    if (gml_lt(self2->vars[VAR_xVelInteger], 0.0)) {
-                        self2->vars[VAR_breakNow] = 0.0;
-                        for (gml_iset_x(self2, gml_iget_x(self2)); gml_gt(gml_iget_x(self2), (self2->vars[VAR_mstXPrev] + self2->vars[VAR_xVelInteger])); gml_iset_x(self2, (gml_iget_x(self2) - 1.0))) {
-                            for (self2->vars[VAR_i] = 0.0; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0)) {
-                                if (((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) && (gml_eq(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_viscidMovementOk), 1.0) || gml_eq(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_viscidMovementOk), 2.0)))) {
+                    if (gml_lt(self2->vars[VAR_xVelInteger], 0.0f)) {
+                        self2->vars[VAR_breakNow] = 0.0f;
+                        for (gml_iset_x(self2, gml_iget_x(self2)); gml_gt(gml_iget_x(self2), (self2->vars[VAR_mstXPrev] + self2->vars[VAR_xVelInteger])); gml_iset_x(self2, (gml_iget_x(self2) - 1.0f))) {
+                            for (self2->vars[VAR_i] = 0.0f; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0f)) {
+                                if (((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) && (gml_eq(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_viscidMovementOk), 1.0f) || gml_eq(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_viscidMovementOk), 2.0f)))) {
                                     {
                                         gm_instance_t *self7;
-                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                         while ((self7 = gm_with_next()) != NULL) {
-                                            if (gml_eq(gml_script_isCollisionLeft(self7, self2, 1.0), 0.0)) {
-                                                gml_iset_x(self7, (gml_iget_x(self7) - 1.0));
-                                                self7->vars[VAR_viscidMovementOk] = 2.0;
+                                            if (gml_eq(gml_script_isCollisionLeft(self7, self2, 1.0f), 0.0f)) {
+                                                gml_iset_x(self7, (gml_iget_x(self7) - 1.0f));
+                                                self7->vars[VAR_viscidMovementOk] = 2.0f;
                                             }
                                         }
                                         gm_with_end();
                                     }
                                 } else {
-                                    if (gml_truthy(gml_script_isCollisionCharacterLeft(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
+                                    if (gml_truthy(gml_script_isCollisionCharacterLeft(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
                                         {
                                             gm_instance_t *self8;
-                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                             while ((self8 = gm_with_next()) != NULL) {
-                                                self8->vars[VAR_collision] = gml_script_isCollisionLeft(self8, self2, 1.0);
+                                                self8->vars[VAR_collision] = gml_script_isCollisionLeft(self8, self2, 1.0f);
                                             }
                                             gm_with_end();
                                         }
-                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
-                                            self2->vars[VAR_breakNow] = 1.0;
+                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
+                                            self2->vars[VAR_breakNow] = 1.0f;
                                             break;
                                         }
-                                        (t9 = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_x(gml_deref(t9, self2, self), (gml_iget_x(gml_deref(t9, self2, self)) - 1.0)));
+                                        (t9 = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_x(gml_deref(t9, self2, self), (gml_iget_x(gml_deref(t9, self2, self)) - 1.0f)));
                                     }
                                 }
                             }
@@ -185,38 +185,38 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
                             }
                         }
                     }
-                    if (gml_gt(self2->vars[VAR_yVelInteger], 0.0)) {
-                        self2->vars[VAR_breakNow] = 0.0;
-                        for (gml_iset_y(self2, gml_iget_y(self2)); gml_lt(gml_iget_y(self2), (self2->vars[VAR_mstYPrev] + self2->vars[VAR_yVelInteger])); gml_iset_y(self2, (gml_iget_y(self2) + 1.0))) {
-                            for (self2->vars[VAR_i] = 0.0; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0)) {
-                                if ((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 2.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])))))) {
-                                    gml_iset_y(self2, (gml_iget_y(self2) + 5.0));
+                    if (gml_gt(self2->vars[VAR_yVelInteger], 0.0f)) {
+                        self2->vars[VAR_breakNow] = 0.0f;
+                        for (gml_iset_y(self2, gml_iget_y(self2)); gml_lt(gml_iget_y(self2), (self2->vars[VAR_mstYPrev] + self2->vars[VAR_yVelInteger])); gml_iset_y(self2, (gml_iget_y(self2) + 1.0f))) {
+                            for (self2->vars[VAR_i] = 0.0f; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0f)) {
+                                if ((gml_truthy(self2->vars[VAR_viscidTop]) && gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 2.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])))))) {
+                                    gml_iset_y(self2, (gml_iget_y(self2) + 5.0f));
                                     {
                                         gm_instance_t *self10;
-                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                         while ((self10 = gm_with_next()) != NULL) {
-                                            if (gml_eq(gml_script_isCollisionBottom(self10, self2, 1.0), 0.0)) {
-                                                gml_iset_y(self10, (gml_iget_y(self10) + 1.0));
+                                            if (gml_eq(gml_script_isCollisionBottom(self10, self2, 1.0f), 0.0f)) {
+                                                gml_iset_y(self10, (gml_iget_y(self10) + 1.0f));
                                             }
                                         }
                                         gm_with_end();
                                     }
-                                    gml_iset_y(self2, (gml_iget_y(self2) - 5.0));
+                                    gml_iset_y(self2, (gml_iget_y(self2) - 5.0f));
                                 } else {
-                                    if (gml_truthy(gml_script_isCollisionCharacterBottom(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
+                                    if (gml_truthy(gml_script_isCollisionCharacterBottom(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
                                         {
                                             gm_instance_t *self11;
-                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                            gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                             while ((self11 = gm_with_next()) != NULL) {
-                                                self11->vars[VAR_collision] = gml_script_isCollisionBottom(self11, self2, 1.0);
+                                                self11->vars[VAR_collision] = gml_script_isCollisionBottom(self11, self2, 1.0f);
                                             }
                                             gm_with_end();
                                         }
-                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
-                                            self2->vars[VAR_breakNow] = 1.0;
+                                        if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
+                                            self2->vars[VAR_breakNow] = 1.0f;
                                             break;
                                         }
-                                        (t12 = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_y(gml_deref(t12, self2, self), (gml_iget_y(gml_deref(t12, self2, self)) + 1.0)));
+                                        (t12 = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_y(gml_deref(t12, self2, self), (gml_iget_y(gml_deref(t12, self2, self)) + 1.0f)));
                                     }
                                 }
                             }
@@ -225,29 +225,29 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
                             }
                         }
                     }
-                    if (gml_lt(self2->vars[VAR_yVelInteger], 0.0)) {
-                        self2->vars[VAR_breakNow] = 0.0;
-                        for (gml_iset_y(self2, gml_iget_y(self2)); gml_gt(gml_iget_y(self2), (self2->vars[VAR_mstYPrev] + self2->vars[VAR_yVelInteger])); gml_iset_y(self2, (gml_iget_y(self2) - 1.0))) {
-                            for (self2->vars[VAR_i] = 0.0; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((double)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0)) {
-                                if (gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
+                    if (gml_lt(self2->vars[VAR_yVelInteger], 0.0f)) {
+                        self2->vars[VAR_breakNow] = 0.0f;
+                        for (gml_iset_y(self2, gml_iget_y(self2)); gml_gt(gml_iget_y(self2), (self2->vars[VAR_mstYPrev] + self2->vars[VAR_yVelInteger])); gml_iset_y(self2, (gml_iget_y(self2) - 1.0f))) {
+                            for (self2->vars[VAR_i] = 0.0f; gml_lt(self2->vars[VAR_i], gml_ivar(gml_deref(((float)OBJ_oGame), self2, self), VAR_players_length)); self2->vars[VAR_i] = (self2->vars[VAR_i] + 1.0f)) {
+                                if (gml_truthy(gml_script_isCollisionCharacterTop(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
                                     {
                                         gm_instance_t *self13;
-                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
+                                        gm_with_begin(gml_target(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))), self2, self);
                                         while ((self13 = gm_with_next()) != NULL) {
-                                            self13->vars[VAR_collision] = gml_script_isCollisionTop(self13, self2, 1.0);
+                                            self13->vars[VAR_collision] = gml_script_isCollisionTop(self13, self2, 1.0f);
                                         }
                                         gm_with_end();
                                     }
-                                    if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
-                                        self2->vars[VAR_breakNow] = 1.0;
+                                    if (gml_truthy(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_collision))) {
+                                        self2->vars[VAR_breakNow] = 1.0f;
                                         break;
                                     }
-                                    (t14 = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_y(gml_deref(t14, self2, self), (gml_iget_y(gml_deref(t14, self2, self)) - 1.0)));
+                                    (t14 = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), gml_iset_y(gml_deref(t14, self2, self), (gml_iget_y(gml_deref(t14, self2, self)) - 1.0f)));
                                 }
-                                if (gml_truthy(gml_script_isCollisionCharacterBottom(self2, self, 1.0, gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
-                                    if (gml_lt(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTime), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTimeTotal))) {
-                                        gml_ivar_set(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_yVel, (-2.0));
-                                        gml_ivar_set(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTime, gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTimeTotal));
+                                if (gml_truthy(gml_script_isCollisionCharacterBottom(self2, self, 1.0f, gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i]))))) {
+                                    if (gml_lt(gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTime), gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTimeTotal))) {
+                                        gml_ivar_set(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_yVel, (-2.0f));
+                                        gml_ivar_set(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTime, gml_ivar(gml_deref(gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self2, self), VVAR_players), self2->vars[VAR_i])), self2, self), VAR_jumpTimeTotal));
                                     }
                                 }
                             }
@@ -258,10 +258,10 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
                     }
                     {
                         gm_instance_t *self15;
-                        gm_with_begin(gml_target(((double)OBJ_oCharacter)), self2, self);
+                        gm_with_begin(gml_target(((float)OBJ_oCharacter)), self2, self);
                         while ((self15 = gm_with_next()) != NULL) {
-                            if (gml_eq(self15->vars[VAR_viscidMovementOk], 2.0)) {
-                                self15->vars[VAR_viscidMovementOk] = 0.0;
+                            if (gml_eq(self15->vars[VAR_viscidMovementOk], 2.0f)) {
+                                self15->vars[VAR_viscidMovementOk] = 0.0f;
                             }
                         }
                         gm_with_end();
@@ -275,20 +275,20 @@ void gml_script_gameStepEvent(gm_instance_t *self, gm_instance_t *other)
         }
         {
             gm_instance_t *self16;
-            gm_with_begin(gml_target(((double)OBJ_oMoveableSolid)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oMoveableSolid)), self, other);
             while ((self16 = gm_with_next()) != NULL) {
-                if (((((t17 = gml_iget_x(self16), gml_gt(t17, (gml_script___view_get(self16, self, (0.0 /* e__VW.XView */), 0.0) - 16.0))) && (t19 = gml_iget_x(self16), gml_lt(t19, (t18 = gml_script___view_get(self16, self, (0.0 /* e__VW.XView */), 0.0), (t18 + gml_script___view_get(self16, self, (2.0 /* e__VW.WView */), 0.0)))))) && (t20 = gml_iget_y(self16), gml_gt(t20, (gml_script___view_get(self16, self, (1.0 /* e__VW.YView */), 0.0) - 16.0)))) && (t22 = gml_iget_y(self16), gml_lt(t22, (t21 = gml_script___view_get(self16, self, (1.0 /* e__VW.YView */), 0.0), (t21 + gml_script___view_get(self16, self, (3.0 /* e__VW.HView */), 0.0))))))) {
+                if (((((t17 = gml_iget_x(self16), gml_gt(t17, (gml_script___view_get(self16, self, (0.0f /* e__VW.XView */), 0.0f) - 16.0f))) && (t19 = gml_iget_x(self16), gml_lt(t19, (t18 = gml_script___view_get(self16, self, (0.0f /* e__VW.XView */), 0.0f), (t18 + gml_script___view_get(self16, self, (2.0f /* e__VW.WView */), 0.0f)))))) && (t20 = gml_iget_y(self16), gml_gt(t20, (gml_script___view_get(self16, self, (1.0f /* e__VW.YView */), 0.0f) - 16.0f)))) && (t22 = gml_iget_y(self16), gml_lt(t22, (t21 = gml_script___view_get(self16, self, (1.0f /* e__VW.YView */), 0.0f), (t21 + gml_script___view_get(self16, self, (3.0f /* e__VW.HView */), 0.0f))))))) {
                     self16->vars[VAR_yMPrev] = gml_iget_y(self16);
                     self16->vars[VAR_yVel] = (self16->vars[VAR_yVel] + self16->vars[VAR_myGrav]);
-                    if (gml_gt(self16->vars[VAR_yVel], 8.0)) {
-                        self16->vars[VAR_yVel] = 8.0;
+                    if (gml_gt(self16->vars[VAR_yVel], 8.0f)) {
+                        self16->vars[VAR_yVel] = 8.0f;
                     }
-                    for (gml_iset_y(self16, gml_iget_y(self16)); gml_lt(gml_iget_y(self16), (self16->vars[VAR_yMPrev] + self16->vars[VAR_yVel])); gml_iset_y(self16, (gml_iget_y(self16) + 1.0))) {
-                        if (gml_truthy(gml_fn_place_meeting(self16, self, gml_iget_x(self16), (gml_iget_y(self16) + 1.0), ((double)OBJ_oSolid)))) {
+                    for (gml_iset_y(self16, gml_iget_y(self16)); gml_lt(gml_iget_y(self16), (self16->vars[VAR_yMPrev] + self16->vars[VAR_yVel])); gml_iset_y(self16, (gml_iget_y(self16) + 1.0f))) {
+                        if (gml_truthy(gml_fn_place_meeting(self16, self, gml_iget_x(self16), (gml_iget_y(self16) + 1.0f), ((float)OBJ_oSolid)))) {
                             if (gml_gt(self16->vars[VAR_yVel], self16->vars[VAR_myGrav])) {
                                 gml_script_playSound(self16, self, g_gml_globals.sndThud);
                             }
-                            self16->vars[VAR_yVel] = 0.0;
+                            self16->vars[VAR_yVel] = 0.0f;
                             break;
                         }
                     }

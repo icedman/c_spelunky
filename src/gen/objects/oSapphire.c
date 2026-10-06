@@ -8,10 +8,10 @@ static void gml_ev_oSapphire__Create_0_body(gm_instance_t *self, gm_instance_t *
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Sapphire";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-2.0), (-2.0), 2.0, 2.0);
-    self->vars[VAR_yOff] = 2.0;
-    gml_iset_alarm(self, 0.0, 20.0);
-    self->vars[VAR_value] = 400.0;
+    gml_script_setCollisionBounds(self, other, (-2.0f), (-2.0f), 2.0f, 2.0f);
+    self->vars[VAR_yOff] = 2.0f;
+    gml_iset_alarm(self, 0.0f, 20.0f);
+    self->vars[VAR_value] = 400.0f;
 }
 
 void gml_ev_oSapphire__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,7 +25,7 @@ static void gml_ev_oSapphire__Alarm_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_canCollect] = 1.0;
+    self->vars[VAR_canCollect] = 1.0f;
 }
 
 void gml_ev_oSapphire__Alarm_0(gm_instance_t *self, gm_instance_t *other)

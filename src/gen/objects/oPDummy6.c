@@ -6,10 +6,10 @@ static void gml_ev_oPDummy6__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)self;
     (void)other;
     if (gml_truthy(g_gml_globals.isDamsel)) {
-        gml_iset_sprite_index(self, ((double)SPR_sDamselLeft));
+        gml_iset_sprite_index(self, ((float)SPR_sDamselLeft));
     } else {
         if (gml_truthy(g_gml_globals.isTunnelMan)) {
-            gml_iset_sprite_index(self, ((double)SPR_sTunnelLeft));
+            gml_iset_sprite_index(self, ((float)SPR_sTunnelLeft));
         }
     }
 }
@@ -25,8 +25,8 @@ static void gml_ev_oPDummy6__Draw_0_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    gml_iset_image_xscale(self, (-1.0));
-    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), (-1.0), gml_iget_x(self), gml_iget_y(self), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
+    gml_iset_image_xscale(self, (-1.0f));
+    gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), (-1.0f), gml_iget_x(self), gml_iget_y(self), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
 }
 
 void gml_ev_oPDummy6__Draw_0(gm_instance_t *self, gm_instance_t *other)

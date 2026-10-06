@@ -3,30 +3,30 @@
 
 static void gml_ev_oKaliHead__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
     (void)self;
     (void)other;
     (void)t1;
     (void)b2;
-    t1 = gml_script_rand(self, other, 1.0, 3.0);
-    b2 = (gml_rcase(t1, 1.0) ? 0 : gml_rcase(t1, 2.0) ? 1 : gml_rcase(t1, 3.0) ? 2 : -1);
+    t1 = gml_script_rand(self, other, 1.0f, 3.0f);
+    b2 = (gml_rcase(t1, 1.0f) ? 0 : gml_rcase(t1, 2.0f) ? 1 : gml_rcase(t1, 3.0f) ? 2 : -1);
     switch (b2) {
     case 0:
         {
-            gml_iset_sprite_index(self, ((double)SPR_sKaliHead1));
+            gml_iset_sprite_index(self, ((float)SPR_sKaliHead1));
             break;
         }
     /* fall through */
     case 1:
         {
-            gml_iset_sprite_index(self, ((double)SPR_sKaliHead2));
+            gml_iset_sprite_index(self, ((float)SPR_sKaliHead2));
             break;
         }
     /* fall through */
     case 2:
         {
-            gml_iset_sprite_index(self, ((double)SPR_sKaliHead3));
+            gml_iset_sprite_index(self, ((float)SPR_sKaliHead3));
             break;
         }
     }
@@ -42,20 +42,20 @@ void gml_ev_oKaliHead__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oKaliHead__Alarm_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int32_t n1 = 0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
     (void)self;
     (void)other;
     (void)n1;
     (void)t2;
     (void)t3;
     (void)t4;
-    gml_iset_sprite_index(self, ((double)SPR_sGTHHole));
-    for (n1 = gml_repeat_count(6.0); n1 > 0; --n1) {
-        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSpider));
-        (t3 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t3, self, other), VAR_xVel, (t2 = gml_script_rand(self, other, 0.0, 3.0), (t2 - gml_script_rand(self, other, 0.0, 3.0)))));
-        (t4 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t4, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0, 3.0))));
+    gml_iset_sprite_index(self, ((float)SPR_sGTHHole));
+    for (n1 = gml_repeat_count(6.0f); n1 > 0; --n1) {
+        self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSpider));
+        (t3 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t3, self, other), VAR_xVel, (t2 = gml_script_rand(self, other, 0.0f, 3.0f), (t2 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+        (t4 = self->vars[VAR_obj], gml_ivar_set(gml_deref(t4, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0f, 3.0f))));
     }
     gml_script_playSound(self, other, g_gml_globals.sndThump);
 }

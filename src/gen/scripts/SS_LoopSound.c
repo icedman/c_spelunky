@@ -6,5 +6,5 @@ void gml_script_SS_LoopSound(gm_instance_t *self, gm_instance_t *other, gm_value
     (void)self;
     (void)other;
     (void)a0;
-    (void)(gml_fn_audio_play_sound(self, other, gml_real(a0), 1.0, 1.0));
+    (void)(gml_fn_audio_play_sound(self, other, gml_real(a0), 1.0f, 1.0f));
 }

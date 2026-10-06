@@ -3,21 +3,21 @@
 
 void gml_script_changeLocale2(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_newLocaleIndex = 0.0;
-    double l_localesN = 0.0;
-    double l_i = 0.0;
+    float l_newLocaleIndex = 0.0f;
+    float l_localesN = 0.0f;
+    float l_i = 0.0f;
     (void)self;
     (void)other;
     (void)l_newLocaleIndex;
     (void)l_localesN;
     (void)l_i;
-    l_newLocaleIndex = 0.0;
+    l_newLocaleIndex = 0.0f;
     l_localesN = gml_array_length(g_gml_gvals[GV_localesArray]);
-    for (l_i = 0.0; gml_lt(l_i, l_localesN); l_i = (l_i + 1.0)) {
+    for (l_i = 0.0f; gml_lt(l_i, l_localesN); l_i = (l_i + 1.0f)) {
         if (gml_veq(gml_aget(g_gml_gvals[GV_localesArray], l_i), g_gml_gvals[GV_locale2])) {
-            l_newLocaleIndex = (l_i + 1.0);
+            l_newLocaleIndex = (l_i + 1.0f);
             if (gml_eq(l_newLocaleIndex, l_localesN)) {
-                l_newLocaleIndex = 0.0;
+                l_newLocaleIndex = 0.0f;
             }
         }
     }

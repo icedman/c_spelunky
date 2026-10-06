@@ -14,13 +14,13 @@ typedef struct view_store {
 /* A current view (yyView). */
 typedef struct view {
     bool visible;
-    double worldx, worldy, worldw, worldh;
-    double portx, porty, portw, porth;
-    double angle;
-    double hborder, vborder, hspeed, vspeed;
-    double objid;
-    double surface_id;
-    double camera;
+    float worldx, worldy, worldw, worldh;
+    float portx, porty, portw, porth;
+    float angle;
+    float hborder, vborder, hspeed, vspeed;
+    float objid;
+    float surface_id;
+    float camera;
 } view_t;
 
 static view_store_t s_store[GM_ROOM_MAX][GM_VIEW_COUNT];
@@ -32,7 +32,7 @@ static int s_next_camera_id;
 static long s_overflows;
 
 static view_t s_views[GM_VIEW_COUNT];
-static double s_arrays[GM_VIEW_FIELD_COUNT][GM_VIEW_COUNT];
+static float s_arrays[GM_VIEW_FIELD_COUNT][GM_VIEW_COUNT];
 static bool s_enabled;
 static bool s_in_room;
 static int s_current;   /* view_current */
@@ -80,8 +80,8 @@ int gm_camera_count(void)
 }
 
 /* camera_create_view (CameraManager.js L708). */
-int gm_camera_create_view(double x, double y, double w, double h, double angle, int target,
-                          double speed_x, double speed_y, double border_x, double border_y)
+int gm_camera_create_view(float x, float y, float w, float h, float angle, int target,
+                          float speed_x, float speed_y, float border_x, float border_y)
 {
     gm_camera_t *c = camera_new();
 
@@ -197,7 +197,7 @@ static void views_to_arrays(void)
 
     for (i = 0; i < GM_VIEW_COUNT; ++i) {
         const view_t *v = &s_views[i];
-        s_arrays[GM_VIEW_VISIBLE][i] = v->visible ? 1.0 : 0.0;
+        s_arrays[GM_VIEW_VISIBLE][i] = v->visible ? 1.0f : 0.0f;
         s_arrays[GM_VIEW_XVIEW][i] = v->worldx;
         s_arrays[GM_VIEW_YVIEW][i] = v->worldy;
         s_arrays[GM_VIEW_WVIEW][i] = v->worldw;
@@ -224,7 +224,7 @@ static void arrays_to_views(void)
 
     for (i = 0; i < GM_VIEW_COUNT; ++i) {
         view_t *v = &s_views[i];
-        v->visible = s_arrays[GM_VIEW_VISIBLE][i] > 0.5;
+        v->visible = s_arrays[GM_VIEW_VISIBLE][i] > 0.5f;
         v->worldx = s_arrays[GM_VIEW_XVIEW][i];
         v->worldy = s_arrays[GM_VIEW_YVIEW][i];
         v->worldw = s_arrays[GM_VIEW_WVIEW][i];
@@ -244,15 +244,15 @@ static void arrays_to_views(void)
     }
 }
 
-double gm_view_get(int field, int index)
+float gm_view_get(int field, int index)
 {
     if (field < 0 || field >= GM_VIEW_FIELD_COUNT || index < 0 || index >= GM_VIEW_COUNT) {
-        return 0.0;
+        return 0.0f;
     }
     return s_arrays[field][index];
 }
 
-void gm_view_set(int field, int index, double value)
+void gm_view_set(int field, int index, float value)
 {
     if (field >= 0 && field < GM_VIEW_FIELD_COUNT && index >= 0 && index < GM_VIEW_COUNT) {
         s_arrays[field][index] = value;
@@ -293,13 +293,13 @@ void gm_view_room_start(int room, const gm_room_def_t *def)
         v->porty = d->yport;
         v->portw = d->wport;
         v->porth = d->hport;
-        v->angle = 0.0;
+        v->angle = 0.0f;
         v->hborder = d->hborder;
         v->vborder = d->vborder;
         v->hspeed = d->hspeed;
         v->vspeed = d->vspeed;
         v->objid = d->object;
-        v->surface_id = -1.0;
+        v->surface_id = -1.0f;
         if (st != NULL && st->camera >= 0) {
             cam = camera_clone(st->camera);
         } else {
@@ -319,7 +319,7 @@ void gm_view_room_start(int room, const gm_room_def_t *def)
                 cam = c->id;
             }
         }
-        v->camera = (double)cam;
+        v->camera = (float)cam;
     }
     views_to_arrays();
 }
@@ -383,50 +383,50 @@ static gm_instance_t *camera_target(int target)
     inst = gm_instance_find_by_id(target);
     return (inst != NULL && inst->active && !inst->marked_for_destroy) ? inst : NULL;
 }
-
+#include <stdio.h>
 /* CCamera.Update (CameraManager.js L557-645), 2D and without an update script. */
-void gm_camera_follow(gm_camera_t *cam, double room_width, double room_height)
+void gm_camera_follow(gm_camera_t *cam, float room_width, float room_height)
 {
     gm_instance_t *inst = camera_target(cam->target);
-    double l, t, ix, iy;
+    float l, t, ix, iy;
 
     if (inst == NULL) {
         return;
     }
     l = cam->x;
     t = cam->y;
-    ix = floor(inst->x);
-    iy = floor(inst->y);
+    ix = floorf(inst->x);
+    iy = floorf(inst->y);
 
-    if (2.0 * cam->border_x >= cam->w) {
-        l = ix - cam->w * 0.5;
+    if (2.0f * cam->border_x >= cam->w) {
+        l = ix - cam->w * 0.5f;
     } else if (ix - cam->border_x < cam->x) {
         l = ix - cam->border_x;
     } else if (ix + cam->border_x > cam->x + cam->w) {
         l = ix + cam->border_x - cam->w;
     }
-    if (2.0 * cam->border_y >= cam->h) {
-        t = iy - cam->h * 0.5;
+    if (2.0f * cam->border_y >= cam->h) {
+        t = iy - cam->h * 0.5f;
     } else if (iy - cam->border_y < cam->y) {
         t = iy - cam->border_y;
     } else if (iy + cam->border_y > cam->y + cam->h) {
         t = iy + cam->border_y - cam->h;
     }
 
-    if (l < 0.0) {
-        l = 0.0;
+    if (l < 0.0f) {
+        l = 0.0f;
     }
     if (l + cam->w > room_width) {
         l = room_width - cam->w;
     }
-    if (t < 0.0) {
-        t = 0.0;
+    if (t < 0.0f) {
+        t = 0.0f;
     }
     if (t + cam->h > room_height) {
         t = room_height - cam->h;
     }
 
-    if (cam->speed_x >= 0.0) {
+    if (cam->speed_x >= 0.0f) {
         if (l < cam->x && cam->x - l > cam->speed_x) {
             l = cam->x - cam->speed_x;
         }
@@ -434,7 +434,7 @@ void gm_camera_follow(gm_camera_t *cam, double room_width, double room_height)
             l = cam->x + cam->speed_x;
         }
     }
-    if (cam->speed_y >= 0.0) {
+    if (cam->speed_y >= 0.0f) {
         if (t < cam->y && cam->y - t > cam->speed_y) {
             t = cam->y - cam->speed_y;
         }

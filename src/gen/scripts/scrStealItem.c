@@ -8,8 +8,8 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     (void)wd;
     if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Udjat Eye")) {
-        g_gml_globals.hasUdjatEye = 1.0;
-        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+        g_gml_globals.hasUdjatEye = 1.0f;
+        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
         {
             gm_instance_t *self1;
             gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -19,14 +19,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
             gm_with_end();
         }
         gml_script_playSound(self, other, g_gml_globals.sndPickup);
-        self->vars[VAR_holdItem] = 0.0;
+        self->vars[VAR_holdItem] = 0.0f;
         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT THE UDJAT EYE!"));
         g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL AWAKENED."));
-        g_gml_globals.messageTimer = 120.0;
+        g_gml_globals.messageTimer = 120.0f;
     } else {
         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Ankh")) {
-            g_gml_globals.hasAnkh = 1.0;
-            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+            g_gml_globals.hasAnkh = 1.0f;
+            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
             {
                 gm_instance_t *self2;
                 gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -36,14 +36,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                 gm_with_end();
             }
             gml_script_playSound(self, other, g_gml_globals.sndPickup);
-            self->vars[VAR_holdItem] = 0.0;
+            self->vars[VAR_holdItem] = 0.0f;
             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT THE ANKH!"));
             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL PROTECTED."));
-            g_gml_globals.messageTimer = 120.0;
+            g_gml_globals.messageTimer = 120.0f;
         } else {
             if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Crown")) {
-                g_gml_globals.hasCrown = 1.0;
-                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                g_gml_globals.hasCrown = 1.0f;
+                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                 {
                     gm_instance_t *self3;
                     gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -53,14 +53,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                     gm_with_end();
                 }
                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                self->vars[VAR_holdItem] = 0.0;
+                self->vars[VAR_holdItem] = 0.0f;
                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT THE HEDJET!"));
                 g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "IT GLOWS A BRILLIANT WHITE."));
-                g_gml_globals.messageTimer = 120.0;
+                g_gml_globals.messageTimer = 120.0f;
             } else {
                 if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Kapala")) {
-                    g_gml_globals.hasKapala = 1.0;
-                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                    g_gml_globals.hasKapala = 1.0f;
+                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                     {
                         gm_instance_t *self4;
                         gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -70,15 +70,15 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                         gm_with_end();
                     }
                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                    self->vars[VAR_holdItem] = 0.0;
+                    self->vars[VAR_holdItem] = 0.0f;
                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT THE KAPALA!"));
                     g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "IT THIRSTS FOR BLOOD..."));
-                    g_gml_globals.messageTimer = 120.0;
+                    g_gml_globals.messageTimer = 120.0f;
                 } else {
                     if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Bomb Bag")) {
-                        g_gml_globals.bombs = (g_gml_globals.bombs + 3.0);
-                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
-                        gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((double)SPR_sBombsGet));
+                        g_gml_globals.bombs = (g_gml_globals.bombs + 3.0f);
+                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
+                        gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((float)SPR_sBombsGet));
                         {
                             gm_instance_t *self5;
                             gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -88,15 +88,15 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                             gm_with_end();
                         }
                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                        self->vars[VAR_holdItem] = 0.0;
+                        self->vars[VAR_holdItem] = 0.0f;
                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT 3 MORE BOMBS!"));
                         g_gml_gvals[GV_message2] = gml_vs("");
-                        g_gml_globals.messageTimer = 120.0;
+                        g_gml_globals.messageTimer = 120.0f;
                     } else {
                         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Bomb Box")) {
-                            g_gml_globals.bombs = (g_gml_globals.bombs + 12.0);
-                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
-                            gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((double)SPR_sBombsGet));
+                            g_gml_globals.bombs = (g_gml_globals.bombs + 12.0f);
+                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
+                            gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((float)SPR_sBombsGet));
                             {
                                 gm_instance_t *self6;
                                 gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -106,14 +106,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                 gm_with_end();
                             }
                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                            self->vars[VAR_holdItem] = 0.0;
+                            self->vars[VAR_holdItem] = 0.0f;
                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT 12 MORE BOMBS!"));
                             g_gml_gvals[GV_message2] = gml_vs("");
-                            g_gml_globals.messageTimer = 120.0;
+                            g_gml_globals.messageTimer = 120.0f;
                         } else {
                             if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Paste")) {
-                                g_gml_globals.hasStickyBombs = 1.0;
-                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                g_gml_globals.hasStickyBombs = 1.0f;
+                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                 {
                                     gm_instance_t *self7;
                                     gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -123,15 +123,15 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                     gm_with_end();
                                 }
                                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                self->vars[VAR_holdItem] = 0.0;
+                                self->vars[VAR_holdItem] = 0.0f;
                                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT STICKY BOMBS!"));
                                 g_gml_gvals[GV_message2] = gml_vs("");
-                                g_gml_globals.messageTimer = 120.0;
+                                g_gml_globals.messageTimer = 120.0f;
                             } else {
                                 if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Rope Pile")) {
-                                    g_gml_globals.rope = (g_gml_globals.rope + 3.0);
-                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 15.0), ((double)OBJ_oItemsGet));
-                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((double)SPR_sRopeGet));
+                                    g_gml_globals.rope = (g_gml_globals.rope + 3.0f);
+                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 15.0f), ((float)OBJ_oItemsGet));
+                                    gml_iset_sprite_index(gml_deref(self->vars[VAR_disp], self, other), ((float)SPR_sRopeGet));
                                     {
                                         gm_instance_t *self8;
                                         gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -141,14 +141,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                         gm_with_end();
                                     }
                                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                    self->vars[VAR_holdItem] = 0.0;
+                                    self->vars[VAR_holdItem] = 0.0f;
                                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT 3 MORE ROPES!"));
                                     g_gml_gvals[GV_message2] = gml_vs("");
-                                    g_gml_globals.messageTimer = 120.0;
+                                    g_gml_globals.messageTimer = 120.0f;
                                 } else {
                                     if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Parachute")) {
-                                        g_gml_globals.hasParachute = 1.0;
-                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                        g_gml_globals.hasParachute = 1.0f;
+                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                         {
                                             gm_instance_t *self9;
                                             gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -158,14 +158,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                             gm_with_end();
                                         }
                                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                        self->vars[VAR_holdItem] = 0.0;
+                                        self->vars[VAR_holdItem] = 0.0f;
                                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A PARACHUTE!"));
                                         g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "IT WILL DEPLOY AUTOMATICALLY."));
-                                        g_gml_globals.messageTimer = 120.0;
+                                        g_gml_globals.messageTimer = 120.0f;
                                     } else {
                                         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Spectacles")) {
-                                            g_gml_globals.hasSpectacles = 1.0;
-                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                            g_gml_globals.hasSpectacles = 1.0f;
+                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                             {
                                                 gm_instance_t *self10;
                                                 gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -175,14 +175,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                 gm_with_end();
                                             }
                                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                            self->vars[VAR_holdItem] = 0.0;
+                                            self->vars[VAR_holdItem] = 0.0f;
                                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT SPECTACLES!"));
                                             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOUR EYESIGHT SEEMS IMPROVED..."));
-                                            g_gml_globals.messageTimer = 120.0;
+                                            g_gml_globals.messageTimer = 120.0f;
                                         } else {
                                             if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Gloves")) {
-                                                g_gml_globals.hasGloves = 1.0;
-                                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                g_gml_globals.hasGloves = 1.0f;
+                                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                 {
                                                     gm_instance_t *self11;
                                                     gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -192,18 +192,18 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                     gm_with_end();
                                                 }
                                                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                self->vars[VAR_holdItem] = 0.0;
+                                                self->vars[VAR_holdItem] = 0.0f;
                                                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT CLIMBING GLOVES!"));
-                                                if (gml_str_eq(gml_svar(gml_deref(((double)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Web Cannon")) {
+                                                if (gml_str_eq(gml_svar(gml_deref(((float)OBJ_oPlayer1), self, other), SVAR_pickupItemType), "Web Cannon")) {
                                                     g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOUR SPIDER SENSE TINGLES!"));
                                                 } else {
                                                     g_gml_gvals[GV_message2] = gml_vs("");
                                                 }
-                                                g_gml_globals.messageTimer = 120.0;
+                                                g_gml_globals.messageTimer = 120.0f;
                                             } else {
                                                 if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Mitt")) {
-                                                    g_gml_globals.hasMitt = 1.0;
-                                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                    g_gml_globals.hasMitt = 1.0f;
+                                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                     {
                                                         gm_instance_t *self12;
                                                         gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -213,14 +213,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                         gm_with_end();
                                                     }
                                                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                    self->vars[VAR_holdItem] = 0.0;
+                                                    self->vars[VAR_holdItem] = 0.0f;
                                                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A PITCHER'S MITT!"));
                                                     g_gml_gvals[GV_message2] = gml_vs("");
-                                                    g_gml_globals.messageTimer = 120.0;
+                                                    g_gml_globals.messageTimer = 120.0f;
                                                 } else {
                                                     if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Compass")) {
-                                                        g_gml_globals.hasCompass = 1.0;
-                                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                        g_gml_globals.hasCompass = 1.0f;
+                                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                         {
                                                             gm_instance_t *self13;
                                                             gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -230,14 +230,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                             gm_with_end();
                                                         }
                                                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                        self->vars[VAR_holdItem] = 0.0;
+                                                        self->vars[VAR_holdItem] = 0.0f;
                                                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A COMPASS!"));
                                                         g_gml_gvals[GV_message2] = gml_vs("");
-                                                        g_gml_globals.messageTimer = 120.0;
+                                                        g_gml_globals.messageTimer = 120.0f;
                                                     } else {
                                                         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Spring Shoes")) {
-                                                            g_gml_globals.hasSpringShoes = 1.0;
-                                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                            g_gml_globals.hasSpringShoes = 1.0f;
+                                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                             {
                                                                 gm_instance_t *self14;
                                                                 gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -247,14 +247,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                 gm_with_end();
                                                             }
                                                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                            self->vars[VAR_holdItem] = 0.0;
+                                                            self->vars[VAR_holdItem] = 0.0f;
                                                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT SPRING SHOES!"));
                                                             g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL BOUNCY."));
-                                                            g_gml_globals.messageTimer = 120.0;
+                                                            g_gml_globals.messageTimer = 120.0f;
                                                         } else {
                                                             if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Spike Shoes")) {
-                                                                g_gml_globals.hasSpikeShoes = 1.0;
-                                                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                                g_gml_globals.hasSpikeShoes = 1.0f;
+                                                                self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                                 {
                                                                     gm_instance_t *self15;
                                                                     gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -264,14 +264,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                     gm_with_end();
                                                                 }
                                                                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                                self->vars[VAR_holdItem] = 0.0;
+                                                                self->vars[VAR_holdItem] = 0.0f;
                                                                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT SPIKE SHOES!"));
                                                                 g_gml_gvals[GV_message2] = gml_vs("");
-                                                                g_gml_globals.messageTimer = 120.0;
+                                                                g_gml_globals.messageTimer = 120.0f;
                                                             } else {
                                                                 if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Jordans")) {
-                                                                    g_gml_globals.hasJordans = 1.0;
-                                                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                                    g_gml_globals.hasJordans = 1.0f;
+                                                                    self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                                     {
                                                                         gm_instance_t *self16;
                                                                         gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -281,14 +281,14 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                         gm_with_end();
                                                                     }
                                                                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                                    self->vars[VAR_holdItem] = 0.0;
+                                                                    self->vars[VAR_holdItem] = 0.0f;
                                                                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT JORDANS!"));
                                                                     g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "YOU FEEL LIGHT ON YOUR FEET."));
-                                                                    g_gml_globals.messageTimer = 120.0;
+                                                                    g_gml_globals.messageTimer = 120.0f;
                                                                 } else {
                                                                     if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Cape")) {
-                                                                        g_gml_globals.hasCape = 1.0;
-                                                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                                        g_gml_globals.hasCape = 1.0f;
+                                                                        self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                                         {
                                                                             gm_instance_t *self17;
                                                                             gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -298,21 +298,21 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                             gm_with_end();
                                                                         }
                                                                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                                        self->vars[VAR_holdItem] = 0.0;
+                                                                        self->vars[VAR_holdItem] = 0.0f;
                                                                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A CAPE!"));
                                                                         g_gml_gvals[GV_message2] = gml_vs("");
-                                                                        g_gml_globals.messageTimer = 120.0;
+                                                                        g_gml_globals.messageTimer = 120.0f;
                                                                         if (gml_truthy(g_gml_globals.hasJetpack)) {
-                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oJetpack));
-                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
-                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-1.0));
-                                                                            g_gml_globals.hasJetpack = 0.0;
+                                                                            self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oJetpack));
+                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
+                                                                            gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-1.0f));
+                                                                            g_gml_globals.hasJetpack = 0.0f;
                                                                         }
                                                                     } else {
                                                                         if (gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Jetpack")) {
-                                                                            g_gml_globals.hasJetpack = 1.0;
-                                                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0), ((double)OBJ_oItemsGet));
+                                                                            g_gml_globals.hasJetpack = 1.0f;
+                                                                            self->vars[VAR_disp] = gml_script_instance_create(self, other, gml_iget_x(gml_deref(self->vars[VAR_holdItem], self, other)), (gml_iget_y(gml_deref(self->vars[VAR_holdItem], self, other)) - 14.0f), ((float)OBJ_oItemsGet));
                                                                             {
                                                                                 gm_instance_t *self18;
                                                                                 gm_with_begin(gml_target(self->vars[VAR_holdItem]), self, other);
@@ -322,19 +322,19 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                                 gm_with_end();
                                                                             }
                                                                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
-                                                                            self->vars[VAR_holdItem] = 0.0;
+                                                                            self->vars[VAR_holdItem] = 0.0f;
                                                                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A JETPACK!"));
                                                                             g_gml_gvals[GV_message2] = gml_vs("");
-                                                                            g_gml_globals.messageTimer = 120.0;
+                                                                            g_gml_globals.messageTimer = 120.0f;
                                                                             if (gml_truthy(g_gml_globals.hasCape)) {
-                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oCapePickup));
-                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0);
-                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0);
-                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-1.0));
-                                                                                g_gml_globals.hasCape = 0.0;
+                                                                                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oCapePickup));
+                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_cost, 0.0f);
+                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_forSale, 0.0f);
+                                                                                gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_yVel, (-1.0f));
+                                                                                g_gml_globals.hasCape = 0.0f;
                                                                                 {
                                                                                     gm_instance_t *self19;
-                                                                                    gm_with_begin(gml_target(((double)OBJ_oCape)), self, other);
+                                                                                    gm_with_begin(gml_target(((float)OBJ_oCape)), self, other);
                                                                                     while ((self19 = gm_with_next()) != NULL) {
                                                                                         gml_fn_instance_destroy(self19, self, 0, NULL);
                                                                                     }
@@ -342,70 +342,70 @@ void gml_script_scrStealItem(gm_instance_t *self, gm_instance_t *other)
                                                                                 }
                                                                             }
                                                                         } else {
-                                                                            if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Machete") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                            if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Machete") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A MACHETE!"));
                                                                                 g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                g_gml_globals.messageTimer = 120.0;
+                                                                                g_gml_globals.messageTimer = 120.0f;
                                                                             } else {
-                                                                                if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Mattock") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Mattock") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A MATTOCK!"));
                                                                                     g_gml_gvals[GV_message2] = gml_vs(gml_script_tr(self, other, 1, "IT SEEMS A BIT RUSTY."));
-                                                                                    g_gml_globals.messageTimer = 120.0;
+                                                                                    g_gml_globals.messageTimer = 120.0f;
                                                                                 } else {
-                                                                                    if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Pistol") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                    if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Pistol") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A PISTOL!"));
                                                                                         g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                        g_gml_globals.messageTimer = 120.0;
+                                                                                        g_gml_globals.messageTimer = 120.0f;
                                                                                     } else {
-                                                                                        if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Web Cannon") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                        if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Web Cannon") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A WEB CANNON!"));
                                                                                             g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                            g_gml_globals.messageTimer = 120.0;
+                                                                                            g_gml_globals.messageTimer = 120.0f;
                                                                                         } else {
-                                                                                            if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Teleporter") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                            if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Teleporter") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                                gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                                 gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                                 g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A TELEPORTER!"));
                                                                                                 g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                                g_gml_globals.messageTimer = 120.0;
+                                                                                                g_gml_globals.messageTimer = 120.0f;
                                                                                             } else {
-                                                                                                if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Shotgun") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                                if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Shotgun") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                                    gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                                     gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                                     g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT A SHOTGUN!"));
                                                                                                     g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                                    g_gml_globals.messageTimer = 120.0;
+                                                                                                    g_gml_globals.messageTimer = 120.0f;
                                                                                                 } else {
-                                                                                                    if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Bow") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                                    if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Bow") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                                        gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                                         gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU GOT THE BOW AND ARROWS!"));
                                                                                                         g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                                        g_gml_globals.messageTimer = 120.0;
+                                                                                                        g_gml_globals.messageTimer = 120.0f;
                                                                                                     } else {
-                                                                                                        if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Damsel") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0))) {
-                                                                                                            g_gml_globals.damselsBought = (g_gml_globals.damselsBought + 1.0);
-                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0);
-                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0);
+                                                                                                        if ((gml_str_eq(gml_svar(gml_deref(self->vars[VAR_holdItem], self, other), SVAR_type), "Damsel") && gml_gt(gml_ivar(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost), 0.0f))) {
+                                                                                                            g_gml_globals.damselsBought = (g_gml_globals.damselsBought + 1.0f);
+                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_cost, 0.0f);
+                                                                                                            gml_ivar_set(gml_deref(self->vars[VAR_holdItem], self, other), VAR_forSale, 0.0f);
                                                                                                             gml_script_playSound(self, other, g_gml_globals.sndPickup);
                                                                                                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "YOU MUST BE IN LOVE!"));
                                                                                                             g_gml_gvals[GV_message2] = gml_vs("");
-                                                                                                            g_gml_globals.messageTimer = 120.0;
+                                                                                                            g_gml_globals.messageTimer = 120.0f;
                                                                                                         }
                                                                                                     }
                                                                                                 }

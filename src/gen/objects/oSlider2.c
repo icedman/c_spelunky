@@ -5,8 +5,8 @@ static void gml_ev_oSlider2__Create_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    gml_iset_x(self, (g_gml_globals.soundVol * 8.0));
-    self->vars[VAR_focus] = 0.0;
+    gml_iset_x(self, (g_gml_globals.soundVol * 8.0f));
+    self->vars[VAR_focus] = 0.0f;
 }
 
 void gml_ev_oSlider2__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -22,7 +22,7 @@ static void gml_ev_oSlider2__Alarm_0_body(gm_instance_t *self, gm_instance_t *ot
     (void)other;
     if (gml_truthy(self->vars[VAR_focus])) {
         gml_script_playSound(self, other, g_gml_globals.sndJump);
-        gml_iset_alarm(self, 0.0, 20.0);
+        gml_iset_alarm(self, 0.0f, 20.0f);
     }
 }
 
@@ -37,22 +37,22 @@ static void gml_ev_oSlider2__Step_0_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    if ((gml_truthy(gml_fn_mouse_check_button(self, other, (253.0 /* mb_left */))) && gml_truthy(self->vars[VAR_focus]))) {
-        gml_iset_x(self, (gml_gget_mouse_x() - 4.0));
-        if (gml_gt(gml_iget_x(self), 144.0)) {
-            gml_iset_x(self, 144.0);
+    if ((gml_truthy(gml_fn_mouse_check_button(self, other, (253.0f /* mb_left */))) && gml_truthy(self->vars[VAR_focus]))) {
+        gml_iset_x(self, (gml_gget_mouse_x() - 4.0f));
+        if (gml_gt(gml_iget_x(self), 144.0f)) {
+            gml_iset_x(self, 144.0f);
         }
-        if (gml_lt(gml_iget_x(self), 8.0)) {
-            gml_iset_x(self, 8.0);
+        if (gml_lt(gml_iget_x(self), 8.0f)) {
+            gml_iset_x(self, 8.0f);
         }
-        gml_iset_y(self, 184.0);
-        g_gml_globals.soundVol = floor((gml_iget_x(self) / 8.0));
-        gml_script_SS_SetSoundVol(self, other, g_gml_globals.sndJump, (2000.0 + (8000.0 * (g_gml_globals.soundVol / 18.0))));
+        gml_iset_y(self, 184.0f);
+        g_gml_globals.soundVol = floorf((gml_iget_x(self) / 8.0f));
+        gml_script_SS_SetSoundVol(self, other, g_gml_globals.sndJump, (2000.0f + (8000.0f * (g_gml_globals.soundVol / 18.0f))));
     } else {
-        self->vars[VAR_focus] = 0.0;
-        gml_fn_move_snap(self, other, 8.0, 8.0);
-        gml_iset_y(self, 184.0);
-        g_gml_globals.soundVol = (gml_iget_x(self) / 8.0);
+        self->vars[VAR_focus] = 0.0f;
+        gml_fn_move_snap(self, other, 8.0f, 8.0f);
+        gml_iset_y(self, 184.0f);
+        g_gml_globals.soundVol = (gml_iget_x(self) / 8.0f);
     }
 }
 
@@ -67,8 +67,8 @@ static void gml_ev_oSlider2__Mouse_4_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    self->vars[VAR_focus] = 1.0;
-    gml_iset_alarm(self, 0.0, 1.0);
+    self->vars[VAR_focus] = 1.0f;
+    gml_iset_alarm(self, 0.0f, 1.0f);
 }
 
 void gml_ev_oSlider2__Mouse_4(gm_instance_t *self, gm_instance_t *other)

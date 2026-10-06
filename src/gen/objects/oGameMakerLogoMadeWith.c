@@ -5,9 +5,9 @@ static void gml_ev_oGameMakerLogoMadeWith__Create_0_body(gm_instance_t *self, gm
 {
     (void)self;
     (void)other;
-    gml_iset_image_alpha(self, 0.0);
-    gml_iset_image_xscale(self, 0.7);
-    gml_iset_image_yscale(self, 0.7);
+    gml_iset_image_alpha(self, 0.0f);
+    gml_iset_image_xscale(self, 0.7f);
+    gml_iset_image_yscale(self, 0.7f);
 }
 
 void gml_ev_oGameMakerLogoMadeWith__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -19,14 +19,14 @@ void gml_ev_oGameMakerLogoMadeWith__Create_0(gm_instance_t *self, gm_instance_t 
 
 static void gml_ev_oGameMakerLogoMadeWith__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
-    gml_iset_image_alpha(self, (t1 = gml_iget_image_alpha(self), gm_lerp(t1, 1.0, gml_script_gmitf(self, other, 0.1))));
-    gml_iset_image_xscale(self, (t2 = gml_iget_image_xscale(self), gm_lerp(t2, 1.0, gml_script_gmitf(self, other, 0.07))));
+    gml_iset_image_alpha(self, (t1 = gml_iget_image_alpha(self), gm_lerp(t1, 1.0f, gml_script_gmitf(self, other, 0.1f))));
+    gml_iset_image_xscale(self, (t2 = gml_iget_image_xscale(self), gm_lerp(t2, 1.0f, gml_script_gmitf(self, other, 0.07f))));
     gml_iset_image_yscale(self, gml_iget_image_xscale(self));
 }
 
@@ -42,7 +42,7 @@ static void gml_ev_oGameMakerLogoMadeWith__Draw_0_body(gm_instance_t *self, gm_i
     (void)self;
     (void)other;
     gml_fn_draw_self(self, other);
-    gml_fn_draw_sprite_ext(self, other, ((double)SPR_sGameMakerLogoYoYo), 0.0, gml_iget_x(self), (gml_gget_room_height() - 45.0), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
+    gml_fn_draw_sprite_ext(self, other, ((float)SPR_sGameMakerLogoYoYo), 0.0f, gml_iget_x(self), (gml_gget_room_height() - 45.0f), gml_iget_image_xscale(self), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
 }
 
 void gml_ev_oGameMakerLogoMadeWith__Draw_0(gm_instance_t *self, gm_instance_t *other)

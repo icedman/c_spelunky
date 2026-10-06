@@ -5,7 +5,7 @@ static void gml_ev_oKeyConfig__Create_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    self->vars[VAR_status] = 0.0;
+    self->vars[VAR_status] = 0.0f;
 }
 
 void gml_ev_oKeyConfig__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -32,36 +32,36 @@ void gml_ev_oKeyConfig__Other_5(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oKeyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_strLen = 0.0;
-    double l_n = 0.0;
-    double l_currVal = 0.0;
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t17 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t21 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t25 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
+    float l_strLen = 0.0f;
+    float l_n = 0.0f;
+    float l_currVal = 0.0f;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t21 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t25 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
     int b28 = 0;
     (void)self;
     (void)other;
@@ -97,119 +97,119 @@ static void gml_ev_oKeyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *o
     (void)t27;
     (void)b28;
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
-    gml_fn_draw_set_color(self, other, (65535.0 /* c_yellow */));
+    gml_fn_draw_set_color(self, other, (65535.0f /* c_yellow */));
     l_strLen = (t1 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "PRESS KEY FOR")), (t1 * g_gml_globals.fontSmallWidth));
-    l_n = (160.0 - l_strLen);
-    l_n = ceil((l_n / 2.0));
-    (t2 = l_n, gml_fn_draw_text(self, other, t2, 32.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS KEY FOR"))));
-    gml_fn_draw_text(self, other, 8.0, 96.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ESC TO KEEP SAME.")));
-    gml_fn_draw_text(self, other, 8.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CURRENT: ")));
-    if (gml_eq(self->vars[VAR_status], 0.0)) {
+    l_n = (160.0f - l_strLen);
+    l_n = ceilf((l_n / 2.0f));
+    (t2 = l_n, gml_fn_draw_text(self, other, t2, 32.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PRESS KEY FOR"))));
+    gml_fn_draw_text(self, other, 8.0f, 96.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ESC TO KEEP SAME.")));
+    gml_fn_draw_text(self, other, 8.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "CURRENT: ")));
+    if (gml_eq(self->vars[VAR_status], 0.0f)) {
         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
         l_strLen = (t3 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "UP")), (t3 * g_gml_globals.fontLargeWidth));
-        l_n = (160.0 - l_strLen);
-        l_n = ceil((l_n / 2.0));
-        (t4 = l_n, gml_fn_draw_text(self, other, t4, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP"))));
+        l_n = (160.0f - l_strLen);
+        l_n = ceilf((l_n / 2.0f));
+        (t4 = l_n, gml_fn_draw_text(self, other, t4, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP"))));
         l_currVal = g_gml_globals.keyUpVal;
     } else {
-        if (gml_eq(self->vars[VAR_status], 1.0)) {
+        if (gml_eq(self->vars[VAR_status], 1.0f)) {
             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
             l_strLen = (t5 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "DOWN")), (t5 * g_gml_globals.fontLargeWidth));
-            l_n = (160.0 - l_strLen);
-            l_n = ceil((l_n / 2.0));
-            (t6 = l_n, gml_fn_draw_text(self, other, t6, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN"))));
+            l_n = (160.0f - l_strLen);
+            l_n = ceilf((l_n / 2.0f));
+            (t6 = l_n, gml_fn_draw_text(self, other, t6, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN"))));
             l_currVal = g_gml_globals.keyDownVal;
         } else {
-            if (gml_eq(self->vars[VAR_status], 2.0)) {
+            if (gml_eq(self->vars[VAR_status], 2.0f)) {
                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                 l_strLen = (t7 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "LEFT")), (t7 * g_gml_globals.fontLargeWidth));
-                l_n = (160.0 - l_strLen);
-                l_n = ceil((l_n / 2.0));
-                (t8 = l_n, gml_fn_draw_text(self, other, t8, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT"))));
+                l_n = (160.0f - l_strLen);
+                l_n = ceilf((l_n / 2.0f));
+                (t8 = l_n, gml_fn_draw_text(self, other, t8, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT"))));
                 l_currVal = g_gml_globals.keyLeftVal;
             } else {
-                if (gml_eq(self->vars[VAR_status], 3.0)) {
+                if (gml_eq(self->vars[VAR_status], 3.0f)) {
                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                     l_strLen = (t9 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "RIGHT")), (t9 * g_gml_globals.fontLargeWidth));
-                    l_n = (160.0 - l_strLen);
-                    l_n = ceil((l_n / 2.0));
-                    (t10 = l_n, gml_fn_draw_text(self, other, t10, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT"))));
+                    l_n = (160.0f - l_strLen);
+                    l_n = ceilf((l_n / 2.0f));
+                    (t10 = l_n, gml_fn_draw_text(self, other, t10, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT"))));
                     l_currVal = g_gml_globals.keyRightVal;
                 } else {
-                    if (gml_eq(self->vars[VAR_status], 4.0)) {
+                    if (gml_eq(self->vars[VAR_status], 4.0f)) {
                         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                         l_strLen = (t11 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "JUMP")), (t11 * g_gml_globals.fontLargeWidth));
-                        l_n = (160.0 - l_strLen);
-                        l_n = ceil((l_n / 2.0));
-                        (t12 = l_n, gml_fn_draw_text(self, other, t12, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "JUMP"))));
+                        l_n = (160.0f - l_strLen);
+                        l_n = ceilf((l_n / 2.0f));
+                        (t12 = l_n, gml_fn_draw_text(self, other, t12, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "JUMP"))));
                         l_currVal = g_gml_globals.keyJumpVal;
                     } else {
-                        if (gml_eq(self->vars[VAR_status], 5.0)) {
+                        if (gml_eq(self->vars[VAR_status], 5.0f)) {
                             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                             l_strLen = (t13 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "ACTION")), (t13 * g_gml_globals.fontLargeWidth));
-                            l_n = (160.0 - l_strLen);
-                            l_n = ceil((l_n / 2.0));
-                            (t14 = l_n, gml_fn_draw_text(self, other, t14, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ACTION"))));
+                            l_n = (160.0f - l_strLen);
+                            l_n = ceilf((l_n / 2.0f));
+                            (t14 = l_n, gml_fn_draw_text(self, other, t14, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ACTION"))));
                             l_currVal = g_gml_globals.keyAttackVal;
                         } else {
-                            if (gml_eq(self->vars[VAR_status], 6.0)) {
+                            if (gml_eq(self->vars[VAR_status], 6.0f)) {
                                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                 l_strLen = (t15 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "SWITCH")), (t15 * g_gml_globals.fontLargeWidth));
-                                l_n = (160.0 - l_strLen);
-                                l_n = ceil((l_n / 2.0));
-                                (t16 = l_n, gml_fn_draw_text(self, other, t16, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SWITCH"))));
+                                l_n = (160.0f - l_strLen);
+                                l_n = ceilf((l_n / 2.0f));
+                                (t16 = l_n, gml_fn_draw_text(self, other, t16, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "SWITCH"))));
                                 l_currVal = g_gml_globals.keyItemVal;
                             } else {
-                                if (gml_eq(self->vars[VAR_status], 7.0)) {
+                                if (gml_eq(self->vars[VAR_status], 7.0f)) {
                                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                     l_strLen = (t17 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "RUN")), (t17 * g_gml_globals.fontLargeWidth));
-                                    l_n = (160.0 - l_strLen);
-                                    l_n = ceil((l_n / 2.0));
-                                    (t18 = l_n, gml_fn_draw_text(self, other, t18, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RUN"))));
+                                    l_n = (160.0f - l_strLen);
+                                    l_n = ceilf((l_n / 2.0f));
+                                    (t18 = l_n, gml_fn_draw_text(self, other, t18, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RUN"))));
                                     l_currVal = g_gml_globals.keyRunVal;
                                 } else {
-                                    if (gml_eq(self->vars[VAR_status], 8.0)) {
+                                    if (gml_eq(self->vars[VAR_status], 8.0f)) {
                                         gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                        gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                        gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                         l_strLen = (t19 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "BOMB")), (t19 * g_gml_globals.fontLargeWidth));
-                                        l_n = (160.0 - l_strLen);
-                                        l_n = ceil((l_n / 2.0));
-                                        (t20 = l_n, gml_fn_draw_text(self, other, t20, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BOMB"))));
+                                        l_n = (160.0f - l_strLen);
+                                        l_n = ceilf((l_n / 2.0f));
+                                        (t20 = l_n, gml_fn_draw_text(self, other, t20, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "BOMB"))));
                                         l_currVal = g_gml_globals.keyBombVal;
                                     } else {
-                                        if (gml_eq(self->vars[VAR_status], 9.0)) {
+                                        if (gml_eq(self->vars[VAR_status], 9.0f)) {
                                             gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                            gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                            gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                             l_strLen = (t21 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "ROPE")), (t21 * g_gml_globals.fontLargeWidth));
-                                            l_n = (160.0 - l_strLen);
-                                            l_n = ceil((l_n / 2.0));
-                                            (t22 = l_n, gml_fn_draw_text(self, other, t22, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ROPE"))));
+                                            l_n = (160.0f - l_strLen);
+                                            l_n = ceilf((l_n / 2.0f));
+                                            (t22 = l_n, gml_fn_draw_text(self, other, t22, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "ROPE"))));
                                             l_currVal = g_gml_globals.keyRopeVal;
                                         } else {
-                                            if (gml_eq(self->vars[VAR_status], 10.0)) {
+                                            if (gml_eq(self->vars[VAR_status], 10.0f)) {
                                                 gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                                gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                                gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                                 l_strLen = (t23 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "PURCHASE")), (t23 * g_gml_globals.fontLargeWidth));
-                                                l_n = (160.0 - l_strLen);
-                                                l_n = ceil((l_n / 2.0));
-                                                (t24 = l_n, gml_fn_draw_text(self, other, t24, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PURCHASE"))));
+                                                l_n = (160.0f - l_strLen);
+                                                l_n = ceilf((l_n / 2.0f));
+                                                (t24 = l_n, gml_fn_draw_text(self, other, t24, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "PURCHASE"))));
                                                 l_currVal = g_gml_globals.keyPayVal;
                                             } else {
-                                                if (gml_eq(self->vars[VAR_status], 11.0)) {
+                                                if (gml_eq(self->vars[VAR_status], 11.0f)) {
                                                     gml_fn_draw_set_font(self, other, g_gml_globals.fontLarge);
-                                                    gml_fn_draw_set_color(self, other, (16777215.0 /* c_white */));
+                                                    gml_fn_draw_set_color(self, other, (16777215.0f /* c_white */));
                                                     l_strLen = (t25 = gml_fn_string_length(self, other, gml_script_tr(self, other, 1, "LANGUAGE")), (t25 * g_gml_globals.fontLargeWidth));
-                                                    l_n = (160.0 - l_strLen);
-                                                    l_n = ceil((l_n / 2.0));
-                                                    (t26 = l_n, gml_fn_draw_text(self, other, t26, 40.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LANGUAGE"))));
+                                                    l_n = (160.0f - l_strLen);
+                                                    l_n = ceilf((l_n / 2.0f));
+                                                    (t26 = l_n, gml_fn_draw_text(self, other, t26, 40.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LANGUAGE"))));
                                                     l_currVal = g_gml_globals.keyLangVal;
                                                 }
                                             }
@@ -225,221 +225,221 @@ static void gml_ev_oKeyConfig__Draw_0_body(gm_instance_t *self, gm_instance_t *o
     }
     gml_fn_draw_set_font(self, other, g_gml_globals.fontSmall);
     t27 = l_currVal;
-    b28 = (gml_rcase(t27, (38.0 /* vk_up */)) ? 0 : gml_rcase(t27, (40.0 /* vk_down */)) ? 1 : gml_rcase(t27, (37.0 /* vk_left */)) ? 2 : gml_rcase(t27, (39.0 /* vk_right */)) ? 3 : gml_rcase(t27, (16.0 /* vk_shift */)) ? 4 : gml_rcase(t27, (17.0 /* vk_control */)) ? 5 : gml_rcase(t27, (18.0 /* vk_alt */)) ? 6 : gml_rcase(t27, (32.0 /* vk_space */)) ? 7 : gml_rcase(t27, g_gml_globals.keyEnter) ? 8 : gml_rcase(t27, gml_fn_ord(self, other, "A")) ? 9 : gml_rcase(t27, gml_fn_ord(self, other, "B")) ? 10 : gml_rcase(t27, gml_fn_ord(self, other, "C")) ? 11 : gml_rcase(t27, gml_fn_ord(self, other, "D")) ? 12 : gml_rcase(t27, gml_fn_ord(self, other, "E")) ? 13 : gml_rcase(t27, gml_fn_ord(self, other, "F")) ? 14 : gml_rcase(t27, gml_fn_ord(self, other, "G")) ? 15 : gml_rcase(t27, gml_fn_ord(self, other, "H")) ? 16 : gml_rcase(t27, gml_fn_ord(self, other, "I")) ? 17 : gml_rcase(t27, gml_fn_ord(self, other, "J")) ? 18 : gml_rcase(t27, gml_fn_ord(self, other, "K")) ? 19 : gml_rcase(t27, gml_fn_ord(self, other, "L")) ? 20 : gml_rcase(t27, gml_fn_ord(self, other, "M")) ? 21 : gml_rcase(t27, gml_fn_ord(self, other, "N")) ? 22 : gml_rcase(t27, gml_fn_ord(self, other, "O")) ? 23 : gml_rcase(t27, gml_fn_ord(self, other, "P")) ? 24 : gml_rcase(t27, gml_fn_ord(self, other, "Q")) ? 25 : gml_rcase(t27, gml_fn_ord(self, other, "R")) ? 26 : gml_rcase(t27, gml_fn_ord(self, other, "S")) ? 27 : gml_rcase(t27, gml_fn_ord(self, other, "T")) ? 28 : gml_rcase(t27, gml_fn_ord(self, other, "U")) ? 29 : gml_rcase(t27, gml_fn_ord(self, other, "V")) ? 30 : gml_rcase(t27, gml_fn_ord(self, other, "W")) ? 31 : gml_rcase(t27, gml_fn_ord(self, other, "X")) ? 32 : gml_rcase(t27, gml_fn_ord(self, other, "Y")) ? 33 : gml_rcase(t27, gml_fn_ord(self, other, "Z")) ? 34 : -1);
+    b28 = (gml_rcase(t27, (38.0f /* vk_up */)) ? 0 : gml_rcase(t27, (40.0f /* vk_down */)) ? 1 : gml_rcase(t27, (37.0f /* vk_left */)) ? 2 : gml_rcase(t27, (39.0f /* vk_right */)) ? 3 : gml_rcase(t27, (16.0f /* vk_shift */)) ? 4 : gml_rcase(t27, (17.0f /* vk_control */)) ? 5 : gml_rcase(t27, (18.0f /* vk_alt */)) ? 6 : gml_rcase(t27, (32.0f /* vk_space */)) ? 7 : gml_rcase(t27, g_gml_globals.keyEnter) ? 8 : gml_rcase(t27, gml_fn_ord(self, other, "A")) ? 9 : gml_rcase(t27, gml_fn_ord(self, other, "B")) ? 10 : gml_rcase(t27, gml_fn_ord(self, other, "C")) ? 11 : gml_rcase(t27, gml_fn_ord(self, other, "D")) ? 12 : gml_rcase(t27, gml_fn_ord(self, other, "E")) ? 13 : gml_rcase(t27, gml_fn_ord(self, other, "F")) ? 14 : gml_rcase(t27, gml_fn_ord(self, other, "G")) ? 15 : gml_rcase(t27, gml_fn_ord(self, other, "H")) ? 16 : gml_rcase(t27, gml_fn_ord(self, other, "I")) ? 17 : gml_rcase(t27, gml_fn_ord(self, other, "J")) ? 18 : gml_rcase(t27, gml_fn_ord(self, other, "K")) ? 19 : gml_rcase(t27, gml_fn_ord(self, other, "L")) ? 20 : gml_rcase(t27, gml_fn_ord(self, other, "M")) ? 21 : gml_rcase(t27, gml_fn_ord(self, other, "N")) ? 22 : gml_rcase(t27, gml_fn_ord(self, other, "O")) ? 23 : gml_rcase(t27, gml_fn_ord(self, other, "P")) ? 24 : gml_rcase(t27, gml_fn_ord(self, other, "Q")) ? 25 : gml_rcase(t27, gml_fn_ord(self, other, "R")) ? 26 : gml_rcase(t27, gml_fn_ord(self, other, "S")) ? 27 : gml_rcase(t27, gml_fn_ord(self, other, "T")) ? 28 : gml_rcase(t27, gml_fn_ord(self, other, "U")) ? 29 : gml_rcase(t27, gml_fn_ord(self, other, "V")) ? 30 : gml_rcase(t27, gml_fn_ord(self, other, "W")) ? 31 : gml_rcase(t27, gml_fn_ord(self, other, "X")) ? 32 : gml_rcase(t27, gml_fn_ord(self, other, "Y")) ? 33 : gml_rcase(t27, gml_fn_ord(self, other, "Z")) ? 34 : -1);
     switch (b28) {
     case 0:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP ARR")));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "UP ARR")));
             break;
         }
     /* fall through */
     case 1:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN ARR")));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "DOWN ARR")));
             break;
         }
     /* fall through */
     case 2:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT ARR")));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "LEFT ARR")));
             break;
         }
     /* fall through */
     case 3:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT ARR")));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_script_tr(self, other, 1, "RIGHT ARR")));
             break;
         }
     /* fall through */
     case 4:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "SHIFT"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "SHIFT"));
             break;
         }
     /* fall through */
     case 5:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "CTRL"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "CTRL"));
             break;
         }
     /* fall through */
     case 6:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "ALT"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "ALT"));
             break;
         }
     /* fall through */
     case 7:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "SPACE"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "SPACE"));
             break;
         }
     /* fall through */
     case 8:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "ENTER"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "ENTER"));
             break;
         }
     /* fall through */
     case 9:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "A"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "A"));
             break;
         }
     /* fall through */
     case 10:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "B"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "B"));
             break;
         }
     /* fall through */
     case 11:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "C"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "C"));
             break;
         }
     /* fall through */
     case 12:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "D"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "D"));
             break;
         }
     /* fall through */
     case 13:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "E"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "E"));
             break;
         }
     /* fall through */
     case 14:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "F"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "F"));
             break;
         }
     /* fall through */
     case 15:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "G"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "G"));
             break;
         }
     /* fall through */
     case 16:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "H"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "H"));
             break;
         }
     /* fall through */
     case 17:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "I"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "I"));
             break;
         }
     /* fall through */
     case 18:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "J"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "J"));
             break;
         }
     /* fall through */
     case 19:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "K"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "K"));
             break;
         }
     /* fall through */
     case 20:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "L"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "L"));
             break;
         }
     /* fall through */
     case 21:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "M"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "M"));
             break;
         }
     /* fall through */
     case 22:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "N"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "N"));
             break;
         }
     /* fall through */
     case 23:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "O"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "O"));
             break;
         }
     /* fall through */
     case 24:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "P"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "P"));
             break;
         }
     /* fall through */
     case 25:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "Q"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "Q"));
             break;
         }
     /* fall through */
     case 26:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "R"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "R"));
             break;
         }
     /* fall through */
     case 27:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "S"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "S"));
             break;
         }
     /* fall through */
     case 28:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "T"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "T"));
             break;
         }
     /* fall through */
     case 29:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "U"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "U"));
             break;
         }
     /* fall through */
     case 30:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "V"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "V"));
             break;
         }
     /* fall through */
     case 31:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "W"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "W"));
             break;
         }
     /* fall through */
     case 32:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "X"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "X"));
             break;
         }
     /* fall through */
     case 33:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "Y"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "Y"));
             break;
         }
     /* fall through */
     case 34:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, "Z"));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, "Z"));
             break;
         }
     /* fall through */
     default:
         {
-            gml_fn_draw_text(self, other, 80.0, 104.0, gml_fn_string_hash_to_newline(self, other, gml_concat("KEY ", gml_real_str(l_currVal))));
+            gml_fn_draw_text(self, other, 80.0f, 104.0f, gml_fn_string_hash_to_newline(self, other, gml_concat("KEY ", gml_real_str(l_currVal))));
             break;
         }
     }
@@ -454,8 +454,8 @@ void gml_ev_oKeyConfig__Draw_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oKeyConfig__KeyPress_1_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_pressedKey = 0.0;
-    double l_i = 0.0;
+    float l_pressedKey = 0.0f;
+    float l_i = 0.0f;
     (void)self;
     (void)other;
     (void)l_pressedKey;
@@ -464,47 +464,47 @@ static void gml_ev_oKeyConfig__KeyPress_1_body(gm_instance_t *self, gm_instance_
         l_pressedKey = gml_gget_keyboard_key();
     } else {
         l_pressedKey = g_gml_globals.keyEscape;
-        for (l_i = 2.0; gml_lt(l_i, 256.0); l_i = (l_i + 1.0)) {
+        for (l_i = 2.0f; gml_lt(l_i, 256.0f); l_i = (l_i + 1.0f)) {
             if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, l_i))) {
                 l_pressedKey = l_i;
             }
         }
     }
     if (gml_ne(l_pressedKey, g_gml_globals.keyEscape)) {
-        if (gml_eq(self->vars[VAR_status], 0.0)) {
+        if (gml_eq(self->vars[VAR_status], 0.0f)) {
             g_gml_globals.keyUpVal = l_pressedKey;
         } else {
-            if (gml_eq(self->vars[VAR_status], 1.0)) {
+            if (gml_eq(self->vars[VAR_status], 1.0f)) {
                 g_gml_globals.keyDownVal = l_pressedKey;
             } else {
-                if (gml_eq(self->vars[VAR_status], 2.0)) {
+                if (gml_eq(self->vars[VAR_status], 2.0f)) {
                     g_gml_globals.keyLeftVal = l_pressedKey;
                 } else {
-                    if (gml_eq(self->vars[VAR_status], 3.0)) {
+                    if (gml_eq(self->vars[VAR_status], 3.0f)) {
                         g_gml_globals.keyRightVal = l_pressedKey;
                     } else {
-                        if (gml_eq(self->vars[VAR_status], 4.0)) {
+                        if (gml_eq(self->vars[VAR_status], 4.0f)) {
                             g_gml_globals.keyJumpVal = l_pressedKey;
                         } else {
-                            if (gml_eq(self->vars[VAR_status], 5.0)) {
+                            if (gml_eq(self->vars[VAR_status], 5.0f)) {
                                 g_gml_globals.keyAttackVal = l_pressedKey;
                             } else {
-                                if (gml_eq(self->vars[VAR_status], 6.0)) {
+                                if (gml_eq(self->vars[VAR_status], 6.0f)) {
                                     g_gml_globals.keyItemVal = l_pressedKey;
                                 } else {
-                                    if (gml_eq(self->vars[VAR_status], 7.0)) {
+                                    if (gml_eq(self->vars[VAR_status], 7.0f)) {
                                         g_gml_globals.keyRunVal = l_pressedKey;
                                     } else {
-                                        if (gml_eq(self->vars[VAR_status], 8.0)) {
+                                        if (gml_eq(self->vars[VAR_status], 8.0f)) {
                                             g_gml_globals.keyBombVal = l_pressedKey;
                                         } else {
-                                            if (gml_eq(self->vars[VAR_status], 9.0)) {
+                                            if (gml_eq(self->vars[VAR_status], 9.0f)) {
                                                 g_gml_globals.keyRopeVal = l_pressedKey;
                                             } else {
-                                                if (gml_eq(self->vars[VAR_status], 10.0)) {
+                                                if (gml_eq(self->vars[VAR_status], 10.0f)) {
                                                     g_gml_globals.keyPayVal = l_pressedKey;
                                                 } else {
-                                                    if (gml_eq(self->vars[VAR_status], 11.0)) {
+                                                    if (gml_eq(self->vars[VAR_status], 11.0f)) {
                                                         g_gml_globals.keyLangVal = l_pressedKey;
                                                     }
                                                 }
@@ -519,9 +519,9 @@ static void gml_ev_oKeyConfig__KeyPress_1_body(gm_instance_t *self, gm_instance_
             }
         }
     }
-    self->vars[VAR_status] = (self->vars[VAR_status] + 1.0);
-    if (gml_gt(self->vars[VAR_status], 11.0)) {
-        gml_fn_room_goto(self, other, ((double)RM_rTitle));
+    self->vars[VAR_status] = (self->vars[VAR_status] + 1.0f);
+    if (gml_gt(self->vars[VAR_status], 11.0f)) {
+        gml_fn_room_goto(self, other, ((float)RM_rTitle));
     }
 }
 

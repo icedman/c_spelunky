@@ -6,9 +6,9 @@ static void gml_ev_oDesertScroll__Create_0_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_scroll] = 0.0;
+    self->vars[VAR_scroll] = 0.0f;
     if (gml_truthy(gml_script_isRoom(self, other, "rCredits1"))) {
-        gml_iset_sprite_index(self, ((double)SPR_sDesertNight));
+        gml_iset_sprite_index(self, ((float)SPR_sDesertNight));
     }
 }
 
@@ -24,7 +24,7 @@ static void gml_ev_oDesertScroll__Step_0_body(gm_instance_t *self, gm_instance_t
     (void)self;
     (void)other;
     if (gml_truthy(self->vars[VAR_scroll])) {
-        gml_iset_x(self, (gml_iget_x(self) + 1.0));
+        gml_iset_x(self, (gml_iget_x(self) + 1.0f));
     }
     if (gml_gt(gml_iget_x(self), g_gml_globals.display_w)) {
         gml_fn_instance_destroy(self, other, 0, NULL);

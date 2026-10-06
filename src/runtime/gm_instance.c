@@ -4,6 +4,7 @@
 #include "gm_instance.h"
 
 #include "gm_math.h"
+#include "gm_perf.h"
 #include "gm_room.h"
 
 #include <math.h>
@@ -54,8 +55,7 @@ static const gm_instance_hooks_t *s_hooks;
 /* Draw sorting disabled for now: draw order falls back to active-list order. */
 // #define DISABLE_DRAW_SORT
 
-/* Scratch for bulk operations that never call user code. */
-static gm_instance_t *s_scratch[GM_INSTANCE_MAX];
+
 static gm_instance_t *s_sort_tmp[GM_INSTANCE_MAX];
 
 /* Draw order cache: the active list (marked instances included) sorted by
@@ -351,7 +351,7 @@ void gm_instance_set_next_id(int id)
 }
 
 /* yyInstance constructor defaults (yyInstance.js L41-150). */
-static void init_defaults(gm_instance_t *inst, double x, double y, int object_index)
+static void init_defaults(gm_instance_t *inst, float x, float y, int object_index)
 {
     int i;
 
@@ -359,18 +359,18 @@ static void init_defaults(gm_instance_t *inst, double x, double y, int object_in
     inst->object_index = object_index;
     inst->x = inst->xprevious = inst->xstart = x;
     inst->y = inst->yprevious = inst->ystart = y;
-    inst->gravity_direction = 270.0;
+    inst->gravity_direction = 270.0f;
     for (i = 0; i < GM_ALARM_COUNT; ++i) {
-        inst->alarm[i] = -1.0;
+        inst->alarm[i] = -1.0f;
     }
     for (i = 0; i < GM_SVAR_COUNT; ++i) {
         inst->strs[i] = ""; /* string slots are never NULL */
     }
-    inst->image_xscale = 1.0;
-    inst->image_yscale = 1.0;
-    inst->image_alpha = 1.0;
+    inst->image_xscale = 1.0f;
+    inst->image_yscale = 1.0f;
+    inst->image_alpha = 1.0f;
     inst->image_blend = 0xFFFFFFu;
-    inst->image_speed = 1.0;
+    inst->image_speed = 1.0f;
     inst->sprite_index = -1;
     inst->mask_index = -1;
     inst->visible = true;
@@ -378,11 +378,11 @@ static void init_defaults(gm_instance_t *inst, double x, double y, int object_in
 
 void gm_instance_init_detached(gm_instance_t *inst)
 {
-    init_defaults(inst, 0.0, 0.0, 0);
+    init_defaults(inst, 0.0f, 0.0f, 0);
     inst->id = 0;
 }
 
-static gm_instance_t *add_instance(double x, double y, double depth, int object_index, int id)
+static gm_instance_t *add_instance(float x, float y, float depth, int object_index, int id)
 {
     const gm_object_def_t *def = gm_object_get(object_index);
     gm_instance_t *inst;
@@ -402,7 +402,7 @@ static gm_instance_t *add_instance(double x, double y, double depth, int object_
     inst->visible = def->default_visible;
     inst->persistent = def->default_persistent;
     /* GML_AddInstanceDepth takes yyGetInt32(depth). */
-    inst->depth = (double)gm_to_int32(depth);
+    inst->depth = (float)gm_to_int32(depth);
     inst->create_counter = s_create_counter;
     inst->layer_serial = ++s_layer_serial;
 
@@ -414,7 +414,7 @@ static gm_instance_t *add_instance(double x, double y, double depth, int object_
     return inst;
 }
 
-gm_instance_t *gm_instance_add(double x, double y, double depth, int object_index)
+gm_instance_t *gm_instance_add(float x, float y, float depth, int object_index)
 {
     gm_instance_t *inst = add_instance(x, y, depth, object_index, s_next_id);
 
@@ -424,7 +424,7 @@ gm_instance_t *gm_instance_add(double x, double y, double depth, int object_inde
     return inst;
 }
 
-gm_instance_t *gm_instance_add_with_id(double x, double y, double depth, int object_index, int id)
+gm_instance_t *gm_instance_add_with_id(float x, float y, float depth, int object_index, int id)
 {
     if (id < GM_INSTANCE_ID_BASE || id_find_index(id) >= 0) {
         return NULL;
@@ -480,7 +480,7 @@ void gm_instance_active_attach(gm_instance_t *inst)
     array_append(&s_active, inst);
 }
 
-gm_instance_t *gm_instance_create_depth(double x, double y, double depth, int object_index)
+gm_instance_t *gm_instance_create_depth(float x, float y, float depth, int object_index)
 {
     gm_instance_t *inst = gm_instance_add(x, y, depth, object_index);
     gm_event_fn create;
@@ -495,9 +495,9 @@ gm_instance_t *gm_instance_create_depth(double x, double y, double depth, int ob
     return inst;
 }
 
-gm_instance_t *gm_instance_create(double x, double y, int object_index)
+gm_instance_t *gm_instance_create(float x, float y, int object_index)
 {
-    return gm_instance_create_depth(x, y, (double)gm_object_get_depth(object_index),
+    return gm_instance_create_depth(x, y, (float)gm_object_get_depth(object_index),
                                     object_index);
 }
 
@@ -603,12 +603,13 @@ gm_instance_t *gm_instance_find(int target, int n, gm_instance_t *self, gm_insta
     return NULL;
 }
 
-static void nearest_consider(gm_instance_t *inst, double x, double y,
-                             double *best, gm_instance_t **found)
+static void nearest_consider(gm_instance_t *inst, float x, float y,
+                             float *best, gm_instance_t **found)
 {
-    double xx = x - inst->x;
-    double yy = y - inst->y;
-    double d = sqrt(xx * xx + yy * yy);
+    float xx = x - inst->x;
+    float yy = y - inst->y;
+    // float d = sqrtf(xx * xx + yy * yy);
+    float d = (xx * xx + yy * yy);
 
     if (d < *best) {
         *best = d;
@@ -618,9 +619,9 @@ static void nearest_consider(gm_instance_t *inst, double x, double y,
 
 /* Instance_SearchLoop2 (Globals.js L1549): `all` walks the instance manager
  * list (creation order); objects walk their recursive list. */
-gm_instance_t *gm_instance_nearest(double x, double y, int target)
+gm_instance_t *gm_instance_nearest(float x, float y, int target)
 {
-    double best = 10000000000.0;
+    float best = 10000000000.0f;
     gm_instance_t *found = NULL;
     int i;
 
@@ -694,6 +695,11 @@ int gm_instance_with_snapshot(int target, gm_instance_t *self, gm_instance_t *ot
         slots[count++] = (uint16_t)slot_of(inst);
     }
     return count;
+}
+
+int gm_instance_object_list_count(int object_index)
+{
+    return gm_object_valid(object_index) ? s_types[object_index].count : 0;
 }
 
 int gm_instance_object_pool(int object_index, uint16_t *slots, int max)
@@ -783,116 +789,153 @@ static bool matches_object_or_id(const gm_instance_t *inst, int target)
     return inst->id == target || gm_object_is_a(inst->object_index, target);
 }
 
-void gm_instance_deactivate_object(int target)
+/* Bulk filters. A NULL `skip` never matches; target == GM_ALL matches all. */
+typedef struct bulk_filter {
+    int target;
+    const gm_instance_t *skip;
+} bulk_filter_t;
+
+static bool bulk_picks(const gm_instance_t *inst, const bulk_filter_t *f)
+{
+    if (inst == f->skip) {
+        return false;
+    }
+    return f->target == GM_ALL || matches_object_or_id(inst, f->target);
+}
+
+/* Batched gm_instance_deactivate over the active list, in list order: the same
+ * hooks, links and resulting list order as one call per instance, but O(n)
+ * (one order-preserving compaction instead of a search + memmove each). Safe
+ * because the hooks only touch the collision grid, never these lists. */
+static void deactivate_where(const bulk_filter_t *f)
 {
     int i, n = 0;
 
     for (i = 0; i < s_active.count; ++i) {
         gm_instance_t *inst = s_active.items[i];
-        if (target == GM_ALL || matches_object_or_id(inst, target)) {
-            s_scratch[n++] = inst;
+        if (bulk_picks(inst, f)) {
+            hook_leave(inst);
+            type_unlink_all(inst);
+            s_deactive.items[s_deactive.count++] = inst;
+            inst->active = false;
+        } else {
+            s_active.items[n++] = inst;
         }
     }
-    for (i = 0; i < n; ++i) {
-        gm_instance_deactivate(s_scratch[i]);
+    if (n != s_active.count) {
+        s_active.count = n;
+        s_draw_dirty = true;
     }
+}
+
+/* Batched gm_instance_activate over the deactive list, in list order. */
+static void activate_where(const bulk_filter_t *f)
+{
+    int i, n = 0;
+
+    for (i = 0; i < s_deactive.count; ++i) {
+        gm_instance_t *inst = s_deactive.items[i];
+        if (bulk_picks(inst, f)) {
+            s_active.items[s_active.count++] = inst;
+            type_link_all(inst);
+            inst->active = true;
+            hook_enter(inst);
+        } else {
+            s_deactive.items[n++] = inst;
+        }
+    }
+    if (n != s_deactive.count) {
+        s_deactive.count = n;
+        s_draw_dirty = true;
+    }
+}
+
+void gm_instance_deactivate_object(int target)
+{
+    bulk_filter_t f = { target, NULL };
+
+    deactivate_where(&f);
 }
 
 void gm_instance_activate_object(int target)
 {
-    int i, n = 0;
+    bulk_filter_t f = { target, NULL };
 
     if (target == GM_ALL) {
         return; /* HTML5 runner quirk, see header */
     }
-    for (i = 0; i < s_deactive.count; ++i) {
-        gm_instance_t *inst = s_deactive.items[i];
-        if (matches_object_or_id(inst, target)) {
-            s_scratch[n++] = inst;
-        }
-    }
-    for (i = 0; i < n; ++i) {
-        gm_instance_activate(s_scratch[i]);
-    }
+    activate_where(&f);
 }
 
 /* Function_Instance.js L1586 */
 void gm_instance_deactivate_all(bool notme, gm_instance_t *self)
 {
-    int i, n = s_active.count;
+    bulk_filter_t f = { GM_ALL, notme ? self : NULL };
 
-    memcpy(s_scratch, s_active.items, (size_t)n * sizeof(s_scratch[0]));
-    for (i = 0; i < n; ++i) {
-        if (!(notme && s_scratch[i] == self)) {
-            gm_instance_deactivate(s_scratch[i]);
-        }
-    }
+    deactivate_where(&f);
 }
 
 /* Function_Instance.js L1620 */
 void gm_instance_activate_all(void)
 {
-    int i, n = s_deactive.count;
+    bulk_filter_t f = { GM_ALL, NULL };
 
-    memcpy(s_scratch, s_deactive.items, (size_t)n * sizeof(s_scratch[0]));
-    for (i = 0; i < n; ++i) {
-        gm_instance_activate(s_scratch[i]);
-    }
+    activate_where(&f);
 }
 
 /* ---- Property setters ---------------------------------------------------------------- */
 
 /* Globals.js L1341 */
-static double html5_fmod(double x, double y)
+static float html5_fmod(float x, float y)
 {
-    if (x == 0.0) {
-        return 0.0;
+    if (x == 0.0f) {
+        return 0.0f;
     }
-    return fmod(x * 16777216.0, y * 16777216.0) / 16777216.0;
+    return fmodf(x * 16777216.0f, y * 16777216.0f) / 16777216.0f;
 }
 
 /* yyInstance.js L1184: ClampFloat = (~~(f * 1000000)) / 1000000 */
-static double clamp_float(double f)
+static float clamp_float(float f)
 {
-    return (double)gm_to_int32(f * 1000000.0) / 1000000.0;
+    return (float)gm_to_int32(f * 1000000.0f) / 1000000.0f;
 }
 
-static double snap_near_int(double v)
+static float snap_near_int(float v)
 {
-    double r = gm_round(v);
-    return fabs(v - r) < 0.0001 ? r : v;
+    float r = gm_round(v);
+    return fabsf(v - r) < 0.0001f ? r : v;
 }
 
 /* Compute_Speed1 (yyInstance.js L1131): direction/speed from hspeed/vspeed. */
 static void compute_speed1(gm_instance_t *inst)
 {
-    if (inst->hspeed == 0.0) {
-        if (inst->vspeed > 0.0) {
-            inst->direction = 270.0;
-        } else if (inst->vspeed < 0.0) {
-            inst->direction = 90.0;
+    if (inst->hspeed == 0.0f) {
+        if (inst->vspeed > 0.0f) {
+            inst->direction = 270.0f;
+        } else if (inst->vspeed < 0.0f) {
+            inst->direction = 90.0f;
         }
     } else {
-        double dd = clamp_float(180.0 * atan2(inst->vspeed, inst->hspeed) / GM_PI);
-        inst->direction = dd <= 0.0 ? -dd : 360.0 - dd;
+        float dd = clamp_float(180.0f * atan2f(inst->vspeed, inst->hspeed) / (float)GM_PI);
+        inst->direction = dd <= 0.0f ? -dd : 360.0f - dd;
     }
     inst->direction = snap_near_int(inst->direction);
-    inst->direction = html5_fmod(inst->direction, 360.0);
+    inst->direction = html5_fmod(inst->direction, 360.0f);
 
-    inst->speed = sqrt(inst->hspeed * inst->hspeed + inst->vspeed * inst->vspeed);
+    inst->speed = sqrtf(inst->hspeed * inst->hspeed + inst->vspeed * inst->vspeed);
     inst->speed = snap_near_int(inst->speed);
 }
 
 /* Compute_Speed2 (yyInstance.js L1175): hspeed/vspeed from speed/direction. */
 static void compute_speed2(gm_instance_t *inst)
 {
-    inst->hspeed = inst->speed * clamp_float(cos(inst->direction * 0.0174532925));
-    inst->vspeed = -inst->speed * clamp_float(sin(inst->direction * 0.0174532925));
+    inst->hspeed = inst->speed * clamp_float(gm_dcos(inst->direction));
+    inst->vspeed = -inst->speed * clamp_float(gm_dsin(inst->direction));
     inst->hspeed = snap_near_int(inst->hspeed);
     inst->vspeed = snap_near_int(inst->vspeed);
 }
 
-void gm_instance_set_hspeed(gm_instance_t *inst, double v)
+void gm_instance_set_hspeed(gm_instance_t *inst, float v)
 {
     if (inst->hspeed == v) {
         return;
@@ -901,7 +944,7 @@ void gm_instance_set_hspeed(gm_instance_t *inst, double v)
     compute_speed1(inst);
 }
 
-void gm_instance_set_vspeed(gm_instance_t *inst, double v)
+void gm_instance_set_vspeed(gm_instance_t *inst, float v)
 {
     if (inst->vspeed == v) {
         return;
@@ -910,7 +953,7 @@ void gm_instance_set_vspeed(gm_instance_t *inst, double v)
     compute_speed1(inst);
 }
 
-void gm_instance_set_speed(gm_instance_t *inst, double v)
+void gm_instance_set_speed(gm_instance_t *inst, float v)
 {
     if (inst->speed == v) {
         return;
@@ -920,47 +963,49 @@ void gm_instance_set_speed(gm_instance_t *inst, double v)
 }
 
 /* direction setter (yyInstance.js L227) */
-void gm_instance_set_direction(gm_instance_t *inst, double v)
+void gm_instance_set_direction(gm_instance_t *inst, float v)
 {
-    while (v < 0.0) {
-        v += 360.0;
+    while (v < 0.0f) {
+        v += 360.0f;
     }
-    while (v > 360.0) {
-        v -= 360.0;
+    while (v > 360.0f) {
+        v -= 360.0f;
     }
-    inst->direction = html5_fmod(v, 360.0);
+    inst->direction = html5_fmod(v, 360.0f);
     compute_speed2(inst);
 }
 
 void gm_instance_adapt_speed(gm_instance_t *inst)
 {
-    if (inst->friction != 0.0) {
-        double ns = inst->speed > 0.0 ? inst->speed - inst->friction : inst->speed + inst->friction;
+    if (inst->friction != 0.0f) {
+        float ns = inst->speed > 0.0f ? inst->speed - inst->friction : inst->speed + inst->friction;
 
-        if ((inst->speed > 0.0 && ns < 0.0) || (inst->speed < 0.0 && ns > 0.0)) {
-            gm_instance_set_speed(inst, 0.0);
-        } else if (inst->speed != 0.0) {
+        if ((inst->speed > 0.0f && ns < 0.0f) || (inst->speed < 0.0f && ns > 0.0f)) {
+            gm_instance_set_speed(inst, 0.0f);
+        } else if (inst->speed != 0.0f) {
             gm_instance_set_speed(inst, ns);
         }
     }
-    if (inst->gravity != 0.0) {
-        double dir = inst->gravity_direction * 0.0174532925;
+    if (inst->gravity != 0.0f) {
+        float dir = inst->gravity_direction;
+
+        gm_perf_count(GM_PERF_GRAVITY_INSTANCES, 1);
 
         /* AddTo_Speed: both property setters, then Compute_Speed1 once more. */
-        gm_instance_set_hspeed(inst, inst->hspeed + inst->gravity * clamp_float(cos(dir)));
-        gm_instance_set_vspeed(inst, inst->vspeed - inst->gravity * clamp_float(sin(dir)));
+        gm_instance_set_hspeed(inst, inst->hspeed + inst->gravity * clamp_float(gm_dcos(dir)));
+        gm_instance_set_vspeed(inst, inst->vspeed - inst->gravity * clamp_float(gm_dsin(dir)));
         compute_speed1(inst);
     }
 }
 
 /* Changing depth moves the instance to the front of the layer for the new
  * floor(depth) (yyRoom.ProcessDepthList2 re-adds it via AddNewElement). */
-void gm_instance_set_depth(gm_instance_t *inst, double depth)
+void gm_instance_set_depth(gm_instance_t *inst, float depth)
 {
     if (inst->depth == depth) {
         return;
     }
-    if (floor(inst->depth) != floor(depth)) {
+    if (floorf(inst->depth) != floorf(depth)) {
         inst->layer_serial = ++s_layer_serial;
         if (inst->active) {
             s_draw_dirty = true;
@@ -973,8 +1018,8 @@ void gm_instance_set_depth(gm_instance_t *inst, double depth)
 
 static bool draws_before(const gm_instance_t *a, const gm_instance_t *b)
 {
-    double da = floor(a->depth);
-    double db = floor(b->depth);
+    float da = floorf(a->depth);
+    float db = floorf(b->depth);
 
     if (da != db) {
         return da > db;

@@ -6,10 +6,10 @@ static void gml_ev_oLava__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     self->strs[SVAR_type] = "Lava";
-    self->vars[VAR_spurt] = 0.0;
-    self->vars[VAR_spurtTime] = gml_script_rand(self, other, 100.0, 300.0);
+    self->vars[VAR_spurt] = 0.0f;
+    self->vars[VAR_spurtTime] = gml_script_rand(self, other, 100.0f, 300.0f);
     self->vars[VAR_spurtCounter] = self->vars[VAR_spurtTime];
-    gml_iset_image_speed(self, 0.4);
+    gml_iset_image_speed(self, 0.4f);
 }
 
 void gml_ev_oLava__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,20 +21,20 @@ void gml_ev_oLava__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLava__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
     (void)t3;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 16.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0, 16.0))), ((double)OBJ_oLavaDrip))));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 16.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 0.0f, 16.0f))), ((float)OBJ_oLavaDrip))));
     }
-    if (gml_eq(gml_script_rand(self, other, 1.0, 6.0), 1.0)) {
-        self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oFlame));
-        gml_ivar_set(gml_deref(self->vars[VAR_flame], self, other), VAR_yVel, 4.0);
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 6.0f), 1.0f)) {
+        self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oFlame));
+        gml_ivar_set(gml_deref(self->vars[VAR_flame], self, other), VAR_yVel, 4.0f);
     }
 }
 
@@ -47,25 +47,25 @@ void gml_ev_oLava__Destroy_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oLava__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    self->vars[VAR_dist] = 0.0;
+    self->vars[VAR_dist] = 0.0f;
     if (gml_truthy(gml_script_isLevel(self, other))) {
-        self->vars[VAR_dist] = gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)));
+        self->vars[VAR_dist] = gm_point_distance(gml_iget_x(self), gml_iget_y(self), gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)));
     }
-    if ((gml_truthy(self->vars[VAR_spurt]) && gml_lt(self->vars[VAR_dist], 240.0))) {
-        if (gml_gt(self->vars[VAR_spurtCounter], 0.0)) {
-            self->vars[VAR_spurtCounter] = (self->vars[VAR_spurtCounter] - 1.0);
+    if ((gml_truthy(self->vars[VAR_spurt]) && gml_lt(self->vars[VAR_dist], 240.0f))) {
+        if (gml_gt(self->vars[VAR_spurtCounter], 0.0f)) {
+            self->vars[VAR_spurtCounter] = (self->vars[VAR_spurtCounter] - 1.0f);
         } else {
             self->vars[VAR_spurtCounter] = self->vars[VAR_spurtTime];
-            if (gml_eq(gml_script_rand(self, other, 1.0, 8.0), 1.0)) {
-                self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 4.0), ((double)OBJ_oMagma));
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 8.0f), 1.0f)) {
+                self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 4.0f), ((float)OBJ_oMagma));
             } else {
-                self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 4.0), ((double)OBJ_oFlame));
+                self->vars[VAR_flame] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 4.0f), ((float)OBJ_oFlame));
             }
-            (t1 = self->vars[VAR_flame], gml_ivar_set(gml_deref(t1, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0, 4.0))));
+            (t1 = self->vars[VAR_flame], gml_ivar_set(gml_deref(t1, self, other), VAR_yVel, (-gml_script_rand(self, other, 1.0f, 4.0f))));
         }
     }
 }

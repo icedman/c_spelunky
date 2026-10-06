@@ -18,7 +18,7 @@
 #include <string.h>
 
 typedef union heap_cell {
-    double d;
+    float d;
     void *p;
     struct {
         uint32_t kind; /* BLOCK_* */

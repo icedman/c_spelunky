@@ -6,41 +6,41 @@ static void gml_ev_oEnemy__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_hp] = 1.0;
+    self->vars[VAR_hp] = 1.0f;
     self->strs[SVAR_type] = gml_script_tr(self, other, 1, "NONE");
-    self->vars[VAR_active] = 1.0;
-    self->vars[VAR_shaking] = 0.0;
-    self->vars[VAR_shakeCounter] = 0.0;
-    self->vars[VAR_bloodless] = 0.0;
-    self->vars[VAR_bloodLeft] = 4.0;
-    self->vars[VAR_flying] = 0.0;
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_myGrav] = 0.6;
-    self->vars[VAR_myGravNorm] = 0.6;
-    self->vars[VAR_myGravWater] = 0.2;
-    self->vars[VAR_yVelLimit] = 10.0;
-    self->vars[VAR_bounceFactor] = 0.5;
-    self->vars[VAR_frictionFactor] = 0.3;
-    self->vars[VAR_held] = 0.0;
-    self->vars[VAR_armed] = 0.0;
-    self->vars[VAR_trigger] = 0.0;
-    self->vars[VAR_safe] = 0.0;
-    self->vars[VAR_sticky] = 0.0;
-    self->vars[VAR_canPickUp] = 1.0;
-    self->vars[VAR_cost] = 0.0;
-    self->vars[VAR_forSale] = 0.0;
-    self->vars[VAR_favor] = 1.0;
-    self->vars[VAR_sacCount] = 20.0;
-    self->vars[VAR_countsAsKill] = 1.0;
-    self->vars[VAR_burning] = 0.0;
-    self->vars[VAR_swimming] = 0.0;
-    self->vars[VAR_stunTime] = 200.0;
-    self->vars[VAR_LEFT] = 0.0;
-    self->vars[VAR_RIGHT] = 1.0;
-    self->vars[VAR_facing] = 0.0;
-    self->vars[VAR_STUNNED] = 98.0;
-    self->vars[VAR_DEAD] = 99.0;
-    self->vars[VAR_bombID] = 0.0;
+    self->vars[VAR_active] = 1.0f;
+    self->vars[VAR_shaking] = 0.0f;
+    self->vars[VAR_shakeCounter] = 0.0f;
+    self->vars[VAR_bloodless] = 0.0f;
+    self->vars[VAR_bloodLeft] = 4.0f;
+    self->vars[VAR_flying] = 0.0f;
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_myGrav] = 0.6f;
+    self->vars[VAR_myGravNorm] = 0.6f;
+    self->vars[VAR_myGravWater] = 0.2f;
+    self->vars[VAR_yVelLimit] = 10.0f;
+    self->vars[VAR_bounceFactor] = 0.5f;
+    self->vars[VAR_frictionFactor] = 0.3f;
+    self->vars[VAR_held] = 0.0f;
+    self->vars[VAR_armed] = 0.0f;
+    self->vars[VAR_trigger] = 0.0f;
+    self->vars[VAR_safe] = 0.0f;
+    self->vars[VAR_sticky] = 0.0f;
+    self->vars[VAR_canPickUp] = 1.0f;
+    self->vars[VAR_cost] = 0.0f;
+    self->vars[VAR_forSale] = 0.0f;
+    self->vars[VAR_favor] = 1.0f;
+    self->vars[VAR_sacCount] = 20.0f;
+    self->vars[VAR_countsAsKill] = 1.0f;
+    self->vars[VAR_burning] = 0.0f;
+    self->vars[VAR_swimming] = 0.0f;
+    self->vars[VAR_stunTime] = 200.0f;
+    self->vars[VAR_LEFT] = 0.0f;
+    self->vars[VAR_RIGHT] = 1.0f;
+    self->vars[VAR_facing] = 0.0f;
+    self->vars[VAR_STUNNED] = 98.0f;
+    self->vars[VAR_DEAD] = 99.0f;
+    self->vars[VAR_bombID] = 0.0f;
 }
 
 void gml_ev_oEnemy__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -66,18 +66,18 @@ void gml_ev_oEnemy__Destroy_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oEnemy__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -93,165 +93,165 @@ static void gml_ev_oEnemy__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)t12;
     (void)t13;
     (void)t14;
-    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 20.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 4.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 20.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 4.0))))) {
-        self->vars[VAR_active] = 1.0;
+    if (((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 20.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 4.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 20.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 4.0f))))) {
+        self->vars[VAR_active] = 1.0f;
         if (gml_truthy(self->vars[VAR_held])) {
-            self->vars[VAR_xVel] = 0.0;
-            self->vars[VAR_yVel] = 0.0;
-            self->vars[VAR_myGrav] = 0.0;
-            if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 18.0)) {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 12.0));
-                self->vars[VAR_facing] = 0.0;
+            self->vars[VAR_xVel] = 0.0f;
+            self->vars[VAR_yVel] = 0.0f;
+            self->vars[VAR_myGrav] = 0.0f;
+            if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 18.0f)) {
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 12.0f));
+                self->vars[VAR_facing] = 0.0f;
             }
-            if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 19.0)) {
-                gml_iset_x(self, (gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)) - 4.0));
-                self->vars[VAR_facing] = 1.0;
+            if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 19.0f)) {
+                gml_iset_x(self, (gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)) - 4.0f));
+                self->vars[VAR_facing] = 1.0f;
             }
-            if ((gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_state), 12.0) && gml_lt(fabs(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_xVel)), 2.0))) {
-                gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 10.0));
+            if ((gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_state), 12.0f) && gml_lt(fabsf(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_xVel)), 2.0f))) {
+                gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 10.0f));
             } else {
-                gml_iset_y(self, (gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self, other)) - 12.0));
+                gml_iset_y(self, (gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self, other)) - 12.0f));
             }
-            gml_iset_depth(self, 1.0);
-            if ((gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_holdItem), 0.0) || gml_lt(self->vars[VAR_status], 98.0))) {
-                self->vars[VAR_held] = 0.0;
+            gml_iset_depth(self, 1.0f);
+            if ((gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_holdItem), 0.0f) || gml_lt(self->vars[VAR_status], 98.0f))) {
+                self->vars[VAR_held] = 0.0f;
             }
         } else {
-            gml_iset_depth(self, 60.0);
+            gml_iset_depth(self, 60.0f);
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floor((gml_iget_sprite_width(self) / 2.0))), (gml_iget_y(self) + floor((gml_iget_sprite_height(self) / 2.0))), ((double)OBJ_oWaterSwim), (-1.0), (-1.0)))) {
+        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floorf((gml_iget_sprite_width(self) / 2.0f))), (gml_iget_y(self) + floorf((gml_iget_sprite_height(self) / 2.0f))), ((float)OBJ_oWaterSwim), (-1.0f), (-1.0f)))) {
             if ((!gml_truthy(self->vars[VAR_swimming]))) {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + floor((gml_iget_sprite_width(self) / 2.0))), gml_iget_y(self), ((double)OBJ_oSplash)));
-                self->vars[VAR_swimming] = 1.0;
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + floorf((gml_iget_sprite_width(self) / 2.0f))), gml_iget_y(self), ((float)OBJ_oSplash)));
+                self->vars[VAR_swimming] = 1.0f;
                 gml_script_playSound(self, other, g_gml_globals.sndSplash);
             }
             self->vars[VAR_myGrav] = self->vars[VAR_myGravWater];
             if (gml_str_eq(self->strs[SVAR_type], "Fire Frog")) {
-                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oFrog));
+                self->vars[VAR_obj] = gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oFrog));
                 gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_status, self->vars[VAR_status]);
                 gml_fn_instance_destroy(self, other, 0, NULL);
             }
         } else {
-            self->vars[VAR_swimming] = 0.0;
+            self->vars[VAR_swimming] = 0.0f;
             self->vars[VAR_myGrav] = self->vars[VAR_myGravNorm];
         }
-        if (gml_gt(self->vars[VAR_burning], 0.0)) {
-            if (gml_eq(gml_script_rand(self, other, 1.0, 5.0), 1.0)) {
-                (void)((t9 = (t7 = gml_iget_x(self), (t7 + gml_script_rand(self, other, 0.0, gml_iget_sprite_width(self)))), gml_script_instance_create(self, other, t9, (t8 = gml_iget_y(self), (t8 + gml_script_rand(self, other, 0.0, gml_iget_sprite_height(self)))), ((double)OBJ_oBurn))));
+        if (gml_gt(self->vars[VAR_burning], 0.0f)) {
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 5.0f), 1.0f)) {
+                (void)((t9 = (t7 = gml_iget_x(self), (t7 + gml_script_rand(self, other, 0.0f, gml_iget_sprite_width(self)))), gml_script_instance_create(self, other, t9, (t8 = gml_iget_y(self), (t8 + gml_script_rand(self, other, 0.0f, gml_iget_sprite_height(self)))), ((float)OBJ_oBurn))));
             }
-            self->vars[VAR_burning] = (self->vars[VAR_burning] - 1.0);
+            self->vars[VAR_burning] = (self->vars[VAR_burning] - 1.0f);
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floor((gml_iget_sprite_width(self) / 2.0))), (gml_iget_y(self) - 1.0), ((double)OBJ_oLava), 0.0, 0.0))) {
+        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floorf((gml_iget_sprite_width(self) / 2.0f))), (gml_iget_y(self) - 1.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
             gml_fn_instance_destroy(self, other, 0, NULL);
         }
-        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floor((gml_iget_sprite_width(self) / 2.0))), ((gml_iget_y(self) + gml_iget_sprite_height(self)) - 2.0), ((double)OBJ_oLava), 0.0, 0.0))) {
-            self->vars[VAR_hp] = 0.0;
-            self->vars[VAR_countsAsKill] = 0.0;
-            self->vars[VAR_burning] = 1.0;
-            self->vars[VAR_myGrav] = 0.0;
-            self->vars[VAR_xVel] = 0.0;
-            self->vars[VAR_yVel] = 0.1;
-            gml_iset_depth(self, 999.0);
+        if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + floorf((gml_iget_sprite_width(self) / 2.0f))), ((gml_iget_y(self) + gml_iget_sprite_height(self)) - 2.0f), ((float)OBJ_oLava), 0.0f, 0.0f))) {
+            self->vars[VAR_hp] = 0.0f;
+            self->vars[VAR_countsAsKill] = 0.0f;
+            self->vars[VAR_burning] = 1.0f;
+            self->vars[VAR_myGrav] = 0.0f;
+            self->vars[VAR_xVel] = 0.0f;
+            self->vars[VAR_yVel] = 0.1f;
+            gml_iset_depth(self, 999.0f);
         }
-        if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 2.0), (gml_iget_y(self) + 2.0), (gml_iget_x(self) + 14.0), (gml_iget_y(self) + 14.0), ((double)OBJ_oSpearsLeft), 0.0, 0.0))) {
-            self->vars[VAR_trap] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSpearsLeft));
-            if ((gml_ge(gml_iget_image_index(gml_deref(self->vars[VAR_trap], self, other)), 20.0) && gml_lt(gml_iget_image_index(gml_deref(self->vars[VAR_trap], self, other)), 24.0))) {
+        if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 2.0f), (gml_iget_y(self) + 2.0f), (gml_iget_x(self) + 14.0f), (gml_iget_y(self) + 14.0f), ((float)OBJ_oSpearsLeft), 0.0f, 0.0f))) {
+            self->vars[VAR_trap] = gml_fn_instance_nearest(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSpearsLeft));
+            if ((gml_ge(gml_iget_image_index(gml_deref(self->vars[VAR_trap], self, other)), 20.0f) && gml_lt(gml_iget_image_index(gml_deref(self->vars[VAR_trap], self, other)), 24.0f))) {
                 if (((((gml_str_eq(self->strs[SVAR_type], "Caveman") || gml_str_eq(self->strs[SVAR_type], "ManTrap")) || gml_str_eq(self->strs[SVAR_type], "Yeti")) || gml_str_eq(self->strs[SVAR_type], "Hawkman")) || gml_str_eq(self->strs[SVAR_type], "Shopkeeper"))) {
-                    if (gml_gt(self->vars[VAR_hp], 0.0)) {
-                        self->vars[VAR_hp] = (self->vars[VAR_hp] - 2.0);
-                        self->vars[VAR_countsAsKill] = 0.0;
-                        self->vars[VAR_status] = 98.0;
+                    if (gml_gt(self->vars[VAR_hp], 0.0f)) {
+                        self->vars[VAR_hp] = (self->vars[VAR_hp] - 2.0f);
+                        self->vars[VAR_countsAsKill] = 0.0f;
+                        self->vars[VAR_status] = 98.0f;
                         self->vars[VAR_counter] = self->vars[VAR_stunTime];
-                        self->vars[VAR_yVel] = (-6.0);
-                        if (gml_lt((gml_iget_x(gml_deref(self->vars[VAR_trap], self, other)) + 8.0), (gml_iget_x(self) + 8.0))) {
-                            self->vars[VAR_xVel] = 4.0;
+                        self->vars[VAR_yVel] = (-6.0f);
+                        if (gml_lt((gml_iget_x(gml_deref(self->vars[VAR_trap], self, other)) + 8.0f), (gml_iget_x(self) + 8.0f))) {
+                            self->vars[VAR_xVel] = 4.0f;
                         } else {
-                            self->vars[VAR_xVel] = (-4.0);
+                            self->vars[VAR_xVel] = (-4.0f);
                         }
-                        gml_iset_image_speed(self, 0.5);
+                        gml_iset_image_speed(self, 0.5f);
                         gml_script_playSound(self, other, g_gml_globals.sndHit);
-                        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0)), 2.0));
+                        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0f)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0f)), 2.0f));
                     }
                 } else {
-                    self->vars[VAR_hp] = (self->vars[VAR_hp] - 2.0);
-                    self->vars[VAR_countsAsKill] = 0.0;
+                    self->vars[VAR_hp] = (self->vars[VAR_hp] - 2.0f);
+                    self->vars[VAR_countsAsKill] = 0.0f;
                     gml_script_playSound(self, other, g_gml_globals.sndHit);
-                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0)), 1.0));
+                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0f)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0f)), 1.0f));
                 }
             }
         }
-        if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSpikes), 0.0, 0.0)) && gml_gt(self->vars[VAR_yVel], 2.0))) {
-            self->vars[VAR_spikes] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 14.0), ((double)OBJ_oSpikes));
+        if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSpikes), 0.0f, 0.0f)) && gml_gt(self->vars[VAR_yVel], 2.0f))) {
+            self->vars[VAR_spikes] = gml_fn_instance_place(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 14.0f), ((float)OBJ_oSpikes));
             if ((!gml_truthy(self->vars[VAR_bloodless]))) {
                 {
                     gm_instance_t *self10;
                     gm_with_begin(gml_target(self->vars[VAR_spikes]), self, other);
                     while ((self10 = gm_with_next()) != NULL) {
-                        gml_iset_sprite_index(self10, ((double)SPR_sSpikesBlood));
+                        gml_iset_sprite_index(self10, ((float)SPR_sSpikesBlood));
                     }
                     gm_with_end();
                 }
             }
-            if (gml_gt(self->vars[VAR_hp], 0.0)) {
-                self->vars[VAR_hp] = 0.0;
-                self->vars[VAR_countsAsKill] = 0.0;
+            if (gml_gt(self->vars[VAR_hp], 0.0f)) {
+                self->vars[VAR_hp] = 0.0f;
+                self->vars[VAR_countsAsKill] = 0.0f;
                 if ((!gml_truthy(self->vars[VAR_bloodless]))) {
-                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0)), 3.0));
+                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0f)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0f)), 3.0f));
                 }
                 if (((((gml_str_eq(self->strs[SVAR_type], "Caveman") || gml_str_eq(self->strs[SVAR_type], "ManTrap")) || gml_str_eq(self->strs[SVAR_type], "Yeti")) || gml_str_eq(self->strs[SVAR_type], "Hawkman")) || gml_str_eq(self->strs[SVAR_type], "Shopkeeper"))) {
-                    self->vars[VAR_status] = 99.0;
+                    self->vars[VAR_status] = 99.0f;
                 }
             }
-            self->vars[VAR_myGrav] = 0.0;
-            self->vars[VAR_xVel] = 0.0;
-            self->vars[VAR_yVel] = 0.2;
+            self->vars[VAR_myGrav] = 0.0f;
+            self->vars[VAR_xVel] = 0.0f;
+            self->vars[VAR_yVel] = 0.2f;
         }
-        if (gml_ge(self->vars[VAR_status], 98.0)) {
-            if ((((!gml_truthy(self->vars[VAR_held])) && gml_eq(self->vars[VAR_xVel], 0.0)) && gml_eq(self->vars[VAR_yVel], 0.0))) {
-                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSacAltarLeft), 0.0, 0.0))) {
-                    if (gml_gt(self->vars[VAR_sacCount], 0.0)) {
-                        self->vars[VAR_sacCount] = (self->vars[VAR_sacCount] - 1.0);
+        if (gml_ge(self->vars[VAR_status], 98.0f)) {
+            if ((((!gml_truthy(self->vars[VAR_held])) && gml_eq(self->vars[VAR_xVel], 0.0f)) && gml_eq(self->vars[VAR_yVel], 0.0f))) {
+                if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSacAltarLeft), 0.0f, 0.0f))) {
+                    if (gml_gt(self->vars[VAR_sacCount], 0.0f)) {
+                        self->vars[VAR_sacCount] = (self->vars[VAR_sacCount] - 1.0f);
                     } else {
-                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oFlame)));
+                        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oFlame)));
                         gml_script_playSound(self, other, g_gml_globals.sndSmallExplode);
-                        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), 3.0));
+                        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), 3.0f));
                         g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "KALI ACCEPTS THE SACRIFICE!"));
-                        if (gml_le(g_gml_globals.favor, (-8.0))) {
+                        if (gml_le(g_gml_globals.favor, (-8.0f))) {
                             g_gml_gvals[GV_message] = gml_vs(gml_script_tr(self, other, 1, "KALI DEVOURS THE SACRIFICE!"));
                         } else {
-                            if (gml_lt(g_gml_globals.favor, 0.0)) {
-                                if (gml_eq(self->vars[VAR_status], 98.0)) {
+                            if (gml_lt(g_gml_globals.favor, 0.0f)) {
+                                if (gml_eq(self->vars[VAR_status], 98.0f)) {
                                     g_gml_globals.favor = (g_gml_globals.favor + self->vars[VAR_favor]);
                                 } else {
-                                    g_gml_globals.favor = (g_gml_globals.favor + (self->vars[VAR_favor] / 2.0));
+                                    g_gml_globals.favor = (g_gml_globals.favor + (self->vars[VAR_favor] / 2.0f));
                                 }
-                                if (gml_gt(self->vars[VAR_favor], 0.0)) {
-                                    self->vars[VAR_favor] = 0.0;
+                                if (gml_gt(self->vars[VAR_favor], 0.0f)) {
+                                    self->vars[VAR_favor] = 0.0f;
                                 }
                             } else {
-                                if (gml_eq(self->vars[VAR_status], 98.0)) {
+                                if (gml_eq(self->vars[VAR_status], 98.0f)) {
                                     g_gml_globals.favor = (g_gml_globals.favor + self->vars[VAR_favor]);
                                 } else {
-                                    g_gml_globals.favor = (g_gml_globals.favor + (self->vars[VAR_favor] / 2.0));
+                                    g_gml_globals.favor = (g_gml_globals.favor + (self->vars[VAR_favor] / 2.0f));
                                 }
                             }
                         }
                         gml_script_scrGetFavorMsg(self, other);
-                        g_gml_globals.messageTimer = 200.0;
-                        g_gml_globals.shake = 10.0;
+                        g_gml_globals.messageTimer = 200.0f;
+                        g_gml_globals.shake = 10.0f;
                         gml_fn_instance_destroy(self, other, 0, NULL);
                     }
                 }
             } else {
-                self->vars[VAR_sacCount] = 20.0;
+                self->vars[VAR_sacCount] = 20.0f;
             }
         }
-        if (gml_eq(self->vars[VAR_status], 98.0)) {
-            if ((gml_gt(fabs(self->vars[VAR_xVel]), 2.0) || gml_gt(fabs(self->vars[VAR_yVel]), 2.0))) {
-                self->vars[VAR_obj] = gml_fn_collision_rectangle(self, other, gml_iget_x(self), gml_iget_y(self), (gml_iget_x(self) + 16.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oEnemy), 0.0, 1.0);
+        if (gml_eq(self->vars[VAR_status], 98.0f)) {
+            if ((gml_gt(fabsf(self->vars[VAR_xVel]), 2.0f) || gml_gt(fabsf(self->vars[VAR_yVel]), 2.0f))) {
+                self->vars[VAR_obj] = gml_fn_collision_rectangle(self, other, gml_iget_x(self), gml_iget_y(self), (gml_iget_x(self) + 16.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oEnemy), 0.0f, 1.0f);
                 if (gml_truthy(self->vars[VAR_obj])) {
                     if (((!gml_truthy(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_invincible))) && gml_str_ne(gml_svar(gml_deref(self->vars[VAR_obj], self, other), SVAR_type), "Magma Man"))) {
-                        if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_status), 98.0)) {
+                        if (gml_lt(gml_ivar(gml_deref(self->vars[VAR_obj], self, other), VAR_status), 98.0f)) {
                             gml_ivar_set(gml_deref(self->vars[VAR_obj], self, other), VAR_xVel, self->vars[VAR_xVel]);
                         }
                         {
@@ -261,65 +261,65 @@ static void gml_ev_oEnemy__Step_0_body(gm_instance_t *self, gm_instance_t *other
                                 if (((((gml_str_eq(self11->strs[SVAR_type], "Caveman") || gml_str_eq(self11->strs[SVAR_type], "ManTrap")) || gml_str_eq(self11->strs[SVAR_type], "Vampire")) || gml_str_eq(self11->strs[SVAR_type], "Yeti")) || gml_str_eq(self11->strs[SVAR_type], "Hawkman"))) {
                                     if (gml_lt(self11->vars[VAR_status], self11->vars[VAR_STUNNED])) {
                                         if ((((gml_str_eq(self11->strs[SVAR_type], "Caveman") || gml_str_eq(self11->strs[SVAR_type], "Vampire")) || gml_str_eq(self11->strs[SVAR_type], "Yeti")) || gml_str_eq(self11->strs[SVAR_type], "Hawkman"))) {
-                                            (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0), (gml_iget_y(self11) + 8.0), 1.0));
+                                            (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0f), (gml_iget_y(self11) + 8.0f), 1.0f));
                                         } else {
                                             if (gml_str_eq(self11->strs[SVAR_type], "ManTrap")) {
-                                                (void)((t14 = (t12 = gml_iget_x(self11), (t12 + gml_script_rand(self11, self, 0.0, 16.0))), gml_script_instance_create(self11, self, t14, (t13 = (gml_iget_y(self11) - 8.0), (t13 + gml_script_rand(self11, self, 0.0, 16.0))), ((double)OBJ_oLeaf))));
+                                                (void)((t14 = (t12 = gml_iget_x(self11), (t12 + gml_script_rand(self11, self, 0.0f, 16.0f))), gml_script_instance_create(self11, self, t14, (t13 = (gml_iget_y(self11) - 8.0f), (t13 + gml_script_rand(self11, self, 0.0f, 16.0f))), ((float)OBJ_oLeaf))));
                                             }
                                         }
-                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
+                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
                                         self11->vars[VAR_status] = self11->vars[VAR_STUNNED];
                                         self11->vars[VAR_counter] = self11->vars[VAR_stunTime];
-                                        self11->vars[VAR_yVel] = (-6.0);
+                                        self11->vars[VAR_yVel] = (-6.0f);
                                         gml_script_playSound(self11, self, g_gml_globals.sndHit);
                                     }
                                 } else {
                                     if (gml_str_eq(self11->strs[SVAR_type], "Shopkeeper")) {
-                                        if (gml_lt(self11->vars[VAR_status], 98.0)) {
-                                            (void)(gml_script_scrCreateBlood(self11, self, gml_iget_x(self11), gml_iget_y(self11), 1.0));
-                                            self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
-                                            self11->vars[VAR_yVel] = (-6.0);
-                                            self11->vars[VAR_status] = 2.0;
+                                        if (gml_lt(self11->vars[VAR_status], 98.0f)) {
+                                            (void)(gml_script_scrCreateBlood(self11, self, gml_iget_x(self11), gml_iget_y(self11), 1.0f));
+                                            self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
+                                            self11->vars[VAR_yVel] = (-6.0f);
+                                            self11->vars[VAR_status] = 2.0f;
                                             gml_script_playSound(self11, self, g_gml_globals.sndHit);
                                         }
                                     } else {
                                         if (gml_str_eq(self11->strs[SVAR_type], "Giant Spider")) {
-                                            if (gml_eq(self11->vars[VAR_whipped], 0.0)) {
-                                                (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 16.0), (gml_iget_y(self11) + 24.0), 1.0));
-                                                self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
-                                                self11->vars[VAR_whipped] = 10.0;
+                                            if (gml_eq(self11->vars[VAR_whipped], 0.0f)) {
+                                                (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 16.0f), (gml_iget_y(self11) + 24.0f), 1.0f));
+                                                self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
+                                                self11->vars[VAR_whipped] = 10.0f;
                                                 gml_script_playSound(self11, self, g_gml_globals.sndHit);
                                             }
                                         } else {
                                             if (gml_str_eq(self11->strs[SVAR_type], "Tomb Lord")) {
-                                                if (gml_eq(self11->vars[VAR_whipped], 0.0)) {
-                                                    (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 16.0), (gml_iget_y(self11) + 16.0), 1.0));
-                                                    self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
-                                                    self11->vars[VAR_whipped] = 20.0;
+                                                if (gml_eq(self11->vars[VAR_whipped], 0.0f)) {
+                                                    (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 16.0f), (gml_iget_y(self11) + 16.0f), 1.0f));
+                                                    self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
+                                                    self11->vars[VAR_whipped] = 20.0f;
                                                     gml_script_playSound(self11, self, g_gml_globals.sndHit);
                                                 }
                                             } else {
                                                 if (gml_str_eq(self11->strs[SVAR_type], "Alien Boss")) {
-                                                    if ((gml_ne(self11->vars[VAR_status], 99.0) && gml_ne(gml_iget_sprite_index(self11), ((double)SPR_sAlienBossHurt)))) {
-                                                        (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0), (gml_iget_y(self11) + 8.0), 1.0));
-                                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
-                                                        gml_iset_sprite_index(self11, ((double)SPR_sAlienBossHurt));
-                                                        gml_iset_image_speed(self11, 0.8);
+                                                    if ((gml_ne(self11->vars[VAR_status], 99.0f) && gml_ne(gml_iget_sprite_index(self11), ((float)SPR_sAlienBossHurt)))) {
+                                                        (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0f), (gml_iget_y(self11) + 8.0f), 1.0f));
+                                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
+                                                        gml_iset_sprite_index(self11, ((float)SPR_sAlienBossHurt));
+                                                        gml_iset_image_speed(self11, 0.8f);
                                                         gml_script_playSound(self11, self, g_gml_globals.sndHit);
                                                     }
                                                 } else {
                                                     if (gml_str_eq(self11->strs[SVAR_type], "UFO")) {
-                                                        (void)(gml_script_instance_create(self11, self, (gml_iget_x(self11) + 8.0), (gml_iget_y(self11) + 8.0), ((double)OBJ_oExplosion)));
+                                                        (void)(gml_script_instance_create(self11, self, (gml_iget_x(self11) + 8.0f), (gml_iget_y(self11) + 8.0f), ((float)OBJ_oExplosion)));
                                                         gml_script_playSound(self11, self, g_gml_globals.sndExplosion);
-                                                        if (gml_eq(gml_script_rand(self11, self, 1.0, 3.0), 1.0)) {
-                                                            (void)(gml_script_instance_create(self11, self, (gml_iget_x(self11) + 8.0), (gml_iget_y(self11) + 8.0), ((double)OBJ_oAlienEject)));
+                                                        if (gml_eq(gml_script_rand(self11, self, 1.0f, 3.0f), 1.0f)) {
+                                                            (void)(gml_script_instance_create(self11, self, (gml_iget_x(self11) + 8.0f), (gml_iget_y(self11) + 8.0f), ((float)OBJ_oAlienEject)));
                                                         }
-                                                        g_gml_globals.ufos = (g_gml_globals.ufos + 1.0);
-                                                        g_gml_globals.kills = (g_gml_globals.kills + 1.0);
+                                                        g_gml_globals.ufos = (g_gml_globals.ufos + 1.0f);
+                                                        g_gml_globals.kills = (g_gml_globals.kills + 1.0f);
                                                         gml_fn_instance_destroy(self11, self, 0, NULL);
                                                     } else {
-                                                        (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0), (gml_iget_y(self11) + 8.0), 1.0));
-                                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0);
+                                                        (void)(gml_script_scrCreateBlood(self11, self, (gml_iget_x(self11) + 8.0f), (gml_iget_y(self11) + 8.0f), 1.0f));
+                                                        self11->vars[VAR_hp] = (self11->vars[VAR_hp] - 1.0f);
                                                         self11->vars[VAR_origX] = gml_iget_x(self11);
                                                         self11->vars[VAR_origY] = gml_iget_y(self11);
                                                         gml_script_playSound(self11, self, g_gml_globals.sndHit);
@@ -340,7 +340,7 @@ static void gml_ev_oEnemy__Step_0_body(gm_instance_t *self, gm_instance_t *other
             }
         }
     } else {
-        self->vars[VAR_active] = 0.0;
+        self->vars[VAR_active] = 0.0f;
     }
 }
 
@@ -356,11 +356,11 @@ static void gml_ev_oEnemy__Collision_oWhipPre_body(gm_instance_t *self, gm_insta
     (void)self;
     (void)other;
     self->vars[VAR_hp] = (self->vars[VAR_hp] - other->vars[VAR_damage]);
-    self->vars[VAR_countsAsKill] = 1.0;
-    if (gml_gt(self->vars[VAR_bloodLeft], 0.0)) {
-        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0)), 1.0));
-        if (gml_lt(self->vars[VAR_hp], 0.0)) {
-            self->vars[VAR_bloodLeft] = (self->vars[VAR_bloodLeft] - 1.0);
+    self->vars[VAR_countsAsKill] = 1.0f;
+    if (gml_gt(self->vars[VAR_bloodLeft], 0.0f)) {
+        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0f)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0f)), 1.0f));
+        if (gml_lt(self->vars[VAR_hp], 0.0f)) {
+            self->vars[VAR_bloodLeft] = (self->vars[VAR_bloodLeft] - 1.0f);
         }
     }
     gml_script_playSound(self, other, g_gml_globals.sndHit);
@@ -378,11 +378,11 @@ static void gml_ev_oEnemy__Collision_oWhip_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     self->vars[VAR_hp] = (self->vars[VAR_hp] - other->vars[VAR_damage]);
-    self->vars[VAR_countsAsKill] = 1.0;
-    if (gml_gt(self->vars[VAR_bloodLeft], 0.0)) {
-        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0)), 1.0));
-        if (gml_lt(self->vars[VAR_hp], 0.0)) {
-            self->vars[VAR_bloodLeft] = (self->vars[VAR_bloodLeft] - 1.0);
+    self->vars[VAR_countsAsKill] = 1.0f;
+    if (gml_gt(self->vars[VAR_bloodLeft], 0.0f)) {
+        (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + (gml_iget_sprite_width(self) / 2.0f)), (gml_iget_y(self) + (gml_iget_sprite_height(self) / 2.0f)), 1.0f));
+        if (gml_lt(self->vars[VAR_hp], 0.0f)) {
+            self->vars[VAR_bloodLeft] = (self->vars[VAR_bloodLeft] - 1.0f);
         }
     }
     gml_script_playSound(self, other, g_gml_globals.sndHit);
@@ -399,98 +399,98 @@ static void gml_ev_oEnemy__Collision_oCharacter_body(gm_instance_t *self, gm_ins
 {
     (void)self;
     (void)other;
-    if (gml_gt(fabs((gml_iget_x(other) - (gml_iget_x(self) + 8.0))), 12.0)) {
+    if (gml_gt(fabsf((gml_iget_x(other) - (gml_iget_x(self) + 8.0f))), 12.0f)) {
     } else {
-        if (((((!gml_truthy(other->vars[VAR_dead])) && (gml_eq(other->vars[VAR_state], 15.0) || gml_eq(other->vars[VAR_state], 16.0))) && gml_lt(gml_iget_y(other), (gml_iget_y(self) + 8.0))) && (!gml_truthy(other->vars[VAR_swimming])))) {
-            other->vars[VAR_yVel] = ((-6.0) - (0.2 * other->vars[VAR_yVel]));
+        if (((((!gml_truthy(other->vars[VAR_dead])) && (gml_eq(other->vars[VAR_state], 15.0f) || gml_eq(other->vars[VAR_state], 16.0f))) && gml_lt(gml_iget_y(other), (gml_iget_y(self) + 8.0f))) && (!gml_truthy(other->vars[VAR_swimming])))) {
+            other->vars[VAR_yVel] = ((-6.0f) - (0.2f * other->vars[VAR_yVel]));
             if (gml_truthy(g_gml_globals.hasSpikeShoes)) {
-                self->vars[VAR_hp] = (self->vars[VAR_hp] - (3.0 * (floor((other->vars[VAR_fallTimer] / 16.0)) + 1.0)));
-                (void)(gml_script_scrCreateBlood(self, other, gml_iget_x(other), (gml_iget_y(other) + 8.0), 1.0));
+                self->vars[VAR_hp] = (self->vars[VAR_hp] - (3.0f * (floorf((other->vars[VAR_fallTimer] / 16.0f)) + 1.0f)));
+                (void)(gml_script_scrCreateBlood(self, other, gml_iget_x(other), (gml_iget_y(other) + 8.0f), 1.0f));
             } else {
-                self->vars[VAR_hp] = (self->vars[VAR_hp] - (1.0 * (floor((other->vars[VAR_fallTimer] / 16.0)) + 1.0)));
+                self->vars[VAR_hp] = (self->vars[VAR_hp] - (1.0f * (floorf((other->vars[VAR_fallTimer] / 16.0f)) + 1.0f)));
             }
-            other->vars[VAR_fallTimer] = 0.0;
+            other->vars[VAR_fallTimer] = 0.0f;
             gml_script_playSound(self, other, g_gml_globals.sndHit);
         } else {
-            if (gml_eq(other->vars[VAR_invincible], 0.0)) {
-                other->vars[VAR_blink] = 30.0;
-                other->vars[VAR_invincible] = 30.0;
+            if (gml_eq(other->vars[VAR_invincible], 0.0f)) {
+                other->vars[VAR_blink] = 30.0f;
+                other->vars[VAR_invincible] = 30.0f;
                 if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-                    other->vars[VAR_xVel] = (-6.0);
+                    other->vars[VAR_xVel] = (-6.0f);
                 } else {
-                    other->vars[VAR_xVel] = 6.0;
+                    other->vars[VAR_xVel] = 6.0f;
                 }
-                if (gml_gt(g_gml_globals.plife, 0.0)) {
-                    g_gml_globals.plife = (g_gml_globals.plife - 1.0);
-                    if ((gml_le(g_gml_globals.plife, 0.0) && gml_truthy(gml_script_isRealLevel(self, other)))) {
+                if (gml_gt(g_gml_globals.plife, 0.0f)) {
+                    g_gml_globals.plife = (g_gml_globals.plife - 1.0f);
+                    if ((gml_le(g_gml_globals.plife, 0.0f) && gml_truthy(gml_script_isRealLevel(self, other)))) {
                         if (gml_str_eq(self->strs[SVAR_type], "Bat")) {
-                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 0.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 0.0), gml_vreal(1.0)));
+                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 0.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 0.0f), gml_vreal(1.0f)));
                         } else {
                             if (gml_str_eq(self->strs[SVAR_type], "Snake")) {
-                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 1.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 1.0), gml_vreal(1.0)));
+                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 1.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 1.0f), gml_vreal(1.0f)));
                             } else {
                                 if (gml_str_eq(self->strs[SVAR_type], "Spider")) {
-                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 2.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 2.0), gml_vreal(1.0)));
+                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 2.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 2.0f), gml_vreal(1.0f)));
                                 } else {
                                     if (gml_str_eq(self->strs[SVAR_type], "Giant Spider")) {
-                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 3.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 3.0), gml_vreal(1.0)));
+                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 3.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 3.0f), gml_vreal(1.0f)));
                                     } else {
                                         if (gml_str_eq(self->strs[SVAR_type], "Caveman")) {
-                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 4.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 4.0), gml_vreal(1.0)));
+                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 4.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 4.0f), gml_vreal(1.0f)));
                                         } else {
                                             if (gml_str_eq(self->strs[SVAR_type], "Skeleton")) {
-                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 5.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 5.0), gml_vreal(1.0)));
+                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 5.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 5.0f), gml_vreal(1.0f)));
                                             } else {
                                                 if (gml_str_eq(self->strs[SVAR_type], "Zombie")) {
-                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 6.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 6.0), gml_vreal(1.0)));
+                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 6.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 6.0f), gml_vreal(1.0f)));
                                                 } else {
                                                     if (gml_str_eq(self->strs[SVAR_type], "Vampire")) {
-                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 7.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 7.0), gml_vreal(1.0)));
+                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 7.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 7.0f), gml_vreal(1.0f)));
                                                     } else {
                                                         if (gml_str_eq(self->strs[SVAR_type], "Frog")) {
-                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 8.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 8.0), gml_vreal(1.0)));
+                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 8.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 8.0f), gml_vreal(1.0f)));
                                                         } else {
                                                             if (gml_str_eq(self->strs[SVAR_type], "Fire Frog")) {
-                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 9.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 9.0), gml_vreal(1.0)));
+                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 9.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 9.0f), gml_vreal(1.0f)));
                                                             } else {
                                                                 if (gml_str_eq(self->strs[SVAR_type], "Mantrap")) {
-                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 10.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 10.0), gml_vreal(1.0)));
+                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 10.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 10.0f), gml_vreal(1.0f)));
                                                                 } else {
                                                                     if (gml_str_eq(self->strs[SVAR_type], "Piranha")) {
-                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 11.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 11.0), gml_vreal(1.0)));
+                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 11.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 11.0f), gml_vreal(1.0f)));
                                                                     } else {
                                                                         if (gml_str_eq(self->strs[SVAR_type], "Megamouth")) {
-                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 12.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 12.0), gml_vreal(1.0)));
+                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 12.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 12.0f), gml_vreal(1.0f)));
                                                                         } else {
                                                                             if (gml_str_eq(self->strs[SVAR_type], "Yeti")) {
-                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 13.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 13.0), gml_vreal(1.0)));
+                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 13.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 13.0f), gml_vreal(1.0f)));
                                                                             } else {
                                                                                 if (gml_str_eq(self->strs[SVAR_type], "Yeti King")) {
-                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 14.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 14.0), gml_vreal(1.0)));
+                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 14.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 14.0f), gml_vreal(1.0f)));
                                                                                 } else {
                                                                                     if (gml_str_eq(self->strs[SVAR_type], "Alien")) {
-                                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 15.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 15.0), gml_vreal(1.0)));
+                                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 15.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 15.0f), gml_vreal(1.0f)));
                                                                                     } else {
                                                                                         if (gml_str_eq(self->strs[SVAR_type], "UFO")) {
-                                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 16.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 16.0), gml_vreal(1.0)));
+                                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 16.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 16.0f), gml_vreal(1.0f)));
                                                                                         } else {
                                                                                             if (gml_str_eq(self->strs[SVAR_type], "Alien Boss")) {
-                                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 17.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 17.0), gml_vreal(1.0)));
+                                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 17.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 17.0f), gml_vreal(1.0f)));
                                                                                             } else {
                                                                                                 if (gml_str_eq(self->strs[SVAR_type], "Hawkman")) {
-                                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 18.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 18.0), gml_vreal(1.0)));
+                                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 18.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 18.0f), gml_vreal(1.0f)));
                                                                                                 } else {
                                                                                                     if (gml_str_eq(self->strs[SVAR_type], "Shopkeeper")) {
-                                                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 19.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 19.0), gml_vreal(1.0)));
+                                                                                                        gml_aset(&g_gml_gvals[GV_enemyDeaths], 19.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 19.0f), gml_vreal(1.0f)));
                                                                                                     } else {
                                                                                                         if (gml_str_eq(self->strs[SVAR_type], "Tomb Lord")) {
-                                                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 20.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 20.0), gml_vreal(1.0)));
+                                                                                                            gml_aset(&g_gml_gvals[GV_enemyDeaths], 20.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 20.0f), gml_vreal(1.0f)));
                                                                                                         } else {
                                                                                                             if (gml_str_eq(self->strs[SVAR_type], "Magma Man")) {
-                                                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 21.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 21.0), gml_vreal(1.0)));
+                                                                                                                gml_aset(&g_gml_gvals[GV_enemyDeaths], 21.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 21.0f), gml_vreal(1.0f)));
                                                                                                             } else {
                                                                                                                 if (gml_str_eq(self->strs[SVAR_type], "Olmec")) {
-                                                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 22.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 22.0), gml_vreal(1.0)));
+                                                                                                                    gml_aset(&g_gml_gvals[GV_enemyDeaths], 22.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 22.0f), gml_vreal(1.0f)));
                                                                                                                 }
                                                                                                             }
                                                                                                         }
@@ -517,7 +517,7 @@ static void gml_ev_oEnemy__Collision_oCharacter_body(gm_instance_t *self, gm_ins
                     }
                 }
                 if (((gml_str_eq(self->strs[SVAR_type], "Bat") || gml_str_eq(self->strs[SVAR_type], "Piranha")) || gml_str_eq(self->strs[SVAR_type], "Vampire"))) {
-                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 4.0), (gml_iget_y(self) + 4.0), 1.0));
+                    (void)(gml_script_scrCreateBlood(self, other, (gml_iget_x(self) + 4.0f), (gml_iget_y(self) + 4.0f), 1.0f));
                 }
                 gml_script_playSound(self, other, g_gml_globals.sndHurt);
             }
@@ -551,9 +551,9 @@ static void gml_ev_oEnemy__Draw_0_body(gm_instance_t *self, gm_instance_t *other
     (void)self;
     (void)other;
     if (gml_eq(self->vars[VAR_facing], self->vars[VAR_RIGHT])) {
-        gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), (gml_iget_x(self) + 16.0), gml_iget_y(self), (-1.0), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
+        gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), (gml_iget_x(self) + 16.0f), gml_iget_y(self), (-1.0f), gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
     } else {
-        gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), gml_iget_x(self), gml_iget_y(self), 1.0, gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
+        gml_fn_draw_sprite_ext(self, other, gml_iget_sprite_index(self), gml_iget_image_index(self), gml_iget_x(self), gml_iget_y(self), 1.0f, gml_iget_image_yscale(self), gml_iget_image_angle(self), gml_iget_image_blend(self), gml_iget_image_alpha(self));
     }
 }
 

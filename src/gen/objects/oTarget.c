@@ -5,17 +5,17 @@ static void gml_ev_oTarget__Create_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    self->vars[VAR_life] = 20.0;
-    self->vars[VAR_dying] = 0.0;
-    self->vars[VAR_UP] = 0.0;
-    self->vars[VAR_DOWN] = 1.0;
-    self->vars[VAR_dir] = gml_script_rand(self, other, 0.0, 1.0);
-    self->vars[VAR_moveOff] = 32.0;
-    self->vars[VAR_hard] = 0.0;
-    if (gml_gt(gml_iget_x(self), 208.0)) {
-        self->vars[VAR_hard] = 1.0;
+    self->vars[VAR_life] = 20.0f;
+    self->vars[VAR_dying] = 0.0f;
+    self->vars[VAR_UP] = 0.0f;
+    self->vars[VAR_DOWN] = 1.0f;
+    self->vars[VAR_dir] = gml_script_rand(self, other, 0.0f, 1.0f);
+    self->vars[VAR_moveOff] = 32.0f;
+    self->vars[VAR_hard] = 0.0f;
+    if (gml_gt(gml_iget_x(self), 208.0f)) {
+        self->vars[VAR_hard] = 1.0f;
     }
-    self->vars[VAR_xDiff] = 0.0;
+    self->vars[VAR_xDiff] = 0.0f;
 }
 
 void gml_ev_oTarget__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -30,41 +30,41 @@ static void gml_ev_oTarget__Step_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if (gml_truthy(self->vars[VAR_dying])) {
-        if (gml_gt(self->vars[VAR_life], 0.0)) {
-            self->vars[VAR_life] = (self->vars[VAR_life] - 1.0);
+        if (gml_gt(self->vars[VAR_life], 0.0f)) {
+            self->vars[VAR_life] = (self->vars[VAR_life] - 1.0f);
         } else {
-            self->vars[VAR_life] = 20.0;
-            self->vars[VAR_dying] = 0.0;
+            self->vars[VAR_life] = 20.0f;
+            self->vars[VAR_dying] = 0.0f;
         }
     } else {
         if (gml_eq(self->vars[VAR_dir], self->vars[VAR_UP])) {
             if (gml_truthy(self->vars[VAR_hard])) {
-                gml_iset_y(self, (gml_iget_y(self) - 2.0));
+                gml_iset_y(self, (gml_iget_y(self) - 2.0f));
             } else {
-                gml_iset_y(self, (gml_iget_y(self) - 1.0));
+                gml_iset_y(self, (gml_iget_y(self) - 1.0f));
             }
-            self->vars[VAR_moveOff] = (self->vars[VAR_moveOff] + 1.0);
-            if ((gml_le(gml_iget_y(self), 64.0) || gml_gt(self->vars[VAR_moveOff], 64.0))) {
+            self->vars[VAR_moveOff] = (self->vars[VAR_moveOff] + 1.0f);
+            if ((gml_le(gml_iget_y(self), 64.0f) || gml_gt(self->vars[VAR_moveOff], 64.0f))) {
                 self->vars[VAR_dir] = self->vars[VAR_DOWN];
-                self->vars[VAR_moveOff] = 0.0;
+                self->vars[VAR_moveOff] = 0.0f;
             }
         } else {
             if (gml_eq(self->vars[VAR_dir], self->vars[VAR_DOWN])) {
                 if (gml_truthy(self->vars[VAR_hard])) {
-                    gml_iset_y(self, (gml_iget_y(self) + 2.0));
+                    gml_iset_y(self, (gml_iget_y(self) + 2.0f));
                 } else {
-                    gml_iset_y(self, (gml_iget_y(self) + 1.0));
+                    gml_iset_y(self, (gml_iget_y(self) + 1.0f));
                 }
-                self->vars[VAR_moveOff] = (self->vars[VAR_moveOff] + 1.0);
-                if ((gml_ge(gml_iget_y(self), 160.0) || gml_gt(self->vars[VAR_moveOff], 64.0))) {
+                self->vars[VAR_moveOff] = (self->vars[VAR_moveOff] + 1.0f);
+                if ((gml_ge(gml_iget_y(self), 160.0f) || gml_gt(self->vars[VAR_moveOff], 64.0f))) {
                     self->vars[VAR_dir] = self->vars[VAR_UP];
-                    self->vars[VAR_moveOff] = 0.0;
+                    self->vars[VAR_moveOff] = 0.0f;
                 }
             }
         }
-        if (gml_le(gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_timer), 30.0)) {
-            gml_iset_x(self, (240.0 - fabs((sin(self->vars[VAR_xDiff]) * 64.0))));
-            self->vars[VAR_xDiff] = (self->vars[VAR_xDiff] + 0.01);
+        if (gml_le(gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_timer), 30.0f)) {
+            gml_iset_x(self, (240.0f - fabsf((sinf(self->vars[VAR_xDiff]) * 64.0f))));
+            self->vars[VAR_xDiff] = (self->vars[VAR_xDiff] + 0.01f);
         }
     }
 }
@@ -82,37 +82,37 @@ static void gml_ev_oTarget__Collision_oArrow_body(gm_instance_t *self, gm_instan
     (void)self;
     (void)other;
     (void)wd;
-    other->vars[VAR_xVel] = 0.0;
-    other->vars[VAR_yVel] = 0.0;
+    other->vars[VAR_xVel] = 0.0f;
+    other->vars[VAR_yVel] = 0.0f;
     if ((!gml_truthy(self->vars[VAR_dying]))) {
-        self->vars[VAR_dying] = 1.0;
-        self->vars[VAR_n] = 0.0;
-        if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 2.0)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 2.0)))) {
-            self->vars[VAR_n] = 5.0;
+        self->vars[VAR_dying] = 1.0f;
+        self->vars[VAR_n] = 0.0f;
+        if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 2.0f)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 2.0f)))) {
+            self->vars[VAR_n] = 5.0f;
             gml_script_playSound(self, other, g_gml_globals.sndCoin);
         } else {
-            if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 6.0)) && gml_le(gml_iget_y(other), (gml_iget_y(self) - 3.0)))) {
-                self->vars[VAR_n] = 3.0;
+            if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 6.0f)) && gml_le(gml_iget_y(other), (gml_iget_y(self) - 3.0f)))) {
+                self->vars[VAR_n] = 3.0f;
             } else {
-                if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) + 3.0)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 6.0)))) {
-                    self->vars[VAR_n] = 3.0;
+                if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) + 3.0f)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 6.0f)))) {
+                    self->vars[VAR_n] = 3.0f;
                 } else {
-                    if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 10.0)) && gml_le(gml_iget_y(other), (gml_iget_y(self) - 7.0)))) {
-                        self->vars[VAR_n] = 2.0;
+                    if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) - 10.0f)) && gml_le(gml_iget_y(other), (gml_iget_y(self) - 7.0f)))) {
+                        self->vars[VAR_n] = 2.0f;
                     } else {
-                        if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) + 7.0)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 10.0)))) {
-                            self->vars[VAR_n] = 2.0;
+                        if ((gml_ge(gml_iget_y(other), (gml_iget_y(self) + 7.0f)) && gml_le(gml_iget_y(other), (gml_iget_y(self) + 10.0f)))) {
+                            self->vars[VAR_n] = 2.0f;
                         } else {
-                            self->vars[VAR_n] = 1.0;
+                            self->vars[VAR_n] = 1.0f;
                         }
                     }
                 }
             }
         }
-        gml_ivar_set(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((double)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_n]));
+        gml_ivar_set(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets, (gml_ivar(gml_deref(((float)OBJ_oMoonRoom), self, other), VAR_baskets) + self->vars[VAR_n]));
         gml_script_playSound(self, other, g_gml_globals.sndHit);
     }
-    if (gml_le(self->vars[VAR_life], 2.0)) {
+    if (gml_le(self->vars[VAR_life], 2.0f)) {
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);

@@ -8,12 +8,12 @@ static void gml_ev_oFlareCrate__Create_0_body(gm_instance_t *self, gm_instance_t
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Flare Crate";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-6.0), 0.0, 6.0, 8.0);
-    gml_iset_image_speed(self, 0.2);
-    gml_iset_alarm(self, 0.0, 1.0);
-    self->vars[VAR_heavy] = 1.0;
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.2;
+    gml_script_setCollisionBounds(self, other, (-6.0f), 0.0f, 6.0f, 8.0f);
+    gml_iset_image_speed(self, 0.2f);
+    gml_iset_alarm(self, 0.0f, 1.0f);
+    self->vars[VAR_heavy] = 1.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.2f;
 }
 
 void gml_ev_oFlareCrate__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,11 +25,11 @@ void gml_ev_oFlareCrate__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oFlareCrate__Alarm_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -37,8 +37,8 @@ static void gml_ev_oFlareCrate__Alarm_0_body(gm_instance_t *self, gm_instance_t 
     (void)t3;
     (void)t4;
     (void)t5;
-    (void)((t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 3.0))), (t2 - gml_script_rand(self, other, 0.0, 3.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) - 4.0), (t3 + gml_script_rand(self, other, 0.0, 3.0))), (t4 - gml_script_rand(self, other, 0.0, 3.0))), ((double)OBJ_oFlareSpark))));
-    gml_iset_alarm(self, 0.0, 2.0);
+    (void)((t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 3.0f))), (t2 - gml_script_rand(self, other, 0.0f, 3.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = (gml_iget_y(self) - 4.0f), (t3 + gml_script_rand(self, other, 0.0f, 3.0f))), (t4 - gml_script_rand(self, other, 0.0f, 3.0f))), ((float)OBJ_oFlareSpark))));
+    gml_iset_alarm(self, 0.0f, 2.0f);
 }
 
 void gml_ev_oFlareCrate__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -55,22 +55,22 @@ static void gml_ev_oFlareCrate__Step_0_body(gm_instance_t *self, gm_instance_t *
     (void)other;
     (void)wd;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oWater), (-1.0), (-1.0)))) {
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oSplash)));
+    if (gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oWater), (-1.0f), (-1.0f)))) {
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oSplash)));
         gml_script_playSound(self, other, g_gml_globals.sndSplash);
         if (gml_truthy(self->vars[VAR_held])) {
             {
                 gm_instance_t *self1;
-                gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+                gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
                 while ((self1 = gm_with_next()) != NULL) {
-                    self1->vars[VAR_holdItem] = 0.0;
+                    self1->vars[VAR_holdItem] = 0.0f;
                     self1->strs[SVAR_pickupItemType] = "";
                 }
                 gm_with_end();
             }
-            self->vars[VAR_held] = 0.0;
+            self->vars[VAR_held] = 0.0f;
         }
-        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oPoof)));
+        (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oPoof)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

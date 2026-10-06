@@ -4,9 +4,9 @@
 gm_value_t gml_script_json2struct(gm_instance_t *self, gm_instance_t *other, int argc, const char *a0)
 {
     const char *l_filepath = "";
-    double l_i = 0.0;
+    float l_i = 0.0f;
     const char *l_data = "";
-    double l_file = 0.0;
+    float l_file = 0.0f;
     const char *s1 = "";
     (void)self;
     (void)other;
@@ -18,7 +18,7 @@ gm_value_t gml_script_json2struct(gm_instance_t *self, gm_instance_t *other, int
     (void)l_file;
     (void)s1;
     l_filepath = a0;
-    l_i = 0.0;
+    l_i = 0.0f;
     l_data = "";
     l_file = gml_fn_file_text_open_read(self, other, l_filepath);
     while ((!gml_truthy(gml_fn_file_text_eof(self, other, l_file)))) {

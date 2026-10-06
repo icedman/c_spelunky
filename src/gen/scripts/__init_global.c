@@ -6,6 +6,6 @@ void gml_script___init_global(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     ((void)0);
-    gml_fn_layer_force_draw_depth(self, other, 1.0, 0.0);
-    gml_fn_draw_set_colour(self, other, (0.0 /* c_black */));
+    gml_fn_layer_force_draw_depth(self, other, 1.0f, 0.0f);
+    gml_fn_draw_set_colour(self, other, (0.0f /* c_black */));
 }

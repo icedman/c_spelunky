@@ -6,7 +6,7 @@ static void gml_ev_oLaserExplode__Create_0_body(gm_instance_t *self, gm_instance
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.8);
+    gml_iset_image_speed(self, 0.8f);
     gml_script_playSound(self, other, g_gml_globals.sndSmallExplode);
 }
 

@@ -11,9 +11,9 @@ static void gml_room_code_rHighscores_body(gm_instance_t *self, gm_instance_t *o
     if ((!gml_truthy(gml_fn_file_exists(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("reset_sign.png"))))))) {
         l_localizedImagesDir = gml_vs(gml_concat(gml_gget_working_directory(), "locale/en/images/"));
     }
-    if (gml_truthy(gml_fn_instance_exists(self, other, ((double)OBJ_oResetSign)))) {
-        self->vars[VAR_sResetSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("reset_sign.png"))), 1.0, 0.0, 0.0, 0.0, 0.0);
-        gml_iset_sprite_index(gml_deref(((double)OBJ_oResetSign), self, other), self->vars[VAR_sResetSignNew]);
+    if (gml_truthy(gml_fn_instance_exists(self, other, ((float)OBJ_oResetSign)))) {
+        self->vars[VAR_sResetSignNew] = gml_fn_sprite_add(self, other, gml_as_str(gml_add(l_localizedImagesDir, gml_vs("reset_sign.png"))), 1.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        gml_iset_sprite_index(gml_deref(((float)OBJ_oResetSign), self, other), self->vars[VAR_sResetSignNew]);
     }
 }
 

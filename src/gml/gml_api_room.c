@@ -11,12 +11,12 @@
 
 #include <string.h>
 
-static double b2r(bool b)
+static float b2r(bool b)
 {
-    return b ? 1.0 : 0.0;
+    return b ? 1.0f : 0.0f;
 }
 
-static int i32(double d)
+static int i32(float d)
 {
     return (int)gm_to_int32(d);
 }
@@ -37,14 +37,14 @@ static gm_value_t real_array(const int *items, int n)
     int i;
 
     for (i = 0; i < n && gm_array_valid(a); ++i) {
-        gm_array_set(&a, i, gm_value_real((double)items[i]));
+        gm_array_set(&a, i, gm_value_real((float)items[i]));
     }
     return a;
 }
 
 /* ------------------------------------------------------------------ rooms */
 
-void gml_fn_room_goto(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_room_goto(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -65,36 +65,36 @@ void gml_fn_room_restart(gm_instance_t *self, gm_instance_t *other)
     gm_room_restart();
 }
 
-double gml_fn_room_exists(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_room_exists(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return b2r(gm_room_exists(i32(a0)));
 }
 
-const char *gml_fn_room_get_name(gm_instance_t *self, gm_instance_t *other, double a0)
+const char *gml_fn_room_get_name(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return gm_room_get_name(i32(a0)); /* static table strings */
 }
 
-double gml_fn_room_get_camera(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_room_get_camera(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
-    return (double)gm_view_room_camera(i32(a0), i32(a1));
+    return (float)gm_view_room_camera(i32(a0), i32(a1));
 }
 
-void gml_fn_room_set_camera(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+void gml_fn_room_set_camera(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)self;
     (void)other;
     gm_view_room_set_camera(i32(a0), i32(a1), i32(a2));
 }
 
-void gml_fn_room_set_viewport(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2,
-                              double a3, double a4, double a5, double a6)
+void gml_fn_room_set_viewport(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2,
+                              float a3, float a4, float a5, float a6)
 {
     (void)self;
     (void)other;
@@ -102,62 +102,62 @@ void gml_fn_room_set_viewport(gm_instance_t *self, gm_instance_t *other, double 
 }
 
 /* room (get_current_room / set_current_room = room_goto, yyBuiltIn.js L194). */
-double gml_gget_room(void)
+float gml_gget_room(void)
 {
-    return (double)gm_room_current();
+    return (float)gm_room_current();
 }
 
-void gml_gset_room(double v)
+void gml_gset_room(float v)
 {
     (void)gm_room_goto(i32(v));
 }
 
-double gml_gget_room_first(void)
+float gml_gget_room_first(void)
 {
-    return (double)gm_room_first();
+    return (float)gm_room_first();
 }
 
-double gml_gget_room_last(void)
+float gml_gget_room_last(void)
 {
-    return (double)gm_room_last();
+    return (float)gm_room_last();
 }
 
-double gml_gget_room_width(void)
+float gml_gget_room_width(void)
 {
     return gm_room_width();
 }
 
-void gml_gset_room_width(double v)
+void gml_gset_room_width(float v)
 {
     gm_room_set_width(v);
 }
 
-double gml_gget_room_height(void)
+float gml_gget_room_height(void)
 {
     return gm_room_height();
 }
 
-void gml_gset_room_height(double v)
+void gml_gset_room_height(float v)
 {
     gm_room_set_height(v);
 }
 
-double gml_gget_room_speed(void)
+float gml_gget_room_speed(void)
 {
     return gm_room_speed();
 }
 
-void gml_gset_room_speed(double v)
+void gml_gset_room_speed(float v)
 {
     gm_room_set_speed(v);
 }
 
-double gml_gget_room_persistent(void)
+float gml_gget_room_persistent(void)
 {
     return b2r(gm_room_persistent());
 }
 
-void gml_gset_room_persistent(double v)
+void gml_gset_room_persistent(float v)
 {
     gm_room_set_persistent(gml_truthy(v) != 0);
 }
@@ -174,27 +174,27 @@ void gml_gset_room_caption(const char *v)
 
 /* ------------------------------------------------------------------ views */
 
-double gml_gget_view_enabled(void)
+float gml_gget_view_enabled(void)
 {
     return b2r(gm_view_enabled());
 }
 
-void gml_gset_view_enabled(double v)
+void gml_gset_view_enabled(float v)
 {
     gm_view_set_enabled(gml_truthy(v) != 0);
 }
 
-double gml_gget_view_current(void)
+float gml_gget_view_current(void)
 {
-    return (double)gm_view_current(); /* set while gm_loop draws each view */
+    return (float)gm_view_current(); /* set while gm_loop draws each view */
 }
 
 #define VIEW_ARRAY(name, field)                                  \
-    double gml_gget_##name(double i)                             \
+    float gml_gget_##name(float i)                             \
     {                                                            \
         return gm_view_get(field, i32(i));                       \
     }                                                            \
-    void gml_gset_##name(double i, double v)                     \
+    void gml_gset_##name(float i, float v)                     \
     {                                                            \
         gm_view_set(field, i32(i), v);                           \
     }
@@ -219,18 +219,18 @@ VIEW_ARRAY(view_camera, GM_VIEW_CAMERA)
 
 /* view_get_* / view_set_* read and write the arrays, with yyGetInt32 on writes. */
 #define VIEW_GETSET(suffix, field)                                                         \
-    double gml_fn_view_get_##suffix(gm_instance_t *self, gm_instance_t *other, double a0)  \
+    float gml_fn_view_get_##suffix(gm_instance_t *self, gm_instance_t *other, float a0)  \
     {                                                                                      \
         (void)self;                                                                        \
         (void)other;                                                                       \
         return gm_view_get(field, i32(a0));                                                \
     }                                                                                      \
-    void gml_fn_view_set_##suffix(gm_instance_t *self, gm_instance_t *other, double a0,    \
-                                  double a1)                                               \
+    void gml_fn_view_set_##suffix(gm_instance_t *self, gm_instance_t *other, float a0,    \
+                                  float a1)                                               \
     {                                                                                      \
         (void)self;                                                                        \
         (void)other;                                                                       \
-        gm_view_set(field, i32(a0), (double)i32(a1));                                      \
+        gm_view_set(field, i32(a0), (float)i32(a1));                                      \
     }
 
 VIEW_GETSET(camera, GM_VIEW_CAMERA)
@@ -244,9 +244,9 @@ VIEW_GETSET(surface_id, GM_VIEW_SURFACE_ID)
 /* ------------------------------------------------------------------ cameras */
 
 /* camera_create_view(x, y, w, h [, angle, target, speedx, speedy, borderx, bordery]). */
-double gml_fn_camera_create_view(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_fn_camera_create_view(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
-    double a[10] = { 0, 0, 0, 0, 0, -1, -1, -1, 0, 0 };
+    float a[10] = { 0, 0, 0, 0, 0, -1, -1, -1, 0, 0 };
     int i;
 
     (void)self;
@@ -254,10 +254,10 @@ double gml_fn_camera_create_view(gm_instance_t *self, gm_instance_t *other, int 
     for (i = 0; i < argc && i < 10; ++i) {
         a[i] = gm_value_to_real(argv[i]);
     }
-    return (double)gm_camera_create_view(a[0], a[1], a[2], a[3], a[4], i32(a[5]), a[6], a[7], a[8], a[9]);
+    return (float)gm_camera_create_view(a[0], a[1], a[2], a[3], a[4], i32(a[5]), a[6], a[7], a[8], a[9]);
 }
 
-void gml_fn_camera_destroy(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_camera_destroy(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -265,12 +265,12 @@ void gml_fn_camera_destroy(gm_instance_t *self, gm_instance_t *other, double a0)
 }
 
 #define CAMERA_GET(suffix, expr)                                                            \
-    double gml_fn_camera_get_view_##suffix(gm_instance_t *self, gm_instance_t *other, double a0) \
+    float gml_fn_camera_get_view_##suffix(gm_instance_t *self, gm_instance_t *other, float a0) \
     {                                                                                       \
         const gm_camera_t *c = gm_camera_get(i32(a0));                                      \
         (void)self;                                                                         \
         (void)other;                                                                        \
-        return c != NULL ? (expr) : -1.0;                                                   \
+        return c != NULL ? (expr) : -1.0f;                                                   \
     }
 
 CAMERA_GET(x, c->x)
@@ -282,11 +282,11 @@ CAMERA_GET(border_x, c->border_x)
 CAMERA_GET(border_y, c->border_y)
 CAMERA_GET(speed_x, c->speed_x)
 CAMERA_GET(speed_y, c->speed_y)
-CAMERA_GET(target, (double)c->target)
+CAMERA_GET(target, (float)c->target)
 
 #define CAMERA_SET2(suffix, fa, fb)                                                          \
-    void gml_fn_camera_set_view_##suffix(gm_instance_t *self, gm_instance_t *other, double a0, \
-                                         double a1, double a2)                               \
+    void gml_fn_camera_set_view_##suffix(gm_instance_t *self, gm_instance_t *other, float a0, \
+                                         float a1, float a2)                               \
     {                                                                                        \
         gm_camera_t *c = gm_camera_get(i32(a0));                                             \
         (void)self;                                                                          \
@@ -302,7 +302,7 @@ CAMERA_SET2(size, w, h)
 CAMERA_SET2(border, border_x, border_y)
 CAMERA_SET2(speed, speed_x, speed_y)
 
-void gml_fn_camera_set_view_angle(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+void gml_fn_camera_set_view_angle(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     gm_camera_t *c = gm_camera_get(i32(a0));
 
@@ -313,7 +313,7 @@ void gml_fn_camera_set_view_angle(gm_instance_t *self, gm_instance_t *other, dou
     }
 }
 
-void gml_fn_camera_set_view_target(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+void gml_fn_camera_set_view_target(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     gm_camera_t *c = gm_camera_get(i32(a0));
 
@@ -327,14 +327,14 @@ void gml_fn_camera_set_view_target(gm_instance_t *self, gm_instance_t *other, do
 /* ------------------------------------------------------------------ layers */
 
 /* layer_create(depth [, name]) */
-double gml_fn_layer_create(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
+float gml_fn_layer_create(gm_instance_t *self, gm_instance_t *other, int argc, const gm_value_t *argv)
 {
     (void)self;
     (void)other;
     if (argc < 1) {
-        return -1.0;
+        return -1.0f;
     }
-    return (double)gm_layer_create(i32(gm_value_to_real(argv[0])),
+    return (float)gm_layer_create(i32(gm_value_to_real(argv[0])),
                                    argc >= 2 ? gml_as_str(argv[1]) : NULL);
 }
 
@@ -349,7 +349,7 @@ void gml_fn_layer_destroy(gm_instance_t *self, gm_instance_t *other, gm_value_t 
     }
 }
 
-void gml_fn_layer_depth(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1)
+void gml_fn_layer_depth(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1)
 {
     gm_layer_t *l = layer_of(a0);
 
@@ -360,13 +360,13 @@ void gml_fn_layer_depth(gm_instance_t *self, gm_instance_t *other, gm_value_t a0
     }
 }
 
-double gml_fn_layer_get_depth(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)
+float gml_fn_layer_get_depth(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)
 {
     gm_layer_t *l = layer_of(a0);
 
     (void)self;
     (void)other;
-    return l != NULL ? (double)l->depth : -1.0;
+    return l != NULL ? (float)l->depth : -1.0f;
 }
 
 const char *gml_fn_layer_get_name(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)
@@ -397,23 +397,23 @@ gm_value_t gml_fn_layer_get_all_elements(gm_instance_t *self, gm_instance_t *oth
     return real_array(ids, l != NULL ? gm_layer_elements(l->id, ids, GM_ELEMENT_MAX) : 0);
 }
 
-double gml_fn_layer_get_element_type(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_layer_get_element_type(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
-    return (double)gm_layer_element_type(i32(a0));
+    return (float)gm_layer_element_type(i32(a0));
 }
 
-double gml_fn_layer_get_visible(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)
+float gml_fn_layer_get_visible(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)
 {
     gm_layer_t *l = layer_of(a0);
 
     (void)self;
     (void)other;
-    return l != NULL ? b2r(l->visible) : 0.0;
+    return l != NULL ? b2r(l->visible) : 0.0f;
 }
 
-void gml_fn_layer_set_visible(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1)
+void gml_fn_layer_set_visible(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1)
 {
     gm_layer_t *l = layer_of(a0);
 
@@ -425,14 +425,14 @@ void gml_fn_layer_set_visible(gm_instance_t *self, gm_instance_t *other, gm_valu
 }
 
 #define LAYER_FIELD(getter, setter, field)                                                  \
-    double gml_fn_##getter(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)        \
+    float gml_fn_##getter(gm_instance_t *self, gm_instance_t *other, gm_value_t a0)        \
     {                                                                                       \
         gm_layer_t *l = layer_of(a0);                                                       \
         (void)self;                                                                         \
         (void)other;                                                                        \
-        return l != NULL ? l->field : 0.0;                                                  \
+        return l != NULL ? l->field : 0.0f;                                                  \
     }                                                                                       \
-    void gml_fn_##setter(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1) \
+    void gml_fn_##setter(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1) \
     {                                                                                       \
         gm_layer_t *l = layer_of(a0);                                                       \
         (void)self;                                                                         \
@@ -450,22 +450,22 @@ LAYER_FIELD(layer_get_vspeed, layer_vspeed, vspeed)
 /* ------------------------------------------------------------------ backgrounds */
 
 /* layerBackgroudGetElement (Function_Layers.js L2721). */
-static gm_element_t *background(double id)
+static gm_element_t *background(float id)
 {
     gm_element_t *e = gm_layer_element(i32(id));
     return (e != NULL && e->type == GM_ELEMENT_BACKGROUND) ? e : NULL;
 }
 
-double gml_fn_layer_background_create(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1)
+float gml_fn_layer_background_create(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1)
 {
     gm_layer_t *l = layer_of(a0);
 
     (void)self;
     (void)other;
-    return l != NULL ? (double)gm_layer_background_create(l->id, i32(a1)) : -1.0;
+    return l != NULL ? (float)gm_layer_background_create(l->id, i32(a1)) : -1.0f;
 }
 
-double gml_fn_layer_background_exists(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1)
+float gml_fn_layer_background_exists(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1)
 {
     gm_layer_t *l = layer_of(a0);
 
@@ -474,7 +474,7 @@ double gml_fn_layer_background_exists(gm_instance_t *self, gm_instance_t *other,
     return b2r(l != NULL && gm_layer_background_exists(l->id, i32(a1)));
 }
 
-void gml_fn_layer_background_change(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+void gml_fn_layer_background_change(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     gm_element_t *e = background(a0);
 
@@ -486,8 +486,8 @@ void gml_fn_layer_background_change(gm_instance_t *self, gm_instance_t *other, d
 }
 
 #define BG_GET(suffix, expr, missing)                                                        \
-    double gml_fn_layer_background_get_##suffix(gm_instance_t *self, gm_instance_t *other,   \
-                                                 double a0)                                  \
+    float gml_fn_layer_background_get_##suffix(gm_instance_t *self, gm_instance_t *other,   \
+                                                 float a0)                                  \
     {                                                                                        \
         const gm_element_t *e = background(a0);                                              \
         (void)self;                                                                          \
@@ -495,19 +495,19 @@ void gml_fn_layer_background_change(gm_instance_t *self, gm_instance_t *other, d
         return e != NULL ? (expr) : (missing);                                               \
     }
 
-BG_GET(sprite, (double)e->sprite, -1.0)
-BG_GET(index, e->image_index, -1.0)
-BG_GET(alpha, e->alpha, 0.0)
-BG_GET(blend, (double)e->blend, 0.0)
-BG_GET(htiled, b2r(e->htiled), 0.0)
-BG_GET(vtiled, b2r(e->vtiled), 0.0)
-BG_GET(stretch, b2r(e->stretch), 0.0)
-BG_GET(xscale, e->xscale, 1.0)
-BG_GET(yscale, e->yscale, 1.0)
+BG_GET(sprite, (float)e->sprite, -1.0f)
+BG_GET(index, e->image_index, -1.0f)
+BG_GET(alpha, e->alpha, 0.0f)
+BG_GET(blend, (float)e->blend, 0.0f)
+BG_GET(htiled, b2r(e->htiled), 0.0f)
+BG_GET(vtiled, b2r(e->vtiled), 0.0f)
+BG_GET(stretch, b2r(e->stretch), 0.0f)
+BG_GET(xscale, e->xscale, 1.0f)
+BG_GET(yscale, e->yscale, 1.0f)
 
 #define BG_SET(suffix, stmt)                                                                 \
     void gml_fn_layer_background_##suffix(gm_instance_t *self, gm_instance_t *other,         \
-                                          double a0, double a1)                              \
+                                          float a0, float a1)                              \
     {                                                                                        \
         gm_element_t *e = background(a0);                                                    \
         (void)self;                                                                          \
@@ -528,34 +528,34 @@ BG_SET(yscale, e->yscale = a1)
 
 /* ------------------------------------------------------------------ tiles */
 
-static gm_element_t *tile(double id)
+static gm_element_t *tile(float id)
 {
     gm_element_t *e = gm_layer_element(i32(id));
     return (e != NULL && e->type == GM_ELEMENT_TILE) ? e : NULL;
 }
 
 /* layer_tile_create(layer, x, y, sprite, left, top, width, height) (L5057). */
-double gml_fn_layer_tile_create(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, double a1, double a2,
-                                double a3, double a4, double a5, double a6, double a7)
+float gml_fn_layer_tile_create(gm_instance_t *self, gm_instance_t *other, gm_value_t a0, float a1, float a2,
+                                float a3, float a4, float a5, float a6, float a7)
 {
     gm_layer_t *l = layer_of(a0);
 
     (void)self;
     (void)other;
     if (l == NULL) {
-        return 0.0; /* the runner returns undefined */
+        return 0.0f; /* the runner returns undefined */
     }
-    return (double)gm_layer_tile_create(l->id, a1, a2, i32(a3), i32(a4), i32(a5), i32(a6), i32(a7));
+    return (float)gm_layer_tile_create(l->id, a1, a2, i32(a3), i32(a4), i32(a5), i32(a6), i32(a7));
 }
 
-void gml_fn_layer_tile_destroy(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_layer_tile_destroy(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_layer_element_destroy(i32(a0));
 }
 
-gm_value_t gml_fn_layer_tile_get_region(gm_instance_t *self, gm_instance_t *other, double a0)
+gm_value_t gml_fn_layer_tile_get_region(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     const gm_element_t *e = tile(a0);
     int region[4];
@@ -563,7 +563,7 @@ gm_value_t gml_fn_layer_tile_get_region(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     if (e == NULL) {
-        return gm_value_real(-1.0);
+        return gm_value_real(-1.0f);
     }
     region[0] = e->xo;
     region[1] = e->yo;
@@ -573,7 +573,7 @@ gm_value_t gml_fn_layer_tile_get_region(gm_instance_t *self, gm_instance_t *othe
 }
 
 #define TILE_GET(suffix, field, missing)                                                     \
-    double gml_fn_layer_tile_get_##suffix(gm_instance_t *self, gm_instance_t *other, double a0) \
+    float gml_fn_layer_tile_get_##suffix(gm_instance_t *self, gm_instance_t *other, float a0) \
     {                                                                                        \
         const gm_element_t *e = tile(a0);                                                    \
         (void)self;                                                                          \
@@ -581,7 +581,7 @@ gm_value_t gml_fn_layer_tile_get_region(gm_instance_t *self, gm_instance_t *othe
         return e != NULL ? e->field : (missing);                                             \
     }
 
-TILE_GET(x, x, 0.0)
-TILE_GET(y, y, 0.0)
-TILE_GET(xscale, xscale, 1.0)
-TILE_GET(yscale, yscale, 1.0)
+TILE_GET(x, x, 0.0f)
+TILE_GET(y, y, 0.0f)
+TILE_GET(xscale, xscale, 1.0f)
+TILE_GET(yscale, yscale, 1.0f)

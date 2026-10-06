@@ -8,7 +8,7 @@ static void gml_ev_oRopeBag__Create_0_body(gm_instance_t *self, gm_instance_t *o
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Bomb Bag";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-6.0), 4.0, 6.0);
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-6.0f), 4.0f, 6.0f);
 }
 
 void gml_ev_oRopeBag__Create_0(gm_instance_t *self, gm_instance_t *other)

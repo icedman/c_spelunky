@@ -5,7 +5,7 @@ static void gml_ev_oButtonHighscore__Create_0_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    self->vars[VAR_pushed] = 0.0;
+    self->vars[VAR_pushed] = 0.0f;
 }
 
 void gml_ev_oButtonHighscore__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,27 +21,27 @@ static void gml_ev_oButtonHighscore__Step_0_body(gm_instance_t *self, gm_instanc
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 2.0), (gml_iget_y(self) + 11.0), (gml_iget_x(self) + 13.0), (gml_iget_y(self) + 15.0), ((double)OBJ_oSolid), 0.0, 0.0))) {
+    if (gml_truthy(gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 2.0f), (gml_iget_y(self) + 11.0f), (gml_iget_x(self) + 13.0f), (gml_iget_y(self) + 15.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
         if ((!gml_truthy(self->vars[VAR_pushed]))) {
-            self->vars[VAR_counter] = 20.0;
+            self->vars[VAR_counter] = 20.0f;
             gml_script_playSound(self, other, g_gml_globals.sndClick);
         }
-        self->vars[VAR_pushed] = 1.0;
+        self->vars[VAR_pushed] = 1.0f;
     } else {
-        self->vars[VAR_pushed] = 0.0;
+        self->vars[VAR_pushed] = 0.0f;
     }
     if (gml_truthy(self->vars[VAR_pushed])) {
-        if (gml_gt(self->vars[VAR_counter], 0.0)) {
-            self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+        if (gml_gt(self->vars[VAR_counter], 0.0f)) {
+            self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
         }
-        if (gml_eq(self->vars[VAR_counter], 1.0)) {
+        if (gml_eq(self->vars[VAR_counter], 1.0f)) {
             gml_script_scrResetHighscores(self, other);
-            g_gml_globals.shake = 60.0;
+            g_gml_globals.shake = 60.0f;
             gml_script_playSound(self, other, g_gml_globals.sndThump);
         }
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oTrophy)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oTrophy)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
@@ -49,7 +49,7 @@ static void gml_ev_oButtonHighscore__Step_0_body(gm_instance_t *self, gm_instanc
         }
         {
             gm_instance_t *self2;
-            gm_with_begin(gml_target(((double)OBJ_oXSun)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oXSun)), self, other);
             while ((self2 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self2, self, 0, NULL);
             }
@@ -57,7 +57,7 @@ static void gml_ev_oButtonHighscore__Step_0_body(gm_instance_t *self, gm_instanc
         }
         {
             gm_instance_t *self3;
-            gm_with_begin(gml_target(((double)OBJ_oXMoon)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oXMoon)), self, other);
             while ((self3 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self3, self, 0, NULL);
             }
@@ -65,7 +65,7 @@ static void gml_ev_oButtonHighscore__Step_0_body(gm_instance_t *self, gm_instanc
         }
         {
             gm_instance_t *self4;
-            gm_with_begin(gml_target(((double)OBJ_oXStars)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oXStars)), self, other);
             while ((self4 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self4, self, 0, NULL);
             }
@@ -73,19 +73,19 @@ static void gml_ev_oButtonHighscore__Step_0_body(gm_instance_t *self, gm_instanc
         }
         {
             gm_instance_t *self5;
-            gm_with_begin(gml_target(((double)OBJ_oXChange)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oXChange)), self, other);
             while ((self5 = gm_with_next()) != NULL) {
                 gml_fn_instance_destroy(self5, self, 0, NULL);
             }
             gm_with_end();
         }
-        gml_iset_sprite_index(self, ((double)SPR_sButtonPushed));
-        gml_ivar_set(gml_deref(((double)OBJ_oHighscores), self, other), VAR_tMoney, 0.0);
-        gml_ivar_set(gml_deref(((double)OBJ_oHighscores), self, other), VAR_tTime, 0.0);
-        gml_ivar_set(gml_deref(((double)OBJ_oHighscores), self, other), VAR_tKills, 0.0);
-        gml_ivar_set(gml_deref(((double)OBJ_oHighscores), self, other), VAR_tSaves, 0.0);
+        gml_iset_sprite_index(self, ((float)SPR_sButtonPushed));
+        gml_ivar_set(gml_deref(((float)OBJ_oHighscores), self, other), VAR_tMoney, 0.0f);
+        gml_ivar_set(gml_deref(((float)OBJ_oHighscores), self, other), VAR_tTime, 0.0f);
+        gml_ivar_set(gml_deref(((float)OBJ_oHighscores), self, other), VAR_tKills, 0.0f);
+        gml_ivar_set(gml_deref(((float)OBJ_oHighscores), self, other), VAR_tSaves, 0.0f);
     } else {
-        gml_iset_sprite_index(self, ((double)SPR_sButton));
+        gml_iset_sprite_index(self, ((float)SPR_sButton));
     }
 }
 

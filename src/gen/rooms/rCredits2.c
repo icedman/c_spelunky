@@ -5,8 +5,8 @@ static void gml_inst_code_rCredits2__inst_1B6DC2F6_body(gm_instance_t *self, gm_
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xOff] = 320.0;
-    gml_iset_x(self, 320.0);
+    self->vars[VAR_xOff] = 320.0f;
+    gml_iset_x(self, 320.0f);
 }
 
 void gml_inst_code_rCredits2__inst_1B6DC2F6(gm_instance_t *self, gm_instance_t *other)

@@ -7,29 +7,29 @@ static void gml_ev_oMagmaMan__Create_0_body(gm_instance_t *self, gm_instance_t *
     (void)other;
     gml_script_action_inherited(self, other);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, 2.0, 0.0, (gml_iget_sprite_width(self) - 2.0), gml_iget_sprite_height(self));
-    self->vars[VAR_xVel] = 2.5;
-    gml_iset_image_speed(self, 0.5);
+    gml_script_setCollisionBounds(self, other, 2.0f, 0.0f, (gml_iget_sprite_width(self) - 2.0f), gml_iget_sprite_height(self));
+    self->vars[VAR_xVel] = 2.5f;
+    gml_iset_image_speed(self, 0.5f);
     self->strs[SVAR_type] = "Magma Man";
-    self->vars[VAR_hp] = 200.0;
-    self->vars[VAR_invincible] = 0.0;
-    self->vars[VAR_IDLE] = 0.0;
-    self->vars[VAR_WALK] = 1.0;
-    self->vars[VAR_ATTACK] = 2.0;
-    self->vars[VAR_THROW] = 3.0;
-    self->vars[VAR_STUNNED] = 98.0;
-    self->vars[VAR_DEAD] = 99.0;
+    self->vars[VAR_hp] = 200.0f;
+    self->vars[VAR_invincible] = 0.0f;
+    self->vars[VAR_IDLE] = 0.0f;
+    self->vars[VAR_WALK] = 1.0f;
+    self->vars[VAR_ATTACK] = 2.0f;
+    self->vars[VAR_THROW] = 3.0f;
+    self->vars[VAR_STUNNED] = 98.0f;
+    self->vars[VAR_DEAD] = 99.0f;
     self->vars[VAR_status] = self->vars[VAR_IDLE];
-    self->vars[VAR_whipped] = 0.0;
-    self->vars[VAR_bounced] = 0.0;
-    self->vars[VAR_dead] = 0.0;
-    self->vars[VAR_counter] = 0.0;
-    self->vars[VAR_sightCounter] = 0.0;
-    self->vars[VAR_LEFT] = 0.0;
-    self->vars[VAR_RIGHT] = 1.0;
+    self->vars[VAR_whipped] = 0.0f;
+    self->vars[VAR_bounced] = 0.0f;
+    self->vars[VAR_dead] = 0.0f;
+    self->vars[VAR_counter] = 0.0f;
+    self->vars[VAR_sightCounter] = 0.0f;
+    self->vars[VAR_LEFT] = 0.0f;
+    self->vars[VAR_RIGHT] = 1.0f;
     self->vars[VAR_facing] = self->vars[VAR_RIGHT];
-    self->vars[VAR_shakeCounter] = 0.0;
-    self->vars[VAR_shakeToggle] = 1.0;
+    self->vars[VAR_shakeCounter] = 0.0f;
+    self->vars[VAR_shakeToggle] = 1.0f;
 }
 
 void gml_ev_oMagmaMan__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -43,7 +43,7 @@ static void gml_ev_oMagmaMan__Alarm_0_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    self->vars[VAR_whipped] = 0.0;
+    self->vars[VAR_whipped] = 0.0f;
 }
 
 void gml_ev_oMagmaMan__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -55,56 +55,56 @@ void gml_ev_oMagmaMan__Alarm_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oMagmaMan__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     (void)t2;
     (void)t3;
-    if (gml_gt(self->vars[VAR_hp], 0.0)) {
-        self->vars[VAR_hp] = (self->vars[VAR_hp] - 1.0);
+    if (gml_gt(self->vars[VAR_hp], 0.0f)) {
+        self->vars[VAR_hp] = (self->vars[VAR_hp] - 1.0f);
     }
-    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oSolid), 0.0, 0.0)) || gml_lt(self->vars[VAR_hp], 1.0))) {
-        self->vars[VAR_xVel] = 0.0;
-        self->vars[VAR_yVel] = 0.0;
+    if ((gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)) || gml_lt(self->vars[VAR_hp], 1.0f))) {
+        self->vars[VAR_xVel] = 0.0f;
+        self->vars[VAR_yVel] = 0.0f;
         self->vars[VAR_status] = self->vars[VAR_DEAD];
-        gml_iset_sprite_index(self, ((double)SPR_sMagmaManDie));
+        gml_iset_sprite_index(self, ((float)SPR_sMagmaManDie));
     }
     self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
     if (gml_gt(self->vars[VAR_yVel], self->vars[VAR_yVelLimit])) {
         self->vars[VAR_yVel] = self->vars[VAR_yVelLimit];
     }
-    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-        self->vars[VAR_yVel] = 0.0;
+    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+        self->vars[VAR_yVel] = 0.0f;
     } else {
-        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oMagma)));
+        (void)(gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oMagma)));
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
-    if (gml_eq(gml_script_rand(self, other, 1.0, 20.0), 1.0)) {
-        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 4.0, 12.0))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 4.0, 12.0))), ((double)OBJ_oBurn))));
+    if (gml_eq(gml_script_rand(self, other, 1.0f, 20.0f), 1.0f)) {
+        (void)((t3 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 4.0f, 12.0f))), gml_script_instance_create(self, other, t3, (t2 = gml_iget_y(self), (t2 + gml_script_rand(self, other, 4.0f, 12.0f))), ((float)OBJ_oBurn))));
     }
-    self->vars[VAR_burning] = (self->vars[VAR_burning] - 1.0);
+    self->vars[VAR_burning] = (self->vars[VAR_burning] - 1.0f);
     if (gml_eq(self->vars[VAR_status], self->vars[VAR_IDLE])) {
-        if ((gml_lt(self->vars[VAR_yVel], 0.0) && gml_truthy(gml_script_isCollisionTop(self, other, 1.0)))) {
-            self->vars[VAR_yVel] = 0.0;
+        if ((gml_lt(self->vars[VAR_yVel], 0.0f) && gml_truthy(gml_script_isCollisionTop(self, other, 1.0f)))) {
+            self->vars[VAR_yVel] = 0.0f;
         }
-        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0)) && gml_gt(self->vars[VAR_counter], 0.0))) {
-            self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0);
+        if ((gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f)) && gml_gt(self->vars[VAR_counter], 0.0f))) {
+            self->vars[VAR_counter] = (self->vars[VAR_counter] - 1.0f);
         }
-        if (gml_lt(self->vars[VAR_counter], 1.0)) {
-            self->vars[VAR_facing] = gml_script_rand(self, other, 0.0, 1.0);
+        if (gml_lt(self->vars[VAR_counter], 1.0f)) {
+            self->vars[VAR_facing] = gml_script_rand(self, other, 0.0f, 1.0f);
             self->vars[VAR_status] = self->vars[VAR_WALK];
-            if (gml_eq(gml_script_rand(self, other, 1.0, 6.0), 1.0)) {
-                self->vars[VAR_magma] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 8.0), ((double)OBJ_oMagma));
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 6.0f), 1.0f)) {
+                self->vars[VAR_magma] = gml_script_instance_create(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 8.0f), ((float)OBJ_oMagma));
                 gml_ivar_set(gml_deref(self->vars[VAR_magma], self, other), VAR_hp, self->vars[VAR_hp]);
                 gml_fn_instance_destroy(self, other, 0, NULL);
             }
         }
     } else {
         if (gml_eq(self->vars[VAR_status], self->vars[VAR_WALK])) {
-            if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0)))) {
+            if ((gml_truthy(gml_script_isCollisionLeft(self, other, 1.0f)) || gml_truthy(gml_script_isCollisionRight(self, other, 1.0f)))) {
                 if (gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT])) {
                     self->vars[VAR_facing] = self->vars[VAR_RIGHT];
                 } else {
@@ -112,36 +112,36 @@ static void gml_ev_oMagmaMan__Step_0_body(gm_instance_t *self, gm_instance_t *ot
                 }
             }
             if (gml_eq(self->vars[VAR_facing], self->vars[VAR_LEFT])) {
-                self->vars[VAR_xVel] = (-1.5);
-                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0))))) {
+                self->vars[VAR_xVel] = (-1.5f);
+                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) - 1.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f))))) {
                     self->vars[VAR_status] = self->vars[VAR_IDLE];
-                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0, 50.0);
-                    self->vars[VAR_xVel] = 0.0;
+                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0f, 50.0f);
+                    self->vars[VAR_xVel] = 0.0f;
                 }
             } else {
-                self->vars[VAR_xVel] = 1.5;
-                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), (-1.0), (-1.0))))) {
+                self->vars[VAR_xVel] = 1.5f;
+                if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 16.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), (-1.0f), (-1.0f))))) {
                     self->vars[VAR_status] = self->vars[VAR_IDLE];
-                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0, 50.0);
-                    self->vars[VAR_xVel] = 0.0;
+                    self->vars[VAR_counter] = gml_script_rand(self, other, 20.0f, 50.0f);
+                    self->vars[VAR_xVel] = 0.0f;
                 }
             }
-            if (gml_eq(gml_script_rand(self, other, 1.0, 100.0), 1.0)) {
+            if (gml_eq(gml_script_rand(self, other, 1.0f, 100.0f), 1.0f)) {
                 self->vars[VAR_status] = self->vars[VAR_IDLE];
-                self->vars[VAR_counter] = gml_script_rand(self, other, 20.0, 50.0);
-                self->vars[VAR_xVel] = 0.0;
+                self->vars[VAR_counter] = gml_script_rand(self, other, 20.0f, 50.0f);
+                self->vars[VAR_xVel] = 0.0f;
             }
         }
     }
     gml_script_moveTo(self, other, self->vars[VAR_xVel], self->vars[VAR_yVel]);
     if (gml_truthy(gml_script_isCollisionSolid(self, other))) {
-        gml_iset_y(self, (gml_iget_y(self) - 2.0));
+        gml_iset_y(self, (gml_iget_y(self) - 2.0f));
     }
     if ((gml_lt(self->vars[VAR_status], self->vars[VAR_STUNNED]) && gml_ne(self->vars[VAR_status], self->vars[VAR_THROW]))) {
-        if (gml_gt(fabs(self->vars[VAR_xVel]), 0.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sMagmaManWalkL));
+        if (gml_gt(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sMagmaManWalkL));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sMagmaManLeft));
+            gml_iset_sprite_index(self, ((float)SPR_sMagmaManLeft));
         }
     }
 }
@@ -159,29 +159,29 @@ static void gml_ev_oMagmaMan__Collision_oBomb_body(gm_instance_t *self, gm_insta
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_ne(gml_iget_sprite_index(other), ((double)SPR_sBombArmed))) {
+    if (gml_ne(gml_iget_sprite_index(other), ((float)SPR_sBombArmed))) {
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                gml_iset_sprite_index(self1, ((double)SPR_sBombArmed));
-                gml_iset_image_speed(self1, 1.0);
-                gml_iset_alarm(self1, 1.0, gml_script_rand(self1, self, 8.0, 12.0));
+                gml_iset_sprite_index(self1, ((float)SPR_sBombArmed));
+                gml_iset_image_speed(self1, 1.0f);
+                gml_iset_alarm(self1, 1.0f, gml_script_rand(self1, self, 8.0f, 12.0f));
             }
             gm_with_end();
         }
     }
     if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-        other->vars[VAR_xVel] = (-gml_script_rand(self, other, 2.0, 4.0));
+        other->vars[VAR_xVel] = (-gml_script_rand(self, other, 2.0f, 4.0f));
     } else {
-        other->vars[VAR_xVel] = gml_script_rand(self, other, 2.0, 4.0);
+        other->vars[VAR_xVel] = gml_script_rand(self, other, 2.0f, 4.0f);
     }
     if (gml_lt(gml_iget_y(other), gml_iget_y(self))) {
-        other->vars[VAR_yVel] = (-gml_script_rand(self, other, 2.0, 4.0));
+        other->vars[VAR_yVel] = (-gml_script_rand(self, other, 2.0f, 4.0f));
     }
     if (gml_truthy(other->vars[VAR_held])) {
-        if (gml_truthy(((double)OBJ_oCharacter))) {
-            gml_ivar_set(gml_deref(((double)OBJ_oCharacter), self, other), VAR_holdItem, 0.0);
+        if (gml_truthy(((float)OBJ_oCharacter))) {
+            gml_ivar_set(gml_deref(((float)OBJ_oCharacter), self, other), VAR_holdItem, 0.0f);
         }
     }
 }
@@ -199,8 +199,8 @@ static void gml_ev_oMagmaMan__Collision_oWhip_body(gm_instance_t *self, gm_insta
     (void)other;
     if ((!gml_truthy(self->vars[VAR_whipped]))) {
         gml_script_playSound(self, other, g_gml_globals.sndHit);
-        self->vars[VAR_whipped] = 1.0;
-        gml_iset_alarm(self, 0.0, 10.0);
+        self->vars[VAR_whipped] = 1.0f;
+        gml_iset_alarm(self, 0.0f, 10.0f);
     }
 }
 
@@ -218,24 +218,24 @@ static void gml_ev_oMagmaMan__Collision_oEnemy_body(gm_instance_t *self, gm_inst
     (void)other;
     (void)wd;
     if (gml_str_ne(other->strs[SVAR_type], "Magma Man")) {
-        other->vars[VAR_yVel] = (-4.0);
+        other->vars[VAR_yVel] = (-4.0f);
         if (gml_lt(gml_iget_x(self), gml_iget_x(other))) {
-            other->vars[VAR_xVel] = (-3.0);
+            other->vars[VAR_xVel] = (-3.0f);
         } else {
-            other->vars[VAR_xVel] = 3.0;
+            other->vars[VAR_xVel] = 3.0f;
         }
-        if (gml_ne(other->vars[VAR_status], 98.0)) {
+        if (gml_ne(other->vars[VAR_status], 98.0f)) {
             gml_script_playSound(self, other, g_gml_globals.sndFlame);
         }
         {
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_burning] = 100.0;
-                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0);
+                self1->vars[VAR_burning] = 100.0f;
+                self1->vars[VAR_hp] = (self1->vars[VAR_hp] - 2.0f);
                 if ((gml_str_ne(self1->strs[SVAR_type], "Tomb Lord") && gml_str_ne(self1->strs[SVAR_type], "Yeti King"))) {
-                    self1->vars[VAR_status] = 98.0;
-                    self1->vars[VAR_counter] = 50.0;
+                    self1->vars[VAR_status] = 98.0f;
+                    self1->vars[VAR_counter] = 50.0f;
                 }
             }
             gm_with_end();
@@ -254,23 +254,23 @@ static void gml_ev_oMagmaMan__Collision_oCharacter_body(gm_instance_t *self, gm_
 {
     (void)self;
     (void)other;
-    if (gml_eq(other->vars[VAR_invincible], 0.0)) {
-        other->vars[VAR_blink] = 30.0;
-        other->vars[VAR_invincible] = 30.0;
-        other->vars[VAR_stunned] = 1.0;
-        other->vars[VAR_stunTimer] = 20.0;
-        other->vars[VAR_burning] = 100.0;
-        other->vars[VAR_yVel] = (-4.0);
+    if (gml_eq(other->vars[VAR_invincible], 0.0f)) {
+        other->vars[VAR_blink] = 30.0f;
+        other->vars[VAR_invincible] = 30.0f;
+        other->vars[VAR_stunned] = 1.0f;
+        other->vars[VAR_stunTimer] = 20.0f;
+        other->vars[VAR_burning] = 100.0f;
+        other->vars[VAR_yVel] = (-4.0f);
         if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-            other->vars[VAR_xVel] = (-6.0);
+            other->vars[VAR_xVel] = (-6.0f);
         } else {
-            other->vars[VAR_xVel] = 6.0;
+            other->vars[VAR_xVel] = 6.0f;
         }
-        (void)(gml_script_instance_create(self, other, gml_iget_x(other), gml_iget_y(other), ((double)OBJ_oBlood)));
-        if (gml_gt(g_gml_globals.plife, 0.0)) {
-            g_gml_globals.plife = (g_gml_globals.plife - 2.0);
-            if ((gml_le(g_gml_globals.plife, 0.0) && gml_truthy(gml_script_isRealLevel(self, other)))) {
-                gml_aset(&g_gml_gvals[GV_enemyDeaths], 21.0, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 21.0), gml_vreal(1.0)));
+        (void)(gml_script_instance_create(self, other, gml_iget_x(other), gml_iget_y(other), ((float)OBJ_oBlood)));
+        if (gml_gt(g_gml_globals.plife, 0.0f)) {
+            g_gml_globals.plife = (g_gml_globals.plife - 2.0f);
+            if ((gml_le(g_gml_globals.plife, 0.0f) && gml_truthy(gml_script_isRealLevel(self, other)))) {
+                gml_aset(&g_gml_gvals[GV_enemyDeaths], 21.0f, gml_add(gml_aget(g_gml_gvals[GV_enemyDeaths], 21.0f), gml_vreal(1.0f)));
             }
         }
         gml_script_playSound(self, other, g_gml_globals.sndHurt);
@@ -289,7 +289,7 @@ static void gml_ev_oMagmaMan__Other_7_body(gm_instance_t *self, gm_instance_t *o
 {
     (void)self;
     (void)other;
-    if (gml_eq(gml_iget_sprite_index(self), ((double)SPR_sMagmaManDie))) {
+    if (gml_eq(gml_iget_sprite_index(self), ((float)SPR_sMagmaManDie))) {
         gml_fn_instance_destroy(self, other, 0, NULL);
     }
 }

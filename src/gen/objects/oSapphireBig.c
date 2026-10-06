@@ -8,10 +8,10 @@ static void gml_ev_oSapphireBig__Create_0_body(gm_instance_t *self, gm_instance_
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Big Sapphire";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_canCollect] = 0.0;
-    gml_iset_alarm(self, 0.0, 20.0);
-    self->vars[VAR_value] = 1200.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_canCollect] = 0.0f;
+    gml_iset_alarm(self, 0.0f, 20.0f);
+    self->vars[VAR_value] = 1200.0f;
 }
 
 void gml_ev_oSapphireBig__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -25,7 +25,7 @@ static void gml_ev_oSapphireBig__Alarm_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    self->vars[VAR_canCollect] = 1.0;
+    self->vars[VAR_canCollect] = 1.0f;
 }
 
 void gml_ev_oSapphireBig__Alarm_0(gm_instance_t *self, gm_instance_t *other)
@@ -39,7 +39,7 @@ static void gml_ev_oSapphireBig__Collision_oGhost_body(gm_instance_t *self, gm_i
 {
     (void)self;
     (void)other;
-    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((double)OBJ_oDiamond)));
+    (void)(gml_script_instance_create(self, other, gml_iget_x(self), gml_iget_y(self), ((float)OBJ_oDiamond)));
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
 

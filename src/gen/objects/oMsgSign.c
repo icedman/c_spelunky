@@ -24,185 +24,185 @@ static void gml_ev_oMsgSign__Collision_oCharacter_body(gm_instance_t *self, gm_i
         self->vals[VVAR_message] = gml_vs("");
         self->vals[VVAR_message2] = gml_vs("");
     } else {
-        if ((gml_eq(gml_iget_x(self), 32.0) && gml_eq(gml_iget_y(self), 64.0))) {
+        if ((gml_eq(gml_iget_x(self), 32.0f) && gml_eq(gml_iget_y(self), 64.0f))) {
             self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "WELCOME TO THE TUTORIAL CAVE!"));
             self->vals[VVAR_message2] = gml_vs(gml_script_tr(self, other, 1, "THIS MIGHT BE YOUR FIRST TIME PLAYING."));
         } else {
-            if ((gml_eq(gml_iget_x(self), 80.0) && gml_eq(gml_iget_y(self), 96.0))) {
-                gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("B"));
+            if ((gml_eq(gml_iget_x(self), 80.0f) && gml_eq(gml_iget_y(self), 96.0f))) {
+                gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("B"));
                 } else {
                     if (gml_truthy(g_gml_globals.gamepadOn)) {
-                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyJumpVal])));
+                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyJumpVal])));
                     } else {
-                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyJumpVal)));
+                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyJumpVal)));
                     }
                 }
-                gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO JUMP.")));
+                gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO JUMP.")));
                 self->vals[VVAR_message2] = gml_vs("");
-                gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
             } else {
-                if ((gml_eq(gml_iget_x(self), 176.0) && gml_eq(gml_iget_y(self), 96.0))) {
+                if ((gml_eq(gml_iget_x(self), 176.0f) && gml_eq(gml_iget_y(self), 96.0f))) {
                     self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "YOU CAN HANG ON LEDGES, TOO!"));
                     self->vals[VVAR_message2] = gml_vs("");
                 } else {
-                    if ((gml_eq(gml_iget_x(self), 240.0) && gml_eq(gml_iget_y(self), 64.0))) {
-                        gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                            gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
+                    if ((gml_eq(gml_iget_x(self), 240.0f) && gml_eq(gml_iget_y(self), 64.0f))) {
+                        gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                            gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
                         } else {
                             if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                             } else {
-                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                             }
                         }
-                        gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO USE YOUR WHIP.")));
+                        gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO USE YOUR WHIP.")));
                         self->vals[VVAR_message2] = gml_vs("");
-                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
                     } else {
-                        if ((gml_eq(gml_iget_x(self), 384.0) && gml_eq(gml_iget_y(self), 96.0))) {
+                        if ((gml_eq(gml_iget_x(self), 384.0f) && gml_eq(gml_iget_y(self), 96.0f))) {
                             self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "COLLECT THE TREASURE!"));
                             self->vals[VVAR_message2] = gml_vs("");
                         } else {
-                            if ((gml_eq(gml_iget_x(self), 512.0) && gml_eq(gml_iget_y(self), 32.0))) {
-                                gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "HOLD UP AND PRESS ")));
-                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
+                            if ((gml_eq(gml_iget_x(self), 512.0f) && gml_eq(gml_iget_y(self), 32.0f))) {
+                                gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "HOLD UP AND PRESS ")));
+                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
                                 } else {
                                     if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                     } else {
-                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                     }
                                 }
-                                gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO OPEN CHESTS.")));
+                                gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO OPEN CHESTS.")));
                                 self->vals[VVAR_message2] = gml_vs("");
-                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
                             } else {
-                                if ((gml_eq(gml_iget_x(self), 544.0) && gml_eq(gml_iget_y(self), 112.0))) {
+                                if ((gml_eq(gml_iget_x(self), 544.0f) && gml_eq(gml_iget_y(self), 112.0f))) {
                                     self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "HOLD DOWN TO DUCK AND CRAWL."));
                                     self->vals[VVAR_message2] = gml_vs("");
                                 } else {
-                                    if ((gml_eq(gml_iget_x(self), 576.0) && gml_eq(gml_iget_y(self), 128.0))) {
+                                    if ((gml_eq(gml_iget_x(self), 576.0f) && gml_eq(gml_iget_y(self), 128.0f))) {
                                         self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "CRAWL OVER THE EDGE TO DO A FLIP HANG."));
                                         self->vals[VVAR_message2] = gml_vs(gml_script_tr(self, other, 1, "FALLING TOO FAR CAN REALLY HURT!"));
                                     } else {
-                                        if ((gml_eq(gml_iget_x(self), 640.0) && gml_eq(gml_iget_y(self), 96.0))) {
+                                        if ((gml_eq(gml_iget_x(self), 640.0f) && gml_eq(gml_iget_y(self), 96.0f))) {
                                             self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "HOLD UP TO CLIMB THE LADDER."));
                                             self->vals[VVAR_message2] = gml_vs("");
                                         } else {
-                                            if ((gml_eq(gml_iget_x(self), 608.0) && gml_eq(gml_iget_y(self), 256.0))) {
-                                                gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "DUCK AND PRESS ")));
-                                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
+                                            if ((gml_eq(gml_iget_x(self), 608.0f) && gml_eq(gml_iget_y(self), 256.0f))) {
+                                                gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "DUCK AND PRESS ")));
+                                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
                                                 } else {
                                                     if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                                     } else {
-                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                                     }
                                                 }
-                                                gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO PICK UP ITEMS.")));
+                                                gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO PICK UP ITEMS.")));
                                                 self->vals[VVAR_message2] = gml_vs("");
-                                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
                                             } else {
-                                                if ((gml_eq(gml_iget_x(self), 576.0) && gml_eq(gml_iget_y(self), 256.0))) {
-                                                    gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                                                    if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
+                                                if ((gml_eq(gml_iget_x(self), 576.0f) && gml_eq(gml_iget_y(self), 256.0f))) {
+                                                    gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                                                    if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
                                                     } else {
                                                         if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                            gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                            gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                                         } else {
-                                                            gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                            gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                                         }
                                                     }
-                                                    gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO THROW OR USE ITEMS.")));
+                                                    gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO THROW OR USE ITEMS.")));
                                                     self->vals[VVAR_message2] = gml_vs(gml_script_tr(self, other, 1, "HOLD UP TO THROW HIGH AND DOWN TO DROP."));
-                                                    gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                                                    gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
                                                 } else {
-                                                    if ((gml_eq(gml_iget_x(self), 496.0) && gml_eq(gml_iget_y(self), 256.0))) {
-                                                        gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("X"));
-                                                        gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO SELECT YOUR ROPE AND")));
-                                                        gml_aset(&self->vals[VVAR_message2], 0.0, gml_vs("A"));
-                                                        gml_aset(&self->vals[VVAR_message2], 1.0, gml_vs(gml_script_tr(self, other, 1, " TO USE IT.")));
-                                                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                            gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("X"));
-                                                            gml_aset(&self->vals[VVAR_message2], 0.0, gml_vs("A"));
+                                                    if ((gml_eq(gml_iget_x(self), 496.0f) && gml_eq(gml_iget_y(self), 256.0f))) {
+                                                        gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("X"));
+                                                        gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO SELECT YOUR ROPE AND")));
+                                                        gml_aset(&self->vals[VVAR_message2], 0.0f, gml_vs("A"));
+                                                        gml_aset(&self->vals[VVAR_message2], 1.0f, gml_vs(gml_script_tr(self, other, 1, " TO USE IT.")));
+                                                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                            gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("X"));
+                                                            gml_aset(&self->vals[VVAR_message2], 0.0f, gml_vs("A"));
                                                         } else {
                                                             if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyItemVal])));
-                                                                gml_aset(&self->vals[VVAR_message2], 0.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyItemVal])));
+                                                                gml_aset(&self->vals[VVAR_message2], 0.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                                             } else {
-                                                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyItemVal)));
-                                                                gml_aset(&self->vals[VVAR_message2], 0.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyItemVal)));
+                                                                gml_aset(&self->vals[VVAR_message2], 0.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                                             }
                                                         }
-                                                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
-                                                        gml_aset(&self->vals[VVAR_message2Highlights], 0.0, gml_vreal(0.0));
+                                                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
+                                                        gml_aset(&self->vals[VVAR_message2Highlights], 0.0f, gml_vreal(0.0f));
                                                     } else {
-                                                        if ((gml_eq(gml_iget_x(self), 432.0) && gml_eq(gml_iget_y(self), 176.0))) {
-                                                            gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "CROUCH AND PRESS ")));
-                                                            if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
+                                                        if ((gml_eq(gml_iget_x(self), 432.0f) && gml_eq(gml_iget_y(self), 176.0f))) {
+                                                            gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "CROUCH AND PRESS ")));
+                                                            if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
                                                             } else {
                                                                 if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                                                 } else {
-                                                                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                                                 }
                                                             }
                                                             self->vals[VVAR_message2] = gml_vs(gml_script_tr(self, other, 1, "TO THROW A ROPE DOWN A LEDGE."));
-                                                            gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
+                                                            gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
                                                         } else {
-                                                            if ((gml_eq(gml_iget_x(self), 384.0) && gml_eq(gml_iget_y(self), 208.0))) {
-                                                                gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "TO RUN, HOLD DOWN ")));
-                                                                gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " OR ")));
-                                                                gml_aset(&self->vals[VVAR_message], 4.0, gml_vs("."));
-                                                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                                    gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("A"));
-                                                                    gml_aset(&self->vals[VVAR_message], 3.0, gml_vs("Y"));
+                                                            if ((gml_eq(gml_iget_x(self), 384.0f) && gml_eq(gml_iget_y(self), 208.0f))) {
+                                                                gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "TO RUN, HOLD DOWN ")));
+                                                                gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " OR ")));
+                                                                gml_aset(&self->vals[VVAR_message], 4.0f, gml_vs("."));
+                                                                if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                                    gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("A"));
+                                                                    gml_aset(&self->vals[VVAR_message], 3.0f, gml_vs("Y"));
                                                                 } else {
                                                                     if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
-                                                                        gml_aset(&self->vals[VVAR_message], 3.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyRunVal])));
+                                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                                        gml_aset(&self->vals[VVAR_message], 3.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyRunVal])));
                                                                     } else {
-                                                                        gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
-                                                                        gml_aset(&self->vals[VVAR_message], 3.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyRunVal)));
+                                                                        gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                                        gml_aset(&self->vals[VVAR_message], 3.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyRunVal)));
                                                                     }
                                                                 }
                                                                 self->vals[VVAR_message2] = gml_vs("");
-                                                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
-                                                                gml_aset(&self->vals[VVAR_messageHighlights], 1.0, gml_vreal(3.0));
+                                                                gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
+                                                                gml_aset(&self->vals[VVAR_messageHighlights], 1.0f, gml_vreal(3.0f));
                                                             } else {
-                                                                if ((gml_eq(gml_iget_x(self), 256.0) && gml_eq(gml_iget_y(self), 208.0))) {
+                                                                if ((gml_eq(gml_iget_x(self), 256.0f) && gml_eq(gml_iget_y(self), 208.0f))) {
                                                                     self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "OPEN THIS CRATE FOR A BAG OF BOMBS."));
                                                                     self->vals[VVAR_message2] = gml_vs("");
                                                                 } else {
-                                                                    if ((gml_eq(gml_iget_x(self), 224.0) && gml_eq(gml_iget_y(self), 208.0))) {
-                                                                        gml_aset(&self->vals[VVAR_message], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                                                                        gml_aset(&self->vals[VVAR_message], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO SELECT BOMBS AND ")));
-                                                                        gml_aset(&self->vals[VVAR_message2], 0.0, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
-                                                                        gml_aset(&self->vals[VVAR_message2], 2.0, gml_vs(gml_script_tr(self, other, 1, " TO USE IT.")));
-                                                                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0)) {
-                                                                            gml_aset(&self->vals[VVAR_message], 1.0, gml_vs("X"));
-                                                                            gml_aset(&self->vals[VVAR_message2], 1.0, gml_vs("A"));
+                                                                    if ((gml_eq(gml_iget_x(self), 224.0f) && gml_eq(gml_iget_y(self), 208.0f))) {
+                                                                        gml_aset(&self->vals[VVAR_message], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                                                                        gml_aset(&self->vals[VVAR_message], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO SELECT BOMBS AND ")));
+                                                                        gml_aset(&self->vals[VVAR_message2], 0.0f, gml_vs(gml_script_tr(self, other, 1, "PRESS ")));
+                                                                        gml_aset(&self->vals[VVAR_message2], 2.0f, gml_vs(gml_script_tr(self, other, 1, " TO USE IT.")));
+                                                                        if (gml_gt(g_gml_globals.touchControlsVisibility, 0.0f)) {
+                                                                            gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs("X"));
+                                                                            gml_aset(&self->vals[VVAR_message2], 1.0f, gml_vs("A"));
                                                                         } else {
                                                                             if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                                                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyItemVal])));
-                                                                                gml_aset(&self->vals[VVAR_message2], 1.0, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
+                                                                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyItemVal])));
+                                                                                gml_aset(&self->vals[VVAR_message2], 1.0f, gml_vs(gml_script_scrGetJoy(self, other, 1, g_gml_gvals[GV_joyAttackVal])));
                                                                             } else {
-                                                                                gml_aset(&self->vals[VVAR_message], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyItemVal)));
-                                                                                gml_aset(&self->vals[VVAR_message2], 1.0, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
+                                                                                gml_aset(&self->vals[VVAR_message], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyItemVal)));
+                                                                                gml_aset(&self->vals[VVAR_message2], 1.0f, gml_vs(gml_script_scrGetKey(self, other, g_gml_globals.keyAttackVal)));
                                                                             }
                                                                         }
-                                                                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0, gml_vreal(1.0));
-                                                                        gml_aset(&self->vals[VVAR_message2Highlights], 0.0, gml_vreal(1.0));
+                                                                        gml_aset(&self->vals[VVAR_messageHighlights], 0.0f, gml_vreal(1.0f));
+                                                                        gml_aset(&self->vals[VVAR_message2Highlights], 0.0f, gml_vreal(1.0f));
                                                                     } else {
-                                                                        if ((gml_eq(gml_iget_x(self), 96.0) && gml_eq(gml_iget_y(self), 256.0))) {
+                                                                        if ((gml_eq(gml_iget_x(self), 96.0f) && gml_eq(gml_iget_y(self), 256.0f))) {
                                                                             self->vals[VVAR_message] = gml_vs(gml_script_tr(self, other, 1, "THERE'S LOTS MORE AHEAD!"));
                                                                             self->vals[VVAR_message2] = gml_vs(gml_script_tr(self, other, 1, "USE YOUR WITS AND BEWARE OF TRAPS!"));
                                                                         }
@@ -227,7 +227,7 @@ static void gml_ev_oMsgSign__Collision_oCharacter_body(gm_instance_t *self, gm_i
     g_gml_gvals[GV_message2] = self->vals[VVAR_message2];
     g_gml_gvals[GV_messageHighlights] = self->vals[VVAR_messageHighlights];
     g_gml_gvals[GV_message2Highlights] = self->vals[VVAR_message2Highlights];
-    g_gml_globals.messageTimer = 200.0;
+    g_gml_globals.messageTimer = 200.0f;
 }
 
 void gml_ev_oMsgSign__Collision_oCharacter(gm_instance_t *self, gm_instance_t *other)
@@ -239,11 +239,11 @@ void gml_ev_oMsgSign__Collision_oCharacter(gm_instance_t *self, gm_instance_t *o
 
 static void gml_ev_oMsgSign__Draw_64_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    (t1 = gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0), gml_fn_display_set_gui_size(self, other, t1, gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0)));
+    (t1 = gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f), gml_fn_display_set_gui_size(self, other, t1, gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f)));
 }
 
 void gml_ev_oMsgSign__Draw_64(gm_instance_t *self, gm_instance_t *other)

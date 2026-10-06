@@ -3,30 +3,30 @@
 #include "gml_assets.h"
 
 const gm_room_layer_def_t g_gml_room_rLevel_layers[4] = {
-    { "Compatibility_Instances_Depth_-2", 70, GM_LAYER_INSTANCES, -2, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Instances_Depth_0", 71, GM_LAYER_INSTANCES, 0, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Instances_Depth_50", 72, GM_LAYER_INSTANCES, 50, true, 0.0, 0.0, 0.0, 0.0, -1, false, false, false, 0xffffffffu, 0, 0 },
-    { "Compatibility_Background_0_bgCave", 73, GM_LAYER_BACKGROUND, 2147483500, true, 0.0, 0.0, 0.0, 0.0, SPR_bgCave, true, true, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Instances_Depth_-2", 70, GM_LAYER_INSTANCES, -2, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Instances_Depth_0", 71, GM_LAYER_INSTANCES, 0, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Instances_Depth_50", 72, GM_LAYER_INSTANCES, 50, true, 0.0f, 0.0f, 0.0f, 0.0f, -1, false, false, false, 0xffffffffu, 0, 0 },
+    { "Compatibility_Background_0_bgCave", 73, GM_LAYER_BACKGROUND, 2147483500, true, 0.0f, 0.0f, 0.0f, 0.0f, SPR_bgCave, true, true, false, 0xffffffffu, 0, 0 },
 };
 
 const gm_room_inst_def_t g_gml_room_rLevel_instances[19] = {
-    { 104015, OBJ_oPlayer1, 24.0, 24.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 2, NULL }, /* inst_6AB0A82C */
-    { 104016, OBJ_oRoom, 16.0, 16.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_8205528C */
-    { 104017, OBJ_oRoom, 176.0, 16.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_F6AD2684 */
-    { 104018, OBJ_oRoom, 336.0, 16.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_4C07BCC1 */
-    { 104019, OBJ_oRoom, 496.0, 16.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_76074E53 */
-    { 104020, OBJ_oRoom, 16.0, 144.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_F246B44D */
-    { 104021, OBJ_oRoom, 176.0, 144.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_C711A1F8 */
-    { 104022, OBJ_oRoom, 336.0, 144.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_A9681A62 */
-    { 104023, OBJ_oRoom, 496.0, 144.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_6881A931 */
-    { 104024, OBJ_oRoom, 16.0, 272.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_164FCD02 */
-    { 104025, OBJ_oRoom, 176.0, 272.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_739CF7EA */
-    { 104026, OBJ_oRoom, 336.0, 272.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_C709F319 */
-    { 104027, OBJ_oRoom, 496.0, 272.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_CE826CC7 */
-    { 104028, OBJ_oRoom, 16.0, 400.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_0FD1DF12 */
-    { 104029, OBJ_oRoom, 176.0, 400.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_854936AB */
-    { 104030, OBJ_oRoom, 336.0, 400.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_75E1734D */
-    { 104031, OBJ_oRoom, 496.0, 400.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_F58E20D7 */
-    { 104032, OBJ_oGame, 16.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 1, NULL }, /* inst_41EDC74D */
-    { 104033, OBJ_oLevel, 0.0, 0.0, 1.0, 1.0, 0.0, 0xffffffffu, 0.0, 1.0, 0, NULL }, /* inst_BB4C3A79 */
+    { 104015, OBJ_oPlayer1, 24.0f, 24.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 2, NULL }, /* inst_6AB0A82C */
+    { 104016, OBJ_oRoom, 16.0f, 16.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_8205528C */
+    { 104017, OBJ_oRoom, 176.0f, 16.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_F6AD2684 */
+    { 104018, OBJ_oRoom, 336.0f, 16.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_4C07BCC1 */
+    { 104019, OBJ_oRoom, 496.0f, 16.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_76074E53 */
+    { 104020, OBJ_oRoom, 16.0f, 144.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_F246B44D */
+    { 104021, OBJ_oRoom, 176.0f, 144.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_C711A1F8 */
+    { 104022, OBJ_oRoom, 336.0f, 144.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_A9681A62 */
+    { 104023, OBJ_oRoom, 496.0f, 144.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_6881A931 */
+    { 104024, OBJ_oRoom, 16.0f, 272.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_164FCD02 */
+    { 104025, OBJ_oRoom, 176.0f, 272.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_739CF7EA */
+    { 104026, OBJ_oRoom, 336.0f, 272.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_C709F319 */
+    { 104027, OBJ_oRoom, 496.0f, 272.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_CE826CC7 */
+    { 104028, OBJ_oRoom, 16.0f, 400.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_0FD1DF12 */
+    { 104029, OBJ_oRoom, 176.0f, 400.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_854936AB */
+    { 104030, OBJ_oRoom, 336.0f, 400.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_75E1734D */
+    { 104031, OBJ_oRoom, 496.0f, 400.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_F58E20D7 */
+    { 104032, OBJ_oGame, 16.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 1, NULL }, /* inst_41EDC74D */
+    { 104033, OBJ_oLevel, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0xffffffffu, 0.0f, 1.0f, 0, NULL }, /* inst_BB4C3A79 */
 };

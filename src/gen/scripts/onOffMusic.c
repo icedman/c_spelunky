@@ -9,28 +9,28 @@ void gml_script_onOffMusic(gm_instance_t *self, gm_instance_t *other)
         gml_script_stopAllMusic(self, other);
     } else {
         if (gml_truthy(gml_script_isLevel(self, other))) {
-            if (gml_eq(g_gml_globals.levelType, 1.0)) {
-                gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0);
+            if (gml_eq(g_gml_globals.levelType, 1.0f)) {
+                gml_script_playMusic(self, other, g_gml_globals.musLush, 1.0f);
             } else {
-                if (gml_eq(g_gml_globals.levelType, 2.0)) {
-                    gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0);
+                if (gml_eq(g_gml_globals.levelType, 2.0f)) {
+                    gml_script_playMusic(self, other, g_gml_globals.musIce, 1.0f);
                 } else {
-                    if (gml_eq(g_gml_globals.levelType, 3.0)) {
-                        gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0);
+                    if (gml_eq(g_gml_globals.levelType, 3.0f)) {
+                        gml_script_playMusic(self, other, g_gml_globals.musTemple, 1.0f);
                     } else {
                         if (gml_truthy(gml_script_isRoom(self, other, "rOlmec"))) {
-                            if (gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_active))) {
-                                gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0);
+                            if (gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_active))) {
+                                gml_script_playMusic(self, other, g_gml_globals.musBoss, 1.0f);
                             }
                         } else {
-                            gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0);
+                            gml_script_playMusic(self, other, g_gml_globals.musCave, 1.0f);
                         }
                     }
                 }
             }
         } else {
             if (gml_truthy(gml_script_isRoom(self, other, "rTitle"))) {
-                gml_script_playMusic(self, other, g_gml_globals.musTitle, 1.0);
+                gml_script_playMusic(self, other, g_gml_globals.musTitle, 1.0f);
             }
         }
     }

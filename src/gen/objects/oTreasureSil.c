@@ -5,9 +5,9 @@ static void gml_ev_oTreasureSil__Create_0_body(gm_instance_t *self, gm_instance_
 {
     (void)self;
     (void)other;
-    self->vars[VAR_xVel] = (-6.0);
-    self->vars[VAR_yVel] = (-8.0);
-    self->vars[VAR_myGrav] = 0.6;
+    self->vars[VAR_xVel] = (-6.0f);
+    self->vars[VAR_yVel] = (-8.0f);
+    self->vars[VAR_myGrav] = 0.6f;
 }
 
 void gml_ev_oTreasureSil__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,17 +21,17 @@ static void gml_ev_oTreasureSil__Step_0_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    if (gml_truthy(1.0)) {
+    if (gml_truthy(1.0f)) {
         gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
         gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-        if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-            self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.1);
+        if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+            self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.1f);
         }
-        if (gml_lt(self->vars[VAR_yVel], 6.0)) {
+        if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
             self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
         }
-        if (gml_gt(gml_iget_y(self), 240.0)) {
-            gml_fn_room_goto(self, other, ((double)RM_rEnd3));
+        if (gml_gt(gml_iget_y(self), 240.0f)) {
+            gml_fn_room_goto(self, other, ((float)RM_rEnd3));
         }
     }
 }

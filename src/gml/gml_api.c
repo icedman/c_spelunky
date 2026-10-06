@@ -12,13 +12,14 @@
  */
 #include "gml_rt.h"
 
+#include <math.h>
 #include <string.h>
 
 /* ------------------------------------------------------------------ helpers */
 
-static double b2r(bool b)
+static float b2r(bool b)
 {
-    return b ? 1.0 : 0.0;
+    return b ? 1.0f : 0.0f;
 }
 
 /* Detaches a value from runtime-owned string storage. */
@@ -32,17 +33,31 @@ static gm_value_t own(gm_value_t v)
 
 /* ------------------------------------------------------------------ maths */
 
-double gml_fn_randomize(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_randomize(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_randomize();
+    return (float)gm_randomize();
+}
+
+void gml_fn_move_snap(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
+{
+    (void)other;
+    if (self == NULL) {
+        return;
+    }
+    if (a0 > 0.0f) {
+        self->x = roundf(self->x / a0) * a0;
+    }
+    if (a1 > 0.0f) {
+        self->y = roundf(self->y / a1) * a1;
+    }
 }
 
 /* ------------------------------------------------------------------ instances */
 
-double gml_fn_instance_create_depth(gm_instance_t *self, gm_instance_t *other, double a0, double a1,
-                                    double a2, double a3)
+float gml_fn_instance_create_depth(gm_instance_t *self, gm_instance_t *other, float a0, float a1,
+                                    float a2, float a3)
 {
     (void)self;
     (void)other;
@@ -70,22 +85,22 @@ void gml_fn_instance_destroy(gm_instance_t *self, gm_instance_t *other, int argc
     gm_with_end();
 }
 
-double gml_fn_instance_exists(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_instance_exists(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     return b2r(gm_instance_exists(gml_target(a0), self, other));
 }
 
-double gml_fn_instance_number(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_instance_number(gm_instance_t *self, gm_instance_t *other, float a0)
 {
-    return (double)gm_instance_number(gml_target(a0), self, other);
+    return (float)gm_instance_number(gml_target(a0), self, other);
 }
 
-double gml_fn_instance_find(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_instance_find(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     return gml_id(gm_instance_find(gml_target(a0), (int)gm_to_int32(a1), self, other));
 }
 
-double gml_fn_instance_nearest(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+float gml_fn_instance_nearest(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)self;
     (void)other;
@@ -99,35 +114,35 @@ void gml_fn_instance_activate_all(gm_instance_t *self, gm_instance_t *other)
     gm_instance_activate_all();
 }
 
-void gml_fn_instance_activate_object(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_instance_activate_object(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_instance_activate_object(gml_target(a0));
 }
 
-void gml_fn_instance_deactivate_all(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_instance_deactivate_all(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)other;
     gm_instance_deactivate_all(gml_truthy(a0) != 0, self);
 }
 
-void gml_fn_instance_deactivate_object(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_instance_deactivate_object(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_instance_deactivate_object(gml_target(a0));
 }
 
-double gml_fn_object_get_parent(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_object_get_parent(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
-    return (double)gm_object_get_parent(gml_target(a0));
+    return (float)gm_object_get_parent(gml_target(a0));
 }
 
 /* asset_get_index: objects, then sprites, then rooms; -1 when no asset has that name. */
-double gml_fn_asset_get_index(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_asset_get_index(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     const char *name = gml_s(a0);
     int i, n;
@@ -138,75 +153,75 @@ double gml_fn_asset_get_index(gm_instance_t *self, gm_instance_t *other, const c
         const gm_object_def_t *def = gm_object_get(i);
 
         if (def != NULL && def->name != NULL && strcmp(def->name, name) == 0) {
-            return (double)i;
+            return (float)i;
         }
     }
     for (i = 0, n = gm_sprite_count(); i < n; ++i) {
         const gm_sprite_def_t *def = gm_sprite_get(i);
 
         if (def != NULL && def->name != NULL && strcmp(def->name, name) == 0) {
-            return (double)i;
+            return (float)i;
         }
     }
     for (i = 0, n = gm_room_count(); i < n; ++i) {
         if (strcmp(gm_room_get_name(i), name) == 0) {
-            return (double)i;
+            return (float)i;
         }
     }
-    return -1.0;
+    return -1.0f;
 }
 
 /* ------------------------------------------------------------------ collisions */
 
-double gml_fn_place_meeting(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+float gml_fn_place_meeting(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)other;
     return b2r(gm_collision_place_meeting(self, a0, a1, gml_target(a2)));
 }
 
-double gml_fn_instance_place(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+float gml_fn_instance_place(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)other;
     return gml_id(gm_collision_instance_place(self, a0, a1, gml_target(a2)));
 }
 
-double gml_fn_instance_position(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+float gml_fn_instance_position(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)self;
     (void)other;
     return gml_id(gm_collision_instance_position(a0, a1, gml_target(a2)));
 }
 
-double gml_fn_collision_point(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2,
-                              double a3, double a4)
+float gml_fn_collision_point(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2,
+                              float a3, float a4)
 {
     (void)other;
     return gml_id(gm_collision_point(self, a0, a1, gml_target(a2), gml_truthy(a3) != 0, gml_truthy(a4) != 0));
 }
 
-double gml_fn_collision_rectangle(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2,
-                                  double a3, double a4, double a5, double a6)
+float gml_fn_collision_rectangle(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2,
+                                  float a3, float a4, float a5, float a6)
 {
     (void)other;
     return gml_id(gm_collision_rectangle(self, a0, a1, a2, a3, gml_target(a4), gml_truthy(a5) != 0,
                                          gml_truthy(a6) != 0));
 }
 
-double gml_fn_collision_line(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2,
-                             double a3, double a4, double a5, double a6)
+float gml_fn_collision_line(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2,
+                             float a3, float a4, float a5, float a6)
 {
     (void)other;
     return gml_id(gm_collision_line(self, a0, a1, a2, a3, gml_target(a4), gml_truthy(a5) != 0,
                                     gml_truthy(a6) != 0));
 }
 
-double gml_fn_distance_to_object(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_distance_to_object(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)other;
     return gm_collision_distance_to_object(self, gml_target(a0));
 }
 
-double gml_fn_distance_to_point(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_distance_to_point(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)other;
     return gm_collision_distance_to_point(self, a0, a1);
@@ -214,49 +229,49 @@ double gml_fn_distance_to_point(gm_instance_t *self, gm_instance_t *other, doubl
 
 /* ------------------------------------------------------------------ ds_map */
 
-double gml_fn_ds_map_create(gm_instance_t *self, gm_instance_t *other)
+float gml_fn_ds_map_create(gm_instance_t *self, gm_instance_t *other)
 {
     (void)self;
     (void)other;
-    return (double)gm_ds_map_create();
+    return (float)gm_ds_map_create();
 }
 
-void gml_fn_ds_map_destroy(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_ds_map_destroy(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_ds_map_destroy(gml_target(a0));
 }
 
-double gml_fn_ds_map_exists(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1)
+float gml_fn_ds_map_exists(gm_instance_t *self, gm_instance_t *other, float a0, const char *a1)
 {
     (void)self;
     (void)other;
     return b2r(gm_ds_map_exists(gml_target(a0), gml_s(a1)));
 }
 
-gm_value_t gml_fn_ds_map_find_first(gm_instance_t *self, gm_instance_t *other, double a0)
+gm_value_t gml_fn_ds_map_find_first(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return own(gm_ds_map_find_first(gml_target(a0)));
 }
 
-gm_value_t gml_fn_ds_map_find_next(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1)
+gm_value_t gml_fn_ds_map_find_next(gm_instance_t *self, gm_instance_t *other, float a0, const char *a1)
 {
     (void)self;
     (void)other;
     return own(gm_ds_map_find_next(gml_target(a0), gml_s(a1)));
 }
 
-gm_value_t gml_fn_ds_map_find_value(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1)
+gm_value_t gml_fn_ds_map_find_value(gm_instance_t *self, gm_instance_t *other, float a0, const char *a1)
 {
     (void)self;
     (void)other;
     return own(gm_ds_map_find_value(gml_target(a0), gml_s(a1)));
 }
 
-void gml_fn_ds_map_replace(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1, gm_value_t a2)
+void gml_fn_ds_map_replace(gm_instance_t *self, gm_instance_t *other, float a0, const char *a1, gm_value_t a2)
 {
     (void)self;
     (void)other;
@@ -267,83 +282,119 @@ void gml_fn_ds_map_replace(gm_instance_t *self, gm_instance_t *other, double a0,
     (void)gm_ds_map_replace(gml_target(a0), gml_s(a1), a2);
 }
 
-double gml_fn_ds_map_size(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_ds_map_size(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
-    return (double)gm_ds_map_size(gml_target(a0));
+    return (float)gm_ds_map_size(gml_target(a0));
 }
 
 /* ------------------------------------------------------------------ files */
 
-double gml_fn_file_exists(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_file_exists(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     (void)self;
     (void)other;
     return b2r(gm_file_exists(gml_s(a0)));
 }
 
-double gml_fn_file_delete(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_file_delete(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     (void)self;
     (void)other;
     return b2r(gm_file_delete(gml_s(a0)));
 }
 
-double gml_fn_file_text_open_read(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_file_text_open_read(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     (void)self;
     (void)other;
-    return (double)gm_file_text_open_read(gml_s(a0));
+    return (float)gm_file_text_open_read(gml_s(a0));
 }
 
-double gml_fn_file_text_open_write(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_file_text_open_write(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     (void)self;
     (void)other;
-    return (double)gm_file_text_open_write(gml_s(a0));
+    return (float)gm_file_text_open_write(gml_s(a0));
 }
 
-void gml_fn_file_text_close(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_file_text_close(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_file_text_close(gml_target(a0));
 }
 
-double gml_fn_file_text_eof(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_file_text_eof(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return b2r(gm_file_text_eof(gml_target(a0)));
 }
 
-const char *gml_fn_file_text_read_string(gm_instance_t *self, gm_instance_t *other, double a0)
+const char *gml_fn_file_text_read_string(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return gm_heap_str(gm_file_text_read_string(gml_target(a0)));
 }
 
-const char *gml_fn_file_text_readln(gm_instance_t *self, gm_instance_t *other, double a0)
+const char *gml_fn_file_text_readln(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     return gm_heap_str(gm_file_text_readln(gml_target(a0)));
 }
 
-void gml_fn_file_text_write_string(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1)
+void gml_fn_file_text_write_string(gm_instance_t *self, gm_instance_t *other, float a0, const char *a1)
 {
     (void)self;
     (void)other;
     gm_file_text_write_string(gml_target(a0), gml_s(a1));
 }
 
-void gml_fn_file_text_writeln(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_file_text_writeln(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     gm_file_text_writeln(gml_target(a0));
+}
+
+void gml_fn_ini_open(gm_instance_t *self, gm_instance_t *other, const char *a0)
+{
+    (void)self;
+    (void)other;
+    gm_ini_open(gml_s(a0));
+}
+
+const char *gml_fn_ini_close(gm_instance_t *self, gm_instance_t *other)
+{
+    (void)self;
+    (void)other;
+    return gm_heap_str(gm_ini_close());
+}
+
+float gml_fn_ini_read_real(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1, float a2)
+{
+    (void)self;
+    (void)other;
+    return gm_ini_read_real(gml_s(a0), gml_s(a1), a2);
+}
+
+void gml_fn_ini_write_real(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1, float a2)
+{
+    (void)self;
+    (void)other;
+    (void)gm_ini_write_real(gml_s(a0), gml_s(a1), a2);
+}
+
+void gml_fn_ini_write_string(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1,
+                             const char *a2)
+{
+    (void)self;
+    (void)other;
+    (void)gm_ini_write_string(gml_s(a0), gml_s(a1), gml_s(a2));
 }
 
 /* ------------------------------------------------------------------ strings / sprites */
@@ -355,7 +406,7 @@ const char *gml_fn_string(gm_instance_t *self, gm_instance_t *other, gm_value_t 
     return gml_as_str(a0);
 }
 
-double gml_fn_sprite_exists(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_sprite_exists(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -370,38 +421,38 @@ const char *gml_gget_working_directory(void)
 }
 
 /* instance_count: g_RunRoom.m_Active.length. */
-double gml_gget_instance_count(void)
+float gml_gget_instance_count(void)
 {
-    return (double)gm_instance_active_count();
+    return (float)gm_instance_active_count();
 }
 
 /* yyInstance.js L509-561: sprite metrics scaled by the instance. */
-double gml_iget_image_number(gm_instance_t *p)
+float gml_iget_image_number(gm_instance_t *p)
 {
     const gm_sprite_def_t *spr = p != NULL ? gm_sprite_get(p->sprite_index) : NULL;
-    return spr != NULL ? (double)spr->frame_count : 0.0;
+    return spr != NULL ? (float)spr->frame_count : 0.0f;
 }
 
-double gml_iget_sprite_width(gm_instance_t *p)
+float gml_iget_sprite_width(gm_instance_t *p)
 {
     const gm_sprite_def_t *spr = p != NULL ? gm_sprite_get(p->sprite_index) : NULL;
-    return spr != NULL ? (double)spr->width * p->image_xscale : 0.0;
+    return spr != NULL ? (float)spr->width * p->image_xscale : 0.0f;
 }
 
-double gml_iget_sprite_height(gm_instance_t *p)
+float gml_iget_sprite_height(gm_instance_t *p)
 {
     const gm_sprite_def_t *spr = p != NULL ? gm_sprite_get(p->sprite_index) : NULL;
-    return spr != NULL ? (double)spr->height * p->image_yscale : 0.0;
+    return spr != NULL ? (float)spr->height * p->image_yscale : 0.0f;
 }
 
-double gml_iget_sprite_xoffset(gm_instance_t *p)
+float gml_iget_sprite_xoffset(gm_instance_t *p)
 {
     const gm_sprite_def_t *spr = p != NULL ? gm_sprite_get(p->sprite_index) : NULL;
-    return spr != NULL ? (double)spr->xorigin * p->image_xscale : 0.0;
+    return spr != NULL ? (float)spr->xorigin * p->image_xscale : 0.0f;
 }
 
-double gml_iget_sprite_yoffset(gm_instance_t *p)
+float gml_iget_sprite_yoffset(gm_instance_t *p)
 {
     const gm_sprite_def_t *spr = p != NULL ? gm_sprite_get(p->sprite_index) : NULL;
-    return spr != NULL ? (double)spr->yorigin * p->image_yscale : 0.0;
+    return spr != NULL ? (float)spr->yorigin * p->image_yscale : 0.0f;
 }

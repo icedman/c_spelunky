@@ -6,9 +6,9 @@ static void gml_ev_oExplosion__Create_0_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.8);
+    gml_iset_image_speed(self, 0.8f);
     gml_script_playSound(self, other, g_gml_globals.sndExplosion);
-    gml_script_scrShake(self, other, 5.0);
+    gml_script_scrShake(self, other, 5.0f);
 }
 
 void gml_ev_oExplosion__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -23,15 +23,15 @@ static void gml_ev_oExplosion__Collision_oDamsel_body(gm_instance_t *self, gm_in
     (void)self;
     (void)other;
     if ((!gml_truthy(other->vars[VAR_invincible]))) {
-        other->vars[VAR_hp] = (other->vars[VAR_hp] - 100.0);
+        other->vars[VAR_hp] = (other->vars[VAR_hp] - 100.0f);
         if (gml_lt(gml_iget_x(self), gml_iget_x(other))) {
-            other->vars[VAR_xVel] = gml_script_rand(self, other, 4.0, 6.0);
+            other->vars[VAR_xVel] = gml_script_rand(self, other, 4.0f, 6.0f);
         } else {
-            other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0, 6.0));
+            other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0f, 6.0f));
         }
-        other->vars[VAR_yVel] = (-6.0);
-        other->vars[VAR_burning] = 50.0;
-        other->vars[VAR_status] = 2.0;
+        other->vars[VAR_yVel] = (-6.0f);
+        other->vars[VAR_burning] = 50.0f;
+        other->vars[VAR_status] = 2.0f;
     }
 }
 
@@ -45,21 +45,21 @@ void gml_ev_oExplosion__Collision_oDamsel(gm_instance_t *self, gm_instance_t *ot
 static void gml_ev_oExplosion__Collision_oBoulder_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -78,16 +78,16 @@ static void gml_ev_oExplosion__Collision_oBoulder_body(gm_instance_t *self, gm_i
     (void)t13;
     (void)t14;
     (void)t15;
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 3.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_rubble] = (t5 = (t2 = (t1 = gml_iget_x(other), (t1 + gml_script_rand(self, other, 0.0, 15.0))), (t2 - gml_script_rand(self, other, 0.0, 15.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(other), (t3 + gml_script_rand(self, other, 0.0, 15.0))), (t4 - gml_script_rand(self, other, 0.0, 15.0))), ((double)OBJ_oRubble)));
-        gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((double)SPR_sRubbleTan));
-        if (gml_eq(gml_script_rand(self, other, 1.0, 3.0), 1.0)) {
-            (void)((t10 = (t7 = (t6 = gml_iget_x(other), (t6 + gml_script_rand(self, other, 0.0, 15.0))), (t7 - gml_script_rand(self, other, 0.0, 15.0))), gml_script_instance_create(self, other, t10, (t9 = (t8 = gml_iget_y(other), (t8 + gml_script_rand(self, other, 0.0, 15.0))), (t9 - gml_script_rand(self, other, 0.0, 15.0))), ((double)OBJ_oRock))));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 3.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_rubble] = (t5 = (t2 = (t1 = gml_iget_x(other), (t1 + gml_script_rand(self, other, 0.0f, 15.0f))), (t2 - gml_script_rand(self, other, 0.0f, 15.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(other), (t3 + gml_script_rand(self, other, 0.0f, 15.0f))), (t4 - gml_script_rand(self, other, 0.0f, 15.0f))), ((float)OBJ_oRubble)));
+        gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((float)SPR_sRubbleTan));
+        if (gml_eq(gml_script_rand(self, other, 1.0f, 3.0f), 1.0f)) {
+            (void)((t10 = (t7 = (t6 = gml_iget_x(other), (t6 + gml_script_rand(self, other, 0.0f, 15.0f))), (t7 - gml_script_rand(self, other, 0.0f, 15.0f))), gml_script_instance_create(self, other, t10, (t9 = (t8 = gml_iget_y(other), (t8 + gml_script_rand(self, other, 0.0f, 15.0f))), (t9 - gml_script_rand(self, other, 0.0f, 15.0f))), ((float)OBJ_oRock))));
         }
     }
-    for (self->vars[VAR_i] = 0.0; gml_lt(self->vars[VAR_i], 6.0); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_rubble] = (t15 = (t12 = (t11 = gml_iget_x(other), (t11 + gml_script_rand(self, other, 0.0, 15.0))), (t12 - gml_script_rand(self, other, 0.0, 15.0))), gml_script_instance_create(self, other, t15, (t14 = (t13 = gml_iget_y(other), (t13 + gml_script_rand(self, other, 0.0, 15.0))), (t14 - gml_script_rand(self, other, 0.0, 15.0))), ((double)OBJ_oRubbleSmall)));
-        gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((double)SPR_sRubbleTanSmall));
+    for (self->vars[VAR_i] = 0.0f; gml_lt(self->vars[VAR_i], 6.0f); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_rubble] = (t15 = (t12 = (t11 = gml_iget_x(other), (t11 + gml_script_rand(self, other, 0.0f, 15.0f))), (t12 - gml_script_rand(self, other, 0.0f, 15.0f))), gml_script_instance_create(self, other, t15, (t14 = (t13 = gml_iget_y(other), (t13 + gml_script_rand(self, other, 0.0f, 15.0f))), (t14 - gml_script_rand(self, other, 0.0f, 15.0f))), ((float)OBJ_oRubbleSmall)));
+        gml_iset_sprite_index(gml_deref(self->vars[VAR_rubble], self, other), ((float)SPR_sRubbleTanSmall));
     }
     {
         gm_instance_t *self16;
@@ -155,10 +155,10 @@ void gml_ev_oExplosion__Collision_oBarrierEmitter(gm_instance_t *self, gm_instan
 static void gml_ev_oExplosion__Collision_oItem_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -181,45 +181,45 @@ static void gml_ev_oExplosion__Collision_oItem_body(gm_instance_t *self, gm_inst
                 gm_instance_t *self2;
                 gm_with_begin(GM_OTHER, self, other);
                 while ((self2 = gm_with_next()) != NULL) {
-                    gml_iset_sprite_index(self2, ((double)SPR_sBombArmed));
-                    gml_iset_image_speed(self2, 1.0);
-                    gml_iset_alarm(self2, 1.0, gml_script_rand(self2, self, 4.0, 8.0));
-                    self2->vars[VAR_enemyID] = 0.0;
+                    gml_iset_sprite_index(self2, ((float)SPR_sBombArmed));
+                    gml_iset_image_speed(self2, 1.0f);
+                    gml_iset_alarm(self2, 1.0f, gml_script_rand(self2, self, 4.0f, 8.0f));
+                    self2->vars[VAR_enemyID] = 0.0f;
                 }
                 gm_with_end();
             }
             if (gml_lt(gml_iget_y(other), gml_iget_y(self))) {
-                other->vars[VAR_yVel] = (-gml_script_rand(self, other, 2.0, 4.0));
+                other->vars[VAR_yVel] = (-gml_script_rand(self, other, 2.0f, 4.0f));
             }
             if (gml_lt(gml_iget_x(other), gml_iget_x(self))) {
-                other->vars[VAR_xVel] = (-gml_script_rand(self, other, 2.0, 4.0));
+                other->vars[VAR_xVel] = (-gml_script_rand(self, other, 2.0f, 4.0f));
             } else {
-                other->vars[VAR_xVel] = gml_script_rand(self, other, 2.0, 4.0);
+                other->vars[VAR_xVel] = gml_script_rand(self, other, 2.0f, 4.0f);
             }
         } else {
             if (gml_str_eq(other->strs[SVAR_type], "Rope")) {
                 if ((!gml_truthy(other->vars[VAR_falling]))) {
                     if (gml_lt(gml_iget_y(other), gml_iget_y(self))) {
-                        other->vars[VAR_yVel] = (other->vars[VAR_yVel] - 6.0);
+                        other->vars[VAR_yVel] = (other->vars[VAR_yVel] - 6.0f);
                     } else {
-                        other->vars[VAR_yVel] = (other->vars[VAR_yVel] + 6.0);
+                        other->vars[VAR_yVel] = (other->vars[VAR_yVel] + 6.0f);
                     }
                     if (gml_gt(gml_iget_x(self), gml_iget_x(other))) {
-                        (t3 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t3 - gml_script_rand(self, other, 4.0, 6.0)));
+                        (t3 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t3 - gml_script_rand(self, other, 4.0f, 6.0f)));
                     } else {
-                        (t4 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t4 + gml_script_rand(self, other, 4.0, 6.0)));
+                        (t4 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t4 + gml_script_rand(self, other, 4.0f, 6.0f)));
                     }
                 }
             } else {
                 if (gml_lt(gml_iget_y(other), gml_iget_y(self))) {
-                    other->vars[VAR_yVel] = (other->vars[VAR_yVel] - 6.0);
+                    other->vars[VAR_yVel] = (other->vars[VAR_yVel] - 6.0f);
                 } else {
-                    other->vars[VAR_yVel] = (other->vars[VAR_yVel] + 6.0);
+                    other->vars[VAR_yVel] = (other->vars[VAR_yVel] + 6.0f);
                 }
                 if (gml_gt(gml_iget_x(self), gml_iget_x(other))) {
-                    (t5 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t5 - gml_script_rand(self, other, 4.0, 6.0)));
+                    (t5 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t5 - gml_script_rand(self, other, 4.0f, 6.0f)));
                 } else {
-                    (t6 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t6 + gml_script_rand(self, other, 4.0, 6.0)));
+                    (t6 = other->vars[VAR_xVel], other->vars[VAR_xVel] = (t6 + gml_script_rand(self, other, 4.0f, 6.0f)));
                 }
             }
         }
@@ -227,14 +227,14 @@ static void gml_ev_oExplosion__Collision_oItem_body(gm_instance_t *self, gm_inst
     if (gml_truthy(other->vars[VAR_held])) {
         {
             gm_instance_t *self7;
-            gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self, other);
             while ((self7 = gm_with_next()) != NULL) {
-                self7->vars[VAR_holdItem] = 0.0;
+                self7->vars[VAR_holdItem] = 0.0f;
                 self7->strs[SVAR_pickupItemType] = "";
             }
             gm_with_end();
         }
-        other->vars[VAR_held] = 0.0;
+        other->vars[VAR_held] = 0.0f;
     }
 }
 
@@ -248,12 +248,12 @@ void gml_ev_oExplosion__Collision_oItem(gm_instance_t *self, gm_instance_t *othe
 static void gml_ev_oExplosion__Collision_oSolid_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
     int32_t n8 = 0;
     (void)self;
     (void)other;
@@ -265,18 +265,18 @@ static void gml_ev_oExplosion__Collision_oSolid_body(gm_instance_t *self, gm_ins
     (void)t5;
     (void)t6;
     (void)n8;
-    if ((gml_truthy(gml_script_isLevel(self, other)) || ((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0) - 16.0))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0 /* e__VW.XView */), 0.0), (t2 + gml_script___view_get(self, other, (2.0 /* e__VW.WView */), 0.0))) + 16.0)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0) - 16.0)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0 /* e__VW.YView */), 0.0), (t5 + gml_script___view_get(self, other, (3.0 /* e__VW.HView */), 0.0))) + 16.0)))))) {
+    if ((gml_truthy(gml_script_isLevel(self, other)) || ((((t1 = gml_iget_x(self), gml_gt(t1, (gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f) - 16.0f))) && (t3 = gml_iget_x(self), gml_lt(t3, ((t2 = gml_script___view_get(self, other, (0.0f /* e__VW.XView */), 0.0f), (t2 + gml_script___view_get(self, other, (2.0f /* e__VW.WView */), 0.0f))) + 16.0f)))) && (t4 = gml_iget_y(self), gml_gt(t4, (gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f) - 16.0f)))) && (t6 = gml_iget_y(self), gml_lt(t6, ((t5 = gml_script___view_get(self, other, (1.0f /* e__VW.YView */), 0.0f), (t5 + gml_script___view_get(self, other, (3.0f /* e__VW.HView */), 0.0f))) + 16.0f)))))) {
         {
             gm_instance_t *self7;
             gm_with_begin(GM_OTHER, self, other);
             while ((self7 = gm_with_next()) != NULL) {
-                for (n8 = gml_repeat_count(2.0); n8 > 0; --n8) {
-                    self7->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self7, self, 3.0, (gml_iget_x(self7) + 1.0), (gml_iget_y(self7) - 1.0)));
-                    if (gml_vgt(self7->vals[VVAR_tile], gml_vreal(0.0))) {
+                for (n8 = gml_repeat_count(2.0f); n8 > 0; --n8) {
+                    self7->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self7, self, 3.0f, (gml_iget_x(self7) + 1.0f), (gml_iget_y(self7) - 1.0f)));
+                    if (gml_vgt(self7->vals[VVAR_tile], gml_vreal(0.0f))) {
                         gml_script_tile_delete(self7, self, self7->vals[VVAR_tile]);
                     }
                 }
-                self7->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self7, self, 3.0, (gml_iget_x(self7) + 1.0), (gml_iget_y(self7) + 16.0)));
+                self7->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self7, self, 3.0f, (gml_iget_x(self7) + 1.0f), (gml_iget_y(self7) + 16.0f)));
                 if (gml_vtruthy(self7->vals[VVAR_tile])) {
                     gml_script_tile_delete(self7, self, self7->vals[VVAR_tile]);
                 }
@@ -288,17 +288,17 @@ static void gml_ev_oExplosion__Collision_oSolid_body(gm_instance_t *self, gm_ins
         }
         {
             gm_instance_t *self9;
-            gm_with_begin(gml_target(((double)OBJ_oTreasure)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oTreasure)), self, other);
             while ((self9 = gm_with_next()) != NULL) {
-                self9->vars[VAR_state] = 1.0;
+                self9->vars[VAR_state] = 1.0f;
             }
             gm_with_end();
         }
         {
             gm_instance_t *self10;
-            gm_with_begin(gml_target(((double)OBJ_oSpikes)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oSpikes)), self, other);
             while ((self10 = gm_with_next()) != NULL) {
-                if ((!gml_truthy(gml_fn_collision_point(self10, self, gml_iget_x(self10), (gml_iget_y(self10) + 16.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
+                if ((!gml_truthy(gml_fn_collision_point(self10, self, gml_iget_x(self10), (gml_iget_y(self10) + 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
                     gml_fn_instance_destroy(self10, self, 0, NULL);
                 }
             }
@@ -317,8 +317,8 @@ void gml_ev_oExplosion__Collision_oSolid(gm_instance_t *self, gm_instance_t *oth
 static void gml_ev_oExplosion__Collision_oEnemy_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t2 = 0.0;
-    double t3 = 0.0;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -329,24 +329,24 @@ static void gml_ev_oExplosion__Collision_oEnemy_body(gm_instance_t *self, gm_ins
             gm_instance_t *self1;
             gm_with_begin(GM_OTHER, self, other);
             while ((self1 = gm_with_next()) != NULL) {
-                self1->vars[VAR_flame] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0), (gml_iget_y(self1) - 4.0), ((double)OBJ_oMagma));
-                (t2 = self1->vars[VAR_flame], gml_ivar_set(gml_deref(t2, self1, self), VAR_yVel, (-gml_script_rand(self1, self, 1.0, 3.0))));
-                self1->vars[VAR_flame] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0), (gml_iget_y(self1) - 4.0), ((double)OBJ_oMagma));
-                (t3 = self1->vars[VAR_flame], gml_ivar_set(gml_deref(t3, self1, self), VAR_yVel, (-gml_script_rand(self1, self, 1.0, 3.0))));
+                self1->vars[VAR_flame] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0f), (gml_iget_y(self1) - 4.0f), ((float)OBJ_oMagma));
+                (t2 = self1->vars[VAR_flame], gml_ivar_set(gml_deref(t2, self1, self), VAR_yVel, (-gml_script_rand(self1, self, 1.0f, 3.0f))));
+                self1->vars[VAR_flame] = gml_script_instance_create(self1, self, (gml_iget_x(self1) + 8.0f), (gml_iget_y(self1) - 4.0f), ((float)OBJ_oMagma));
+                (t3 = self1->vars[VAR_flame], gml_ivar_set(gml_deref(t3, self1, self), VAR_yVel, (-gml_script_rand(self1, self, 1.0f, 3.0f))));
                 gml_fn_instance_destroy(self1, self, 0, NULL);
             }
             gm_with_end();
         }
     } else {
         if ((!gml_truthy(other->vars[VAR_invincible]))) {
-            other->vars[VAR_hp] = (other->vars[VAR_hp] - 30.0);
+            other->vars[VAR_hp] = (other->vars[VAR_hp] - 30.0f);
             if (gml_lt(gml_iget_x(self), gml_iget_x(other))) {
-                other->vars[VAR_xVel] = gml_script_rand(self, other, 4.0, 6.0);
+                other->vars[VAR_xVel] = gml_script_rand(self, other, 4.0f, 6.0f);
             } else {
-                other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0, 6.0));
+                other->vars[VAR_xVel] = (-gml_script_rand(self, other, 4.0f, 6.0f));
             }
-            other->vars[VAR_yVel] = (-6.0);
-            other->vars[VAR_burning] = 50.0;
+            other->vars[VAR_yVel] = (-6.0f);
+            other->vars[VAR_burning] = 50.0f;
         }
     }
 }

@@ -5,7 +5,7 @@ static void gml_ev_oBricks__Create_0_body(gm_instance_t *self, gm_instance_t *ot
 {
     (void)self;
     (void)other;
-    gml_script_scrSetupWalls(self, other, 224.0);
+    gml_script_scrSetupWalls(self, other, 224.0f);
     gml_fn_instance_destroy(self, other, 0, NULL);
 }
 

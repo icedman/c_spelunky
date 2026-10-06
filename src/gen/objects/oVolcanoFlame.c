@@ -3,16 +3,16 @@
 
 static void gml_ev_oVolcanoFlame__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
-    gml_iset_image_speed(self, 0.3);
-    self->vars[VAR_xVel] = (t1 = gm_random(4.0), (t1 - gm_random(4.0)));
-    self->vars[VAR_yVel] = ((-1.0) - gm_random(2.0));
-    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0, 6.0) * 0.1);
-    gml_iset_alarm(self, 0.0, 2.0);
-    gml_iset_alarm(self, 1.0, 50.0);
+    gml_iset_image_speed(self, 0.3f);
+    self->vars[VAR_xVel] = (t1 = gm_random(4.0f), (t1 - gm_random(4.0f)));
+    self->vars[VAR_yVel] = ((-1.0f) - gm_random(2.0f));
+    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0f, 6.0f) * 0.1f);
+    gml_iset_alarm(self, 0.0f, 2.0f);
+    gml_iset_alarm(self, 1.0f, 50.0f);
 }
 
 void gml_ev_oVolcanoFlame__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -41,7 +41,7 @@ static void gml_ev_oVolcanoFlame__Step_0_body(gm_instance_t *self, gm_instance_t
     (void)other;
     gml_iset_x(self, (gml_iget_x(self) + self->vars[VAR_xVel]));
     gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
-    if (gml_lt(self->vars[VAR_yVel], 6.0)) {
+    if (gml_lt(self->vars[VAR_yVel], 6.0f)) {
         self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_grav]);
     }
 }

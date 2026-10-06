@@ -48,11 +48,11 @@
 void gm_draw_reset(void);
 
 /* ---- state ---- */
-void gm_draw_set_colour(double colour);
-void gm_draw_set_alpha(double alpha);
+void gm_draw_set_colour(float colour);
+void gm_draw_set_alpha(float alpha);
 void gm_draw_set_font(int font);
 uint32_t gm_draw_colour(void);
-double gm_draw_alpha(void);
+float gm_draw_alpha(void);
 
 /* ---- frame and passes (gm_loop) ---- */
 void gm_draw_begin_frame(void);
@@ -64,19 +64,19 @@ int gm_draw_app_width(void);
 int gm_draw_app_height(void);
 
 /* ---- drawing (world coordinates of the current pass) ---- */
-void gm_draw_sprite_ext(int sprite, double subimg, double x, double y, double xscale, double yscale,
-                        double angle, double colour, double alpha);
-void gm_draw_sprite(int sprite, double subimg, double x, double y);   /* draw alpha */
-void gm_draw_sprite_stretched(int sprite, double subimg, double x, double y, double w, double h);
+void gm_draw_sprite_ext(int sprite, float subimg, float x, float y, float xscale, float yscale,
+                        float angle, float colour, float alpha);
+void gm_draw_sprite(int sprite, float subimg, float x, float y);   /* draw alpha */
+void gm_draw_sprite_stretched(int sprite, float subimg, float x, float y, float w, float h);
 void gm_draw_self(gm_instance_t *inst);
-void gm_draw_text(double x, double y, const char *text);
-void gm_draw_rectangle(double x1, double y1, double x2, double y2, bool outline);
-void gm_draw_circle(double x, double y, double r, bool outline);
-void gm_draw_clear(double colour);
+void gm_draw_text(float x, float y, const char *text);
+void gm_draw_rectangle(float x1, float y1, float x2, float y2, bool outline);
+void gm_draw_circle(float x, float y, float r, bool outline);
+void gm_draw_clear(float colour);
 void gm_draw_layer(const gm_layer_t *layer);
 
 /* ---- sprites and fonts loaded at run time ---- */
-int gm_draw_sprite_add(const char *path, int frames, double xorig, double yorig);   /* -1 on failure */
+int gm_draw_sprite_add(const char *path, int frames, float xorig, float yorig);   /* -1 on failure */
 bool gm_draw_sprite_exists(int sprite);
 int gm_draw_sprite_width(int sprite);
 int gm_draw_sprite_height(int sprite);
@@ -89,8 +89,8 @@ void gm_draw_surface_free(int id);
 void gm_draw_surface_resize(int id, int w, int h);
 bool gm_draw_surface_set_target(int id);
 bool gm_draw_surface_reset_target(void);
-void gm_draw_surface(int id, double x, double y);
-void gm_draw_surface_stretched(int id, double x, double y, double w, double h);
+void gm_draw_surface(int id, float x, float y);
+void gm_draw_surface_stretched(int id, float x, float y, float w, float h);
 
 /* ---- window ---- */
 int gm_window_width(void);

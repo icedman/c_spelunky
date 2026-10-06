@@ -7,262 +7,262 @@ void gml_script_scrSetCursorTile(gm_instance_t *self, gm_instance_t *other)
     (void)other;
     if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_BLOCKS])) {
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("@"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sEntrance));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sEntrance));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("X"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sExit));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sExit));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("I"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMsgSign));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMsgSign));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("1"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBrick));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBrick));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("2"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sLush));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sLush));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("w"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sWater));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sWater));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("3"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sDark));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sDark));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("i"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sIce));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sIce));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("d"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sDarkFall));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sDarkFall));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("4"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTemple));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTemple));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("l"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sLava));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sLava));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("L"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sLadder));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sLadder));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("P"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sLadderTop));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sLadderTop));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("v"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sVine));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sVine));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("t"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sVineTop));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sVineTop));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("|"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTreeTrunk));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTreeTrunk));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("x"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTreeTop));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTreeTop));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs(")"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sLeaves));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sLeaves));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("q"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTreeBranchLeft));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTreeBranchLeft));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("B"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBlock));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBlock));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("&"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sWeb));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sWeb));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("r"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sRockTile));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sRockTile));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("j"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sJarTile));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sJarTile));
         }
         if (gml_veq(gml_aget(self->vals[VVAR_blockArray], self->vars[VAR_dropVal]), gml_vs("k"))) {
-            gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sFakeBonesLeft));
+            gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sFakeBonesLeft));
         }
     } else {
         if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_ENEMIES])) {
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("b"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBatLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBatLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("n"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSnakeLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSnakeLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("s"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpider));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpider));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("S"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGiantSpiderHang));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGiantSpiderHang));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("K"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSkeletonLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSkeletonLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("h"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sCavemanLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sCavemanLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("!"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sShopLeftIco));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sShopLeftIco));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("f"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sFrogLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sFrogLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("F"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sFireFrogLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sFireFrogLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("z"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sZombieLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sZombieLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("A"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sVampireLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sVampireLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("p"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sPiranhaTile));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sPiranhaTile));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("M"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sManTrapLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sManTrapLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("m"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMonkeyLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMonkeyLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("y"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sYetiLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sYetiLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("a"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sAlien));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sAlien));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("U"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sUFO));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sUFO));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("E"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sAlienBoss));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sAlienBoss));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("H"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sHawkLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sHawkLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("Y"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sYetiKingLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sYetiKingLeft));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("{"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMegaMouthTile));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMegaMouthTile));
             }
             if (gml_veq(gml_aget(self->vals[VVAR_enemyArray], self->vars[VAR_dropVal]), gml_vs("T"))) {
-                gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTombLordLeft));
+                gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTombLordLeft));
             }
         } else {
             if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_TRAPS])) {
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("^"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpikes));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpikes));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("<"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sArrowTrapLeft));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sArrowTrapLeft));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs(">"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sArrowTrapRight));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sArrowTrapRight));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("]"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpearTrap1));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpearTrap1));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("["))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpearTrap2));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpearTrap2));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("_"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpringTrap));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpringTrap));
                 }
                 if (gml_veq(gml_aget(self->vals[VVAR_trapArray], self->vars[VAR_dropVal]), gml_vs("+"))) {
-                    gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSmashTrap));
+                    gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSmashTrap));
                 }
             } else {
                 if (gml_eq(self->vars[VAR_dropSelect], self->vars[VAR_ITEMS])) {
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("$"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGoldBarTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGoldBarTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("*"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGoldBarsTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGoldBarsTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("#"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGoldIdolTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGoldIdolTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("O"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sCrystalSkullTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sCrystalSkullTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("5"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sEmeraldBigTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sEmeraldBigTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("6"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSapphireBigTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSapphireBigTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("7"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sRubyBigTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sRubyBigTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("8"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sDiamondTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sDiamondTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("c"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sChestTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sChestTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("C"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sCrateTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sCrateTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("D"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sDamselLeftIco));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sDamselLeftIco));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("."))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBombBagTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBombBagTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs(":"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBombBoxTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBombBoxTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("u"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBombPasteTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBombPasteTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("R"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sRopePileTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sRopePileTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("`"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sParachuteTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sParachuteTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("o"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sCompassTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sCompassTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("/"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMacheteTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMacheteTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("~"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpringShoesTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpringShoesTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("V"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpikeShoesTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpikeShoesTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("}"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sBowTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sBowTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("-"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sPistolTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sPistolTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("="))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sShotgunTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sShotgunTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("W"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sWebCannonTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sWebCannonTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("%"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sSpectaclesTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sSpectaclesTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("G"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sGlovesTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sGlovesTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("g"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMittTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMittTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("?"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sTeleporterTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sTeleporterTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("("))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sMattockTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sMattockTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("\\"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sCapeTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sCapeTile));
                     }
                     if (gml_veq(gml_aget(self->vals[VVAR_lootArray], self->vars[VAR_dropVal]), gml_vs("J"))) {
-                        gml_iset_sprite_index(gml_deref(((double)OBJ_oCursObj), self, other), ((double)SPR_sJetpackTile));
+                        gml_iset_sprite_index(gml_deref(((float)OBJ_oCursObj), self, other), ((float)SPR_sJetpackTile));
                     }
                 }
             }

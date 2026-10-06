@@ -8,8 +8,8 @@ static void gml_ev_oSceptre__Create_0_body(gm_instance_t *self, gm_instance_t *o
     gml_script_action_inherited(self, other);
     self->strs[SVAR_type] = "Sceptre";
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_cost] = 0.0;
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_cost] = 0.0f;
     self->strs[SVAR_buyMessage] = gml_script_tr(self, other, 1, "I SHOULDN'T BE SELLING THIS!");
 }
 
@@ -26,10 +26,10 @@ static void gml_ev_oSceptre__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)other;
     gml_script_action_inherited(self, other);
     if (gml_truthy(self->vars[VAR_held])) {
-        if (gml_eq(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self, other), VAR_facing), 18.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sSceptreLeft));
+        if (gml_eq(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self, other), VAR_facing), 18.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sSceptreLeft));
         } else {
-            gml_iset_sprite_index(self, ((double)SPR_sSceptreRight));
+            gml_iset_sprite_index(self, ((float)SPR_sSceptreRight));
         }
     }
 }

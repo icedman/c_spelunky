@@ -3,17 +3,17 @@
 
 static void gml_ev_oBone__Create_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
     gml_script_action_inherited(self, other);
-    gml_iset_image_speed(self, 0.3);
+    gml_iset_image_speed(self, 0.3f);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-4.0), (-4.0), 4.0, 4.0);
-    self->vars[VAR_xVel] = (t1 = gm_random(4.0), (t1 - gm_random(4.0)));
-    self->vars[VAR_yVel] = ((-1.0) - gm_random(2.0));
-    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0, 6.0) * 0.1);
+    gml_script_setCollisionBounds(self, other, (-4.0f), (-4.0f), 4.0f, 4.0f);
+    self->vars[VAR_xVel] = (t1 = gm_random(4.0f), (t1 - gm_random(4.0f)));
+    self->vars[VAR_yVel] = ((-1.0f) - gm_random(2.0f));
+    self->vars[VAR_grav] = (gml_script_rand(self, other, 1.0f, 6.0f) * 0.1f);
 }
 
 void gml_ev_oBone__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -28,9 +28,9 @@ static void gml_ev_oBone__Step_0_body(gm_instance_t *self, gm_instance_t *other)
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-        gml_iset_sprite_index(self, ((double)SPR_sSmokePuff));
-        self->vars[VAR_dying] = 1.0;
+    if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+        gml_iset_sprite_index(self, ((float)SPR_sSmokePuff));
+        self->vars[VAR_dying] = 1.0f;
     }
 }
 

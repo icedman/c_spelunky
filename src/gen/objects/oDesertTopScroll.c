@@ -5,9 +5,9 @@ static void gml_ev_oDesertTopScroll__Create_0_body(gm_instance_t *self, gm_insta
 {
     (void)self;
     (void)other;
-    self->vars[VAR_scroll] = 0.0;
+    self->vars[VAR_scroll] = 0.0f;
     if (gml_str_eq(gml_fn_room_get_name(self, other, gml_gget_room()), "rCredits1")) {
-        gml_iset_sprite_index(self, ((double)SPR_sDesertTopNight));
+        gml_iset_sprite_index(self, ((float)SPR_sDesertTopNight));
     }
 }
 
@@ -23,7 +23,7 @@ static void gml_ev_oDesertTopScroll__Step_0_body(gm_instance_t *self, gm_instanc
     (void)self;
     (void)other;
     if (gml_truthy(self->vars[VAR_scroll])) {
-        gml_iset_x(self, (gml_iget_x(self) + 1.0));
+        gml_iset_x(self, (gml_iget_x(self) + 1.0f));
     }
     if (gml_gt(gml_iget_x(self), g_gml_globals.display_w)) {
         gml_fn_instance_destroy(self, other, 0, NULL);

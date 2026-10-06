@@ -5,10 +5,10 @@ static void gml_ev_oScreenLast__Create_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    g_gml_globals.drawpSurf = 0.0;
-    g_gml_globals.drawscreen = 0.0;
-    g_gml_globals.drawdarkSurf = 0.0;
-    g_gml_globals.drawpSurf2 = 0.0;
+    g_gml_globals.drawpSurf = 0.0f;
+    g_gml_globals.drawscreen = 0.0f;
+    g_gml_globals.drawdarkSurf = 0.0f;
+    g_gml_globals.drawpSurf2 = 0.0f;
 }
 
 void gml_ev_oScreenLast__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,52 +21,52 @@ void gml_ev_oScreenLast__Create_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oScreenLast__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t18 = 0.0;
-    double t19 = 0.0;
-    double t20 = 0.0;
-    double t22 = 0.0;
-    double t23 = 0.0;
-    double t24 = 0.0;
-    double t26 = 0.0;
-    double t27 = 0.0;
-    double t28 = 0.0;
-    double t30 = 0.0;
-    double t31 = 0.0;
-    double t32 = 0.0;
-    double t34 = 0.0;
-    double t35 = 0.0;
-    double t36 = 0.0;
-    double t38 = 0.0;
-    double t39 = 0.0;
-    double t40 = 0.0;
-    double t42 = 0.0;
-    double t43 = 0.0;
-    double t44 = 0.0;
-    double t46 = 0.0;
-    double t47 = 0.0;
-    double t48 = 0.0;
-    double t50 = 0.0;
-    double t51 = 0.0;
-    double t52 = 0.0;
-    double t54 = 0.0;
-    double t55 = 0.0;
-    double t56 = 0.0;
-    double t58 = 0.0;
-    double t59 = 0.0;
-    double t60 = 0.0;
-    double t62 = 0.0;
-    double t63 = 0.0;
-    double t64 = 0.0;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t18 = 0.0f;
+    float t19 = 0.0f;
+    float t20 = 0.0f;
+    float t22 = 0.0f;
+    float t23 = 0.0f;
+    float t24 = 0.0f;
+    float t26 = 0.0f;
+    float t27 = 0.0f;
+    float t28 = 0.0f;
+    float t30 = 0.0f;
+    float t31 = 0.0f;
+    float t32 = 0.0f;
+    float t34 = 0.0f;
+    float t35 = 0.0f;
+    float t36 = 0.0f;
+    float t38 = 0.0f;
+    float t39 = 0.0f;
+    float t40 = 0.0f;
+    float t42 = 0.0f;
+    float t43 = 0.0f;
+    float t44 = 0.0f;
+    float t46 = 0.0f;
+    float t47 = 0.0f;
+    float t48 = 0.0f;
+    float t50 = 0.0f;
+    float t51 = 0.0f;
+    float t52 = 0.0f;
+    float t54 = 0.0f;
+    float t55 = 0.0f;
+    float t56 = 0.0f;
+    float t58 = 0.0f;
+    float t59 = 0.0f;
+    float t60 = 0.0f;
+    float t62 = 0.0f;
+    float t63 = 0.0f;
+    float t64 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -119,10 +119,10 @@ static void gml_ev_oScreenLast__Step_0_body(gm_instance_t *self, gm_instance_t *
     return;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oScreen)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oScreen)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            self1->vars[VAR_screen_w] = 960.0;
-            self1->vars[VAR_screen_h] = 720.0;
+            self1->vars[VAR_screen_w] = 960.0f;
+            self1->vars[VAR_screen_h] = 720.0f;
             if ((!gml_truthy(gml_fn_surface_exists(self1, self, self1->vars[VAR_pSurf])))) {
                 self1->vars[VAR_pSurf] = gml_fn_surface_create(self1, self, self1->vars[VAR_screen_w], self1->vars[VAR_screen_h]);
             }
@@ -133,40 +133,40 @@ static void gml_ev_oScreenLast__Step_0_body(gm_instance_t *self, gm_instance_t *
                 self1->vars[VAR_darkSurf] = gml_fn_surface_create(self1, self, self1->vars[VAR_screen_w], self1->vars[VAR_screen_h]);
             }
             if (gml_truthy(gml_script_checkBombPressed(self1, self))) {
-                if (((gml_truthy(self1->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0)) && gml_truthy(gml_script_isLevel(self1, self)))) {
+                if (((gml_truthy(self1->vars[VAR_paused]) && gml_gt(g_gml_globals.plife, 0.0f)) && gml_truthy(gml_script_isLevel(self1, self)))) {
                     gml_fn_instance_activate_all(self1, self);
-                    self1->vars[VAR_paused] = 0.0;
+                    self1->vars[VAR_paused] = 0.0f;
                     {
                         gm_instance_t *self2;
-                        gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self1, self);
+                        gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self1, self);
                         while ((self2 = gm_with_next()) != NULL) {
-                            if (gml_eq(self2->vars[VAR_facing], 18.0)) {
-                                self2->vars[VAR_xVel] = (-3.0);
+                            if (gml_eq(self2->vars[VAR_facing], 18.0f)) {
+                                self2->vars[VAR_xVel] = (-3.0f);
                             } else {
-                                self2->vars[VAR_xVel] = 3.0;
+                                self2->vars[VAR_xVel] = 3.0f;
                             }
-                            self2->vars[VAR_yVel] = (-6.0);
-                            g_gml_globals.plife = (-99.0);
+                            self2->vars[VAR_yVel] = (-6.0f);
+                            g_gml_globals.plife = (-99.0f);
                         }
                         gm_with_end();
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTitle))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musCave))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musLush))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musIce))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTemple))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musBoss))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if ((!gml_truthy(g_gml_globals.hasAnkh))) {
                         gml_script_stopAllMusic(self1, self);
@@ -174,159 +174,159 @@ static void gml_ev_oScreenLast__Step_0_body(gm_instance_t *self, gm_instance_t *
                 }
             }
             (void)(gml_fn_surface_reset_target(self1, self));
-            gml_fn_draw_clear(self1, self, 0.0);
+            gml_fn_draw_clear(self1, self, 0.0f);
             if (gml_truthy(self1->vars[VAR_paused])) {
-                g_gml_globals.drawpSurf = 1.0;
+                g_gml_globals.drawpSurf = 1.0f;
             } else {
                 if (gml_truthy(gml_script_isRoom(self1, self, "rTitle"))) {
                     (void)(gml_fn_surface_set_target(self1, self, self1->vars[VAR_screen]));
-                    gml_fn_draw_set_alpha(self1, self, gml_ivar(gml_deref(((double)OBJ_oTitle), self1, self), VAR_darkness));
-                    gml_fn_draw_set_color(self1, self, (0.0 /* c_black */));
-                    gml_fn_draw_set_alpha(self1, self, 1.0);
+                    gml_fn_draw_set_alpha(self1, self, gml_ivar(gml_deref(((float)OBJ_oTitle), self1, self), VAR_darkness));
+                    gml_fn_draw_set_color(self1, self, (0.0f /* c_black */));
+                    gml_fn_draw_set_alpha(self1, self, 1.0f);
                     (void)(gml_fn_surface_reset_target(self1, self));
                 } else {
-                    if ((gml_truthy(gml_script_isLevel(self1, self)) && gml_truthy(gml_fn_instance_exists(self1, self, ((double)OBJ_oPlayer1))))) {
-                        if ((gml_truthy(g_gml_globals.darkLevel) && (!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self1, self), VAR_dead))))) {
+                    if ((gml_truthy(gml_script_isLevel(self1, self)) && gml_truthy(gml_fn_instance_exists(self1, self, ((float)OBJ_oPlayer1))))) {
+                        if ((gml_truthy(g_gml_globals.darkLevel) && (!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self1, self), VAR_dead))))) {
                             (void)(gml_fn_surface_set_target(self1, self, self1->vars[VAR_darkSurf]));
-                            gml_fn_draw_set_color(self1, self, (0.0 /* c_black */));
-                            gml_fn_draw_rectangle(self1, self, 0.0, 0.0, self1->vars[VAR_screen_w], self1->vars[VAR_screen_h], 0.0);
-                            gml_fn_draw_set_color(self1, self, gml_fn_make_color_rgb(self1, self, (255.0 - (255.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self1, self), VAR_darkness))), (255.0 - (255.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self1, self), VAR_darkness))), 255.0));
-                            if (gml_truthy(gml_fn_instance_exists(self1, self, ((double)OBJ_oLampRed)))) {
+                            gml_fn_draw_set_color(self1, self, (0.0f /* c_black */));
+                            gml_fn_draw_rectangle(self1, self, 0.0f, 0.0f, self1->vars[VAR_screen_w], self1->vars[VAR_screen_h], 0.0f);
+                            gml_fn_draw_set_color(self1, self, gml_fn_make_color_rgb(self1, self, (255.0f - (255.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self1, self), VAR_darkness))), (255.0f - (255.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self1, self), VAR_darkness))), 255.0f));
+                            if (gml_truthy(gml_fn_instance_exists(self1, self, ((float)OBJ_oLampRed)))) {
                                 {
                                     gm_instance_t *self3;
-                                    gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self1, self);
+                                    gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self1, self);
                                     while ((self3 = gm_with_next()) != NULL) {
-                                        self3->vars[VAR_distToLamp] = gml_fn_distance_to_object(self3, self1, ((double)OBJ_oLampRed));
-                                        if (gml_le(self3->vars[VAR_distToLamp], 96.0)) {
-                                            gml_fn_draw_set_color(self3, self1, gml_fn_make_color_rgb(self3, self1, (255.0 - self3->vars[VAR_distToLamp]), (120.0 - (96.0 - self3->vars[VAR_distToLamp])), (120.0 - (96.0 - self3->vars[VAR_distToLamp]))));
+                                        self3->vars[VAR_distToLamp] = gml_fn_distance_to_object(self3, self1, ((float)OBJ_oLampRed));
+                                        if (gml_le(self3->vars[VAR_distToLamp], 96.0f)) {
+                                            gml_fn_draw_set_color(self3, self1, gml_fn_make_color_rgb(self3, self1, (255.0f - self3->vars[VAR_distToLamp]), (120.0f - (96.0f - self3->vars[VAR_distToLamp])), (120.0f - (96.0f - self3->vars[VAR_distToLamp]))));
                                         }
                                     }
                                     gm_with_end();
                                 }
                             }
-                            if (gml_truthy(gml_fn_instance_exists(self1, self, ((double)OBJ_oLampRedItem)))) {
+                            if (gml_truthy(gml_fn_instance_exists(self1, self, ((float)OBJ_oLampRedItem)))) {
                                 {
                                     gm_instance_t *self4;
-                                    gm_with_begin(gml_target(((double)OBJ_oPlayer1)), self1, self);
+                                    gm_with_begin(gml_target(((float)OBJ_oPlayer1)), self1, self);
                                     while ((self4 = gm_with_next()) != NULL) {
-                                        self4->vars[VAR_distToLamp] = gml_fn_distance_to_object(self4, self1, ((double)OBJ_oLampRedItem));
-                                        if (gml_le(self4->vars[VAR_distToLamp], 96.0)) {
-                                            gml_fn_draw_set_color(self4, self1, gml_fn_make_color_rgb(self4, self1, (255.0 - self4->vars[VAR_distToLamp]), (120.0 - (96.0 - self4->vars[VAR_distToLamp])), (120.0 - (96.0 - self4->vars[VAR_distToLamp]))));
+                                        self4->vars[VAR_distToLamp] = gml_fn_distance_to_object(self4, self1, ((float)OBJ_oLampRedItem));
+                                        if (gml_le(self4->vars[VAR_distToLamp], 96.0f)) {
+                                            gml_fn_draw_set_color(self4, self1, gml_fn_make_color_rgb(self4, self1, (255.0f - self4->vars[VAR_distToLamp]), (120.0f - (96.0f - self4->vars[VAR_distToLamp])), (120.0f - (96.0f - self4->vars[VAR_distToLamp]))));
                                         }
                                     }
                                     gm_with_end();
                                 }
                             }
-                            (t7 = (t5 = gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self1, self)), (t5 - gml_script___view_get(self1, self, (0.0 /* e__VW.XView */), 0.0))), t8 = (t6 = gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self1, self)), (t6 - gml_script___view_get(self1, self, (1.0 /* e__VW.YView */), 0.0))), gml_fn_draw_circle(self1, self, t7, t8, (96.0 - (64.0 * gml_ivar(gml_deref(((double)OBJ_oLevel), self1, self), VAR_darkness))), 0.0));
+                            (t7 = (t5 = gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self1, self)), (t5 - gml_script___view_get(self1, self, (0.0f /* e__VW.XView */), 0.0f))), t8 = (t6 = gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self1, self)), (t6 - gml_script___view_get(self1, self, (1.0f /* e__VW.YView */), 0.0f))), gml_fn_draw_circle(self1, self, t7, t8, (96.0f - (64.0f * gml_ivar(gml_deref(((float)OBJ_oLevel), self1, self), VAR_darkness))), 0.0f));
                             {
                                 gm_instance_t *self9;
-                                gm_with_begin(gml_target(((double)OBJ_oFlare)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oFlare)), self1, self);
                                 while ((self9 = gm_with_next()) != NULL) {
-                                    (t12 = (t10 = gml_iget_x(self9), (t10 - gml_script___view_get(self9, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self9, self1, t12, (t11 = gml_iget_y(self9), (t11 - gml_script___view_get(self9, self1, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                                    (t12 = (t10 = gml_iget_x(self9), (t10 - gml_script___view_get(self9, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self9, self1, t12, (t11 = gml_iget_y(self9), (t11 - gml_script___view_get(self9, self1, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self13;
-                                gm_with_begin(gml_target(((double)OBJ_oFlareCrate)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oFlareCrate)), self1, self);
                                 while ((self13 = gm_with_next()) != NULL) {
-                                    (t16 = (t14 = gml_iget_x(self13), (t14 - gml_script___view_get(self13, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self13, self1, t16, (t15 = gml_iget_y(self13), (t15 - gml_script___view_get(self13, self1, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                                    (t16 = (t14 = gml_iget_x(self13), (t14 - gml_script___view_get(self13, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self13, self1, t16, (t15 = gml_iget_y(self13), (t15 - gml_script___view_get(self13, self1, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self17;
-                                gm_with_begin(gml_target(((double)OBJ_oLamp)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oLamp)), self1, self);
                                 while ((self17 = gm_with_next()) != NULL) {
-                                    (t20 = (t18 = (gml_iget_x(self17) + 8.0), (t18 - gml_script___view_get(self17, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self17, self1, t20, (t19 = (gml_iget_y(self17) + 8.0), (t19 - gml_script___view_get(self17, self1, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                                    (t20 = (t18 = (gml_iget_x(self17) + 8.0f), (t18 - gml_script___view_get(self17, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self17, self1, t20, (t19 = (gml_iget_y(self17) + 8.0f), (t19 - gml_script___view_get(self17, self1, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self21;
-                                gm_with_begin(gml_target(((double)OBJ_oLampItem)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oLampItem)), self1, self);
                                 while ((self21 = gm_with_next()) != NULL) {
-                                    (t24 = (t22 = gml_iget_x(self21), (t22 - gml_script___view_get(self21, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self21, self1, t24, (t23 = (gml_iget_y(self21) - 4.0), (t23 - gml_script___view_get(self21, self1, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                                    (t24 = (t22 = gml_iget_x(self21), (t22 - gml_script___view_get(self21, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self21, self1, t24, (t23 = (gml_iget_y(self21) - 4.0f), (t23 - gml_script___view_get(self21, self1, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self25;
-                                gm_with_begin(gml_target(((double)OBJ_oArrowTrapLeftLit)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oArrowTrapLeftLit)), self1, self);
                                 while ((self25 = gm_with_next()) != NULL) {
-                                    (t28 = (t26 = (gml_iget_x(self25) + 8.0), (t26 - gml_script___view_get(self25, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self25, self1, t28, (t27 = (gml_iget_y(self25) + 8.0), (t27 - gml_script___view_get(self25, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t28 = (t26 = (gml_iget_x(self25) + 8.0f), (t26 - gml_script___view_get(self25, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self25, self1, t28, (t27 = (gml_iget_y(self25) + 8.0f), (t27 - gml_script___view_get(self25, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self29;
-                                gm_with_begin(gml_target(((double)OBJ_oArrowTrapRightLit)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oArrowTrapRightLit)), self1, self);
                                 while ((self29 = gm_with_next()) != NULL) {
-                                    (t32 = (t30 = (gml_iget_x(self29) + 8.0), (t30 - gml_script___view_get(self29, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self29, self1, t32, (t31 = (gml_iget_y(self29) + 8.0), (t31 - gml_script___view_get(self29, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t32 = (t30 = (gml_iget_x(self29) + 8.0f), (t30 - gml_script___view_get(self29, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self29, self1, t32, (t31 = (gml_iget_y(self29) + 8.0f), (t31 - gml_script___view_get(self29, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self33;
-                                gm_with_begin(gml_target(((double)OBJ_oTikiTorch)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oTikiTorch)), self1, self);
                                 while ((self33 = gm_with_next()) != NULL) {
-                                    (t36 = (t34 = (gml_iget_x(self33) + 8.0), (t34 - gml_script___view_get(self33, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self33, self1, t36, (t35 = (gml_iget_y(self33) + 8.0), (t35 - gml_script___view_get(self33, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t36 = (t34 = (gml_iget_x(self33) + 8.0f), (t34 - gml_script___view_get(self33, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self33, self1, t36, (t35 = (gml_iget_y(self33) + 8.0f), (t35 - gml_script___view_get(self33, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self37;
-                                gm_with_begin(gml_target(((double)OBJ_oFireFrog)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oFireFrog)), self1, self);
                                 while ((self37 = gm_with_next()) != NULL) {
-                                    (t40 = (t38 = (gml_iget_x(self37) + 8.0), (t38 - gml_script___view_get(self37, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self37, self1, t40, (t39 = (gml_iget_y(self37) + 8.0), (t39 - gml_script___view_get(self37, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t40 = (t38 = (gml_iget_x(self37) + 8.0f), (t38 - gml_script___view_get(self37, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self37, self1, t40, (t39 = (gml_iget_y(self37) + 8.0f), (t39 - gml_script___view_get(self37, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self41;
-                                gm_with_begin(gml_target(((double)OBJ_oSpearTrapLit)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oSpearTrapLit)), self1, self);
                                 while ((self41 = gm_with_next()) != NULL) {
-                                    (t44 = (t42 = (gml_iget_x(self41) + 8.0), (t42 - gml_script___view_get(self41, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self41, self1, t44, (t43 = (gml_iget_y(self41) + 8.0), (t43 - gml_script___view_get(self41, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t44 = (t42 = (gml_iget_x(self41) + 8.0f), (t42 - gml_script___view_get(self41, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self41, self1, t44, (t43 = (gml_iget_y(self41) + 8.0f), (t43 - gml_script___view_get(self41, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self45;
-                                gm_with_begin(gml_target(((double)OBJ_oSmashTrapLit)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oSmashTrapLit)), self1, self);
                                 while ((self45 = gm_with_next()) != NULL) {
-                                    (t48 = (t46 = (gml_iget_x(self45) + 8.0), (t46 - gml_script___view_get(self45, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self45, self1, t48, (t47 = (gml_iget_y(self45) + 8.0), (t47 - gml_script___view_get(self45, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t48 = (t46 = (gml_iget_x(self45) + 8.0f), (t46 - gml_script___view_get(self45, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self45, self1, t48, (t47 = (gml_iget_y(self45) + 8.0f), (t47 - gml_script___view_get(self45, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self49;
-                                gm_with_begin(gml_target(((double)OBJ_oExplosion)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oExplosion)), self1, self);
                                 while ((self49 = gm_with_next()) != NULL) {
-                                    (t52 = (t50 = gml_iget_x(self49), (t50 - gml_script___view_get(self49, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self49, self1, t52, (t51 = gml_iget_y(self49), (t51 - gml_script___view_get(self49, self1, (1.0 /* e__VW.YView */), 0.0))), 96.0, 0.0));
+                                    (t52 = (t50 = gml_iget_x(self49), (t50 - gml_script___view_get(self49, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self49, self1, t52, (t51 = gml_iget_y(self49), (t51 - gml_script___view_get(self49, self1, (1.0f /* e__VW.YView */), 0.0f))), 96.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self53;
-                                gm_with_begin(gml_target(((double)OBJ_oLava)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oLava)), self1, self);
                                 while ((self53 = gm_with_next()) != NULL) {
-                                    (t56 = (t54 = (gml_iget_x(self53) + 8.0), (t54 - gml_script___view_get(self53, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self53, self1, t56, (t55 = (gml_iget_y(self53) + 8.0), (t55 - gml_script___view_get(self53, self1, (1.0 /* e__VW.YView */), 0.0))), 32.0, 0.0));
+                                    (t56 = (t54 = (gml_iget_x(self53) + 8.0f), (t54 - gml_script___view_get(self53, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self53, self1, t56, (t55 = (gml_iget_y(self53) + 8.0f), (t55 - gml_script___view_get(self53, self1, (1.0f /* e__VW.YView */), 0.0f))), 32.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self57;
-                                gm_with_begin(gml_target(((double)OBJ_oScarab)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oScarab)), self1, self);
                                 while ((self57 = gm_with_next()) != NULL) {
-                                    (t60 = (t58 = (gml_iget_x(self57) + 8.0), (t58 - gml_script___view_get(self57, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self57, self1, t60, (t59 = (gml_iget_y(self57) + 8.0), (t59 - gml_script___view_get(self57, self1, (1.0 /* e__VW.YView */), 0.0))), 16.0, 0.0));
+                                    (t60 = (t58 = (gml_iget_x(self57) + 8.0f), (t58 - gml_script___view_get(self57, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self57, self1, t60, (t59 = (gml_iget_y(self57) + 8.0f), (t59 - gml_script___view_get(self57, self1, (1.0f /* e__VW.YView */), 0.0f))), 16.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
                             {
                                 gm_instance_t *self61;
-                                gm_with_begin(gml_target(((double)OBJ_oGhost)), self1, self);
+                                gm_with_begin(gml_target(((float)OBJ_oGhost)), self1, self);
                                 while ((self61 = gm_with_next()) != NULL) {
-                                    (t64 = (t62 = (gml_iget_x(self61) + 16.0), (t62 - gml_script___view_get(self61, self1, (0.0 /* e__VW.XView */), 0.0))), gml_fn_draw_circle(self61, self1, t64, (t63 = (gml_iget_y(self61) + 16.0), (t63 - gml_script___view_get(self61, self1, (1.0 /* e__VW.YView */), 0.0))), 64.0, 0.0));
+                                    (t64 = (t62 = (gml_iget_x(self61) + 16.0f), (t62 - gml_script___view_get(self61, self1, (0.0f /* e__VW.XView */), 0.0f))), gml_fn_draw_circle(self61, self1, t64, (t63 = (gml_iget_y(self61) + 16.0f), (t63 - gml_script___view_get(self61, self1, (1.0f /* e__VW.YView */), 0.0f))), 64.0f, 0.0f));
                                 }
                                 gm_with_end();
                             }
@@ -334,8 +334,8 @@ static void gml_ev_oScreenLast__Step_0_body(gm_instance_t *self, gm_instance_t *
                         (void)(gml_fn_surface_reset_target(self1, self));
                     }
                 }
-                if (gml_eq(gml_gget_view_current(), 0.0)) {
-                    g_gml_globals.drawscreen = 1.0;
+                if (gml_eq(gml_gget_view_current(), 0.0f)) {
+                    g_gml_globals.drawscreen = 1.0f;
                 }
             }
         }
@@ -353,8 +353,8 @@ void gml_ev_oScreenLast__Step_0(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oScreenLast__Draw_64_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double l_scwidth = 0.0;
-    double l_scheight = 0.0;
+    float l_scwidth = 0.0f;
+    float l_scheight = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -363,12 +363,12 @@ static void gml_ev_oScreenLast__Draw_64_body(gm_instance_t *self, gm_instance_t 
     return;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oScreen)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oScreen)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            l_scwidth = (gml_gget_browser_height() * (960.0 / 720.0));
+            l_scwidth = (gml_gget_browser_height() * (960.0f / 720.0f));
             l_scheight = gml_gget_browser_height();
             if (gml_truthy(g_gml_globals.pSurf2)) {
-                gml_fn_draw_clear(self1, self, 0.0);
+                gml_fn_draw_clear(self1, self, 0.0f);
                 gml_fn_draw_surface_stretched(self1, self, self1->vars[VAR_pSurf], self1->vars[VAR_screen_x], self1->vars[VAR_screen_y], gml_fn_window_get_width(self1, self), gml_fn_window_get_height(self1, self));
             }
         }
@@ -386,27 +386,27 @@ void gml_ev_oScreenLast__Draw_64(gm_instance_t *self, gm_instance_t *other)
 static void gml_ev_oScreenLast__Draw_0_body(gm_instance_t *self, gm_instance_t *other)
 {
     int wd = gm_with_depth(); /* unwound to on early exits from with */
-    double t3 = 0.0;
+    float t3 = 0.0f;
     gm_value_t v4 = GM_VALUE_UNDEFINED_INIT;
     gm_value_t v5 = GM_VALUE_UNDEFINED_INIT;
     gm_value_t v6 = GM_VALUE_UNDEFINED_INIT;
-    double t7 = 0.0;
+    float t7 = 0.0f;
     const char *s8 = "";
-    double t9 = 0.0;
+    float t9 = 0.0f;
     const char *s10 = "";
     const char *s11 = "";
-    double t12 = 0.0;
+    float t12 = 0.0f;
     const char *s13 = "";
-    double t14 = 0.0;
+    float t14 = 0.0f;
     const char *s15 = "";
-    double t16 = 0.0;
+    float t16 = 0.0f;
     const char *s17 = "";
     const char *s18 = "";
     const char *s19 = "";
     const char *s20 = "";
-    double t21 = 0.0;
+    float t21 = 0.0f;
     const char *s22 = "";
-    double t23 = 0.0;
+    float t23 = 0.0f;
     (void)self;
     (void)other;
     (void)wd;
@@ -433,9 +433,9 @@ static void gml_ev_oScreenLast__Draw_0_body(gm_instance_t *self, gm_instance_t *
     (void)t23;
     {
         gm_instance_t *self1;
-        gm_with_begin(gml_target(((double)OBJ_oScreen)), self, other);
+        gm_with_begin(gml_target(((float)OBJ_oScreen)), self, other);
         while ((self1 = gm_with_next()) != NULL) {
-            g_gml_globals.pSurf2 = 0.0;
+            g_gml_globals.pSurf2 = 0.0f;
             if ((!gml_truthy(gml_fn_surface_exists(self1, self, self1->vars[VAR_pSurf])))) {
                 self1->vars[VAR_pSurf] = gml_fn_surface_create(self1, self, g_gml_globals.display_w, g_gml_globals.display_h);
             }
@@ -447,133 +447,133 @@ static void gml_ev_oScreenLast__Draw_0_body(gm_instance_t *self, gm_instance_t *
             }
             if (gml_truthy(gml_script_checkStartPressed(self1, self))) {
                 if (((!gml_truthy(self1->vars[VAR_paused])) && gml_truthy(self1->vars[VAR_canPause]))) {
-                    if (gml_truthy(gml_fn_instance_exists(self1, self, ((double)OBJ_oPlayer1)))) {
-                        if ((!gml_truthy(gml_ivar(gml_deref(((double)OBJ_oPlayer1), self1, self), VAR_dead)))) {
+                    if (gml_truthy(gml_fn_instance_exists(self1, self, ((float)OBJ_oPlayer1)))) {
+                        if ((!gml_truthy(gml_ivar(gml_deref(((float)OBJ_oPlayer1), self1, self), VAR_dead)))) {
                             (void)(gml_fn_surface_set_target(self1, self, self1->vars[VAR_pSurf]));
                             if (gml_truthy(g_gml_globals.darkLevel)) {
-                                gml_fn_draw_set_alpha(self1, self, 1.0);
+                                gml_fn_draw_set_alpha(self1, self, 1.0f);
                             } else {
-                                gml_fn_draw_set_alpha(self1, self, 0.9);
+                                gml_fn_draw_set_alpha(self1, self, 0.9f);
                             }
-                            gml_fn_draw_set_color(self1, self, (0.0 /* c_black */));
-                            gml_fn_draw_rectangle(self1, self, 0.0, 0.0, g_gml_globals.display_w, g_gml_globals.display_h, 0.0);
-                            gml_fn_draw_set_alpha(self1, self, 1.0);
+                            gml_fn_draw_set_color(self1, self, (0.0f /* c_black */));
+                            gml_fn_draw_rectangle(self1, self, 0.0f, 0.0f, g_gml_globals.display_w, g_gml_globals.display_h, 0.0f);
+                            gml_fn_draw_set_alpha(self1, self, 1.0f);
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTitle))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, 0.0f);
                             }
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musCave))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, 0.0f);
                             }
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musLush))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, 0.0f);
                             }
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musIce))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, 0.0f);
                             }
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTemple))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, 0.0f);
                             }
                             if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musBoss))) {
-                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, 0.0);
+                                gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, 0.0f);
                             }
-                            self1->vars[VAR_py] = gml_iget_y(gml_deref(((double)OBJ_oPlayer1), self1, self));
+                            self1->vars[VAR_py] = gml_iget_y(gml_deref(((float)OBJ_oPlayer1), self1, self));
                             {
                                 gm_instance_t *self2;
-                                gm_with_begin(gml_target((-3.0 /* all */)), self1, self);
+                                gm_with_begin(gml_target((-3.0f /* all */)), self1, self);
                                 while ((self2 = gm_with_next()) != NULL) {
-                                    if ((((((gml_ne(gml_iget_object_index(self2), ((double)OBJ_oGamepad)) && gml_ne(gml_iget_object_index(self2), ((double)OBJ_oNAL))) && gml_ne(gml_iget_object_index(self2), ((double)OBJ_oScreenFirst))) && gml_ne(gml_iget_object_index(self2), ((double)OBJ_oScreenLast))) && gml_ne(gml_iget_object_index(self2), ((double)OBJ_oScreen))) && gml_ne(gml_iget_object_index(self2), ((double)OBJ_yyScreen)))) {
+                                    if ((((((gml_ne(gml_iget_object_index(self2), ((float)OBJ_oGamepad)) && gml_ne(gml_iget_object_index(self2), ((float)OBJ_oNAL))) && gml_ne(gml_iget_object_index(self2), ((float)OBJ_oScreenFirst))) && gml_ne(gml_iget_object_index(self2), ((float)OBJ_oScreenLast))) && gml_ne(gml_iget_object_index(self2), ((float)OBJ_oScreen))) && gml_ne(gml_iget_object_index(self2), ((float)OBJ_yyScreen)))) {
                                         gml_fn_instance_deactivate_object(self2, self1, gml_iget_id(self2));
                                     }
                                 }
                                 gm_with_end();
                             }
                             gml_fn_draw_set_font(self1, self, g_gml_globals.fontLarge);
-                            gml_fn_draw_set_color(self1, self, (16777215.0 /* c_white */));
-                            gml_fn_draw_text(self1, self, 112.0, 200.0, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "PAUSED")));
+                            gml_fn_draw_set_color(self1, self, (16777215.0f /* c_white */));
+                            gml_fn_draw_text(self1, self, 112.0f, 200.0f, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "PAUSED")));
                             gml_fn_draw_set_font(self1, self, g_gml_globals.fontSmall);
                             if (gml_truthy(gml_script_isLevel(self1, self))) {
-                                self1->vars[VAR_n] = (128.0 - 24.0);
-                                if (gml_lt(g_gml_globals.currLevel, 1.0)) {
-                                    (t3 = (self1->vars[VAR_n] - 24.0), gml_fn_draw_text(self1, self, 40.0, t3, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "TUTORIAL CAVE"))));
+                                self1->vars[VAR_n] = (128.0f - 24.0f);
+                                if (gml_lt(g_gml_globals.currLevel, 1.0f)) {
+                                    (t3 = (self1->vars[VAR_n] - 24.0f), gml_fn_draw_text(self1, self, 40.0f, t3, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "TUTORIAL CAVE"))));
                                 } else {
                                     if (gml_truthy(gml_script_isRoom(self1, self, "rLoadLevel"))) {
-                                        (t7 = (self1->vars[VAR_n] - 24.0), gml_fn_draw_text(self1, self, 40.0, t7, gml_fn_string_hash_to_newline(self1, self, gml_as_str((v6 = (v5 = (v4 = gml_vs(gml_script_tr(self1, self, 1, "LEVEL: ")), gml_add(v4, g_gml_gvals[GV_customLevelName])), gml_add(v5, gml_vs(gml_script_tr(self1, self, 1, " BY ")))), gml_add(v6, gml_vs(g_gml_gstrs[GS_customLevelAuthor])))))));
+                                        (t7 = (self1->vars[VAR_n] - 24.0f), gml_fn_draw_text(self1, self, 40.0f, t7, gml_fn_string_hash_to_newline(self1, self, gml_as_str((v6 = (v5 = (v4 = gml_vs(gml_script_tr(self1, self, 1, "LEVEL: ")), gml_add(v4, g_gml_gvals[GV_customLevelName])), gml_add(v5, gml_vs(gml_script_tr(self1, self, 1, " BY ")))), gml_add(v6, gml_vs(g_gml_gstrs[GS_customLevelAuthor])))))));
                                     } else {
-                                        (t9 = (self1->vars[VAR_n] - 24.0), gml_fn_draw_text(self1, self, 40.0, t9, gml_fn_string_hash_to_newline(self1, self, (s8 = gml_script_tr(self1, self, 1, "LEVEL "), gml_concat(s8, gml_real_str(g_gml_globals.currLevel))))));
+                                        (t9 = (self1->vars[VAR_n] - 24.0f), gml_fn_draw_text(self1, self, 40.0f, t9, gml_fn_string_hash_to_newline(self1, self, (s8 = gml_script_tr(self1, self, 1, "LEVEL "), gml_concat(s8, gml_real_str(g_gml_globals.currLevel))))));
                                     }
                                 }
-                                (t12 = (self1->vars[VAR_n] - 16.0), gml_fn_draw_text(self1, self, 40.0, t12, gml_fn_string_hash_to_newline(self1, self, (s11 = (s10 = gml_script_tr(self1, self, 1, "DEPTH: "), gml_concat(s10, gml_real_str(((174.8 * (g_gml_globals.currLevel - 1.0)) + ((self1->vars[VAR_py] + 8.0) * 0.34))))), gml_concat(s11, gml_script_tr(self1, self, 1, " FEET"))))));
-                                (t14 = self1->vars[VAR_n], gml_fn_draw_text(self1, self, 40.0, t14, gml_fn_string_hash_to_newline(self1, self, (s13 = gml_script_tr(self1, self, 1, "MONEY:  "), gml_concat(s13, gml_real_str(g_gml_globals.money))))));
-                                (t16 = (self1->vars[VAR_n] + 8.0), gml_fn_draw_text(self1, self, 40.0, t16, gml_fn_string_hash_to_newline(self1, self, (s15 = gml_script_tr(self1, self, 1, "KILLS:  "), gml_concat(s15, gml_real_str(g_gml_globals.kills))))));
+                                (t12 = (self1->vars[VAR_n] - 16.0f), gml_fn_draw_text(self1, self, 40.0f, t12, gml_fn_string_hash_to_newline(self1, self, (s11 = (s10 = gml_script_tr(self1, self, 1, "DEPTH: "), gml_concat(s10, gml_real_str(((174.8f * (g_gml_globals.currLevel - 1.0f)) + ((self1->vars[VAR_py] + 8.0f) * 0.34f))))), gml_concat(s11, gml_script_tr(self1, self, 1, " FEET"))))));
+                                (t14 = self1->vars[VAR_n], gml_fn_draw_text(self1, self, 40.0f, t14, gml_fn_string_hash_to_newline(self1, self, (s13 = gml_script_tr(self1, self, 1, "MONEY:  "), gml_concat(s13, gml_real_str(g_gml_globals.money))))));
+                                (t16 = (self1->vars[VAR_n] + 8.0f), gml_fn_draw_text(self1, self, 40.0f, t16, gml_fn_string_hash_to_newline(self1, self, (s15 = gml_script_tr(self1, self, 1, "KILLS:  "), gml_concat(s15, gml_real_str(g_gml_globals.kills))))));
                                 self1->vars[VAR_s] = g_gml_globals.xtime;
-                                self1->vars[VAR_s] = floor((self1->vars[VAR_s] / 1000.0));
-                                self1->vars[VAR_m] = 0.0;
-                                while (gml_gt(self1->vars[VAR_s], 59.0)) {
-                                    self1->vars[VAR_s] = (self1->vars[VAR_s] - 60.0);
-                                    self1->vars[VAR_m] = (self1->vars[VAR_m] + 1.0);
+                                self1->vars[VAR_s] = floorf((self1->vars[VAR_s] / 1000.0f));
+                                self1->vars[VAR_m] = 0.0f;
+                                while (gml_gt(self1->vars[VAR_s], 59.0f)) {
+                                    self1->vars[VAR_s] = (self1->vars[VAR_s] - 60.0f);
+                                    self1->vars[VAR_m] = (self1->vars[VAR_m] + 1.0f);
                                 }
-                                if (gml_lt(self1->vars[VAR_s], 10.0)) {
+                                if (gml_lt(self1->vars[VAR_s], 10.0f)) {
                                     self1->strs[SVAR_str] = gml_concat("0", gml_real_str(self1->vars[VAR_s]));
                                 } else {
                                     self1->strs[SVAR_str] = gml_real_str(self1->vars[VAR_s]);
                                 }
                                 self1->vars[VAR_s2] = g_gml_globals.time;
-                                self1->vars[VAR_s2] = floor((self1->vars[VAR_s2] / 1000.0));
-                                self1->vars[VAR_m2] = 0.0;
-                                while (gml_gt(self1->vars[VAR_s2], 59.0)) {
-                                    self1->vars[VAR_s2] = (self1->vars[VAR_s2] - 60.0);
-                                    self1->vars[VAR_m2] = (self1->vars[VAR_m2] + 1.0);
+                                self1->vars[VAR_s2] = floorf((self1->vars[VAR_s2] / 1000.0f));
+                                self1->vars[VAR_m2] = 0.0f;
+                                while (gml_gt(self1->vars[VAR_s2], 59.0f)) {
+                                    self1->vars[VAR_s2] = (self1->vars[VAR_s2] - 60.0f);
+                                    self1->vars[VAR_m2] = (self1->vars[VAR_m2] + 1.0f);
                                 }
-                                if (gml_lt(self1->vars[VAR_s2], 10.0)) {
+                                if (gml_lt(self1->vars[VAR_s2], 10.0f)) {
                                     self1->strs[SVAR_str2] = gml_concat("0", gml_real_str(self1->vars[VAR_s2]));
                                 } else {
                                     self1->strs[SVAR_str2] = gml_real_str(self1->vars[VAR_s2]);
                                 }
-                                (t21 = (self1->vars[VAR_n] + 16.0), gml_fn_draw_text(self1, self, 40.0, t21, gml_fn_string_hash_to_newline(self1, self, (s20 = gml_concat((s19 = gml_concat((s18 = gml_concat((s17 = gml_script_tr(self1, self, 1, "TIME:  "), gml_concat(s17, gml_real_str(self1->vars[VAR_m]))), ":"), gml_concat(s18, self1->strs[SVAR_str])), " / "), gml_concat(s19, gml_real_str(self1->vars[VAR_m2]))), ":"), gml_concat(s20, self1->strs[SVAR_str2])))));
-                                (t23 = (self1->vars[VAR_n] + 24.0), gml_fn_draw_text(self1, self, 40.0, t23, gml_fn_string_hash_to_newline(self1, self, (s22 = gml_script_tr(self1, self, 1, "SAVES:  "), gml_concat(s22, gml_real_str(g_gml_globals.damsels))))));
+                                (t21 = (self1->vars[VAR_n] + 16.0f), gml_fn_draw_text(self1, self, 40.0f, t21, gml_fn_string_hash_to_newline(self1, self, (s20 = gml_concat((s19 = gml_concat((s18 = gml_concat((s17 = gml_script_tr(self1, self, 1, "TIME:  "), gml_concat(s17, gml_real_str(self1->vars[VAR_m]))), ":"), gml_concat(s18, self1->strs[SVAR_str])), " / "), gml_concat(s19, gml_real_str(self1->vars[VAR_m2]))), ":"), gml_concat(s20, self1->strs[SVAR_str2])))));
+                                (t23 = (self1->vars[VAR_n] + 24.0f), gml_fn_draw_text(self1, self, 40.0f, t23, gml_fn_string_hash_to_newline(self1, self, (s22 = gml_script_tr(self1, self, 1, "SAVES:  "), gml_concat(s22, gml_real_str(g_gml_globals.damsels))))));
                                 if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                    gml_fn_draw_text(self1, self, 24.0, 216.0, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "START-RETURN  BOMB-DIE  ROPE-QUIT/RESET")));
+                                    gml_fn_draw_text(self1, self, 24.0f, 216.0f, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "START-RETURN  BOMB-DIE  ROPE-QUIT/RESET")));
                                 } else {
-                                    gml_fn_draw_text(self1, self, 40.0, 216.0, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "ESC-RETURN  F1-DIE  F9-QUIT/RESET")));
+                                    gml_fn_draw_text(self1, self, 40.0f, 216.0f, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "ESC-RETURN  F1-DIE  F9-QUIT/RESET")));
                                 }
                             } else {
                                 if (gml_truthy(g_gml_globals.gamepadOn)) {
-                                    gml_fn_draw_text(self1, self, 64.0, 216.0, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "START-RETURN  ROPE-QUIT/RESET")));
+                                    gml_fn_draw_text(self1, self, 64.0f, 216.0f, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "START-RETURN  ROPE-QUIT/RESET")));
                                 } else {
-                                    gml_fn_draw_text(self1, self, 80.0, 216.0, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "ESC-RETURN  F9-QUIT/RESET")));
+                                    gml_fn_draw_text(self1, self, 80.0f, 216.0f, gml_fn_string_hash_to_newline(self1, self, gml_script_tr(self1, self, 1, "ESC-RETURN  F9-QUIT/RESET")));
                                 }
                             }
                             (void)(gml_fn_surface_reset_target(self1, self));
-                            g_gml_globals.pSurf2 = 1.0;
-                            self1->vars[VAR_paused] = 1.0;
+                            g_gml_globals.pSurf2 = 1.0f;
+                            self1->vars[VAR_paused] = 1.0f;
                         }
                     }
                 } else {
-                    g_gml_globals.pSurf2 = 0.0;
+                    g_gml_globals.pSurf2 = 0.0f;
                     gml_fn_instance_activate_all(self1, self);
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTitle))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTitle, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musCave))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musCave, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musLush))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musLush, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musIce))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musIce, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musTemple))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musTemple, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
                     if (gml_truthy(gml_script_SS_IsSoundPlaying(self1, self, g_gml_globals.musBoss))) {
-                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, (2000.0 + (8000.0 * (g_gml_globals.musicVol / 18.0))));
+                        gml_script_SS_SetSoundVol(self1, self, g_gml_globals.musBoss, (2000.0f + (8000.0f * (g_gml_globals.musicVol / 18.0f))));
                     }
-                    self1->vars[VAR_paused] = 0.0;
+                    self1->vars[VAR_paused] = 0.0f;
                 }
             }
             if (gml_truthy(self1->vars[VAR_paused])) {
-                g_gml_globals.pSurf2 = 1.0;
+                g_gml_globals.pSurf2 = 1.0f;
             }
         }
         gm_with_end();

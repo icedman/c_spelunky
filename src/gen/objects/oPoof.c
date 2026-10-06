@@ -6,9 +6,9 @@ static void gml_ev_oPoof__Create_0_body(gm_instance_t *self, gm_instance_t *othe
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_xVel] = 0.0;
-    self->vars[VAR_yVel] = 0.0;
-    gml_iset_image_speed(self, 0.4);
+    self->vars[VAR_xVel] = 0.0f;
+    self->vars[VAR_yVel] = 0.0f;
+    gml_iset_image_speed(self, 0.4f);
 }
 
 void gml_ev_oPoof__Create_0(gm_instance_t *self, gm_instance_t *other)

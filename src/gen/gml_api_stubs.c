@@ -20,7 +20,7 @@ gm_value_t gml_fn_external_call(gm_instance_t *self, gm_instance_t *other, int a
     return gm_value_undefined();
 }
 
-void gml_fn_instance_activate_region(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2, double a3, double a4)
+void gml_fn_instance_activate_region(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2, float a3, float a4)
 {
     (void)self;
     (void)other;
@@ -32,16 +32,7 @@ void gml_fn_instance_activate_region(gm_instance_t *self, gm_instance_t *other, 
     gml_pending_hit("instance_activate_region");
 }
 
-void gml_fn_move_snap(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    (void)a1;
-    gml_pending_hit("move_snap");
-}
-
-double gml_fn_mp_linear_step(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2, double a3)
+float gml_fn_mp_linear_step(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2, float a3)
 {
     (void)self;
     (void)other;
@@ -50,10 +41,10 @@ double gml_fn_mp_linear_step(gm_instance_t *self, gm_instance_t *other, double a
     (void)a2;
     (void)a3;
     gml_pending_hit("mp_linear_step");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_fn_path_start(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2, double a3)
+void gml_fn_path_start(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2, float a3)
 {
     (void)self;
     (void)other;
@@ -64,7 +55,7 @@ void gml_fn_path_start(gm_instance_t *self, gm_instance_t *other, double a0, dou
     gml_pending_hit("path_start");
 }
 
-const char *gml_fn_file_find_first(gm_instance_t *self, gm_instance_t *other, const char *a0, double a1)
+const char *gml_fn_file_find_first(gm_instance_t *self, gm_instance_t *other, const char *a0, float a1)
 {
     (void)self;
     (void)other;
@@ -82,54 +73,7 @@ const char *gml_fn_file_find_next(gm_instance_t *self, gm_instance_t *other)
     return "";
 }
 
-void gml_fn_ini_open(gm_instance_t *self, gm_instance_t *other, const char *a0)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    gml_pending_hit("ini_open");
-}
-
-const char *gml_fn_ini_close(gm_instance_t *self, gm_instance_t *other)
-{
-    (void)self;
-    (void)other;
-    gml_pending_hit("ini_close");
-    return "";
-}
-
-double gml_fn_ini_read_real(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1, double a2)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    gml_pending_hit("ini_read_real");
-    return 0.0;
-}
-
-void gml_fn_ini_write_real(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1, double a2)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    gml_pending_hit("ini_write_real");
-}
-
-void gml_fn_ini_write_string(gm_instance_t *self, gm_instance_t *other, const char *a0, const char *a1, const char *a2)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    gml_pending_hit("ini_write_string");
-}
-
-const char *gml_fn_json_encode(gm_instance_t *self, gm_instance_t *other, double a0)
+const char *gml_fn_json_encode(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -138,13 +82,13 @@ const char *gml_fn_json_encode(gm_instance_t *self, gm_instance_t *other, double
     return "";
 }
 
-double gml_fn_json_decode(gm_instance_t *self, gm_instance_t *other, const char *a0)
+float gml_fn_json_decode(gm_instance_t *self, gm_instance_t *other, const char *a0)
 {
     (void)self;
     (void)other;
     (void)a0;
     gml_pending_hit("json_decode");
-    return 0.0;
+    return 0.0f;
 }
 
 gm_value_t gml_fn_json_parse(gm_instance_t *self, gm_instance_t *other, const char *a0)
@@ -156,18 +100,7 @@ gm_value_t gml_fn_json_parse(gm_instance_t *self, gm_instance_t *other, const ch
     return gm_value_undefined();
 }
 
-double gml_fn_font_add_sprite_ext(gm_instance_t *self, gm_instance_t *other, double a0, const char *a1, double a2, double a3)
-{
-    (void)self;
-    (void)other;
-    (void)a0;
-    (void)a1;
-    (void)a2;
-    (void)a3;
-    return 0.0;
-}
-
-void gml_fn_layer_force_draw_depth(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+void gml_fn_layer_force_draw_depth(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
@@ -175,25 +108,25 @@ void gml_fn_layer_force_draw_depth(gm_instance_t *self, gm_instance_t *other, do
     (void)a1;
 }
 
-double gml_fn_mouse_check_button(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_mouse_check_button(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     (void)a0;
     gml_pending_hit("mouse_check_button");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_fn_gamepad_is_connected(gm_instance_t *self, gm_instance_t *other, double a0)
+float gml_fn_gamepad_is_connected(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
     (void)a0;
     gml_pending_hit("gamepad_is_connected");
-    return 0.0;
+    return 0.0f;
 }
 
-const char *gml_fn_gamepad_get_description(gm_instance_t *self, gm_instance_t *other, double a0)
+const char *gml_fn_gamepad_get_description(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -202,57 +135,57 @@ const char *gml_fn_gamepad_get_description(gm_instance_t *self, gm_instance_t *o
     return "";
 }
 
-double gml_fn_gamepad_button_check(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_gamepad_button_check(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
     (void)a0;
     (void)a1;
     gml_pending_hit("gamepad_button_check");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_fn_gamepad_button_check_pressed(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_gamepad_button_check_pressed(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
     (void)a0;
     (void)a1;
     gml_pending_hit("gamepad_button_check_pressed");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_fn_gamepad_button_check_released(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_gamepad_button_check_released(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
     (void)a0;
     (void)a1;
     gml_pending_hit("gamepad_button_check_released");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_fn_gamepad_button_value(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_gamepad_button_value(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
     (void)a0;
     (void)a1;
     gml_pending_hit("gamepad_button_value");
-    return 0.0;
+    return 0.0f;
 }
 
-double gml_fn_gamepad_axis_value(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+float gml_fn_gamepad_axis_value(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
     (void)a0;
     (void)a1;
     gml_pending_hit("gamepad_axis_value");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_fn_gamepad_set_button_threshold(gm_instance_t *self, gm_instance_t *other, double a0, double a1)
+void gml_fn_gamepad_set_button_threshold(gm_instance_t *self, gm_instance_t *other, float a0, float a1)
 {
     (void)self;
     (void)other;
@@ -261,7 +194,7 @@ void gml_fn_gamepad_set_button_threshold(gm_instance_t *self, gm_instance_t *oth
     gml_pending_hit("gamepad_set_button_threshold");
 }
 
-double gml_fn_virtual_key_add(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2, double a3, double a4)
+float gml_fn_virtual_key_add(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2, float a3, float a4)
 {
     (void)self;
     (void)other;
@@ -270,7 +203,7 @@ double gml_fn_virtual_key_add(gm_instance_t *self, gm_instance_t *other, double 
     (void)a2;
     (void)a3;
     (void)a4;
-    return 0.0;
+    return 0.0f;
 }
 
 const char *gml_fn_os_get_language(gm_instance_t *self, gm_instance_t *other)
@@ -287,7 +220,7 @@ void gml_fn_show_debug_message(gm_instance_t *self, gm_instance_t *other, const 
     (void)a0;
 }
 
-double gml_fn_make_color_rgb(gm_instance_t *self, gm_instance_t *other, double a0, double a1, double a2)
+float gml_fn_make_color_rgb(gm_instance_t *self, gm_instance_t *other, float a0, float a1, float a2)
 {
     (void)self;
     (void)other;
@@ -295,10 +228,10 @@ double gml_fn_make_color_rgb(gm_instance_t *self, gm_instance_t *other, double a
     (void)a1;
     (void)a2;
     gml_pending_hit("make_color_rgb");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_fn_window_set_cursor(gm_instance_t *self, gm_instance_t *other, double a0)
+void gml_fn_window_set_cursor(gm_instance_t *self, gm_instance_t *other, float a0)
 {
     (void)self;
     (void)other;
@@ -307,79 +240,79 @@ void gml_fn_window_set_cursor(gm_instance_t *self, gm_instance_t *other, double 
 
 /* ---- global built-in variables (storage placeholders) ---- */
 
-static double s_transition_kind = 0.0;
+static float s_transition_kind = 0.0f;
 
-double gml_gget_transition_kind(void)
+float gml_gget_transition_kind(void)
 {
     gml_pending_hit("transition_kind");
     return s_transition_kind;
 }
 
-void gml_gset_transition_kind(double v)
+void gml_gset_transition_kind(float v)
 {
     gml_pending_hit("transition_kind");
     s_transition_kind = v;
 }
 
-static double s_transition_steps = 0.0;
+static float s_transition_steps = 0.0f;
 
-double gml_gget_transition_steps(void)
+float gml_gget_transition_steps(void)
 {
     gml_pending_hit("transition_steps");
     return s_transition_steps;
 }
 
-void gml_gset_transition_steps(double v)
+void gml_gset_transition_steps(float v)
 {
     gml_pending_hit("transition_steps");
     s_transition_steps = v;
 }
 
-static double s_score = 0.0;
+static float s_score = 0.0f;
 
-double gml_gget_score(void)
+float gml_gget_score(void)
 {
     gml_pending_hit("score");
     return s_score;
 }
 
-void gml_gset_score(double v)
+void gml_gset_score(float v)
 {
     gml_pending_hit("score");
     s_score = v;
 }
 
-static double s_lives = 0.0;
+static float s_lives = 0.0f;
 
-double gml_gget_lives(void)
+float gml_gget_lives(void)
 {
     gml_pending_hit("lives");
     return s_lives;
 }
 
-void gml_gset_lives(double v)
+void gml_gset_lives(float v)
 {
     gml_pending_hit("lives");
     s_lives = v;
 }
 
-static double s_health = 0.0;
+static float s_health = 0.0f;
 
-double gml_gget_health(void)
+float gml_gget_health(void)
 {
     gml_pending_hit("health");
     return s_health;
 }
 
-void gml_gset_health(double v)
+void gml_gset_health(float v)
 {
     gml_pending_hit("health");
     s_health = v;
 }
 
-static double s_game_id = 0.0;
+static float s_game_id = 0.0f;
 
-double gml_gget_game_id(void)
+float gml_gget_game_id(void)
 {
     gml_pending_hit("game_id");
     return s_game_id;
@@ -425,81 +358,81 @@ const char *gml_gget_program_directory(void)
     return s_program_directory;
 }
 
-static double s_instance_id[32];
+static float s_instance_id[32];
 
-double gml_gget_instance_id(double i)
+float gml_gget_instance_id(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("instance_id");
-    return (k >= 0 && k < 32) ? s_instance_id[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_instance_id[k] : 0.0f;
 }
 
-static double s_background_color = 0.0;
+static float s_background_color = 0.0f;
 
-double gml_gget_background_color(void)
+float gml_gget_background_color(void)
 {
     gml_pending_hit("background_color");
     return s_background_color;
 }
 
-void gml_gset_background_color(double v)
+void gml_gset_background_color(float v)
 {
     gml_pending_hit("background_color");
     s_background_color = v;
 }
 
-static double s_background_showcolor = 0.0;
+static float s_background_showcolor = 0.0f;
 
-double gml_gget_background_showcolor(void)
+float gml_gget_background_showcolor(void)
 {
     gml_pending_hit("background_showcolor");
     return s_background_showcolor;
 }
 
-void gml_gset_background_showcolor(double v)
+void gml_gset_background_showcolor(float v)
 {
     gml_pending_hit("background_showcolor");
     s_background_showcolor = v;
 }
 
-static double s_background_colour = 0.0;
+static float s_background_colour = 0.0f;
 
-double gml_gget_background_colour(void)
+float gml_gget_background_colour(void)
 {
     gml_pending_hit("background_colour");
     return s_background_colour;
 }
 
-void gml_gset_background_colour(double v)
+void gml_gset_background_colour(float v)
 {
     gml_pending_hit("background_colour");
     s_background_colour = v;
 }
 
-static double s_background_showcolour = 0.0;
+static float s_background_showcolour = 0.0f;
 
-double gml_gget_background_showcolour(void)
+float gml_gget_background_showcolour(void)
 {
     gml_pending_hit("background_showcolour");
     return s_background_showcolour;
 }
 
-void gml_gset_background_showcolour(double v)
+void gml_gset_background_showcolour(float v)
 {
     gml_pending_hit("background_showcolour");
     s_background_showcolour = v;
 }
 
-static double s_background_visible[32];
+static float s_background_visible[32];
 
-double gml_gget_background_visible(double i)
+float gml_gget_background_visible(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_visible");
-    return (k >= 0 && k < 32) ? s_background_visible[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_visible[k] : 0.0f;
 }
 
-void gml_gset_background_visible(double i, double v)
+void gml_gset_background_visible(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_visible");
@@ -508,16 +441,16 @@ void gml_gset_background_visible(double i, double v)
     }
 }
 
-static double s_background_foreground[32];
+static float s_background_foreground[32];
 
-double gml_gget_background_foreground(double i)
+float gml_gget_background_foreground(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_foreground");
-    return (k >= 0 && k < 32) ? s_background_foreground[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_foreground[k] : 0.0f;
 }
 
-void gml_gset_background_foreground(double i, double v)
+void gml_gset_background_foreground(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_foreground");
@@ -526,16 +459,16 @@ void gml_gset_background_foreground(double i, double v)
     }
 }
 
-static double s_background_index[32];
+static float s_background_index[32];
 
-double gml_gget_background_index(double i)
+float gml_gget_background_index(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_index");
-    return (k >= 0 && k < 32) ? s_background_index[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_index[k] : 0.0f;
 }
 
-void gml_gset_background_index(double i, double v)
+void gml_gset_background_index(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_index");
@@ -544,16 +477,16 @@ void gml_gset_background_index(double i, double v)
     }
 }
 
-static double s_background_x[32];
+static float s_background_x[32];
 
-double gml_gget_background_x(double i)
+float gml_gget_background_x(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_x");
-    return (k >= 0 && k < 32) ? s_background_x[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_x[k] : 0.0f;
 }
 
-void gml_gset_background_x(double i, double v)
+void gml_gset_background_x(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_x");
@@ -562,16 +495,16 @@ void gml_gset_background_x(double i, double v)
     }
 }
 
-static double s_background_y[32];
+static float s_background_y[32];
 
-double gml_gget_background_y(double i)
+float gml_gget_background_y(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_y");
-    return (k >= 0 && k < 32) ? s_background_y[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_y[k] : 0.0f;
 }
 
-void gml_gset_background_y(double i, double v)
+void gml_gset_background_y(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_y");
@@ -580,34 +513,34 @@ void gml_gset_background_y(double i, double v)
     }
 }
 
-static double s_background_width[32];
+static float s_background_width[32];
 
-double gml_gget_background_width(double i)
+float gml_gget_background_width(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_width");
-    return (k >= 0 && k < 32) ? s_background_width[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_width[k] : 0.0f;
 }
 
-static double s_background_height[32];
+static float s_background_height[32];
 
-double gml_gget_background_height(double i)
+float gml_gget_background_height(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_height");
-    return (k >= 0 && k < 32) ? s_background_height[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_height[k] : 0.0f;
 }
 
-static double s_background_htiled[32];
+static float s_background_htiled[32];
 
-double gml_gget_background_htiled(double i)
+float gml_gget_background_htiled(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_htiled");
-    return (k >= 0 && k < 32) ? s_background_htiled[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_htiled[k] : 0.0f;
 }
 
-void gml_gset_background_htiled(double i, double v)
+void gml_gset_background_htiled(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_htiled");
@@ -616,16 +549,16 @@ void gml_gset_background_htiled(double i, double v)
     }
 }
 
-static double s_background_vtiled[32];
+static float s_background_vtiled[32];
 
-double gml_gget_background_vtiled(double i)
+float gml_gget_background_vtiled(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_vtiled");
-    return (k >= 0 && k < 32) ? s_background_vtiled[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_vtiled[k] : 0.0f;
 }
 
-void gml_gset_background_vtiled(double i, double v)
+void gml_gset_background_vtiled(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_vtiled");
@@ -634,16 +567,16 @@ void gml_gset_background_vtiled(double i, double v)
     }
 }
 
-static double s_background_xscale[32];
+static float s_background_xscale[32];
 
-double gml_gget_background_xscale(double i)
+float gml_gget_background_xscale(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_xscale");
-    return (k >= 0 && k < 32) ? s_background_xscale[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_xscale[k] : 0.0f;
 }
 
-void gml_gset_background_xscale(double i, double v)
+void gml_gset_background_xscale(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_xscale");
@@ -652,16 +585,16 @@ void gml_gset_background_xscale(double i, double v)
     }
 }
 
-static double s_background_yscale[32];
+static float s_background_yscale[32];
 
-double gml_gget_background_yscale(double i)
+float gml_gget_background_yscale(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_yscale");
-    return (k >= 0 && k < 32) ? s_background_yscale[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_yscale[k] : 0.0f;
 }
 
-void gml_gset_background_yscale(double i, double v)
+void gml_gset_background_yscale(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_yscale");
@@ -670,16 +603,16 @@ void gml_gset_background_yscale(double i, double v)
     }
 }
 
-static double s_background_hspeed[32];
+static float s_background_hspeed[32];
 
-double gml_gget_background_hspeed(double i)
+float gml_gget_background_hspeed(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_hspeed");
-    return (k >= 0 && k < 32) ? s_background_hspeed[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_hspeed[k] : 0.0f;
 }
 
-void gml_gset_background_hspeed(double i, double v)
+void gml_gset_background_hspeed(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_hspeed");
@@ -688,16 +621,16 @@ void gml_gset_background_hspeed(double i, double v)
     }
 }
 
-static double s_background_vspeed[32];
+static float s_background_vspeed[32];
 
-double gml_gget_background_vspeed(double i)
+float gml_gget_background_vspeed(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_vspeed");
-    return (k >= 0 && k < 32) ? s_background_vspeed[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_vspeed[k] : 0.0f;
 }
 
-void gml_gset_background_vspeed(double i, double v)
+void gml_gset_background_vspeed(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_vspeed");
@@ -706,16 +639,16 @@ void gml_gset_background_vspeed(double i, double v)
     }
 }
 
-static double s_background_blend[32];
+static float s_background_blend[32];
 
-double gml_gget_background_blend(double i)
+float gml_gget_background_blend(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_blend");
-    return (k >= 0 && k < 32) ? s_background_blend[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_blend[k] : 0.0f;
 }
 
-void gml_gset_background_blend(double i, double v)
+void gml_gset_background_blend(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_blend");
@@ -724,16 +657,16 @@ void gml_gset_background_blend(double i, double v)
     }
 }
 
-static double s_background_alpha[32];
+static float s_background_alpha[32];
 
-double gml_gget_background_alpha(double i)
+float gml_gget_background_alpha(float i)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_alpha");
-    return (k >= 0 && k < 32) ? s_background_alpha[k] : 0.0;
+    return (k >= 0 && k < 32) ? s_background_alpha[k] : 0.0f;
 }
 
-void gml_gset_background_alpha(double i, double v)
+void gml_gset_background_alpha(float i, float v)
 {
     int k = (int)gm_to_int32(i);
     gml_pending_hit("background_alpha");
@@ -742,45 +675,45 @@ void gml_gset_background_alpha(double i, double v)
     }
 }
 
-static double s_mouse_x = 0.0;
+static float s_mouse_x = 0.0f;
 
-double gml_gget_mouse_x(void)
+float gml_gget_mouse_x(void)
 {
     gml_pending_hit("mouse_x");
     return s_mouse_x;
 }
 
-static double s_mouse_y = 0.0;
+static float s_mouse_y = 0.0f;
 
-double gml_gget_mouse_y(void)
+float gml_gget_mouse_y(void)
 {
     gml_pending_hit("mouse_y");
     return s_mouse_y;
 }
 
-static double s_mouse_button = 0.0;
+static float s_mouse_button = 0.0f;
 
-double gml_gget_mouse_button(void)
+float gml_gget_mouse_button(void)
 {
     gml_pending_hit("mouse_button");
     return s_mouse_button;
 }
 
-void gml_gset_mouse_button(double v)
+void gml_gset_mouse_button(float v)
 {
     gml_pending_hit("mouse_button");
     s_mouse_button = v;
 }
 
-static double s_mouse_lastbutton = 0.0;
+static float s_mouse_lastbutton = 0.0f;
 
-double gml_gget_mouse_lastbutton(void)
+float gml_gget_mouse_lastbutton(void)
 {
     gml_pending_hit("mouse_lastbutton");
     return s_mouse_lastbutton;
 }
 
-void gml_gset_mouse_lastbutton(double v)
+void gml_gset_mouse_lastbutton(float v)
 {
     gml_pending_hit("mouse_lastbutton");
     s_mouse_lastbutton = v;
@@ -818,43 +751,43 @@ void gml_gset_keyboard_string(const char *v)
     s_keyboard_string = gml_keep_str(v, s_keyboard_string_buf, sizeof(s_keyboard_string_buf));
 }
 
-static double s_show_score = 0.0;
+static float s_show_score = 0.0f;
 
-double gml_gget_show_score(void)
+float gml_gget_show_score(void)
 {
     gml_pending_hit("show_score");
     return s_show_score;
 }
 
-void gml_gset_show_score(double v)
+void gml_gset_show_score(float v)
 {
     gml_pending_hit("show_score");
     s_show_score = v;
 }
 
-static double s_show_lives = 0.0;
+static float s_show_lives = 0.0f;
 
-double gml_gget_show_lives(void)
+float gml_gget_show_lives(void)
 {
     gml_pending_hit("show_lives");
     return s_show_lives;
 }
 
-void gml_gset_show_lives(double v)
+void gml_gset_show_lives(float v)
 {
     gml_pending_hit("show_lives");
     s_show_lives = v;
 }
 
-static double s_show_health = 0.0;
+static float s_show_health = 0.0f;
 
-double gml_gget_show_health(void)
+float gml_gget_show_health(void)
 {
     gml_pending_hit("show_health");
     return s_show_health;
 }
 
-void gml_gset_show_health(double v)
+void gml_gset_show_health(float v)
 {
     gml_pending_hit("show_health");
     s_show_health = v;
@@ -908,127 +841,127 @@ void gml_gset_caption_health(const char *v)
     s_caption_health = gml_keep_str(v, s_caption_health_buf, sizeof(s_caption_health_buf));
 }
 
-static double s_fps = 0.0;
+static float s_fps = 0.0f;
 
-double gml_gget_fps(void)
+float gml_gget_fps(void)
 {
     gml_pending_hit("fps");
     return s_fps;
 }
 
-static double s_fps_real = 0.0;
+static float s_fps_real = 0.0f;
 
-double gml_gget_fps_real(void)
+float gml_gget_fps_real(void)
 {
     gml_pending_hit("fps_real");
     return s_fps_real;
 }
 
-static double s_current_time = 0.0;
+static float s_current_time = 0.0f;
 
-double gml_gget_current_time(void)
+float gml_gget_current_time(void)
 {
     gml_pending_hit("current_time");
     return s_current_time;
 }
 
-static double s_current_year = 0.0;
+static float s_current_year = 0.0f;
 
-double gml_gget_current_year(void)
+float gml_gget_current_year(void)
 {
     gml_pending_hit("current_year");
     return s_current_year;
 }
 
-static double s_current_month = 0.0;
+static float s_current_month = 0.0f;
 
-double gml_gget_current_month(void)
+float gml_gget_current_month(void)
 {
     gml_pending_hit("current_month");
     return s_current_month;
 }
 
-static double s_current_day = 0.0;
+static float s_current_day = 0.0f;
 
-double gml_gget_current_day(void)
+float gml_gget_current_day(void)
 {
     gml_pending_hit("current_day");
     return s_current_day;
 }
 
-static double s_current_weekday = 0.0;
+static float s_current_weekday = 0.0f;
 
-double gml_gget_current_weekday(void)
+float gml_gget_current_weekday(void)
 {
     gml_pending_hit("current_weekday");
     return s_current_weekday;
 }
 
-static double s_current_hour = 0.0;
+static float s_current_hour = 0.0f;
 
-double gml_gget_current_hour(void)
+float gml_gget_current_hour(void)
 {
     gml_pending_hit("current_hour");
     return s_current_hour;
 }
 
-static double s_current_minute = 0.0;
+static float s_current_minute = 0.0f;
 
-double gml_gget_current_minute(void)
+float gml_gget_current_minute(void)
 {
     gml_pending_hit("current_minute");
     return s_current_minute;
 }
 
-static double s_current_second = 0.0;
+static float s_current_second = 0.0f;
 
-double gml_gget_current_second(void)
+float gml_gget_current_second(void)
 {
     gml_pending_hit("current_second");
     return s_current_second;
 }
 
-static double s_event_type = 0.0;
+static float s_event_type = 0.0f;
 
-double gml_gget_event_type(void)
+float gml_gget_event_type(void)
 {
     gml_pending_hit("event_type");
     return s_event_type;
 }
 
-static double s_event_number = 0.0;
+static float s_event_number = 0.0f;
 
-double gml_gget_event_number(void)
+float gml_gget_event_number(void)
 {
     gml_pending_hit("event_number");
     return s_event_number;
 }
 
-static double s_event_object = 0.0;
+static float s_event_object = 0.0f;
 
-double gml_gget_event_object(void)
+float gml_gget_event_object(void)
 {
     gml_pending_hit("event_object");
     return s_event_object;
 }
 
-static double s_event_action = 0.0;
+static float s_event_action = 0.0f;
 
-double gml_gget_event_action(void)
+float gml_gget_event_action(void)
 {
     gml_pending_hit("event_action");
     return s_event_action;
 }
 
-static double s_error_occurred = 0.0;
+static float s_error_occurred = 0.0f;
 
-double gml_gget_error_occurred(void)
+float gml_gget_error_occurred(void)
 {
     gml_pending_hit("error_occurred");
     return s_error_occurred;
 }
 
-void gml_gset_error_occurred(double v)
+void gml_gset_error_occurred(float v)
 {
     gml_pending_hit("error_occurred");
     s_error_occurred = v;
@@ -1050,133 +983,133 @@ void gml_gset_error_last(const char *v)
     s_error_last = gml_keep_str(v, s_error_last_buf, sizeof(s_error_last_buf));
 }
 
-static double s_gamemaker_registered = 0.0;
+static float s_gamemaker_registered = 0.0f;
 
-double gml_gget_gamemaker_registered(void)
+float gml_gget_gamemaker_registered(void)
 {
     gml_pending_hit("gamemaker_registered");
     return s_gamemaker_registered;
 }
 
-static double s_gamemaker_pro = 0.0;
+static float s_gamemaker_pro = 0.0f;
 
-double gml_gget_gamemaker_pro(void)
+float gml_gget_gamemaker_pro(void)
 {
     gml_pending_hit("gamemaker_pro");
     return s_gamemaker_pro;
 }
 
-static double s_os_type = 0.0;
+static float s_os_type = 0.0f;
 
-double gml_gget_os_type(void)
+float gml_gget_os_type(void)
 {
     gml_pending_hit("os_type");
     return s_os_type;
 }
 
-static double s_os_device = 0.0;
+static float s_os_device = 0.0f;
 
-double gml_gget_os_device(void)
+float gml_gget_os_device(void)
 {
     gml_pending_hit("os_device");
     return s_os_device;
 }
 
-static double s_os_browser = 0.0;
+static float s_os_browser = 0.0f;
 
-double gml_gget_os_browser(void)
+float gml_gget_os_browser(void)
 {
     gml_pending_hit("os_browser");
     return s_os_browser;
 }
 
-static double s_os_version = 0.0;
+static float s_os_version = 0.0f;
 
-double gml_gget_os_version(void)
+float gml_gget_os_version(void)
 {
     gml_pending_hit("os_version");
     return s_os_version;
 }
 
-static double s_browser_width = 0.0;
+static float s_browser_width = 0.0f;
 
-double gml_gget_browser_width(void)
+float gml_gget_browser_width(void)
 {
     gml_pending_hit("browser_width");
     return s_browser_width;
 }
 
-static double s_browser_height = 0.0;
+static float s_browser_height = 0.0f;
 
-double gml_gget_browser_height(void)
+float gml_gget_browser_height(void)
 {
     gml_pending_hit("browser_height");
     return s_browser_height;
 }
 
-static double s_async_load = 0.0;
+static float s_async_load = 0.0f;
 
-double gml_gget_async_load(void)
+float gml_gget_async_load(void)
 {
     gml_pending_hit("async_load");
     return s_async_load;
 }
 
-static double s_event_data = 0.0;
+static float s_event_data = 0.0f;
 
-double gml_gget_event_data(void)
+float gml_gget_event_data(void)
 {
     gml_pending_hit("event_data");
     return s_event_data;
 }
 
-static double s_display_aa = 0.0;
+static float s_display_aa = 0.0f;
 
-double gml_gget_display_aa(void)
+float gml_gget_display_aa(void)
 {
     gml_pending_hit("display_aa");
     return s_display_aa;
 }
 
-static double s_iap_data = 0.0;
+static float s_iap_data = 0.0f;
 
-double gml_gget_iap_data(void)
+float gml_gget_iap_data(void)
 {
     gml_pending_hit("iap_data");
     return s_iap_data;
 }
 
-static double s_cursor_sprite = 0.0;
+static float s_cursor_sprite = 0.0f;
 
-double gml_gget_cursor_sprite(void)
+float gml_gget_cursor_sprite(void)
 {
     gml_pending_hit("cursor_sprite");
     return s_cursor_sprite;
 }
 
-void gml_gset_cursor_sprite(double v)
+void gml_gset_cursor_sprite(float v)
 {
     gml_pending_hit("cursor_sprite");
     s_cursor_sprite = v;
 }
 
-static double s_delta_time = 0.0;
+static float s_delta_time = 0.0f;
 
-double gml_gget_delta_time(void)
+float gml_gget_delta_time(void)
 {
     gml_pending_hit("delta_time");
     return s_delta_time;
 }
 
-void gml_gset_delta_time(double v)
+void gml_gset_delta_time(float v)
 {
     gml_pending_hit("delta_time");
     s_delta_time = v;
 }
 
-static double s_webgl_enabled = 0.0;
+static float s_webgl_enabled = 0.0f;
 
-double gml_gget_webgl_enabled(void)
+float gml_gget_webgl_enabled(void)
 {
     gml_pending_hit("webgl_enabled");
     return s_webgl_enabled;
@@ -1184,168 +1117,168 @@ double gml_gget_webgl_enabled(void)
 
 /* ---- runtime-computed instance variables without an owner yet ---- */
 
-double gml_iget_layer(gm_instance_t *p)
+float gml_iget_layer(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("layer");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_layer(gm_instance_t *p, double v)
+void gml_iset_layer(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("layer");
 }
 
-double gml_iget_path_position(gm_instance_t *p)
+float gml_iget_path_position(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_position");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_position(gm_instance_t *p, double v)
+void gml_iset_path_position(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_position");
 }
 
-double gml_iget_path_positionprevious(gm_instance_t *p)
+float gml_iget_path_positionprevious(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_positionprevious");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_positionprevious(gm_instance_t *p, double v)
+void gml_iset_path_positionprevious(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_positionprevious");
 }
 
-double gml_iget_path_speed(gm_instance_t *p)
+float gml_iget_path_speed(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_speed");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_speed(gm_instance_t *p, double v)
+void gml_iset_path_speed(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_speed");
 }
 
-double gml_iget_path_scale(gm_instance_t *p)
+float gml_iget_path_scale(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_scale");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_scale(gm_instance_t *p, double v)
+void gml_iset_path_scale(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_scale");
 }
 
-double gml_iget_path_orientation(gm_instance_t *p)
+float gml_iget_path_orientation(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_orientation");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_orientation(gm_instance_t *p, double v)
+void gml_iset_path_orientation(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_orientation");
 }
 
-double gml_iget_path_endaction(gm_instance_t *p)
+float gml_iget_path_endaction(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("path_endaction");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_path_endaction(gm_instance_t *p, double v)
+void gml_iset_path_endaction(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("path_endaction");
 }
 
-double gml_iget_timeline_index(gm_instance_t *p)
+float gml_iget_timeline_index(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("timeline_index");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_timeline_index(gm_instance_t *p, double v)
+void gml_iset_timeline_index(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("timeline_index");
 }
 
-double gml_iget_timeline_running(gm_instance_t *p)
+float gml_iget_timeline_running(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("timeline_running");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_timeline_running(gm_instance_t *p, double v)
+void gml_iset_timeline_running(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("timeline_running");
 }
 
-double gml_iget_timeline_speed(gm_instance_t *p)
+float gml_iget_timeline_speed(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("timeline_speed");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_timeline_speed(gm_instance_t *p, double v)
+void gml_iset_timeline_speed(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("timeline_speed");
 }
 
-double gml_iget_timeline_position(gm_instance_t *p)
+float gml_iget_timeline_position(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("timeline_position");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_timeline_position(gm_instance_t *p, double v)
+void gml_iset_timeline_position(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;
     gml_pending_hit("timeline_position");
 }
 
-double gml_iget_timeline_loop(gm_instance_t *p)
+float gml_iget_timeline_loop(gm_instance_t *p)
 {
     (void)p;
     gml_pending_hit("timeline_loop");
-    return 0.0;
+    return 0.0f;
 }
 
-void gml_iset_timeline_loop(gm_instance_t *p, double v)
+void gml_iset_timeline_loop(gm_instance_t *p, float v)
 {
     (void)p;
     (void)v;

@@ -3,23 +3,23 @@
 
 static void gml_ev_oGoldBig__Destroy_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
-    double t2 = 0.0;
-    double t3 = 0.0;
-    double t4 = 0.0;
-    double t5 = 0.0;
-    double t6 = 0.0;
-    double t7 = 0.0;
-    double t8 = 0.0;
-    double t9 = 0.0;
-    double t10 = 0.0;
-    double t11 = 0.0;
-    double t12 = 0.0;
-    double t13 = 0.0;
-    double t14 = 0.0;
-    double t15 = 0.0;
-    double t16 = 0.0;
-    double t17 = 0.0;
+    float t1 = 0.0f;
+    float t2 = 0.0f;
+    float t3 = 0.0f;
+    float t4 = 0.0f;
+    float t5 = 0.0f;
+    float t6 = 0.0f;
+    float t7 = 0.0f;
+    float t8 = 0.0f;
+    float t9 = 0.0f;
+    float t10 = 0.0f;
+    float t11 = 0.0f;
+    float t12 = 0.0f;
+    float t13 = 0.0f;
+    float t14 = 0.0f;
+    float t15 = 0.0f;
+    float t16 = 0.0f;
+    float t17 = 0.0f;
     (void)self;
     (void)other;
     (void)t1;
@@ -39,13 +39,13 @@ static void gml_ev_oGoldBig__Destroy_0_body(gm_instance_t *self, gm_instance_t *
     (void)t15;
     (void)t16;
     (void)t17;
-    self->vars[VAR_gold] = (t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0, 2.0))), (t2 - gml_script_rand(self, other, 0.0, 2.0))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0, 2.0))), (t4 - gml_script_rand(self, other, 0.0, 2.0))), ((double)OBJ_oGoldNugget)));
-    (t7 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t7, self, other), VAR_xVel, (t6 = gml_script_rand(self, other, 0.0, 3.0), (t6 - gml_script_rand(self, other, 0.0, 3.0)))));
-    (t8 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t8, self, other), VAR_yVel, gml_script_rand(self, other, 3.0, 6.0)));
-    for (self->vars[VAR_i] = 0.0; (t9 = self->vars[VAR_i], gml_lt(t9, gml_script_rand(self, other, 2.0, 3.0))); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0)) {
-        self->vars[VAR_gold] = (t14 = (t11 = (t10 = gml_iget_x(self), (t10 + gml_script_rand(self, other, 0.0, 2.0))), (t11 - gml_script_rand(self, other, 0.0, 2.0))), gml_script_instance_create(self, other, t14, (t13 = (t12 = gml_iget_y(self), (t12 + gml_script_rand(self, other, 0.0, 2.0))), (t13 - gml_script_rand(self, other, 0.0, 2.0))), ((double)OBJ_oGoldChunk)));
-        (t16 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t16, self, other), VAR_xVel, (t15 = gml_script_rand(self, other, 0.0, 3.0), (t15 - gml_script_rand(self, other, 0.0, 3.0)))));
-        (t17 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t17, self, other), VAR_yVel, gml_script_rand(self, other, 3.0, 6.0)));
+    self->vars[VAR_gold] = (t5 = (t2 = (t1 = gml_iget_x(self), (t1 + gml_script_rand(self, other, 0.0f, 2.0f))), (t2 - gml_script_rand(self, other, 0.0f, 2.0f))), gml_script_instance_create(self, other, t5, (t4 = (t3 = gml_iget_y(self), (t3 + gml_script_rand(self, other, 0.0f, 2.0f))), (t4 - gml_script_rand(self, other, 0.0f, 2.0f))), ((float)OBJ_oGoldNugget)));
+    (t7 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t7, self, other), VAR_xVel, (t6 = gml_script_rand(self, other, 0.0f, 3.0f), (t6 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+    (t8 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t8, self, other), VAR_yVel, gml_script_rand(self, other, 3.0f, 6.0f)));
+    for (self->vars[VAR_i] = 0.0f; (t9 = self->vars[VAR_i], gml_lt(t9, gml_script_rand(self, other, 2.0f, 3.0f))); self->vars[VAR_i] = (self->vars[VAR_i] + 1.0f)) {
+        self->vars[VAR_gold] = (t14 = (t11 = (t10 = gml_iget_x(self), (t10 + gml_script_rand(self, other, 0.0f, 2.0f))), (t11 - gml_script_rand(self, other, 0.0f, 2.0f))), gml_script_instance_create(self, other, t14, (t13 = (t12 = gml_iget_y(self), (t12 + gml_script_rand(self, other, 0.0f, 2.0f))), (t13 - gml_script_rand(self, other, 0.0f, 2.0f))), ((float)OBJ_oGoldChunk)));
+        (t16 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t16, self, other), VAR_xVel, (t15 = gml_script_rand(self, other, 0.0f, 3.0f), (t15 - gml_script_rand(self, other, 0.0f, 3.0f)))));
+        (t17 = self->vars[VAR_gold], gml_ivar_set(gml_deref(t17, self, other), VAR_yVel, gml_script_rand(self, other, 3.0f, 6.0f)));
     }
 }
 

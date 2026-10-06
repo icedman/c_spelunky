@@ -3,15 +3,15 @@
 
 const char *gml_script_scrGetName(gm_instance_t *self, gm_instance_t *other)
 {
-    double t1 = 0.0;
+    float t1 = 0.0f;
     int b2 = 0;
     (void)self;
     (void)other;
     (void)t1;
     (void)b2;
-    self->vars[VAR_n] = gm_round(gm_random_range(1.0, 32.0));
+    self->vars[VAR_n] = gm_round(gm_random_range(1.0f, 32.0f));
     t1 = self->vars[VAR_n];
-    b2 = (gml_rcase(t1, 1.0) ? 0 : gml_rcase(t1, 2.0) ? 1 : gml_rcase(t1, 3.0) ? 2 : gml_rcase(t1, 4.0) ? 3 : gml_rcase(t1, 5.0) ? 4 : gml_rcase(t1, 6.0) ? 5 : gml_rcase(t1, 7.0) ? 6 : gml_rcase(t1, 8.0) ? 7 : gml_rcase(t1, 9.0) ? 8 : gml_rcase(t1, 10.0) ? 9 : gml_rcase(t1, 11.0) ? 10 : gml_rcase(t1, 12.0) ? 11 : gml_rcase(t1, 13.0) ? 12 : gml_rcase(t1, 14.0) ? 13 : gml_rcase(t1, 15.0) ? 14 : gml_rcase(t1, 16.0) ? 15 : gml_rcase(t1, 17.0) ? 16 : gml_rcase(t1, 18.0) ? 17 : gml_rcase(t1, 19.0) ? 18 : gml_rcase(t1, 20.0) ? 19 : gml_rcase(t1, 21.0) ? 20 : gml_rcase(t1, 22.0) ? 21 : gml_rcase(t1, 23.0) ? 22 : gml_rcase(t1, 24.0) ? 23 : gml_rcase(t1, 25.0) ? 24 : gml_rcase(t1, 26.0) ? 25 : gml_rcase(t1, 27.0) ? 26 : gml_rcase(t1, 28.0) ? 27 : gml_rcase(t1, 29.0) ? 28 : gml_rcase(t1, 30.0) ? 29 : gml_rcase(t1, 31.0) ? 30 : gml_rcase(t1, 32.0) ? 31 : -1);
+    b2 = (gml_rcase(t1, 1.0f) ? 0 : gml_rcase(t1, 2.0f) ? 1 : gml_rcase(t1, 3.0f) ? 2 : gml_rcase(t1, 4.0f) ? 3 : gml_rcase(t1, 5.0f) ? 4 : gml_rcase(t1, 6.0f) ? 5 : gml_rcase(t1, 7.0f) ? 6 : gml_rcase(t1, 8.0f) ? 7 : gml_rcase(t1, 9.0f) ? 8 : gml_rcase(t1, 10.0f) ? 9 : gml_rcase(t1, 11.0f) ? 10 : gml_rcase(t1, 12.0f) ? 11 : gml_rcase(t1, 13.0f) ? 12 : gml_rcase(t1, 14.0f) ? 13 : gml_rcase(t1, 15.0f) ? 14 : gml_rcase(t1, 16.0f) ? 15 : gml_rcase(t1, 17.0f) ? 16 : gml_rcase(t1, 18.0f) ? 17 : gml_rcase(t1, 19.0f) ? 18 : gml_rcase(t1, 20.0f) ? 19 : gml_rcase(t1, 21.0f) ? 20 : gml_rcase(t1, 22.0f) ? 21 : gml_rcase(t1, 23.0f) ? 22 : gml_rcase(t1, 24.0f) ? 23 : gml_rcase(t1, 25.0f) ? 24 : gml_rcase(t1, 26.0f) ? 25 : gml_rcase(t1, 27.0f) ? 26 : gml_rcase(t1, 28.0f) ? 27 : gml_rcase(t1, 29.0f) ? 28 : gml_rcase(t1, 30.0f) ? 29 : gml_rcase(t1, 31.0f) ? 30 : gml_rcase(t1, 32.0f) ? 31 : -1);
     switch (b2) {
     case 0:
         {

@@ -5,7 +5,7 @@ static void gml_ev_oLoadButton__Create_0_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    self->vars[VAR_active] = 1.0;
+    self->vars[VAR_active] = 1.0f;
 }
 
 void gml_ev_oLoadButton__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -24,10 +24,10 @@ static void gml_ev_oLoadButton__Step_0_body(gm_instance_t *self, gm_instance_t *
     if ((gml_truthy(gml_script_checkStartPressed(self, other)) || gml_truthy(gml_ivar(gml_deref(g_gml_globals.gamepad, self, other), VAR_attackPressed)))) {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oLoadLevel)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oLoadLevel)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 g_gml_gvals[GV_firstCustomLevel] = self1->vals[VVAR_levelName];
-                gml_script_scrLoadLevel(self1, self, 0.0);
+                gml_script_scrLoadLevel(self1, self, 0.0f);
             }
             gm_with_end();
         }
@@ -45,7 +45,7 @@ static void gml_ev_oLoadButton__Mouse_11_body(gm_instance_t *self, gm_instance_t
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sLoadButton));
+    gml_iset_sprite_index(self, ((float)SPR_sLoadButton));
 }
 
 void gml_ev_oLoadButton__Mouse_11(gm_instance_t *self, gm_instance_t *other)
@@ -61,18 +61,18 @@ static void gml_ev_oLoadButton__Mouse_7_body(gm_instance_t *self, gm_instance_t 
     (void)self;
     (void)other;
     (void)wd;
-    if ((gml_eq(gml_iget_sprite_index(self), ((double)SPR_sLoadButtonPressed)) && gml_truthy(self->vars[VAR_active]))) {
+    if ((gml_eq(gml_iget_sprite_index(self), ((float)SPR_sLoadButtonPressed)) && gml_truthy(self->vars[VAR_active]))) {
         {
             gm_instance_t *self1;
-            gm_with_begin(gml_target(((double)OBJ_oLoadLevel)), self, other);
+            gm_with_begin(gml_target(((float)OBJ_oLoadLevel)), self, other);
             while ((self1 = gm_with_next()) != NULL) {
                 g_gml_gvals[GV_firstCustomLevel] = self1->vals[VVAR_levelName];
-                gml_script_scrLoadLevel(self1, self, 0.0);
+                gml_script_scrLoadLevel(self1, self, 0.0f);
             }
             gm_with_end();
         }
     }
-    gml_iset_sprite_index(self, ((double)SPR_sLoadButton));
+    gml_iset_sprite_index(self, ((float)SPR_sLoadButton));
 }
 
 void gml_ev_oLoadButton__Mouse_7(gm_instance_t *self, gm_instance_t *other)
@@ -86,7 +86,7 @@ static void gml_ev_oLoadButton__Mouse_4_body(gm_instance_t *self, gm_instance_t 
 {
     (void)self;
     (void)other;
-    gml_iset_sprite_index(self, ((double)SPR_sLoadButtonPressed));
+    gml_iset_sprite_index(self, ((float)SPR_sLoadButtonPressed));
 }
 
 void gml_ev_oLoadButton__Mouse_4(gm_instance_t *self, gm_instance_t *other)

@@ -7,14 +7,14 @@ static void gml_ev_oBoulder__Create_0_body(gm_instance_t *self, gm_instance_t *o
     (void)other;
     gml_script_action_inherited(self, other);
     gml_script_makeActive(self, other);
-    gml_script_setCollisionBounds(self, other, (-14.0), (-16.0), 14.0, 16.0);
-    self->vars[VAR_myGrav] = 0.6;
-    self->vars[VAR_dir] = 0.0;
-    self->vars[VAR_LEFT] = 100.0;
-    self->vars[VAR_RIGHT] = 101.0;
-    self->vars[VAR_invincible] = 1.0;
-    self->vars[VAR_bounced] = 0.0;
-    self->vars[VAR_viscidTop] = 1.0;
+    gml_script_setCollisionBounds(self, other, (-14.0f), (-16.0f), 14.0f, 16.0f);
+    self->vars[VAR_myGrav] = 0.6f;
+    self->vars[VAR_dir] = 0.0f;
+    self->vars[VAR_LEFT] = 100.0f;
+    self->vars[VAR_RIGHT] = 101.0f;
+    self->vars[VAR_invincible] = 1.0f;
+    self->vars[VAR_bounced] = 0.0f;
+    self->vars[VAR_viscidTop] = 1.0f;
 }
 
 void gml_ev_oBoulder__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -29,64 +29,64 @@ static void gml_ev_oBoulder__Step_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    if (gml_truthy(1.0)) {
-        self->vars[VAR_colLeft] = 0.0;
-        self->vars[VAR_colRight] = 0.0;
+    if (gml_truthy(1.0f)) {
+        self->vars[VAR_colLeft] = 0.0f;
+        self->vars[VAR_colRight] = 0.0f;
         gml_script_moveTo(self, other, self->vars[VAR_xVel], self->vars[VAR_yVel]);
-        if (gml_lt(self->vars[VAR_yVel], 8.0)) {
+        if (gml_lt(self->vars[VAR_yVel], 8.0f)) {
             self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_myGrav]);
         }
-        if ((gml_le((gml_iget_x(self) - 17.0), 16.0) && gml_lt(self->vars[VAR_xVel], 0.0))) {
-            gml_iset_x(self, (gml_iget_x(self) + 1.0));
+        if ((gml_le((gml_iget_x(self) - 17.0f), 16.0f) && gml_lt(self->vars[VAR_xVel], 0.0f))) {
+            gml_iset_x(self, (gml_iget_x(self) + 1.0f));
             self->vars[VAR_xVel] = (-self->vars[VAR_xVel]);
         }
-        if ((gml_ge((gml_iget_x(self) + 17.0), 656.0) && gml_gt(self->vars[VAR_xVel], 0.0))) {
-            gml_iset_x(self, (gml_iget_x(self) - 1.0));
+        if ((gml_ge((gml_iget_x(self) + 17.0f), 656.0f) && gml_gt(self->vars[VAR_xVel], 0.0f))) {
+            gml_iset_x(self, (gml_iget_x(self) - 1.0f));
             self->vars[VAR_xVel] = (-self->vars[VAR_xVel]);
         }
-        if ((gml_truthy(gml_script_isCollisionTop(self, other, 1.0)) && gml_lt(self->vars[VAR_yVel], 0.0))) {
-            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8);
+        if ((gml_truthy(gml_script_isCollisionTop(self, other, 1.0f)) && gml_lt(self->vars[VAR_yVel], 0.0f))) {
+            self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.8f);
         }
-        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0))) {
-            if (gml_gt(self->vars[VAR_yVel], 3.0)) {
-                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.3);
+        if (gml_truthy(gml_script_isCollisionBottom(self, other, 1.0f))) {
+            if (gml_gt(self->vars[VAR_yVel], 3.0f)) {
+                self->vars[VAR_yVel] = ((-self->vars[VAR_yVel]) * 0.3f);
             } else {
-                self->vars[VAR_yVel] = 0.0;
+                self->vars[VAR_yVel] = 0.0f;
             }
-            if (gml_ne(fabs(self->vars[VAR_xVel]), 0.0)) {
-                self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.99);
+            if (gml_ne(fabsf(self->vars[VAR_xVel]), 0.0f)) {
+                self->vars[VAR_xVel] = (self->vars[VAR_xVel] * 0.99f);
             }
-            if (((!gml_truthy(self->vars[VAR_bounced])) && gml_eq(self->vars[VAR_xVel], 0.0))) {
-                if (gml_lt(gml_iget_x(gml_deref(((double)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
-                    self->vars[VAR_xVel] = (-4.5);
+            if (((!gml_truthy(self->vars[VAR_bounced])) && gml_eq(self->vars[VAR_xVel], 0.0f))) {
+                if (gml_lt(gml_iget_x(gml_deref(((float)OBJ_oPlayer1), self, other)), gml_iget_x(self))) {
+                    self->vars[VAR_xVel] = (-4.5f);
                 } else {
-                    self->vars[VAR_xVel] = 4.5;
+                    self->vars[VAR_xVel] = 4.5f;
                 }
-                self->vars[VAR_bounced] = 1.0;
+                self->vars[VAR_bounced] = 1.0f;
             }
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 0.5)) {
-                self->vars[VAR_xVel] = 0.0;
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 0.5f)) {
+                self->vars[VAR_xVel] = 0.0f;
             }
         }
-        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
-            self->vars[VAR_colLeft] = gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 16.0), (gml_iget_y(self) - 16.0), (gml_iget_x(self) - 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), 0.0, 1.0);
-            self->vars[VAR_colRight] = gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) - 16.0), (gml_iget_x(self) + 16.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), 0.0, 1.0);
+        if ((!gml_truthy(gml_fn_collision_point(self, other, gml_iget_x(self), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
+            self->vars[VAR_colLeft] = gml_fn_collision_rectangle(self, other, (gml_iget_x(self) - 16.0f), (gml_iget_y(self) - 16.0f), (gml_iget_x(self) - 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), 0.0f, 1.0f);
+            self->vars[VAR_colRight] = gml_fn_collision_rectangle(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) - 16.0f), (gml_iget_x(self) + 16.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), 0.0f, 1.0f);
             if ((gml_truthy(self->vars[VAR_colLeft]) && (!gml_truthy(self->vars[VAR_colRight])))) {
-                gml_iset_x(self, (gml_iget_x(self) + 1.0));
+                gml_iset_x(self, (gml_iget_x(self) + 1.0f));
             } else {
                 if ((gml_truthy(self->vars[VAR_colRight]) && (!gml_truthy(self->vars[VAR_colLeft])))) {
-                    gml_iset_x(self, (gml_iget_x(self) - 1.0));
+                    gml_iset_x(self, (gml_iget_x(self) - 1.0f));
                 }
             }
         }
-        gml_iset_image_speed(self, (fabs(self->vars[VAR_xVel]) / 5.0));
-        if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-            gml_iset_sprite_index(self, ((double)SPR_sBoulderRotateL));
+        gml_iset_image_speed(self, (fabsf(self->vars[VAR_xVel]) / 5.0f));
+        if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+            gml_iset_sprite_index(self, ((float)SPR_sBoulderRotateL));
         } else {
-            if (gml_gt(self->vars[VAR_xVel], 0.0)) {
-                gml_iset_sprite_index(self, ((double)SPR_sBoulderRotateR));
+            if (gml_gt(self->vars[VAR_xVel], 0.0f)) {
+                gml_iset_sprite_index(self, ((float)SPR_sBoulderRotateR));
             } else {
-                gml_iset_sprite_index(self, ((double)SPR_sBoulder));
+                gml_iset_sprite_index(self, ((float)SPR_sBoulder));
             }
         }
     }
@@ -105,30 +105,30 @@ static void gml_ev_oBoulder__Collision_oSolid_body(gm_instance_t *self, gm_insta
     (void)self;
     (void)other;
     (void)wd;
-    if (gml_truthy(1.0)) {
-        if ((gml_truthy(other->vars[VAR_invincible]) || gml_lt(fabs(self->vars[VAR_xVel]), 1.0))) {
-            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5);
+    if (gml_truthy(1.0f)) {
+        if ((gml_truthy(other->vars[VAR_invincible]) || gml_lt(fabsf(self->vars[VAR_xVel]), 1.0f))) {
+            self->vars[VAR_xVel] = ((-self->vars[VAR_xVel]) * 0.5f);
         } else {
-            if ((gml_lt(fabs(self->vars[VAR_xVel]), 1.0) || gml_gt(gml_iget_y(other), (gml_iget_y(self) + 13.0)))) {
-                gml_iset_y(self, (gml_iget_y(self) - 1.0));
+            if ((gml_lt(fabsf(self->vars[VAR_xVel]), 1.0f) || gml_gt(gml_iget_y(other), (gml_iget_y(self) + 13.0f)))) {
+                gml_iset_y(self, (gml_iget_y(self) - 1.0f));
             } else {
                 {
                     gm_instance_t *self1;
                     gm_with_begin(GM_OTHER, self, other);
                     while ((self1 = gm_with_next()) != NULL) {
-                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 16.0)));
+                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 16.0f)));
                         if (gml_vtruthy(self1->vals[VVAR_tile])) {
                             gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
                         }
-                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), (gml_iget_y(self1) - 8.0)));
+                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), (gml_iget_y(self1) - 8.0f)));
                         if (gml_vtruthy(self1->vals[VVAR_tile])) {
                             gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
                         }
-                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0, gml_iget_x(self1), gml_iget_y(self1)));
+                        self1->vals[VVAR_tile] = gml_vreal(gml_script_tile_layer_find(self1, self, 3.0f, gml_iget_x(self1), gml_iget_y(self1)));
                         if (gml_vtruthy(self1->vals[VVAR_tile])) {
                             gml_script_tile_delete(self1, self, self1->vals[VVAR_tile]);
                         }
-                        self1->vals[VVAR_tile] = gml_vreal(gml_fn_instance_position(self1, self, (gml_iget_x(self1) + 8.0), (gml_iget_y(self1) - 1.0), ((double)OBJ_oSpikes)));
+                        self1->vals[VVAR_tile] = gml_vreal(gml_fn_instance_position(self1, self, (gml_iget_x(self1) + 8.0f), (gml_iget_y(self1) - 1.0f), ((float)OBJ_oSpikes)));
                         if (gml_vtruthy(self1->vals[VVAR_tile])) {
                             {
                                 gm_instance_t *self2;
@@ -145,15 +145,15 @@ static void gml_ev_oBoulder__Collision_oSolid_body(gm_instance_t *self, gm_insta
                 }
                 gml_script_playSound(self, other, g_gml_globals.sndCrunch);
             }
-            if (gml_gt(self->vars[VAR_xVel], 0.0)) {
-                self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.1);
+            if (gml_gt(self->vars[VAR_xVel], 0.0f)) {
+                self->vars[VAR_xVel] = (self->vars[VAR_xVel] - 0.1f);
             } else {
-                if (gml_lt(self->vars[VAR_xVel], 0.0)) {
-                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.1);
+                if (gml_lt(self->vars[VAR_xVel], 0.0f)) {
+                    self->vars[VAR_xVel] = (self->vars[VAR_xVel] + 0.1f);
                 }
             }
-            if (gml_lt(fabs(self->vars[VAR_xVel]), 1.0)) {
-                self->vars[VAR_xVel] = 0.0;
+            if (gml_lt(fabsf(self->vars[VAR_xVel]), 1.0f)) {
+                self->vars[VAR_xVel] = 0.0f;
             }
         }
     }

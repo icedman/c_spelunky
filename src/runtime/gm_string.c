@@ -183,14 +183,14 @@ const char *gm_string_hash_to_newline(const char *s)
 
 /* ord (L76): the first code point. Malformed UTF-8 (only possible with raw file
  * bytes; JS strings are always well formed) yields the first byte's value. */
-double gm_string_ord(const char *s)
+float gm_string_ord(const char *s)
 {
     const unsigned char *u = (const unsigned char *)safe(s);
     uint32_t cp;
     int extra, i;
 
     if (u[0] < 0x80u) {
-        return (double)u[0];
+        return (float)u[0];
     }
     if ((u[0] & 0xE0u) == 0xC0u) {
         cp = u[0] & 0x1Fu;
@@ -202,13 +202,13 @@ double gm_string_ord(const char *s)
         cp = u[0] & 0x07u;
         extra = 3;
     } else {
-        return (double)u[0];
+        return (float)u[0];
     }
     for (i = 1; i <= extra; ++i) {
         if (!is_cont(u[i])) {
-            return (double)u[0];
+            return (float)u[0];
         }
         cp = (cp << 6) | (u[i] & 0x3Fu);
     }
-    return (double)cp;
+    return (float)cp;
 }

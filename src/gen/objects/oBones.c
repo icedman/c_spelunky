@@ -6,8 +6,8 @@ static void gml_ev_oBones__Create_0_body(gm_instance_t *self, gm_instance_t *oth
     (void)self;
     (void)other;
     gml_script_action_inherited(self, other);
-    self->vars[VAR_yVel] = 0.0;
-    self->vars[VAR_yAcc] = 0.2;
+    self->vars[VAR_yVel] = 0.0f;
+    self->vars[VAR_yAcc] = 0.2f;
 }
 
 void gml_ev_oBones__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -21,12 +21,12 @@ static void gml_ev_oBones__Step_0_body(gm_instance_t *self, gm_instance_t *other
 {
     (void)self;
     (void)other;
-    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 16.0), ((double)OBJ_oSolid), 0.0, 0.0)))) {
+    if ((!gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 16.0f), ((float)OBJ_oSolid), 0.0f, 0.0f)))) {
         gml_iset_y(self, (gml_iget_y(self) + self->vars[VAR_yVel]));
         self->vars[VAR_yVel] = (self->vars[VAR_yVel] + self->vars[VAR_yAcc]);
     }
-    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0), (gml_iget_y(self) + 15.0), ((double)OBJ_oSolid), 0.0, 0.0))) {
-        gml_iset_y(self, (gml_iget_y(self) - 1.0));
+    if (gml_truthy(gml_fn_collision_point(self, other, (gml_iget_x(self) + 8.0f), (gml_iget_y(self) + 15.0f), ((float)OBJ_oSolid), 0.0f, 0.0f))) {
+        gml_iset_y(self, (gml_iget_y(self) - 1.0f));
     }
 }
 

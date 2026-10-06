@@ -5,7 +5,7 @@ static void gml_ev_oDebug__Create_0_body(gm_instance_t *self, gm_instance_t *oth
 {
     (void)self;
     (void)other;
-    self->vars[VAR_itemsBundleIndex] = 0.0;
+    self->vars[VAR_itemsBundleIndex] = 0.0f;
 }
 
 void gml_ev_oDebug__Create_0(gm_instance_t *self, gm_instance_t *other)
@@ -17,12 +17,12 @@ void gml_ev_oDebug__Create_0(gm_instance_t *self, gm_instance_t *other)
 
 static void gml_ev_oDebug__Step_0_body(gm_instance_t *self, gm_instance_t *other)
 {
-    double l_player = 0.0;
-    double t1 = 0.0;
+    float l_player = 0.0f;
+    float t1 = 0.0f;
     int b2 = 0;
-    double t3 = 0.0;
+    float t3 = 0.0f;
     int b4 = 0;
-    double t5 = 0.0;
+    float t5 = 0.0f;
     int b6 = 0;
     (void)self;
     (void)other;
@@ -33,15 +33,15 @@ static void gml_ev_oDebug__Step_0_body(gm_instance_t *self, gm_instance_t *other
     (void)b4;
     (void)t5;
     (void)b6;
-    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (112.0 /* vk_f1 */)))) {
+    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (112.0f /* vk_f1 */)))) {
         gml_fn_show_debug_message(self, other, "///////////////////////////////////////////");
-        gml_fn_show_debug_message(self, other, gml_concat("Windows:", gml_real_str((0.0 /* os_windows */))));
-        gml_fn_show_debug_message(self, other, gml_concat("Linux:", gml_real_str((2.0 /* os_linux */))));
-        gml_fn_show_debug_message(self, other, gml_concat("MacOSX:", gml_real_str((3.0 /* os_macosx */))));
-        gml_fn_show_debug_message(self, other, gml_concat("Unknown:", gml_real_str((-1.0 /* os_unknown */))));
+        gml_fn_show_debug_message(self, other, gml_concat("Windows:", gml_real_str((0.0f /* os_windows */))));
+        gml_fn_show_debug_message(self, other, gml_concat("Linux:", gml_real_str((2.0f /* os_linux */))));
+        gml_fn_show_debug_message(self, other, gml_concat("MacOSX:", gml_real_str((3.0f /* os_macosx */))));
+        gml_fn_show_debug_message(self, other, gml_concat("Unknown:", gml_real_str((-1.0f /* os_unknown */))));
         gml_fn_show_debug_message(self, other, "///////////////////////////////////////////");
         t1 = gml_gget_os_type();
-        b2 = (gml_rcase(t1, (0.0 /* os_windows */)) ? 0 : gml_rcase(t1, (2.0 /* os_linux */)) ? 1 : -1);
+        b2 = (gml_rcase(t1, (0.0f /* os_windows */)) ? 0 : gml_rcase(t1, (2.0f /* os_linux */)) ? 1 : -1);
         switch (b2) {
         case 0:
             gml_fn_show_debug_message(self, other, "Running on Windows");
@@ -50,16 +50,16 @@ static void gml_ev_oDebug__Step_0_body(gm_instance_t *self, gm_instance_t *other
             gml_fn_show_debug_message(self, other, "Running on Linux");
             break;
         }
-        if (gml_eq(gml_gget_os_browser(), (0.0 /* browser_not_a_browser */))) {
+        if (gml_eq(gml_gget_os_browser(), (0.0f /* browser_not_a_browser */))) {
             gml_fn_show_debug_message(self, other, "Not running in a browser");
         } else {
-            if (gml_eq(gml_gget_os_browser(), (6.0 /* browser_chrome */))) {
+            if (gml_eq(gml_gget_os_browser(), (6.0f /* browser_chrome */))) {
                 gml_fn_show_debug_message(self, other, "Running in Chrome");
             } else {
-                if (gml_eq(gml_gget_os_browser(), (4.0 /* browser_firefox */))) {
+                if (gml_eq(gml_gget_os_browser(), (4.0f /* browser_firefox */))) {
                     gml_fn_show_debug_message(self, other, "Running in Firefox");
                 } else {
-                    if (gml_eq(gml_gget_os_browser(), (1.0 /* browser_unknown */))) {
+                    if (gml_eq(gml_gget_os_browser(), (1.0f /* browser_unknown */))) {
                         gml_fn_show_debug_message(self, other, "Running in unknown browser");
                     }
                 }
@@ -67,187 +67,187 @@ static void gml_ev_oDebug__Step_0_body(gm_instance_t *self, gm_instance_t *other
         }
         gml_fn_show_debug_message(self, other, "///////////////////////////////////////////");
     }
-    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (113.0 /* vk_f2 */)))) {
-        g_gml_globals.levelIndex = (g_gml_globals.levelIndex + 1.0);
+    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (113.0f /* vk_f2 */)))) {
+        g_gml_globals.levelIndex = (g_gml_globals.levelIndex + 1.0f);
         t3 = g_gml_globals.levelIndex;
-        b4 = (gml_rcase(t3, 1.0) ? 0 : gml_rcase(t3, 2.0) ? 1 : gml_rcase(t3, 3.0) ? 2 : gml_rcase(t3, 4.0) ? 3 : gml_rcase(t3, 5.0) ? 4 : gml_rcase(t3, 6.0) ? 5 : gml_rcase(t3, 7.0) ? 6 : gml_rcase(t3, 8.0) ? 7 : gml_rcase(t3, 9.0) ? 8 : gml_rcase(t3, 10.0) ? 9 : gml_rcase(t3, 11.0) ? 10 : gml_rcase(t3, 12.0) ? 11 : gml_rcase(t3, 13.0) ? 12 : gml_rcase(t3, 14.0) ? 13 : -1);
+        b4 = (gml_rcase(t3, 1.0f) ? 0 : gml_rcase(t3, 2.0f) ? 1 : gml_rcase(t3, 3.0f) ? 2 : gml_rcase(t3, 4.0f) ? 3 : gml_rcase(t3, 5.0f) ? 4 : gml_rcase(t3, 6.0f) ? 5 : gml_rcase(t3, 7.0f) ? 6 : gml_rcase(t3, 8.0f) ? 7 : gml_rcase(t3, 9.0f) ? 8 : gml_rcase(t3, 10.0f) ? 9 : gml_rcase(t3, 11.0f) ? 10 : gml_rcase(t3, 12.0f) ? 11 : gml_rcase(t3, 13.0f) ? 12 : gml_rcase(t3, 14.0f) ? 13 : -1);
         switch (b4) {
         case 0:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rTransition1));
+                gml_fn_room_goto(self, other, ((float)RM_rTransition1));
                 break;
             }
         /* fall through */
         case 1:
             {
-                g_gml_globals.currLevel = 4.0;
-                gml_fn_room_goto(self, other, ((double)RM_rTransition1x));
+                g_gml_globals.currLevel = 4.0f;
+                gml_fn_room_goto(self, other, ((float)RM_rTransition1x));
                 break;
             }
         /* fall through */
         case 2:
             {
-                g_gml_globals.currLevel = 9.0;
-                gml_fn_room_goto(self, other, ((double)RM_rTransition2));
+                g_gml_globals.currLevel = 9.0f;
+                gml_fn_room_goto(self, other, ((float)RM_rTransition2));
                 break;
             }
         /* fall through */
         case 3:
             {
-                g_gml_globals.currLevel = 13.0;
-                gml_fn_room_goto(self, other, ((double)RM_rTransition2x));
+                g_gml_globals.currLevel = 13.0f;
+                gml_fn_room_goto(self, other, ((float)RM_rTransition2x));
                 break;
             }
         /* fall through */
         case 4:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rTransition3));
+                gml_fn_room_goto(self, other, ((float)RM_rTransition3));
                 break;
             }
         /* fall through */
         case 5:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rTransition3x));
+                gml_fn_room_goto(self, other, ((float)RM_rTransition3x));
                 break;
             }
         /* fall through */
         case 6:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rTransition4));
+                gml_fn_room_goto(self, other, ((float)RM_rTransition4));
                 break;
             }
         /* fall through */
         case 7:
             {
-                g_gml_globals.currLevel = 16.0;
-                gml_fn_room_goto(self, other, ((double)RM_rTransition4));
+                g_gml_globals.currLevel = 16.0f;
+                gml_fn_room_goto(self, other, ((float)RM_rTransition4));
                 break;
             }
         /* fall through */
         case 8:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rSun));
+                gml_fn_room_goto(self, other, ((float)RM_rSun));
                 break;
             }
         /* fall through */
         case 9:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rMoon));
+                gml_fn_room_goto(self, other, ((float)RM_rMoon));
                 break;
             }
         /* fall through */
         case 10:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rStars));
+                gml_fn_room_goto(self, other, ((float)RM_rStars));
                 break;
             }
         /* fall through */
         case 11:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rEnd));
+                gml_fn_room_goto(self, other, ((float)RM_rEnd));
                 break;
             }
         /* fall through */
         case 12:
             {
-                gml_fn_room_goto(self, other, ((double)RM_rEndCustom));
+                gml_fn_room_goto(self, other, ((float)RM_rEndCustom));
                 break;
             }
         /* fall through */
         case 13:
             {
-                g_gml_globals.levelIndex = 0.0;
+                g_gml_globals.levelIndex = 0.0f;
                 break;
             }
         }
     }
-    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (114.0 /* vk_f3 */)))) {
-        g_gml_globals.plife = 99.0;
-        g_gml_globals.tunnel1 = 0.0;
-        g_gml_globals.tunnel2 = 0.0;
-        g_gml_globals.money = 200000.0;
-        g_gml_globals.time = 300.0;
-        g_gml_globals.kills = 200.0;
-        g_gml_globals.damsels = 10.0;
+    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (114.0f /* vk_f3 */)))) {
+        g_gml_globals.plife = 99.0f;
+        g_gml_globals.tunnel1 = 0.0f;
+        g_gml_globals.tunnel2 = 0.0f;
+        g_gml_globals.money = 200000.0f;
+        g_gml_globals.time = 300.0f;
+        g_gml_globals.kills = 200.0f;
+        g_gml_globals.damsels = 10.0f;
     }
-    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (115.0 /* vk_f4 */)))) {
-        self->vars[VAR_itemsBundleIndex] = (self->vars[VAR_itemsBundleIndex] + 1.0);
-        if (gml_eq(self->vars[VAR_itemsBundleIndex], 6.0)) {
-            self->vars[VAR_itemsBundleIndex] = 0.0;
+    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (115.0f /* vk_f4 */)))) {
+        self->vars[VAR_itemsBundleIndex] = (self->vars[VAR_itemsBundleIndex] + 1.0f);
+        if (gml_eq(self->vars[VAR_itemsBundleIndex], 6.0f)) {
+            self->vars[VAR_itemsBundleIndex] = 0.0f;
         }
         g_gml_gvals[GV_message] = gml_vs(gml_real_str(self->vars[VAR_itemsBundleIndex]));
         g_gml_gvals[GV_message2] = gml_vs("");
-        g_gml_globals.messageTimer = 50.0;
+        g_gml_globals.messageTimer = 50.0f;
     }
-    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (116.0 /* vk_f5 */)))) {
-        l_player = gml_real(gml_aget(gml_vvar(gml_deref(((double)OBJ_oGame), self, other), VVAR_players), 0.0));
+    if (gml_truthy(gml_fn_keyboard_check_pressed(self, other, (116.0f /* vk_f5 */)))) {
+        l_player = gml_real(gml_aget(gml_vvar(gml_deref(((float)OBJ_oGame), self, other), VVAR_players), 0.0f));
         t5 = self->vars[VAR_itemsBundleIndex];
-        b6 = (gml_rcase(t5, 0.0) ? 0 : gml_rcase(t5, 1.0) ? 1 : gml_rcase(t5, 2.0) ? 2 : gml_rcase(t5, 3.0) ? 3 : gml_rcase(t5, 4.0) ? 4 : gml_rcase(t5, 5.0) ? 5 : -1);
+        b6 = (gml_rcase(t5, 0.0f) ? 0 : gml_rcase(t5, 1.0f) ? 1 : gml_rcase(t5, 2.0f) ? 2 : gml_rcase(t5, 3.0f) ? 3 : gml_rcase(t5, 4.0f) ? 4 : gml_rcase(t5, 5.0f) ? 5 : -1);
         switch (b6) {
         case 0:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oRock)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oRopePile)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oBombBox)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oLockedChest)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oDamsel)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oKey)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oRock)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oRopePile)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oBombBox)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oLockedChest)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oDamsel)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oKey)));
                 break;
             }
         /* fall through */
         case 1:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oBow)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oPistol)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oShotgun)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oWebCannon)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oMachete)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oMattock)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oBow)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oPistol)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oShotgun)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oWebCannon)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oMachete)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oMattock)));
                 break;
             }
         /* fall through */
         case 2:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oGloves)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oMitt)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oSpringShoes)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oSpikeShoes)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oSpectacles)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oCapePickup)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oGloves)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oMitt)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oSpringShoes)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oSpikeShoes)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oSpectacles)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oCapePickup)));
                 break;
             }
         /* fall through */
         case 3:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oJetpack)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oParaPickup)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oCompass)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oFlareCrate)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oCrate)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oPaste)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oJetpack)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oParaPickup)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oCompass)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oFlareCrate)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oCrate)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oPaste)));
                 break;
             }
         /* fall through */
         case 4:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oUdjatEye)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oAnkh)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oCrown)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oSceptre)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oTeleporter)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oKapala)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oUdjatEye)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oAnkh)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oCrown)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oSceptre)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oTeleporter)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oKapala)));
                 break;
             }
         /* fall through */
         case 5:
             {
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oLampItem)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oLampRedItem)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oArrow)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oBasketball)));
-                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oJordans)));
-                self->vars[VAR_caveman] = gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0), gml_iget_y(gml_deref(l_player, self, other)), ((double)OBJ_oCaveman));
-                gml_ivar_set(gml_deref(self->vars[VAR_caveman], self, other), VAR_hp, 0.0);
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oLampItem)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 24.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oLampRedItem)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oArrow)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 48.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oBasketball)));
+                (void)(gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) - 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oJordans)));
+                self->vars[VAR_caveman] = gml_script_instance_create(self, other, (gml_iget_x(gml_deref(l_player, self, other)) + 72.0f), gml_iget_y(gml_deref(l_player, self, other)), ((float)OBJ_oCaveman));
+                gml_ivar_set(gml_deref(self->vars[VAR_caveman], self, other), VAR_hp, 0.0f);
                 break;
             }
         }
